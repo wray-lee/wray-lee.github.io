@@ -1,0 +1,27 @@
+<h1 id="QRCode-js"><a href="#QRCode-js" class="headerlink" title="QRCode.js"></a>QRCode.js</h1><p>QRCode.js is javascript library for making QRCode. QRCode.js supports Cross-browser with HTML5 Canvas and table tag in DOM.<br>QRCode.js has no dependencies.</p>
+<h2 id="Basic-Usages"><a href="#Basic-Usages" class="headerlink" title="Basic Usages"></a>Basic Usages</h2><pre><code>&lt;div id=&quot;qrcode&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+new QRCode(document.getElementById(&quot;qrcode&quot;), &quot;http://jindo.dev.naver.com/collie&quot;);
+&lt;/script&gt;
+</code></pre>
+<p>or with some options</p>
+<pre><code>&lt;div id=&quot;qrcode&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+var qrcode = new QRCode(document.getElementById(&quot;qrcode&quot;), {
+    text: &quot;http://jindo.dev.naver.com/collie&quot;,
+    width: 128,
+    height: 128,
+    colorDark : &quot;#000000&quot;,
+    colorLight : &quot;#ffffff&quot;,
+    correctLevel : QRCode.CorrectLevel.H
+});
+&lt;/script&gt;
+</code></pre>
+<p>and you can use some methods</p>
+<pre><code>qrcode.clear(); // clear the code.
+qrcode.makeCode(&quot;http://naver.com&quot;); // make another code.
+</code></pre>
+<h2 id="Browser-Compatibility"><a href="#Browser-Compatibility" class="headerlink" title="Browser Compatibility"></a>Browser Compatibility</h2><p>IE6~10, Chrome, Firefox, Safari, Opera, Mobile Safari, Android, Windows Mobile, ETC.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT License</p>
+<h2 id="Contact"><a href="#Contact" class="headerlink" title="Contact"></a>Contact</h2><p>twitter @davidshimjs</p>
+<p><a href="https://bitdeli.com/free" title="Bitdeli Badge"><img src="https://d2weczhvl823v0.cloudfront.net/davidshimjs/qrcodejs/trend.png" alt="Bitdeli Badge"></a></p>

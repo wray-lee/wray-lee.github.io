@@ -1,0 +1,16 @@
+<h2 id="Testing"><a href="#Testing" class="headerlink" title="Testing"></a>Testing</h2><pre><code>$ npm install
+$ npm test
+</code></pre>
+<p>or try it out in the browser:</p>
+<pre><code>$ open test/index.html
+</code></pre>
+<h2 id="Testing-component-build"><a href="#Testing-component-build" class="headerlink" title="Testing component build"></a>Testing component build</h2><pre><code>$ component install
+$ component build
+$ open test/component.html
+</code></pre>
+<h2 id="Releasing"><a href="#Releasing" class="headerlink" title="Releasing"></a>Releasing</h2><pre><code>$ npm test
+$ bump *.json nprogress.js          # bump version numbers
+$ git release 0.1.1                 # release to bower/github
+$ npm publish                       # release to npm
+$ git push origin master:gh-pages   # update the site
+</code></pre>
