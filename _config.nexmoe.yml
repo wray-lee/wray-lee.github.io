@@ -47,9 +47,9 @@ widgets:
       enable: true
       options: 
         search: 
-            type: engine # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
+            type: swiftype # 可选engine（用搜索引擎搜索）、swiftype、或local（本地搜索）
             url: https://cn.bing.com/search?q=site:blog.wray7.top # 搜索引擎地址，在type为swiftype时无效 e.g:https://www.google.com/search?q={你的博客链接}
-            id: <swiftype-id> # swiftype的id，见启用教程。在type为engine时无效
+            id: F2Un7vCF1u9241yksmdr # swiftype的id，见启用教程。在type为engine时无效
     - name: social
       enable: true
       options: 

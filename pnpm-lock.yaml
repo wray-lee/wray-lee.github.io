@@ -8,6 +8,9 @@ dependencies:
   '@nexmoe/hexo-renderer-inferno':
     specifier: ^0.2.1
     version: 0.2.1
+  '@paralleldrive/cuid2':
+    specifier: ^2.2.2
+    version: 2.2.2
   hexo:
     specifier: ^6.3.0
     version: 6.3.0
@@ -23,6 +26,9 @@ dependencies:
   hexo-generator-index:
     specifier: ^3.0.0
     version: 3.0.0
+  hexo-generator-json-content:
+    specifier: ^4.2.3
+    version: 4.2.3
   hexo-generator-tag:
     specifier: ^2.0.0
     version: 2.0.0
@@ -1280,6 +1286,17 @@ packages:
       inferno-server: 8.2.2
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@noble/hashes@1.3.2:
+    resolution: {integrity: sha512-MVC8EAQp7MvEcm30KWENFjgR+Mkmf+D189XJTkFIlwohU5hcBbn1ZkKq7KVTi2Hme3PMGF390DaL52beVrIihQ==}
+    engines: {node: '>= 16'}
+    dev: false
+
+  /@paralleldrive/cuid2@2.2.2:
+    resolution: {integrity: sha512-ZOBkgDwEdoYVlSeRbYYXs0S9MejQofiVYoTbKzy/6GQa39/q5tQU2IX46+shYnUkpEl3wc+J6wRlar7r2EK2xA==}
+    dependencies:
+      '@noble/hashes': 1.3.2
     dev: false
 
   /@tootallnate/once@2.0.0:

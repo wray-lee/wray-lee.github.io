@@ -11,6 +11,24 @@ author: 'Wray Lee'
 language: en
 timezone: ''
 
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true 
+    date: false 
+    path: true 
+    text: true
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: false
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: http://blog.wray7.top
