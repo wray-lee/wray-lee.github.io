@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    
+    <title>Git教程 - Wray的Blog</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Git教程git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序  所有操作除了switch,checkout都是在引用当前所在位置进行 提交记录本身的名字为hash值 commitgit commit创建一个新的版本（不是完全copy,只会记录不同） git commit --amend对提交记录进行修改 branch git branch &lt;bra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git教程">
+<meta property="og:url" content="http://blog.wray7.top/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Git教程git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序  所有操作除了switch,checkout都是在引用当前所在位置进行 提交记录本身的名字为hash值 commitgit commit创建一个新的版本（不是完全copy,只会记录不同） git commit --amend对提交记录进行修改 branch git branch &lt;bra">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-04T13:54:58.000Z">
+<meta property="article:modified_time" content="2023-09-04T13:54:58.988Z">
+<meta property="article:author" content="Wray Lee">
+<meta name="twitter:card" content="summary">
+    
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1693835914336">
+    
+    <link rel="stylesheet" href="/css/style.css?v=1693835914336">
+
+    
+        
+            <link rel="stylesheet" href="/custom.css?v=1693835914336">
+        
+    
+
+    
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+
+
+    <script async src="/js/app.js?v=1693835914336"></script>
+    
+     
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4D4ZJ9G024"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-4D4ZJ9G024");
+</script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body class="mdui-drawer-body-left">
+    <div id="nexmoe-background">
+        <div class="nexmoe-bg" 
+            style="background-image: url(https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0)"
+        ></div>
+        <div class="mdui-appbar mdui-shadow-0">
+            <div class="mdui-toolbar">
+                <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+                <div class="mdui-toolbar-spacer"></div>
+                <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+                <a href="/" title="Wray Lee" class="mdui-btn mdui-btn-icon"><img src="https://cn.gravatar.com/userimage/233116289/1526482abfaf22d825aea126c7edcd17.jpeg?size=256" alt="Wray Lee"></a>
+            </div>
+        </div>
+    </div>
+    <div id="nexmoe-header">
+        <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Wray Lee">
+            <img src="https://cn.gravatar.com/userimage/233116289/1526482abfaf22d825aea126c7edcd17.jpeg?size=256" alt="Wray Lee" alt="Wray Lee">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>32</div>
+        <div><span>Tags</span>0</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/donate.html" title="给我赞助">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                给我赞助
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博主">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博主
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+        
+            
+            <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+         
+            <form id="search_form" action_e="https://cn.bing.com/search?q=site:blog.wray7.top" onsubmit="return search();">
+                <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+            </form>
+         
+    </div>
+</div>
+
+
+
+
+        
+            
+            <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://t.me/+7RWkqugoPudjMjA1"
+			target="_blank"
+			mdui-tooltip="{content: 'Telegram群'}"
+			style="
+				color: rgb(249, 174, 8);
+				background-color: rgba(249, 174, 8, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-telegram"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/13441368"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/wray-lee/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://twitter.com/wraysidlee"
+			target="_blank"
+			mdui-tooltip="{content: 'Twitter'}"
+			style="
+				color: rgb(59, 151, 239);
+				background-color: rgba(59, 151, 239, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-twitter"
+			></i> </a
+		>
+	</div>
+</div>
+
+        
+            
+            
+
+        
+            
+            
+        
+            
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">31</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+
+        
+            
+            
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Recent Posts</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/markdown%E8%AF%AD%E6%B3%95/">markdown语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Sql/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Python/conda%E4%BF%AE%E6%94%B9%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84/">conda修改安装路径</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+        
+            
+    </aside>
+    <div class="nexmoe-copyright">
+        &copy; 2023 Wray Lee
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+    </div>
+    <div id="nexmoe-content">
+        <div class="nexmoe-primary">
+    <div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Git教程" loading="lazy">
+            <h1>Git教程</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Git教程"><a href="#Git教程" class="headerlink" title="Git教程"></a>Git教程</h1><p>git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序</p>
+<p> 所有操作除了switch,checkout都是在引用当前所在位置进行</p>
+<p>提交记录本身的名字为hash值</p>
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p><code>git commit</code>创建一个新的版本（不是完全copy,只会记录不同）</p>
+<p><code>git commit --amend</code>对提交记录进行修改</p>
+<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
+<li><code>git branch &lt;branch_name&gt; &lt;branch_position&gt;</code></li>
+</ul>
+<p>​		branch指向一个commit</p>
+<ul>
+<li><p><code>git branch -f main head~3</code>    <code> 	git branch -f main c0</code>    <code>git branch -f</code> 可以变更分支指向</p>
+</li>
+<li><p><code>git switch &lt;branch_name&gt;</code></p>
+</li>
+</ul>
+<p>​		切换到某一分支</p>
+<p>使用分支移动分支也会跟随者移动</p>
+<h2 id="merge-rebase"><a href="#merge-rebase" class="headerlink" title="merge&#x2F;rebase"></a>merge&#x2F;rebase</h2><h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><p>拉取合并</p>
+<p><code>git merge 1</code></p>
+<p>此时branch在main则拉取1的代码到main，branch仍在main</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>合并到，并复制提交记录</p>
+<p><code>git rebase 1</code></p>
+<p>则把main合并到1的开发路线上，branch在main</p>
+<p>rebase不会移动下层的版本，只会移动引用当前所在的版本</p>
+<hr>
+<p><code>git rebase -i head~3</code>			选中包含head引用位置3个commit,通过gui进行删减，排序，处理后的结果会出现在一条新的路线上（基为head~3）</p>
+<p><code>-i</code>变动当前版本到基版本的所有版本</p>
+<p><code>git rebase -参数 基版本	</code></p>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>即为当前引用所在位置</p>
+<p><code>git checkout 1</code></p>
+<p>将head指向1</p>
+<p>head指向一次提交记录commit</p>
+<p>head作为引用使用要大写HEAD</p>
+<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><p><code>git checkout -b totallyNotMain o/main</code></p>
+<p><code>git checkout -b 选择分支 追踪分支</code>（会创建分支，不需要提前创建好）</p>
+<p>可以使某一分支追踪远程某一分支，相当于替换了main</p>
+<hr>
+<p>也可以使用</p>
+<p><code>git branch -u 追踪分支 选择分支</code>（不会创建分支，需要提前创建）</p>
+<h2 id="相对引用"><a href="#相对引用" class="headerlink" title="相对引用"></a>相对引用</h2><p>^向上移动一个提交记录</p>
+<p>~num 向上移动num个移动记录</p>
+<p><code>git checkout main^</code></p>
+<p>&#x3D;&#x3D;可以使用分支代表提交记录commit&#x3D;&#x3D;</p>
+<p>^2可以选择第二个父提交</p>
+<p>指令支持链式操作</p>
+<p><code>git checkout HEAD~^2~2</code></p>
+<h2 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h2><p><code>git reset</code>	<code>git revert</code></p>
+<p><code>git reset head^</code>是commit退回到前一个记录，删除当前记录，引用变更到前一个记录</p>
+<p><code>git revert head^</code>在此路线上添加一个新的commit，但是新的commit实际上和前一个相同</p>
+<p>&#x3D;&#x3D;两条命令都是对当前引用所在位置进行操作&#x3D;&#x3D;</p>
+<h2 id="整理分支"><a href="#整理分支" class="headerlink" title="整理分支"></a>整理分支</h2><p><code>git cherry-pick c2 c4</code>	将c2,c4按顺序复制到引用当前所在分支下</p>
+<h2 id="Tag（避免分支移动造成混乱）"><a href="#Tag（避免分支移动造成混乱）" class="headerlink" title="Tag（避免分支移动造成混乱）"></a>Tag（避免分支移动造成混乱）</h2><p><code>git tag v1 c1</code></p>
+<p>在c1上添加v1	tag</p>
+<h2 id="describe"><a href="#describe" class="headerlink" title="describe"></a>describe</h2><p><code>git describe &lt;引用&gt;</code></p>
+<p>output：<tag>_<numCommits>_g<hash></p>
+<hr>
+<hr>
+<h1 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h1><h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><p><code>git clone</code>复制远程仓库</p>
+<p>首次clone会自动将main和o&#x2F;main引用到同一位置</p>
+<h2 id="main和o-main"><a href="#main和o-main" class="headerlink" title="main和o&#x2F;main"></a>main和o&#x2F;main</h2><p>checkout o&#x2F;main 再进行commit时，由于未下载远程仓库数据，会造成HEAD分离，即o&#x2F;main只有同步时才会发生指向变化</p>
+<p>远程分支o&#x2F;main（o&#x2F;*）实际上是远程main分支的位置</p>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p><code>git fetch</code></p>
+<p>不会更新main分支，只是将远程仓库代码下载，更新了o&#x2F;main引用</p>
+<p>不需要参数，会自动比对下载</p>
+<p><code>git fetch origin &lt;远程选定分支:本地选定分支&gt;</code>(可以使用相对引用)</p>
+<p><code>git fetch origin &lt;:本地分支&gt;</code>会创建本地分支</p>
+<h2 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h2><p>就是<code>fetch+merge</code></p>
+<p><code>git pull</code></p>
+<p>实际上就是<code>git fetch ; git merge o/main</code></p>
+<p>会拉取代码自动合并</p>
+<p>是在当前分支下进行拉取，所以o&#x2F;main不在当前位置会因不同步而无法拉取</p>
+<p><code>git pull --rebase</code>以变基形式拉取代码合并main分支，利用此特性可以实现整条分支的变基</p>
+<p>可以使用类似fetch的<code>git pull &lt;远程分支:本地分支&gt;</code>		<code>git pull &lt;:本地分支&gt;</code></p>
+<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><p>与pull相反，会上传代码，无自动合并，如果本地仓库旧版需要更新后再push</p>
+<p><code>git push origin &lt;选定分支&gt;</code></p>
+<p>​	将HEAD定位到头部，自动追踪选定分支上传</p>
+<p><code>git push origin &lt;本地选定分支:远程选定分支&gt;</code></p>
+<p>将本地选定分支上传到远程选定分支，若远程不存在则会创建</p>
+<p>可以使用相对引用不上传整条分支<code>git push origin &lt;本地选定分支^:远程选定分支&gt;</code></p>
+<p>​	只会上传到本地选定的上方</p>
+<p><code>git push &lt;:远程分支&gt;</code></p>
+<p>​	会删除远程分支</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Code&#x2F;Git%E6%95%99%E7%A8%8B&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Code&#x2F;Git%E6%95%99%E7%A8%8B&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1693835914314"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
+</div>
+        <div class="nexmoe-post-right">
+              <div class="nexmoe-fixed">
+                  <div class="nexmoe-tool"> 
+                    
+                      
+                        
+                          
+                          
+                              <button class="mdui-fab catalog" style="overflow:unset;">
+                                  <i class="nexmoefont icon-i-catalog"></i>
+                                  <div class="nexmoe-toc">
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Git教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#commit"><span class="toc-number">1.1.</span> <span class="toc-text">commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#branch"><span class="toc-number">1.2.</span> <span class="toc-text">branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#merge-rebase"><span class="toc-number">1.3.</span> <span class="toc-text">merge&#x2F;rebase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge"><span class="toc-number">1.3.1.</span> <span class="toc-text">merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase"><span class="toc-number">1.3.2.</span> <span class="toc-text">rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-number">1.4.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#checkout"><span class="toc-number">1.5.</span> <span class="toc-text">checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-number">1.6.</span> <span class="toc-text">相对引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%8F%98%E6%9B%B4"><span class="toc-number">1.7.</span> <span class="toc-text">撤销变更</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E7%90%86%E5%88%86%E6%94%AF"><span class="toc-number">1.8.</span> <span class="toc-text">整理分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tag%EF%BC%88%E9%81%BF%E5%85%8D%E5%88%86%E6%94%AF%E7%A7%BB%E5%8A%A8%E9%80%A0%E6%88%90%E6%B7%B7%E4%B9%B1%EF%BC%89"><span class="toc-number">1.9.</span> <span class="toc-text">Tag（避免分支移动造成混乱）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#describe"><span class="toc-number">1.10.</span> <span class="toc-text">describe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">远程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#clone"><span class="toc-number">2.1.</span> <span class="toc-text">clone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#main%E5%92%8Co-main"><span class="toc-number">2.2.</span> <span class="toc-text">main和o&#x2F;main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch"><span class="toc-number">2.3.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull"><span class="toc-number">2.4.</span> <span class="toc-text">pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#push"><span class="toc-number">2.5.</span> <span class="toc-text">push</span></a></li></ol></li></ol>
+                                  </div>
+                              </button>
+                          
+                          
+                      
+                    
+                      <a href="#nexmoe-content" class="toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+                  </div>
+              </div>
+            </div>
+    </div>
+    <div id="nexmoe-search-space">
+	<div class="search-container">
+		<div class="search-header">
+			<div class="search-input-container">
+				<input
+					class="search-input"
+					type="text"
+					placeholder="Search"
+					oninput="sinput();"
+				/>
+			</div>
+			<a class="search-close" onclick="sclose();">×</a>
+		</div>
+		<div class="search-body"></div>
+	</div>
+</div>
+
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
