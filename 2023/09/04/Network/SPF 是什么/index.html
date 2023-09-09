@@ -10,12 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#98;&amp;#x6f;&amp;#x73;&amp;#115;&amp;#x40;&amp;#121;&amp;#111;&amp;#x75;&amp;#114;&amp;#x2d;&amp;#99;&amp;#111;&amp;#114;&amp;#112;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109; 向其他人发送邮件。因此，SPF (Sender Policy Framewo">
+    <meta name="description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#x62;&amp;#x6f;&amp;#x73;&amp;#x73;&amp;#64;&amp;#x79;&amp;#x6f;&amp;#117;&amp;#x72;&amp;#45;&amp;#99;&amp;#x6f;&amp;#114;&amp;#x70;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#109; 向其他人发送邮件。因此，SPF (Sender Policy Framewo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPF 是什么">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#98;&amp;#x6f;&amp;#x73;&amp;#115;&amp;#x40;&amp;#121;&amp;#111;&amp;#x75;&amp;#114;&amp;#x2d;&amp;#99;&amp;#111;&amp;#114;&amp;#112;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109; 向其他人发送邮件。因此，SPF (Sender Policy Framewo">
+<meta property="og:description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#x62;&amp;#x6f;&amp;#x73;&amp;#x73;&amp;#64;&amp;#x79;&amp;#x6f;&amp;#117;&amp;#x72;&amp;#45;&amp;#99;&amp;#x6f;&amp;#114;&amp;#x70;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#109; 向其他人发送邮件。因此，SPF (Sender Policy Framewo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
 <meta property="article:modified_time" content="2023-09-04T13:48:57.376Z">
@@ -26,13 +26,13 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1694235631621">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1694235655970">
     
-    <link rel="stylesheet" href="/css/style.css?v=1694235631621">
+    <link rel="stylesheet" href="/css/style.css?v=1694235655970">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1694235631621">
+            <link rel="stylesheet" href="/custom.css?v=1694235655970">
         
     
 
@@ -41,7 +41,7 @@
 <script src="/lib/fancybox/fancybox.umd.js" async></script>
 
 
-    <script async src="/js/app.js?v=1694235631621"></script>
+    <script async src="/js/app.js?v=1694235655970"></script>
     
      
 
@@ -139,7 +139,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1694235631621"></script>
+	<script async src="/js/search.js?v=1694235655971"></script>
 
 
 
@@ -290,7 +290,7 @@
     
 </div>
 
-    <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#98;&#x6f;&#x73;&#115;&#x40;&#121;&#111;&#x75;&#114;&#x2d;&#99;&#111;&#114;&#112;&#46;&#x63;&#x6f;&#109;">&#98;&#x6f;&#x73;&#115;&#x40;&#121;&#111;&#x75;&#114;&#x2d;&#99;&#111;&#114;&#112;&#46;&#x63;&#x6f;&#109;</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#x62;&#x6f;&#x73;&#x73;&#x40;&#x79;&#111;&#x75;&#114;&#45;&#x63;&#111;&#x72;&#112;&#x2e;&#99;&#x6f;&#109;">&#x62;&#x6f;&#x73;&#x73;&#x40;&#x79;&#111;&#x75;&#114;&#45;&#x63;&#111;&#x72;&#112;&#x2e;&#99;&#x6f;&#109;</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
+    <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#x62;&#x6f;&#x73;&#x73;&#64;&#x79;&#x6f;&#117;&#x72;&#45;&#99;&#x6f;&#114;&#x70;&#x2e;&#x63;&#111;&#109;">&#x62;&#x6f;&#x73;&#x73;&#64;&#x79;&#x6f;&#117;&#x72;&#45;&#99;&#x6f;&#114;&#x70;&#x2e;&#x63;&#111;&#109;</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#x62;&#111;&#115;&#x73;&#x40;&#x79;&#x6f;&#117;&#114;&#45;&#99;&#x6f;&#x72;&#112;&#x2e;&#99;&#x6f;&#109;">&#x62;&#111;&#115;&#x73;&#x40;&#x79;&#x6f;&#117;&#114;&#45;&#99;&#x6f;&#x72;&#112;&#x2e;&#99;&#x6f;&#109;</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
 <h2 id="如何部署-SPF"><a href="#如何部署-SPF" class="headerlink" title="如何部署 SPF"></a>如何部署 SPF</h2><p>DNS 系统中曾经有一种专门的 SPF 资源记录类型，但已经被废除了。现在的 SPF 都以 TXT 资源记录的形式存在，主机名一般为 @。比如本博客的 SPF 如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -343,7 +343,7 @@
 <tbody><tr>
 <td>s</td>
 <td>发件人邮箱地址</td>
-<td><a href="mailto:&#x68;&#115;&#105;&#97;&#111;&#x78;&#121;&#x63;&#104;&#101;&#110;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x68;&#115;&#105;&#97;&#111;&#x78;&#121;&#x63;&#104;&#101;&#110;&#x40;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;</a></td>
+<td><a href="mailto:&#104;&#x73;&#105;&#97;&#111;&#120;&#x79;&#99;&#x68;&#x65;&#x6e;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#x2e;&#99;&#x6f;&#109;">&#104;&#x73;&#105;&#97;&#111;&#120;&#x79;&#99;&#x68;&#x65;&#x6e;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#x2e;&#99;&#x6f;&#109;</a></td>
 </tr>
 <tr>
 <td>l</td>
@@ -457,7 +457,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1694235631568"></script>
+    <script async src="/js/copy-codeblock.js?v=1694235655921"></script>
   
 
   
