@@ -92,6 +92,7 @@ iptables -t nat -A POSTROUTING -p icmp --icmp-type time-exceeded -j TTL --ttl-se
 
 
 ```shell
+# 伪装的第一种方法 IP sproofing
 IP欺骗攻击的描述： 
 
 1. 假设Z企图攻击A，而A信任B，所谓信任指/etc/hosts.equiv和$HOME/.rhosts中有相关设置
@@ -232,3 +233,18 @@ hp-unix还有aix呢？sigh
 以让你取得root权限，可你在做什么，你是否明白？我们太肤浅了...... 
 ```
 
+
+
+```markdown
+# 伪装的第二种方法
+Bgp hijacking
+Bgp劫持
+通过修改AS宣告信息将流量路由到不属于自己的线路上
+
+## 路径修改方法
+
+Bgp选路有三个参数
+- local preference	本地优先值
+- med	通过延迟的综合考虑选出了优先路径
+- weight	手动设置的线路权重
+```
