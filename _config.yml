@@ -121,5 +121,5 @@ theme: nexmoe
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: 'https://github.com/wray-lee/wray-lee.github.io'
+  repository: 'git@github.com:wray-lee/wray-lee.github.io'
   branch: main
