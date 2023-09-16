@@ -10,15 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <meta name="description" content="Shell语法文件描述符0	标准输入 1	标准输出，指向屏幕 2	标准错误输出（log属于） 运算符&gt;	输出重定向，右移，实际上是1&gt; 将左边语句的输出覆盖写入到右边文件内，相当于** | tee some_text.txt&#96; &gt;&gt;	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于** | tee -a some_text.txt &lt;	输入重">
+    <meta name="description" content="Shell语法文件描述符0	标准输入 1	标准输出，指向屏幕 2	标准错误输出（log属于） 运算符12&gt;&#96;	输出重定向，右移，实际上是&#96;1&gt;&#96; &#96;将左边语句的输出覆盖写入到右边文件内，相当于&#96;** | tee some_text.txt&gt;&gt;&#96;	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于&#96;** | tee -a some_text.txt  &lt;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Shell语法">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Shell语法文件描述符0	标准输入 1	标准输出，指向屏幕 2	标准错误输出（log属于） 运算符&gt;	输出重定向，右移，实际上是1&gt; 将左边语句的输出覆盖写入到右边文件内，相当于** | tee some_text.txt&#96; &gt;&gt;	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于** | tee -a some_text.txt &lt;	输入重">
+<meta property="og:description" content="Shell语法文件描述符0	标准输入 1	标准输出，指向屏幕 2	标准错误输出（log属于） 运算符12&gt;&#96;	输出重定向，右移，实际上是&#96;1&gt;&#96; &#96;将左边语句的输出覆盖写入到右边文件内，相当于&#96;** | tee some_text.txt&gt;&gt;&#96;	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于&#96;** | tee -a some_text.txt  &lt;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:54:58.000Z">
-<meta property="article:modified_time" content="2023-09-04T13:54:58.988Z">
+<meta property="article:modified_time" content="2023-09-16T07:45:31.333Z">
 <meta property="article:author" content="Wray Lee">
 <meta name="twitter:card" content="summary">
     
@@ -26,13 +26,13 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1694235860262">
+    <link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1694850402301">
     
-    <link rel="stylesheet" href="/css/style.css?v=1694235860262">
+    <link rel="stylesheet" href="/css/style.css?v=1694850402301">
 
     
         
-            <link rel="stylesheet" href="/custom.css?v=1694235860262">
+            <link rel="stylesheet" href="/custom.css?v=1694850402301">
         
     
 
@@ -41,7 +41,7 @@
 <script src="/lib/fancybox/fancybox.umd.js" async></script>
 
 
-    <script async src="/js/app.js?v=1694235860262"></script>
+    <script async src="/js/app.js?v=1694850402301"></script>
     
      
 
@@ -139,7 +139,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1694235860263"></script>
+	<script async src="/js/search.js?v=1694850402301"></script>
 
 
 
@@ -293,35 +293,36 @@
     <h1 id="Shell语法"><a href="#Shell语法" class="headerlink" title="Shell语法"></a>Shell语法</h1><h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p><code>0</code>	标准输入</p>
 <p><code>1</code>	标准输出，指向屏幕</p>
 <p><code>2</code>	标准错误输出（log属于）</p>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p><code>&gt;</code>	输出重定向，右移，实际上是<code>1&gt;</code> <code>将左边语句的输出覆盖写入到右边文件内，相当于</code>** | tee some_text.txt&#96;</p>
-<p><code>&gt;&gt;</code>	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于<code>** | tee -a some_text.txt</code></p>
-<p><code>&lt;</code>	输入重定向</p>
-<p><code>&lt;&lt;</code>	输入追加重定向</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;`	输出重定向，右移，实际上是`1&gt;` `将左边语句的输出覆盖写入到右边文件内，相当于`** | tee some_text.txt</span><br><span class="line">&gt;&gt;`	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于`** | tee -a some_text.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;</code>	输入重定向	<code>command &lt; file</code>	从文件中读入</p>
+<p><code>&lt;&lt;</code>	输入追加重定向	<code>command &lt;&lt; EOF</code>	读入后续输入直到<code>EOF</code>	（可以用作给指令添加退出条件）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; tmp</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">则tmp中为</span></span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+
 <p><code>|</code>	管道，将左方语句输出作为右方语句输入</p>
 <p><code>||</code>	或或，左方语句执行失败才执行右方语句</p>
 <p><code>&amp;</code>	与，左方语句无论执行是否失败都会执行右方语句，会执行所有与起来的语句。	放在结尾为则是让程序后台执行</p>
 <p><code>&amp;&amp;</code>	与与，左方语句执行失败则不会再执行右方语句，若成功则执行右方语句</p>
 <p><code>!</code> 	条件表达式的非</p>
 <p><code>&gt;&amp;</code>	文件操作符号,	eg:<code>2&gt;&amp;1</code>	, <code>2&gt;1</code>会将错误输出重定向到名为1的文件中，<code>&amp;</code>为了定义后面的<code>1</code>是文件描述符</p>
-<p><code>&amp;&lt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;&lt;</span><br></pre></td></tr></table></figure>
+
 <p>​	用法：<code>echo &quot;hello&quot; &gt; a.log 2&gt;&amp;1</code>	1被重定向到a.log，2被重定向到a.log，等于2被重定向到1，目的是在log记录正常输出和错误输出</p>
 <p>​			可以简写为<code>echo &quot;hello&quot; &gt;&amp;log</code>	或	<code>echo &quot;hello&quot; &amp;&gt;log</code></p>
-<p><code>2&amp;&gt;1 &gt;log </code>	会导致2指向屏幕，1指向log，文件描述符不能指向描述符，只能指向具体输入输出，第一个2指向了1所指向的屏幕</p>
+<p><em><code>2&amp;&gt;1 &gt;log </code>	是无效输入，导致error被写入1文件中</em></p>
 <p><code>-a</code>	条件表达式的并列（与）</p>
 <p><code>-o</code>	条件表达式的或</p>
 <p><code>$</code>	后面接变量名称整体表示一个变量</p>
-<p><code>&quot;&quot;</code></p>
-<p><code>&#39;&#39;</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`` ``	反引号，指令内部嵌套指令使用，可以用$(command)代替</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;</span><br><span class="line">&#x27;&#x27;</span><br><span class="line"> `` ``   反引号，指令内部嵌套指令使用，可以用$(command)代替</span><br></pre></td></tr></table></figure>
 
 <p><code>echo -e</code>	可以识别转义字符</p>
-<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">for</span>循环</span></span><br><span class="line">for 变量名（此处可以定义变量，未出现的变量会被定义） in 取值列表&#123;1..10&#125;</span><br><span class="line">do</span><br><span class="line">	command</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">while</span>循环（出现条件一直执行）</span></span><br><span class="line">while[条件]</span><br><span class="line">do</span><br><span class="line">	command</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">until</span>循环（出现条件结束）</span></span><br><span class="line">until[条件]</span><br><span class="line">do</span><br><span class="line">	command</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+<h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if []; do command; done</span><br></pre></td></tr></table></figure>
 
 
 
-
-
-
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">for</span>循环</span></span><br><span class="line">for i in &#123;1..5&#125;; do command; done</span><br><span class="line"></span><br><span class="line">for 变量名（此处可以定义变量，未出现的变量会被定义） in 取值列表&#123;1..10&#125;</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">while</span>循环（出现条件一直执行）</span></span><br><span class="line">while[条件]</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">until</span>循环（出现条件结束）</span></span><br><span class="line">until[条件]</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
 
 
     
@@ -347,7 +348,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1694235860232"></script>
+    <script async src="/js/copy-codeblock.js?v=1694850402269"></script>
   
 
   
@@ -368,7 +369,7 @@
                               <button class="mdui-fab catalog" style="overflow:unset;">
                                   <i class="nexmoefont icon-i-catalog"></i>
                                   <div class="nexmoe-toc">
-                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Shell语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text">文件描述符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.3.</span> <span class="toc-text">循环</span></a></li></ol></li></ol>
+                                      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Shell%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Shell语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%8F%8F%E8%BF%B0%E7%AC%A6"><span class="toc-number">1.1.</span> <span class="toc-text">文件描述符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.</span> <span class="toc-text">运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6"><span class="toc-number">1.3.</span> <span class="toc-text">条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF"><span class="toc-number">1.4.</span> <span class="toc-text">循环</span></a></li></ol></li></ol>
                                   </div>
                               </button>
                           
