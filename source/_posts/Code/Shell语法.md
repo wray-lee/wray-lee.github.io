@@ -111,3 +111,61 @@ date: 2023-09-04 21:54:58
  done
 ```
 
+
+
+## 权限
+
+linux安全系统为SELinux（Security-Enhanced Linux），可管理文件权限
+
+### `ls -lZht`
+
+```bash
+-rw-r--r--.  1 user group unconfined_u:object_r:user_home_t:s0 4096 Sep 27 10:30 file.txt
+```
+
+`unconfined_u:object_r:user_home_t:s0` 是文件和目录的安全上下文。它包含了有关文件或目录所属用户、角色、对象类以及安全级别的信息。
+
+1. `unconfined_u`：表示该文件或目录所属的SELinux用户。`unconfined_u`是一个特殊的用户标识，表示未受限制的用户，即没有受到严格的SELinux策略限制。
+2. `object_r`：表示该文件或目录所属的SELinux对象角色。对象角色定义了SELinux策略中允许操作该对象的角色集合。
+3. `user_home_t`：表示该文件或目录的SELinux对象类型。对象类型定义了文件或目录的用途和允许的操作。`user_home_t`是一个常见的对象类型，用于表示用户的家目录。
+4. `s0`：表示该文件或目录的SELinux安全级别。安全级别用于控制对象的访问权限，并根据访问规则进行限制。
+
+eg:
+
+`systemd_unit_file_t`是SELinux中的一个对象类型，用于表示systemd单元文件的安全上下文。
+
+
+
+#### 更改SELinux文件权限`chcon`
+
+1. 更改文件的安全上下文：
+
+    ```bash
+    chcon unconfined_u:object_r:user_home_t:s0 file.txt
+    ```
+
+2. 递归地更改目录及其所有子目录和文件的安全上下文：
+
+    ```bash
+    chcon -R unconfined_u:object_r:user_home_t:s0 directory/
+    ```
+
+3. 更改符号链接的安全上下文：
+
+    ```bash
+    chcon -h unconfined_u:object_r:user_home_t:s0 symlink
+    ```
+
+4. 设置目标安全上下文类型：
+
+    ```bash
+    chcon -t httpd_sys_content_t index.html
+    ```
+
+
+
+##### 与chown区别
+
+`chown`用于更改基本的文件`所有者:组`权限，是基础文件系统的权限
+
+`chcon`是在SELinux上更改文件权限
