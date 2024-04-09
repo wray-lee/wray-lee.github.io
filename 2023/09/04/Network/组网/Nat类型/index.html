@@ -1,0 +1,67 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Nat类型" loading="lazy">
+            <h1>Nat类型</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Nat类型"><a href="#Nat类型" class="headerlink" title="Nat类型"></a>Nat类型</h1><h2 id="Full-cone-nat-全锥形nat"><a href="#Full-cone-nat-全锥形nat" class="headerlink" title="Full cone nat 全锥形nat"></a>Full cone nat 全锥形nat</h2><p>无条件转发</p>
+<h2 id="Restricted-cone-nat地址受限锥形nat"><a href="#Restricted-cone-nat地址受限锥形nat" class="headerlink" title="Restricted cone nat地址受限锥形nat"></a>Restricted cone nat地址受限锥形nat</h2><p>与内网发生通讯的外网主机才能进行nat</p>
+<h2 id="Port-restricted-cone-nat端口受限锥形nat"><a href="#Port-restricted-cone-nat端口受限锥形nat" class="headerlink" title="Port restricted cone nat端口受限锥形nat"></a>Port restricted cone nat端口受限锥形nat</h2><p>在前者基础添加外网主机端口，通讯过的外网主机特定端口发送的数据可以nat</p>
+<h2 id="symmetric-nat-对称nat"><a href="#symmetric-nat-对称nat" class="headerlink" title="symmetric nat 对称nat"></a>symmetric nat 对称nat</h2><p>不进行转发</p>
+<blockquote>
+<p>client(192.168.0.3, 100)和server(1.1.1.1, 1111)在路由器上建立好映射关系后，如果这个时候路由器(8.8.8.8)在800端口上收到从另外一台server(2.2.2.2, 2222)发来的数据，是不是应该转发给(192.168.0.3, 100)呢？</p>
+<p>有四种情况:</p>
+<p>1, 无条件转发给(192.168.0.3, 100)， 这就是全锥型(Full Cone)NAT。</p>
+<p>2, 如果(192.168.0.3, 100)之前给(2.2.2.2)发送过数据，则转发， 这就是受限锥型(Restricted Cone)。</p>
+<p>3, 如果(192.168.0.3, 100)之前给(2.2.2.2, 2222)发送过数据，则转发， 这就是端口受限锥型(Port Restricted Cone)。</p>
+<p>4, 丢弃报文，拒绝转发, 这就是对称型NAT。</p>
+</blockquote>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/%E7%BB%84%E7%BD%91/Nat%E7%B1%BB%E5%9E%8B/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;Nat%E7%B1%BB%E5%9E%8B&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;Nat%E7%B1%BB%E5%9E%8B&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080610"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

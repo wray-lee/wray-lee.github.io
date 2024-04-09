@@ -1,0 +1,96 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Docker" loading="lazy">
+            <h1>Docker</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月05日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p><strong>登录</strong>：<code>docker login</code></p>
+<p><strong>登出</strong>：<code>docker logout</code></p>
+<p><strong>查找镜像</strong>：<code>docker search [镜像名]</code></p>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p><strong>查看镜像</strong>：<code>docker images</code></p>
+<p><strong>使用镜像生成容器</strong>：<code>docker run [镜像名]</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">docker run 参数</span></span><br><span class="line">-v [主机路径]:[容器路径]	#将容器路径挂载到主机</span><br><span class="line">-P #容器内部端口随机映射到主机端口</span><br><span class="line">-p [主机端口]:[容器端口]	#将特定容器端口映射到特定主机端口</span><br><span class="line">--name [容器名字]	#容器命名</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除镜像</strong>：<code>docker rmi [镜像名]</code></p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p><strong>查看容器</strong>：<code>docker ps -a</code></p>
+<p><strong>删除容器</strong>：<code>docker rm [容器名]</code></p>
+<p><strong>进入容器</strong>：<code>docker exec -it [容器序号/容器名字] /bin/bash</code> &#x2F; <code>docker exec -it [容器序号] /bin/sh</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-i:interact 交互操作</span><br><span class="line">-t:terminal 终端</span><br><span class="line">-d:down 后台运行</span><br></pre></td></tr></table></figure>
+
+<p><strong>启动已有容器</strong>：<code>docker restart [container]</code></p>
+<p><strong>停止已有容器运行</strong>：<code>docker stop [container]</code>		<code>sudo aa-remove-unknown(遇到permission denied)</code></p>
+<h2 id="容器链接（容器网络）"><a href="#容器链接（容器网络）" class="headerlink" title="容器链接（容器网络）"></a>容器链接（容器网络）</h2><h3 id="网络创建与加入"><a href="#网络创建与加入" class="headerlink" title="网络创建与加入"></a>网络创建与加入</h3><p><strong>创建网络</strong>：</p>
+<ul>
+<li><code>docker network create -d bridge [网络桥名字]</code></li>
+<li><code>docker network create -d overlay [网络隧道名]</code></li>
+</ul>
+<p><strong>加入网络</strong>：</p>
+<ul>
+<li>创建容器时：</li>
+</ul>
+<p><code>docker run -itd --name [容器名] --network [网络名] [镜像名] [/bin/bash(终端环境)]</code></p>
+<ul>
+<li>已有容器时加入：</li>
+</ul>
+<p><code>docker network connect [network_name] [container_name] </code></p>
+<h3 id="网络dns配置"><a href="#网络dns配置" class="headerlink" title="网络dns配置"></a>网络dns配置</h3><p>主机的<code>/etc/docker/daemon.json</code>可以配置容器默认dns配置</p>
+<p><strong>查看容器dns</strong>：</p>
+<p><code>docker run -it --rm  [container]  cat etc/resolv.conf</code></p>
+<p><strong>手动指定容器dns</strong>：</p>
+<p><code>docker run -it --rm -h [容器主机名]  --dns=[dns_ip] --dns-search=test.com [container]</code></p>
+<hr>
+<p>参数：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--rm：容器退出时自动清理容器内部的文件系统。</span><br><span class="line"></span><br><span class="line">-h HOSTNAME 或者 --hostname=HOSTNAME： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。</span><br><span class="line"></span><br><span class="line">--dns=IP_ADDRESS： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。</span><br><span class="line"></span><br><span class="line">--dns-search=DOMAIN： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​					</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/05/Network/Server/devops/Docker/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;05&#x2F;Network&#x2F;Server&#x2F;devops&#x2F;Docker&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;05&#x2F;Network&#x2F;Server&#x2F;devops&#x2F;Docker&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080601"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

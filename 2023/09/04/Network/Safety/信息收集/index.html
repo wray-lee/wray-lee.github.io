@@ -1,0 +1,86 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="信息收集" loading="lazy">
+            <h1>信息收集</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="信息收集"><a href="#信息收集" class="headerlink" title="信息收集"></a>信息收集</h1><p>信息：</p>
+<ul>
+<li>web路径</li>
+<li>敏感文件</li>
+<li>指纹信息（<a target="_blank" rel="noopener" href="http://www.yunsee.cn/">www.yunsee.cn</a> , finger.tidsee.net）</li>
+<li>CMS信息（<a target="_blank" rel="noopener" href="http://whatweb.bugscaner.com/look/%EF%BC%89">http://whatweb.bugscaner.com/look/）</a></li>
+<li>WAF识别（wafw00f sqlmap）</li>
+<li>sslscan</li>
+</ul>
+<h2 id="WAF-web-application-firewall"><a href="#WAF-web-application-firewall" class="headerlink" title="WAF(web application firewall)"></a>WAF(web application firewall)</h2><p>web应用程序防火墙，可以防范sql注入，xss，进行木马探测</p>
+<h2 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h2><ul>
+<li>顶级域名：.com .cn .org .net</li>
+<li>二级域名：xxxx.com</li>
+<li>三级域名：xxxx.xxxx.com</li>
+</ul>
+<h2 id="whois查询"><a href="#whois查询" class="headerlink" title="whois查询"></a>whois查询</h2><p>查询建站者信息</p>
+<h2 id="google-hacking"><a href="#google-hacking" class="headerlink" title="google hacking"></a>google hacking</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">intext:		网页内容作为搜索</span><br><span class="line">inurl:		网址作为搜索</span><br><span class="line">intitle:	网页标题作为搜索</span><br><span class="line">cache:		搜索缓存，过期内容</span><br><span class="line">filetype:T name	搜索类型文件，定义类型和名字</span><br><span class="line">site:		在指定网站下搜索</span><br><span class="line">allin**		指定多个关键字</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">“”		把引号内作为整体搜索</span><br><span class="line">and		与，一起搜索</span><br><span class="line">or		或，搜索多个关键字</span><br><span class="line">link:		搜索某个网站链接</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 1.找管理后台地址</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com intext:管理、后台、登录、用户名、密码、系统、帐号</span><br><span class="line">    site:http://xxx.com inurl:login、admin、manage、manager、admin_login、system</span><br><span class="line">    site:http://xxx.com intitle:管理、后台、登陆</span><br><span class="line"></span><br><span class="line">2.找上传类漏洞地址</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com inurl:file</span><br><span class="line">    site:http://xxx.com inurl:upload</span><br><span class="line"></span><br><span class="line">3.找注入页面</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com inurl:php?id=</span><br><span class="line"></span><br><span class="line">4.找编辑器页面</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com inurl:ewebeditor</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="子域名获取"><a href="#子域名获取" class="headerlink" title="子域名获取"></a>子域名获取</h2><p>google hacking</p>
+<p>fofa.info</p>
+<p>zoomeye.org</p>
+<p>quake.360.cn</p>
+<p>chaziyu.com</p>
+<p>phpinfo.me</p>
+<p>子域挖掘机 LayerDomainFinder</p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><h3 id="dynamic-port"><a href="#dynamic-port" class="headerlink" title="dynamic port"></a>dynamic port</h3><p>动态端口，没有服务可以正式注册占用</p>
+<p>45192-65535</p>
+<h2 id="web扫描工具"><a href="#web扫描工具" class="headerlink" title="web扫描工具"></a>web扫描工具</h2><p>Railgun	集成工具</p>
+<p>资产灯塔系统ALP</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Safety/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080610"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

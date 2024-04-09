@@ -1,0 +1,96 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="zerotier配置" loading="lazy">
+            <h1>zerotier配置</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="zerotier配置"><a href="#zerotier配置" class="headerlink" title="zerotier配置"></a>zerotier配置</h1><h2 id="moon"><a href="#moon" class="headerlink" title="moon"></a>moon</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd /var/lib/zerotier-one	#定位到主机的密钥位置</span><br><span class="line">sudo zerotier-idtool initmoon identity.public &gt; moon.json	#生成moon配置</span><br><span class="line">修改stableEndpoints参数	&quot;主机ip/9993&quot;	并保存推出</span><br><span class="line">zerotier-idtool genmoon moon.json	#生成签名</span><br><span class="line">mkdir moons.d</span><br><span class="line">mv 00000*.moon moons.d/</span><br><span class="line"></span><br><span class="line">最后复制签名文件到客户端</span><br><span class="line">linux位于/var/lib/zerotier-one/moons.d	自行创建moons.d文件夹</span><br><span class="line">windows位于C:\Programdata\zerotier\one\moons.d	自行创建moons.d文件夹</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="路由转发"><a href="#路由转发" class="headerlink" title="路由转发"></a>路由转发</h2><h3 id="开启内核转发功能"><a href="#开启内核转发功能" class="headerlink" title="开启内核转发功能"></a>开启内核转发功能</h3><p><code>sudo sysctl -w net.ipv4.ip_forward=1</code></p>
+<p>v6同理</p>
+<hr>
+<p>更优选择</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.ipv4.ip_forward=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv6.conf.default.forwarding=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv6.conf.all.forwarding=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<p>关闭严格模式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.ipv4.conf.default.rp_filter=0&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.conf.all.rp_filter=0&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>​			<strong><code>rp_filter </code></strong></p>
+<p>​			是 Linux 内核针对网络的一项网络安全保护功能，对于数据包的来源地址和来源网络界面（网卡）进行检查：</p>
+<ul>
+<li><p>如果设置为 0（即禁用），放行所有数据包。</p>
+<ul>
+<li>但是有些无法正常回复（路由表内没有对应项目）的数据包也会被发给应用程序处理，消耗额外的系统资源。</li>
+<li>不过额外消耗应该很小，因此上述两项设置为 0 也没问题。</li>
+</ul>
+</li>
+<li><p>如果设置为 1（严格模式），如果数据包来源网卡不是发送这个数据包的最优网卡（也就是如果你本机要回复这个地址的话，会选择一张不同的网卡），就把这个数据包</p>
+<p>  丢掉</p>
+<p>  。</p>
+<ul>
+<li>来源和回复在不同网卡是 DN42 内<strong>非常常见的情况</strong>，因此 <strong>千万 一定 绝对</strong> 不能把 <code>rp_filter</code> 设置成 1！</li>
+</ul>
+</li>
+<li><p>如果设置为 2（宽松模式），</p>
+<p>  从理论上来说</p>
+<p>  ，如果数据包来源地址不在路由表内（也就是本机不知道要怎么回复这个地址），就把这个数据包丢掉。</p>
+<ul>
+<li>但是理论归理论，在新版本（5.0+）的内核中，实际使用中依然会有大量来源地址正确的正常数据包被丢弃。因此不要使用这个模式，请统一使用 0。</li>
+</ul>
+</li>
+<li><p>然后，<strong>千万 一定 绝对</strong> 关掉你的 UFW 等帮你简单配置 iptables 防火墙的工具。</p>
+</li>
+</ul>
+<h3 id="添加防火墙规则"><a href="#添加防火墙规则" class="headerlink" title="添加防火墙规则"></a>添加防火墙规则</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE</span><br><span class="line">sudo iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT</span><br><span class="line">iptables-save	#保存</span><br></pre></td></tr></table></figure>
+
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/%E7%BB%84%E7%BD%91/zerotier%E9%85%8D%E7%BD%AE/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;zerotier%E9%85%8D%E7%BD%AE&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;zerotier%E9%85%8D%E7%BD%AE&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080612"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

@@ -1,0 +1,90 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Crontab" loading="lazy">
+            <h1>Crontab</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月05日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Crontab"><a href="#Crontab" class="headerlink" title="Crontab"></a>Crontab</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*    *    *    *    *</span><br><span class="line">-    -    -    -    -</span><br><span class="line">|    |    |    |    |</span><br><span class="line">|    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)</span><br><span class="line">|    |    |    +---------- 月份 (1 - 12) </span><br><span class="line">|    |    +--------------- 一个月中的第几天 (1 - 31)</span><br><span class="line">|    +-------------------- 小时 (0 - 23)</span><br><span class="line">+------------------------- 分钟 (0 - 59)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其中 f1 是表示分钟，f2 表示小时，f3 表示一个月份中的第几日，f4 表示月份，f5 表示一个星期中的第几天。program 表示要执行的程序。</li>
+<li>当 f1 为 * 时表示每分钟都要执行 program，f2 为 * 时表示每小时都要执行程序，其馀类推</li>
+<li>当 f1 为 a-b 时表示从第 a 分钟到第 b 分钟这段时间内要执行，f2 为 a-b 时表示从第 a 到第 b 小时都要执行，其馀类推</li>
+<li>当 f1 为 *&#x2F;n 时表示每 n 分钟个时间间隔执行一次，f2 为 *&#x2F;n 表示每 n 小时个时间间隔执行一次，其馀类推</li>
+<li>当 f1 为 a, b, c,… 时表示第 a, b, c,… 分钟要执行，f2 为 a, b, c,… 时表示第 a, b, c…个小时要执行，其馀类推</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>特殊符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>*（星号）</td>
+<td>代表任何时间。比如第一个”*”就代表一小时种每分钟都执行一次的意思。</td>
+</tr>
+<tr>
+<td>,（逗号）</td>
+<td>代表不连续的时间。比如”0 8，12，16***命令”就代表在每天的 8 点 0 分、12 点 0 分、16 点 0 分都执行一次命令。</td>
+</tr>
+<tr>
+<td>-（中杠）</td>
+<td>代表连续的时间范围。比如”0 5 ** 1-6命令”，代表在周一到周六的凌晨 5 点 0 分执行命令。</td>
+</tr>
+<tr>
+<td>&#x2F;（正斜线）</td>
+<td>代表每隔多久执行一次。比如”<em>&#x2F;10</em>***命令”，代表每隔 10 分钟就执行一次命令。</td>
+</tr>
+</tbody></table>
+<hr>
+<p>使用<code>/</code>进行每配置需要将每配置的前置位置零，以免整点时刻多次重复指令</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/05/Network/Server/devops/Crontab/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;05&#x2F;Network&#x2F;Server&#x2F;devops&#x2F;Crontab&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;05&#x2F;Network&#x2F;Server&#x2F;devops&#x2F;Crontab&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080601"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

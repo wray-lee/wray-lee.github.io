@@ -1,0 +1,137 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Git教程" loading="lazy">
+            <h1>Git教程</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Git教程"><a href="#Git教程" class="headerlink" title="Git教程"></a>Git教程</h1><p>git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序</p>
+<p> 所有操作除了switch,checkout都是在引用当前所在位置进行</p>
+<p>提交记录本身的名字为hash值</p>
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p><code>git commit</code>创建一个新的版本（不是完全copy,只会记录不同）</p>
+<p><code>git commit --amend</code>对提交记录进行修改</p>
+<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
+<li><code>git branch &lt;branch_name&gt; &lt;branch_position&gt;</code></li>
+</ul>
+<p>​		branch指向一个commit</p>
+<ul>
+<li><p><code>git branch -f main head~3</code>    <code> 	git branch -f main c0</code>    <code>git branch -f</code> 可以变更分支指向</p>
+</li>
+<li><p><code>git switch &lt;branch_name&gt;</code></p>
+</li>
+</ul>
+<p>​		切换到某一分支</p>
+<p>使用分支移动分支也会跟随者移动</p>
+<h2 id="merge-rebase"><a href="#merge-rebase" class="headerlink" title="merge&#x2F;rebase"></a>merge&#x2F;rebase</h2><h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><p>拉取合并</p>
+<p><code>git merge 1</code></p>
+<p>此时branch在main则拉取1的代码到main，branch仍在main</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>合并到，并复制提交记录</p>
+<p><code>git rebase 1</code></p>
+<p>则把main合并到1的开发路线上，branch在main</p>
+<p>rebase不会移动下层的版本，只会移动引用当前所在的版本</p>
+<hr>
+<p><code>git rebase -i head~3</code>			选中包含head引用位置3个commit,通过gui进行删减，排序，处理后的结果会出现在一条新的路线上（基为head~3）</p>
+<p><code>-i</code>变动当前版本到基版本的所有版本</p>
+<p><code>git rebase -参数 基版本	</code></p>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>即为当前引用所在位置</p>
+<p><code>git checkout 1</code></p>
+<p>将head指向1</p>
+<p>head指向一次提交记录commit</p>
+<p>head作为引用使用要大写HEAD</p>
+<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><p><code>git checkout -b totallyNotMain o/main</code></p>
+<p><code>git checkout -b 选择分支 追踪分支</code>（会创建分支，不需要提前创建好）</p>
+<p>可以使某一分支追踪远程某一分支，相当于替换了main</p>
+<hr>
+<p>也可以使用</p>
+<p><code>git branch -u 追踪分支 选择分支</code>（不会创建分支，需要提前创建）</p>
+<h2 id="相对引用"><a href="#相对引用" class="headerlink" title="相对引用"></a>相对引用</h2><p>^向上移动一个提交记录</p>
+<p>~num 向上移动num个移动记录</p>
+<p><code>git checkout main^</code></p>
+<p>&#x3D;&#x3D;可以使用分支代表提交记录commit&#x3D;&#x3D;</p>
+<p>^2可以选择第二个父提交</p>
+<p>指令支持链式操作</p>
+<p><code>git checkout HEAD~^2~2</code></p>
+<h2 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h2><p><code>git reset</code>	<code>git revert</code></p>
+<p><code>git reset head^</code>是commit退回到前一个记录，删除当前记录，引用变更到前一个记录</p>
+<p><code>git revert head^</code>在此路线上添加一个新的commit，但是新的commit实际上和前一个相同</p>
+<p>&#x3D;&#x3D;两条命令都是对当前引用所在位置进行操作&#x3D;&#x3D;</p>
+<h2 id="整理分支"><a href="#整理分支" class="headerlink" title="整理分支"></a>整理分支</h2><p><code>git cherry-pick c2 c4</code>	将c2,c4按顺序复制到引用当前所在分支下</p>
+<h2 id="Tag（避免分支移动造成混乱）"><a href="#Tag（避免分支移动造成混乱）" class="headerlink" title="Tag（避免分支移动造成混乱）"></a>Tag（避免分支移动造成混乱）</h2><p><code>git tag v1 c1</code></p>
+<p>在c1上添加v1	tag</p>
+<h2 id="describe"><a href="#describe" class="headerlink" title="describe"></a>describe</h2><p><code>git describe &lt;引用&gt;</code></p>
+<p>output：<tag>_<numCommits>_g<hash></p>
+<hr>
+<hr>
+<h1 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h1><h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><p><code>git clone</code>复制远程仓库</p>
+<p>首次clone会自动将main和o&#x2F;main引用到同一位置</p>
+<h2 id="main和o-main"><a href="#main和o-main" class="headerlink" title="main和o&#x2F;main"></a>main和o&#x2F;main</h2><p>checkout o&#x2F;main 再进行commit时，由于未下载远程仓库数据，会造成HEAD分离，即o&#x2F;main只有同步时才会发生指向变化</p>
+<p>远程分支o&#x2F;main（o&#x2F;*）实际上是远程main分支的位置</p>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p><code>git fetch</code></p>
+<p>不会更新main分支，只是将远程仓库代码下载，更新了o&#x2F;main引用</p>
+<p>不需要参数，会自动比对下载</p>
+<p><code>git fetch origin &lt;远程选定分支:本地选定分支&gt;</code>(可以使用相对引用)</p>
+<p><code>git fetch origin &lt;:本地分支&gt;</code>会创建本地分支</p>
+<h2 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h2><p>就是<code>fetch+merge</code></p>
+<p><code>git pull</code></p>
+<p>实际上就是<code>git fetch ; git merge o/main</code></p>
+<p>会拉取代码自动合并</p>
+<p>是在当前分支下进行拉取，所以o&#x2F;main不在当前位置会因不同步而无法拉取</p>
+<p><code>git pull --rebase</code>以变基形式拉取代码合并main分支，利用此特性可以实现整条分支的变基</p>
+<p>可以使用类似fetch的<code>git pull &lt;远程分支:本地分支&gt;</code>		<code>git pull &lt;:本地分支&gt;</code></p>
+<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><p>与pull相反，会上传代码，无自动合并，如果本地仓库旧版需要更新后再push</p>
+<p><code>git push origin &lt;选定分支&gt;</code></p>
+<p>​	将HEAD定位到头部，自动追踪选定分支上传</p>
+<p><code>git push origin &lt;本地选定分支:远程选定分支&gt;</code></p>
+<p>将本地选定分支上传到远程选定分支，若远程不存在则会创建</p>
+<p>可以使用相对引用不上传整条分支<code>git push origin &lt;本地选定分支^:远程选定分支&gt;</code></p>
+<p>​	只会上传到本地选定的上方</p>
+<p><code>git push &lt;:远程分支&gt;</code></p>
+<p>​	会删除远程分支</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Code&#x2F;Git%E6%95%99%E7%A8%8B&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Code&#x2F;Git%E6%95%99%E7%A8%8B&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080602"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

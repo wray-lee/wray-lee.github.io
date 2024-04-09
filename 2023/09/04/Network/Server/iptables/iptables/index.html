@@ -1,0 +1,69 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="iptables" loading="lazy">
+            <h1>iptables</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A (FORWARD/INPUT/OUTPUT/POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w net.ipv4.conf.all.forwarding=1</span><br><span class="line">sysctl -w net.ipv6.conf.all.forwarding=1</span><br><span class="line">iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">iptables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu</span><br><span class="line">ip6tables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Bridge"><a href="#Bridge" class="headerlink" title="Bridge"></a>Bridge</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip <span class="built_in">link</span> add taps_bridge <span class="built_in">type</span> bridge</span><br><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> taps_bridge up</span><br><span class="line">ip address add <span class="variable">$SERVER_IP6</span>/64 dev taps_bridge</span><br><span class="line">ip address add <span class="variable">$SERVER_LOCAL_IP</span>/16 dev taps_bridge</span><br></pre></td></tr></table></figure>
+
+
+
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Server/iptables/iptables/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Server&#x2F;iptables&#x2F;iptables&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Server&#x2F;iptables&#x2F;iptables&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080613"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

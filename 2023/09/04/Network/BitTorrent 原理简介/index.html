@@ -1,0 +1,81 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="BitTorrent 原理简介" loading="lazy">
+            <h1>BitTorrent 原理简介</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h2 id="BitTorrent-原理简介"><a href="#BitTorrent-原理简介" class="headerlink" title="BitTorrent 原理简介"></a>BitTorrent 原理简介</h2><p>By 01月12日 2017 <a target="_blank" rel="noopener" href="https://jaminzhang.github.io/categories/#P2P">P2P</a> <a target="_blank" rel="noopener" href="https://jaminzhang.github.io/tags/#P2P">P2P</a><a target="_blank" rel="noopener" href="https://jaminzhang.github.io/tags/#BT">BT</a><a target="_blank" rel="noopener" href="https://jaminzhang.github.io/tags/#TCP">TCP</a><a target="_blank" rel="noopener" href="https://jaminzhang.github.io/tags/#UDP">UDP</a><a target="_blank" rel="noopener" href="https://jaminzhang.github.io/tags/#Tracker">Tracker</a><a target="_blank" rel="noopener" href="https://jaminzhang.github.io/tags/#DHT">DHT</a></p>
+<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>之前我这边在生产环境中使用 Murder 软件的 BT 上传下载的方式来实现大文件的快速分发。<br>这属于 BT 软件的应用。最近重新看了下 BT 协议的分析与实现，现在重新了解下 BT 协议原理。</p>
+<h1 id="BitTorrent-原理简述"><a href="#BitTorrent-原理简述" class="headerlink" title="BitTorrent 原理简述"></a>BitTorrent 原理简述</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">与传统客户端/服务器网络通信模式不同，对等方到对等方（P2P）通信模式在近年来越来越流行起来。</span><br><span class="line">在 P2P 模式中，服务和资源分布化，资源不集中存储在某些设备上，而是分散存储在运行 P2P 程序的设备上，</span><br><span class="line">每一个对等方都可以为其他对等方提供服务。</span><br><span class="line">BitTorrent（中文全称比特流，简称 BT）是一个网络文件传输协议，是能够实现点对点文件分享的技术。</span><br><span class="line">在大多数人感觉中与 P2P 成了对等的一组概念，而它也将 P2P 技术发展到了近乎完美的地步。</span><br><span class="line">研究 BitTorrent 协议对我们深入把握 P2P 技术，了解 Interent 网络发展的未来走向有很大的意义。</span><br><span class="line">BitTorrent 协议是架构于 TCP/IP 协议之上的一个 P2P 文件传输协议，处于 TCP/IP 结构的应用层。</span><br><span class="line">BitTorrent 协议本身也包含了很多具体的内容协议和扩展协议，并在不断扩充中。</span><br><span class="line">如果有多个下载者并发的下载同一个文件，则每个下载者也同时为其它下载者上传文件，</span><br><span class="line">这样，文件源可以支持大量的用户进行下载，而只带来适当的负载的增长。</span><br><span class="line"></span><br><span class="line">BitTorrent 协议把提供下载的文件虚拟分成大小相等的块，块大小必须为 2k 的整数次方</span><br><span class="line">（由于是虚拟分块，硬盘上并不产生各个块文件），并把每个块的索引信息和 Hash 验证码</span><br><span class="line">写入 .torrent 文件（即种子文件，也简称为“种子”）中，作为被下载文件的“索引”。 </span><br><span class="line">下载者要下载文件内容，需要先得到相应的 .torrent 文件，然后使用 BT 客户端软件进行下载。 </span><br><span class="line"></span><br><span class="line">下载时，BT 客户端首先解析 .torrent 文件得到 Tracker 地址，然后连接 Tracker 服务器。</span><br><span class="line">Tracker 服务器回应下载者的请求，提供下载者其他下载者（包括发布者）的 IP。</span><br><span class="line">或者，BT客户端也可解析 .torrent 文件得到 nodes 路由表，然后连接路由表中的有效节点，</span><br><span class="line">由网络节点提供下载者其他下载者的 IP。</span><br><span class="line"></span><br><span class="line">下载者再连接其他下载者，根据 .torrent 文件，两者分别对方告知自己已经有的块，</span><br><span class="line">然后交换对方没有的数据。此时不需要其他服务器参或者其他网络节点的参与，</span><br><span class="line">分散了单个线路上的数据流量，因此减轻了服务器负担。</span><br><span class="line">下载者每得到一个块，需要算出下载块的 Hash 验证码与 .torrent 文件中的对比，</span><br><span class="line">如果一样则说明块正确，不一样则需要重新下载这个块。</span><br><span class="line"></span><br><span class="line">因此，下载的人越多，提供的带宽也越多，种子也会越来越多，下载速度就越快。</span><br><span class="line"></span><br><span class="line">从 BT 客户端角度考虑，下载原理分为以下几步：</span><br><span class="line"></span><br><span class="line">一．根据 BitTorrent 协议，文件发布者会根据要发布的文件生成提供一个 .torrent 文件。</span><br><span class="line">客户端可从 Web 服务器上下载种子文件，并从中得到 Tracker 服务器 URL 和 DHT 网络 nodes 等信息。</span><br><span class="line"></span><br><span class="line">二．根据 Tracker URL 与 Tracker 服务器建立连接，并从服务器上得到 Peers 信息。</span><br><span class="line">或者根据 nodes 与 DHT 网络中节点通信，并从节点上得到 Peers 信息。</span><br><span class="line"></span><br><span class="line">三．根据 Peers 信息与一个 Peer 建立连接，依据 Peer wire 协议完成握手，</span><br><span class="line">并从 Peer 端下载数据文件。同时监听 Peer 的连接，并给 Peer 上传数据文件。</span><br><span class="line"></span><br><span class="line">依据得到 Peers 信息的途径的不同，可分为使用 Tracker 服务器和使用 Trackerless DHT 网络两种方式。</span><br><span class="line"></span><br><span class="line">基于 HTTP 的 Tracker 协议，</span><br><span class="line">基于 UDP 的 Trackerless 协议，</span><br><span class="line">基于 TCP 的 Peer wire 协议。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>虽然目前的主流 BT 软件都大同小异，但是往往各软件都有一些各自的特点。</p>
+<p>当然这些都不能起到决定性作用，前面说了，BT 下载速度取决于<strong>其他用户的上传速度</strong>，因此用户越多越好，而用户靠 <strong>Peer、DHT、Tracker</strong> 获得。</p>
+<blockquote>
+<p><strong>Peer：</strong>获得一个有效用户后才会起作用，该用户会把它获得的用户信息告诉你。<br>——<br><strong>DHT：</strong>布式储存用户信息，获得一个用户后，会通过该用户获得更多的用户信息。缺点是需要养（下载热门资源）。</p>
+</blockquote>
+<p>Peer、DHT 我们做不了什么，但是 Tracker 大部分软件都支持自定义，所以如果你的 BT 软件支持自定义 Tracker，那么可以试试下面这个<strong>整合了全网热门 Tracker 的项目：</strong></p>
+<ul>
+<li><strong>官方网站：</strong><a target="_blank" rel="noopener" href="https://trackerslist.com/">trackerslist.com</a></li>
+<li><strong>项目主页：</strong><a target="_blank" rel="noopener" href="https://github.com/XIU2/TrackersListCollection">github.com&#x2F;XIU2&#x2F;TrackersListCollection</a></li>
+<li><strong>相关文章：</strong><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/85135793">zhuanlan.zhihu.com&#x2F;p&#x2F;85135793</a></li>
+</ul>
+<p>这就引出了一个问题，*<strong>Tracker 是什么？*</strong></p>
+<p>Tracker 是 BT 下载中一个<strong>几乎必须</strong>的角色。</p>
+<blockquote>
+<p><strong>Tracker：</strong>记录下载同一个资源的用户信息并提供给你，帮助你与其他用户建立连接。<br>*<strong>以上三者的优缺点是互补的，不存在谁替代谁，一起用效果最好！*</strong></p>
+</blockquote>
+<p><strong>使用 Tracker 可以帮你获取到更多的用户，用户数量增加，相应的也会提高下载速度。</strong></p>
+<blockquote>
+<p><em>使用这些 Tracker 的人越多，用户数量就越多，大家的下载速度就越快！</em></p>
+</blockquote>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/BitTorrent%20%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;BitTorrent%20%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;BitTorrent%20%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080604"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

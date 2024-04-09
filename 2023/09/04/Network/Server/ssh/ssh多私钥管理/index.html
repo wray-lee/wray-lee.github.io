@@ -1,0 +1,55 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="ssh多私钥管理" loading="lazy">
+            <h1>ssh多私钥管理</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Windows 上是 ~/.ssh/config</span></span><br><span class="line"><span class="comment">#Linux 上是 /etc/ssh/ssh_config</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 别名（Host）：Host 和 HostName 的值可以相同</span></span><br><span class="line"><span class="comment"># 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\.ssh\id_rsa_aliyun root@144.90.100.144</span></span><br><span class="line"><span class="comment"># 用别名登录会使用别名下的配置，不用别名登录（如IP）不会使用别名下的配置</span></span><br><span class="line"><span class="string">Host</span> <span class="string">aliyun</span></span><br><span class="line">    <span class="string">User</span> <span class="string">root</span></span><br><span class="line">    <span class="string">HostName</span> <span class="number">144.90</span><span class="number">.100</span><span class="number">.144</span></span><br><span class="line">    <span class="comment"># 私钥文件位置</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">&quot;~/.ssh/id_rsa_aliyun&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">Host</span> <span class="string">tencent</span></span><br><span class="line">    <span class="string">User</span> <span class="string">root</span></span><br><span class="line">    <span class="string">HostName</span> <span class="number">100.28</span><span class="number">.144</span><span class="number">.47</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">&quot;~/.ssh/id_rsa_tencent&quot;</span></span><br></pre></td></tr></table></figure>
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Server/ssh/ssh%E5%A4%9A%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Server&#x2F;ssh&#x2F;ssh%E5%A4%9A%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Server&#x2F;ssh&#x2F;ssh%E5%A4%9A%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080613"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

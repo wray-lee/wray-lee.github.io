@@ -1,0 +1,76 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="zerotier转发(iptables配置)" loading="lazy">
+            <h1>zerotier转发(iptables配置)</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="网络三层NAT配置方法（linux主机）"><a href="#网络三层NAT配置方法（linux主机）" class="headerlink" title="网络三层NAT配置方法（linux主机）"></a>网络三层NAT配置方法（linux主机）</h1><ul>
+<li>假设zerotier虚拟局域网的网段是192.168.192.0 局域网A 192.168.1.0 局域网B 192.168.2.0</li>
+<li>(如果需要互联)在局域网A和B中需要各有一台主机安装zerotier并作为两个内网互联的网关</li>
+<li>分别是192.168.1.10（192.168.192.10） 192.168.2.10（192.168.192.20）#括号里面为虚拟局域网的IP地址</li>
+</ul>
+<h2 id="1-在zerotier网站的networks里面的Managed-Routes下配置路由表-增加如下内容"><a href="#1-在zerotier网站的networks里面的Managed-Routes下配置路由表-增加如下内容" class="headerlink" title="1. 在zerotier网站的networks里面的Managed Routes下配置路由表,增加如下内容"></a>1. 在<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=zerotier&spm=1001.2101.3001.7020">zerotier</a>网站的networks里面的Managed Routes下配置路由表,增加如下内容</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果单向连接,仅需填写下方一个即可.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#本地网络段 via 远端ZeroTier IP</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">1.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.10</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">2.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.20</span> </span><br></pre></td></tr></table></figure>
+
+<h2 id="2-开启内核转发"><a href="#2-开启内核转发" class="headerlink" title="2. 开启内核转发"></a>2. 开启内核转发</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;net.ipv4.ip_forward = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">#与zt以外网卡互通</span><br><span class="line">zerotier-cli set [zt网络号] allowGlobal=<span class="number">1</span></span><br><span class="line">zerotier-cli set [zt网络号] allowDefault=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-防火墙设置"><a href="#3-防火墙设置" class="headerlink" title="3. 防火墙设置"></a>3. 防火墙设置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -A FORWARD -i ztly53odaw -o eth0 -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i eth0 -o ztly53odaw -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">sudo iptables -A FORWARD -i eth0 -o ztly53odaw -j ACCEPT</span></span><br><span class="line">sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE	#不中断原始流量下路由流量</span><br><span class="line"></span><br><span class="line">iptables-save</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks">参考: Route between ZeroTier and Physical Networks - ZeroTier Knowledge Base - Confluence (atlassian.net)<img onerror="imgOnError(this);" data-fancybox="gallery" src="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6" alt="icon-default.png?t=M5H6" data-caption="icon-default.png?t=M5H6" loading="lazy">https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#物理网卡 eth0; </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#ZeroTier虚拟网卡 zt7nnig26</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#你可以在路由器ssh环境中用 ifconfig 查询</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#ZeroTier一般以zt开头</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#可以根据IP地址判断</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo iptables -A FORWARD -i eth0 -o ztly53odaw -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># state 报错的话用这个</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#sudo iptables -A FORWARD -i eth0 -o ztly53odaw -j ACCEPT</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sudo iptables -A FORWARD -i ztly53odaw -o eth0 -j ACCEPT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables-save <span class="comment">#保存配置到文件,否则重启规则会丢失.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#sudo 看系统, 不一定要带</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h1 id="旧版zerotier-“cannot-bind-local-interface-port”或无法接入网络处理"><a href="#旧版zerotier-“cannot-bind-local-interface-port”或无法接入网络处理" class="headerlink" title="旧版zerotier “cannot bind local interface port”或无法接入网络处理"></a>旧版zerotier “cannot bind local interface port”或无法接入网络处理</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">killall -9 zerotier-one //杀死zerotier所有进程</span><br><span class="line">netstat -lp | grep zero //查看9993端口是否被占用</span><br><span class="line">zerotier-one -d //启动zerotier客户端</span><br><span class="line">zerotier-cli listnetworks //列出连接的zerotier网络</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">旧版orbit无法使用则用生成的签名放入moons.d</span></span><br><span class="line">看到status这一项为ACCESS_DENIED说明端口绑定成功</span><br></pre></td></tr></table></figure>
+
+
+
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/%E7%BB%84%E7%BD%91/zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080612"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

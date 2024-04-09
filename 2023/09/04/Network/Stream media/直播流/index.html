@@ -1,0 +1,70 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="直播流" loading="lazy">
+            <h1>直播流</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h1><h2 id="Live"><a href="#Live" class="headerlink" title="Live"></a>Live</h2><p>直播协议</p>
+<ul>
+<li>Http-Flv	利用flv持续传输分片视频</li>
+<li>Hls            通过先提供一级index file指向若干个二级index file（实现了清晰度的划分），二级index file指向不同的ts分片视频文件</li>
+</ul>
+<h3 id="Catcher"><a href="#Catcher" class="headerlink" title="Catcher"></a>Catcher</h3><ul>
+<li>Flv</li>
+</ul>
+<p>审查元素中选取fetch找到带宽利用最多的文件（.flv），其url即为直播的链接</p>
+<ul>
+<li>Hls（youtube是唯一一个源代码直接找到.m3u8链接的平台）</li>
+</ul>
+<p>noncode:审查元素中选取media寻找.m3u8链接</p>
+<p>primary-encode（加了token）：审查元素中选取fetch寻找.m3u8链接</p>
+<p>encode：js解密&#x2F;移动端获取真实链接再使用桌面端密钥观看</p>
+<h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2>
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Stream%20media/%E7%9B%B4%E6%92%AD%E6%B5%81/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Stream%20media&#x2F;%E7%9B%B4%E6%92%AD%E6%B5%81&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Stream%20media&#x2F;%E7%9B%B4%E6%92%AD%E6%B5%81&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080609"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

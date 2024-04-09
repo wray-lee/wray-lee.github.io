@@ -1,0 +1,118 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Shell语法" loading="lazy">
+            <h1>Shell语法</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Shell语法"><a href="#Shell语法" class="headerlink" title="Shell语法"></a>Shell语法</h1><h2 id="文件描述符"><a href="#文件描述符" class="headerlink" title="文件描述符"></a>文件描述符</h2><p><code>0</code>	标准输入</p>
+<p><code>1</code>	标准输出，指向屏幕</p>
+<p><code>2</code>	标准错误输出（log属于）</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;`	输出重定向，右移，实际上是`1&gt;` `将左边语句的输出覆盖写入到右边文件内，相当于`** | tee some_text.txt</span><br><span class="line">&gt;&gt;`	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于`** | tee -a some_text.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>&lt;</code>	输入重定向	<code>command &lt; file</code>	从文件中读入</p>
+<p><code>&lt;&lt;</code>	输入追加重定向	<code>command &lt;&lt; EOF</code>	读入后续输入直到<code>EOF</code>	（可以用作给指令添加退出条件）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cat &lt;&lt; EOF &gt; tmp</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">EOF</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">则tmp中为</span></span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>|</code>	管道，将左方语句输出作为右方语句输入</p>
+<p><code>||</code>	或或，左方语句执行失败才执行右方语句</p>
+<p><code>&amp;</code>	与，左方语句无论执行是否失败都会执行右方语句，会执行所有与起来的语句。	放在结尾为则是让程序后台执行</p>
+<p><code>&amp;&amp;</code>	与与，左方语句执行失败则不会再执行右方语句，若成功则执行右方语句</p>
+<p><code>!</code> 	条件表达式的非</p>
+<p><code>&gt;&amp;</code>	文件操作符号,	eg:<code>2&gt;&amp;1</code>	, <code>2&gt;1</code>会将错误输出重定向到名为1的文件中，<code>&amp;</code>为了定义后面的<code>1</code>是文件描述符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp;&lt;</span><br></pre></td></tr></table></figure>
+
+<p>​	用法：<code>echo &quot;hello&quot; &gt; a.log 2&gt;&amp;1</code>	1被重定向到a.log，2被重定向到a.log，等于2被重定向到1，目的是在log记录正常输出和错误输出</p>
+<p>​			可以简写为<code>echo &quot;hello&quot; &gt;&amp;log</code>	或	<code>echo &quot;hello&quot; &amp;&gt;log</code></p>
+<p><em><code>2&amp;&gt;1 &gt;log </code>	是无效输入，导致error被写入1文件中</em></p>
+<p><code>-a</code>	条件表达式的并列（与）</p>
+<p><code>-o</code>	条件表达式的或</p>
+<p><code>$</code>	后面接变量名称整体表示一个变量</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;</span><br><span class="line">&#x27;&#x27;</span><br><span class="line"> `` ``   反引号，指令内部嵌套指令使用，可以用$(command)代替</span><br></pre></td></tr></table></figure>
+
+<p><code>echo -e</code>	可以识别转义字符</p>
+<h2 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if []; do command; done</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">for</span>循环</span></span><br><span class="line">for i in &#123;1..5&#125;; do command; done</span><br><span class="line"></span><br><span class="line">for 变量名（此处可以定义变量，未出现的变量会被定义） in 取值列表&#123;1..10&#125;</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">while</span>循环（出现条件一直执行）</span></span><br><span class="line">while[条件]</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="keyword">until</span>循环（出现条件结束）</span></span><br><span class="line">until[条件]</span><br><span class="line">do</span><br><span class="line">    command</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p>linux安全系统为SELinux（Security-Enhanced Linux），可管理文件权限</p>
+<h3 id="ls-lZht"><a href="#ls-lZht" class="headerlink" title="ls -lZht"></a><code>ls -lZht</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rw-r--r--.  1 user group unconfined_u:object_r:user_home_t:s0 4096 Sep 27 10:30 file.txt</span><br></pre></td></tr></table></figure>
+
+<p><code>unconfined_u:object_r:user_home_t:s0</code> 是文件和目录的安全上下文。它包含了有关文件或目录所属用户、角色、对象类以及安全级别的信息。</p>
+<ol>
+<li><code>unconfined_u</code>：表示该文件或目录所属的SELinux用户。<code>unconfined_u</code>是一个特殊的用户标识，表示未受限制的用户，即没有受到严格的SELinux策略限制。</li>
+<li><code>object_r</code>：表示该文件或目录所属的SELinux对象角色。对象角色定义了SELinux策略中允许操作该对象的角色集合。</li>
+<li><code>user_home_t</code>：表示该文件或目录的SELinux对象类型。对象类型定义了文件或目录的用途和允许的操作。<code>user_home_t</code>是一个常见的对象类型，用于表示用户的家目录。</li>
+<li><code>s0</code>：表示该文件或目录的SELinux安全级别。安全级别用于控制对象的访问权限，并根据访问规则进行限制。</li>
+</ol>
+<p>eg:</p>
+<p><code>systemd_unit_file_t</code>是SELinux中的一个对象类型，用于表示systemd单元文件的安全上下文。</p>
+<h4 id="更改SELinux文件权限chcon"><a href="#更改SELinux文件权限chcon" class="headerlink" title="更改SELinux文件权限chcon"></a>更改SELinux文件权限<code>chcon</code></h4><ol>
+<li><p>更改文件的安全上下文：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chcon</span> unconfined_u:object_r:user_home_t:s0 file.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>递归地更改目录及其所有子目录和文件的安全上下文：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chcon</span> -R unconfined_u:object_r:user_home_t:s0 directory/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改符号链接的安全上下文：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chcon</span> -h unconfined_u:object_r:user_home_t:s0 symlink</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置目标安全上下文类型：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chcon</span> -t httpd_sys_content_t index.html</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h5 id="与chown区别"><a href="#与chown区别" class="headerlink" title="与chown区别"></a>与chown区别</h5><p><code>chown</code>用于更改基本的文件<code>所有者:组</code>权限，是基础文件系统的权限</p>
+<p><code>chcon</code>是在SELinux上更改文件权限</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Code&#x2F;Shell%E8%AF%AD%E6%B3%95&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Code&#x2F;Shell%E8%AF%AD%E6%B3%95&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080602"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

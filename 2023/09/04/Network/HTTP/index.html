@@ -1,0 +1,119 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="HTTP" loading="lazy">
+            <h1>HTTP</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h1><p>请求（request）、响应（response）</p>
+<p>请求报文：</p>
+<ul>
+<li>请求行</li>
+<li>请求头</li>
+<li>请求体</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">请求报文--&gt;请求行</span><br><span class="line">请求报文--&gt;请求头</span><br><span class="line">请求报文--&gt;请求体</span><br><span class="line"></span><br><span class="line">请求行--&gt;请求方法</span><br><span class="line">请求行--&gt;参数</span><br><span class="line">请求行--&gt;协议方法</span><br><span class="line"></span><br><span class="line">请求头--&gt;请求头及对应值</span><br><span class="line">请求体--&gt;请求正文</span><br></pre></td></tr></table></figure>
+
+
+
+<p>响应报文：</p>
+<ul>
+<li>响应行</li>
+<li>响应头</li>
+<li>响应体</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">响应报文--&gt;响应行</span><br><span class="line">响应报文--&gt;响应头</span><br><span class="line">响应报文--&gt;响应体</span><br><span class="line"></span><br><span class="line">响应行--&gt;响应协议</span><br><span class="line">响应行--&gt;状态码</span><br><span class="line">响应行--&gt;描述</span><br><span class="line"></span><br><span class="line">响应头--&gt;响应头及对应值</span><br><span class="line">响应体--&gt;响应正文</span><br></pre></td></tr></table></figure>
+
+<h2 id="行"><a href="#行" class="headerlink" title="行"></a>行</h2><h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><p>请求方法（所有方法全为大写）有多种，各个方法的解释如下：</p>
+<p>GET   请求获取Request-URI所标识的资源</p>
+<p>POST  在Request-URI所标识的资源后附加新的数据</p>
+<p>HEAD  请求获取由Request-URI所标识的资源的响应消息报头</p>
+<p>PUT   请求服务器存储一个资源，并用Request-URI作为其标识</p>
+<p>DELETE 请求服务器删除Request-URI所标识的资源</p>
+<p>TRACE  请求服务器回送收到的请求信息，主要用于测试或诊断</p>
+<p>CONNECT 保留将来使用</p>
+<p>OPTIONS 请求查询服务器的性能，或者查询与资源相关的选项和需求</p>
+<h2 id="头"><a href="#头" class="headerlink" title="头"></a>头</h2><h3 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h3><p>Accept 浏览器通过这个头，告诉服务器它所支持的数据类型</p>
+<p>Accept-Charset 浏览器通过这个头，告诉服务器它采用的字符集</p>
+<p>Accept-Encoding 浏览器通过这个头，告诉服务器，它所支持的压缩格式</p>
+<p>Accept-Language 浏览器通过这个头，告诉服务器，它所采用的语言</p>
+<p>Host 浏览器通过这个头，告诉服务器，我想访问服务器哪台主机</p>
+<p>If-Modified-Since 浏览器通过这个头，告诉服务器，它缓存数据时间是多少。</p>
+<p>Referer 浏览器通过这个头，告诉服务器，我是从哪个网页点过来的（防盗链）</p>
+<p>User-Agent 浏览器通过这个头，告诉服务器，当前浏览器操作系统的信息，以及浏览器的版本号</p>
+<p>Connection 通过这个头来标识此次请求使用的是长连接还是短连接</p>
+<p>Date</p>
+<h3 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h3><p>Location 这个头通常配合302状态码使用，它用于告诉浏览器你去找谁。</p>
+<p>Server 告诉浏览器，服务器的类型</p>
+<p>Content-Encoding 服务器通过这个头，告诉浏览器，回送的数据采用的压缩格式。</p>
+<p>Content-Length: 80</p>
+<p>Content-Language: zh-cn</p>
+<p>Content-Type 这个头用于告诉浏览器，回送数据的类型</p>
+<p>Last-Modified 这个头用于告诉浏览器，数据的最后修改时间</p>
+<p>Refresh 这个头用于控制浏览器定时刷新</p>
+<p>Content-Disposition 用于通知浏览器，以下载方式打开回送的数据</p>
+<p>Transfer-Encoding 用于通知浏览器，数据是以分块形式回送的</p>
+<p>ETag 缓存相头的头</p>
+<p>Expires 用于说明网页的失效时间，如果该值为一个&lt;0的值，则服务器是通知浏览器不要缓存</p>
+<p>Cache-Control: no-cache 通知浏览器不要缓存</p>
+<p>Pragma: no-cache</p>
+<p>数据类型：</p>
+<p>text&#x2F;html：HTML格式<br>text&#x2F;plain ：纯文本格式<br>text&#x2F;xml ： XML格式<br>image&#x2F;gif ：gif图片格式<br>image&#x2F;jpeg ：jpg图片格式<br>image&#x2F;png：png图片格式<br>video&#x2F;mpeg：视频<br>vedio&#x2F;quicktime：视频<br>application&#x2F;xhtml+xml ：XHTML格式<br>application&#x2F;xml ： XML数据格式<br>application&#x2F;atom+xml ：Atom XML聚合格式<br>application&#x2F;json ： JSON数据格式<br>application&#x2F;pdf ：pdf格式<br>application&#x2F;msword ： Word文档格式<br>application&#x2F;octet-stream ： 二进制流数据（如常见的文件下载）<br>application&#x2F;x-www-form-urlencoded ：<code> &lt; form encType=””&gt;</code>中默认的encType，form表单数据被编码为key&#x2F;value格式发送到服务器（表单默认的提交数据的格式）</p>
+<h2 id="状态码"><a href="#状态码" class="headerlink" title="状态码"></a>状态码</h2><ul>
+<li>1xx:服务器接受浏览器消息未完成</li>
+<li>2xx:成功，200</li>
+<li>3xx:重定向，302,304（访问缓存）</li>
+<li>4xx:客户端错误，401（未经过验证），404（没有找到访问资源），403（无权限访问），405（请求方法不允许）</li>
+<li>5xx:服务器错误，500（服务器内部异常）</li>
+</ul>
+<hr>
+<p>GET通过&#x2F;?变量&#x3D;value	传入数据</p>
+<p>POST在请求体中直接赋值传入数据</p>
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/HTTP/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;HTTP&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;HTTP&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080607"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

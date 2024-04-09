@@ -1,0 +1,73 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="SSTI" loading="lazy">
+            <h1>SSTI</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="SSTI"><a href="#SSTI" class="headerlink" title="SSTI"></a>SSTI</h1><h2 id="变量和语句基本概念"><a href="#变量和语句基本概念" class="headerlink" title="变量和语句基本概念"></a>变量和语句基本概念</h2><p><code>&#123;%%&#125;	声明变量</code></p>
+<p><code>&#123;&#123;&#125;&#125;将表达式打印到模板输出</code></p>
+<p><code>未包含在模板中的注释</code></p>
+<h2 id="访问变量属性"><a href="#访问变量属性" class="headerlink" title="访问变量属性"></a>访问变量属性</h2><p>.或者[]</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">&quot;&quot;</span>.__class__&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="string">&quot;&quot;</span>[<span class="string">&#x27;__classs__&#x27;</span>]&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="过滤规则"><a href="#过滤规则" class="headerlink" title="过滤规则"></a>过滤规则</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_	\x5f</span><br><span class="line"></span><br><span class="line">[]	attr()	request.args.	&#123;&#123;()|attr(request.args.x1)&#125;&#125;&amp;x1=??&amp;x2=??</span><br><span class="line"></span><br><span class="line">.	\x2E	|attr()</span><br><span class="line">&#x27;+&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>SSTI中存在类似linux的管道|</p>
+<p>可以用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">&quot;&quot;</span>|attr()&#125;&#125;代替.或[]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/Safety/SSTI/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;SSTI&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;Safety&#x2F;SSTI&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080609"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>

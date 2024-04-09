@@ -1,0 +1,66 @@
+<div class="nexmoe-post">
+  <article>
+    
+        <div class="nexmoe-post-cover"> 
+            <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Wireguard" loading="lazy">
+            <h1>Wireguard</h1>
+        </div>
+    
+    
+    <div class="nexmoe-post-meta">
+    <div class="nexmoe-rainbow">
+        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
+        
+        
+    </div>
+    
+    
+    
+    
+    
+</div>
+
+    <h1 id="Wireguard"><a href="#Wireguard" class="headerlink" title="Wireguard"></a>Wireguard</h1><blockquote>
+<p>Config Template</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[Interface]</span><br><span class="line">Address = 10.77.0.1/24,fd77:77:77::1/64</span><br><span class="line">ListenPort = 59831</span><br><span class="line">PrivateKey = ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBOL915l7LLtwEY=</span><br><span class="line">PostUp = iptables -I INPUT -p udp --dport 59831 -j ACCEPT</span><br><span class="line">PostUp = iptables -I FORWARD -i eth0 -o wraywg -j ACCEPT</span><br><span class="line">PostUp = iptables -I FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostUp = iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">PostUp = ip6tables -I FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostUp = ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">PostDown = iptables -D INPUT -p udp --dport 59831 -j ACCEPT</span><br><span class="line">PostDown = iptables -D FORWARD -i eth0 -o wraywg -j ACCEPT</span><br><span class="line">PostDown = iptables -D FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">PostDown = ip6tables -D FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostDown = ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Client wray-win</span></span></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = HwUbJ5U2q6xBugfAlH4h/k8cCwSVk6IYnSdC2rEhRSY=</span><br><span class="line">PresharedKey = oRkrgeKD0YbRPvb+EdTQc657s2vEImo+IqJT31MN+m4=</span><br><span class="line">AllowedIPs = 10.77.0.2/32,fd77:77:77::2/128</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Client wray-arch</span></span></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = LjrmgkjWVFBYSASXLYQbw3Kg6Qffc8CeIyIf4vvQbRY=</span><br><span class="line">PresharedKey = 6vtre1Y1/BuC3kqc9cBDcR7y+FK/HDxnnhQtdf9qgWs=</span><br><span class="line">AllowedIPs = 10.77.0.3/32,fd77:77:77::3/128</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Client starstudiofdr</span></span></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = OYToCgnrLC8zE3hSAFBXCo4Gqg437Ll40gRX7+CKswQ=</span><br><span class="line">PresharedKey = QqI86bY4Q3XraFpli/pNKX+QBKjsF2y9YON5OpnolpA=</span><br><span class="line">AllowedIPs = 10.77.0.4/32,fd77:77:77::4/128</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><p><code>systemctl start wg-quick@[insteface]</code>	&#x2F;	<code>wg-quick up [interface]</code></p>
+<h3 id="autostart"><a href="#autostart" class="headerlink" title="autostart"></a>autostart</h3><p><code>systemctl enable wg-quick@[interface]</code></p>
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PostUp = iptables -A FORWARD -i wraywg -j ACCEPT; iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE; </span><br><span class="line">ip6tables -A FORWARD -i wraywg -j ACCEPT; </span><br><span class="line">ip6tables -t nat -A POSTROUTING -o ens18 -j MASQUERADE # Add forwarding when VPN is started</span><br><span class="line">PostDown = iptables -D FORWARD -i wraywg -j ACCEPT; </span><br><span class="line">iptables -t nat -D POSTROUTING -o ens18 -j MASQUERADE; </span><br><span class="line">ip6tables -D FORWARD -i wraywg -j ACCEPT; </span><br><span class="line">ip6tables -t nat -D POSTROUTING -o ens18 -j MASQUERADE # Remove forwarding when VPN is shutdown</span><br></pre></td></tr></table></figure>
+
+
+    
+  </article>
+
+  
+      
+    <div class="nexmoe-post-copyright">
+        <strong>Author：</strong>Wray Lee<br>
+        <strong>Link：</strong><a href="http://blog.wray7.top/2023/09/04/Network/%E7%BB%84%E7%BD%91/Wireguard/" title="http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;Wireguard&#x2F;" target="_blank" rel="noopener">http:&#x2F;&#x2F;blog.wray7.top&#x2F;2023&#x2F;09&#x2F;04&#x2F;Network&#x2F;%E7%BB%84%E7%BD%91&#x2F;Wireguard&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+
+        
+    </div>
+
+
+  
+  
+  <div class="nexmoe-post-meta nexmoe-rainbow">
+   
+    
+</div>
+  
+  
+    <script async src="/js/copy-codeblock.js?v=1712678080610"></script>
+  
+
+  
+      <div class="nexmoe-post-footer">
+          
+      </div>
+  
+</div>
