@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="Wireguard Config Template  1234567891011121314151617181920212223242526272829303132333435[Interface]Address &#x3D; 10.77.0.1&#x2F;24,fd77:77:77::1&#x2F;64ListenPort &#x3D; 59831PrivateKey &#x3D; ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBO">
+<meta name="description" content="Wireguard Config Template  [Interface] Address &#x3D; 10.77.0.1&#x2F;24,fd77:77:77::1&#x2F;64 ListenPort &#x3D; 59831 PrivateKey &#x3D; ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBOL915l7LLtwEY&#x3D; PostUp &#x3D; iptables -I INPUT -p udp --dport 59">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Wireguard">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/%E7%BB%84%E7%BD%91/Wireguard/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Wireguard Config Template  1234567891011121314151617181920212223242526272829303132333435[Interface]Address &#x3D; 10.77.0.1&#x2F;24,fd77:77:77::1&#x2F;64ListenPort &#x3D; 59831PrivateKey &#x3D; ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBO">
+<meta property="og:description" content="Wireguard Config Template  [Interface] Address &#x3D; 10.77.0.1&#x2F;24,fd77:77:77::1&#x2F;64 ListenPort &#x3D; 59831 PrivateKey &#x3D; ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBOL915l7LLtwEY&#x3D; PostUp &#x3D; iptables -I INPUT -p udp --dport 59">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
 <meta property="article:modified_time" content="2024-04-09T15:50:40.749Z">
@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568870">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368761">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568870">
+<link rel="stylesheet" href="/css/style.css?v=1712679368761">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568870">
+        <link rel="stylesheet" href="/custom.css?v=1712679368761">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568870"></script>
+<script async src="/js/app.js?v=1712679368761"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568870"></script>
+	<script async src="/js/search.js?v=1712679368761"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -273,13 +273,53 @@
     <h1 id="Wireguard"><a href="#Wireguard" class="headerlink" title="Wireguard"></a>Wireguard</h1><blockquote>
 <p>Config Template</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">[Interface]</span><br><span class="line">Address = 10.77.0.1/24,fd77:77:77::1/64</span><br><span class="line">ListenPort = 59831</span><br><span class="line">PrivateKey = ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBOL915l7LLtwEY=</span><br><span class="line">PostUp = iptables -I INPUT -p udp --dport 59831 -j ACCEPT</span><br><span class="line">PostUp = iptables -I FORWARD -i eth0 -o wraywg -j ACCEPT</span><br><span class="line">PostUp = iptables -I FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostUp = iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">PostUp = ip6tables -I FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostUp = ip6tables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">PostDown = iptables -D INPUT -p udp --dport 59831 -j ACCEPT</span><br><span class="line">PostDown = iptables -D FORWARD -i eth0 -o wraywg -j ACCEPT</span><br><span class="line">PostDown = iptables -D FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">PostDown = ip6tables -D FORWARD -i wraywg -j ACCEPT</span><br><span class="line">PostDown = ip6tables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Client wray-win</span></span></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = HwUbJ5U2q6xBugfAlH4h/k8cCwSVk6IYnSdC2rEhRSY=</span><br><span class="line">PresharedKey = oRkrgeKD0YbRPvb+EdTQc657s2vEImo+IqJT31MN+m4=</span><br><span class="line">AllowedIPs = 10.77.0.2/32,fd77:77:77::2/128</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Client wray-arch</span></span></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = LjrmgkjWVFBYSASXLYQbw3Kg6Qffc8CeIyIf4vvQbRY=</span><br><span class="line">PresharedKey = 6vtre1Y1/BuC3kqc9cBDcR7y+FK/HDxnnhQtdf9qgWs=</span><br><span class="line">AllowedIPs = 10.77.0.3/32,fd77:77:77::3/128</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## Client starstudiofdr</span></span></span><br><span class="line">[Peer]</span><br><span class="line">PublicKey = OYToCgnrLC8zE3hSAFBXCo4Gqg437Ll40gRX7+CKswQ=</span><br><span class="line">PresharedKey = QqI86bY4Q3XraFpli/pNKX+QBKjsF2y9YON5OpnolpA=</span><br><span class="line">AllowedIPs = 10.77.0.4/32,fd77:77:77::4/128</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span>Interface<span class="token punctuation">]</span>
+Address <span class="token operator">=</span> <span class="token number">10.77</span>.0.1/24,fd77:77:77::1/64
+ListenPort <span class="token operator">=</span> <span class="token number">59831</span>
+PrivateKey <span class="token operator">=</span> <span class="token assign-left variable">ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBOL915l7LLtwEY</span><span class="token operator">=</span>
+PostUp <span class="token operator">=</span> iptables <span class="token parameter variable">-I</span> INPUT <span class="token parameter variable">-p</span> udp <span class="token parameter variable">--dport</span> <span class="token number">59831</span> <span class="token parameter variable">-j</span> ACCEPT
+PostUp <span class="token operator">=</span> iptables <span class="token parameter variable">-I</span> FORWARD <span class="token parameter variable">-i</span> eth0 <span class="token parameter variable">-o</span> wraywg <span class="token parameter variable">-j</span> ACCEPT
+PostUp <span class="token operator">=</span> iptables <span class="token parameter variable">-I</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT
+PostUp <span class="token operator">=</span> iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> eth0 <span class="token parameter variable">-j</span> MASQUERADE
+PostUp <span class="token operator">=</span> ip6tables <span class="token parameter variable">-I</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT
+PostUp <span class="token operator">=</span> ip6tables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> eth0 <span class="token parameter variable">-j</span> MASQUERADE
+PostDown <span class="token operator">=</span> iptables <span class="token parameter variable">-D</span> INPUT <span class="token parameter variable">-p</span> udp <span class="token parameter variable">--dport</span> <span class="token number">59831</span> <span class="token parameter variable">-j</span> ACCEPT
+PostDown <span class="token operator">=</span> iptables <span class="token parameter variable">-D</span> FORWARD <span class="token parameter variable">-i</span> eth0 <span class="token parameter variable">-o</span> wraywg <span class="token parameter variable">-j</span> ACCEPT
+PostDown <span class="token operator">=</span> iptables <span class="token parameter variable">-D</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT
+PostDown <span class="token operator">=</span> iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> POSTROUTING <span class="token parameter variable">-o</span> eth0 <span class="token parameter variable">-j</span> MASQUERADE
+PostDown <span class="token operator">=</span> ip6tables <span class="token parameter variable">-D</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT
+PostDown <span class="token operator">=</span> ip6tables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> POSTROUTING <span class="token parameter variable">-o</span> eth0 <span class="token parameter variable">-j</span> MASQUERADE
+
+
+<span class="token comment">### Client wray-win</span>
+<span class="token punctuation">[</span>Peer<span class="token punctuation">]</span>
+PublicKey <span class="token operator">=</span> HwUbJ5U2q6xBugfAlH4h/k8cCwSVk6IYnSdC2rEhRSY<span class="token operator">=</span>
+PresharedKey <span class="token operator">=</span> oRkrgeKD0YbRPvb+EdTQc657s2vEImo+IqJT31MN+m4<span class="token operator">=</span>
+AllowedIPs <span class="token operator">=</span> <span class="token number">10.77</span>.0.2/32,fd77:77:77::2/128
+
+<span class="token comment">### Client wray-arch</span>
+<span class="token punctuation">[</span>Peer<span class="token punctuation">]</span>
+PublicKey <span class="token operator">=</span> <span class="token assign-left variable">LjrmgkjWVFBYSASXLYQbw3Kg6Qffc8CeIyIf4vvQbRY</span><span class="token operator">=</span>
+PresharedKey <span class="token operator">=</span> 6vtre1Y1/BuC3kqc9cBDcR7y+FK/HDxnnhQtdf9qgWs<span class="token operator">=</span>
+AllowedIPs <span class="token operator">=</span> <span class="token number">10.77</span>.0.3/32,fd77:77:77::3/128
+
+<span class="token comment">### Client starstudiofdr</span>
+<span class="token punctuation">[</span>Peer<span class="token punctuation">]</span>
+PublicKey <span class="token operator">=</span> OYToCgnrLC8zE3hSAFBXCo4Gqg437Ll40gRX7+CKswQ<span class="token operator">=</span>
+PresharedKey <span class="token operator">=</span> QqI86bY4Q3XraFpli/pNKX+QBKjsF2y9YON5OpnolpA<span class="token operator">=</span>
+AllowedIPs <span class="token operator">=</span> <span class="token number">10.77</span>.0.4/32,fd77:77:77::4/128<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><p><code>systemctl start wg-quick@[insteface]</code>	&#x2F;	<code>wg-quick up [interface]</code></p>
 <h3 id="autostart"><a href="#autostart" class="headerlink" title="autostart"></a>autostart</h3><p><code>systemctl enable wg-quick@[interface]</code></p>
-<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PostUp = iptables -A FORWARD -i wraywg -j ACCEPT; iptables -t nat -A POSTROUTING -o ens18 -j MASQUERADE; </span><br><span class="line">ip6tables -A FORWARD -i wraywg -j ACCEPT; </span><br><span class="line">ip6tables -t nat -A POSTROUTING -o ens18 -j MASQUERADE # Add forwarding when VPN is started</span><br><span class="line">PostDown = iptables -D FORWARD -i wraywg -j ACCEPT; </span><br><span class="line">iptables -t nat -D POSTROUTING -o ens18 -j MASQUERADE; </span><br><span class="line">ip6tables -D FORWARD -i wraywg -j ACCEPT; </span><br><span class="line">ip6tables -t nat -D POSTROUTING -o ens18 -j MASQUERADE # Remove forwarding when VPN is shutdown</span><br></pre></td></tr></table></figure>
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">PostUp <span class="token operator">=</span> iptables <span class="token parameter variable">-A</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT<span class="token punctuation">;</span> iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> ens18 <span class="token parameter variable">-j</span> MASQUERADE<span class="token punctuation">;</span> 
+ip6tables <span class="token parameter variable">-A</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT<span class="token punctuation">;</span> 
+ip6tables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> ens18 <span class="token parameter variable">-j</span> MASQUERADE <span class="token comment"># Add forwarding when VPN is started</span>
+PostDown <span class="token operator">=</span> iptables <span class="token parameter variable">-D</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT<span class="token punctuation">;</span> 
+iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> POSTROUTING <span class="token parameter variable">-o</span> ens18 <span class="token parameter variable">-j</span> MASQUERADE<span class="token punctuation">;</span> 
+ip6tables <span class="token parameter variable">-D</span> FORWARD <span class="token parameter variable">-i</span> wraywg <span class="token parameter variable">-j</span> ACCEPT<span class="token punctuation">;</span> 
+ip6tables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-D</span> POSTROUTING <span class="token parameter variable">-o</span> ens18 <span class="token parameter variable">-j</span> MASQUERADE <span class="token comment"># Remove forwarding when VPN is shutdown</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
     
@@ -305,7 +345,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568717"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368590"></script>
   
 
   

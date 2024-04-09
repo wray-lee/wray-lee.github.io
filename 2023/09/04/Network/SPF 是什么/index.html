@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#x62;&amp;#x6f;&amp;#x73;&amp;#x73;&amp;#64;&amp;#x79;&amp;#x6f;&amp;#117;&amp;#x72;&amp;#45;&amp;#99;&amp;#111;&amp;#x72;&amp;#112;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109; 向其他人发送邮件。因此，SPF (Sender Policy Framewor">
+<meta name="description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#x62;&amp;#111;&amp;#x73;&amp;#115;&amp;#x40;&amp;#x79;&amp;#111;&amp;#117;&amp;#114;&amp;#x2d;&amp;#99;&amp;#x6f;&amp;#114;&amp;#x70;&amp;#x2e;&amp;#99;&amp;#x6f;&amp;#x6d; 向其他人发送邮件。因此，SPF (Sender Policy Framew">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SPF 是什么">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#x62;&amp;#x6f;&amp;#x73;&amp;#x73;&amp;#64;&amp;#x79;&amp;#x6f;&amp;#117;&amp;#x72;&amp;#45;&amp;#99;&amp;#111;&amp;#x72;&amp;#112;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#109; 向其他人发送邮件。因此，SPF (Sender Policy Framewor">
+<meta property="og:description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 &amp;#x62;&amp;#111;&amp;#x73;&amp;#115;&amp;#x40;&amp;#x79;&amp;#111;&amp;#117;&amp;#114;&amp;#x2d;&amp;#99;&amp;#x6f;&amp;#114;&amp;#x70;&amp;#x2e;&amp;#99;&amp;#x6f;&amp;#x6d; 向其他人发送邮件。因此，SPF (Sender Policy Framew">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
 <meta property="article:modified_time" content="2024-04-09T15:50:40.740Z">
@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568842">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368721">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568842">
+<link rel="stylesheet" href="/css/style.css?v=1712679368721">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568842">
+        <link rel="stylesheet" href="/custom.css?v=1712679368721">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568842"></script>
+<script async src="/js/app.js?v=1712679368721"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568842"></script>
+	<script async src="/js/search.js?v=1712679368721"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -270,9 +270,10 @@
     
 </div>
 
-    <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#x62;&#x6f;&#x73;&#x73;&#64;&#x79;&#x6f;&#117;&#x72;&#45;&#99;&#111;&#x72;&#112;&#46;&#x63;&#x6f;&#109;">&#x62;&#x6f;&#x73;&#x73;&#64;&#x79;&#x6f;&#117;&#x72;&#45;&#99;&#111;&#x72;&#112;&#46;&#x63;&#x6f;&#109;</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#x62;&#111;&#115;&#x73;&#64;&#x79;&#111;&#x75;&#114;&#x2d;&#x63;&#x6f;&#114;&#112;&#46;&#x63;&#x6f;&#x6d;">&#x62;&#111;&#115;&#x73;&#64;&#x79;&#111;&#x75;&#114;&#x2d;&#x63;&#x6f;&#114;&#112;&#46;&#x63;&#x6f;&#x6d;</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
+    <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#x62;&#111;&#x73;&#115;&#x40;&#x79;&#111;&#117;&#114;&#x2d;&#99;&#x6f;&#114;&#x70;&#x2e;&#99;&#x6f;&#x6d;">&#x62;&#111;&#x73;&#115;&#x40;&#x79;&#111;&#117;&#114;&#x2d;&#99;&#x6f;&#114;&#x70;&#x2e;&#99;&#x6f;&#x6d;</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#x62;&#x6f;&#115;&#115;&#64;&#121;&#111;&#x75;&#x72;&#45;&#x63;&#x6f;&#x72;&#x70;&#46;&#x63;&#x6f;&#x6d;">&#x62;&#x6f;&#115;&#115;&#64;&#121;&#111;&#x75;&#x72;&#45;&#x63;&#x6f;&#x72;&#x70;&#46;&#x63;&#x6f;&#x6d;</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
 <h2 id="如何部署-SPF"><a href="#如何部署-SPF" class="headerlink" title="如何部署 SPF"></a>如何部署 SPF</h2><p>DNS 系统中曾经有一种专门的 SPF 资源记录类型，但已经被废除了。现在的 SPF 都以 TXT 资源记录的形式存在，主机名一般为 @。比如本博客的 SPF 如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">➞ <span class="token function">dig</span> chenxy.me txt +short
+<span class="token string">"v=spf1 include:spf.mail.qq.com ~all"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="SPF-记录的格式"><a href="#SPF-记录的格式" class="headerlink" title="SPF 记录的格式"></a>SPF 记录的格式</h2><p>SPF 记录以单个空格作为多个子项的分割符，每个子项由 qualifier、mechanism、modifier 等组件构成。在解析时将从左往右匹配，如果有任意一个子项匹配成功，则立即中止匹配过程并根据 qualifier 返回 SPF 校验结果。</p>
 <p>SPF 记录以固定的 <code>v=spf1 </code>开始，标识着 SPF 版本，目前固定为 spf1。</p>
@@ -323,7 +324,7 @@
 <tbody><tr>
 <td>s</td>
 <td>发件人邮箱地址</td>
-<td><a href="mailto:&#104;&#115;&#105;&#x61;&#x6f;&#120;&#121;&#x63;&#x68;&#x65;&#110;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#111;&#109;">&#104;&#115;&#105;&#x61;&#x6f;&#120;&#121;&#x63;&#x68;&#x65;&#110;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#111;&#109;</a></td>
+<td><a href="mailto:&#x68;&#x73;&#x69;&#97;&#111;&#x78;&#121;&#99;&#x68;&#x65;&#110;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;">&#x68;&#x73;&#x69;&#97;&#111;&#x78;&#121;&#99;&#x68;&#x65;&#110;&#x40;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#x6f;&#x6d;</a></td>
 </tr>
 <tr>
 <td>l</td>
@@ -357,10 +358,10 @@
 </tr>
 </tbody></table>
 <p>同时，如果在宏的后边附加上 r，可以使得取值被逆序。如，假设我们有以下 SPF 记录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v=spf1 exists:%&#123;ir&#125;.%&#123;l&#125;._spf.example.com -all</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log">v<span class="token operator">=</span>spf1 exists<span class="token operator">:</span><span class="token operator">%</span><span class="token operator">&#123;</span>ir<span class="token operator">&#125;</span><span class="token punctuation">.</span><span class="token operator">%</span><span class="token operator">&#123;</span>l<span class="token operator">&#125;</span><span class="token punctuation">.</span>_spf<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com <span class="token operator">-</span>all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>同时，在 _spf.example.com 子域下仅有一条 A 记录：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4.1.5.114.noreply._spf.example.com IN A 127.0.0.1</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log"><span class="token ip-address constant">4.1.5.114</span><span class="token punctuation">.</span>noreply<span class="token punctuation">.</span>_spf<span class="token punctuation">.</span>example<span class="token punctuation">.</span>com IN A <span class="token ip-address constant">127.0.0.1</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>则只有从 <code>114.5.1.4</code> 发送的来自 <code>noreply@example.com</code> 的邮件能通过 SPF 校验。</p>
 <h5 id="其他的-Mechanism"><a href="#其他的-Mechanism" class="headerlink" title="其他的 Mechanism"></a>其他的 Mechanism</h5><p>其他的 mechanism 包括：a、mx、ip4、ip6、exists，他们的机制都比较相似且比较好理解，整理如下：</p>
@@ -385,15 +386,30 @@
 </tr>
 </tbody></table>
 <h3 id="Modifier"><a href="#Modifier" class="headerlink" title="Modifier"></a>Modifier</h3><p>modifier 的语法与 mechanism 稍有不同，其没有 qualifier，而且键值划分不是 <code>:</code> 而是 <code>=</code>。目前共有两种 modifier，分别是 redirect 跟 exp。exp 用以 SPF 校验失败后告知服务器如何生成解释文本，在此不作介绍；redirect 可以将后续的 SPF 校验过程「重定向」到目标域名。比如 gmail.com 的 SPF 记录：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➞  dig gmail.com txt +short</span><br><span class="line"><span class="string">&quot;globalsign-smime-dv=CDYX+XFHUw2wml6/Gb8+59BsH31KzUr6c1l2BPvqKX8=&quot;</span></span><br><span class="line"><span class="string">&quot;v=spf1 redirect=_spf.google.com&quot;</span></span><br><span class="line"></span><br><span class="line">➞  dig _spf.google.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:_netblocks.google.com include:_netblocks2.google.com include:_netblocks3.google.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">➞  <span class="token function">dig</span> gmail.com txt +short
+<span class="token string">"globalsign-smime-dv=CDYX+XFHUw2wml6/Gb8+59BsH31KzUr6c1l2BPvqKX8="</span>
+<span class="token string">"v=spf1 redirect=_spf.google.com"</span>
+
+➞  <span class="token function">dig</span> _spf.google.com txt +short
+<span class="token string">"v=spf1 include:_netblocks.google.com include:_netblocks2.google.com include:_netblocks3.google.com ~all"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>虽然在不同的域名之下，但是 _spf.google.com 的 SPF 策略将可以代表 gmail.com。</p>
 <p>注意 redirect 必须作为 SPF 记录的最后一个部分出现，并且当有 all 出现时 redirect 将必须被忽略。</p>
-<h2 id="SPF-记录实例分析"><a href="#SPF-记录实例分析" class="headerlink" title="SPF 记录实例分析"></a>SPF 记录实例分析</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➞  dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br><span class="line"><span class="comment"># 检查 spf.mail.qq.com 的匹配结果，如果匹配失败，则返回 soft fail</span></span><br><span class="line"></span><br><span class="line">➞  dig spf.mail.qq.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf-a.mail.qq.com include:spf-b.mail.qq.com include:spf-c.mail.qq.com include:spf-d.mail.qq.com include:spf-e.mail.qq.com include:spf-f.mail.qq.com include:spf-g.mail.qq.com -all&quot;</span></span><br><span class="line"><span class="comment"># 依次检查各个 include 的匹配结果，如果都匹配失败，则返回 fail</span></span><br><span class="line"></span><br><span class="line">➞  dig spf-a.mail.qq.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 ip4:203.205.251.0/24 ip4:103.7.29.0/24 ip4:59.36.129.0/24 ip4:113.108.23.0/24 ip4:113.108.11.0/24 ip4:119.147.193.0/24 ip4:119.147.194.0/24 ip4:59.78.209.0/24 ip4:113.96.223.0/24 ip4:183.3.226.0/24 ip4:183.3.255.0/24 ip4:59.36.132.0/24 -all&quot;</span></span><br><span class="line"><span class="comment"># 如果发件方不在这些 ip 段之中则返回 fail</span></span><br></pre></td></tr></table></figure>
+<h2 id="SPF-记录实例分析"><a href="#SPF-记录实例分析" class="headerlink" title="SPF 记录实例分析"></a>SPF 记录实例分析</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">➞  <span class="token function">dig</span> chenxy.me txt +short
+<span class="token string">"v=spf1 include:spf.mail.qq.com ~all"</span>
+<span class="token comment"># 检查 spf.mail.qq.com 的匹配结果，如果匹配失败，则返回 soft fail</span>
+
+➞  <span class="token function">dig</span> spf.mail.qq.com txt +short
+<span class="token string">"v=spf1 include:spf-a.mail.qq.com include:spf-b.mail.qq.com include:spf-c.mail.qq.com include:spf-d.mail.qq.com include:spf-e.mail.qq.com include:spf-f.mail.qq.com include:spf-g.mail.qq.com -all"</span>
+<span class="token comment"># 依次检查各个 include 的匹配结果，如果都匹配失败，则返回 fail</span>
+
+➞  <span class="token function">dig</span> spf-a.mail.qq.com txt +short
+<span class="token string">"v=spf1 ip4:203.205.251.0/24 ip4:103.7.29.0/24 ip4:59.36.129.0/24 ip4:113.108.23.0/24 ip4:113.108.11.0/24 ip4:119.147.193.0/24 ip4:119.147.194.0/24 ip4:59.78.209.0/24 ip4:113.96.223.0/24 ip4:183.3.226.0/24 ip4:183.3.255.0/24 ip4:59.36.132.0/24 -all"</span>
+<span class="token comment"># 如果发件方不在这些 ip 段之中则返回 fail</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>貌似实际应用的 SPF 记录中几乎都不使用 exists、exp 等机制，大多只是简单的划定合法 ip 段。</p>
 <p>另外一种比较典型的 SPF 记录写法是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v=spf1 a mx ip4:114.5.1.4 -all</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-log" data-language="log"><code class="language-log">v<span class="token operator">=</span>spf1 a mx ip4<span class="token operator">:</span><span class="token ip-address constant">114.5.1.4</span> <span class="token operator">-</span>all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>代表「只有本域名的 a、mx 记录中的 ip 以及 114.5.1.4 可以代表本域发出邮件」，常见于自建的私人邮件服务器。</p>
 <h2 id="拓展阅读"><a href="#拓展阅读" class="headerlink" title="拓展阅读"></a>拓展阅读</h2><ul>
@@ -437,7 +453,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568713"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368578"></script>
   
 
   

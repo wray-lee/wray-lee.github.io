@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="1234567891011121314151617#Windows 上是 ~&#x2F;.ssh&#x2F;config#Linux 上是 &#x2F;etc&#x2F;ssh&#x2F;ssh_config### 别名（Host）：Host 和 HostName 的值可以相同# 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\.ssh\id_rsa_aliyun root@144.90.100.144# 用别名">
+<meta name="description" content="#Windows 上是 ~&#x2F;.ssh&#x2F;config #Linux 上是 &#x2F;etc&#x2F;ssh&#x2F;ssh_config # # # 别名（Host）：Host 和 HostName 的值可以相同 # 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\.ssh\id_rsa_aliyun root@144.90.100.144 # 用别名登录会使用别名下的配置，不用别名登录（">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh多私钥管理">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/Server/ssh/ssh%E5%A4%9A%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="1234567891011121314151617#Windows 上是 ~&#x2F;.ssh&#x2F;config#Linux 上是 &#x2F;etc&#x2F;ssh&#x2F;ssh_config### 别名（Host）：Host 和 HostName 的值可以相同# 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\.ssh\id_rsa_aliyun root@144.90.100.144# 用别名">
+<meta property="og:description" content="#Windows 上是 ~&#x2F;.ssh&#x2F;config #Linux 上是 &#x2F;etc&#x2F;ssh&#x2F;ssh_config # # # 别名（Host）：Host 和 HostName 的值可以相同 # 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\.ssh\id_rsa_aliyun root@144.90.100.144 # 用别名登录会使用别名下的配置，不用别名登录（">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
 <meta property="article:modified_time" content="2024-04-09T15:50:40.747Z">
@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568888">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368752">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568888">
+<link rel="stylesheet" href="/css/style.css?v=1712679368752">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568888">
+        <link rel="stylesheet" href="/custom.css?v=1712679368752">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568888"></script>
+<script async src="/js/app.js?v=1712679368752"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568889"></script>
+	<script async src="/js/search.js?v=1712679368752"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -270,7 +270,23 @@
     
 </div>
 
-    <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Windows 上是 ~/.ssh/config</span></span><br><span class="line"><span class="comment">#Linux 上是 /etc/ssh/ssh_config</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 别名（Host）：Host 和 HostName 的值可以相同</span></span><br><span class="line"><span class="comment"># 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\.ssh\id_rsa_aliyun root@144.90.100.144</span></span><br><span class="line"><span class="comment"># 用别名登录会使用别名下的配置，不用别名登录（如IP）不会使用别名下的配置</span></span><br><span class="line"><span class="string">Host</span> <span class="string">aliyun</span></span><br><span class="line">    <span class="string">User</span> <span class="string">root</span></span><br><span class="line">    <span class="string">HostName</span> <span class="number">144.90</span><span class="number">.100</span><span class="number">.144</span></span><br><span class="line">    <span class="comment"># 私钥文件位置</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">&quot;~/.ssh/id_rsa_aliyun&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">Host</span> <span class="string">tencent</span></span><br><span class="line">    <span class="string">User</span> <span class="string">root</span></span><br><span class="line">    <span class="string">HostName</span> <span class="number">100.28</span><span class="number">.144</span><span class="number">.47</span></span><br><span class="line">    <span class="string">IdentityFile</span> <span class="string">&quot;~/.ssh/id_rsa_tencent&quot;</span></span><br></pre></td></tr></table></figure>
+    <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment">#Windows 上是 ~/.ssh/config</span>
+<span class="token comment">#Linux 上是 /etc/ssh/ssh_config</span>
+<span class="token comment">#</span>
+<span class="token comment">#</span>
+<span class="token comment"># 别名（Host）：Host 和 HostName 的值可以相同</span>
+<span class="token comment"># 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\.ssh\id_rsa_aliyun root@144.90.100.144</span>
+<span class="token comment"># 用别名登录会使用别名下的配置，不用别名登录（如IP）不会使用别名下的配置</span>
+Host aliyun
+    User root
+    HostName 144.90.100.144
+    <span class="token comment"># 私钥文件位置</span>
+    IdentityFile "~/.ssh/id_rsa_aliyun"
+
+Host tencent
+    User root
+    HostName 100.28.144.47
+    IdentityFile "~/.ssh/id_rsa_tencent"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     
   </article>
 
@@ -294,7 +310,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568720"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368583"></script>
   
 
   

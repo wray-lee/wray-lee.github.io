@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="Docker仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径]	#将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口]	#将特定">
+<meta name="description" content="Docker仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] #docker run 参数 -v [主机路径]:[容器路径]	#将容器路径挂载到主机 -P #容器内部端口随机映射到主机端口 -p [主机端口]:[容器端口]	#将特定容器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/05/Network/Server/devops/Docker/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Docker仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径]	#将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口]	#将特定">
+<meta property="og:description" content="Docker仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] #docker run 参数 -v [主机路径]:[容器路径]	#将容器路径挂载到主机 -P #容器内部端口随机映射到主机端口 -p [主机端口]:[容器端口]	#将特定容器">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T16:53:01.000Z">
 <meta property="article:modified_time" content="2024-04-09T15:50:40.744Z">
@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568796">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368685">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568796">
+<link rel="stylesheet" href="/css/style.css?v=1712679368685">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568796">
+        <link rel="stylesheet" href="/custom.css?v=1712679368685">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568796"></script>
+<script async src="/js/app.js?v=1712679368685"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568797"></script>
+	<script async src="/js/search.js?v=1712679368685"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -275,13 +275,19 @@
 <p><strong>查找镜像</strong>：<code>docker search [镜像名]</code></p>
 <h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p><strong>查看镜像</strong>：<code>docker images</code></p>
 <p><strong>使用镜像生成容器</strong>：<code>docker run [镜像名]</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">docker run 参数</span></span><br><span class="line">-v [主机路径]:[容器路径]	#将容器路径挂载到主机</span><br><span class="line">-P #容器内部端口随机映射到主机端口</span><br><span class="line">-p [主机端口]:[容器端口]	#将特定容器端口映射到特定主机端口</span><br><span class="line">--name [容器名字]	#容器命名</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment">#docker run 参数</span>
+<span class="token parameter variable">-v</span> <span class="token punctuation">[</span>主机路径<span class="token punctuation">]</span>:<span class="token punctuation">[</span>容器路径<span class="token punctuation">]</span>	<span class="token comment">#将容器路径挂载到主机</span>
+<span class="token parameter variable">-P</span> <span class="token comment">#容器内部端口随机映射到主机端口</span>
+<span class="token parameter variable">-p</span> <span class="token punctuation">[</span>主机端口<span class="token punctuation">]</span>:<span class="token punctuation">[</span>容器端口<span class="token punctuation">]</span>	<span class="token comment">#将特定容器端口映射到特定主机端口</span>
+<span class="token parameter variable">--name</span> <span class="token punctuation">[</span>容器名字<span class="token punctuation">]</span>	<span class="token comment">#容器命名</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>删除镜像</strong>：<code>docker rmi [镜像名]</code></p>
 <h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p><strong>查看容器</strong>：<code>docker ps -a</code></p>
 <p><strong>删除容器</strong>：<code>docker rm [容器名]</code></p>
 <p><strong>进入容器</strong>：<code>docker exec -it [容器序号/容器名字] /bin/bash</code> &#x2F; <code>docker exec -it [容器序号] /bin/sh</code></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-i:interact 交互操作</span><br><span class="line">-t:terminal 终端</span><br><span class="line">-d:down 后台运行</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token parameter variable">-i:interact</span> 交互操作
+<span class="token parameter variable">-t:terminal</span> 终端
+<span class="token parameter variable">-d:down</span> 后台运行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>启动已有容器</strong>：<code>docker restart [container]</code></p>
 <p><strong>停止已有容器运行</strong>：<code>docker stop [container]</code>		<code>sudo aa-remove-unknown(遇到permission denied)</code></p>
@@ -306,7 +312,13 @@
 <p><code>docker run -it --rm -h [容器主机名]  --dns=[dns_ip] --dns-search=test.com [container]</code></p>
 <hr>
 <p>参数：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--rm：容器退出时自动清理容器内部的文件系统。</span><br><span class="line"></span><br><span class="line">-h HOSTNAME 或者 --hostname=HOSTNAME： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。</span><br><span class="line"></span><br><span class="line">--dns=IP_ADDRESS： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。</span><br><span class="line"></span><br><span class="line">--dns-search=DOMAIN： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">--rm：容器退出时自动清理容器内部的文件系统。
+
+<span class="token parameter variable">-h</span> <span class="token environment constant">HOSTNAME</span> 或者 <span class="token parameter variable">--hostname</span><span class="token operator">=</span><span class="token environment constant">HOSTNAME</span>： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。
+
+<span class="token parameter variable">--dns</span><span class="token operator">=</span>IP_ADDRESS： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。
+
+--dns-search<span class="token operator">=</span>DOMAIN： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 <span class="token function">host</span> 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -335,7 +347,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568707"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368574"></script>
   
 
   

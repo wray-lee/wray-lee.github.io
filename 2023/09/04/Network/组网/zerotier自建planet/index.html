@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568876">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368749">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568876">
+<link rel="stylesheet" href="/css/style.css?v=1712679368749">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568876">
+        <link rel="stylesheet" href="/custom.css?v=1712679368749">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568876"></script>
+<script async src="/js/app.js?v=1712679368749"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568877"></script>
+	<script async src="/js/search.js?v=1712679368749"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -286,20 +286,71 @@
 <p>######## 仅供参考 #########</p>
 <ol>
 <li><p>下载</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Jonnyan404/zerotier-planet</span><br><span class="line">cd zerotier-planet</span><br><span class="line">vim docker-compose.yml</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">git clone https:&#x2F;&#x2F;github.com&#x2F;Jonnyan404&#x2F;zerotier-planet
+cd zerotier-planet
+vim docker-compose.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>修改</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">###　参考</span><br><span class="line">### date:2021年11月29日</span><br><span class="line">### author: www.mrdoc.fun | jonnyan404</span><br><span class="line">### 转载请保留来源</span><br><span class="line">version: &#x27;2.0&#x27;</span><br><span class="line">services:</span><br><span class="line">    ztncui:</span><br><span class="line">        container_name: ztncui</span><br><span class="line">        restart: always</span><br><span class="line">        environment:</span><br><span class="line">            # - MYADDR=公网地址(不设置该项自动获取)</span><br><span class="line">            - MYADDR=127.0.0.1  # 改成自己的服务器公网ip</span><br><span class="line">            - HTTP_PORT=3443</span><br><span class="line">            - HTTP_ALL_INTERFACES=yes</span><br><span class="line">            - ZTNCUI_PASSWD=root</span><br><span class="line">        ports:</span><br><span class="line">            - &#x27;3443:3443&#x27;  # 设置网页的端口</span><br><span class="line">            - &#x27;9993:9993&#x27;  # 作为中心节点，提供9993端口给客户端用，一般是9993</span><br><span class="line">            - &#x27;9993:9993/udp&#x27;</span><br><span class="line">        volumes:</span><br><span class="line">            - &#x27;./zerotier-one:/var/lib/zerotier-one&#x27;</span><br><span class="line">            - &#x27;./ztncui/etc:/opt/key-networks/ztncui/etc&#x27;</span><br><span class="line">            # 按实际路径挂载卷， 冒号前面是宿主机的， 支持相对路径</span><br><span class="line">        image: keynetworks/ztncui</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">###　参考
+### date:2021年11月29日
+### author: www.mrdoc.fun | jonnyan404
+### 转载请保留来源
+version: &#39;2.0&#39;
+services:
+    ztncui:
+        container_name: ztncui
+        restart: always
+        environment:
+            # - MYADDR&#x3D;公网地址(不设置该项自动获取)
+            - MYADDR&#x3D;127.0.0.1  # 改成自己的服务器公网ip
+            - HTTP_PORT&#x3D;3443
+            - HTTP_ALL_INTERFACES&#x3D;yes
+            - ZTNCUI_PASSWD&#x3D;root
+        ports:
+            - &#39;3443:3443&#39;  # 设置网页的端口
+            - &#39;9993:9993&#39;  # 作为中心节点，提供9993端口给客户端用，一般是9993
+            - &#39;9993:9993&#x2F;udp&#39;
+        volumes:
+            - &#39;.&#x2F;zerotier-one:&#x2F;var&#x2F;lib&#x2F;zerotier-one&#39;
+            - &#39;.&#x2F;ztncui&#x2F;etc:&#x2F;opt&#x2F;key-networks&#x2F;ztncui&#x2F;etc&#39;
+            # 按实际路径挂载卷， 冒号前面是宿主机的， 支持相对路径
+        image: keynetworks&#x2F;ztncui<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>运行</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br><span class="line"></span><br><span class="line">docker images #　查看镜像</span><br><span class="line">docker container ps -a # 查看容器</span><br><span class="line"></span><br><span class="line">docker exec -it ztncui bash # 进入容器</span><br><span class="line"># 在容器内操作</span><br><span class="line">cd /var/lib/zerotier-one</span><br><span class="line">ls -l</span><br><span class="line"># 生成moon配置文件</span><br><span class="line">zerotier-idtool initmoon identity.public &gt; moon.json</span><br><span class="line">chmod 777 moon.json</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">docker-compose up -d
+
+docker images #　查看镜像
+docker container ps -a # 查看容器
+
+docker exec -it ztncui bash # 进入容器
+# 在容器内操作
+cd &#x2F;var&#x2F;lib&#x2F;zerotier-one
+ls -l
+# 生成moon配置文件
+zerotier-idtool initmoon identity.public &gt; moon.json
+chmod 777 moon.json<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>新建一个terminal, 在<strong>容器外</strong>修改<code>moon.json</code>, 位置对应挂载位置</p>
 <p> 修改<code>stableEndpoints</code>, 注意格式和实际公网ip</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> &quot;id&quot;: &quot;b72b5e9e1a&quot;,</span><br><span class="line"> &quot;objtype&quot;: &quot;world&quot;,</span><br><span class="line"> &quot;roots&quot;: [</span><br><span class="line">  &#123;</span><br><span class="line">   &quot;identity&quot;: &quot;b72b5e9e1a:0:a892e51d2ef94ef941e4c499af01fbc2903f7ad2fd53e9370f9ac6260c2f5d2484fd90756bec0c410675a81b7cf61d2bb885783bd6a8c28bce83bcab5f03fe14&quot;,</span><br><span class="line">   &quot;stableEndpoints&quot;: [&quot;127.0.0.1/9993&quot;]</span><br><span class="line">  &#125;</span><br><span class="line"> ],</span><br><span class="line"> &quot;signingKey&quot;: &quot;45f0613e569a0549c74293c39b30495b594a003534290e8ade9ef82877aa7505d7a73eeabfc22c97c404e4caaf9f3c9eed2b134d696935c966e28f523364f15f&quot;,</span><br><span class="line"> &quot;signingKey_SECRET&quot;: &quot;cc6afd67e7b7f84a92e2c8d3c2e7212c71e2ad0a4f5b3c03bf60ab1cd3b99281b57d9a2958d2bd8fc2bc77fdf2a1160099c2c61d3d9acc8cb311673ee120b4a6&quot;,</span><br><span class="line"> &quot;updatesMustBeSignedBy&quot;: &quot;45f0613e569a0549c74293c39b30495b594a003534290e8ade9ef82877aa7505d7a73eeabfc22c97c404e4caaf9f3c9eed2b134d696935c966e28f523364f15f&quot;,</span><br><span class="line"> &quot;worldType&quot;: &quot;moon&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">&#123;
+ &quot;id&quot;: &quot;b72b5e9e1a&quot;,
+ &quot;objtype&quot;: &quot;world&quot;,
+ &quot;roots&quot;: [
+  &#123;
+   &quot;identity&quot;: &quot;b72b5e9e1a:0:a892e51d2ef94ef941e4c499af01fbc2903f7ad2fd53e9370f9ac6260c2f5d2484fd90756bec0c410675a81b7cf61d2bb885783bd6a8c28bce83bcab5f03fe14&quot;,
+   &quot;stableEndpoints&quot;: [&quot;127.0.0.1&#x2F;9993&quot;]
+  &#125;
+ ],
+ &quot;signingKey&quot;: &quot;45f0613e569a0549c74293c39b30495b594a003534290e8ade9ef82877aa7505d7a73eeabfc22c97c404e4caaf9f3c9eed2b134d696935c966e28f523364f15f&quot;,
+ &quot;signingKey_SECRET&quot;: &quot;cc6afd67e7b7f84a92e2c8d3c2e7212c71e2ad0a4f5b3c03bf60ab1cd3b99281b57d9a2958d2bd8fc2bc77fdf2a1160099c2c61d3d9acc8cb311673ee120b4a6&quot;,
+ &quot;updatesMustBeSignedBy&quot;: &quot;45f0613e569a0549c74293c39b30495b594a003534290e8ade9ef82877aa7505d7a73eeabfc22c97c404e4caaf9f3c9eed2b134d696935c966e28f523364f15f&quot;,
+ &quot;worldType&quot;: &quot;moon&quot;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>在<strong>容器内</strong>生成moon文件</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zerotier-idtool genmoon moon.json</span><br><span class="line">mkdir moons.d</span><br><span class="line">cp *.moon moons.d/</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">zerotier-idtool genmoon moon.json
+mkdir moons.d
+cp *.moon moons.d&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>在<strong>容器外</strong>生成planet文件</p>
 <ul>
@@ -309,13 +360,21 @@
 </li>
 <li><pre><code>  ./mkmoonworld-x86_64 ./moon.json
   mv world.bin planet
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```</span><br><span class="line">    # 复制到容器内</span><br><span class="line">    docker cp ./planet ztncui:/var/lib/zerotier-one</span><br></pre></td></tr></table></figure>
+  <pre class="line-numbers language-none"><code class="language-none">
+- &#96;&#96;&#96;
+    # 复制到容器内
+    docker cp .&#x2F;planet ztncui:&#x2F;var&#x2F;lib&#x2F;zerotier-one<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </code></pre>
 </li>
 </ul>
 </li>
 <li><p>重启容器</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker restart ztncui</span><br><span class="line">docker exec -it ztncui bash # 进入容器</span><br><span class="line"># 在容器内操作</span><br><span class="line">cd /var/lib/zerotier-one</span><br><span class="line">#　查看ｍoon</span><br><span class="line">zerotier-cli listmoons</span><br></pre></td></tr></table></figure>
+ <pre class="line-numbers language-none"><code class="language-none">docker restart ztncui
+docker exec -it ztncui bash # 进入容器
+# 在容器内操作
+cd &#x2F;var&#x2F;lib&#x2F;zerotier-one
+#　查看ｍoon
+zerotier-cli listmoons<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>访问<code>ip+端口</code>对应的设置页面</p>
 </li>
@@ -346,7 +405,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568718"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368582"></script>
   
 
   

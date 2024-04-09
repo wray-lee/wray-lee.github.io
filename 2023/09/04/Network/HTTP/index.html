@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="HTTP请求（request）、响应（response） 请求报文：  请求行 请求头 请求体  1234567891011graph LR请求报文--&gt;请求行请求报文--&gt;请求头请求报文--&gt;请求体请求行--&gt;请求方法请求行--&gt;参数请求行--&gt;协议方法请求头--&gt;请求头及对应值请求体--&gt;请求正文    响应报文：  响应行 响应头 响应体  1">
+<meta name="description" content="HTTP请求（request）、响应（response） 请求报文：  请求行 请求头 请求体  graph LR 请求报文--&gt;请求行 请求报文--&gt;请求头 请求报文--&gt;请求体  请求行--&gt;请求方法 请求行--&gt;参数 请求行--&gt;协议方法  请求头--&gt;请求头及对应值 请求体--&gt;请求正文    响应报文：  响应行 响应头 响应体  graph LR 响应报文--&gt;响应行 响应报文--&gt;响">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/HTTP/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="HTTP请求（request）、响应（response） 请求报文：  请求行 请求头 请求体  1234567891011graph LR请求报文--&gt;请求行请求报文--&gt;请求头请求报文--&gt;请求体请求行--&gt;请求方法请求行--&gt;参数请求行--&gt;协议方法请求头--&gt;请求头及对应值请求体--&gt;请求正文    响应报文：  响应行 响应头 响应体  1">
+<meta property="og:description" content="HTTP请求（request）、响应（response） 请求报文：  请求行 请求头 请求体  graph LR 请求报文--&gt;请求行 请求报文--&gt;请求头 请求报文--&gt;请求体  请求行--&gt;请求方法 请求行--&gt;参数 请求行--&gt;协议方法  请求头--&gt;请求头及对应值 请求体--&gt;请求正文    响应报文：  响应行 响应头 响应体  graph LR 响应报文--&gt;响应行 响应报文--&gt;响">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
 <meta property="article:modified_time" content="2024-04-09T15:50:40.739Z">
@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568840">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368714">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568840">
+<link rel="stylesheet" href="/css/style.css?v=1712679368714">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568840">
+        <link rel="stylesheet" href="/custom.css?v=1712679368714">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568840"></script>
+<script async src="/js/app.js?v=1712679368714"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568840"></script>
+	<script async src="/js/search.js?v=1712679368715"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -277,7 +277,17 @@
 <li>请求头</li>
 <li>请求体</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">请求报文--&gt;请求行</span><br><span class="line">请求报文--&gt;请求头</span><br><span class="line">请求报文--&gt;请求体</span><br><span class="line"></span><br><span class="line">请求行--&gt;请求方法</span><br><span class="line">请求行--&gt;参数</span><br><span class="line">请求行--&gt;协议方法</span><br><span class="line"></span><br><span class="line">请求头--&gt;请求头及对应值</span><br><span class="line">请求体--&gt;请求正文</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR
+请求报文<span class="token arrow operator">--></span>请求行
+请求报文<span class="token arrow operator">--></span>请求头
+请求报文<span class="token arrow operator">--></span>请求体
+
+请求行<span class="token arrow operator">--></span>请求方法
+请求行<span class="token arrow operator">--></span>参数
+请求行<span class="token arrow operator">--></span>协议方法
+
+请求头<span class="token arrow operator">--></span>请求头及对应值
+请求体<span class="token arrow operator">--></span>请求正文<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -287,7 +297,17 @@
 <li>响应头</li>
 <li>响应体</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">响应报文--&gt;响应行</span><br><span class="line">响应报文--&gt;响应头</span><br><span class="line">响应报文--&gt;响应体</span><br><span class="line"></span><br><span class="line">响应行--&gt;响应协议</span><br><span class="line">响应行--&gt;状态码</span><br><span class="line">响应行--&gt;描述</span><br><span class="line"></span><br><span class="line">响应头--&gt;响应头及对应值</span><br><span class="line">响应体--&gt;响应正文</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid"><span class="token keyword">graph</span> LR
+响应报文<span class="token arrow operator">--></span>响应行
+响应报文<span class="token arrow operator">--></span>响应头
+响应报文<span class="token arrow operator">--></span>响应体
+
+响应行<span class="token arrow operator">--></span>响应协议
+响应行<span class="token arrow operator">--></span>状态码
+响应行<span class="token arrow operator">--></span>描述
+
+响应头<span class="token arrow operator">--></span>响应头及对应值
+响应体<span class="token arrow operator">--></span>响应正文<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="行"><a href="#行" class="headerlink" title="行"></a>行</h2><h3 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h3><p>请求方法（所有方法全为大写）有多种，各个方法的解释如下：</p>
 <p>GET   请求获取Request-URI所标识的资源</p>
@@ -358,7 +378,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568713"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368577"></script>
   
 
   

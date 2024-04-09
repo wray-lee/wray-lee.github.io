@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568846">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368719">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568846">
+<link rel="stylesheet" href="/css/style.css?v=1712679368719">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568846">
+        <link rel="stylesheet" href="/custom.css?v=1712679368719">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568846"></script>
+<script async src="/js/app.js?v=1712679368719"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568847"></script>
+	<script async src="/js/search.js?v=1712679368719"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -282,10 +282,15 @@
 <p>落地机：<code>./gost -L relay+tls://:8443/:80</code></p>
 <h4 id="方式2："><a href="#方式2：" class="headerlink" title="方式2："></a>方式2：</h4><p>中转机：<code>./gost -L tcp://:9527/1.1.1.1:80 -F relay+tls://1.1.1.1:8443</code></p>
 <p>落地机：<code>./gost -L relay+tls://:8443</code></p>
-<h4 id="后台运行："><a href="#后台运行：" class="headerlink" title="后台运行："></a>后台运行：</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup 运行指令 &gt; gost.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure>
+<h4 id="后台运行："><a href="#后台运行：" class="headerlink" title="后台运行："></a>后台运行：</h4><pre class="line-numbers language-none"><code class="language-none">nohup 运行指令 &gt; gost.log 2&gt;&amp;1 &amp;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="链式代理"><a href="#链式代理" class="headerlink" title="链式代理"></a>链式代理</h3><p><strong>clash:</strong></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">name:</span> <span class="string">&quot;链式代理&quot;</span></span><br><span class="line"> <span class="attr">type:</span> <span class="string">relay</span></span><br><span class="line"> <span class="attr">proxies:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">proxy1</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">proxy2</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">proxy3</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">"链式代理"</span>
+ <span class="token key atrule">type</span><span class="token punctuation">:</span> relay
+ <span class="token key atrule">proxies</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> proxy1
+    <span class="token punctuation">-</span> proxy2
+    <span class="token punctuation">-</span> proxy3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><strong>v2ray代理链</strong>：<a target="_blank" rel="noopener" href="https://bulianglin.com/g/aHR0cHM6Ly90b3V0eXJhdGVyLmdpdGh1Yi5pby9hZHZhbmNlZC9vdXRib3VuZHByb3h5Lmh0bWw">https://toutyrater.github.io/advanced/outboundproxy.html</a><br><strong>gost代理链</strong>：<a target="_blank" rel="noopener" href="https://bulianglin.com/g/aHR0cHM6Ly9nb3N0LnJ1bi9jb25jZXB0cy9jaGFpbi8">https://gost.run/concepts/chain/</a></p>
 
@@ -312,7 +317,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568714"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368578"></script>
   
 
   

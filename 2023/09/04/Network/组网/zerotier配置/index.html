@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="zerotier配置moon12345678910cd &#x2F;var&#x2F;lib&#x2F;zerotier-one	#定位到主机的密钥位置sudo zerotier-idtool initmoon identity.public &gt; moon.json	#生成moon配置修改stableEndpoints参数	&quot;主机ip&#x2F;9993&quot;	并保存推出zerotier-idtool genmoo">
+<meta name="description" content="zerotier配置mooncd &#x2F;var&#x2F;lib&#x2F;zerotier-one	#定位到主机的密钥位置 sudo zerotier-idtool initmoon identity.public &gt; moon.json	#生成moon配置 修改stableEndpoints参数	&quot;主机ip&#x2F;9993&quot;	并保存推出 zerotier-idtool genmoon moon.json	#生成签名 mkd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zerotier配置">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/%E7%BB%84%E7%BD%91/zerotier%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="zerotier配置moon12345678910cd &#x2F;var&#x2F;lib&#x2F;zerotier-one	#定位到主机的密钥位置sudo zerotier-idtool initmoon identity.public &gt; moon.json	#生成moon配置修改stableEndpoints参数	&quot;主机ip&#x2F;9993&quot;	并保存推出zerotier-idtool genmoo">
+<meta property="og:description" content="zerotier配置mooncd &#x2F;var&#x2F;lib&#x2F;zerotier-one	#定位到主机的密钥位置 sudo zerotier-idtool initmoon identity.public &gt; moon.json	#生成moon配置 修改stableEndpoints参数	&quot;主机ip&#x2F;9993&quot;	并保存推出 zerotier-idtool genmoon moon.json	#生成签名 mkd">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
 <meta property="article:modified_time" content="2024-04-09T15:50:40.752Z">
@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568880">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368750">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568880">
+<link rel="stylesheet" href="/css/style.css?v=1712679368750">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568880">
+        <link rel="stylesheet" href="/custom.css?v=1712679368750">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568880"></script>
+<script async src="/js/app.js?v=1712679368750"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568880"></script>
+	<script async src="/js/search.js?v=1712679368751"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -270,7 +270,16 @@
     
 </div>
 
-    <h1 id="zerotier配置"><a href="#zerotier配置" class="headerlink" title="zerotier配置"></a>zerotier配置</h1><h2 id="moon"><a href="#moon" class="headerlink" title="moon"></a>moon</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd /var/lib/zerotier-one	#定位到主机的密钥位置</span><br><span class="line">sudo zerotier-idtool initmoon identity.public &gt; moon.json	#生成moon配置</span><br><span class="line">修改stableEndpoints参数	&quot;主机ip/9993&quot;	并保存推出</span><br><span class="line">zerotier-idtool genmoon moon.json	#生成签名</span><br><span class="line">mkdir moons.d</span><br><span class="line">mv 00000*.moon moons.d/</span><br><span class="line"></span><br><span class="line">最后复制签名文件到客户端</span><br><span class="line">linux位于/var/lib/zerotier-one/moons.d	自行创建moons.d文件夹</span><br><span class="line">windows位于C:\Programdata\zerotier\one\moons.d	自行创建moons.d文件夹</span><br></pre></td></tr></table></figure>
+    <h1 id="zerotier配置"><a href="#zerotier配置" class="headerlink" title="zerotier配置"></a>zerotier配置</h1><h2 id="moon"><a href="#moon" class="headerlink" title="moon"></a>moon</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">cd</span> /var/lib/zerotier-one	<span class="token comment">#定位到主机的密钥位置</span>
+<span class="token function">sudo</span> zerotier-idtool initmoon identity.public <span class="token operator">></span> moon.json	<span class="token comment">#生成moon配置</span>
+修改stableEndpoints参数	<span class="token string">"主机ip/9993"</span>	并保存推出
+zerotier-idtool genmoon moon.json	<span class="token comment">#生成签名</span>
+<span class="token function">mkdir</span> moons.d
+<span class="token function">mv</span> 00000*.moon moons.d/
+
+最后复制签名文件到客户端
+linux位于/var/lib/zerotier-one/moons.d	自行创建moons.d文件夹
+windows位于C:<span class="token punctuation">\</span>Programdata<span class="token punctuation">\</span>zerotier<span class="token punctuation">\</span>one<span class="token punctuation">\</span>moons.d	自行创建moons.d文件夹<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -278,10 +287,15 @@
 <p>v6同理</p>
 <hr>
 <p>更优选择</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.ipv4.ip_forward=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv6.conf.default.forwarding=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv6.conf.all.forwarding=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"net.ipv4.ip_forward=1"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token builtin class-name">echo</span> <span class="token string">"net.ipv6.conf.default.forwarding=1"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token builtin class-name">echo</span> <span class="token string">"net.ipv6.conf.all.forwarding=1"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token function">sysctl</span> <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>关闭严格模式</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.ipv4.conf.default.rp_filter=0&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.conf.all.rp_filter=0&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">echo</span> <span class="token string">"net.ipv4.conf.default.rp_filter=0"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token builtin class-name">echo</span> <span class="token string">"net.ipv4.conf.all.rp_filter=0"</span> <span class="token operator">>></span> /etc/sysctl.conf
+<span class="token function">sysctl</span> <span class="token parameter variable">-p</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h4 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h4><p>​			<strong><code>rp_filter </code></strong></p>
 <p>​			是 Linux 内核针对网络的一项网络安全保护功能，对于数据包的来源地址和来源网络界面（网卡）进行检查：</p>
@@ -309,7 +323,10 @@
 <li><p>然后，<strong>千万 一定 绝对</strong> 关掉你的 UFW 等帮你简单配置 iptables 防火墙的工具。</p>
 </li>
 </ul>
-<h3 id="添加防火墙规则"><a href="#添加防火墙规则" class="headerlink" title="添加防火墙规则"></a>添加防火墙规则</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE</span><br><span class="line">sudo iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT</span><br><span class="line">iptables-save	#保存</span><br></pre></td></tr></table></figure>
+<h3 id="添加防火墙规则"><a href="#添加防火墙规则" class="headerlink" title="添加防火墙规则"></a>添加防火墙规则</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> <span class="token variable">$PHY_IFACE</span> <span class="token parameter variable">-j</span> MASQUERADE
+<span class="token function">sudo</span> iptables <span class="token parameter variable">-A</span> FORWARD <span class="token parameter variable">-i</span> <span class="token variable">$PHY_IFACE</span> <span class="token parameter variable">-o</span> <span class="token variable">$ZT_IFACE</span> <span class="token parameter variable">-m</span> state <span class="token parameter variable">--state</span> RELATED,ESTABLISHED <span class="token parameter variable">-j</span> ACCEPT
+<span class="token function">sudo</span> iptables <span class="token parameter variable">-A</span> FORWARD <span class="token parameter variable">-i</span> <span class="token variable">$ZT_IFACE</span> <span class="token parameter variable">-o</span> <span class="token variable">$PHY_IFACE</span> <span class="token parameter variable">-j</span> ACCEPT
+iptables-save	<span class="token comment">#保存</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
     
@@ -335,7 +352,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568719"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368582"></script>
   
 
   

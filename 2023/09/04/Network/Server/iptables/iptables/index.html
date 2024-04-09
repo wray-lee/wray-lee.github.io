@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="iptables1iptables -A (FORWARD&#x2F;INPUT&#x2F;OUTPUT&#x2F;POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)      12345sysctl -w net.ipv4.conf.all.forwarding&#x3D;1sysctl -w net.ipv6.conf.all.forwarding&#x3D;1iptables">
+<meta name="description" content="iptablesiptables -A (FORWARD&#x2F;INPUT&#x2F;OUTPUT&#x2F;POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)      sysctl -w net.ipv4.conf.all.forwarding&#x3D;1 sysctl -w net.ipv6.conf.all.forwarding&#x3D;1 iptables -t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iptables">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/Server/iptables/iptables/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="iptables1iptables -A (FORWARD&#x2F;INPUT&#x2F;OUTPUT&#x2F;POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)      12345sysctl -w net.ipv4.conf.all.forwarding&#x3D;1sysctl -w net.ipv6.conf.all.forwarding&#x3D;1iptables">
+<meta property="og:description" content="iptablesiptables -A (FORWARD&#x2F;INPUT&#x2F;OUTPUT&#x2F;POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)      sysctl -w net.ipv4.conf.all.forwarding&#x3D;1 sysctl -w net.ipv6.conf.all.forwarding&#x3D;1 iptables -t">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
 <meta property="article:modified_time" content="2024-04-09T15:50:40.744Z">
@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568884">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368756">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568884">
+<link rel="stylesheet" href="/css/style.css?v=1712679368756">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568884">
+        <link rel="stylesheet" href="/custom.css?v=1712679368756">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568884"></script>
+<script async src="/js/app.js?v=1712679368756"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568884"></script>
+	<script async src="/js/search.js?v=1712679368756"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -270,17 +270,24 @@
     
 </div>
 
-    <h1 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A (FORWARD/INPUT/OUTPUT/POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)</span><br></pre></td></tr></table></figure>
+    <h1 id="iptables"><a href="#iptables" class="headerlink" title="iptables"></a>iptables</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">iptables <span class="token parameter variable">-A</span> <span class="token punctuation">(</span>FORWARD/INPUT/OUTPUT/POSTROUTING<span class="token punctuation">)</span>模式 <span class="token parameter variable">-i</span> 入口 <span class="token parameter variable">-o</span> 出口 <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-j</span> MASQUERADE<span class="token punctuation">(</span>自动选择nat模式<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sysctl -w net.ipv4.conf.all.forwarding=1</span><br><span class="line">sysctl -w net.ipv6.conf.all.forwarding=1</span><br><span class="line">iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line">iptables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu</span><br><span class="line">ip6tables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sysctl</span> <span class="token parameter variable">-w</span> <span class="token assign-left variable">net.ipv4.conf.all.forwarding</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token function">sysctl</span> <span class="token parameter variable">-w</span> <span class="token assign-left variable">net.ipv6.conf.all.forwarding</span><span class="token operator">=</span><span class="token number">1</span>
+iptables <span class="token parameter variable">-t</span> nat <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-o</span> eth0 <span class="token parameter variable">-j</span> MASQUERADE
+iptables <span class="token parameter variable">-t</span> mangle <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-p</span> tcp --tcp-flags SYN,RST SYN <span class="token parameter variable">-j</span> TCPMSS --clamp-mss-to-pmtu
+ip6tables <span class="token parameter variable">-t</span> mangle <span class="token parameter variable">-A</span> POSTROUTING <span class="token parameter variable">-p</span> tcp --tcp-flags SYN,RST SYN <span class="token parameter variable">-j</span> TCPMSS --clamp-mss-to-pmtu<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
-<h2 id="Bridge"><a href="#Bridge" class="headerlink" title="Bridge"></a>Bridge</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ip <span class="built_in">link</span> add taps_bridge <span class="built_in">type</span> bridge</span><br><span class="line">ip <span class="built_in">link</span> <span class="built_in">set</span> taps_bridge up</span><br><span class="line">ip address add <span class="variable">$SERVER_IP6</span>/64 dev taps_bridge</span><br><span class="line">ip address add <span class="variable">$SERVER_LOCAL_IP</span>/16 dev taps_bridge</span><br></pre></td></tr></table></figure>
+<h2 id="Bridge"><a href="#Bridge" class="headerlink" title="Bridge"></a>Bridge</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">ip</span> <span class="token function">link</span> <span class="token function">add</span> taps_bridge <span class="token builtin class-name">type</span> bridge
+<span class="token function">ip</span> <span class="token function">link</span> <span class="token builtin class-name">set</span> taps_bridge up
+<span class="token function">ip</span> address <span class="token function">add</span> <span class="token variable">$SERVER_IP6</span>/64 dev taps_bridge
+<span class="token function">ip</span> address <span class="token function">add</span> <span class="token variable">$SERVER_LOCAL_IP</span>/16 dev taps_bridge<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -308,7 +315,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568719"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368584"></script>
   
 
   

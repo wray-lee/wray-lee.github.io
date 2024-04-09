@@ -22,15 +22,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568860">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368734">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568860">
+<link rel="stylesheet" href="/css/style.css?v=1712679368734">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568860">
+        <link rel="stylesheet" href="/custom.css?v=1712679368734">
     
 
 
@@ -40,7 +40,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568860"></script>
+<script async src="/js/app.js?v=1712679368734"></script>
 
  
 
@@ -123,7 +123,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568861"></script>
+	<script async src="/js/search.js?v=1712679368734"></script>
 
 
 
@@ -220,19 +220,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -286,7 +286,42 @@
 <li>三级域名：xxxx.xxxx.com</li>
 </ul>
 <h2 id="whois查询"><a href="#whois查询" class="headerlink" title="whois查询"></a>whois查询</h2><p>查询建站者信息</p>
-<h2 id="google-hacking"><a href="#google-hacking" class="headerlink" title="google hacking"></a>google hacking</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">intext:		网页内容作为搜索</span><br><span class="line">inurl:		网址作为搜索</span><br><span class="line">intitle:	网页标题作为搜索</span><br><span class="line">cache:		搜索缓存，过期内容</span><br><span class="line">filetype:T name	搜索类型文件，定义类型和名字</span><br><span class="line">site:		在指定网站下搜索</span><br><span class="line">allin**		指定多个关键字</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">“”		把引号内作为整体搜索</span><br><span class="line">and		与，一起搜索</span><br><span class="line">or		或，搜索多个关键字</span><br><span class="line">link:		搜索某个网站链接</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 1.找管理后台地址</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com intext:管理、后台、登录、用户名、密码、系统、帐号</span><br><span class="line">    site:http://xxx.com inurl:login、admin、manage、manager、admin_login、system</span><br><span class="line">    site:http://xxx.com intitle:管理、后台、登陆</span><br><span class="line"></span><br><span class="line">2.找上传类漏洞地址</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com inurl:file</span><br><span class="line">    site:http://xxx.com inurl:upload</span><br><span class="line"></span><br><span class="line">3.找注入页面</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com inurl:php?id=</span><br><span class="line"></span><br><span class="line">4.找编辑器页面</span><br><span class="line"></span><br><span class="line">    site:http://xxx.com inurl:ewebeditor</span><br></pre></td></tr></table></figure>
+<h2 id="google-hacking"><a href="#google-hacking" class="headerlink" title="google hacking"></a>google hacking</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">intext:		网页内容作为搜索
+inurl:		网址作为搜索
+intitle:	网页标题作为搜索
+cache:		搜索缓存，过期内容
+filetype:T name	搜索类型文件，定义类型和名字
+site:		在指定网站下搜索
+allin**		指定多个关键字
+
+
+“”		把引号内作为整体搜索
+and		与，一起搜索
+or		或，搜索多个关键字
+link:		搜索某个网站链接
+
+
+
+
+
+ <span class="token number">1</span>.找管理后台地址
+
+    site:http://xxx.com intext:管理、后台、登录、用户名、密码、系统、帐号
+    site:http://xxx.com inurl:login、admin、manage、manager、admin_login、system
+    site:http://xxx.com intitle:管理、后台、登陆
+
+<span class="token number">2</span>.找上传类漏洞地址
+
+    site:http://xxx.com inurl:file
+    site:http://xxx.com inurl:upload
+
+<span class="token number">3</span>.找注入页面
+
+    site:http://xxx.com inurl:php?id<span class="token operator">=</span>
+
+<span class="token number">4</span>.找编辑器页面
+
+    site:http://xxx.com inurl:ewebeditor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -325,7 +360,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568715"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368580"></script>
   
 
   

