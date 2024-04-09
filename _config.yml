@@ -61,15 +61,23 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+# # syntax highlighter
+# shiki:
+#   theme: github-dark
+#   line_number: true # whether to show the line_number
+# highlight:
+#   enable: false
+# prismjs:
+#   enable: false
 highlight:
   enable: true
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
-  hljs: false
+  hljs: true
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
   line_number: true
   tab_replace: ''
