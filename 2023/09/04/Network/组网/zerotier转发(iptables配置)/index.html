@@ -1,4 +1,256 @@
-<div class="nexmoe-post">
+<!doctype html>
+<html lang="en"><head>
+<title>zerotier转发(iptables配置) - Wray的Blog</title>
+<meta charset="UTF-8">
+<meta name="keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="description" content="网络三层NAT配置方法（linux主机） 假设zerotier虚拟局域网的网段是192.168.192.0 局域网A 192.168.1.0 局域网B 192.168.2.0 (如果需要互联)在局域网A和B中需要各有一台主机安装zerotier并作为两个内网互联的网关 分别是192.168.1.10（192.168.192.10） 192.168.2.10（192.168.192.20）#括号里面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zerotier转发(iptables配置)">
+<meta property="og:url" content="http://blog.wray7.top/2023/09/04/Network/%E7%BB%84%E7%BD%91/zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="网络三层NAT配置方法（linux主机） 假设zerotier虚拟局域网的网段是192.168.192.0 局域网A 192.168.1.0 局域网B 192.168.2.0 (如果需要互联)在局域网A和B中需要各有一台主机安装zerotier并作为两个内网互联的网关 分别是192.168.1.10（192.168.192.10） 192.168.2.10（192.168.192.20）#括号里面">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6">
+<meta property="article:published_time" content="2023-09-04T13:48:57.000Z">
+<meta property="article:modified_time" content="2024-04-09T15:50:40.751Z">
+<meta property="article:author" content="Wray Lee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6">
+
+<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
+<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
+
+
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712678558551">
+
+<link rel="stylesheet" href="/css/style.css?v=1712678558551">
+
+
+
+
+    
+        <link rel="stylesheet" href="/custom.css?v=1712678558551">
+    
+
+
+
+<script src="/lib/mdui_043tiny/mdui.js" async></script>
+<script src="/lib/fancybox/fancybox.umd.js" async></script>
+<script src="/lib/lax.min.js" async></script>
+
+
+<script async src="/js/app.js?v=1712678558551"></script>
+
+ 
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4D4ZJ9G024"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+
+  gtag("config", "G-4D4ZJ9G024");
+</script>
+
+
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+<meta name="generator" content="Hexo 6.3.0"></head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0)"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="Wray Lee"><img src="https://cn.gravatar.com/userimage/233116289/1526482abfaf22d825aea126c7edcd17.jpeg?size=256" alt="Wray Lee"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="Wray Lee">
+            <img src="https://cn.gravatar.com/userimage/233116289/1526482abfaf22d825aea126c7edcd17.jpeg?size=256" alt="Wray Lee" alt="Wray Lee">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>35</div>
+        <div><span>Tags</span>0</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/donate.html" title="给我赞助">
+            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
+            <div class="mdui-list-item-content">
+                给我赞助
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博主">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博主
+            </div>
+        </a>
+        
+    </div>
+    
+    
+        
+        <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        
+            <form id="search_form">
+                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="Search" style="
+                    font-size: 15px !important;
+                    height: 56px !important;
+                    background-image: none;
+                "></label>
+            </form>
+         
+    </div>
+</div>
+
+
+	<script async src="/js/search.js?v=1712678558551"></script>
+
+
+
+    
+        
+        <div class="nexmoe-widget-wrap">
+	<div class="nexmoe-widget nexmoe-social">
+		<a
+			class="mdui-ripple"
+			href="https://t.me/+7RWkqugoPudjMjA1"
+			target="_blank"
+			mdui-tooltip="{content: 'Telegram群'}"
+			style="
+				color: rgb(249, 174, 8);
+				background-color: rgba(249, 174, 8, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-telegram"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://space.bilibili.com/13441368"
+			target="_blank"
+			mdui-tooltip="{content: '哔哩哔哩'}"
+			style="
+				color: rgb(231, 106, 141);
+				background-color: rgba(231, 106, 141, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-bilibili"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://github.com/wray-lee/"
+			target="_blank"
+			mdui-tooltip="{content: 'GitHub'}"
+			style="
+				color: rgb(25, 23, 23);
+				background-color: rgba(25, 23, 23, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-github"
+			></i> </a
+		><a
+			class="mdui-ripple"
+			href="https://twitter.com/wraysidlee"
+			target="_blank"
+			mdui-tooltip="{content: 'Twitter'}"
+			style="
+				color: rgb(59, 151, 239);
+				background-color: rgba(59, 151, 239, .1);
+			"
+		>
+			<i
+				class="nexmoefont icon-twitter"
+			></i> </a
+		>
+	</div>
+</div>
+
+    
+        
+        
+
+    
+        
+        
+    
+        
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">33</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+
+    
+        
+        
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Recent Posts</h3>
+    <div class="nexmoe-widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/04/09/Code/web-basic/">web-basic</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
+          </li>
+        
+          <li>
+            <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+        
+   
+    <div class="nexmoe-copyright">
+        &copy; 2024 Wray Lee
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
+        
+    </div>
+</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><div class="nexmoe-post">
   <article>
     
         <div class="nexmoe-post-cover"> 
@@ -65,7 +317,7 @@
 </div>
   
   
-    <script async src="/js/copy-codeblock.js?v=1712678090341"></script>
+    <script async src="/js/copy-codeblock.js?v=1712678558385"></script>
   
 
   
@@ -73,4 +325,25 @@
           
       </div>
   
-</div>
+</div></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
+        <div class="nexmoe-tool">
+
+            
+
+            
+            
+            <button class="mdui-fab catalog" style="overflow:unset;">
+                <i class="nexmoefont icon-i-catalog"></i>
+                <div class="nexmoe-toc">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%B8%89%E5%B1%82NAT%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%EF%BC%88linux%E4%B8%BB%E6%9C%BA%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">网络三层NAT配置方法（linux主机）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9C%A8zerotier%E7%BD%91%E7%AB%99%E7%9A%84networks%E9%87%8C%E9%9D%A2%E7%9A%84Managed-Routes%E4%B8%8B%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1%E8%A1%A8-%E5%A2%9E%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">1. 在zerotier网站的networks里面的Managed Routes下配置路由表,增加如下内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BC%80%E5%90%AF%E5%86%85%E6%A0%B8%E8%BD%AC%E5%8F%91"><span class="toc-number">1.2.</span> <span class="toc-text">2. 开启内核转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 防火墙设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A7%E7%89%88zerotier-%E2%80%9Ccannot-bind-local-interface-port%E2%80%9D%E6%88%96%E6%97%A0%E6%B3%95%E6%8E%A5%E5%85%A5%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">旧版zerotier “cannot bind local interface port”或无法接入网络处理</span></a></li></ol>
+                </div>
+            </button>
+            
+
+            
+
+            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
+        </div>
+    </div>
+</div></div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="Search" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
+</div></body></html>
