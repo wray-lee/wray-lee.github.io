@@ -230,7 +230,7 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#98;&#111;&#x73;&#x73;&#64;&#x79;&#x6f;&#117;&#114;&#x2d;&#x63;&#x6f;&#114;&#x70;&#46;&#99;&#111;&#109;">boss@your-corp.com</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#x62;&#111;&#115;&#115;&#x40;&#x79;&#x6f;&#x75;&#114;&#45;&#x63;&#x6f;&#x72;&#112;&#x2e;&#99;&#111;&#x6d;">boss@your-corp.com</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
+        <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#x62;&#111;&#x73;&#115;&#x40;&#121;&#x6f;&#117;&#114;&#45;&#x63;&#x6f;&#114;&#112;&#x2e;&#99;&#111;&#x6d;">boss@your-corp.com</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#98;&#111;&#115;&#x73;&#64;&#121;&#x6f;&#x75;&#x72;&#45;&#x63;&#x6f;&#x72;&#x70;&#46;&#99;&#x6f;&#109;">boss@your-corp.com</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
 <h2 id="如何部署-SPF"><a href="#如何部署-SPF" class="headerlink" title="如何部署 SPF"></a>如何部署 SPF</h2><p>DNS 系统中曾经有一种专门的 SPF 资源记录类型，但已经被废除了。现在的 SPF 都以 TXT 资源记录的形式存在，主机名一般为 @。比如本博客的 SPF 如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -283,7 +283,7 @@
 <tbody><tr>
 <td>s</td>
 <td>发件人邮箱地址</td>
-<td><a href="mailto:&#104;&#x73;&#105;&#97;&#111;&#x78;&#121;&#x63;&#104;&#x65;&#110;&#64;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#111;&#x6d;">hsiaoxychen@example.com</a></td>
+<td><a href="mailto:&#104;&#x73;&#x69;&#x61;&#111;&#120;&#x79;&#99;&#104;&#x65;&#x6e;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#109;">hsiaoxychen@example.com</a></td>
 </tr>
 <tr>
 <td>l</td>
