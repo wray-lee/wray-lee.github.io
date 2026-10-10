@@ -5,7 +5,7 @@
   
   
   
-  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
     Wray的Blog
   </title>
@@ -114,23 +114,65 @@
             </div>
           <span class="main-nav-link">关于</span>
         </a>
-        <a class="main-nav-link-wrap" href="/friend">
-            <div class="main-nav-icon icon rotate">
-                &#xe62b;
-            </div>
-          <span class="main-nav-link">友链</span>
-        </a>
     <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation">
       <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
       <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
   </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">简体中文</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" class="selected" aria-selected="true">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/page/20/';
+              langMap['en'] = '/en/page/20/';
+              langMap['ja'] = '/ja/page/20/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
 </div>
 <header id="header" aria-label="Site header">
       <picture>
       </picture>
-        <img  fetchpriority="high" src="/images/banner.webp" alt="">
+        <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -156,7 +198,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -194,13 +236,6 @@
           </div>
         <div class="sidebar-menu-link">关于</div>
       </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
-      </div>
 </div>
 
     </div>
@@ -214,7 +249,7 @@
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/12/23/2022-12-23-msf%E4%BD%BF%E7%94%A8/" aria-label="msf使用" title="msf使用"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="msf使用" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="msf使用" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -251,7 +286,7 @@ session [num] 选择会话
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/12/20/2022-12-20-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" aria-label="信息收集" title="信息收集"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="信息收集" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="信息收集" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -286,7 +321,7 @@ google hacking1234567891011121
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/12/19/2022-12-19-HTTP/" aria-label="HTTP" title="HTTP"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="HTTP" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="HTTP" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -322,7 +357,7 @@ google hacking1234567891011121
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/12/18/2022-12-18-%E6%95%B0%E6%8D%AE%E5%BA%93/" aria-label="数据库" title="数据库"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="数据库" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="数据库" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -352,7 +387,7 @@ Mysql数据库连接数据库mys
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/12/18/2022-12-17-%E6%95%B0%E6%8D%AE%E5%BA%93eg/" aria-label="数据库eg" title="数据库eg"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="数据库eg" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="数据库eg" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -384,7 +419,7 @@ flush privileges;
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/12/06/2022-12-05-v2raya_rules_example/" aria-label="v2raya_rules_example" title="v2raya_rules_example"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="v2raya_rules_example" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="v2raya_rules_example" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -403,7 +438,7 @@ flush privileges;
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/11/15/2022-11-15-fcitx_theme/" aria-label="fcitx_theme" title="fcitx_theme"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="fcitx_theme" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="fcitx_theme" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -428,7 +463,7 @@ linux电池管理.pdf
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/11/07/2022-11-07-%E5%82%B2%E6%A2%85%E5%A4%87%E4%BB%BD/" aria-label="傲梅备份" title="傲梅备份"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="傲梅备份" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="傲梅备份" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -458,7 +493,7 @@ winxmove-1.1窗口大小调整.7z
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/11/07/2022-11-07-sublime_addons/" aria-label="sublime_addons" title="sublime_addons"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="sublime_addons" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="sublime_addons" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -481,7 +516,7 @@ winxmove-1.1窗口大小调整.7z
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/11/03/2022-11-03-zsh_p10k%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85/" aria-label="zsh_p10k主题安装" title="zsh_p10k主题安装"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="zsh_p10k主题安装" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="zsh_p10k主题安装" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -501,7 +536,7 @@ winxmove-1.1窗口大小调整.7z
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/10/30/2022-10-30-NU22%E6%8B%9B%E6%96%B0%E9%A2%98/" aria-label="NU22招新题" title="NU22招新题"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="NU22招新题" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="NU22招新题" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -530,7 +565,7 @@ HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/10/14/2022-10-14-dn42/" aria-label="dn42" title="dn42"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="dn42" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="dn42" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -572,10 +607,10 @@ HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特
       </div>
       <div>
         <span class="icon-brush"></span>
-        169k
+        538k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        15:27
+        49:10
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -603,7 +638,7 @@ HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -640,13 +675,6 @@ HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特
               &#xe62b;
           </div>
         <div class="sidebar-menu-link">关于</div>
-      </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
 

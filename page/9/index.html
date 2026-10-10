@@ -5,7 +5,7 @@
   
   
   
-  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
     Wray的Blog
   </title>
@@ -114,23 +114,65 @@
             </div>
           <span class="main-nav-link">关于</span>
         </a>
-        <a class="main-nav-link-wrap" href="/friend">
-            <div class="main-nav-icon icon rotate">
-                &#xe62b;
-            </div>
-          <span class="main-nav-link">友链</span>
-        </a>
     <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation">
       <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
       <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
   </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">简体中文</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" class="selected" aria-selected="true">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/page/9/';
+              langMap['en'] = '/en/page/9/';
+              langMap['ja'] = '/ja/page/9/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
 </div>
 <header id="header" aria-label="Site header">
       <picture>
       </picture>
-        <img  fetchpriority="high" src="/images/banner.webp" alt="">
+        <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -156,7 +198,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -194,13 +236,6 @@
           </div>
         <div class="sidebar-menu-link">关于</div>
       </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
-      </div>
 </div>
 
     </div>
@@ -214,7 +249,7 @@
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2025/04/21/2025-04-21-%E7%BE%A4%E6%99%96%E7%A1%AC%E7%9B%98%E4%B8%A2%E5%A4%B1%E4%BF%AE%E5%A4%8D/" aria-label="群晖硬盘丢失修复" title="群晖硬盘丢失修复"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="群晖硬盘丢失修复" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="群晖硬盘丢失修复" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -242,7 +277,7 @@
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2025/04/16/2025-04-16-Nat/" aria-label="Nat" title="Nat"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="Nat" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Nat" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -265,7 +300,7 @@
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2025/04/02/2025-04-02-%E8%BE%93%E5%87%BA%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95/" aria-label="输出到指定目录" title="输出到指定目录"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="输出到指定目录" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="输出到指定目录" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -291,7 +326,7 @@ ari
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2025/04/02/2025-04-02-%E8%BF%81%E7%A7%BBappdata/" aria-label="迁移appdata" title="迁移appdata"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="迁移appdata" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="迁移appdata" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -315,7 +350,7 @@ HKEY_CURRENT_USER\Softwa
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2025/03/31/2025-03-31-n2n%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E/" aria-label="n2n参数说明" title="n2n参数说明"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="n2n参数说明" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="n2n参数说明" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -334,7 +369,7 @@ HKEY_CURRENT_USER\Softwa
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2025/03/27/2025-03-27-Docker/" aria-label="Docker" title="Docker"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="Docker" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Docker" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -372,7 +407,7 @@ HKEY_CURRENT_USER\Softwa
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2025/03/27/2025-03-27-Git%20commit%20%E8%A7%84%E8%8C%83/" aria-label="Git commit 规范" title="Git commit 规范"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="Git commit 规范" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Git commit 规范" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -398,7 +433,7 @@ test： 增加测试 （when adding missing tests）。
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2025/03/20/2025-03-20-arch%E4%BB%A5lvm%E5%AE%89%E8%A3%85/" aria-label="arch以lvm安装" title="arch以lvm安装"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="arch以lvm安装" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="arch以lvm安装" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -433,7 +468,7 @@ cfdisk分区
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2025/03/19/2025-03-19-tmp%E7%A9%BA%E9%97%B4%E6%89%A9%E5%85%85%EF%BC%88pip%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%EF%BC%89/" aria-label="tmp空间扩充（pip空间不足）" title="tmp空间扩充（pip空间不足）"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="tmp空间扩充（pip空间不足）" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="tmp空间扩充（pip空间不足）" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -452,7 +487,7 @@ cfdisk分区
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2025/03/19/2025-03-19-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" aria-label="机器学习" title="机器学习"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="机器学习" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="机器学习" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -497,7 +532,7 @@ SVM概念二维
   <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2025/03/06/2025-03-06-path/" aria-label="path" title="path"></a>
     <div class="post-cover left">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="path" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="path" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -517,7 +552,7 @@ SVM概念二维
   <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2025/03/01/2025-03-01-web-basic/" aria-label="web-basic" title="web-basic"></a>
     <div class="post-cover right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="web-basic" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="web-basic" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -563,10 +598,10 @@ text为文本
       </div>
       <div>
         <span class="icon-brush"></span>
-        169k
+        538k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        15:27
+        49:10
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -594,7 +629,7 @@ text为文本
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -631,13 +666,6 @@ text为文本
               &#xe62b;
           </div>
         <div class="sidebar-menu-link">关于</div>
-      </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
 

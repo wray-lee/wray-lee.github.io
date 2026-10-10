@@ -5,7 +5,7 @@
   
   
   
-  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
     iptables | Wray的Blog
   </title>
@@ -111,23 +111,65 @@
             </div>
           <span class="main-nav-link">关于</span>
         </a>
-        <a class="main-nav-link-wrap" href="/friend">
-            <div class="main-nav-icon icon rotate">
-                &#xe62b;
-            </div>
-          <span class="main-nav-link">友链</span>
-        </a>
     <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation">
       <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
       <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
   </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">简体中文</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" class="selected" aria-selected="true">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2024/04/20/2024-04-20-iptables/';
+              langMap['en'] = '/en/2024/04/20/2024-04-20-iptables/';
+              langMap['ja'] = '/ja/2024/04/20/2024-04-20-iptables/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
 </div>
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img  fetchpriority="high" src="/images/banner.webp" alt="iptables">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="iptables">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -157,7 +199,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -194,13 +236,6 @@
               &#xe62b;
           </div>
         <div class="sidebar-menu-link">关于</div>
-      </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
 </div>
@@ -316,7 +351,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="python" class="lazyload">
+            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="python" class="lazyload">
         <a href="/2024/05/22/2024-05-21-python/" aria-label="前一篇: python" title="前一篇: python"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
@@ -324,7 +359,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="正则表达式再深入" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="正则表达式再深入" class="lazyload">
       <a href="/2024/04/15/2024-04-15-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%8D%E6%B7%B1%E5%85%A5/" aria-label="后一篇: 正则表达式再深入"  title="后一篇: 正则表达式再深入"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
@@ -355,10 +390,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        169k
+        538k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        15:27
+        49:10
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -391,7 +426,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -428,13 +463,6 @@
               &#xe62b;
           </div>
         <div class="sidebar-menu-link">关于</div>
-      </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
 </div>
@@ -530,7 +558,7 @@
           stripContent: "iptables增删查改12graph LR A(raw)--&amp;gt;B(mangle)--&amp;gt;C(nat)--&amp;gt;D(filter)--&amp;gt;E(raw)--&amp;gt;F(mangle)--&amp;gt;G(nat)--&amp;gt;H(filter)    12345678graph TB A(Network)--&amp;gt;B(table:nat\nchain:PREROUTING) B--process--&amp;gt;C(table:filter\nchain:INPUT) B--&amp;gt;G C--",
           date: "Sat Apr 20 2024 20:20:24 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "/images/banner.webp",
+          cover: "https://www.dmoe.cc/random.php",
         };
       </script>
         

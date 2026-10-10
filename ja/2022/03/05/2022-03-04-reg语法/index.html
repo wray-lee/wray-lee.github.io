@@ -1,0 +1,599 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    reg语法 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content=".reg 文件具有以下语法： RegistryEditorVersionBlank line[RegistryPath1]“DataItemName1”&#x3D;”DataType1:DataValue1”DataItemName2”&#x3D;”DataType2:DataValue2”Blank line[RegistryPath2]“DataItemName3”&#x3D;”DataTyp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="reg语法">
+<meta property="og:url" content="https://blog.wray7.top/ja/2022/03/05/2022-03-04-reg%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content=".reg 文件具有以下语法： RegistryEditorVersionBlank line[RegistryPath1]“DataItemName1”&#x3D;”DataType1:DataValue1”DataItemName2”&#x3D;”DataType2:DataValue2”Blank line[RegistryPath2]“DataItemName3”&#x3D;”DataTyp">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2022-03-04T15:56:10.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:58.958Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2022/03/05/2022-03-04-reg语法/';
+              langMap['en'] = '/en/2022/03/05/2022-03-04-reg语法/';
+              langMap['ja'] = '/ja/2022/03/05/2022-03-04-reg语法/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="reg语法">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">reg语法</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2022-03-04-reg语法" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2022-03-04T15:56:10.000Z" itemprop="datePublished">2022-03-04</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <p>.reg 文件具有以下语法：</p>
+<p>RegistryEditorVersion<br>Blank line<br>[RegistryPath1]<br>“DataItemName1”&#x3D;”DataType1:DataValue1”<br>DataItemName2”&#x3D;”DataType2:DataValue2”<br>Blank line<br>[RegistryPath2]<br>“DataItemName3”&#x3D;”DataType3:DataValue3”</p>
+<p>其中：</p>
+<p>RegistryEditorVersion 是“Windows Registry Editor Version 5.00”（对于 Windows 2000、Windows XP 和 Windows Server 2003）或“REGEDIT4”（对于 Windows 98 和 Windows NT 4.0）。“REGEDIT4”表头也适用于基于 Windows 2000、Windows XP 和 Windows Server 2003 的计算机。</p>
+<p>Blank line 就是一个空行。它标识新的注册表路径的开始。每个项或子项都是一个新的注册表路径。如果 .reg 文件中有多个项，空白行可以帮助您检查内容和排查其中的问题。</p>
+<p>RegistryPathx 是保留要导入的第一个值的子项的路径。请用方括号将路径括起来，并用反斜杠将层次结构的各个级别隔开。例如：<br>[HKEY_LOCAL_ MACHINE\SOFTWARE\Policies\Microsoft\Windows\System]<br>一个 .reg 文件可以包含多个注册表路径。 如果注册表中不存在路径语句中底层的层次结构，将创建一个新的子项。注册表文件的内容将按照它们的输入顺序发送到注册表。因此，如果您要新建一个包含另一子项的子项，必须按正确的顺序输入行。</p>
+<p>DataItemNamex 是要导入的数据项的名称。如果文件中的数据项在注册表中不存在，.reg 文件将添加该数据项及其值。如果数据项存在，.reg 文件中的值将覆盖现有的值。数据项的名称用引号引起来。数据项名称后紧跟着一个等号 (&#x3D;)。</p>
+<p>DataTypex 是注册表值的数据类型，紧跟在等号后面。对于 REG_SZ（字符串值）以外的所有数据类型，数据类型后都紧跟一个冒号。如果数据类型是 REG_SZ，则不包括数据类型值或冒号。在这种情况下，Regedit.exe 假定数据类型为 REG_SZ。下表列出了典型的注册表数据类型：</p>
+<p>数据类型 .reg 中的数据类型<br>REG_BINARY hexadecimal<br>REG_DWORD dword<br>REG_EXPAND_SZ hexadecimal(2)<br>REG_MULTI_SZ hexadecimal(7)</p>
+<p>名称 数据类型 说明</p>
+<p>二进制值 REG_BINARY 原始二进制数据。大多数硬件组件信息作为二进制数据存储，以十六进制的格式显示在注册表编辑器中。</p>
+<p>DWORD 值 REG_DWORD 由 4 字节长（32 位整数）的数字表示的数据。设备驱动程序和服务的许多参数都是此类型，以二进制、十六进制或十进制格式显示在注册表编辑器中。与之有关的值是 DWORD_LITTLE_ENDIAN（最不重要的字节在最低位地址）和 REG_DWORD_BIG_ENDIAN（最不重要的字节在最高位地址）。</p>
+<p>可扩展字符串值 REG_EXPAND_SZ 长度可变的数据字符串。这种数据类型包括程序或服务使用该数据时解析的变量。</p>
+<p>多字符串值 REG_MULTI_SZ 多字符串。包含用户可以阅读的列表或多个值的值通常就是这种类型。各条目之间用空格、逗号或其他标记分隔。</p>
+<p>字符串值 REG_SZ 长度固定的文本字符串。</p>
+<p>二进制值 REG_RESOURCE_LIST 一系列嵌套的数组，用于存储硬件设备驱动程序或它控制的某个物理设备所使用的资源列表。此数据由系统检测并写入 \ResourceMap 树，作为二进制值以十六进制的格式显示在注册表编辑器中。</p>
+<p>二进制值 REG_RESOURCE_REQUIREMENTS_LIST 一系列嵌套的数组，用于存储设备驱动程序或它控制的某个物理设备可以使用的可能的硬件资源列表，系统将此列表的子集写入 \ResourceMap 树。此数据由系统检测，作为二进制值以十六进制的格式显示在注册表编辑器中。</p>
+<p>二进制值 REG_FULL_RESOURCE_DESCRIPTOR 一系列嵌套的数组，用于存储物理硬件设备使用的资源列表。此数据由系统检测并写入 \HardwareDescription 树，作为二进制值以十六进制的格式显示在注册表编辑器中</p>
+<p>无 REG_NONE 没有具体类型的数据。此数据由系统或应用程序写到注册表，作为二进制值以十六进制的格式显示在注册表编辑器中</p>
+<p>链接 REG_LINK 一个 Unicode 字符串，它命名一个符号链接。</p>
+<p>QWORD值 REG_QWORD 由 64 位整数数字表示的数据。此数据作为二进制值显示在注册表编辑器中，最初用在 Windows 2000 中。</p>
+<p>DataValuex 紧跟在冒号（对于 REG_SZ，则为等号）后面，并且格式必须正确（例如，字符串或十六进制）。对二进制数据项使用十六进制格式。<br>注意：可以为同一个注册表路径输入多个数据项行。<br>添加注册表子项或添加和更改注册表值<br>要添加注册表子项或添加&#x2F;更改注册表值，请在注册表中进行相应的更改，然后导出相应的一个或多个子项。导出的注册表子项自动另存为 .reg 文件。要对注册表进行更改并将更改导出到 .reg 文件，请按照下列步骤操作：</p>
+<ol>
+<li>单击“开始”，单击“运行”，在“打开”框中键入 regedit，然后单击“确定”。</li>
+<li>找到并单击存放要更改的注册表项的子项。</li>
+<li>单击“文件”，然后单击“导出”。</li>
+</ol>
+<p>此步骤在您进行更改之前备份子项。如果所作更改产生现问题，您可以随后将此文件重新导入注册表。</p>
+<ol start="4">
+<li>在“文件名”框中，键入用于保存包含原始注册表项的 .reg 文件的文件名，然后单击“保存”。</li>
+</ol>
+<p>注意：请使用能提示其内容的名称，例如，可引用该子项的名称。<br>5. 在右窗格中，添加或修改所需的注册表项。<br>6. 重复第 3 步和第 4 步，再次导出该子项，但是对该 .reg 文件使用不同的文件名。可以使用此 .reg 文件在其他计算机上对注册表进行更改。<br>7. 在本地计算机上测试所作更改。如果它们产生问题，请双击存放原始注册表数据备份的文件，以将注册表返回到其原始状态。如果更改起到预期作用，则可以使用本文分发注册表更改一节中的方法将您在第 6 步中创建的 .reg 文件向其他计算机分发。</p>
+<p>删除注册表项和值<br>要使用 .reg 文件删除注册表项，请在 .reg 文件中的注册表路径 前放置一个连字符 (-)。例如，要从以下注册表项中删除 Test 子项：<br>HKEY_LOCAL_MACHINE\Software<br>请在 .reg 文件中的以下注册表项前放置一个连字符：<br>HKEY_LOCAL_MACHINE\Software\Test<br>以下示例就是一个可以执行此任务的 .reg 文件。<br>[-HKEY_LOCAL_MACHINE\Software\Test]<br>要使用 .reg 文件删除注册表值，请在 .reg 文件中的数据项名称 后的等号后放置一个连字符 (-)。例如，要从以下注册表项中删除 TestValue 注册表值：<br>HKEY_LOCAL_MACHINE\Software\Test<br>请在 .reg 文件中的 “TestValue”&#x3D; 后面放置一个连字符。以下示例就是一个可以执行此任务的 .reg 文件。<br>HKEY_LOCAL_MACHINE\Software\Test<br>“TestValue”&#x3D;-<br>要创建 .reg 文件，请使用 Regedit.exe 导出要删除的注册表项，然后使用记事本编辑 .reg 文件并插入连字符。</p>
+<p>重命名注册表项和值<br>要重命名项或值，请删除该项或值，然后创建一个具有新名称的新项或新值。</p>
+<p>注意如果你需要在注册表中使用文件路径，那么文件路径的 斜杠\ 需要使用 双斜杠 \</p>
+<p>如果使用系统变量，则需要把系统变量中的斜杠替换成双斜杠</p>
+<p>Windows Registry Editor Version 5.00</p>
+<p>[HKEY_LOCAL_MACHINE\SOFTWARE\Classes*\shell]</p>
+<p>[HKEY_LOCAL_MACHINE\SOFTWARE\Classes*\shell\EditPlus 2]</p>
+<p>@&#x3D;”EditPlus 2”                         </p>
+<p>[HKEY_CLASSES_ROOT*\shell\EditPlus 2\command]<br>@&#x3D;”C:\Program Files (x86)\EditPlus 2\EditPlus.exe %1”</p>
+<p>此例中，如果把路径替换为变量</p>
+<p>@&#x3D;”%PROGRAMFILES(x86)%\EditPlus 2\EditPlus.exe %1” 实际结果为 @&#x3D;”C:\Program Files (x86)\EditPlus 2\EditPlus.exe %1”</p>
+<p>这样是错误的，系统将无法找到文件</p>
+<p>应该用DOS批处理来生成改reg文件，这里要使用到文本替换命令把单斜杠替换为双斜杠，如下</p>
+<p>@echo off<br>echo “默认使用86文件夹，兼容32位系统执行”<br>set var&#x3D;%PROGRAMFILES%<br>if “%PROCESSOR_ARCHITECTURE%”&#x3D;&#x3D;”AMD64” set “var&#x3D;%PROGRAMFILES(x86)%”<br>set “var&#x3D;%var:=\%”<br>echo Windows Registry Editor Version 5.00 &gt;menu.reg<br>echo. &gt;&gt;menu.reg<br>echo [HKEY_LOCAL_MACHINE\SOFTWARE\Classes*\shell] &gt;&gt;menu.reg<br>echo. &gt;&gt;menu.reg<br>echo [HKEY_LOCAL_MACHINE\SOFTWARE\Classes*\shell\EditPlus 2] &gt;&gt;menu.reg<br>echo. &gt;&gt;menu.reg<br>echo @&#x3D;”EditPlus 2” &gt;&gt;menu.reg<br>echo. &gt;&gt;menu.reg<br>echo [HKEY_CLASSES_ROOT*\shell\EditPlus 2\command]&gt;&gt;menu.reg<br>echo. &gt;&gt;menu.reg<br>echo @&#x3D;”%var%\EditPlus 2\EditPlus.exe %%1”&gt;&gt;menu.reg</p>
+<p>regedit &#x2F;s menu.reg</p>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/Windows/" rel="tag" title="Windows">Windows</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="硬件电路图（鑫智造）" class="lazyload">
+        <a href="/ja/2022/03/07/2022-03-07-%E7%A1%AC%E4%BB%B6%E7%94%B5%E8%B7%AF%E5%9B%BE%EF%BC%88%E9%91%AB%E6%99%BA%E9%80%A0%EF%BC%89/" aria-label="前の記事: 硬件电路图（鑫智造）" title="前の記事: 硬件电路图（鑫智造）"></a>
+        <div class="article-nav-caption">前の記事</div>
+        <h3 class="article-nav-title">
+            硬件电路图（鑫智造）
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="隐藏分区命令" class="lazyload">
+      <a href="/ja/2022/03/05/2022-03-04-%E9%9A%90%E8%97%8F%E5%88%86%E5%8C%BA%E5%91%BD%E4%BB%A4/" aria-label="次の記事: 隐藏分区命令"  title="次の記事: 隐藏分区命令"></a>
+      <div class="article-nav-caption">次の記事</div>
+      <h3 class="article-nav-title">
+          隐藏分区命令
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "reg语法",
+          url: "https://blog.wray7.top/2022/03/05/2022-03-04-reg%E8%AF%AD%E6%B3%95/",
+          excerpt: "",
+          description: "",
+          stripContent: ".reg 文件具有以下语法： RegistryEditorVersionBlank line[RegistryPath1]“DataItemName1”&amp;#x3D;”DataType1:DataValue1”DataItemName2”&amp;#x3D;”DataType2:DataValue2”Blank line[RegistryPath2]“DataItemName3”&amp;#x3D;”DataType3:DataValue3” 其中： RegistryEditorVersion 是“Windows",
+          date: "Fri Mar 04 2022 23:56:10 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

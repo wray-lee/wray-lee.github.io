@@ -1,0 +1,623 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Gitチュートリアル | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  gitはソート可能なスタックのようなもので、スタックの先頭は最下端にあり、最近のコミットに対してのみ変更でき、以前のデータを変更するには並べ替えが必要である switch, checkout を除くすべての操作は、参照が現在ある位置で行われる コミット記録自体の名前はハッシュ値である c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gitチュートリアル">
+<meta property="og:url" content="https://blog.wray7.top/en/2023/09/04/2023-09-04-Git%E6%95%99%E7%A8%8B.ja/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  gitはソート可能なスタックのようなもので、スタックの先頭は最下端にあり、最近のコミットに対してのみ変更でき、以前のデータを変更するには並べ替えが必要である switch, checkout を除くすべての操作は、参照が現在ある位置で行われる コミット記録自体の名前はハッシュ値である c">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:45:09.364Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="Code">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2023/09/04/2023-09-04-Git教程.ja/';
+              langMap['en'] = '/en/2023/09/04/2023-09-04-Git教程.ja/';
+              langMap['ja'] = '/ja/2023/09/04/2023-09-04-Git教程.ja/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Gitチュートリアル">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Gitチュートリアル</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#commit"><span class="toc-number">1.</span> <span class="toc-text">commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#branch"><span class="toc-number">2.</span> <span class="toc-text">branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#merge-rebase"><span class="toc-number">3.</span> <span class="toc-text">merge&#x2F;rebase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge"><span class="toc-number">3.1.</span> <span class="toc-text">merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase"><span class="toc-number">3.2.</span> <span class="toc-text">rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-number">4.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#checkout"><span class="toc-number">5.</span> <span class="toc-text">checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%BE%E5%8F%82%E7%85%A7"><span class="toc-number">6.</span> <span class="toc-text">相対参照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%89%E6%9B%B4%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97"><span class="toc-number">7.</span> <span class="toc-text">変更の取り消し</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E6%95%B4%E7%90%86"><span class="toc-number">8.</span> <span class="toc-text">ブランチの整理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tag%EF%BC%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E7%A7%BB%E5%8B%95%E3%81%AB%E3%82%88%E3%82%8B%E6%B7%B7%E4%B9%B1%E3%82%92%E9%81%BF%E3%81%91%E3%82%8B%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">Tag（ブランチ移動による混乱を避ける）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#describe"><span class="toc-number">10.</span> <span class="toc-text">describe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88"><span class="toc-number"></span> <span class="toc-text">リモート</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#clone"><span class="toc-number">1.</span> <span class="toc-text">clone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#main%E3%81%A8o-main"><span class="toc-number">2.</span> <span class="toc-text">mainとo&#x2F;main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch"><span class="toc-number">3.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull"><span class="toc-number">4.</span> <span class="toc-text">pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#push"><span class="toc-number">5.</span> <span class="toc-text">push</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2023-09-04-Git教程.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2023-09-03T16:00:00.000Z" itemprop="datePublished">2023-09-04</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<p>gitはソート可能なスタックのようなもので、スタックの先頭は最下端にあり、最近のコミットに対してのみ変更でき、以前のデータを変更するには並べ替えが必要である</p>
+<p>switch, checkout を除くすべての操作は、参照が現在ある位置で行われる</p>
+<p>コミット記録自体の名前はハッシュ値である</p>
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p><code>git commit</code> 新しいバージョンを作成する（完全なコピーではなく、差分のみを記録する）</p>
+<p><code>git commit --amend</code> コミット記録を修正する</p>
+<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
+<li><p><code>git branch &lt;branch_name&gt; &lt;branch_position&gt;</code></p>
+<pre><code>  branchは1つのcommitを指す
+</code></pre>
+</li>
+<li><p><code>git branch -f main head~3</code>    <code> 	git branch -f main c0</code>    <code>git branch -f</code> はブランチの参照先を変更できる</p>
+</li>
+<li><p><code>git switch &lt;branch_name&gt;</code></p>
+<pre><code>  特定のブランチに切り替える
+</code></pre>
+</li>
+</ul>
+<p>ブランチを使用して移動すると、ブランチも追随して移動する</p>
+<h2 id="merge-rebase"><a href="#merge-rebase" class="headerlink" title="merge&#x2F;rebase"></a>merge&#x2F;rebase</h2><h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><p>プルしてマージ</p>
+<p><code>git merge 1</code></p>
+<p>このときbranchがmainにあれば、1のコードをmainにプルし、branchはmainのままである</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>マージ先へ、コミット記録をコピーする</p>
+<p><code>git rebase 1</code></p>
+<p>するとmainを1の開発路線にマージし、branchはmainにある</p>
+<p>rebaseは下層のバージョンを移動せず、参照が現在あるバージョンのみを移動する</p>
+<hr>
+<p><code>git rebase -i head~3</code>			head参照位置を含む3つのcommitを選択し、GUIで削除・並べ替えを行い、処理後の結果は新しい路線上に現れる（基底はhead~3）</p>
+<p><code>-i</code> 現在のバージョンから基底バージョンまでのすべてのバージョンを変更する</p>
+<p><code>git rebase -参数 基版本	</code></p>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>すなわち現在の参照が存在する位置</p>
+<p><code>git checkout 1</code></p>
+<p>headを1に向ける</p>
+<p>headは1つのコミット記録commitを指す</p>
+<p>headを参照として使用する場合は大文字のHEADにする</p>
+<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><p><code>git checkout -b totallyNotMain o/main</code></p>
+<p><code>git checkout -b 选择分支 追踪分支</code>（ブランチを作成する。事前に作成しておく必要はない）</p>
+<p>あるブランチにリモートの特定のブランチを追跡させることができ、mainを置き換えるのに相当する</p>
+<hr>
+<p>も使用できる</p>
+<p><code>git branch -u 追踪分支 选择分支</code>（ブランチを作成しない。事前に作成しておく必要がある）</p>
+<h2 id="相対参照"><a href="#相対参照" class="headerlink" title="相対参照"></a>相対参照</h2><p>^ 1つ上のコミット記録へ移動する</p>
+<p>~num 上にnum個のコミット記録移動する</p>
+<p><code>git checkout main^</code></p>
+<p>&#x3D;&#x3D;ブランチをコミット記録commitの代わりに使用できる&#x3D;&#x3D;</p>
+<p>^2 は2番目の親コミットを選択できる</p>
+<p>コマンドはチェーン操作をサポートする</p>
+<p><code>git checkout HEAD~^2~2</code></p>
+<h2 id="変更の取り消し"><a href="#変更の取り消し" class="headerlink" title="変更の取り消し"></a>変更の取り消し</h2><p><code>git reset</code>	<code>git revert</code></p>
+<p><code>git reset head^</code> はcommitを前の記録に戻し、現在の記録を削除し、参照を前の記録に変更する</p>
+<p><code>git revert head^</code> はこの路線上に新しいcommitを追加するが、新しいcommitは実際には前のものと同じである</p>
+<p>&#x3D;&#x3D;2つのコマンドはどちらも現在の参照が存在する位置に対して操作を行う&#x3D;&#x3D;</p>
+<h2 id="ブランチの整理"><a href="#ブランチの整理" class="headerlink" title="ブランチの整理"></a>ブランチの整理</h2><p><code>git cherry-pick c2 c4</code>	c2,c4を順番に参照が現在存在するブランチの下へコピーする</p>
+<h2 id="Tag（ブランチ移動による混乱を避ける）"><a href="#Tag（ブランチ移動による混乱を避ける）" class="headerlink" title="Tag（ブランチ移動による混乱を避ける）"></a>Tag（ブランチ移動による混乱を避ける）</h2><p><code>git tag v1 c1</code></p>
+<p>c1上にv1	tagを追加する</p>
+<h2 id="describe"><a href="#describe" class="headerlink" title="describe"></a>describe</h2><p><code>git describe &lt;引用&gt;</code></p>
+<p>output：__g</p>
+<hr>
+<hr>
+<h1 id="リモート"><a href="#リモート" class="headerlink" title="リモート"></a>リモート</h1><h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><p><code>git clone</code> リモートリポジトリを複製する</p>
+<p>初回clone時は自動的にmainとo&#x2F;mainの参照を同じ位置にする</p>
+<h2 id="mainとo-main"><a href="#mainとo-main" class="headerlink" title="mainとo&#x2F;main"></a>mainとo&#x2F;main</h2><p>checkout o&#x2F;main をしてから commit すると、リモートリポジトリのデータをダウンロードしていないため、HEAD分離が発生する。つまり o&#x2F;main は同期時のみ参照先が変化する</p>
+<p>リモートブランチ o&#x2F;main（o&#x2F;*）は実際にはリモートmainブランチの位置である</p>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p><code>git fetch</code></p>
+<p>mainブランチは更新せず、リモートリポジトリのコードをダウンロードするだけで、o&#x2F;main参照を更新する</p>
+<p>引数は不要で、自動的に比較してダウンロードする</p>
+<p><code>git fetch origin &lt;远程选定分支:本地选定分支&gt;</code>（相対参照を使用できる）</p>
+<p><code>git fetch origin &lt;:本地分支&gt;</code> はローカルブランチを作成する</p>
+<h2 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h2><p>つまり <code>fetch+merge</code></p>
+<p><code>git pull</code></p>
+<p>実際には <code>git fetch ; git merge o/main</code></p>
+<p>コードをプルして自動マージする</p>
+<p>現在のブランチでプルを行うため、o&#x2F;mainが現在位置にない場合は同期していないためプルできない</p>
+<p><code>git pull --rebase</code> はリベース形式でコードをプルしてmainブランチをマージする。この特性を利用すると、ブランチ全体のリベースを実現できる</p>
+<p>fetchに似た <code>git pull &lt;远程分支:本地分支&gt;</code>		<code>git pull &lt;:本地分支&gt;</code> を使用できる</p>
+<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><p>pullとは逆で、コードをアップロードし、自動マージはない。ローカルリポジトリが古い場合は更新してからpushする必要がある</p>
+<p><code>git push origin &lt;选定分支&gt;</code></p>
+<pre><code>HEADを先頭に位置づけ、選択したブランチを自動追跡してアップロードする
+</code></pre>
+<p><code>git push origin &lt;本地选定分支:远程选定分支&gt;</code></p>
+<p>ローカルで選択したブランチをリモートで選択したブランチへアップロードする。リモートに存在しない場合は作成される</p>
+<p>相対参照を使用してブランチ全体をアップロードしない <code>git push origin &lt;本地选定分支^:远程选定分支&gt;</code></p>
+<pre><code>ローカルで選択した位置より上のみアップロードする
+</code></pre>
+<p><code>git push &lt;:远程分支&gt;</code></p>
+<pre><code>リモートブランチを削除する
+</code></pre>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/Code/" rel="tag" title="Code">Code</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#commit"><span class="toc-number">1.</span> <span class="toc-text">commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#branch"><span class="toc-number">2.</span> <span class="toc-text">branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#merge-rebase"><span class="toc-number">3.</span> <span class="toc-text">merge&#x2F;rebase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge"><span class="toc-number">3.1.</span> <span class="toc-text">merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase"><span class="toc-number">3.2.</span> <span class="toc-text">rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-number">4.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#checkout"><span class="toc-number">5.</span> <span class="toc-text">checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%BE%E5%8F%82%E7%85%A7"><span class="toc-number">6.</span> <span class="toc-text">相対参照</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%89%E6%9B%B4%E3%81%AE%E5%8F%96%E3%82%8A%E6%B6%88%E3%81%97"><span class="toc-number">7.</span> <span class="toc-text">変更の取り消し</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E3%81%AE%E6%95%B4%E7%90%86"><span class="toc-number">8.</span> <span class="toc-text">ブランチの整理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tag%EF%BC%88%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E7%A7%BB%E5%8B%95%E3%81%AB%E3%82%88%E3%82%8B%E6%B7%B7%E4%B9%B1%E3%82%92%E9%81%BF%E3%81%91%E3%82%8B%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">Tag（ブランチ移動による混乱を避ける）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#describe"><span class="toc-number">10.</span> <span class="toc-text">describe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88"><span class="toc-number"></span> <span class="toc-text">リモート</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#clone"><span class="toc-number">1.</span> <span class="toc-text">clone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#main%E3%81%A8o-main"><span class="toc-number">2.</span> <span class="toc-text">mainとo&#x2F;main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch"><span class="toc-number">3.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull"><span class="toc-number">4.</span> <span class="toc-text">pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#push"><span class="toc-number">5.</span> <span class="toc-text">push</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Gitチュートリアル",
+          url: "https://blog.wray7.top/2023/09/04/2023-09-04-Git%E6%95%99%E7%A8%8B.ja/",
+          excerpt: "",
+          description: "",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  gitはソート可能なスタックのようなもので、スタックの先頭は最下端にあり、最近のコミットに対してのみ変更でき、以前のデータを変更するには並べ替えが必要である switch, checkout を除くすべての操作は、参照が現在ある位置で行われる コミット記録自体の名前はハッシュ値である commitgit commit 新しいバージョンを作成する（完全なコピーではなく、差分のみを記録する",
+          date: "Mon Sep 04 2023 00:00:00 GMT+0800",
+          updated: "Sun Oct 11 2026 04:45:09 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

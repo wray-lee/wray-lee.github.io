@@ -5,7 +5,7 @@
   
   
   
-  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
     PVE | Wray的Blog
   </title>
@@ -111,23 +111,65 @@
             </div>
           <span class="main-nav-link">关于</span>
         </a>
-        <a class="main-nav-link-wrap" href="/friend">
-            <div class="main-nav-icon icon rotate">
-                &#xe62b;
-            </div>
-          <span class="main-nav-link">友链</span>
-        </a>
     <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation">
       <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
       <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
   </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">简体中文</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" class="selected" aria-selected="true">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2025/02/17/2025-02-17-PVE/';
+              langMap['en'] = '/en/2025/02/17/2025-02-17-PVE/';
+              langMap['ja'] = '/ja/2025/02/17/2025-02-17-PVE/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
 </div>
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img  fetchpriority="high" src="/images/banner.webp" alt="PVE">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="PVE">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -157,7 +199,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -194,13 +236,6 @@
               &#xe62b;
           </div>
         <div class="sidebar-menu-link">关于</div>
-      </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
 </div>
@@ -297,7 +332,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-src="/images/banner.webp" data-sizes="auto" alt="更改U盘图标" class="lazyload">
+            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="更改U盘图标" class="lazyload">
         <a href="/2025/02/27/2025-02-27-%E6%9B%B4%E6%94%B9U%E7%9B%98%E5%9B%BE%E6%A0%87/" aria-label="前一篇: 更改U盘图标" title="前一篇: 更改U盘图标"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
@@ -305,7 +340,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-src="/images/banner.webp" data-sizes="auto" alt="openwrt分区备份" class="lazyload">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="openwrt分区备份" class="lazyload">
       <a href="/2025/02/12/2025-02-11-openwrt%E5%88%86%E5%8C%BA%E5%A4%87%E4%BB%BD/" aria-label="后一篇: openwrt分区备份"  title="后一篇: openwrt分区备份"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
@@ -336,10 +371,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        169k
+        538k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        15:27
+        49:10
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -372,7 +407,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">263</div>
+    <div class="sidebar-state-number">778</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -409,13 +444,6 @@
               &#xe62b;
           </div>
         <div class="sidebar-menu-link">关于</div>
-      </div>
-      <div class="sidebar-menu-link-wrap">
-        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-          <div class="sidebar-menu-icon icon rotate">
-              &#xe62b;
-          </div>
-        <div class="sidebar-menu-link">友链</div>
       </div>
 </div>
 </div>
@@ -511,7 +539,7 @@
           stripContent: "PVEextend the disklvremove /dev/you/want/to/release lvextend -rl +100%FREE /dev/you/want/to/extend ProblemOfflineupdate config12345#update configservice pve-cluster restartservice pveproxy restartservice pvedaemon restartservice pvestatd restart    1",
           date: "Mon Feb 17 2025 05:51:34 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "/images/banner.webp",
+          cover: "https://www.dmoe.cc/random.php",
         };
       </script>
         

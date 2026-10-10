@@ -1,0 +1,688 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    worklog | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="GT7 (RMX6688) 移植包 AOD 修复 &#x2F; 备份 工作记录设备：realme GT7 国行硬件 RMX6688（项目号 24618），序列号 3B1F5TE6K0YF1PRM，已 root（KernelSU）。刷的是移植包：国际版 RMX5061 EX01 → 国行硬件。 铁律：数据一点不能丢。 对手机只做只读操作。fastboot flash&#x2F;erase&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="worklog">
+<meta property="og:url" content="https://blog.wray7.top/ja/2026/10/11/2026-10-11-worklog/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="GT7 (RMX6688) 移植包 AOD 修复 &#x2F; 备份 工作记录设备：realme GT7 国行硬件 RMX6688（项目号 24618），序列号 3B1F5TE6K0YF1PRM，已 root（KernelSU）。刷的是移植包：国际版 RMX5061 EX01 → 国行硬件。 铁律：数据一点不能丢。 对手机只做只读操作。fastboot flash&#x2F;erase&#x2F;">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2026-10-10T18:27:58.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:58.177Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/10/11/2026-10-11-worklog/';
+              langMap['en'] = '/en/2026/10/11/2026-10-11-worklog/';
+              langMap['ja'] = '/ja/2026/10/11/2026-10-11-worklog/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="worklog">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">worklog</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GT7-RMX6688-%E7%A7%BB%E6%A4%8D%E5%8C%85-AOD-%E4%BF%AE%E5%A4%8D-%E5%A4%87%E4%BB%BD-%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">GT7 (RMX6688) 移植包 AOD 修复 &#x2F; 备份 工作记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%89%8B%E6%9C%BA%E5%BD%93%E5%89%8D%E7%9A%84%E7%89%88%E6%9C%AC%E6%9E%84%E6%88%90%EF%BC%882026-10-11-%E6%A0%B8%E5%AE%9E%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1. 手机当前的版本构成（2026-10-11 核实）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AOD-%E4%BF%AE%E5%A4%8D%EF%BC%88%E5%B7%B2%E5%AE%8C%E6%88%90%EF%BC%8C%E7%94%A8%E6%88%B7%E5%B7%B2%E7%A1%AE%E8%AE%A4%E4%BF%AE%E5%A5%BD%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">2. AOD 修复（已完成，用户已确认修好）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%87%E4%BB%BD"><span class="toc-number">1.3.</span> <span class="toc-text">3. 备份</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8C%BA-%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA%EF%BC%88%E5%B7%B2%E5%AE%8C%E6%88%90%E5%B9%B6%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">分区 + 挂载分区（已完成并校验）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7z-%E5%8C%85%EF%BC%88%E5%9C%A8-O-DNA3-36-win-%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">7z 包（在 O:\DNA3-36-win\）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%80%9A%E7%94%A8%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC"><span class="toc-number">1.4.</span> <span class="toc-text">4. 通用备份脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-Android-full-backup-ps1%EF%BC%88PowerShell-5-1-7%EF%BC%8CUTF-8-BOM%EF%BC%8CCRLF%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">O:\DNA3-36-win\Android_full_backup.ps1（PowerShell 5.1 &#x2F; 7，UTF-8 BOM，CRLF）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-android-full-backup-py%EF%BC%88Python-3-8-%EF%BC%8C%E5%8F%AA%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93%EF%BC%8C%E8%B7%A8%E5%B9%B3%E5%8F%B0%EF%BC%8CLF%EF%BC%8C%E6%97%A0-BOM%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">O:\DNA3-36-win\android_full_backup.py（Python 3.8+，只用标准库，跨平台，LF，无 BOM）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="toc-number">1.5.</span> <span class="toc-text">5. 踩过的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%BE%85%E5%8A%9E-%E5%8F%AF%E9%80%89"><span class="toc-number">1.6.</span> <span class="toc-text">6. 待办 &#x2F; 可选</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-10-11-worklog" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-10-10T18:27:58.000Z" itemprop="datePublished">2026-10-11</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="GT7-RMX6688-移植包-AOD-修复-备份-工作记录"><a href="#GT7-RMX6688-移植包-AOD-修复-备份-工作记录" class="headerlink" title="GT7 (RMX6688) 移植包 AOD 修复 &#x2F; 备份 工作记录"></a>GT7 (RMX6688) 移植包 AOD 修复 &#x2F; 备份 工作记录</h1><p>设备：realme GT7 国行硬件 RMX6688（项目号 24618），序列号 3B1F5TE6K0YF1PRM，已 root（KernelSU）。<br>刷的是移植包：国际版 RMX5061 EX01 → 国行硬件。</p>
+<p><strong>铁律：数据一点不能丢。</strong> 对手机只做只读操作。fastboot flash&#x2F;erase&#x2F;format&#x2F;-w&#x2F;set_active、setprop&#x2F;resetprop persist、对 &#x2F;data 的 rm 或写入、恢复出厂，每一次都必须先得到用户的明确同意。刷机前，备份必须先校验通过，并且已复制到第二块盘。</p>
+<hr>
+<h2 id="1-手机当前的版本构成（2026-10-11-核实）"><a href="#1-手机当前的版本构成（2026-10-11-核实）" class="headerlink" title="1. 手机当前的版本构成（2026-10-11 核实）"></a>1. 手机当前的版本构成（2026-10-11 核实）</h2><table>
+<thead>
+<tr>
+<th>层</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上层（system &#x2F; product 等）</td>
+<td>国际版 MY 593，fingerprint <code>oplus/ossi/ossi:15/AP3A.240617.008/1755013304553</code></td>
+</tr>
+<tr>
+<td>my_manifest</td>
+<td>国行 802：<code>RMX6688_15.0.1.802(CN01)</code>，ota <code>RMX6688_11.A.38_0380_202509082012</code></td>
+</tr>
+<tr>
+<td>底层（vendor）</td>
+<td>国行 A.01，<code>realme/RMX6688/RE602AL1…</code></td>
+</tr>
+<tr>
+<td>tee_b</td>
+<td>国行 802</td>
+</tr>
+<tr>
+<td>init_boot</td>
+<td>KernelSU 修补版</td>
+</tr>
+<tr>
+<td>vbmeta</td>
+<td>flags&#x3D;3（关闭校验，在偏移 123 字节处）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>A&#x2F;B 分区加 Virtual A&#x2F;B，当前槽位是 b。</li>
+<li>国际版没有 802 底包，所以移植包底层用的是国行包。</li>
+<li><strong>不要用系统 OTA 更新</strong>：my_manifest 是国行 802，可能会被推送国行 OTA。这是推断，没有实测。</li>
+</ul>
+<h2 id="2-AOD-修复（已完成，用户已确认修好）"><a href="#2-AOD-修复（已完成，用户已确认修好）" class="headerlink" title="2. AOD 修复（已完成，用户已确认修好）"></a>2. AOD 修复（已完成，用户已确认修好）</h2><ul>
+<li><strong>根因</strong>：移植包 my_product 里的 <code>display_features.xml</code> 来自国际版 24749（oha_support &#x2F; fingeprint_optical_enabled）。修法是换成国行 24618 的配置，并去掉 <code>disable_aod_all_day_mode</code>。</li>
+<li><strong>刷入</strong>：2026-10-10，在 fastbootd 下只刷了 <code>my_product_b</code>，镜像是 <code>my_product_B_allday.img</code>（md5 <code>3916e32a6e9e9cbb14165ae22b4f4894</code>，2557247488 B）。这次刷写经过用户同意（”我同意你开始刷”），同意只对这一次有效。</li>
+<li><strong>fastbootd 驱动</strong>：需要 Google USB 驱动（VID_18D1&amp;PID_4EE0），r13 版，已用 <code>pnputil /add-driver … /install</code> 装在这台电脑上。</li>
+<li><strong>镜像位置</strong>（原来的 <code>F:\tmp\gt7aod\out</code> 已删）：<code>O:\GT7_backup_20261010_copy\aod_fix\</code><ul>
+<li><code>my_product_B_allday.img</code>：md5 3916e32a…，当前手机上就是这个。</li>
+<li><code>my_product_A_cn_exact.img</code>：md5 39d437f5…，备选方案 A。</li>
+<li><code>my_product_ORIGINAL_rollback.img</code>：md5 6ef16441…，2533498880 B，回滚用。</li>
+</ul>
+</li>
+<li>以后如果重刷移植包（flash.bat），会把 my_product 覆盖回旧版，需要再刷一次 B 版镜像。</li>
+</ul>
+<h2 id="3-备份"><a href="#3-备份" class="headerlink" title="3. 备份"></a>3. 备份</h2><h3 id="分区-挂载分区（已完成并校验）"><a href="#分区-挂载分区（已完成并校验）" class="headerlink" title="分区 + 挂载分区（已完成并校验）"></a>分区 + 挂载分区（已完成并校验）</h3><ul>
+<li><code>C:\Users\Wray\GT7_backup_20261010\</code><ul>
+<li><code>partitions\</code>：103 个物理分区加 super.img，都和手机端 sha256 比对过。<code>partitions\SHA256SUMS</code> 里 nvdata 出现了两行，以最后一行 <code>ffd951a8…</code> 为准。</li>
+<li>另有 <code>logical\</code>、<code>mounted\</code>、<code>super_chunks\</code>、<code>_incomplete\</code>。</li>
+<li><code>data_ps1\</code>：挂载分区的 tar 包已校验；内部存储只备份了一部分，当时 adb 服务中途断开，Android.tar 被截断。</li>
+<li><code>data_full\</code>：2026-10-11 测试时中断留下的，约 392MB，不完整，可以删。</li>
+<li><code>data\</code>：空目录。</li>
+</ul>
+</li>
+<li>第二块盘的副本：<code>O:\GT7_backup_20261010_copy\</code>，124 个文件已校验，另含 <code>aod_fix\</code> 和 <code>SHA256SUMS_copy.txt</code>。</li>
+<li><code>O:\DNA3-36-win\GT7_backup_20261010\</code>：只有文本清单和少量目录，是早期的产物。</li>
+<li><strong>用户数据</strong>（内部存储约 33GB，应用数据 65GB 以上）：用户说之前已经备份过，这次不再做全量备份。</li>
+</ul>
+<h3 id="7z-包（在-O-DNA3-36-win-）"><a href="#7z-包（在-O-DNA3-36-win-）" class="headerlink" title="7z 包（在 O:\DNA3-36-win\）"></a>7z 包（在 <code>O:\DNA3-36-win\</code>）</h3><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Realme GT7 For_EX01.7z</code></td>
+<td>原始移植包，没动过</td>
+</tr>
+<tr>
+<td><code>Realme GT7 For_EX01_本机一致版.7z</code></td>
+<td>7742841918 B，已用 <code>7zr t</code> 测试并比对 CRC。和手机当前状态一致：my_product 是修复版，flash.bat 增加了 my_company_a &#x2F; my_manifest_a，tee 是 802，init_boot 是 KernelSU，另附 <code>init_boot_stock_A01.img</code> 和 <code>修改说明.txt</code>。用 lpdump 记录的位置从 super 里切出各逻辑分区比对过，刷写目标和槽位 b 一致（vbmeta 的 flag 除外）。</td>
+</tr>
+<tr>
+<td><code>GT7_本机专属分区_3B1F5TE6K0YF1PRM_20261010.7z</code></td>
+<td>118514412 B，已校验。包含 22 个本机专属分区镜像：nvdata、nvcfg、nvram、protect1&#x2F;2、md_sec、persist、proinfo、seccfg、sec1、otp、oplusreserve1&#x2F;2&#x2F;3&#x2F;5&#x2F;6、metadata、para、boot_para、dram_para、expdb、frp；另有 5 个挂载分区的 tar 包、说明.txt、SHA256SUMS.txt、getprop、by-name。<strong>只能刷回这台手机。</strong></td>
+</tr>
+<tr>
+<td><code>Realme GT7 For_EX01_AOD修复版.7z</code></td>
+<td>已被本机一致版取代，已不在目录里（用户已删）。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>tee 不是每台机器各不相同：tee 镜像是厂商签名的通用固件。每台机器自己的密钥和数据在 nvdata、protect、md_sec 这些分区里（上面那个本机专属包里有）。</li>
+</ul>
+<h2 id="4-通用备份脚本"><a href="#4-通用备份脚本" class="headerlink" title="4. 通用备份脚本"></a>4. 通用备份脚本</h2><h3 id="O-DNA3-36-win-Android-full-backup-ps1（PowerShell-5-1-7，UTF-8-BOM，CRLF）"><a href="#O-DNA3-36-win-Android-full-backup-ps1（PowerShell-5-1-7，UTF-8-BOM，CRLF）" class="headerlink" title="O:\DNA3-36-win\Android_full_backup.ps1（PowerShell 5.1 &#x2F; 7，UTF-8 BOM，CRLF）"></a><code>O:\DNA3-36-win\Android_full_backup.ps1</code>（PowerShell 5.1 &#x2F; 7，UTF-8 BOM，CRLF）</h3><ul>
+<li><strong>备份内容</strong>：<ul>
+<li>root 时：物理分区 dd（排除 userdata、swap、整盘设备和重复设备）；逻辑分区只在加 -AllLogical 或 -Only 时单独导出；可写挂载分区打 tar 包；内部存储；&#x2F;data 下的应用数据（按应用分包）。</li>
+<li>未 root 时：只备份 &#x2F;sdcard 和第三方应用的 apk。</li>
+</ul>
+</li>
+<li><strong>校验方式</strong>：<ul>
+<li>分区和手机端比对 sha256；分区正被系统写入时，采用连续两次读取一致的结果。</li>
+<li>大分区分块读取，可以断点续传。</li>
+<li>tar 包比对文件数和字节数，硬链接按 inode 只算一次。</li>
+<li>tar 包结尾必须有两个全零块，否则视为不完整。</li>
+</ul>
+</li>
+<li><strong>只读保证</strong>：所有发往手机的命令都经过只读检查。命令先 base64 编码，再走 <code>adb exec-out &quot;echo &lt;b64&gt;|base64 -d|su&quot;</code>。</li>
+<li><strong>2026-10-11 按审查意见修复的问题</strong>：<ul>
+<li>只读检查遇到 <code>&#39;\&#39;&#39;</code> 转义时会配错引号。</li>
+<li>adb 传输出错时，现在会检查退出码和 stderr 并重试；连续失败就停止，重跑可续传。</li>
+<li>-Live 模式下，手机上有文件而包里一个都没有时，不再接受。</li>
+<li>文件名只差大小写时，统一加哈希区分（Clash）。</li>
+<li>硬链接去重。</li>
+<li>内部存储全部按 -Live 处理。</li>
+<li>SHA256SUMS 和日志改为不带 BOM。</li>
+<li>网络路径（UNC）下的剩余空间检查。</li>
+<li>Wait-Device 显示 adb 的实际状态。</li>
+<li>非 root 路径里 <code>pm path</code> 的包名加了转义。</li>
+</ul>
+</li>
+<li>实机测试（只读，<code>-Only misc,frp,persist,nvdata,metadata</code>）全部通过。</li>
+</ul>
+<h3 id="O-DNA3-36-win-android-full-backup-py（Python-3-8-，只用标准库，跨平台，LF，无-BOM）"><a href="#O-DNA3-36-win-android-full-backup-py（Python-3-8-，只用标准库，跨平台，LF，无-BOM）" class="headerlink" title="O:\DNA3-36-win\android_full_backup.py（Python 3.8+，只用标准库，跨平台，LF，无 BOM）"></a><code>O:\DNA3-36-win\android_full_backup.py</code>（Python 3.8+，只用标准库，跨平台，LF，无 BOM）</h3><ul>
+<li>和 ps1 功能对等。输出目录、文件名、<code>.ok</code> 标记、SHA256SUMS 完全一致，两个脚本可以互相续传。</li>
+<li>tar 校验改用 Python 的 <code>tarfile</code>；toybox 生成的 <code>RHT.security.selinux</code> pax 记录能正常解析。</li>
+<li>移植过程：1 个 agent 实现，3 个按方向审查，1 个修复，1 个离线测试，都用默认模型。审查提出 11 个问题，修了 9 个。没改的两个：一是分区排序的并列顺序，不影响结果；二是 Clash 的判断方式，实测 PowerShell 的哈希表本来就不区分大小写，现在的写法和 ps1 行为一致。</li>
+<li>离线测试用假 adb 跑，全部通过：全量、重跑跳过、<code>--only</code>、非 root、传输失败重试、tar 截断被拒收、分区内容读取中变化、各种特殊文件名、硬链接、只读检查。</li>
+<li>实机测试（只读，同一组分区）通过。misc、frp、metadata 的哈希和 ps1 那次相同；nvdata、persist 运行时会被写入，两次不同属正常。</li>
+<li><strong>事故记录</strong>：负责实现的 agent 有一次没加 <code>--adb</code> 参数就运行了脚本，连到了真手机。只执行了只读命令（get-state、getprop、cat &#x2F;proc&#x2F;mounts、cat &#x2F;proc&#x2F;partitions、lpdump），没有 dd，也没有任何写入；产生的临时文本已删除。已如实告知用户。</li>
+<li>注意：之前用的 Python 虚拟环境 <code>F:\tmp\gt7aod\venv</code> 已随 tmp 一起删除，以后需要用系统 Python 运行。</li>
+</ul>
+<h2 id="5-踩过的坑"><a href="#5-踩过的坑" class="headerlink" title="5. 踩过的坑"></a>5. 踩过的坑</h2><ul>
+<li><strong>PS 5.1 下 adb 的 stderr</strong>：在 <code>ErrorActionPreference=Stop</code> 时会被当成 NativeCommandError，需要在局部改成 Continue。</li>
+<li><strong>CRLF 脚本里的多行 here-string</strong>：发给手机前要去掉 <code>\r</code>。</li>
+<li><strong>toybox 打包后用 bsdtar 检查</strong>：<code>tar --selinux</code> 写的 pax 记录末尾带 NUL，bsdtar 会报 “malformed pax attributes”，但内容是完好的。判断包是否完整要看结尾的两个全零块。</li>
+<li><strong>adb 服务中途断开会让 tar 被截断</strong>：这就是加传输检查的原因。</li>
+<li><strong>fastbootd 识别不到手机</strong>：需要装 Google USB 驱动。</li>
+<li><strong>刷入更大的镜像</strong>：逻辑分区会自动扩容。</li>
+<li><strong>Workflow 脚本不能含 CR</strong>：用 LF 写；单个 agent 的输出要限制长度，否则会超过 32k 输出上限。</li>
+<li><strong>Claude Pro 配额</strong>：顶级模型同时并行不超过 3 个。</li>
+</ul>
+<h2 id="6-待办-可选"><a href="#6-待办-可选" class="headerlink" title="6. 待办 &#x2F; 可选"></a>6. 待办 &#x2F; 可选</h2><ul>
+<li>删除 <code>C:\Users\Wray\GT7_backup_20261010\data_full</code>（中断测试的残留），等用户决定。</li>
+<li>如果以后需要完整的用户数据备份，用任意一个脚本加 <code>--no-partitions</code> &#x2F; <code>-NoPartitions</code>，备份前先确认手机已解锁。</li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/android/" rel="tag" title="android">android</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="实用工具" class="lazyload">
+      <a href="/ja/2026/10/09/2026-10-09-%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" aria-label="次の記事: 实用工具"  title="次の記事: 实用工具"></a>
+      <div class="article-nav-caption">次の記事</div>
+      <h3 class="article-nav-title">
+          实用工具
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GT7-RMX6688-%E7%A7%BB%E6%A4%8D%E5%8C%85-AOD-%E4%BF%AE%E5%A4%8D-%E5%A4%87%E4%BB%BD-%E5%B7%A5%E4%BD%9C%E8%AE%B0%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">GT7 (RMX6688) 移植包 AOD 修复 &#x2F; 备份 工作记录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%89%8B%E6%9C%BA%E5%BD%93%E5%89%8D%E7%9A%84%E7%89%88%E6%9C%AC%E6%9E%84%E6%88%90%EF%BC%882026-10-11-%E6%A0%B8%E5%AE%9E%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1. 手机当前的版本构成（2026-10-11 核实）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AOD-%E4%BF%AE%E5%A4%8D%EF%BC%88%E5%B7%B2%E5%AE%8C%E6%88%90%EF%BC%8C%E7%94%A8%E6%88%B7%E5%B7%B2%E7%A1%AE%E8%AE%A4%E4%BF%AE%E5%A5%BD%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">2. AOD 修复（已完成，用户已确认修好）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%87%E4%BB%BD"><span class="toc-number">1.3.</span> <span class="toc-text">3. 备份</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%8C%BA-%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA%EF%BC%88%E5%B7%B2%E5%AE%8C%E6%88%90%E5%B9%B6%E6%A0%A1%E9%AA%8C%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">分区 + 挂载分区（已完成并校验）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7z-%E5%8C%85%EF%BC%88%E5%9C%A8-O-DNA3-36-win-%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">7z 包（在 O:\DNA3-36-win\）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%80%9A%E7%94%A8%E5%A4%87%E4%BB%BD%E8%84%9A%E6%9C%AC"><span class="toc-number">1.4.</span> <span class="toc-text">4. 通用备份脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-Android-full-backup-ps1%EF%BC%88PowerShell-5-1-7%EF%BC%8CUTF-8-BOM%EF%BC%8CCRLF%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">O:\DNA3-36-win\Android_full_backup.ps1（PowerShell 5.1 &#x2F; 7，UTF-8 BOM，CRLF）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-android-full-backup-py%EF%BC%88Python-3-8-%EF%BC%8C%E5%8F%AA%E7%94%A8%E6%A0%87%E5%87%86%E5%BA%93%EF%BC%8C%E8%B7%A8%E5%B9%B3%E5%8F%B0%EF%BC%8CLF%EF%BC%8C%E6%97%A0-BOM%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">O:\DNA3-36-win\android_full_backup.py（Python 3.8+，只用标准库，跨平台，LF，无 BOM）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91"><span class="toc-number">1.5.</span> <span class="toc-text">5. 踩过的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%BE%85%E5%8A%9E-%E5%8F%AF%E9%80%89"><span class="toc-number">1.6.</span> <span class="toc-text">6. 待办 &#x2F; 可选</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "worklog",
+          url: "https://blog.wray7.top/2026/10/11/2026-10-11-worklog/",
+          excerpt: "",
+          description: "",
+          stripContent: "GT7 (RMX6688) 移植包 AOD 修复 &amp;#x2F; 备份 工作记录设备：realme GT7 国行硬件 RMX6688（项目号 24618），序列号 3B1F5TE6K0YF1PRM，已 root（KernelSU）。刷的是移植包：国际版 RMX5061 EX01 → 国行硬件。 铁律：数据一点不能丢。 对手机只做只读操作。fastboot flash&amp;#x2F;erase&amp;#x2F;format&amp;#x2F;-w&amp;#x2F;set_active、setprop&amp;#x2F;resetp",
+          date: "Sun Oct 11 2026 02:27:58 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

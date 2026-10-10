@@ -1,0 +1,646 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    ZeroTier configuration | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Zerotier ConfigurationOpenWrtuci configManually create the zt device as an interface, or create it via uci">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ZeroTier configuration">
+<meta property="og:url" content="https://blog.wray7.top/en/2026/06/08/2026-06-08-zerotier%E9%85%8D%E7%BD%AE.en/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Zerotier ConfigurationOpenWrtuci configManually create the zt device as an interface, or create it via uci">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://eller.top/storage/images/6OL9nYV7wyjsiv0snPnq5aQAAoOqlntwHjoxvUtJ.png">
+<meta property="og:image" content="https://eller.top/storage/images/E5O8MWisQD1T2RCkNfBagmwkhlwMFQ5ZnUEIH2xa.png">
+<meta property="og:image" content="https://eller.top/storage/images/PaJ2J9Df4q82uP3YztDpQ4WAjvJsDRbpVnsCQwkl.png">
+<meta property="article:published_time" content="2026-06-08T07:44:19.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:55:53.481Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://eller.top/storage/images/6OL9nYV7wyjsiv0snPnq5aQAAoOqlntwHjoxvUtJ.png">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/06/08/2026-06-08-zerotier配置.en/';
+              langMap['en'] = '/en/2026/06/08/2026-06-08-zerotier配置.en/';
+              langMap['ja'] = '/ja/2026/06/08/2026-06-08-zerotier配置.en/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="ZeroTier configuration">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">ZeroTier configuration</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zerotier-Configuration"><span class="toc-number">1.</span> <span class="toc-text">Zerotier Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenWrt"><span class="toc-number">1.1.</span> <span class="toc-text">OpenWrt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uci-config"><span class="toc-number">1.1.1.</span> <span class="toc-text">uci config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuration"><span class="toc-number">1.1.2.</span> <span class="toc-text">Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fixing-the-timing-issue"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Fixing the timing issue</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#moon"><span class="toc-number">1.2.</span> <span class="toc-text">moon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Route-Forwarding"><span class="toc-number">1.3.</span> <span class="toc-text">Route Forwarding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Enable-the-kernel-forwarding-feature"><span class="toc-number">1.3.1.</span> <span class="toc-text">Enable the kernel forwarding feature</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Explanation"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Explanation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-firewall-rules"><span class="toc-number">1.3.2.</span> <span class="toc-text">Add firewall rules</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenWrt-Configuration-no-shell-required"><span class="toc-number">1.4.</span> <span class="toc-text">OpenWrt Configuration (no shell required)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure-the-WAN-port-firewall"><span class="toc-number">2.</span> <span class="toc-text">Configure the WAN port&#x2F;firewall</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A-Solution-for-the-LAN-Side-Being-Unreachable-After-Setting-Up-Zerotier-on-OpenWrt"><span class="toc-number">3.</span> <span class="toc-text">A Solution for the LAN Side Being Unreachable After Setting Up Zerotier on OpenWrt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">3.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-06-08-zerotier配置.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-06-08T07:44:19.000Z" itemprop="datePublished">2026-06-08</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="Zerotier-Configuration"><a href="#Zerotier-Configuration" class="headerlink" title="Zerotier Configuration"></a>Zerotier Configuration</h1><h2 id="OpenWrt"><a href="#OpenWrt" class="headerlink" title="OpenWrt"></a>OpenWrt</h2><h3 id="uci-config"><a href="#uci-config" class="headerlink" title="uci config"></a>uci config</h3><p>Manually create the zt device as an interface, or create it via uci</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">uci -q delete network.ZeroTier</span><br><span class="line">uci <span class="built_in">set</span> network.ZeroTier=interface</span><br><span class="line">uci <span class="built_in">set</span> network.ZeroTier.proto=<span class="string">&#x27;none&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> network.ZeroTier.device=<span class="string">&#x27;ztly53odaw&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Or path /etc/config/zerotier</span></span><br><span class="line">uci <span class="built_in">set</span> zerotier.global.enabled=<span class="string">&#x27;1&#x27;</span></span><br><span class="line">uci delete zerotier.earth</span><br><span class="line">uci <span class="built_in">set</span> zerotier.wraynet=network</span><br><span class="line">uci <span class="built_in">set</span> zerotier.wraynet.id=&lt;network_id&gt;</span><br><span class="line">uci commit zerotier</span><br><span class="line">service zerotier restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># Firewall</span></span><br><span class="line">uci add firewall zone</span><br><span class="line">uci <span class="built_in">set</span> firewall.@zone[-1].name=<span class="string">&#x27;zt&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> firewall.@zone[-1].input=<span class="string">&#x27;ACCEPT&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> firewall.@zone[-1].output=<span class="string">&#x27;ACCEPT&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> firewall.@zone[-1].forward=<span class="string">&#x27;ACCEPT&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> firewall.@zone[-1].masq=<span class="string">&#x27;1&#x27;</span></span><br><span class="line">uci add_list firewall.@zone[-1].network=<span class="string">&#x27;ZeroTier&#x27;</span></span><br><span class="line">uci add firewall forwarding</span><br><span class="line">uci <span class="built_in">set</span> firewall.@forwarding[-1].src=<span class="string">&#x27;zt&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> firewall.@forwarding[-1].dest=<span class="string">&#x27;lan&#x27;</span></span><br><span class="line">uci add firewall forwarding</span><br><span class="line">uci <span class="built_in">set</span> firewall.@forwarding[-1].src=<span class="string">&#x27;zt&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> firewall.@forwarding[-1].dest=<span class="string">&#x27;wan&#x27;</span></span><br><span class="line">uci add firewall forwarding</span><br><span class="line">uci <span class="built_in">set</span> firewall.@forwarding[-1].src=<span class="string">&#x27;lan&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> firewall.@forwarding[-1].dest=<span class="string">&#x27;zt&#x27;</span></span><br><span class="line"></span><br><span class="line">uci commit</span><br></pre></td></tr></table></figure>
+
+<p>Permanent configuration</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /etc/zerotier</span><br><span class="line"><span class="built_in">cp</span> -r /var/lib/zerotier-one/* /etc/zerotier/</span><br><span class="line"></span><br><span class="line">uci <span class="built_in">set</span> zerotier.wraynet.config_path=<span class="string">&#x27;/etc/zerotier&#x27;</span></span><br><span class="line">uci <span class="built_in">set</span> zerotier.wraynet.copy_config_path=<span class="string">&#x27;1&#x27;</span></span><br><span class="line">uci commit zerotier</span><br><span class="line">service zerotier restart</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><p>Perform uci operations</p>
+<blockquote>
+<p>Register the zerotier network card as an interface, and allow lan forwarding to zt, and zt to lan and wan. Enable nat masq</p>
+</blockquote>
+<p>Configure NAT properly to solve the problem of not being pingable from the external network, and to let internal machines access the zt network without any configuration (the zt network also requires its zt CIDR to be configured in static routes)</p>
+<h4 id="Fixing-the-timing-issue"><a href="#Fixing-the-timing-issue" class="headerlink" title="Fixing the timing issue"></a>Fixing the timing issue</h4><blockquote>
+<p>The interface is not up, yet the firewall rules are applied ahead of time, rendering the rules ineffective</p>
+</blockquote>
+<p>&#x2F;etc&#x2F;hotplug.d&#x2F;iface&#x2F;99-zerotier</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="comment"># 当检测到 ztly53odaw 接口真正 up 时，触发防火墙重载</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$ACTION</span>&quot;</span> = <span class="string">&quot;ifup&quot;</span> ] &amp;&amp; [ <span class="string">&quot;<span class="variable">$INTERFACE</span>&quot;</span> = <span class="string">&quot;ztly53odaw&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    logger -t ZeroTier <span class="string">&quot;Interface <span class="variable">$INTERFACE</span> is up, reloading firewall...&quot;</span></span><br><span class="line">    /etc/init.d/firewall reload</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="moon"><a href="#moon" class="headerlink" title="moon"></a>moon</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cd /var/lib/zerotier-one	#定位到主机的密钥位置</span><br><span class="line">sudo zerotier-idtool initmoon identity.public &gt; moon.json	#生成moon配置</span><br><span class="line">修改stableEndpoints参数	&quot;主机ip/9993&quot;	并保存推出</span><br><span class="line">zerotier-idtool genmoon moon.json	#生成签名</span><br><span class="line">mkdir moons.d</span><br><span class="line">mv 00000*.moon moons.d/</span><br><span class="line"></span><br><span class="line">最后复制签名文件到客户端</span><br><span class="line">linux位于/var/lib/zerotier-one/moons.d	自行创建moons.d文件夹</span><br><span class="line">windows位于C:\Programdata\zerotier\one\moons.d	自行创建moons.d文件夹</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Route-Forwarding"><a href="#Route-Forwarding" class="headerlink" title="Route Forwarding"></a>Route Forwarding</h2><h3 id="Enable-the-kernel-forwarding-feature"><a href="#Enable-the-kernel-forwarding-feature" class="headerlink" title="Enable the kernel forwarding feature"></a>Enable the kernel forwarding feature</h3><p><code>sudo sysctl -w net.ipv4.ip_forward=1</code></p>
+<p>Same for v6</p>
+<hr>
+<p>Better option</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.ipv4.ip_forward=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv6.conf.default.forwarding=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv6.conf.all.forwarding=1&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<p>Disable strict mode</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.ipv4.conf.default.rp_filter=0&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.conf.all.rp_filter=0&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h4 id="Explanation"><a href="#Explanation" class="headerlink" title="Explanation"></a>Explanation</h4><p>​			<strong><code>rp_filter </code></strong></p>
+<p>​			is a network security protection feature of the Linux kernel for networking; it checks the source address and source network interface (network card) of data packets:</p>
+<ul>
+<li><p>If set to 0 (i.e., disabled), all data packets are allowed through.</p>
+<ul>
+<li><p>However, some packets that cannot be properly replied to (with no corresponding entry in the routing table) will also be handed to applications for processing, consuming extra system resources.</p>
+</li>
+<li><p>Still, the extra consumption should be very small, so setting the above two items to 0 is fine.</p>
+</li>
+</ul>
+</li>
+<li><p>If set to 1 (strict mode), and the packet’s source network card is not the optimal network card for sending this packet (that is, if your machine were to reply to this address, it would pick a different network card), then this packet is</p>
+<p>  dropped</p>
+<p>  .</p>
+<ul>
+<li>Having the source and the reply on different network cards is <strong>a very common situation</strong> in DN42, so you <strong>must never, absolutely never</strong> set <code>rp_filter</code> to 1!</li>
+</ul>
+</li>
+<li><p>If set to 2 (loose mode),</p>
+<p>  theoretically</p>
+<p>  , if the packet’s source address is not in the routing table (that is, the local machine does not know how to reply to this address), then this packet is dropped.</p>
+<ul>
+<li>But theory is theory: in newer kernels (5.0+), in actual use a large number of normal packets with correct source addresses are still dropped. So do not use this mode; use 0 consistently.</li>
+</ul>
+</li>
+<li><p>Then, <strong>you absolutely must</strong> turn off your UFW and other tools that help you easily configure iptables firewalls.</p>
+</li>
+</ul>
+<h3 id="Add-firewall-rules"><a href="#Add-firewall-rules" class="headerlink" title="Add firewall rules"></a>Add firewall rules</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE</span><br><span class="line">sudo iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT</span><br><span class="line">iptables-save	#保存</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 允许外部通过 ZeroTier 访问路由器自身（解决 Ping 不通和打不开后台）</span></span><br><span class="line">iptables -I INPUT -i zt+ -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 允许外部通过 ZeroTier 访问路由器下挂的局域网设备</span></span><br><span class="line">iptables -I FORWARD -i zt+ -j ACCEPT</span><br><span class="line">iptables -I FORWARD -o zt+ -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启 NAT 伪装，解决局域网设备网关不是这台路由器时无法回包的问题</span></span><br><span class="line">iptables -t nat -I POSTROUTING -o zt+ -j MASQUERADE</span><br><span class="line">iptables -t nat -I POSTROUTING -s <span class="string">&quot;<span class="variable">$&#123;ip_segment&#125;</span>&quot;</span> -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="OpenWrt-Configuration-no-shell-required"><a href="#OpenWrt-Configuration-no-shell-required" class="headerlink" title="OpenWrt Configuration (no shell required)"></a>OpenWrt Configuration (no shell required)</h2><h1 id="Configure-the-WAN-port-firewall"><a href="#Configure-the-WAN-port-firewall" class="headerlink" title="Configure the WAN port&#x2F;firewall"></a>Configure the WAN port&#x2F;firewall</h1><p>At this point, even if you configure nothing at all, the external network can already connect to the internal network through zerotier.</p>
+<ul>
+<li>But at this point, assuming your OpenWrt IP in the virtual network is 192.168.191.50, you can access the LuCI page, but all the ports you originally mapped for the WAN port will become completely inaccessible.</li>
+<li>For example, if you originally configured external port 3389 on the WAN to map to port 3389 of the device 192.168.1.100 under the internal LAN, then you cannot access it via 192.168.191.50:3389, because the traffic does not come from the WAN but from the zerotier virtual network card, and its traffic cannot be forwarded to the destination.</li>
+</ul>
+<p>Configuring it is also very simple.</p>
+<p>Create an interface named: <code>ZTVPN</code>  (any name will do)</p>
+<p>Set the protocol to: <code>DHCP 客户端</code> (because only this way can zerotier automatically assign an IP, without you needing to specify it yourself; specifying it yourself involves many parameters, and leaving them unmodified is also troublesome)</p>
+<p><strong>Remember: at this step, absolutely do not perform remote configuration while you are on the external network — it is very likely that a misconfiguration, or a loading-order problem, will cause you to lose access to the internal network.</strong></p>
+<p><img src="https://eller.top/storage/images/6OL9nYV7wyjsiv0snPnq5aQAAoOqlntwHjoxvUtJ.png" alt="img"></p>
+<p>In “Physical Settings”, check the virtual network card created by zerotier, the Ethernet adapter</p>
+<p><img src="https://eller.top/storage/images/E5O8MWisQD1T2RCkNfBagmwkhlwMFQ5ZnUEIH2xa.png" alt="img"></p>
+<p>In “Firewall Settings”, specify the WAN firewall zone — only this way can your ZTVPN network card apply the rules originally set for the WAN and for the network card of the default outbound public IP. Likewise, the port forwarding content configured earlier will also take effect.</p>
+<p><img src="https://eller.top/storage/images/PaJ2J9Df4q82uP3YztDpQ4WAjvJsDRbpVnsCQwkl.png" alt="img"></p>
+<p><strong>Remember to save and apply.</strong></p>
+<h1 id="A-Solution-for-the-LAN-Side-Being-Unreachable-After-Setting-Up-Zerotier-on-OpenWrt"><a href="#A-Solution-for-the-LAN-Side-Being-Unreachable-After-Setting-Up-Zerotier-on-OpenWrt" class="headerlink" title="A Solution for the LAN Side Being Unreachable After Setting Up Zerotier on OpenWrt"></a>A Solution for the LAN Side Being Unreachable After Setting Up Zerotier on OpenWrt</h1><ol>
+<li>Under Network – Interfaces, create a new interface with any name, and select the zt-prefixed network port automatically generated by zerotier as the port. Choose static as the network protocol (dropbear needs to bind an IP, so you need to configure the IP in zt as a static address, otherwise SSH will not work)</li>
+<li>Edit the port, create a new zone in that port’s firewall settings with any name (for example: zerotier), and add the newly created interface to this zone</li>
+<li>Under Network – Firewall, allow input, output, and forwarding for the zerotier zone</li>
+<li>Click the edit button, and in “Allow forward to destination zones”, check wan</li>
+<li>Restart the router</li>
+</ol>
+<h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul>
+<li><a href="moon%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE.zip">moon节点设置.zip</a></li>
+<li><a href="zerotier%E6%90%AD%E5%BB%BAmoon.pdf">zerotier搭建moon.pdf</a></li>
+<li><a href="zerotier%E9%85%8D%E7%BD%AE.pdf">zerotier配置.pdf</a></li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/web/" rel="tag" title="web">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Zerotier-Configuration"><span class="toc-number">1.</span> <span class="toc-text">Zerotier Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenWrt"><span class="toc-number">1.1.</span> <span class="toc-text">OpenWrt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#uci-config"><span class="toc-number">1.1.1.</span> <span class="toc-text">uci config</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuration"><span class="toc-number">1.1.2.</span> <span class="toc-text">Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Fixing-the-timing-issue"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Fixing the timing issue</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#moon"><span class="toc-number">1.2.</span> <span class="toc-text">moon</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Route-Forwarding"><span class="toc-number">1.3.</span> <span class="toc-text">Route Forwarding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Enable-the-kernel-forwarding-feature"><span class="toc-number">1.3.1.</span> <span class="toc-text">Enable the kernel forwarding feature</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Explanation"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Explanation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-firewall-rules"><span class="toc-number">1.3.2.</span> <span class="toc-text">Add firewall rules</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OpenWrt-Configuration-no-shell-required"><span class="toc-number">1.4.</span> <span class="toc-text">OpenWrt Configuration (no shell required)</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configure-the-WAN-port-firewall"><span class="toc-number">2.</span> <span class="toc-text">Configure the WAN port&#x2F;firewall</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#A-Solution-for-the-LAN-Side-Being-Unreachable-After-Setting-Up-Zerotier-on-OpenWrt"><span class="toc-number">3.</span> <span class="toc-text">A Solution for the LAN Side Being Unreachable After Setting Up Zerotier on OpenWrt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">3.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "ZeroTier configuration",
+          url: "https://blog.wray7.top/2026/06/08/2026-06-08-zerotier%E9%85%8D%E7%BD%AE.en/",
+          excerpt: "",
+          description: "",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Zerotier ConfigurationOpenWrtuci configManually create the zt device as an interface, or create it via uci 1234uci -q delete network.ZeroTieruci set network.",
+          date: "Mon Jun 08 2026 15:44:19 GMT+0800",
+          updated: "Sun Oct 11 2026 04:55:53 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

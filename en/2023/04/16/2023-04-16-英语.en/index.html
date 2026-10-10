@@ -1,0 +1,1275 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    English | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  A abstract abstract abstract base class (ABC) abstract base class abstract class abstract class abstraction">
+<meta property="og:type" content="article">
+<meta property="og:title" content="English">
+<meta property="og:url" content="https://blog.wray7.top/en/2023/04/16/2023-04-16-%E8%8B%B1%E8%AF%AD.en/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  A abstract abstract abstract base class (ABC) abstract base class abstract class abstract class abstraction">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-16T10:52:32.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:43:26.967Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="code">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2023/04/16/2023-04-16-英语.en/';
+              langMap['en'] = '/en/2023/04/16/2023-04-16-英语.en/';
+              langMap['ja'] = '/ja/2023/04/16/2023-04-16-英语.en/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="English">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">English</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Network-Security"><span class="toc-number">1.</span> <span class="toc-text">Network Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2023-04-16-英语.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2023-04-16T10:52:32.000Z" itemprop="datePublished">2023-04-16</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<p><strong>A</strong></p>
+<p>abstract abstract</p>
+<p>abstract base class (ABC) abstract base class</p>
+<p>abstract class abstract class</p>
+<p>abstraction abstraction, abstract thing, abstractness</p>
+<p>access access, visit</p>
+<p>access function access function</p>
+<p>access level access level</p>
+<p>account account</p>
+<p>action action</p>
+<p>activate activate</p>
+<p>active active</p>
+<p>actual parameter actual parameter</p>
+<p>adapter adapter</p>
+<p>add-in add-in&#x2F;plugin</p>
+<p>address address</p>
+<p>address space address space</p>
+<p>ADO(ActiveX Data Object) ActiveX Data Object</p>
+<p>advanced advanced</p>
+<p>aggregation aggregation, gathering</p>
+<p>algorithm algorithm</p>
+<p>alias alias</p>
+<p>align align, alignment</p>
+<p>allocate allocate, configure</p>
+<p>allocator allocator, configurator</p>
+<p>angle bracket angle bracket</p>
+<p>annotation annotation, comment</p>
+<p>API (Application Programming Interface) application (program) programming interface</p>
+<p>appearance appearance</p>
+<p>append append</p>
+<p>application application, application program</p>
+<p>application framework application framework</p>
+<p>Approximate String Matching fuzzy matching</p>
+<p>architecture architecture, system architecture</p>
+<p>archive file archive file, archived file</p>
+<p>argument parameter.</p>
+<p>array array</p>
+<p>arrow operator arrow operator</p>
+<p>assert(ion) assertion</p>
+<p>assign assign</p>
+<p>assignment assignment, allocation</p>
+<p>assignment operator assignment operator</p>
+<p>associated related, associated</p>
+<p>asynchronous asynchronous</p>
+<p>attribute characteristic, attribute</p>
+<p>authentication service authentication service</p>
+<p>authorization authorization</p>
+<p><strong>B</strong></p>
+<p>background background, background (process)</p>
+<p>backup backup</p>
+<p>backup device backup device</p>
+<p>backup file backup file</p>
+<p>backward compatible backward compatible, downward compatible</p>
+<p>base class base class</p>
+<p>base type base type</p>
+<p>batch batch processing</p>
+<p>BCL (base class library) base class library</p>
+<p>Bin Packing bin packing problem</p>
+<p>binary binary</p>
+<p>binding binding</p>
+<p>bit bit</p>
+<p>bitmap bitmap</p>
+<p>block block, block, statement block</p>
+<p>boolean Boolean value (true&#x2F;false value, true or false)</p>
+<p>border border</p>
+<p>bounds checking bounds checking</p>
+<p>boxing boxing, boxing conversion</p>
+<p>brace (curly brace) brace, curly brace</p>
+<p>bracket (square brakcet) square bracket, square bracket</p>
+<p>breakpoint breakpoint</p>
+<p>browser applications browser application (program)</p>
+<p>browser-accessible application application accessible via browser</p>
+<p>bug defect&#x2F;error</p>
+<p>build build (specifically compilation and linking)</p>
+<p>built-in built-in, built-in</p>
+<p>bus bus</p>
+<p>business business, commerce (depending on context)</p>
+<p>business Logic business logic</p>
+<p>business rules business rules</p>
+<p>buttons buttons</p>
+<p>by&#x2F;through through</p>
+<p>byte byte (composed of 8 bits)</p>
+<p><strong>C</strong></p>
+<p>cache cache</p>
+<p>calendar calendar</p>
+<p>Calendrical Calculations date</p>
+<p>call call</p>
+<p>call operator call operator</p>
+<p>callback callback</p>
+<p>candidate key candidate key (for database)</p>
+<p>cascading delete cascading delete (for database)</p>
+<p>cascading update cascading update (for database)</p>
+<p>casting type conversion, cast conversion</p>
+<p>catalog directory</p>
+<p>chain chain (function calls)</p>
+<p>character character</p>
+<p>character format character format</p>
+<p>character set character set</p>
+<p>check box check box</p>
+<p>check button check button</p>
+<p>CHECK constraints CHECK constraints (for database)</p>
+<p>checkpoint checkpoint (for database)</p>
+<p>child class child class</p>
+<p>CIL (common intermediate language) common intermediate language, common intermediate language</p>
+<p>class class</p>
+<p>class declaration class declaration</p>
+<p>class definition class definition</p>
+<p>class derivation list class derivation list</p>
+<p>class factory class factory</p>
+<p>class hierarchy class hierarchy</p>
+<p>class library class library</p>
+<p>class loader class loader</p>
+<p>class template class template</p>
+<p>class template partial specializations class template partial specialization</p>
+<p>class template specializations class template specialization</p>
+<p>classification classification</p>
+<p>clause clause</p>
+<p>cleanup cleanup, clear</p>
+<p>CLI (Common Language Infrastructure) Common Language Infrastructure</p>
+<p>client client, client side</p>
+<p>client application client application</p>
+<p>client area client area</p>
+<p>client cursor client cursor (for database)</p>
+<p>client-server client&#x2F;server, client&#x2F;server</p>
+<p>clipboard clipboard</p>
+<p>clone clone</p>
+<p>CLS (common language specification) Common Language Specification</p>
+<p>code access security code access security</p>
+<p>code page code page</p>
+<p>COFF (Common Object File Format) Common Object File Format</p>
+<p>collection collection</p>
+<p>COM (Component Object Model) Component Object Model</p>
+<p>combo box combo box</p>
+<p>command line command line</p>
+<p>comment comment</p>
+<p>commit commit (for database)</p>
+<p>communication communication</p>
+<p>compatible compatible</p>
+<p>compile time compile time, compile time</p>
+<p>compiler compiler</p>
+<p>component component</p>
+<p>composite index composite index, combined index (for database)</p>
+<p>composite key composite key, combined key (for database)</p>
+<p>composition composition, combination</p>
+<p>concept concept</p>
+<p>concrete concrete</p>
+<p>concrete class concrete class</p>
+<p>concurrency concurrency, concurrency mechanism</p>
+<p>configuration configuration, configuration</p>
+<p>Connected Components connected components</p>
+<p>connection connection (for database)</p>
+<p>connection pooling connection pool</p>
+<p>console console</p>
+<p>constant constant</p>
+<p>Constrained and Unconstrained Optimization extremum problem</p>
+<p>constraint constraint (for database)</p>
+<p>construct construct, component, concept, construct (for language)</p>
+<p>constructor (ctor) constructor, constructor</p>
+<p>container container</p>
+<p>containment containment</p>
+<p>context environment, context</p>
+<p>control control</p>
+<p>cookie</p>
+<p>copy copy</p>
+<p>CORBA Common Object Request Broker Architecture</p>
+<p>cover cover, encompass</p>
+<p>create&#x2F;creation create, generate</p>
+<p>crosstab query crosstab query (for database)</p>
+<p>Cryptography cryptography</p>
+<p>CTS (common type system) Common Type System</p>
+<p>cube multidimensional data set (for database)</p>
+<p>cursor cursor</p>
+<p>cursor cursor (for database)</p>
+<p>custom customize, custom</p>
+<p><strong>D</strong></p>
+<p>data data</p>
+<p>data connection data connection (for database)</p>
+<p>data dictionary data dictionary (for database)</p>
+<p>data file data file (for database)</p>
+<p>data integrity data integrity (for database)</p>
+<p>data manipulation language (DML) data manipulation language (DML) (for database)</p>
+<p>data member data member, member variable</p>
+<p>data source data source (for database)</p>
+<p>Data source name (DSN) data source name (DSN) (for database)</p>
+<p>data structure data structure</p>
+<p>Data Structures basic data structures</p>
+<p>data table data table (for database)</p>
+<p>data-bound data binding (for database)</p>
+<p>database database (for database)</p>
+<p>database catalog database catalog (for database)</p>
+<p>database diagram data relationship diagram (for database)</p>
+<p>database file database file (for database)</p>
+<p>database object database object (for database)</p>
+<p>database owner database owner (for database)</p>
+<p>database project database project (for database)</p>
+<p>database role database role (for database)</p>
+<p>database schema database schema, database architecture (for database)</p>
+<p>database script database script (for database)</p>
+<p>datagram datagram</p>
+<p>dataset data set (for database)</p>
+<p>dataset data set (for database)</p>
+<p>DBMS (database management system) database management system (for database)</p>
+<p>DCOM (distributed COM) distributed COM</p>
+<p>dead lock deadlock (for database)</p>
+<p>deallocate deallocate</p>
+<p>debug debug</p>
+<p>debugger debugger</p>
+<p>decay decay</p>
+<p>declaration declaration</p>
+<p>default default, default value</p>
+<p>DEFAULT constraint default constraint (for database)</p>
+<p>default database default database (for database)</p>
+<p>default instance default instance (for database)</p>
+<p>default result set default result set (for database)</p>
+<p>defer defer</p>
+<p>definition definition</p>
+<p>delegate delegate</p>
+<p>delegation delegation</p>
+<p>deploy deploy</p>
+<p>derived class derived class</p>
+<p>design pattern design pattern</p>
+<p>destroy destroy</p>
+<p>destructor(dtor) destructor, destructor</p>
+<p>device device</p>
+<p>DHTML (dynamic HyperText Markup Language) Dynamic HyperText Markup Language</p>
+<p>dialog dialog box</p>
+<p>Dictionaries dictionaries</p>
+<p>digest digest</p>
+<p>digital digital</p>
+<p>directive (compilation) directive</p>
+<p>directory directory</p>
+<p>disassembler disassembler</p>
+<p>DISCO (Discovery of Web Services) Discovery of Web Services</p>
+<p>dispatch dispatch, assign, dispatch</p>
+<p>distributed computing distributed computing</p>
+<p>distributed query distributed query (for database)</p>
+<p>DNA (Distributed interNet Application) Distributed interNet Application</p>
+<p>document document</p>
+<p>DOM (Document Object Model) Document Object Model</p>
+<p>dot operator (dot) operator</p>
+<p>double-byte character set (DBCS) double-byte character set (DBCS)</p>
+<p>driver driver (program)</p>
+<p>DTD (document type definition) document type definition</p>
+<p>dump dump</p>
+<p>dump file dump file</p>
+<p><strong>E</strong></p>
+<p>e-business e-commerce</p>
+<p>efficiency efficiency</p>
+<p>efficient efficient</p>
+<p>encapsulation encapsulation</p>
+<p>end user end user</p>
+<p>end-to-end authentication end-to-end authentication</p>
+<p>engine engine</p>
+<p>entity entity</p>
+<p>enum (enumeration) enumeration</p>
+<p>enumerators enumeration members, enumerators</p>
+<p>equal equal</p>
+<p>equality equality</p>
+<p>equality operator equality operator</p>
+<p>error log error log (for database)</p>
+<p>escape character escape character, escape character</p>
+<p>escape code escape code</p>
+<p>evaluate evaluate</p>
+<p>event event</p>
+<p>event driven event-driven</p>
+<p>event handler event handler</p>
+<p>evidence evidence</p>
+<p>exception exception</p>
+<p>exception declaration exception declaration</p>
+<p>exception handling exception handling, exception handling mechanism</p>
+<p>exception specification exception specification</p>
+<p>exception-safe exception-safe</p>
+<p>exit exit</p>
+<p>explicit explicit</p>
+<p>explicit specialization explicit specialization</p>
+<p>explicit transaction explicit transaction (for database)</p>
+<p>export export</p>
+<p>expression expression</p>
+<p><strong>F</strong></p>
+<p>fat client fat client</p>
+<p>feature feature, characteristic</p>
+<p>fetch fetch</p>
+<p>field field (for database)</p>
+<p>field field (java)</p>
+<p>field length field length (for database)</p>
+<p>file file</p>
+<p>filter filter (for database)</p>
+<p>finalization finalization</p>
+<p>finalizer finalizer</p>
+<p>firewall firewall</p>
+<p>flag flag</p>
+<p>flash memory flash memory</p>
+<p>flush flush</p>
+<p>font font</p>
+<p>foreign key (FK) foreign key (FK) (for database)</p>
+<p>form form</p>
+<p>formal parameter formal parameter</p>
+<p>forward declaration forward declaration</p>
+<p>forward-only forward-only</p>
+<p>forward-only cursor forward-only cursor (for database)</p>
+<p>framework framework</p>
+<p>full specialization full specialization</p>
+<p>function function</p>
+<p>function call operator (i.e., operator ()) function call operator</p>
+<p>function object function object</p>
+<p>function template function template</p>
+<p>functionality functionality</p>
+<p>functor functor</p>
+<p><strong>G</strong></p>
+<p>GC (Garbage collection) garbage collection (mechanism), garbage collection (mechanism)</p>
+<p>generate generate</p>
+<p>generic generalized, generalized, general</p>
+<p>generic algorithm generic algorithm</p>
+<p>genericity genericity</p>
+<p>getter (relative to setter) getter function</p>
+<p>global global</p>
+<p>global object global object</p>
+<p>grant grant (for database)</p>
+<p>group group, group</p>
+<p>group box group box</p>
+<p>GUI graphical interface</p>
+<p>GUID (Globally Unique Identifier) Globally Unique Identifier</p>
+<p><strong>H</strong></p>
+<p>handle handle</p>
+<p>handler handler</p>
+<p>hard disk hard disk</p>
+<p>hard-coded hard-coded</p>
+<p>hard-copy screenshot</p>
+<p>hardware hardware</p>
+<p>hash table hash table, hash table</p>
+<p>header file header file</p>
+<p>heap heap</p>
+<p>help file help file</p>
+<p>hierarchical data hierarchical data, hierarchical data</p>
+<p>hierarchy hierarchy, inheritance hierarchy</p>
+<p>high level high-level, high-level</p>
+<p>hook hook</p>
+<p>Host (application) host (application)</p>
+<p>hot key hot key</p>
+<p>HTML (HyperText Markup Language) HyperText Markup Language</p>
+<p>HTTP (HyperText Transfer Protocol) HyperText Transfer Protocol</p>
+<p>HTTP pipeline HTTP pipeline</p>
+<p>hyperlink hyperlink</p>
+<p><strong>I</strong></p>
+<p>icon icon</p>
+<p>IDE (Integrated Development Environment) Integrated Development Environment</p>
+<p>identifier identifier</p>
+<p>IDL (Interface Definition Language) Interface Definition Language</p>
+<p>idle time idle time</p>
+<p>if and only if if and only if</p>
+<p>IL (Intermediate Language) intermediate language, intermediate language</p>
+<p>image image</p>
+<p>IME input method</p>
+<p>immediate base direct base class</p>
+<p>immediate derived direct derived class</p>
+<p>immediate updating immediate update (for database)</p>
+<p>implement implement</p>
+<p>implementation implementation, implementation product</p>
+<p>implicit implicit</p>
+<p>implicit transaction implicit transaction (for database)</p>
+<p>import import</p>
+<p>incremental update incremental update (for database)</p>
+<p>Independent Set independent set</p>
+<p>index index (for database)</p>
+<p>infinite loop infinite loop</p>
+<p>infinite recursive infinite recursion</p>
+<p>information information</p>
+<p>inheritance inheritance, inheritance mechanism</p>
+<p>initialization initialization</p>
+<p>initialization list initialization list, initial value list</p>
+<p>initialize initialize</p>
+<p>inline inline</p>
+<p>inline expansion inline expansion</p>
+<p>inner join inner join (for database)</p>
+<p>instance instance</p>
+<p>instantiated instantiation, realization (often used for template)</p>
+<p>instantiation instantiated entity, instantiated entity (often used for template)</p>
+<p>integrate integrate, integrate</p>
+<p>integrity integrity, consistency</p>
+<p>integrity constraint integrity constraint (for database)</p>
+<p>interacts interact</p>
+<p>interface interface</p>
+<p>interoperability interoperability, interoperability capability</p>
+<p>interpreter interpreter</p>
+<p>introspection introspection</p>
+<p>invariants invariants</p>
+<p>invoke invoke</p>
+<p>isolation level isolation level (for database)</p>
+<p>item item, clause, project</p>
+<p>iterate iterate</p>
+<p>iteration iteration (each cycle of a loop is called an iteration)</p>
+<p>iterative iterative, iterative</p>
+<p>iterator iterator</p>
+<p><strong>J</strong></p>
+<p>JIT compilation JIT compilation just-in-time compilation</p>
+<p>Job Scheduling job scheduling</p>
+<p>K</p>
+<p>key key (for database)</p>
+<p>key column key column (for database)</p>
+<p><strong>L</strong></p>
+<p>left outer join left outer join (for database)</p>
+<p>level level, layer example</p>
+<p>library library</p>
+<p>lifetime lifetime, lifespan</p>
+<p>Linear Programming linear programming</p>
+<p>link link, link</p>
+<p>linkage linkage, link</p>
+<p>linker linker, linker</p>
+<p>list list, table, linked list</p>
+<p>list box list box</p>
+<p>literal constant literal constant</p>
+<p>livelock livelock (for database)</p>
+<p>load load, load</p>
+<p>load balancing load balancing</p>
+<p>loader loader, loader</p>
+<p>local local</p>
+<p>local object local object</p>
+<p>lock lock</p>
+<p>log log</p>
+<p>login login</p>
+<p>login security mode login security mode (for database)</p>
+<p>lookup table lookup table (for database)</p>
+<p>loop loop</p>
+<p>loose coupling loose coupling</p>
+<p>lvalue lvalue</p>
+<p><strong>M</strong></p>
+<p>machine code machine code, machine code</p>
+<p>macro macro</p>
+<p>maintain maintain</p>
+<p>managed code managed code, managed code</p>
+<p>Managed Extensions managed extensions, managed extensions</p>
+<p>managed object managed object, managed object</p>
+<p>manifest manifest</p>
+<p>many-to-many relationship many-to-many relationship (for database)</p>
+<p>many-to-one relationship many-to-one relationship (for database)</p>
+<p>marshal marshal</p>
+<p>Matching matching</p>
+<p>member member</p>
+<p>member access operator member access operator (there are dot and arrow)</p>
+<p>member function member function</p>
+<p>member initialization list member initialization list</p>
+<p>memory memory</p>
+<p>memory leak memory leak</p>
+<p>menu menu</p>
+<p>message message</p>
+<p>message based message-based</p>
+<p>message loop message loop</p>
+<p>message queuing message queue</p>
+<p>metadata metadata</p>
+<p>metaprogramming metaprogramming</p>
+<p>method method</p>
+<p>micro micro</p>
+<p>middle tier middle tier</p>
+<p>middleware middleware</p>
+<p>modeling modeling</p>
+<p>modeling language modeling language</p>
+<p>modem modem</p>
+<p>modifier modifier, modifier</p>
+<p>module module</p>
+<p>most derived class most derived class</p>
+<p>mouse mouse</p>
+<p>multi-tasking multitasking</p>
+<p>multi-thread multithread</p>
+<p>multicast delegate multicast delegate, multipoint delegate</p>
+<p>multithreaded server application multithreaded server application</p>
+<p>multiuser multiuser</p>
+<p>mutable mutable</p>
+<p>mutex mutex, mutex</p>
+<p><strong>N</strong></p>
+<p>named parameter named parameter</p>
+<p>named pipe named pipe</p>
+<p>namespace namespace, namespace</p>
+<p>native native, local</p>
+<p>native code local code, native code</p>
+<p>nested class nested class</p>
+<p>nested query nested query (for database)</p>
+<p>nested table nested table (for database)</p>
+<p>network network</p>
+<p>network card network card</p>
+<p>Network Flow network flow</p>
+<p><strong>O</strong></p>
+<p>object object</p>
+<p>object based object-based</p>
+<p>object model object model</p>
+<p>object oriented object-oriented</p>
+<p>ODBC data source ODBC data source (for database)</p>
+<p>ODBC driver ODBC driver (for database)</p>
+<p>one-to-many relationship one-to-many relationship (for database)</p>
+<p>one-to-one relationship one-to-one relationship (for database)</p>
+<p>operating system (OS) operating system</p>
+<p>operation operation</p>
+<p>operator operator, operator</p>
+<p>option option</p>
+<p>outer join outer join (for database)</p>
+<p>overflow overflow (as opposed to underflow)</p>
+<p>overload overload</p>
+<p>override override, overload, redefine</p>
+<p><strong>P</strong></p>
+<p>package package</p>
+<p>packaging packaging</p>
+<p>palette palette</p>
+<p>parallel parallel</p>
+<p>parameter parameter, formal parameter, formal parameter</p>
+<p>parameter list parameter list</p>
+<p>parameterize parameterize</p>
+<p>parent class parent class</p>
+<p>parentheses parentheses, parentheses</p>
+<p>parse parse</p>
+<p>parser parser</p>
+<p>part part, component</p>
+<p>partial specialization partial specialization</p>
+<p>pass by reference pass by reference</p>
+<p>pass by value pass by value</p>
+<p>pattern pattern</p>
+<p>persistence persistence</p>
+<p>pixel pixel</p>
+<p>placeholder placeholder</p>
+<p>platform platform</p>
+<p>Point Location point location</p>
+<p>pointer pointer</p>
+<p>polymorphism polymorphism</p>
+<p>pooling pooling</p>
+<p>pop up pop-up</p>
+<p>port port</p>
+<p>postfix postfix</p>
+<p>precedence precedence (usually used for operator precedence)</p>
+<p>prefix prefix</p>
+<p>preprocessor preprocessor</p>
+<p>primary key (PK) primary key (PK) (for database)</p>
+<p>primary table primary table (for database)</p>
+<p>primitive type primitive type</p>
+<p>print print</p>
+<p>printer printer</p>
+<p>procedure procedure</p>
+<p>process process</p>
+<p>program program</p>
+<p>programmer programmer</p>
+<p>programming programming, program design</p>
+<p>progress bar progress indicator</p>
+<p>project project, engineering</p>
+<p>property property</p>
+<p>protocol protocol</p>
+<p>pseudo code pseudocode</p>
+<p><strong>Q</strong></p>
+<p>qualified qualified</p>
+<p>qualifier qualifier</p>
+<p>quality quality</p>
+<p>queue queue</p>
+<p><strong>R</strong></p>
+<p>radio button radio button</p>
+<p>random number random number</p>
+<p>Random Number Generation random number generation</p>
+<p>range range, interval</p>
+<p>rank rank</p>
+<p>raw raw</p>
+<p>re-direction redirection</p>
+<p>readOnly read-only</p>
+<p>record record (for database)</p>
+<p>recordset recordset (for database</p>
+<p>recursion —— recursion</p>
+<p>recursive recursive</p>
+<p>refactoring refactoring</p>
+<p>refer refer, reference</p>
+<p>reference reference, reference</p>
+<p>reflection reflection</p>
+<p>refresh data refresh data (for database)</p>
+<p>register register</p>
+<p>regular expression regular expression</p>
+<p>relational database relational database</p>
+<p>remote remote</p>
+<p>remote request remote request</p>
+<p>represent represent, express</p>
+<p>resolution resolution process</p>
+<p>resolve resolve, resolution</p>
+<p>result set result set (for database)</p>
+<p>retrieve data retrieve data</p>
+<p>return return</p>
+<p>return type return type</p>
+<p>return value return value</p>
+<p>revoke revoke</p>
+<p>right outer join right outer join (for database)</p>
+<p>robust robust</p>
+<p>robustness robustness</p>
+<p>roll back rollback (for database)</p>
+<p>roll forward roll forward (for database)</p>
+<p>routine routine</p>
+<p>row row (for database)</p>
+<p>rowset rowset (for database)</p>
+<p>RPC (remote procedure call) RPC (remote procedure call)</p>
+<p>runtime execution period, runtime, execution time, runtime</p>
+<p>rvalue rvalue</p>
+<p><strong>S</strong></p>
+<p>Satisfiability satisfiability</p>
+<p>save save</p>
+<p>savepoint savepoint (for database)</p>
+<p>SAX (Simple API for XML)</p>
+<p>scalable scalable, extensible</p>
+<p>schedule schedule</p>
+<p>scheduler scheduler</p>
+<p>schema schema, outline structure</p>
+<p>scope scope, lifetime space</p>
+<p>screen screen</p>
+<p>scroll bar scroll bar</p>
+<p>SDK (Software Development Kit) software development kit</p>
+<p>sealed class sealed class</p>
+<p>search search</p>
+<p>Searching search</p>
+<p>semantics semantics</p>
+<p>sequential container sequential container</p>
+<p>serial serial</p>
+<p>serialization&#x2F;serialize serialization</p>
+<p>server server, server side</p>
+<p>session session (for database)</p>
+<p>Set and String Problems set and string problems</p>
+<p>Set Cover set cover</p>
+<p>Set Data Structures set</p>
+<p>Set Packing set packing</p>
+<p>setter setter function</p>
+<p>side effect side effect</p>
+<p>signature signature</p>
+<p>single-threaded single-threaded</p>
+<p>slider slider</p>
+<p>slot slot</p>
+<p>SMTP (Simple Mail Transfer Protocol) Simple Mail Transfer Protocol</p>
+<p>snapshot screenshot</p>
+<p>snapshot snapshot (for database)</p>
+<p>SOAP (simple object access protocol) Simple Object Access Protocol</p>
+<p>software software</p>
+<p>Sorting sorting</p>
+<p>source code source code, source code</p>
+<p>specialization specialization</p>
+<p>specification specification, spec</p>
+<p>splitter split window</p>
+<p>SQL (Structured Query Language) Structured Query Language (for database)</p>
+<p>stack stack, stack</p>
+<p>standard library standard library</p>
+<p>standard template library standard template library</p>
+<p>stateless stateless</p>
+<p>statement statement, declaration</p>
+<p>static cursor static cursor (for database)</p>
+<p>static SQL statements static SQL statements (for database)</p>
+<p>status bar status bar</p>
+<p>stored procedure stored procedure (for database)</p>
+<p>stream stream</p>
+<p>string string</p>
+<p>String Matching pattern matching</p>
+<p>stub stub</p>
+<p>subobject subobject</p>
+<p>subquery subquery (for database)</p>
+<p>subscript operator subscript operator</p>
+<p>support support</p>
+<p>suspend suspend</p>
+<p>symbol symbol</p>
+<p>syntax syntax</p>
+<p>system databases system databases (for database)</p>
+<p>system tables system tables (for database)</p>
+<p><strong>T</strong></p>
+<p>table table (for database)</p>
+<p>table-level constraint table-level constraint (for database)</p>
+<p>target target, goal</p>
+<p>task switch task switch</p>
+<p>TCP (Transport Control Protocol) Transport Control Protocol</p>
+<p>template template</p>
+<p>temporary object temporary object</p>
+<p>temporary table temporary table (for database)</p>
+<p>text text</p>
+<p>Text Compression compression</p>
+<p>text file text file</p>
+<p>thin client thin client</p>
+<p>third-party third-party</p>
+<p>thread thread</p>
+<p>thread-safe thread-safe</p>
+<p>throw throw, raise (often refers to throwing an exception)</p>
+<p>trace trace</p>
+<p>transaction transaction (for database)</p>
+<p>transaction log transaction log (for database)</p>
+<p>transaction rollback transaction rollback (for database)</p>
+<p>traverse traverse</p>
+<p>trigger trigger (for database)</p>
+<p>type type</p>
+<p><strong>U</strong></p>
+<p>UDDI(Universary Description, Discovery and Integration) Universal Description, Discovery and Integration</p>
+<p>UML (unified modeling language) Unified Modeling Language</p>
+<p>unary function unary function</p>
+<p>unary operator unary operator</p>
+<p>unboxing unboxing, unboxing conversion</p>
+<p>underflow underflow (as opposed to overflow)</p>
+<p>Unicode Unicode standard, uses double-byte encoding for characters</p>
+<p>Union query union query (for database)</p>
+<p>UNIQUE constraints UNIQUE constraints (for database)</p>
+<p>unique index unique index (for database)</p>
+<p>unmanaged code unmanaged code, unmanaged code</p>
+<p>unmarshal unmarshal</p>
+<p>unqualified unqualified, unmodified</p>
+<p>URI (Uniform Resource identifier) Uniform Resource Identifier</p>
+<p>URL (Uniform Resource Locator) Uniform Resource Locator</p>
+<p>user user</p>
+<p>user interface user interface</p>
+<p><strong>V</strong></p>
+<p>value types value types</p>
+<p>variable variable</p>
+<p>vector vector (a container, somewhat similar to array)</p>
+<p>vendor vendor</p>
+<p>viable viable</p>
+<p>video video</p>
+<p>view view (for database)</p>
+<p>view view</p>
+<p>virtual function virtual function</p>
+<p>virtual machine virtual machine</p>
+<p>virtual memory virtual memory</p>
+<p><strong>W</strong></p>
+<p>Web Services web service</p>
+<p>WHERE clause WHERE clause (for database)</p>
+<p>wildcard characters wildcard characters (for database)</p>
+<p>wildcard search wildcard search (for database)</p>
+<p>window window</p>
+<p>window function window function</p>
+<p>window procedure window procedure</p>
+<p>Windows authentication Windows authentication</p>
+<p>wizard wizard</p>
+<p>word word</p>
+<p>write enable write enable (for database)</p>
+<p>write-only write-only</p>
+<p>WSDL (Web Service Description Language) Web Service Description Language</p>
+<p><strong>X</strong></p>
+<p>XML (eXtensible Markup Language) eXtensible Markup Language</p>
+<p>XML Message Interface (XMI) XML Message Interface</p>
+<p>XSD (XML Schema Definition) XML Schema Definition</p>
+<p>XSL (eXtensible Stylesheet Language) eXtensible Stylesheet Language</p>
+<p>XSLT (eXtensible Stylesheet Language Transformation) eXtensible Stylesheet Language Transformation</p>
+<p>xxx based based on xxx</p>
+<p>xxx oriented oriented toward xxx</p>
+<hr>
+<h1 id="Network-Security"><a href="#Network-Security" class="headerlink" title="Network Security"></a>Network Security</h1><p><a target="_blank" rel="noopener" href="https://github.com/hacker-len/hacker-len.github.io">hacker-len&#x2F;hacker-len.github.io: Common English terms in cybersecurity practitioners’ work</a></p>
+<h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul>
+<li><a href="Dockerfile_Rules.pdf">Dockerfile_Rules.pdf</a></li>
+<li><a href="encode.7z">encode.7z</a></li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/code/" rel="tag" title="code">code</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Network-Security"><span class="toc-number">1.</span> <span class="toc-text">Network Security</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "English",
+          url: "https://blog.wray7.top/2023/04/16/2023-04-16-%E8%8B%B1%E8%AF%AD.en/",
+          excerpt: "",
+          description: "",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  A abstract abstract abstract base class (ABC) abstract base class abstract class abstract class abstraction abstraction, abstract thing, abstractness access ",
+          date: "Sun Apr 16 2023 18:52:32 GMT+0800",
+          updated: "Sun Oct 11 2026 04:43:26 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

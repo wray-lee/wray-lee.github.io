@@ -1,0 +1,681 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    worklog | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  GT7 (RMX6688) Port Package AOD Fix &#x2F; Backup Work LogDevice: realme GT7 China hardware RMX6688 (project">
+<meta property="og:type" content="article">
+<meta property="og:title" content="worklog">
+<meta property="og:url" content="https://blog.wray7.top/en/2026/10/11/2026-10-11-worklog.en/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  GT7 (RMX6688) Port Package AOD Fix &#x2F; Backup Work LogDevice: realme GT7 China hardware RMX6688 (project">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-10T18:27:58.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:58:18.154Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/10/11/2026-10-11-worklog.en/';
+              langMap['en'] = '/en/2026/10/11/2026-10-11-worklog.en/';
+              langMap['ja'] = '/ja/2026/10/11/2026-10-11-worklog.en/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="worklog">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">worklog</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GT7-RMX6688-Port-Package-AOD-Fix-Backup-Work-Log"><span class="toc-number">1.</span> <span class="toc-text">GT7 (RMX6688) Port Package AOD Fix &#x2F; Backup Work Log</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Current-version-composition-of-the-phone-verified-2026-10-11"><span class="toc-number">1.1.</span> <span class="toc-text">1. Current version composition of the phone (verified 2026-10-11)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AOD-Fix-completed-user-has-confirmed-fixed"><span class="toc-number">1.2.</span> <span class="toc-text">2. AOD Fix (completed, user has confirmed fixed)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Backup"><span class="toc-number">1.3.</span> <span class="toc-text">3. Backup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Partitions-mounted-partitions-completed-and-verified"><span class="toc-number">1.3.1.</span> <span class="toc-text">Partitions + mounted partitions (completed and verified)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7z-archives-in-O-DNA3-36-win"><span class="toc-number">1.3.2.</span> <span class="toc-text">7z archives (in O:\DNA3-36-win\)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-General-purpose-backup-scripts"><span class="toc-number">1.4.</span> <span class="toc-text">4. General-purpose backup scripts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-Android-full-backup-ps1-PowerShell-5-1-7-UTF-8-BOM-CRLF"><span class="toc-number">1.4.1.</span> <span class="toc-text">O:\DNA3-36-win\Android_full_backup.ps1 (PowerShell 5.1 &#x2F; 7, UTF-8 BOM, CRLF)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-android-full-backup-py-Python-3-8-standard-library-only-cross-platform-LF-no-BOM"><span class="toc-number">1.4.2.</span> <span class="toc-text">O:\DNA3-36-win\android_full_backup.py (Python 3.8+, standard library only, cross-platform, LF, no BOM)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Pitfalls-encountered"><span class="toc-number">1.5.</span> <span class="toc-text">5. Pitfalls encountered</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-To-do-Optional"><span class="toc-number">1.6.</span> <span class="toc-text">6. To-do &#x2F; Optional</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-10-11-worklog.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-10-10T18:27:58.000Z" itemprop="datePublished">2026-10-11</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="GT7-RMX6688-Port-Package-AOD-Fix-Backup-Work-Log"><a href="#GT7-RMX6688-Port-Package-AOD-Fix-Backup-Work-Log" class="headerlink" title="GT7 (RMX6688) Port Package AOD Fix &#x2F; Backup Work Log"></a>GT7 (RMX6688) Port Package AOD Fix &#x2F; Backup Work Log</h1><p>Device: realme GT7 China hardware RMX6688 (project number 24618), serial number 3B1F5TE6K0YF1PRM, rooted (KernelSU).<br>Flashed with a port package: International version RMX5061 EX01 → China hardware.</p>
+<p><strong>Iron rule: Not a bit of data may be lost.</strong> Only read-only operations are performed on the phone. fastboot flash&#x2F;erase&#x2F;format&#x2F;-w&#x2F;set_active, setprop&#x2F;resetprop persist, rm or writes to &#x2F;data, and factory reset must each first obtain the user’s explicit consent. Before flashing, the backup must first pass verification and have already been copied to a second disk.</p>
+<hr>
+<h2 id="1-Current-version-composition-of-the-phone-verified-2026-10-11"><a href="#1-Current-version-composition-of-the-phone-verified-2026-10-11" class="headerlink" title="1. Current version composition of the phone (verified 2026-10-11)"></a>1. Current version composition of the phone (verified 2026-10-11)</h2><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Upper layer (system &#x2F; product, etc.)</td>
+<td>International version MY 593, fingerprint <code>oplus/ossi/ossi:15/AP3A.240617.008/1755013304553</code></td>
+</tr>
+<tr>
+<td>my_manifest</td>
+<td>China 802: <code>RMX6688_15.0.1.802(CN01)</code>, ota <code>RMX6688_11.A.38_0380_202509082012</code></td>
+</tr>
+<tr>
+<td>Lower layer (vendor)</td>
+<td>China A.01, <code>realme/RMX6688/RE602AL1…</code></td>
+</tr>
+<tr>
+<td>tee_b</td>
+<td>China 802</td>
+</tr>
+<tr>
+<td>init_boot</td>
+<td>KernelSU patched version</td>
+</tr>
+<tr>
+<td>vbmeta</td>
+<td>flags&#x3D;3 (verification disabled, at offset 123 bytes)</td>
+</tr>
+</tbody></table>
+<ul>
+<li>A&#x2F;B partitions plus Virtual A&#x2F;B, current slot is b.</li>
+<li>The international version has no 802 base package, so the port package uses the China package for the lower layer.</li>
+<li><strong>Do not use system OTA updates</strong>: my_manifest is China 802, so a China OTA might be pushed. This is an inference, not actually tested.</li>
+</ul>
+<h2 id="2-AOD-Fix-completed-user-has-confirmed-fixed"><a href="#2-AOD-Fix-completed-user-has-confirmed-fixed" class="headerlink" title="2. AOD Fix (completed, user has confirmed fixed)"></a>2. AOD Fix (completed, user has confirmed fixed)</h2><ul>
+<li><strong>Root cause</strong>: <code>display_features.xml</code> in the port package’s my_product came from International version 24749 (oha_support &#x2F; fingeprint_optical_enabled). The fix was to replace it with the China 24618 configuration and remove <code>disable_aod_all_day_mode</code>.</li>
+<li><strong>Flashing</strong>: 2026-10-10, under fastbootd only <code>my_product_b</code> was flashed, image was <code>my_product_B_allday.img</code> (md5 <code>3916e32a6e9e9cbb14165ae22b4f4894</code>, 2557247488 B). This flash was approved by the user (“I agree that you can start flashing”), and the consent is valid only for this one time.</li>
+<li><strong>fastbootd driver</strong>: Requires Google USB driver (VID_18D1&amp;PID_4EE0), r13 version, installed on this computer with <code>pnputil /add-driver … /install</code>.</li>
+<li><strong>Image location</strong> (the original <code>F:\tmp\gt7aod\out</code> has been deleted): <code>O:\GT7_backup_20261010_copy\aod_fix\</code><ul>
+<li><code>my_product_B_allday.img</code>: md5 3916e32a…, this is what is currently on the phone.</li>
+<li><code>my_product_A_cn_exact.img</code>: md5 39d437f5…, alternative plan A.</li>
+<li><code>my_product_ORIGINAL_rollback.img</code>: md5 6ef16441…, 2533498880 B, for rollback.</li>
+</ul>
+</li>
+<li>If the port package (flash.bat) is flashed again in the future, it will overwrite my_product back to the old version, and the B version image will need to be flashed again.</li>
+</ul>
+<h2 id="3-Backup"><a href="#3-Backup" class="headerlink" title="3. Backup"></a>3. Backup</h2><h3 id="Partitions-mounted-partitions-completed-and-verified"><a href="#Partitions-mounted-partitions-completed-and-verified" class="headerlink" title="Partitions + mounted partitions (completed and verified)"></a>Partitions + mounted partitions (completed and verified)</h3><ul>
+<li><code>C:\Users\Wray\GT7_backup_20261010\</code><ul>
+<li><code>partitions\</code>: 103 physical partitions plus super.img, all compared with sha256 on the phone. In <code>partitions\SHA256SUMS</code>, nvdata appears on two lines; the last line <code>ffd951a8…</code> is authoritative.</li>
+<li>Also <code>logical\</code>, <code>mounted\</code>, <code>super_chunks\</code>, <code>_incomplete\</code>.</li>
+<li><code>data_ps1\</code>: tar archives of mounted partitions have been verified; internal storage was only partially backed up, because the adb service disconnected midway and Android.tar was truncated.</li>
+<li><code>data_full\</code>: left over from an interrupted test on 2026-10-11, about 392MB, incomplete, can be deleted.</li>
+<li><code>data\</code>: empty directory.</li>
+</ul>
+</li>
+<li>Copy on the second disk: <code>O:\GT7_backup_20261010_copy\</code>, 124 files verified, also contains <code>aod_fix\</code> and <code>SHA256SUMS_copy.txt</code>.</li>
+<li><code>O:\DNA3-36-win\GT7_backup_20261010\</code>: only text lists and a few directories, an early artifact.</li>
+<li><strong>User data</strong> (internal storage about 33GB, app data 65GB or more): the user said it had already been backed up before, so no full backup was made this time.</li>
+</ul>
+<h3 id="7z-archives-in-O-DNA3-36-win"><a href="#7z-archives-in-O-DNA3-36-win" class="headerlink" title="7z archives (in O:\DNA3-36-win\)"></a>7z archives (in <code>O:\DNA3-36-win\</code>)</h3><table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Realme GT7 For_EX01.7z</code></td>
+<td>Original port package, untouched</td>
+</tr>
+<tr>
+<td><code>Realme GT7 For_EX01_本机一致版.7z</code></td>
+<td>7742841918 B, tested with <code>7zr t</code> and CRC compared. Consistent with the phone’s current state: my_product is the fixed version, flash.bat has added my_company_a &#x2F; my_manifest_a, tee is 802, init_boot is KernelSU, with <code>init_boot_stock_A01.img</code> and <code>修改说明.txt</code> also attached. The positions recorded with lpdump were used to slice out each logical partition from super for comparison; the flash targets match slot b (except for vbmeta’s flag).</td>
+</tr>
+<tr>
+<td><code>GT7_本机专属分区_3B1F5TE6K0YF1PRM_20261010.7z</code></td>
+<td>118514412 B, verified. Contains 22 device-specific partition images: nvdata, nvcfg, nvram, protect1&#x2F;2, md_sec, persist, proinfo, seccfg, sec1, otp, oplusreserve1&#x2F;2&#x2F;3&#x2F;5&#x2F;6, metadata, para, boot_para, dram_para, expdb, frp; also tar archives of 5 mounted partitions, 说明.txt, SHA256SUMS.txt, getprop, by-name. <strong>Can only be flashed back to this phone.</strong></td>
+</tr>
+<tr>
+<td><code>Realme GT7 For_EX01_AOD修复版.7z</code></td>
+<td>Has been replaced by the device-consistent version and is no longer in the directory (user deleted it).</td>
+</tr>
+</tbody></table>
+<ul>
+<li>tee is not different for every machine: the tee image is vendor-signed generic firmware. Each machine’s own keys and data are in partitions such as nvdata, protect, and md_sec (included in the device-specific package above).</li>
+</ul>
+<h2 id="4-General-purpose-backup-scripts"><a href="#4-General-purpose-backup-scripts" class="headerlink" title="4. General-purpose backup scripts"></a>4. General-purpose backup scripts</h2><h3 id="O-DNA3-36-win-Android-full-backup-ps1-PowerShell-5-1-7-UTF-8-BOM-CRLF"><a href="#O-DNA3-36-win-Android-full-backup-ps1-PowerShell-5-1-7-UTF-8-BOM-CRLF" class="headerlink" title="O:\DNA3-36-win\Android_full_backup.ps1 (PowerShell 5.1 &#x2F; 7, UTF-8 BOM, CRLF)"></a><code>O:\DNA3-36-win\Android_full_backup.ps1</code> (PowerShell 5.1 &#x2F; 7, UTF-8 BOM, CRLF)</h3><ul>
+<li><strong>Backup content</strong>:<ul>
+<li>When rooted: dd physical partitions (excluding userdata, swap, whole-disk devices, and duplicate devices); logical partitions are exported separately only when -AllLogical or -Only is added; writable mounted partitions are tarred; internal storage; app data under &#x2F;data (split by app).</li>
+<li>When not rooted: only backs up &#x2F;sdcard and third-party app apks.</li>
+</ul>
+</li>
+<li><strong>Verification method</strong>:<ul>
+<li>Partitions are compared with sha256 against the phone side; when a partition is being written by the system, the result of two consecutive identical reads is used.</li>
+<li>Large partitions are read in chunks and can resume after interruption.</li>
+<li>tar archives are compared by file count and byte count; hard links are counted only once by inode.</li>
+<li>A tar archive must end with two all-zero blocks; otherwise it is considered incomplete.</li>
+</ul>
+</li>
+<li><strong>Read-only guarantee</strong>: All commands sent to the phone go through a read-only check. Commands are first base64-encoded, then passed through <code>adb exec-out &quot;echo &lt;b64&gt;|base64 -d|su&quot;</code>.</li>
+<li><strong>Issues fixed on 2026-10-11 according to review comments</strong>:<ul>
+<li>The read-only check mismatched quotes when encountering <code>&#39;\&#39;&#39;</code> escapes.</li>
+<li>On adb transfer errors, it now checks the exit code and stderr and retries; after consecutive failures it stops, and rerunning can resume.</li>
+<li>In -Live mode, if the phone has files but the archive has none, it is no longer accepted.</li>
+<li>When file names differ only by case, a hash is uniformly added to distinguish them (Clash).</li>
+<li>Hard link deduplication.</li>
+<li>Internal storage is all handled as -Live.</li>
+<li>SHA256SUMS and logs changed to no BOM.</li>
+<li>Free space check under network paths (UNC).</li>
+<li>Wait-Device displays adb’s actual state.</li>
+<li>In the non-root path, the package name of <code>pm path</code> has escaping added.</li>
+</ul>
+</li>
+<li>Real-device tests (read-only, <code>-Only misc,frp,persist,nvdata,metadata</code>) all passed.</li>
+</ul>
+<h3 id="O-DNA3-36-win-android-full-backup-py-Python-3-8-standard-library-only-cross-platform-LF-no-BOM"><a href="#O-DNA3-36-win-android-full-backup-py-Python-3-8-standard-library-only-cross-platform-LF-no-BOM" class="headerlink" title="O:\DNA3-36-win\android_full_backup.py (Python 3.8+, standard library only, cross-platform, LF, no BOM)"></a><code>O:\DNA3-36-win\android_full_backup.py</code> (Python 3.8+, standard library only, cross-platform, LF, no BOM)</h3><ul>
+<li>Functionally equivalent to the ps1. Output directory, file names, <code>.ok</code> markers, and SHA256SUMS are completely identical, and the two scripts can resume each other’s backups.</li>
+<li>tar verification now uses Python’s <code>tarfile</code>; the <code>RHT.security.selinux</code> pax records generated by toybox can be parsed normally.</li>
+<li>Porting process: 1 agent implemented, 3 reviewed by direction, 1 fixed, 1 offline tested, all using the default model. The review raised 11 issues, 9 were fixed. The two not changed: one is the tie order in partition sorting, which does not affect the result; the other is the way Clash is determined — actual testing showed that PowerShell hashtables are inherently case-insensitive, and the current implementation behaves the same as the ps1.</li>
+<li>Offline tests were run with a fake adb and all passed: full backup, rerun skip, <code>--only</code>, non-root, transfer failure retry, truncated tar rejected, partition content changing during read, various special file names, hard links, read-only check.</li>
+<li>Real-device tests (read-only, same set of partitions) passed. The hashes of misc, frp, and metadata are the same as in the ps1 run; nvdata and persist are written during runtime, so differing between the two runs is normal.</li>
+<li><strong>Incident record</strong>: The implementing agent once ran the script without adding the <code>--adb</code> parameter and connected to the real phone. Only read-only commands were executed (get-state, getprop, cat &#x2F;proc&#x2F;mounts, cat &#x2F;proc&#x2F;partitions, lpdump); there was no dd and no writing of any kind; the temporary text generated was deleted. The user was truthfully informed.</li>
+<li>Note: The previously used Python virtual environment <code>F:\tmp\gt7aod\venv</code> was deleted along with tmp; from now on it needs to be run with the system Python.</li>
+</ul>
+<h2 id="5-Pitfalls-encountered"><a href="#5-Pitfalls-encountered" class="headerlink" title="5. Pitfalls encountered"></a>5. Pitfalls encountered</h2><ul>
+<li><strong>adb stderr under PS 5.1</strong>: At <code>ErrorActionPreference=Stop</code>, it is treated as NativeCommandError, and needs to be changed locally to Continue.</li>
+<li><strong>Multiline here-string in CRLF scripts</strong>: <code>\r</code> must be removed before sending to the phone.</li>
+<li><strong>Checking with bsdtar after packing with toybox</strong>: The pax record written by <code>tar --selinux</code> has a trailing NUL, and bsdtar reports “malformed pax attributes”, but the content is intact. To determine whether an archive is complete, look at the two all-zero blocks at the end.</li>
+<li><strong>The adb service disconnecting midway truncates the tar</strong>: This is why transfer checks were added.</li>
+<li><strong>fastbootd cannot detect the phone</strong>: The Google USB driver needs to be installed.</li>
+<li><strong>Flashing a larger image</strong>: Logical partitions automatically expand.</li>
+<li><strong>Workflow scripts must not contain CR</strong>: Write with LF; a single agent’s output must be length-limited, otherwise it will exceed the 32k output limit.</li>
+<li><strong>Claude Pro quota</strong>: No more than 3 top-tier models running in parallel at the same time.</li>
+</ul>
+<h2 id="6-To-do-Optional"><a href="#6-To-do-Optional" class="headerlink" title="6. To-do &#x2F; Optional"></a>6. To-do &#x2F; Optional</h2><ul>
+<li>Delete <code>C:\Users\Wray\GT7_backup_20261010\data_full</code> (leftover from the interrupted test), pending the user’s decision.</li>
+<li>If a complete user data backup is needed in the future, use either script with <code>--no-partitions</code> &#x2F; <code>-NoPartitions</code>, and confirm the phone is unlocked before backing up.</li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/android/" rel="tag" title="android">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GT7-RMX6688-Port-Package-AOD-Fix-Backup-Work-Log"><span class="toc-number">1.</span> <span class="toc-text">GT7 (RMX6688) Port Package AOD Fix &#x2F; Backup Work Log</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Current-version-composition-of-the-phone-verified-2026-10-11"><span class="toc-number">1.1.</span> <span class="toc-text">1. Current version composition of the phone (verified 2026-10-11)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AOD-Fix-completed-user-has-confirmed-fixed"><span class="toc-number">1.2.</span> <span class="toc-text">2. AOD Fix (completed, user has confirmed fixed)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Backup"><span class="toc-number">1.3.</span> <span class="toc-text">3. Backup</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Partitions-mounted-partitions-completed-and-verified"><span class="toc-number">1.3.1.</span> <span class="toc-text">Partitions + mounted partitions (completed and verified)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7z-archives-in-O-DNA3-36-win"><span class="toc-number">1.3.2.</span> <span class="toc-text">7z archives (in O:\DNA3-36-win\)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-General-purpose-backup-scripts"><span class="toc-number">1.4.</span> <span class="toc-text">4. General-purpose backup scripts</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-Android-full-backup-ps1-PowerShell-5-1-7-UTF-8-BOM-CRLF"><span class="toc-number">1.4.1.</span> <span class="toc-text">O:\DNA3-36-win\Android_full_backup.ps1 (PowerShell 5.1 &#x2F; 7, UTF-8 BOM, CRLF)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-android-full-backup-py-Python-3-8-standard-library-only-cross-platform-LF-no-BOM"><span class="toc-number">1.4.2.</span> <span class="toc-text">O:\DNA3-36-win\android_full_backup.py (Python 3.8+, standard library only, cross-platform, LF, no BOM)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Pitfalls-encountered"><span class="toc-number">1.5.</span> <span class="toc-text">5. Pitfalls encountered</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-To-do-Optional"><span class="toc-number">1.6.</span> <span class="toc-text">6. To-do &#x2F; Optional</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "worklog",
+          url: "https://blog.wray7.top/2026/10/11/2026-10-11-worklog.en/",
+          excerpt: "",
+          description: "",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  GT7 (RMX6688) Port Package AOD Fix &amp;#x2F; Backup Work LogDevice: realme GT7 China hardware RMX6688 (project number 24618), serial number 3B1F5TE6K0YF1PRM, ro",
+          date: "Sun Oct 11 2026 02:27:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:58:18 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

@@ -1,0 +1,773 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    NU22招新题 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="NU22招新题基础1.   HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特点，默认监听80端口  ​		特点: （1）简单快速，向服务器请求服务只需要传送请求方法和路径,使得http服务器程序规模小，通讯速度快 （2）灵活，允许传输任意类型数据对象，正在传输类型用Content-Type标记 （3）无连接，每次传输只处理一个请求，服务器处理完用户请求立即断开连接，节省传输时间 （4）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NU22招新题">
+<meta property="og:url" content="https://blog.wray7.top/ja/2022/10/30/2022-10-30-NU22%E6%8B%9B%E6%96%B0%E9%A2%98/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="NU22招新题基础1.   HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特点，默认监听80端口  ​		特点: （1）简单快速，向服务器请求服务只需要传送请求方法和路径,使得http服务器程序规模小，通讯速度快 （2）灵活，允许传输任意类型数据对象，正在传输类型用Content-Type标记 （3）无连接，每次传输只处理一个请求，服务器处理完用户请求立即断开连接，节省传输时间 （4）">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://blog.wray7.top/home/wray/%E4%B8%8B%E8%BD%BD/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E6%8B%93%E8%A1%A5.jpg">
+<meta property="og:image" content="https://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221012160006846.png">
+<meta property="og:image" content="https://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221020210210392.png">
+<meta property="og:image" content="https://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221020210247884.png">
+<meta property="og:image" content="https://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221020210319800.png">
+<meta property="article:published_time" content="2022-10-29T17:27:37.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:58.347Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.wray7.top/home/wray/%E4%B8%8B%E8%BD%BD/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E6%8B%93%E8%A1%A5.jpg">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2022/10/30/2022-10-30-NU22招新题/';
+              langMap['en'] = '/en/2022/10/30/2022-10-30-NU22招新题/';
+              langMap['ja'] = '/ja/2022/10/30/2022-10-30-NU22招新题/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="NU22招新题">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">NU22招新题</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NU22%E6%8B%9B%E6%96%B0%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">NU22招新题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%A7%E7%BD%91%E7%BB%9C"><span class="toc-number">1.2.</span> <span class="toc-text">实验性网络</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2022-10-30-NU22招新题" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2022-10-29T17:27:37.000Z" itemprop="datePublished">2022-10-30</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="NU22招新题"><a href="#NU22招新题" class="headerlink" title="NU22招新题"></a>NU22招新题</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>1. </p>
+<ul>
+<li>HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特点，默认监听80端口</li>
+</ul>
+<p>​		特点:</p>
+<p>（1）简单快速，向服务器请求服务只需要传送请求方法和路径,使得http服务器程序规模小，通讯速度快</p>
+<p>（2）灵活，允许传输任意类型数据对象，正在传输类型用Content-Type标记</p>
+<p>（3）无连接，每次传输只处理一个请求，服务器处理完用户请求立即断开连接，节省传输时间</p>
+<p>（4）无状态：对事务处理无记忆能力，缺少状态需要重传；服务器不需要处理先前信息加快应答</p>
+<p>（5）支持B&#x2F;S与C&#x2F;S模式</p>
+<p>（6）HTTP1.1版本后支持可持续连接(一个tcp发送多个http请求)</p>
+<ul>
+<li><p>SMTP:应用层，为用户提供高效、可靠的邮件传输，默认监听25端口，加密传输默认使用465端口。实际应用中，一般使用SMTP协议发送邮件，一般使用POP3,IMAP协议接收邮件</p>
+<p>特点：可以在传送中接力传送邮件，即通过不同网络上的主机接力式传送</p>
+</li>
+<li><p>TCP:传输层，在不可靠的互联网中为应用程序提供哦年面向连接的，可靠的，端到端字节流服务。</p>
+<p>特点：</p>
+<p>（1）面向连接，提供可靠的建立连接和拆除连接的方法，还提供了流量控制和拥塞控制的机制</p>
+<p>（2）可靠交付，提供对报文段的检错，确认，重传和排序等功能</p>
+<p>（3）报文端头部长，传输开销大</p>
+</li>
+<li><p>DNS:应用层，用于域名解析，实质上是一个域名与ip相互映射的分布式数据库。</p>
+<p>特点：</p>
+<p>（1）分布式</p>
+<p>（2）协议支持tcp(response&gt;512)和udp（response&lt;&#x3D;512）,常用端口53</p>
+<p>（3）每一级域名长度限制是63</p>
+<p>（4）域名总长度限制253</p>
+</li>
+<li><p>UDP:传输层，用于可靠性较高的网络环境（入局域网）或不要求可靠传输的场合，另外也常用于客户机&#x2F;服务器模式</p>
+<p>特点：</p>
+<p>（1）传送数据前无需建立连接，无流量控制机制，数据到达后也无需确认</p>
+<p>（2）不可靠交付，只有有限的差错控制机制</p>
+<p>（3）报文头部段短，传输开销小，时延较短</p>
+</li>
+<li><p>ICMP:网际层，主要用于在ip主机和路由器之间传递控制消息，用于报告主机是否可达，路由是否可用等</p>
+<p>特点：</p>
+<p>（1）差错报告采用路由器-源主机模式，路由器发现数据报传输出现错误时指向源主机报告差错原因</p>
+<p>（2）不能保证所有ip数据包都能够传输到目的主机</p>
+<p>（3）不能纠正差错，只能报告差错，差错处理需要高层协议完成</p>
+</li>
+<li><p>ARP:网际层，网络设备要发送数据到另一台设备，数据被封装成帧需要对方mac地址，由ip地址获取mac地址通过arp完成</p>
+<p>特点：</p>
+<p>（1）报文不能穿越路由器，不能被转发到其他广播域</p>
+<p>（2）完整交互过程仅需要两个包</p>
+<p>（3）最不安全的一个协议</p>
+</li>
+<li><p>RDP:应用层，基于T-120系列协议标准，是其拓展，支持多通道的协议，允许单独的虚拟通道传输（演示数据，串行设备通信，许可信息，高度加密的数据（键鼠活动等））T.share核心协议的拓展用于远程连接到计算机或服务器，允许用户使用电脑远程控制另一台电脑</p>
+<p>特点：</p>
+<p>（1）完全独立于基础传输堆栈，有5层网络层次，由下至上：网络连接层-&gt;ISO数据层-&gt;虚拟通道层-&gt;加密解密层-&gt;功能数据层</p>
+<p>（2）支持许多不同类型的网络拓补</p>
+<p>（3）允许数据更安全的储存在本地设备上</p>
+<p>（4）存在某些网络漏洞，长期使用可能会受到网络攻击</p>
+</li>
+</ul>
+<p>2.无默认配置的路由，即配置静态路由</p>
+<p><img src="/home/wray/%E4%B8%8B%E8%BD%BD/%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1%E6%8B%93%E8%A1%A5.jpg" alt="静态路由拓补"></p>
+<p>以如上拓补结构为例</p>
+<p>图2.2<img src="/home/wray/.config/Typora/typora-user-images/image-20221012160006846.png" alt="image-20221012160006846"></p>
+<p>配置指令(华为设备)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置AR1相应接口ip，配置到目标网络192.169.3.0/24	192.168.4.0/24</span></span><br><span class="line">sys</span><br><span class="line">int g0/0/0</span><br><span class="line">ip add 192.168.1.254 255.255.255.0</span><br><span class="line">int g0/0/1</span><br><span class="line">ip add 192.168.2.1 255.255.255.0</span><br><span class="line">q</span><br><span class="line">ip route-static 192.168.3.0 255.255.255.0 192.168.2.2</span><br><span class="line">ip route-static 192.168.4.0 255.255.255.0 192.168.2.2</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置路由器AR2相应接口ip,并配置到192.168.1.0/24</span></span><br><span class="line">sys</span><br><span class="line">int g0/0/0</span><br><span class="line">ip address 192.168.2.2 255.255.255.0</span><br><span class="line">int g0/0/1</span><br><span class="line">ip add 192.168.3.254 255.255.255.0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在pc1,pc2,pc3上配置对应ip地址，网关以及子网掩码（图2.2,过程略）</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">测试pc1,pc2,pc3之间连通性</span></span><br><span class="line">查看AR1、AR2路由表</span><br><span class="line">ip routing-table</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">static为静态路由条目，direct为直连条目</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>思科cisco设备配置</p>
+<p>如下网络拓补</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">内网配置</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">对于Router0</span></span><br><span class="line">enable</span><br><span class="line">configure terminal</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">打开以太网端口</span></span><br><span class="line">interface fastEthernet 0/0</span><br><span class="line">no shutdown</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置ip</span></span><br><span class="line">ip address 192.168.1.1 255.255.255.0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置广域网端口</span></span><br><span class="line">interface serial 1/0</span><br><span class="line">no shutdown</span><br><span class="line">ip address 202.115.18.1 255.255.255.252</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置时钟速率</span></span><br><span class="line">clock rate 64000</span><br><span class="line">end</span><br><span class="line">write</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">内网配置</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">对于Router1</span></span><br><span class="line">enable</span><br><span class="line">configure terminal</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">打开以太网端口,配置ip</span></span><br><span class="line">interface fastEthernet 0/0</span><br><span class="line">no shutdown</span><br><span class="line">ip address 192.168.9.1 255.255.255.0</span><br><span class="line">interface fastEthernet 0/1</span><br><span class="line">no shutdown</span><br><span class="line">ip address 192.168.5.1 255.255.255.0</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">打开广域网端口，配置ip</span></span><br><span class="line">interface serial 1/0</span><br><span class="line">no shutdown</span><br><span class="line">ip address 202.115.18.2 255.255.255.252</span><br><span class="line">end</span><br><span class="line">write</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">配置路由</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Router0</span></span><br><span class="line">enable</span><br><span class="line">configure terminal</span><br><span class="line">ip route 192.168.5.0 255.255.255.0 202.115.18.2</span><br><span class="line">ip route 192.168.9.0 255.255.255.0 202.115.18.2</span><br><span class="line">end</span><br><span class="line">write</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">Router1</span></span><br><span class="line">enable</span><br><span class="line">configure terminal</span><br><span class="line">ip route 192.168.1.0 255.255.255.0 202.115.18.1</span><br><span class="line">end</span><br><span class="line">write</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<ol start="3">
+<li></li>
+</ol>
+<p>DHCP协议采用udp作为传输协议，主机发送请求消息到67端口，DHCP服务器回应消息给主机的68端口</p>
+<p>step1. DHCP client请求ip,以广播方式发出DHCP discover报文。</p>
+<p>DHCP client启动时会自动配置ip为不能通信的0.0.0.0,以0.0.0.0作为源地址。此时客户端不清楚DHCP server的ip地址，所以以0.0.0.0。为源地址，udp68port作为源端口，使用255.255.255.255作为目标地址，使用udp67port作为目的端口请求ip地址信息，广播信息包含了DHCP client的mac地址和计算机名，便于DHCP server定位是哪台客户端发出的请求</p>
+<p>step2：server响应，向DHCP client发送DHCP offer报文</p>
+<p>DHCP server接收到DHCP discover报文就会做出响应，从未分配过的ip池中挑选一个分配给DHCP client，以DHCP offer报文发出，DHCP offer报文中还包含了dns地址，网关，掩码等字段。如果无可用来分配的ip,ze发送DHCP NAK报文通知DHCP client无法分配ip</p>
+<p>step3：DHCP client选择ip，发出一个广播的DHCP request报文，选项字段中加入选中的DHCP server地址和需要的ip地址</p>
+<p>DHCP client以广播方式发送DHCP request，包含了DHCP server地址和请求的ip。DHCP server接收DHCP request报文后，判断DHCP server的ip是否与自己的相同，若不同，则清除相应ip地址分配记录，若相同，则向DHCP client响应一个DHCP ACK报文</p>
+<p>step4：DHCP server确认租约，响应DHCP ACK报文，在选项字段中添加租期信息</p>
+<p>DHCP client接收到DHCP ACK报文后，检查分配的ip是否可以使用，若能使用，则根据租期自动启动续延过程，如果发现已经被使用，则DCHP client向DHCP server发送DHCP Decline报文，通知其禁用此ip地址，之后DHCP client开始新的ip申请过程</p>
+<ol start="4">
+<li></li>
+</ol>
+<p>Unicast（单播）：</p>
+<p>是指封包在计算机网络的传输中，目的地址为单一目标的一种传输方式。它是现今网络应用最为广泛，通常所使用的网络协议或服务大多采用单播传输，例如一切基于TCP的协议。</p>
+<p>Multicast（组播）：</p>
+<p>也叫多播， 多点广播或群播。 指把信息同时传递给一组目的地址。它使用策略是最高效的，因为消息在每条网络链路上只需传递一次，而且只有在链路分叉的时候，消息才会被复制。很多地方都有应用，如可视化ip电话会议、视频监控、一些线上直播或网络电视</p>
+<p>Anycast（任播）：</p>
+<p>是一种网络寻址和路由的策略，使得资料可以根据路由拓朴来决定送到“最近”或“最好”的目的地。在DNS和镜像服务中有所应用</p>
+<p>Broadcast（广播）：</p>
+<p>是指封包在计算机网络中传输时，目的地址为网络中所有设备的一种传输方式。“所有设备”也是限定在一个范围之中，称为“广播域”。在DHCP中就有所应用</p>
+<ol start="5">
+<li></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">2: enp42s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc fq_codel state</span><br><span class="line">UP group default qlen 1000</span><br><span class="line">link/ether d8:bb:c1:16:db:e1 brd ff:ff:ff:ff:ff:ff</span><br><span class="line">inet 10.127.132.244/25 brd 10.127.132.255 scope global dynamic</span><br><span class="line">noprefixroute enp42s0</span><br><span class="line">valid_lft 166763sec preferred_lft 166763sec</span><br><span class="line">inet6 2a0c:b641:7a2:1020:fc5d:264:c441:344f/64 scope global dynamic</span><br><span class="line">noprefixroute</span><br><span class="line">valid_lft 299956sec preferred_lft 199956sec</span><br><span class="line">inet6 fe80::9e66:54c1:6c67:7ea2/64 scope link noprefixroute</span><br><span class="line">valid_lft forever preferred_lft forever</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>enp42s0是网卡名称，p是总线编号，s是插槽编号</p>
+</li>
+<li><p>mtu 1500即最大传输代为1500,mac头+正文&lt;&#x3D;1500</p>
+</li>
+<li><p>qdisc为排队规则，内核通过某个接口发送数据包，都需要为这个接口配置qdisc加入队列</p>
+</li>
+<li><p>qlen为队列长度</p>
+</li>
+<li><p>state up 代表接口已启用</p>
+</li>
+<li><p>group default 接口组默认</p>
+</li>
+<li><p>link&#x2F;ether后续的d8:bb:c1:16:db:e1是mac地址</p>
+<p>brd后续的ff:ff:ff:ff:ff:ff是广播地址</p>
+</li>
+<li><p>inet后续的10.127.132.244是ipv4地址，是一个a类地址</p>
+<p> 25是子网掩码简写换成dec得到掩码为255.255.255.128,则ip地址范围为10.127.132.128～10.127.132.255,</p>
+<p>网络地址为10.127.132.128可用ip范围为10.127.132.129～10.127.132.254共125个地址</p>
+<p>brd后面为广播地址10.127.132.255</p>
+<p>global代表全局可用</p>
+<p>dynamic代表interface是动态创建销毁的</p>
+<p>noprefixroute 不为该地址的网络前缀分配路由，移除该地址也不去搜索路由</p>
+</li>
+</ul>
+<p>​		valid_lft 有效生存期</p>
+<p>​		preferred_lft	首选生存期</p>
+<ul>
+<li>inet6后续为ipv6地址</li>
+<li>第二个ipv6地址scope link代表地址仅在本地可用</li>
+</ul>
+<ol start="6">
+<li></li>
+</ol>
+<p>如果主机还未通过dhcp获取ip,则主机通过dhcp协议从dhcp server获取ip,掩码，网关ip。访问公网需要通过nat协议进行地址转换。对于域名，需要通过dns协议访问，访问 <a target="_blank" rel="noopener" href="https://uestclug.org时,一般域名解析resopnse/">https://uestclug.org时，一般域名解析resopnse</a>&lt;&#x3D;512，采用udp协议进行数据传输，获取到域名映射的ip地址后，通过tcp协议进行三次握手与服务器建立连接，但因为采用了https,所以三次握手之后进行tls协议的握手，之后发送加密过的http报文请求网页信息，最后tcp四次挥手与网页断开连接</p>
+<p>主机与公网的通讯，所有数据包均需要通过路由器转发</p>
+<ol start="7">
+<li></li>
+</ol>
+<p>（1）支持802.1q协议的网卡的trunk支持native vlan，默认为vlan 1，则可以将外界设备划分到vlan1（缺省状态也可以）实现与外界通讯</p>
+<p>（2）配置trunk接口允许通行的vlan,将外界设备所处vlan在trunk接口设置为通行</p>
+<ol start="8">
+<li></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">subgraph OSI七层模型</span><br><span class="line">A[应用层]--&gt;B[表示层]--&gt;C[会话层]--&gt;D[传输层]--&gt;E[网络层]--&gt;F[链路层]--&gt;G[物理层]</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>PDU：应用层、表示层、会话层-&gt;数据data</p>
+<p>​			传输层：segment报文段（tcp），datagram数据报（udp）</p>
+<p>​			网络层：packet数据包</p>
+<p>​			链路层：frame数据帧</p>
+<p>​			物理层：bit比特流</p>
+<p>数据处理过程：</p>
+<p>​			应用层、表示层、会话层：生成上层数据</p>
+<p>​			传输层：添加tcp头（或udp头）</p>
+<p>​			网络层：添加ip头</p>
+<p>​			链路层：添加帧头（前同步码，mac头，LLC头，类型字段）和帧尾（CRC，帧间距）</p>
+<p>9.二层交换机工作在osi链路层，三层交换机实现了二层交换技术+三层转发技术，工作在链路层和网络层，属于具有部分路由功能的交换机，路由器主要互联局域网和广域网，用于网际传输，工作在网络层</p>
+<p>二层交换机常用于组建小型局域网，三层交换机主要加速了大型局域网络内部的数据快速转发，大型网络如果使用二层交换机无法处理大量的网际互访，而使用路由器由于接口数量限制和转发速度满会限制网速和网络规模，此时使用三层交换机就可以较好解决此问题</p>
+<p>部署位置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">A((Router))--&gt;B[Firewall]--&gt;C[Switch]</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>10.需要通过路由器或三层交换机进行通讯，路由器将接入子网的端口设置为子网的网关即可实现通信，三层交换机将vlan之间虚接口起来即可实现通信</p>
+<p>11.Network Address Translation网络地址转换，将私网ip转换为公网ip实现内网主机可以访问到公网</p>
+<p>缺点：</p>
+<ul>
+<li>增加了网络复杂性，使得安全协议变复杂，网络结构脆弱。内网主机和公网ip之间没有实现真正的端对端连接，无法沉溺于高层网络的一些协议（如tcp&#x2F;udp）</li>
+<li>NAT违背了网络分层模型设计原则。osi中规定第n层不允许修改n+1层报头内容，但nat违背了这一原则，nat处于网络层增添了位于传输层的tcp&#x2F;udp报头，</li>
+<li>增加了路由器工作负担。需要维护专用IP地址与公用IP地址以及端口号的映射关系</li>
+<li>不能处理嵌入式IP地址或端口。nat只能修改正常位置的ip头，嵌入到应用数据的ip和端口信息nat无法进行处理</li>
+<li>nat在p2p中的表现不好</li>
+</ul>
+<p>优点：</p>
+<ul>
+<li>解决了ipv4地址不足的问题</li>
+<li>有效避免了来自以太网外部的攻击</li>
+</ul>
+<p>SNAT（source NAT POSTROUTING）：源网络地址转换，将ip数据包的源地址转换为另外一个地址。常用于局域网共享一个公网ip接入Internet</p>
+<p>DNAT（Destination Network Address Translation）：目的网络地址转换，将外部ip数据包的目标地址转换为内网的一个地址。常用于向Internet发布内网服务器</p>
+<p>MASQUERADE：地址伪装效果与snat相近。是直接获取发送数据的网卡上IP来替换源IP，对于IP不固定的场合，比如拨号网络或者通过dhcp分配IP的情况下，就得用MASQUERADE。</p>
+<ol start="12">
+<li></li>
+</ol>
+<ul>
+<li>网关设备断电</li>
+</ul>
+<p>办公室内部无法ping通，办公室内部无法ping通服务器，loss都为100%</p>
+<ul>
+<li>服务器上级网关关闭</li>
+</ul>
+<p>办公室设备之间可以ping通，办公室无法ping通服务器，服务器之间可以ping通，服务器无法ping通办公室</p>
+<ul>
+<li>企业内部网络不存在该服务器路由</li>
+</ul>
+<p>内部网络路由表中无服务器ip地址，无法从内网连接到服务器</p>
+<ul>
+<li>流量转发到公网</li>
+</ul>
+<p>无法通过服务器内网ip访问服务器，可以通过服务器公网ip访问到服务器</p>
+<ol start="13">
+<li></li>
+</ol>
+<p>![屏幕截图 2022-10-16 194803](&#x2F;run&#x2F;media&#x2F;wray&#x2F;KINGSTON&#x2F;屏幕截图 2022-10-16 194803.png)</p>
+<h2 id="实验性网络"><a href="#实验性网络" class="headerlink" title="实验性网络"></a>实验性网络</h2><p>ASN4242422977</p>
+<p>已经和:sheep:peer了</p>
+<p><img src="/home/wray/.config/Typora/typora-user-images/image-20221020210210392.png" alt="image-20221020210210392"></p>
+<p><img src="/home/wray/.config/Typora/typora-user-images/image-20221020210247884.png" alt="image-20221020210247884"></p>
+<p><img src="/home/wray/.config/Typora/typora-user-images/image-20221020210319800.png" alt="image-20221020210319800"></p>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/web/" rel="tag" title="web">web</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="zsh_p10k主题安装" class="lazyload">
+        <a href="/ja/2022/11/03/2022-11-03-zsh_p10k%E4%B8%BB%E9%A2%98%E5%AE%89%E8%A3%85/" aria-label="前の記事: zsh_p10k主题安装" title="前の記事: zsh_p10k主题安装"></a>
+        <div class="article-nav-caption">前の記事</div>
+        <h3 class="article-nav-title">
+            zsh_p10k主题安装
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="dn42" class="lazyload">
+      <a href="/ja/2022/10/14/2022-10-14-dn42/" aria-label="次の記事: dn42"  title="次の記事: dn42"></a>
+      <div class="article-nav-caption">次の記事</div>
+      <h3 class="article-nav-title">
+          dn42
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#NU22%E6%8B%9B%E6%96%B0%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">NU22招新题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80"><span class="toc-number">1.1.</span> <span class="toc-text">基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%A7%E7%BD%91%E7%BB%9C"><span class="toc-number">1.2.</span> <span class="toc-text">实验性网络</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "NU22招新题",
+          url: "https://blog.wray7.top/2022/10/30/2022-10-30-NU22%E6%8B%9B%E6%96%B0%E9%A2%98/",
+          excerpt: "",
+          description: "",
+          stripContent: "NU22招新题基础1.   HTTP:应用层，用于浏览，规范了浏览器和服务器的数据交互特点，默认监听80端口  ​  特点: （1）简单快速，向服务器请求服务只需要传送请求方法和路径,使得http服务器程序规模小，通讯速度快 （2）灵活，允许传输任意类型数据对象，正在传输类型用Content-Type标记 （3）无连接，每次传输只处理一个请求，服务器处理完用户请求立即断开连接，节省传输时间 （4）无状态：对事务处理无记忆能力，缺少状态需要重传；服务器不需要处理先前信息加快应答 （5）支持B&amp;#x",
+          date: "Sun Oct 30 2022 01:27:37 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

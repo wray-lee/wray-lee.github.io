@@ -1,0 +1,681 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    作業ログ | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  GT7 (RMX6688) 移植パッケージ AOD 修正 &#x2F; バックアップ 作業記録デバイス：realme GT7 中国版ハードウェア RMX6688（プロジェクト番号 24618）、シリアル番号 3B1F5TE6K0YF1PRM、root 済み（KernelSU）。書き込んだ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作業ログ">
+<meta property="og:url" content="https://blog.wray7.top/ja/2026/10/11/2026-10-11-worklog.ja/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  GT7 (RMX6688) 移植パッケージ AOD 修正 &#x2F; バックアップ 作業記録デバイス：realme GT7 中国版ハードウェア RMX6688（プロジェクト番号 24618）、シリアル番号 3B1F5TE6K0YF1PRM、root 済み（KernelSU）。書き込んだ">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2026-10-10T18:27:58.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:58:29.329Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/10/11/2026-10-11-worklog.ja/';
+              langMap['en'] = '/en/2026/10/11/2026-10-11-worklog.ja/';
+              langMap['ja'] = '/ja/2026/10/11/2026-10-11-worklog.ja/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="作業ログ">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">作業ログ</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GT7-RMX6688-%E7%A7%BB%E6%A4%8D%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8-AOD-%E4%BF%AE%E6%AD%A3-%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97-%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2"><span class="toc-number">1.</span> <span class="toc-text">GT7 (RMX6688) 移植パッケージ AOD 修正 &#x2F; バックアップ 作業記録</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%81%AE%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E6%A7%8B%E6%88%90%EF%BC%882026-10-11-%E7%A2%BA%E8%AA%8D%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1. スマートフォンの現在のバージョン構成（2026-10-11 確認）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AOD-%E4%BF%AE%E6%AD%A3%EF%BC%88%E5%AE%8C%E4%BA%86%E3%80%81%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E4%BF%AE%E6%AD%A3%E6%B8%88%E3%81%BF%E3%81%A8%E7%A2%BA%E8%AA%8D%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">2. AOD 修正（完了、ユーザーが修正済みと確認）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97"><span class="toc-number">1.3.</span> <span class="toc-text">3. バックアップ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3-%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%88%E5%AE%8C%E4%BA%86%E3%83%BB%E6%A4%9C%E8%A8%BC%E6%B8%88%E3%81%BF%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">パーティション + マウントパーティション（完了・検証済み）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7z-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%EF%BC%88O-DNA3-36-win-%E5%86%85%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">7z パッケージ（O:\DNA3-36-win\ 内）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B1%8E%E7%94%A8%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88"><span class="toc-number">1.4.</span> <span class="toc-text">4. 汎用バックアップスクリプト</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-Android-full-backup-ps1%EF%BC%88PowerShell-5-1-7%E3%80%81UTF-8-BOM%E3%80%81CRLF%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">O:\DNA3-36-win\Android_full_backup.ps1（PowerShell 5.1 &#x2F; 7、UTF-8 BOM、CRLF）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-android-full-backup-py%EF%BC%88Python-3-8-%E3%80%81%E6%A8%99%E6%BA%96%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%81%BF%E3%80%81%E3%82%AF%E3%83%AD%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%80%81LF%E3%80%81BOM-%E3%81%AA%E3%81%97%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">O:\DNA3-36-win\android_full_backup.py（Python 3.8+、標準ライブラリのみ、クロスプラットフォーム、LF、BOM なし）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88"><span class="toc-number">1.5.</span> <span class="toc-text">5. ハマったポイント</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%9C%AA%E5%AF%BE%E5%BF%9C-%E4%BB%BB%E6%84%8F"><span class="toc-number">1.6.</span> <span class="toc-text">6. 未対応 &#x2F; 任意</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-10-11-worklog.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-10-10T18:27:58.000Z" itemprop="datePublished">2026-10-11</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="GT7-RMX6688-移植パッケージ-AOD-修正-バックアップ-作業記録"><a href="#GT7-RMX6688-移植パッケージ-AOD-修正-バックアップ-作業記録" class="headerlink" title="GT7 (RMX6688) 移植パッケージ AOD 修正 &#x2F; バックアップ 作業記録"></a>GT7 (RMX6688) 移植パッケージ AOD 修正 &#x2F; バックアップ 作業記録</h1><p>デバイス：realme GT7 中国版ハードウェア RMX6688（プロジェクト番号 24618）、シリアル番号 3B1F5TE6K0YF1PRM、root 済み（KernelSU）。<br>書き込んだのは移植パッケージ：国際版 RMX5061 EX01 → 中国版ハードウェア。</p>
+<p><strong>鉄則：データを一切失ってはならない。</strong> スマートフォンに対しては読み取り専用操作のみを行う。fastboot flash&#x2F;erase&#x2F;format&#x2F;-w&#x2F;set_active、setprop&#x2F;resetprop persist、&#x2F;data への rm または書き込み、工場出荷状態への復元は、その都度必ずユーザーの明確な同意を先に得ること。書き込み前に、バックアップは先に検証を通し、かつ2台目のディスクへコピー済みでなければならない。</p>
+<hr>
+<h2 id="1-スマートフォンの現在のバージョン構成（2026-10-11-確認）"><a href="#1-スマートフォンの現在のバージョン構成（2026-10-11-確認）" class="headerlink" title="1. スマートフォンの現在のバージョン構成（2026-10-11 確認）"></a>1. スマートフォンの現在のバージョン構成（2026-10-11 確認）</h2><table>
+<thead>
+<tr>
+<th>層</th>
+<th>バージョン</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>上位層（system &#x2F; product など）</td>
+<td>国際版 MY 593、fingerprint <code>oplus/ossi/ossi:15/AP3A.240617.008/1755013304553</code></td>
+</tr>
+<tr>
+<td>my_manifest</td>
+<td>中国版 802：<code>RMX6688_15.0.1.802(CN01)</code>、ota <code>RMX6688_11.A.38_0380_202509082012</code></td>
+</tr>
+<tr>
+<td>下位層（vendor）</td>
+<td>中国版 A.01、<code>realme/RMX6688/RE602AL1…</code></td>
+</tr>
+<tr>
+<td>tee_b</td>
+<td>中国版 802</td>
+</tr>
+<tr>
+<td>init_boot</td>
+<td>KernelSU パッチ版</td>
+</tr>
+<tr>
+<td>vbmeta</td>
+<td>flags&#x3D;3（検証を無効化、オフセット 123 バイト位置）</td>
+</tr>
+</tbody></table>
+<ul>
+<li>A&#x2F;B パーティション + Virtual A&#x2F;B、現在のスロットは b。</li>
+<li>国際版には 802 のベースパッケージがないため、移植パッケージの下位層には中国版パッケージを使用している。</li>
+<li><strong>システム OTA 更新は使わないこと</strong>：my_manifest が中国版 802 なので、中国版 OTA が配信される可能性がある。これは推測であり、実測していない。</li>
+</ul>
+<h2 id="2-AOD-修正（完了、ユーザーが修正済みと確認）"><a href="#2-AOD-修正（完了、ユーザーが修正済みと確認）" class="headerlink" title="2. AOD 修正（完了、ユーザーが修正済みと確認）"></a>2. AOD 修正（完了、ユーザーが修正済みと確認）</h2><ul>
+<li><strong>根本原因</strong>：移植パッケージの my_product 内の <code>display_features.xml</code> が国際版 24749（oha_support &#x2F; fingeprint_optical_enabled）由来。修正方法は中国版 24618 の設定に置き換え、<code>disable_aod_all_day_mode</code> を削除すること。</li>
+<li><strong>書き込み</strong>：2026-10-10、fastbootd で <code>my_product_b</code> のみを書き込み、イメージは <code>my_product_B_allday.img</code>（md5 <code>3916e32a6e9e9cbb14165ae22b4f4894</code>、2557247488 B）。今回の書き込みはユーザーの同意を得て実施（「書き込みを開始することに同意する」）。同意は今回限り有効。</li>
+<li><strong>fastbootd ドライバー</strong>：Google USB ドライバー（VID_18D1&amp;PID_4EE0）、r13 版が必要で、<code>pnputil /add-driver … /install</code> を使ってこの PC にインストール済み。</li>
+<li><strong>イメージの場所</strong>（元の <code>F:\tmp\gt7aod\out</code> は削除済み）：<code>O:\GT7_backup_20261010_copy\aod_fix\</code><ul>
+<li><code>my_product_B_allday.img</code>：md5 3916e32a…、現在のスマートフォン上はこれ。</li>
+<li><code>my_product_A_cn_exact.img</code>：md5 39d437f5…、代替案 A。</li>
+<li><code>my_product_ORIGINAL_rollback.img</code>：md5 6ef16441…、2533498880 B、ロールバック用。</li>
+</ul>
+</li>
+<li>今後移植パッケージ（flash.bat）を再書き込みすると、my_product が旧版に上書きされるため、B 版イメージをもう一度書き込む必要がある。</li>
+</ul>
+<h2 id="3-バックアップ"><a href="#3-バックアップ" class="headerlink" title="3. バックアップ"></a>3. バックアップ</h2><h3 id="パーティション-マウントパーティション（完了・検証済み）"><a href="#パーティション-マウントパーティション（完了・検証済み）" class="headerlink" title="パーティション + マウントパーティション（完了・検証済み）"></a>パーティション + マウントパーティション（完了・検証済み）</h3><ul>
+<li><code>C:\Users\Wray\GT7_backup_20261010\</code><ul>
+<li><code>partitions\</code>：103 個の物理パーティション + super.img、すべてスマートフォン側と sha256 を比較済み。<code>partitions\SHA256SUMS</code> 内で nvdata が2行出現したため、最後の行 <code>ffd951a8…</code> を正とする。</li>
+<li>ほかに <code>logical\</code>、<code>mounted\</code>、<code>super_chunks\</code>、<code>_incomplete\</code> がある。</li>
+<li><code>data_ps1\</code>：マウントパーティションの tar パッケージは検証済み。内部ストレージは一部のみバックアップされ、当時 adb サービスが途中で切断され、Android.tar が切り詰められた。</li>
+<li><code>data_full\</code>：2026-10-11 のテスト時に中断して残ったもので、約 392MB、不完全、削除可能。</li>
+<li><code>data\</code>：空のディレクトリ。</li>
+</ul>
+</li>
+<li>2台目のディスクのコピー：<code>O:\GT7_backup_20261010_copy\</code>、124 ファイル検証済み、ほかに <code>aod_fix\</code> と <code>SHA256SUMS_copy.txt</code> を含む。</li>
+<li><code>O:\DNA3-36-win\GT7_backup_20261010\</code>：テキスト一覧と少数のディレクトリのみで、初期の成果物。</li>
+<li><strong>ユーザーデータ</strong>（内部ストレージ約 33GB、アプリデータ 65GB 以上）：ユーザーは以前にバックアップ済みと言っているため、今回は全量バックアップを行わない。</li>
+</ul>
+<h3 id="7z-パッケージ（O-DNA3-36-win-内）"><a href="#7z-パッケージ（O-DNA3-36-win-内）" class="headerlink" title="7z パッケージ（O:\DNA3-36-win\ 内）"></a>7z パッケージ（<code>O:\DNA3-36-win\</code> 内）</h3><table>
+<thead>
+<tr>
+<th>ファイル</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>Realme GT7 For_EX01.7z</code></td>
+<td>元の移植パッケージ、未変更</td>
+</tr>
+<tr>
+<td><code>Realme GT7 For_EX01_本机一致版.7z</code></td>
+<td>7742841918 B、<code>7zr t</code> でテスト済みかつ CRC 比較済み。スマートフォンの現在の状態と一致：my_product は修正版、flash.bat は my_company_a &#x2F; my_manifest_a を追加、tee は 802、init_boot は KernelSU、別途 <code>init_boot_stock_A01.img</code> と <code>修改说明.txt</code> を添付。lpdump で記録した位置から super 内の各論理パーティションを切り出して比較済み、書き込み対象とスロット b が一致（vbmeta の flag を除く）。</td>
+</tr>
+<tr>
+<td><code>GT7_本机专属分区_3B1F5TE6K0YF1PRM_20261010.7z</code></td>
+<td>118514412 B、検証済み。22 個の本機専用パーティションイメージを含む：nvdata、nvcfg、nvram、protect1&#x2F;2、md_sec、persist、proinfo、seccfg、sec1、otp、oplusreserve1&#x2F;2&#x2F;3&#x2F;5&#x2F;6、metadata、para、boot_para、dram_para、expdb、frp；ほかに 5 個のマウントパーティションの tar パッケージ、説明.txt、SHA256SUMS.txt、getprop、by-name。<strong>このスマートフォンにのみ書き戻し可能。</strong></td>
+</tr>
+<tr>
+<td><code>Realme GT7 For_EX01_AOD修复版.7z</code></td>
+<td>本機一致版に置き換えられ、すでにディレクトリ内にない（ユーザーが削除済み）。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>tee はマシンごとに異なるわけではない：tee イメージはベンダー署名済みの共通ファームウェア。各マシン固有の鍵とデータは nvdata、protect、md_sec といったパーティション内にある（上記の本機専用パッケージに含まれる）。</li>
+</ul>
+<h2 id="4-汎用バックアップスクリプト"><a href="#4-汎用バックアップスクリプト" class="headerlink" title="4. 汎用バックアップスクリプト"></a>4. 汎用バックアップスクリプト</h2><h3 id="O-DNA3-36-win-Android-full-backup-ps1（PowerShell-5-1-7、UTF-8-BOM、CRLF）"><a href="#O-DNA3-36-win-Android-full-backup-ps1（PowerShell-5-1-7、UTF-8-BOM、CRLF）" class="headerlink" title="O:\DNA3-36-win\Android_full_backup.ps1（PowerShell 5.1 &#x2F; 7、UTF-8 BOM、CRLF）"></a><code>O:\DNA3-36-win\Android_full_backup.ps1</code>（PowerShell 5.1 &#x2F; 7、UTF-8 BOM、CRLF）</h3><ul>
+<li><strong>バックアップ内容</strong>：<ul>
+<li>root 時：物理パーティションを dd（userdata、swap、ディスク全体のデバイス、重複デバイスを除外）；論理パーティションは -AllLogical または -Only を付けた場合のみ個別にエクスポート；書き込み可能なマウントパーティションを tar 化；内部ストレージ；&#x2F;data 配下のアプリデータ（アプリごとに分割）。</li>
+<li>未 root 時：&#x2F;sdcard とサードパーティアプリの apk のみバックアップ。</li>
+</ul>
+</li>
+<li><strong>検証方式</strong>：<ul>
+<li>パーティションはスマートフォン側と sha256 を比較；パーティションがシステムにより書き込み中の場合は、連続2回の読み取りが一致した結果を採用。</li>
+<li>大きなパーティションはブロック単位で読み取り、レジューム可能。</li>
+<li>tar パッケージはファイル数とバイト数を比較、ハードリンクは inode ごとに1回のみカウント。</li>
+<li>tar パッケージの末尾には全ゼロブロックが2つ必要で、なければ不完全とみなす。</li>
+</ul>
+</li>
+<li><strong>読み取り専用保証</strong>：スマートフォンへ送るすべてのコマンドは読み取り専用チェックを通す。コマンドは先に base64 エンコードし、その後 <code>adb exec-out &quot;echo &lt;b64&gt;|base64 -d|su&quot;</code> 経由。</li>
+<li><strong>2026-10-11 にレビュー指摘に従い修正した問題</strong>：<ul>
+<li>読み取り専用チェックで <code>&#39;\&#39;&#39;</code> エスケープに遭遇すると引用符の対応を誤る。</li>
+<li>adb 転送エラー時は、終了コードと stderr を確認して再試行するようになった；連続失敗で停止し、再実行でレジューム可能。</li>
+<li>-Live モードで、スマートフォン上にファイルがあるのにパッケージ内に1つもない場合は、受け入れないようになった。</li>
+<li>ファイル名が大文字小文字のみ異なる場合、統一してハッシュを付けて区別（Clash）。</li>
+<li>ハードリンクを重複排除。</li>
+<li>内部ストレージはすべて -Live として処理。</li>
+<li>SHA256SUMS とログは BOM なしに変更。</li>
+<li>ネットワークパス（UNC）下の空き容量チェック。</li>
+<li>Wait-Device が adb の実際の状態を表示。</li>
+<li>非 root パス内の <code>pm path</code> のパッケージ名にエスケープを追加。</li>
+</ul>
+</li>
+<li>実機テスト（読み取り専用、<code>-Only misc,frp,persist,nvdata,metadata</code>）はすべて通過。</li>
+</ul>
+<h3 id="O-DNA3-36-win-android-full-backup-py（Python-3-8-、標準ライブラリのみ、クロスプラットフォーム、LF、BOM-なし）"><a href="#O-DNA3-36-win-android-full-backup-py（Python-3-8-、標準ライブラリのみ、クロスプラットフォーム、LF、BOM-なし）" class="headerlink" title="O:\DNA3-36-win\android_full_backup.py（Python 3.8+、標準ライブラリのみ、クロスプラットフォーム、LF、BOM なし）"></a><code>O:\DNA3-36-win\android_full_backup.py</code>（Python 3.8+、標準ライブラリのみ、クロスプラットフォーム、LF、BOM なし）</h3><ul>
+<li>ps1 と機能同等。出力ディレクトリ、ファイル名、<code>.ok</code> マーカー、SHA256SUMS は完全に一致し、2つのスクリプトは相互にレジューム可能。</li>
+<li>tar 検証は Python の <code>tarfile</code> に変更；toybox が生成した <code>RHT.security.selinux</code> pax レコードを正常に解析可能。</li>
+<li>移植過程：1 個の agent が実装、3 個が方向別レビュー、1 個が修正、1 個がオフラインテスト、すべてデフォルトモデル使用。レビューで 11 件の問題が提出され、9 件を修正。修正しなかった2件：1つ目はパーティションソートの同順位の順序で、結果に影響しない；2つ目は Clash の判定方法で、実測では PowerShell のハッシュテーブルはもともと大文字小文字を区別しないため、現在の書き方と ps1 の動作は一致している。</li>
+<li>オフラインテストは偽 adb で実行し、すべて通過：全量、再実行時スキップ、<code>--only</code>、非 root、転送失敗再試行、tar 切り詰めの拒否、パーティション内容の読み取り中変化、各種特殊ファイル名、ハードリンク、読み取り専用チェック。</li>
+<li>実機テスト（読み取り専用、同一パーティション群）通過。misc、frp、metadata のハッシュは ps1 の時と同じ；nvdata、persist は実行時に書き込まれるため、2回で異なるのは正常。</li>
+<li><strong>事故記録</strong>：実装担当 agent が一度、<code>--adb</code> パラメータを付けずにスクリプトを実行し、実機スマートフォンに接続した。実行されたのは読み取り専用コマンドのみ（get-state、getprop、cat &#x2F;proc&#x2F;mounts、cat &#x2F;proc&#x2F;partitions、lpdump）で、dd も一切の書き込みもなし；生成された一時テキストは削除済み。ユーザーにはありのまま伝えた。</li>
+<li>注意：以前使用していた Python 仮想環境 <code>F:\tmp\gt7aod\venv</code> は tmp とともに削除済み、今後はシステム Python で実行する必要がある。</li>
+</ul>
+<h2 id="5-ハマったポイント"><a href="#5-ハマったポイント" class="headerlink" title="5. ハマったポイント"></a>5. ハマったポイント</h2><ul>
+<li><strong>PS 5.1 での adb の stderr</strong>：<code>ErrorActionPreference=Stop</code> 時に NativeCommandError と見なされるため、局所的に Continue に変更する必要がある。</li>
+<li><strong>CRLF スクリプト内の複数行 here-string</strong>：スマートフォンへ送る前に <code>\r</code> を除去する必要がある。</li>
+<li><strong>toybox でパッケージ後に bsdtar で検査</strong>：<code>tar --selinux</code> が書いた pax レコードの末尾に NUL が付き、bsdtar は “malformed pax attributes” を報告するが、内容は正常。パッケージが完全かどうかは末尾の全ゼロブロック2つで判断する。</li>
+<li><strong>adb サービスが途中で切断されると tar が切り詰められる</strong>：これが転送チェックを追加した理由。</li>
+<li><strong>fastbootd がスマートフォンを認識しない</strong>：Google USB ドライバーのインストールが必要。</li>
+<li><strong>より大きなイメージの書き込み</strong>：論理パーティションは自動拡張される。</li>
+<li><strong>Workflow スクリプトに CR を含められない</strong>：LF で書く；単一 agent の出力は長さを制限する必要があり、そうしないと 32k 出力上限を超える。</li>
+<li><strong>Claude Pro クォータ</strong>：トップモデルの同時並列は3個まで。</li>
+</ul>
+<h2 id="6-未対応-任意"><a href="#6-未対応-任意" class="headerlink" title="6. 未対応 &#x2F; 任意"></a>6. 未対応 &#x2F; 任意</h2><ul>
+<li><code>C:\Users\Wray\GT7_backup_20261010\data_full</code> を削除（中断テストの残留物）、ユーザーの判断待ち。</li>
+<li>今後完全なユーザーデータバックアップが必要な場合は、任意のスクリプトに <code>--no-partitions</code> &#x2F; <code>-NoPartitions</code> を付けて実行し、バックアップ前にスマートフォンがロック解除済みであることを確認する。</li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/android/" rel="tag" title="android">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#GT7-RMX6688-%E7%A7%BB%E6%A4%8D%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8-AOD-%E4%BF%AE%E6%AD%A3-%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97-%E4%BD%9C%E6%A5%AD%E8%A8%98%E9%8C%B2"><span class="toc-number">1.</span> <span class="toc-text">GT7 (RMX6688) 移植パッケージ AOD 修正 &#x2F; バックアップ 作業記録</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E3%82%B9%E3%83%9E%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%B3%E3%81%AE%E7%8F%BE%E5%9C%A8%E3%81%AE%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E6%A7%8B%E6%88%90%EF%BC%882026-10-11-%E7%A2%BA%E8%AA%8D%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1. スマートフォンの現在のバージョン構成（2026-10-11 確認）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AOD-%E4%BF%AE%E6%AD%A3%EF%BC%88%E5%AE%8C%E4%BA%86%E3%80%81%E3%83%A6%E3%83%BC%E3%82%B6%E3%83%BC%E3%81%8C%E4%BF%AE%E6%AD%A3%E6%B8%88%E3%81%BF%E3%81%A8%E7%A2%BA%E8%AA%8D%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">2. AOD 修正（完了、ユーザーが修正済みと確認）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97"><span class="toc-number">1.3.</span> <span class="toc-text">3. バックアップ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3-%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E3%83%91%E3%83%BC%E3%83%86%E3%82%A3%E3%82%B7%E3%83%A7%E3%83%B3%EF%BC%88%E5%AE%8C%E4%BA%86%E3%83%BB%E6%A4%9C%E8%A8%BC%E6%B8%88%E3%81%BF%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">パーティション + マウントパーティション（完了・検証済み）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7z-%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8%EF%BC%88O-DNA3-36-win-%E5%86%85%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">7z パッケージ（O:\DNA3-36-win\ 内）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B1%8E%E7%94%A8%E3%83%90%E3%83%83%E3%82%AF%E3%82%A2%E3%83%83%E3%83%97%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88"><span class="toc-number">1.4.</span> <span class="toc-text">4. 汎用バックアップスクリプト</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-Android-full-backup-ps1%EF%BC%88PowerShell-5-1-7%E3%80%81UTF-8-BOM%E3%80%81CRLF%EF%BC%89"><span class="toc-number">1.4.1.</span> <span class="toc-text">O:\DNA3-36-win\Android_full_backup.ps1（PowerShell 5.1 &#x2F; 7、UTF-8 BOM、CRLF）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#O-DNA3-36-win-android-full-backup-py%EF%BC%88Python-3-8-%E3%80%81%E6%A8%99%E6%BA%96%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%AE%E3%81%BF%E3%80%81%E3%82%AF%E3%83%AD%E3%82%B9%E3%83%97%E3%83%A9%E3%83%83%E3%83%88%E3%83%95%E3%82%A9%E3%83%BC%E3%83%A0%E3%80%81LF%E3%80%81BOM-%E3%81%AA%E3%81%97%EF%BC%89"><span class="toc-number">1.4.2.</span> <span class="toc-text">O:\DNA3-36-win\android_full_backup.py（Python 3.8+、標準ライブラリのみ、クロスプラットフォーム、LF、BOM なし）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E3%83%8F%E3%83%9E%E3%81%A3%E3%81%9F%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88"><span class="toc-number">1.5.</span> <span class="toc-text">5. ハマったポイント</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%9C%AA%E5%AF%BE%E5%BF%9C-%E4%BB%BB%E6%84%8F"><span class="toc-number">1.6.</span> <span class="toc-text">6. 未対応 &#x2F; 任意</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "作業ログ",
+          url: "https://blog.wray7.top/2026/10/11/2026-10-11-worklog.ja/",
+          excerpt: "",
+          description: "",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  GT7 (RMX6688) 移植パッケージ AOD 修正 &amp;#x2F; バックアップ 作業記録デバイス：realme GT7 中国版ハードウェア RMX6688（プロジェクト番号 24618）、シリアル番号 3B1F5TE6K0YF1PRM、root 済み（KernelSU）。書き込んだのは移植パッケージ：国際版 RMX5061 EX01 → 中国版ハードウェア。 鉄則：データを一切失",
+          date: "Sun Oct 11 2026 02:27:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:58:29 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

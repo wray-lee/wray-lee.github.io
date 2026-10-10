@@ -1,0 +1,603 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Batsh基本语法 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Batsh基本语法注释1.单行注释 rem blabla@REM blabla:: blabla2.行末或单行注释	%blabla%  命令后添加 &gt; nul 可不显示指令作用内容 语法头一般会在头部输入@echo off echo回显指令,相当于cout,但是会显示自身使用@echo off可以不显示echo@作用为此条命令的echo也不显示 延时指令timeout -t &lt;font">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Batsh基本语法">
+<meta property="og:url" content="https://blog.wray7.top/en/2024/04/08/2024-04-08-Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Batsh基本语法注释1.单行注释 rem blabla@REM blabla:: blabla2.行末或单行注释	%blabla%  命令后添加 &gt; nul 可不显示指令作用内容 语法头一般会在头部输入@echo off echo回显指令,相当于cout,但是会显示自身使用@echo off可以不显示echo@作用为此条命令的echo也不显示 延时指令timeout -t &lt;font">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-04-08T06:42:29.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:58.958Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="Windows">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2024/04/08/2024-04-08-Batsh基本语法/';
+              langMap['en'] = '/en/2024/04/08/2024-04-08-Batsh基本语法/';
+              langMap['ja'] = '/ja/2024/04/08/2024-04-08-Batsh基本语法/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Batsh基本语法">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Batsh基本语法</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Batsh基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4"><span class="toc-number">2.0.1.</span> <span class="toc-text">头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E6%8C%87%E4%BB%A4"><span class="toc-number">2.0.2.</span> <span class="toc-text">延时指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.0.3.</span> <span class="toc-text">目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dir%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">Dir函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8Efor%E7%9A%84dir"><span class="toc-number">2.0.3.1.1.</span> <span class="toc-text">用于for的dir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">2.0.3.1.2.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.0.3.1.3.</span> <span class="toc-text">运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.0.4.</span> <span class="toc-text">服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-number">2.0.5.</span> <span class="toc-text">提权</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Powershell"><span class="toc-number">2.1.</span> <span class="toc-text">Powershell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">删除文件夹</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2024-04-08-Batsh基本语法" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2024-04-08T06:42:29.000Z" itemprop="datePublished">2024-04-08</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="Batsh基本语法"><a href="#Batsh基本语法" class="headerlink" title="Batsh基本语法"></a>Batsh基本语法</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>1.单行注释 <code>rem blabla</code><br><code>@REM blabla</code><br><code>:: blabla</code><br>2.行末或单行注释	<code>%blabla%</code></p>
+<p> 命令后添加 &gt; nul 可不显示指令作用内容</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h3 id="头"><a href="#头" class="headerlink" title="头"></a>头</h3><p>一般会在头部输入<code>@echo off</code></p>
+<p>echo回显指令,相当于cout,但是会显示自身<br>使用@echo off可以不显示echo<br>@作用为此条命令的echo也不显示</p>
+<h3 id="延时指令"><a href="#延时指令" class="headerlink" title="延时指令"></a>延时指令</h3><p><code>timeout -t &lt;font color=Gainsboro&gt;*time* &lt;/font&gt;</code></p>
+<p>相当于<code>sleep()</code></p>
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><code>%~dp0 </code>	为文件当前所在目录</p>
+<h4 id="Dir函数"><a href="#Dir函数" class="headerlink" title="Dir函数"></a><code>Dir</code>函数</h4><p><code>DIR *.* /B &gt;list.txt</code> 			提取当前目录下所有文件名至list.txt中</p>
+<p>可以直接用于遍历</p>
+<h5 id="用于for的dir"><a href="#用于for的dir" class="headerlink" title="用于for的dir"></a>用于for的dir</h5><p><code> for /f &quot;delims= ,token= &quot; in (&#39;dir /a-d /b&#39;) do&#123;&#125;</code></p>
+<hr>
+<p>delims 用于分割目录下元素：<br>{“第1行第1列 第1行第2列 第1行第3列”， &#x2F;&#x2F;第一个元素</p>
+<p>“第2行第1列 第2行第2列 第2行第3列”， &#x2F;&#x2F;第二个元素</p>
+<p>“第3行第1列 第3行第2列 第3行第3列”}   &#x2F;&#x2F;第三个元素</p>
+<p>-&gt;</p>
+<p>第1行第1列<br>第2行第1列<br>第3行第1列</p>
+<hr>
+<p>token用于取delims分割后的那一部分</p>
+<p><code>for /f &quot;tokens=2 delims= &quot; %%i in (a.txt) do echo %%i</code></p>
+<p>执行结果：</p>
+<p>第1行第2列<br>第2行第2列<br>第3行第2列</p>
+<hr>
+<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><p><code>/R %%i</code>用于遍历当前目录</p>
+<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><ul>
+<li><code>%%~</code></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~n 取得文件名。 ~x 取得扩展名。 ~nx 取得全名，包括扩展名。 ~s 取得目录及全名。 ~p 取得路径。 ~dp 取得绝对路径。</span><br><span class="line"></span><br><span class="line">运算符放在变量名字前，写成%%~ni	Linux中$&#123;.*var&#125; 同样如此</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h3><p><code>sc</code> 只用于服务</p>
+<p><code>net</code> 既可以用于服务，又可以用于网络、用户、登录的绝大部分场景</p>
+<p><code>sc</code> 在命令行中无法执行，在bat脚本中可以正常执行</p>
+<p><code>net</code> 则没有这种问题</p>
+<p><code>sc</code> 只用于服务，回显会详细</p>
+<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><ul>
+<li>快捷方式使用管理员运行</li>
+<li>runas命令</li>
+<li>powershell中Start-Process命令</li>
+<li>vbs调用Shell.Application对象的ShellExecute</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">runas命令是一个Windows内置的命令，它可以让你以指定的用户身份运行一个程序或命令。它的语法是：runas /user:&lt;user&gt; &lt;program&gt;，其中&lt;user&gt;是你要使用的用户账户，&lt;program&gt;是你要运行的程序或命令。例如，如果你要以管理员身份运行bat脚本，你可以这样写：runas /user:Administrator myscript.bat。但是这样会提示你输入管理员密码，如果你不想输入密码，你可以使用/savecred参数来保存凭据，但是这样可能会有安全风险。</span><br><span class="line"></span><br><span class="line">Start-Process命令是一个PowerShell内置的命令，它可以让你启动一个或多个进程，并设置一些选项，比如工作目录、窗口样式、重定向输出等。它的语法是：Start-Process -FilePath &lt;file&gt; [-ArgumentList &lt;args&gt;] [-Verb RunAs] [-WindowStyle &lt;style&gt;] [-Wait]，其中&lt;file&gt;是你要运行的文件，&lt;args&gt;是你要传递给文件的参数，-Verb RunAs是指定以管理员身份运行，-WindowStyle &lt;style&gt;是指定窗口样式，比如Normal, Hidden, Minimized, or Maximized，-Wait是指定等待进程结束再继续执行。例如，如果你要以管理员身份运行bat脚本，并等待它结束，你可以这样写：Start-Process -FilePath myscript.bat -Verb RunAs -Wait。但是这样会弹出UAC确认对话框，如果你不想弹出对话框，你可以使用vbs脚本来调用Shell.Application对象的ShellExecute方法。</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /d <span class="string">&quot;%~dp0&quot;</span> &amp;&amp; ( <span class="keyword">if</span> exist <span class="string">&quot;%temp%\getadmin.vbs&quot;</span> del <span class="string">&quot;%temp%\getadmin.vbs&quot;</span> ) &amp;&amp; fsutil dirty query %systemdrive% &gt;nul 2&gt;&amp;1 || (  <span class="built_in">echo</span> Set UAC = CreateObject^(<span class="string">&quot;Shell.Application&quot;</span>^) : UAC.ShellExecute <span class="string">&quot;cmd.exe&quot;</span>, <span class="string">&quot;/k cd &quot;</span><span class="string">&quot;%~dp0&quot;</span><span class="string">&quot; &amp;&amp; &quot;</span><span class="string">&quot;%~s0&quot;</span><span class="string">&quot; !params!&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;runas&quot;</span>, 1 &gt;&gt; <span class="string">&quot;%temp%\getadmin.vbs&quot;</span> &amp;&amp; <span class="string">&quot;%temp%\getadmin.vbs&quot;</span> &amp;&amp; <span class="built_in">exit</span> /B )</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Powershell"><a href="#Powershell" class="headerlink" title="Powershell"></a>Powershell</h2><h4 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> folder <span class="literal">-Recurse</span> | <span class="built_in">rm</span> <span class="literal">-force</span> <span class="literal">-recurse</span> &amp;&amp; <span class="built_in">rm</span> folder <span class="literal">-force</span></span><br></pre></td></tr></table></figure>
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/Windows/" rel="tag" title="Windows">Windows</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="web-basic" class="lazyload">
+        <a href="/en/2024/04/09/2024-04-09-web-basic/" aria-label="Prev: web-basic" title="Prev: web-basic"></a>
+        <div class="article-nav-caption">Prev</div>
+        <h3 class="article-nav-title">
+            web-basic
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Vim笔记" class="lazyload">
+      <a href="/en/2024/04/02/2024-04-02-Vim%E7%AC%94%E8%AE%B0/" aria-label="Next: Vim笔记"  title="Next: Vim笔记"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          Vim笔记
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Batsh基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4"><span class="toc-number">2.0.1.</span> <span class="toc-text">头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E6%8C%87%E4%BB%A4"><span class="toc-number">2.0.2.</span> <span class="toc-text">延时指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.0.3.</span> <span class="toc-text">目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dir%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">Dir函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8Efor%E7%9A%84dir"><span class="toc-number">2.0.3.1.1.</span> <span class="toc-text">用于for的dir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">2.0.3.1.2.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.0.3.1.3.</span> <span class="toc-text">运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.0.4.</span> <span class="toc-text">服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-number">2.0.5.</span> <span class="toc-text">提权</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Powershell"><span class="toc-number">2.1.</span> <span class="toc-text">Powershell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">删除文件夹</span></a></li></ol></li></ol></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Batsh基本语法",
+          url: "https://blog.wray7.top/2024/04/08/2024-04-08-Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/",
+          excerpt: "",
+          description: "",
+          stripContent: "Batsh基本语法注释1.单行注释 rem blabla@REM blabla:: blabla2.行末或单行注释 %blabla%  命令后添加 &amp;gt; nul 可不显示指令作用内容 语法头一般会在头部输入@echo off echo回显指令,相当于cout,但是会显示自身使用@echo off可以不显示echo@作用为此条命令的echo也不显示 延时指令timeout -t &amp;lt;font color=Gainsboro&amp;gt;*time* &amp;lt;/font&amp;gt; 相当于sleep(",
+          date: "Mon Apr 08 2024 14:42:29 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

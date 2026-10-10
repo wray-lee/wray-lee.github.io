@@ -1,0 +1,551 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    ServerStatus-Rust | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # ServerStatus-Rust    123456789101112131415161718# &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;stat_server.service[Unit]Descripti">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ServerStatus-Rust">
+<meta property="og:url" content="https://blog.wray7.top/ja/2025/08/04/2025-08-04-ServerStatus-Rust.en/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # ServerStatus-Rust    123456789101112131415161718# &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;stat_server.service[Unit]Descripti">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2025-08-03T16:06:27.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:52:05.004Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2025/08/04/2025-08-04-ServerStatus-Rust.en/';
+              langMap['en'] = '/en/2025/08/04/2025-08-04-ServerStatus-Rust.en/';
+              langMap['ja'] = '/ja/2025/08/04/2025-08-04-ServerStatus-Rust.en/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="ServerStatus-Rust">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">ServerStatus-Rust</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2025-08-04-ServerStatus-Rust.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-08-03T16:06:27.000Z" itemprop="datePublished">2025-08-04</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+
+# ServerStatus-Rust
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/system/stat_server.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=ServerStatus-Rust Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="comment">#User=nobody</span></span><br><span class="line"><span class="comment">#Group=nobody</span></span><br><span class="line">Environment=<span class="string">&quot;RUST_BACKTRACE=1&quot;</span></span><br><span class="line">WorkingDirectory=/opt/ServerStatus</span><br><span class="line">ExecStart=/opt/ServerStatus/stat_server -c /opt/ServerStatus/config.toml</span><br><span class="line">ExecReload=/bin/kill -HUP <span class="variable">$MAINPID</span></span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># /etc/systemd/system/stat_server.service</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/system/stat_client.service</span></span><br><span class="line"></span><br><span class="line">[Unit]</span><br><span class="line">Description=Serverstat-Rust Client</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">User=root</span><br><span class="line">Group=root</span><br><span class="line">Environment=<span class="string">&quot;RUST_BACKTRACE=1&quot;</span></span><br><span class="line">WorkingDirectory=/opt/ServerStatus</span><br><span class="line">ExecStart=/opt/ServerStatus/client/stat_client -a <span class="string">&quot;https://probe.wray7.top/report&quot;</span> -u h3 -p wray3s -n</span><br><span class="line">ExecReload=/bin/kill -HUP</span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/opt/ServerStatus/config.toml</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 侦听地址, ipv6 使用 [::]:9394</span></span><br><span class="line">grpc_addr = <span class="string">&quot;0.0.0.0:35601&quot;</span></span><br><span class="line">http_addr = <span class="string">&quot;0.0.0.0:8080&quot;</span></span><br><span class="line"><span class="comment"># 默认30s无上报判定下线</span></span><br><span class="line">offline_threshold = 30</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启 grpc TLS, 0:关闭 1: TLS 2: mTLS</span></span><br><span class="line">grpc_tls = 1</span><br><span class="line"><span class="comment"># 证书最终路径 $&#123;workspace&#125;/$&#123;tls_dir&#125;, 包含 server.pem, server.key 文件</span></span><br><span class="line">tls_dir = <span class="string">&quot;tls&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 管理员账号,不设置默认随机生成，用于查看 /detail, /map</span></span><br><span class="line">jwt_secret = <span class="string">&quot;IsV/gUjRdrYHY9m5XhQo6w==&quot;</span> <span class="comment"># 修改这个, 使用 openssl rand -base64 16 生成 secret</span></span><br><span class="line">admin_user = <span class="string">&quot;wrayProbe&quot;</span></span><br><span class="line">admin_pass = <span class="string">&quot;a7ec60e1-8bd9-4eca-bf83-f7c7f7d04d6a&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hosts 跟 hosts_group 两种配置模式任挑一种配置即可</span></span><br><span class="line"><span class="comment"># name 主机唯一标识，不可重复，alias 为展示名</span></span><br><span class="line"><span class="comment"># notify = false 单独禁止单台机器的告警，一般针对网络差，频繁上下线</span></span><br><span class="line"><span class="comment"># monthstart = 1 没启用vnstat时，表示月流量从每月哪天开始统计</span></span><br><span class="line"><span class="comment"># disabled = true 单机禁用</span></span><br><span class="line"><span class="comment"># location 支持国旗 emoji https://emojixd.com/group/flags</span></span><br><span class="line"><span class="comment"># 或国家缩写，如 cn us 等等，所有国家见目录 web/static/flags</span></span><br><span class="line"><span class="comment"># 自定义标签 labels = &quot;os=centos;ndd=2022/11/25;spec=2C/4G/60G;&quot;</span></span><br><span class="line"><span class="comment"># os 标签可选，不填则使用上报数据，ndd(next due date) 下次续费时间, spec 为主机规格</span></span><br><span class="line"><span class="comment"># os 可用值 centos debian ubuntu alpine pi arch windows linux macos android freebsd</span></span><br><span class="line">hosts = [</span><br><span class="line">  &#123;name = <span class="string">&quot;h1&quot;</span>, password = <span class="string">&quot;wray1s&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;Wray-California&quot;</span>, location = <span class="string">&quot;us&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;kvm&quot;</span>, labels = <span class="string">&quot;os=ubuntu;spec=1C/1G/unlimited;&quot;</span>&#125;,</span><br><span class="line">  &#123;name = <span class="string">&quot;h2&quot;</span>, password = <span class="string">&quot;wray2s&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;Wray-Losangeles&quot;</span>, location = <span class="string">&quot;us&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;kvm&quot;</span>, labels = <span class="string">&quot;os=ubuntu;spec=2C/2G/unlimited;&quot;</span>&#125;,</span><br><span class="line">  &#123;name = <span class="string">&quot;h3&quot;</span>, password = <span class="string">&quot;wray3s&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;Wray-Home-Debian&quot;</span>, location = <span class="string">&quot;cn&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;kvm&quot;</span>, labels = <span class="string">&quot;os=debian;spec=4C/8G/unlimited;&quot;</span>&#125;,</span><br><span class="line">  &#123;name = <span class="string">&quot;h4&quot;</span>, password = <span class="string">&quot;wray4s&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;Wray-Hudiyun-Debian&quot;</span>, location = <span class="string">&quot;cn&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;kvm&quot;</span>, notify = <span class="literal">true</span>, labels = <span class="string">&quot;os=debian;spec=8C/8G/20Mbps;&quot;</span>&#125;,</span><br><span class="line">  &#123;name = <span class="string">&quot;h5&quot;</span>, password = <span class="string">&quot;wray5s&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;Wray-Onecloud&quot;</span>, location = <span class="string">&quot;cn&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;armv7l&quot;</span>, notify = <span class="literal">true</span>, labels = <span class="string">&quot;os=debian;spec=4C/1G/1000Mbps;&quot;</span>&#125;,</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 最小化配置</span></span><br><span class="line">  &#123;name = <span class="string">&quot;mac&quot;</span>, password = <span class="string">&quot;pp&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;macos&quot;</span>&#125;,</span><br><span class="line">  &#123;name = <span class="string">&quot;pi&quot;</span>, password = <span class="string">&quot;pp&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;pi&quot;</span>, labels = <span class="string">&quot;os=pi&quot;</span>&#125;,</span><br><span class="line">  &#123;name = <span class="string">&quot;win&quot;</span>, password = <span class="string">&quot;pp&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;windows&quot;</span>&#125;,</span><br><span class="line">  &#123;name = <span class="string">&quot;android&quot;</span>, password = <span class="string">&quot;pp&quot;</span>, <span class="built_in">alias</span> = <span class="string">&quot;android&quot;</span>, labels = <span class="string">&quot;os=android&quot;</span>&#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 动态注册模式，不再需要针对每一个主机做单独配置</span></span><br><span class="line"><span class="comment"># gid 为模板组id, 自动注册唯一标识，不可重复</span></span><br><span class="line"><span class="comment"># eg. ./stat_client -a &quot;http://127.0.0.1:8080/report&quot; -g g1 -p pp</span></span><br><span class="line">hosts_group = [</span><br><span class="line">  <span class="comment"># 可以按国家地区或用途来做分组</span></span><br><span class="line">  &#123;gid = <span class="string">&quot;g1&quot;</span>, password = <span class="string">&quot;pp&quot;</span>, location = <span class="string">&quot;🏠&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;kvm&quot;</span>, labels = <span class="string">&quot;os=ubuntu;ndd=2022/11/25;spec=2C/4G/60G;&quot;</span>&#125;,</span><br><span class="line">  &#123;gid = <span class="string">&quot;g2&quot;</span>, password = <span class="string">&quot;pp&quot;</span>, location = <span class="string">&quot;🏢&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;kvm&quot;</span>, notify = <span class="literal">true</span>&#125;,</span><br><span class="line">  <span class="comment"># 例如不发送通知可以单独做一组</span></span><br><span class="line">  &#123;gid = <span class="string">&quot;silent&quot;</span>, password = <span class="string">&quot;pp&quot;</span>, location = <span class="string">&quot;🏡&quot;</span>, <span class="built_in">type</span> = <span class="string">&quot;kvm&quot;</span>, notify = <span class="literal">false</span>&#125;,</span><br><span class="line">]</span><br><span class="line"><span class="comment"># 动态注册模式下，无效数据清理间隔，默认 30s</span></span><br><span class="line"><span class="comment"># 这个设置要比较通知间隔 notify_interval 大，不然收不到告警通知</span></span><br><span class="line">group_gc = 50</span><br><span class="line"></span><br><span class="line"><span class="comment"># !!! 一键部署如果没问题则不需要动，Server 会自行根据你的域名生成 server_url</span></span><br><span class="line"><span class="comment"># 修正一键部署，请自行替换 ssr.rs 为你的域名,</span></span><br><span class="line"><span class="comment"># server_url = &quot;https://ssr.rs/report&quot;</span></span><br><span class="line"><span class="comment"># stat_client 默认安装的路径</span></span><br><span class="line">workspace = <span class="string">&quot;/opt/ServerStatus&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 不开启告警，可忽略后面配置，或者删除不需的通知方式</span></span><br><span class="line"><span class="comment"># 告警间隔默认为30s</span></span><br><span class="line">notify_interval = 45</span><br><span class="line"><span class="comment"># https://core.telegram.org/bots/api</span></span><br><span class="line"><span class="comment"># https://jinja.palletsprojects.com/en/3.0.x/templates/#if</span></span><br><span class="line">[tgbot]</span><br><span class="line"><span class="comment"># 开关 true 打开</span></span><br><span class="line">enabled = <span class="literal">true</span></span><br><span class="line">bot_token = <span class="string">&quot;8138559462:AAH03gzuW_6IAFn8STk0xZZgmmWpddkMBrg&quot;</span></span><br><span class="line">chat_id = <span class="string">&quot;909455021&quot;</span></span><br><span class="line"><span class="comment"># host 可用字段见 payload.rs 文件 HostStat 结构, &#123;&#123;host.xxx&#125;&#125; 为占位变量</span></span><br><span class="line"><span class="comment"># 例如 host.name 可替换为 host.alias，大家根据自己的喜好来编写通知消息</span></span><br><span class="line"><span class="comment"># &#123;&#123;ip_info.query&#125;&#125; 主机 ip, &#123;&#123;sys_info.host_name&#125;&#125; 主机 hostname，见 server_status.proto</span></span><br><span class="line">title = <span class="string">&quot;❗&lt;b&gt;Server Status&lt;/b&gt;&quot;</span></span><br><span class="line">online_tpl =  <span class="string">&quot;&#123;&#123;config.title&#125;&#125; \n😆 &#123;&#123;host.location&#125;&#125; &#123;&#123;host.alias&#125;&#125; 主机恢复上线啦&quot;</span></span><br><span class="line">offline_tpl = <span class="string">&quot;&#123;&#123;config.title&#125;&#125; \n😱 &#123;&#123;host.location&#125;&#125; &#123;&#123;host.alias&#125;&#125; 主机已经掉线啦&quot;</span></span><br><span class="line"><span class="comment"># custom 模板置空则停用自定义告警，只保留上下线通知</span></span><br><span class="line">custom_tpl = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">&#123;% if host.memory_used / host.memory_total &gt; 0.5  %&#125;</span></span><br><span class="line"><span class="string">&lt;pre&gt;😲 &#123;&#123;host.name&#125;&#125; 主机内存使用率超50%, 当前&#123;&#123; (100 * host.memory_used / host.memory_total) | round &#125;&#125;%  &lt;/pre&gt;</span></span><br><span class="line"><span class="string">&#123;% endif %&#125;</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">#&#123;% if host.hdd_used / host.hdd_total  &gt; 0.5  %&#125;</span></span><br><span class="line"><span class="comment">#&lt;pre&gt;😲 &#123;&#123;host.name&#125;&#125; 主机硬盘使用率超50%, 当前&#123;&#123; (100 * host.hdd_used / host.hdd_total) | round &#125;&#125;% &lt;/pre&gt;</span></span><br><span class="line"><span class="comment">#&#123;% endif %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################### tgbot end ##########################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 可选 单纯记录 event 到日志文件，调试自定义告警使用</span></span><br><span class="line">[<span class="built_in">log</span>]</span><br><span class="line">enabled = <span class="literal">false</span></span><br><span class="line">log_dir = <span class="string">&quot;/opt/ServerStatus/logs&quot;</span></span><br><span class="line">tpl = <span class="string">&quot;&quot;</span><span class="string">&quot;&#123;% set obj = dict(event=event, host=host, ip_info=ip_info, sys_info=sys_info) %&#125; &#123;&#123; obj | tojson&#125;&#125;&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################### log end ##########################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 可选 微信通知</span></span><br><span class="line">[wechat]</span><br><span class="line">enabled = <span class="literal">false</span></span><br><span class="line">corp_id = <span class="string">&quot;&lt;corp id&gt;&quot;</span></span><br><span class="line">corp_secret = <span class="string">&quot;&lt;corp secret&gt;&quot;</span></span><br><span class="line">agent_id = <span class="string">&quot;&lt;agent id&gt;&quot;</span></span><br><span class="line">title = <span class="string">&quot;❗Server Status&quot;</span></span><br><span class="line">online_tpl  = <span class="string">&quot;&#123;&#123;config.title&#125;&#125; \n😆 &#123;&#123;host.location&#125;&#125; 的 &#123;&#123;host.name&#125;&#125; 主机恢复上线啦&quot;</span></span><br><span class="line">offline_tpl = <span class="string">&quot;&#123;&#123;config.title&#125;&#125; \n😱 &#123;&#123;host.location&#125;&#125; 的 &#123;&#123;host.name&#125;&#125; 主机已经掉线啦&quot;</span></span><br><span class="line">custom_tpl = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">&#123;% if host.memory_used / host.memory_total &gt; 0.8  %&#125;</span></span><br><span class="line"><span class="string">😲 &#123;&#123;host.name&#125;&#125; 主机内存使用率超80%</span></span><br><span class="line"><span class="string">&#123;% endif %&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#123;% if host.hdd_used / host.hdd_total &gt; 0.8  %&#125;</span></span><br><span class="line"><span class="string">😲 &#123;&#123;host.name&#125;&#125; 主机硬盘使用率超80%</span></span><br><span class="line"><span class="string">&#123;% endif %&#125;</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"><span class="comment">###################### wechat end ##########################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 可选 邮件通知</span></span><br><span class="line">[email]</span><br><span class="line">enabled = <span class="literal">false</span></span><br><span class="line">server = <span class="string">&quot;smtp.gmail.com&quot;</span></span><br><span class="line">username = <span class="string">&quot;user@email.com&quot;</span></span><br><span class="line">password = <span class="string">&quot;***&quot;</span></span><br><span class="line">to = <span class="string">&quot;user1@email.com;user2@email.com&quot;</span></span><br><span class="line">subject = <span class="string">&quot;ServerStatus Notification&quot;</span></span><br><span class="line">title = <span class="string">&quot;❗&lt;b&gt;Server Status&lt;/b&gt;&lt;br/&gt;&quot;</span></span><br><span class="line">online_tpl  = <span class="string">&quot;&#123;&#123;config.title&#125;&#125; 😆 &#123;&#123;host.location&#125;&#125; 的 &#123;&#123;host.name&#125;&#125; 主机恢复上线啦&quot;</span></span><br><span class="line">offline_tpl = <span class="string">&quot;&#123;&#123;config.title&#125;&#125; 😱 &#123;&#123;host.location&#125;&#125; 的 &#123;&#123;host.name&#125;&#125; 主机已经掉线啦&quot;</span></span><br><span class="line">custom_tpl = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">&#123;% if host.memory_used / host.memory_total &gt; 0.8  %&#125;</span></span><br><span class="line"><span class="string">&lt;pre&gt;😲 &#123;&#123;host.name&#125;&#125; 主机内存使用率超80%, 当前&#123;&#123; (100 * host.memory_used / host.memory_total) | round &#125;&#125;%  &lt;/pre&gt;</span></span><br><span class="line"><span class="string">&#123;% endif %&#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#123;% if host.hdd_used / host.hdd_total &gt; 0.8  %&#125;</span></span><br><span class="line"><span class="string">&lt;pre&gt;😲 &#123;&#123;host.name&#125;&#125; 主机硬盘使用率超80%, 当前&#123;&#123; (100 * host.hdd_used / host.hdd_total) | round &#125;&#125;% &lt;/pre&gt;</span></span><br><span class="line"><span class="string">&#123;% endif %&#125;</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################### email end ##########################</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 可选 webhook</span></span><br><span class="line"><span class="comment"># 理论上支持所有支持 webhook 的软件，如 Discord、 Slack、 飞书、 企业版微信(WorkWechat)、 钉钉(DingTalk)等。</span></span><br><span class="line"><span class="comment"># webhook 调用基本上都差不多，差异只在最后返回的 json 结构，根据各自的 api 文档自行构建相应的 json 结构即可。</span></span><br><span class="line"><span class="comment"># script 使用脚本引擎 https://rhai.rs/book/</span></span><br><span class="line">[webhook]</span><br><span class="line"><span class="comment"># 总开关</span></span><br><span class="line">enabled = <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 可多个 webhook.receiver</span></span><br><span class="line">  [[webhook.receiver]] <span class="comment"># 通用型 webhook</span></span><br><span class="line">  <span class="comment"># 局部开关</span></span><br><span class="line">  enabled = <span class="literal">false</span></span><br><span class="line">  <span class="comment"># https://webhook.site/#!/2b1ad731-45fe-49a8-ae91-614167019db2</span></span><br><span class="line">  url = <span class="string">&quot;https://webhook.site/2b1ad731-45fe-49a8-ae91-614167019db2&quot;</span></span><br><span class="line">  headers = &#123; content-type = <span class="string">&quot;application/json&quot;</span>, x-data = <span class="string">&quot;y-data&quot;</span> &#125;</span><br><span class="line">  <span class="comment"># headers = &#123; content-type = &quot;text/plain&quot; &#125;</span></span><br><span class="line">  <span class="comment"># 可选 HTTP Basic Auth</span></span><br><span class="line">  username = <span class="string">&quot;u&quot;</span></span><br><span class="line">  password = <span class="string">&quot;p&quot;</span></span><br><span class="line">  <span class="built_in">timeout</span> = 5 <span class="comment">#s</span></span><br><span class="line">  <span class="comment"># 简单发送一个 json 对象，#&#123;&#125; 为 Object 对象, [] 为数组</span></span><br><span class="line">  <span class="comment"># 最终结果, 固定结构 [是否发送通知，结果对象]</span></span><br><span class="line">  script = <span class="string">&quot;&quot;</span><span class="string">&quot;[true, #&#123;config: config, event: event, host: host, ip_info: ip_info, sys_info:sys_info&#125; ]&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  [[webhook.receiver]] <span class="comment"># Discord</span></span><br><span class="line">  enabled = <span class="literal">false</span></span><br><span class="line">  <span class="comment"># https://discord.com/developers/docs/resources/webhook</span></span><br><span class="line">  url = <span class="string">&quot;https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxx&quot;</span></span><br><span class="line">  headers = &#123; content-type = <span class="string">&quot;application/json&quot;</span> &#125;</span><br><span class="line">  <span class="built_in">timeout</span> = 5 <span class="comment">#s</span></span><br><span class="line">  script = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">    let message = &quot;</span><span class="string">&quot;;</span></span><br><span class="line"><span class="string">    switch event &#123;</span></span><br><span class="line"><span class="string">      &quot;</span>Custom<span class="string">&quot; =&gt; &#123;      // 自定义事件</span></span><br><span class="line"><span class="string">          let threshold = 10;</span></span><br><span class="line"><span class="string">          let msgs = [];</span></span><br><span class="line"><span class="string">          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);</span></span><br><span class="line"><span class="string">          if memory_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">             msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机内存使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;memory_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);</span></span><br><span class="line"><span class="string">          if hdd_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">              msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机硬盘使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;hdd_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          message = join(msgs, &quot;</span>\\n<span class="string">&quot;);</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeDown<span class="string">&quot; =&gt; &#123;   // 掉线</span></span><br><span class="line"><span class="string">          message = `😱 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机已经掉线啦`;</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeUp<span class="string">&quot; =&gt; &#123;     // 上线</span></span><br><span class="line"><span class="string">          message = `😆 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机恢复上线啦`;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 返回的 json 结构，#&#123;&#125; 为 Object 对象, [] 为数组</span></span><br><span class="line"><span class="string">    // 最终结果, 固定结构 [是否发送通知，结果对象]</span></span><br><span class="line"><span class="string">    [message.len() &gt; 0, #&#123; embeds: [ #&#123;</span></span><br><span class="line"><span class="string">      title: &quot;</span>:bell: ServerStatus-Rust :bell:<span class="string">&quot;,</span></span><br><span class="line"><span class="string">      fields: [</span></span><br><span class="line"><span class="string">        #&#123; name: &quot;</span>Event<span class="string">&quot;, value: event, &#125;,</span></span><br><span class="line"><span class="string">        #&#123; name: &quot;</span>Datetime<span class="string">&quot;, value: now_str(), &#125;,</span></span><br><span class="line"><span class="string">        #&#123; name: &quot;</span>Message<span class="string">&quot;, value: message, &#125;,</span></span><br><span class="line"><span class="string">      ]</span></span><br><span class="line"><span class="string">    &#125;]&#125;]</span></span><br><span class="line"><span class="string">  &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  [[webhook.receiver]] <span class="comment"># Slack</span></span><br><span class="line">  enabled = <span class="literal">false</span></span><br><span class="line">  <span class="comment"># https://api.slack.com/messaging/webhooks</span></span><br><span class="line">  url = <span class="string">&quot;https://hooks.slack.com/services/xxxxxxxxxxxxxxxxxxxxxxx&quot;</span></span><br><span class="line">  headers = &#123; content-type = <span class="string">&quot;application/json&quot;</span> &#125;</span><br><span class="line">  <span class="built_in">timeout</span> = 5 <span class="comment">#s</span></span><br><span class="line">  script = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">    let message = &quot;</span><span class="string">&quot;;</span></span><br><span class="line"><span class="string">    switch event &#123;</span></span><br><span class="line"><span class="string">      &quot;</span>Custom<span class="string">&quot; =&gt; &#123;      // 自定义事件</span></span><br><span class="line"><span class="string">          let threshold = 80;</span></span><br><span class="line"><span class="string">          let msgs = [];</span></span><br><span class="line"><span class="string">          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);</span></span><br><span class="line"><span class="string">          if memory_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">             msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机内存使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;memory_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);</span></span><br><span class="line"><span class="string">          if hdd_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">              msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机硬盘使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;hdd_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          message = join(msgs, &quot;</span>\\n<span class="string">&quot;);</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeDown<span class="string">&quot; =&gt; &#123;   // 掉线</span></span><br><span class="line"><span class="string">          message = `😱 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机已经掉线啦`;</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeUp<span class="string">&quot; =&gt; &#123;     // 上线</span></span><br><span class="line"><span class="string">          message = `😆 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机恢复上线啦`;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 最终结果, 固定结构 [是否发送通知，结果对象]</span></span><br><span class="line"><span class="string">    [message.len() &gt; 0, #&#123;text: message&#125;]</span></span><br><span class="line"><span class="string">  &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  [[webhook.receiver]] <span class="comment"># WorkWechat</span></span><br><span class="line">  enabled = <span class="literal">false</span></span><br><span class="line">  <span class="comment"># https://developer.work.weixin.qq.com/document/path/91770</span></span><br><span class="line">  url = <span class="string">&quot;https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxxxxxxxxxxxxxxxxxx&quot;</span></span><br><span class="line">  headers = &#123; content-type = <span class="string">&quot;application/json&quot;</span> &#125;</span><br><span class="line">  <span class="built_in">timeout</span> = 5 <span class="comment">#s</span></span><br><span class="line">  script = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">    let message = &quot;</span><span class="string">&quot;;</span></span><br><span class="line"><span class="string">    switch event &#123;</span></span><br><span class="line"><span class="string">      &quot;</span>Custom<span class="string">&quot; =&gt; &#123;      // 自定义事件</span></span><br><span class="line"><span class="string">          let threshold = 80;</span></span><br><span class="line"><span class="string">          let msgs = [];</span></span><br><span class="line"><span class="string">          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);</span></span><br><span class="line"><span class="string">          if memory_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">             msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机内存使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;memory_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);</span></span><br><span class="line"><span class="string">          if hdd_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">              msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机硬盘使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;hdd_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          message = join(msgs, &quot;</span>\\n<span class="string">&quot;);</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeDown<span class="string">&quot; =&gt; &#123;   // 掉线</span></span><br><span class="line"><span class="string">          message = `😱 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机已经掉线啦`;</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeUp<span class="string">&quot; =&gt; &#123;     // 上线</span></span><br><span class="line"><span class="string">          message = `😆 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机恢复上线啦`;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 最终结果, 固定结构 [是否发送通知，结果对象]</span></span><br><span class="line"><span class="string">    [message.len() &gt; 0, #&#123;</span></span><br><span class="line"><span class="string">      msgtype: &quot;</span>text<span class="string">&quot;,</span></span><br><span class="line"><span class="string">      text: #&#123;</span></span><br><span class="line"><span class="string">        content: message</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;]</span></span><br><span class="line"><span class="string">  &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">  [[webhook.receiver]] <span class="comment"># Bark</span></span><br><span class="line">  enabled = <span class="literal">false</span></span><br><span class="line">  <span class="comment"># https://github.com/Finb/Bark</span></span><br><span class="line">  <span class="comment"># https://day.app/2021/06/barkfaq/</span></span><br><span class="line">  url = <span class="string">&quot;https://api.day.app/push&quot;</span></span><br><span class="line">  headers = &#123; content-type = <span class="string">&quot;application/json; charset=utf-8&quot;</span> &#125;</span><br><span class="line">  <span class="built_in">timeout</span> = 5 <span class="comment">#s</span></span><br><span class="line">  script = <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">    let message = &quot;</span><span class="string">&quot;;</span></span><br><span class="line"><span class="string">    switch event &#123;</span></span><br><span class="line"><span class="string">      &quot;</span>Custom<span class="string">&quot; =&gt; &#123;      // 自定义事件</span></span><br><span class="line"><span class="string">          // 使用率阈值，这里是磁盘 超 70% 告警</span></span><br><span class="line"><span class="string">          let threshold = 70;</span></span><br><span class="line"><span class="string">          let msgs = [];</span></span><br><span class="line"><span class="string">          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);</span></span><br><span class="line"><span class="string">          if memory_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">             msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机内存使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;memory_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);</span></span><br><span class="line"><span class="string">          if hdd_usage &gt; threshold &#123;</span></span><br><span class="line"><span class="string">              msgs.push(`😲 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机硬盘使用率超<span class="variable">$&#123;threshold&#125;</span>%, 当前 <span class="variable">$&#123;hdd_usage&#125;</span>%`);</span></span><br><span class="line"><span class="string">          &#125;</span></span><br><span class="line"><span class="string">          message = join(msgs, &quot;</span>\\n<span class="string">&quot;);</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeDown<span class="string">&quot; =&gt; &#123;   // 掉线</span></span><br><span class="line"><span class="string">          message = `😱 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机已经掉线啦`;</span></span><br><span class="line"><span class="string">      &#125;,</span></span><br><span class="line"><span class="string">      &quot;</span>NodeUp<span class="string">&quot; =&gt; &#123;     // 上线</span></span><br><span class="line"><span class="string">          message = `😆 <span class="variable">$&#123;host.location&#125;</span> <span class="variable">$&#123;host.name&#125;</span> 主机恢复上线啦`;</span></span><br><span class="line"><span class="string">      &#125;</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    // 最终结果, 固定结构 [是否发送通知，结果对象]</span></span><br><span class="line"><span class="string">    [message.len() &gt; 0, #&#123;</span></span><br><span class="line"><span class="string">      // 标题</span></span><br><span class="line"><span class="string">      title: &quot;</span>ServerStatusRust<span class="string">&quot;,</span></span><br><span class="line"><span class="string">      // 告警内容</span></span><br><span class="line"><span class="string">      body: message,</span></span><br><span class="line"><span class="string">      // 修改成你的设备 key, app 内获取</span></span><br><span class="line"><span class="string">      device_key: &quot;</span>fLLBrV****kM5H<span class="string">&quot;,</span></span><br><span class="line"><span class="string">      // 后面为可选字段参考 https://github.com/Finb/bark-server/blob/master/docs/API_V2.md</span></span><br><span class="line"><span class="string">      // 其它角标, 铃声, icon, 参考 app 里面的说明即可</span></span><br><span class="line"><span class="string">      badge: 1,</span></span><br><span class="line"><span class="string">      sound: &quot;</span>minuet.caf<span class="string">&quot;,</span></span><br><span class="line"><span class="string">      icon: &quot;</span>https://day.app/assets/images/avatar.jpg<span class="string">&quot;,</span></span><br><span class="line"><span class="string">      group: &quot;</span>SSR<span class="string">&quot;,</span></span><br><span class="line"><span class="string">      url: &quot;</span>https://github.com/zdz/ServerStatus-Rust<span class="string">&quot;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    &#125;]</span></span><br><span class="line"><span class="string">  &quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################### webhook end ##########################</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/linux/" rel="tag" title="linux">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "ServerStatus-Rust",
+          url: "https://blog.wray7.top/2025/08/04/2025-08-04-ServerStatus-Rust.en/",
+          excerpt: "",
+          description: "",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # ServerStatus-Rust    123456789101112131415161718# /etc/systemd/system/stat_server.service[Unit]Description=ServerStatus-Rust ServerAfter=network.target[Se",
+          date: "Mon Aug 04 2025 00:06:27 GMT+0800",
+          updated: "Sun Oct 11 2026 04:52:05 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

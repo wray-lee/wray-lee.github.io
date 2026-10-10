@@ -1,0 +1,586 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Openwrt-Wray-Win | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  OpenWrtScheduled Restart* * * * * sleep 70 &amp;&amp; touch &#x2F;etc&#x2F;banner &amp;&amp; reboot sleep 70 Avoid re">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Openwrt-Wray-Win">
+<meta property="og:url" content="https://blog.wray7.top/en/2026/06/11/2026-06-11-Openwrt-Wray-Win.en/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  OpenWrtScheduled Restart* * * * * sleep 70 &amp;&amp; touch &#x2F;etc&#x2F;banner &amp;&amp; reboot sleep 70 Avoid re">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-06-11T09:39:50.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:56:21.266Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/06/11/2026-06-11-Openwrt-Wray-Win.en/';
+              langMap['en'] = '/en/2026/06/11/2026-06-11-Openwrt-Wray-Win.en/';
+              langMap['ja'] = '/ja/2026/06/11/2026-06-11-Openwrt-Wray-Win.en/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Openwrt-Wray-Win">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Openwrt-Wray-Win</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenWrt"><span class="toc-number">1.</span> <span class="toc-text">OpenWrt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scheduled-Restart"><span class="toc-number">1.1.</span> <span class="toc-text">Scheduled Restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LuCI-Crash"><span class="toc-number">1.2.</span> <span class="toc-text">LuCI Crash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dnsmasq-Forwarding"><span class="toc-number">1.3.</span> <span class="toc-text">dnsmasq Forwarding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#No-Network-After-Restart"><span class="toc-number">1.4.</span> <span class="toc-text">No Network After Restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-NAT"><span class="toc-number">1.5.</span> <span class="toc-text">IPv6 NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Restart"><span class="toc-number">1.6.</span> <span class="toc-text">Interface Restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Traffic-Splitting"><span class="toc-number">1.7.</span> <span class="toc-text">Interface Traffic Splitting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Preserve-External-Access"><span class="toc-number">1.7.1.</span> <span class="toc-text">Preserve External Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-IP"><span class="toc-number">1.7.2.</span> <span class="toc-text">Block IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bash-scripts"><span class="toc-number">1.7.3.</span> <span class="toc-text">bash scripts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-Multi-WAN-Configuration"><span class="toc-number">1.8.</span> <span class="toc-text">IPv6 Multi-WAN Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v4"><span class="toc-number">1.8.1.</span> <span class="toc-text">v4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v6"><span class="toc-number">1.8.2.</span> <span class="toc-text">v6</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Public-Network-Access"><span class="toc-number">1.9.</span> <span class="toc-text">Public Network Access</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Allocating-Public-IPv6-to-a-Subnet-only-needed-when-only-64-PD-is-available"><span class="toc-number">1.9.1.</span> <span class="toc-text">Allocating Public IPv6 to a Subnet (only needed when only &#x2F;64 PD is available)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Traceroute"><span class="toc-number">1.10.</span> <span class="toc-text">Traceroute</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-06-11-Openwrt-Wray-Win.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-06-11T09:39:50.000Z" itemprop="datePublished">2026-06-11</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="OpenWrt"><a href="#OpenWrt" class="headerlink" title="OpenWrt"></a>OpenWrt</h1><h2 id="Scheduled-Restart"><a href="#Scheduled-Restart" class="headerlink" title="Scheduled Restart"></a>Scheduled Restart</h2><p><code>* * * * * sleep 70 &amp;&amp; touch /etc/banner &amp;&amp; reboot</code></p>
+<p><code>sleep 70</code> Avoid repeated restarts due to identical timestamp validation after restart</p>
+<p><code>touch /etc/banner</code> Clear login records, and also touch to avoid time validation caused by the router not performing NTP in time. Set the router time to the time at restart; the <code>touch</code> file makes the time after restart (before NTP) the last modification time of the file.</p>
+<h2 id="LuCI-Crash"><a href="#LuCI-Crash" class="headerlink" title="LuCI Crash"></a>LuCI Crash</h2><p>Caused by uhttpd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">opkg list-installed | grep libustream</span><br><span class="line">opkg remove libustream-openssl20201210</span><br><span class="line">wget https://mirror.nju.edu.cn/immortalwrt/releases/24.10-SNAPSHOT/packages/aarch64_cortex-a53/base/libus</span><br><span class="line">tream-mbedtls20201210_2024.07.28~99bd3d2b-r1_aarch64_cortex-a53.ipk</span><br><span class="line"></span><br><span class="line">opkg install libustream-mbedtls</span><br></pre></td></tr></table></figure>
+
+<h2 id="dnsmasq-Forwarding"><a href="#dnsmasq-Forwarding" class="headerlink" title="dnsmasq Forwarding"></a>dnsmasq Forwarding</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># DHCP/DNS -&gt;常规-&gt;所有服务器 </span></span><br><span class="line"><span class="string">√</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DHCP/DNS -&gt; 转发 -&gt; DNS转发</span></span><br><span class="line"><span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="comment">#1053</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># DHCP/DNS -&gt; 限制 -&gt; DNS 查询缓存的大小</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启dnsmasq</span></span><br><span class="line"><span class="string">/etc/init.d/dnsmasq</span> <span class="string">restart</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="No-Network-After-Restart"><a href="#No-Network-After-Restart" class="headerlink" title="No Network After Restart"></a>No Network After Restart</h2><p>On certain CPU architectures (such as some MediaTek, Realtek solutions, or old x86 network cards), OpenWrt’s open-source drivers are not perfect. During a soft system restart, they fail to successfully send a reset instruction to the network card chip.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/etc/rc.local</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 延迟 10 秒等待系统其它组件加载完毕</span></span><br><span class="line"><span class="built_in">sleep</span> 10</span><br><span class="line"><span class="comment"># 强制重启一次网络服务</span></span><br><span class="line">/etc/init.d/network restart</span><br><span class="line">/etc/init.d/firewall reload</span><br></pre></td></tr></table></figure>
+
+<h2 id="IPv6-NAT"><a href="#IPv6-NAT" class="headerlink" title="IPv6 NAT"></a>IPv6 NAT</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uci <span class="built_in">set</span> network.wan6.sourcefilter=<span class="string">&#x27;0&#x27;</span></span><br><span class="line">uci commit network</span><br><span class="line">ip6tables -t nat -I POSTROUTING -s fc00::/7 -j MASQUERADE 2&gt;/dev/null</span><br><span class="line">nft add rule inet fw4 srcnat ip6 saddr fc00::/7 masquerade 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line">/etc/init.d/network restart</span><br><span class="line">/etc/init.d/firewall restart</span><br></pre></td></tr></table></figure>
+
+<h2 id="Interface-Restart"><a href="#Interface-Restart" class="headerlink" title="Interface Restart"></a>Interface Restart</h2><p>Commonly used when intranet penetration such as ZeroTier is not working (WAN port starts slowly)</p>
+<p><code>/etc/hotplug.d/iface/99-zerotier</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line">if [ &quot;$ACTION&quot; = &quot;ifup&quot; ] &amp;&amp; [ &quot;$INTERFACE&quot; = &quot;wan&quot; ]; then</span><br><span class="line"></span><br><span class="line">    logger -t zerotier-hotplug &quot;WAN interface is up, syncing network states for ZeroTier...&quot;</span><br><span class="line">    </span><br><span class="line">    killall zerotier-one 2&gt;/dev/null</span><br><span class="line">    /etc/init.d/zerotier restart</span><br><span class="line">    /etc/init.d/firewall restart</span><br><span class="line">    </span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h2 id="Interface-Traffic-Splitting"><a href="#Interface-Traffic-Splitting" class="headerlink" title="Interface Traffic Splitting"></a>Interface Traffic Splitting</h2><h3 id="Preserve-External-Access"><a href="#Preserve-External-Access" class="headerlink" title="Preserve External Access"></a>Preserve External Access</h3><p>Create a routing table (if the registered name needs to be written to a file)</p>
+<p><code>echo &quot;101 pppoe&quot; &gt;&gt; /etc/iproute2/rt_tables</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/rc.local</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ip rule add from $(ifconfig pppoe-wan | grep <span class="string">&#x27;inet addr&#x27;</span> | awk -F: <span class="string">&#x27;&#123;print $2&#125;&#x27;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>) table pppoe</span><br><span class="line">ip route add default dev pppoe-wan table pppoe</span><br></pre></td></tr></table></figure>
+
+<h3 id="Block-IP"><a href="#Block-IP" class="headerlink" title="Block IP"></a>Block IP</h3><p>Directly binding to an interface will cause other tunneling interfaces to malfunction</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/config/network</span></span><br><span class="line">config rule</span><br><span class="line">    option src <span class="string">&#x27;10.17.1.200&#x27;</span></span><br><span class="line">    option lookup <span class="string">&#x27;main&#x27;</span></span><br><span class="line">    option suppress_prefixlength <span class="string">&#x27;0&#x27;</span>   <span class="comment"># 核心：如果主表匹配到的是 0.0.0.0/0（外网），则判定无效并跳过</span></span><br><span class="line">    option priority <span class="string">&#x27;10&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 对应你的命令：ip rule add from 10.17.1.200 table 20</span></span><br><span class="line">config rule</span><br><span class="line">    option src <span class="string">&#x27;10.17.1.200&#x27;</span></span><br><span class="line">    option lookup <span class="string">&#x27;20&#x27;</span></span><br><span class="line">    option priority <span class="string">&#x27;20&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 对应你的命令：ip route add default dev pppoe-wan table 20</span></span><br><span class="line">config route</span><br><span class="line">    option interface <span class="string">&#x27;wan2&#x27;</span>       <span class="comment"># ⚠️注意：这里必须填你在 OpenWrt 里的【逻辑接口名】</span></span><br><span class="line">    option target <span class="string">&#x27;0.0.0.0&#x27;</span></span><br><span class="line">    option netmask <span class="string">&#x27;0.0.0.0&#x27;</span></span><br><span class="line">    option table <span class="string">&#x27;20&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="bash-scripts"><a href="#bash-scripts" class="headerlink" title="bash scripts"></a>bash scripts</h3><p>on</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">addr=<span class="string">&quot;192.168.1.100&quot;</span></span><br><span class="line"><span class="comment"># 清理可能存在的残留</span></span><br><span class="line">ip rule del from <span class="variable">$addr</span> pref 100 2&gt;/dev/null</span><br><span class="line">ip route flush table 100 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立专属路由表并指向 PPPoE 接口（假设接口名为 pppoe-wan）</span></span><br><span class="line">ip route add default dev pppoe-wan table 100</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拦截主机 IP 导向该路由表</span></span><br><span class="line">ip rule add from <span class="variable">$addr</span> pref 100 table 100</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Game NAT Enabled (PPPoE)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>off</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">addr=<span class="string">&quot;192.168.1.100&quot;</span></span><br><span class="line"><span class="comment"># 销毁拦截规则</span></span><br><span class="line">ip rule del from <span class="variable">$addr</span> pref 100 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空专属路由表</span></span><br><span class="line">ip route flush table 100 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止现有连接</span></span><br><span class="line"><span class="comment">#conntrack -D -s $addr &gt;/dev/null 2&gt;&amp;1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;Game NAT Disabled (DS-Lite)&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="IPv6-Multi-WAN-Configuration"><a href="#IPv6-Multi-WAN-Configuration" class="headerlink" title="IPv6 Multi-WAN Configuration"></a>IPv6 Multi-WAN Configuration</h2><h3 id="v4"><a href="#v4" class="headerlink" title="v4"></a>v4</h3><p><code>* * * * * /root/failover.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 填入你的乐天 DS-Lite 接口名称</span></span><br><span class="line">IFACE_RAK=<span class="string">&quot;dslite&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 测试连通性的目标 IP（Google DNS）</span></span><br><span class="line">TEST_IP=<span class="string">&quot;8.8.8.8&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 强制使用乐天接口发送 3 个探测包</span></span><br><span class="line">ping -c 3 -W 2 -I <span class="variable">$IFACE_RAK</span> <span class="variable">$TEST_IP</span> &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="comment"># 【乐天存活】：恢复/保持乐天的默认路由（跃点 10）</span></span><br><span class="line">    <span class="comment"># 如果路由已存在，命令会静默失败，对系统零消耗</span></span><br><span class="line">    ip route add default dev <span class="variable">$IFACE_RAK</span> metric 10 2&gt;/dev/null</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment"># 【乐天断网】：拔掉乐天的默认路由</span></span><br><span class="line">    <span class="comment"># 此时系统的底层路由表只剩下跃点为 20 的公寓网，流量瞬间切换</span></span><br><span class="line">    ip route del default dev <span class="variable">$IFACE_RAK</span> metric 10 2&gt;/dev/null</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="v6"><a href="#v6" class="headerlink" title="v6"></a>v6</h3><p><code>* * * * * /root/failover_v6.sh</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ================= 配置区 =================</span></span><br><span class="line">IFACE_RAK=<span class="string">&quot;wan6&quot;</span>                 <span class="comment"># 乐天光 IPv6 接口名（或者是 pppoe-wan / dslite，根据实际获取到240开头的接口填）</span></span><br><span class="line">TEST_IP=<span class="string">&quot;2001:4860:4860::8888&quot;</span>   <span class="comment"># Google 公共 DNS IPv6 节点</span></span><br><span class="line"><span class="comment"># ==========================================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 动态抓取乐天光当前的 IPv6 网关</span></span><br><span class="line">GW=$(ip -6 route show default dev <span class="string">&quot;<span class="variable">$IFACE_RAK</span>&quot;</span> | awk <span class="string">&#x27;/via/ &#123;print $3; exit&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果连网关都拿不到，说明物理层彻底断开，直接切除路由，回落到公寓网</span></span><br><span class="line"><span class="keyword">if</span> [ -z <span class="string">&quot;<span class="variable">$GW</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">    ip -6 route del default dev <span class="string">&quot;<span class="variable">$IFACE_RAK</span>&quot;</span> 2&gt;/dev/null</span><br><span class="line">    <span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 核心锚点：建立一条只属于探针的静态主机路由，防止删除默认路由后无法探测外网</span></span><br><span class="line">ip -6 route add <span class="string">&quot;<span class="variable">$TEST_IP</span>&quot;</span> via <span class="string">&quot;<span class="variable">$GW</span>&quot;</span> dev <span class="string">&quot;<span class="variable">$IFACE_RAK</span>&quot;</span> metric 1 2&gt;/dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 强制通过固定宿主路径向外发射 3 个探测包</span></span><br><span class="line">ping6 -c 3 -W 2 <span class="string">&quot;<span class="variable">$TEST_IP</span>&quot;</span> &gt;/dev/null 2&gt;&amp;1</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ]; <span class="keyword">then</span></span><br><span class="line">    <span class="comment"># 【乐天光 IPv6 正常】：将其默认路由以高优先级（metric 10）强行注入（如果已存在则静默跳过）</span></span><br><span class="line">    ip -6 route add default via <span class="string">&quot;<span class="variable">$GW</span>&quot;</span> dev <span class="string">&quot;<span class="variable">$IFACE_RAK</span>&quot;</span> metric 10 2&gt;/dev/null</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="comment"># 【乐天光 IPv6 断流】：精准切除乐天光的默认路由</span></span><br><span class="line">    <span class="comment"># 此时主路由表只剩下公寓网的默认路由（metric 20），流量瞬间无缝转移</span></span><br><span class="line">    ip -6 route del default via <span class="string">&quot;<span class="variable">$GW</span>&quot;</span> dev <span class="string">&quot;<span class="variable">$IFACE_RAK</span>&quot;</span> 2&gt;/dev/null</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Public-Network-Access"><a href="#Public-Network-Access" class="headerlink" title="Public Network Access"></a>Public Network Access</h2><p>For the router’s own services, configure inbound in the traffic rules</p>
+<p>For services within the subnet, configure forwarding in port forwarding</p>
+<p>For public IPv6 in the subnet that you want to expose externally, configure traffic rules</p>
+<h3 id="Allocating-Public-IPv6-to-a-Subnet-only-needed-when-only-64-PD-is-available"><a href="#Allocating-Public-IPv6-to-a-Subnet-only-needed-when-only-64-PD-is-available" class="headerlink" title="Allocating Public IPv6 to a Subnet (only needed when only &#x2F;64 PD is available)"></a>Allocating Public IPv6 to a Subnet (only needed when only &#x2F;64 PD is available)</h3><blockquote>
+<p><code>/64</code> is the smallest physical broadcast domain (subnet), i.e., &#x2F;64 should be treated as network nodes communicating directly (responding to NDP, on-link on the same link), so an NDP proxy is needed</p>
+<p><code>/60 /56</code> and larger ranges can be routed by default and can be forwarded</p>
+<p>Forwarding state is next-hop and endpoint state is on-link</p>
+</blockquote>
+<p>Enable DHCP server on wan6: enable the specified main interface; change RA, DHCP, and NDP all to relay</p>
+<p>LAN IPv6 configuration: change RA, DHCP, and NDP all to relay</p>
+<blockquote>
+<p>If only one public IPv6 is used, enable IPv6 masquerading (NAT66) in the advanced settings of the firewall WAN</p>
+</blockquote>
+<h2 id="Traceroute"><a href="#Traceroute" class="headerlink" title="Traceroute"></a>Traceroute</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nft add rule inet fw4 prerouting ip daddr 10.0.0.97 meta nftrace <span class="built_in">set</span> 1</span><br><span class="line">nft monitor trace</span><br></pre></td></tr></table></figure>
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/linux/" rel="tag" title="linux">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenWrt"><span class="toc-number">1.</span> <span class="toc-text">OpenWrt</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scheduled-Restart"><span class="toc-number">1.1.</span> <span class="toc-text">Scheduled Restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LuCI-Crash"><span class="toc-number">1.2.</span> <span class="toc-text">LuCI Crash</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dnsmasq-Forwarding"><span class="toc-number">1.3.</span> <span class="toc-text">dnsmasq Forwarding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#No-Network-After-Restart"><span class="toc-number">1.4.</span> <span class="toc-text">No Network After Restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-NAT"><span class="toc-number">1.5.</span> <span class="toc-text">IPv6 NAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Restart"><span class="toc-number">1.6.</span> <span class="toc-text">Interface Restart</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Interface-Traffic-Splitting"><span class="toc-number">1.7.</span> <span class="toc-text">Interface Traffic Splitting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Preserve-External-Access"><span class="toc-number">1.7.1.</span> <span class="toc-text">Preserve External Access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-IP"><span class="toc-number">1.7.2.</span> <span class="toc-text">Block IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bash-scripts"><span class="toc-number">1.7.3.</span> <span class="toc-text">bash scripts</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPv6-Multi-WAN-Configuration"><span class="toc-number">1.8.</span> <span class="toc-text">IPv6 Multi-WAN Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#v4"><span class="toc-number">1.8.1.</span> <span class="toc-text">v4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v6"><span class="toc-number">1.8.2.</span> <span class="toc-text">v6</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Public-Network-Access"><span class="toc-number">1.9.</span> <span class="toc-text">Public Network Access</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Allocating-Public-IPv6-to-a-Subnet-only-needed-when-only-64-PD-is-available"><span class="toc-number">1.9.1.</span> <span class="toc-text">Allocating Public IPv6 to a Subnet (only needed when only &#x2F;64 PD is available)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Traceroute"><span class="toc-number">1.10.</span> <span class="toc-text">Traceroute</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Openwrt-Wray-Win",
+          url: "https://blog.wray7.top/2026/06/11/2026-06-11-Openwrt-Wray-Win.en/",
+          excerpt: "",
+          description: "",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  OpenWrtScheduled Restart* * * * * sleep 70 &amp;amp;&amp;amp; touch /etc/banner &amp;amp;&amp;amp; reboot sleep 70 Avoid repeated restarts due to identical timestamp validat",
+          date: "Thu Jun 11 2026 17:39:50 GMT+0800",
+          updated: "Sun Oct 11 2026 04:56:21 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

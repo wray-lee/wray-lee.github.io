@@ -1,0 +1,1853 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    LaTeX 数式早見表 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Latex 数式チートシート本記事では、よく使われる数式に対応する Latex 文字をいくつか記録し、必要な文字を素早く検索できるようにします。 Latex で使用するすべての文字式は、\( と \)、$ と $、\begin&#123;math&#125; と \end&#123;ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LaTeX 数式早見表">
+<meta property="og:url" content="https://blog.wray7.top/ja/2026/04/02/2026-04-02-Latex%20%E5%85%AC%E5%BC%8F%E9%80%9F%E6%9F%A5.ja/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Latex 数式チートシート本記事では、よく使われる数式に対応する Latex 文字をいくつか記録し、必要な文字を素早く検索できるようにします。 Latex で使用するすべての文字式は、\( と \)、$ と $、\begin&#123;math&#125; と \end&#123;ma">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251719338891.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251725263041.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251729258312.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251730237391.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251924562659.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525192815195.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525192951476.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251731516956.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251733578522.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251735474848.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525185157410.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251853101738.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251857133215.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525185856758.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525190142683.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525191521894.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525196151450.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525196271036.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F201852519844417.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525191012430.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251911161747.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251915159300.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251916416320.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525191817281.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251919293216.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251918523771.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251921113888.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251931328841.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251932209901.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525193332067.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251937351241.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251940519944.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251942265272.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251956108902.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F20185251956249060.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F201852520827850.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/246a4e2c-cc8f-497d-860a-7e7287ae38cf2016129195613.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525208512372.jpg">
+<meta property="og:image" content="http://cdn.lindexi.site/lindexi%2F2018525209548089.jpg">
+<meta property="article:published_time" content="2026-04-02T09:05:50.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:55:43.179Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="code">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cdn.lindexi.site/lindexi%2F20185251719338891.jpg">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/04/02/2026-04-02-Latex 公式速查.ja/';
+              langMap['en'] = '/en/2026/04/02/2026-04-02-Latex 公式速查.ja/';
+              langMap['ja'] = '/ja/2026/04/02/2026-04-02-Latex 公式速查.ja/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="LaTeX 数式早見表">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">LaTeX 数式早見表</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Latex-%E6%95%B0%E5%BC%8F%E3%83%81%E3%83%BC%E3%83%88%E3%82%B7%E3%83%BC%E3%83%88"><span class="toc-number">1.</span> <span class="toc-text">Latex 数式チートシート</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A8%E8%A1%8C%E9%96%93"><span class="toc-number">1.1.</span> <span class="toc-text">インラインと行間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%BC%8F%E7%95%AA%E5%8F%B7"><span class="toc-number">1.2.</span> <span class="toc-text">数式番号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E7%99%BD"><span class="toc-number">1.3.</span> <span class="toc-text">空白</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E8%A1%8C"><span class="toc-number">1.4.</span> <span class="toc-text">改行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3%E6%96%87%E5%AD%97"><span class="toc-number">1.5.</span> <span class="toc-text">ギリシャ文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%88%E8%A8%98%E5%8F%B7"><span class="toc-number">1.6.</span> <span class="toc-text">アクセント記号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BB%98%E3%81%8D%E6%96%87%E5%AD%97%E3%81%A8%E4%B8%8B%E4%BB%98%E3%81%8D%E6%96%87%E5%AD%97"><span class="toc-number">1.7.</span> <span class="toc-text">上付き文字と下付き文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="toc-number">1.8.</span> <span class="toc-text">平方根</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E7%B7%9A"><span class="toc-number">1.9.</span> <span class="toc-text">水平線</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E5%A4%A7%E6%8B%AC%E5%BC%A7"><span class="toc-number">1.10.</span> <span class="toc-text">上大括弧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB"><span class="toc-number">1.11.</span> <span class="toc-text">ベクトル</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%89%E3%83%83%E3%83%88"><span class="toc-number">1.12.</span> <span class="toc-text">ドット</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0"><span class="toc-number">1.13.</span> <span class="toc-text">三角関数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A5%B5%E9%99%90"><span class="toc-number">1.14.</span> <span class="toc-text">極限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86"><span class="toc-number">1.15.</span> <span class="toc-text">微分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%95%B0"><span class="toc-number">1.16.</span> <span class="toc-text">分数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0"><span class="toc-number">1.17.</span> <span class="toc-text">二項係数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E7%AE%97"><span class="toc-number">1.18.</span> <span class="toc-text">演算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%AC%E5%BC%A7"><span class="toc-number">1.19.</span> <span class="toc-text">括弧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%B9"><span class="toc-number">1.20.</span> <span class="toc-text">点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E5%88%97"><span class="toc-number">1.21.</span> <span class="toc-text">配列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E9%96%A2%E4%BF%82%E8%A8%98%E5%8F%B7"><span class="toc-number">1.22.</span> <span class="toc-text">二項関係記号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%8F%B7"><span class="toc-number">1.22.1.</span> <span class="toc-text">等号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">1.22.2.</span> <span class="toc-text">集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E6%BC%94%E7%AE%97%E5%AD%90"><span class="toc-number">1.23.</span> <span class="toc-text">二項演算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A2%E5%8D%B0"><span class="toc-number">1.24.</span> <span class="toc-text">矢印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%AA%E3%83%9F%E3%82%BF"><span class="toc-number">1.25.</span> <span class="toc-text">デリミタ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E5%90%A6%E5%AE%9A%E9%96%A2%E4%BF%82%E8%A8%98%E5%8F%B7"><span class="toc-number">1.26.</span> <span class="toc-text">二項否定関係記号</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-04-02-Latex 公式速查.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-04-02T09:05:50.000Z" itemprop="datePublished">2026-04-02</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="Latex-数式チートシート"><a href="#Latex-数式チートシート" class="headerlink" title="Latex 数式チートシート"></a>Latex 数式チートシート</h1><p>本記事では、よく使われる数式に対応する Latex 文字をいくつか記録し、必要な文字を素早く検索できるようにします。</p>
+<p>Latex で使用するすべての文字式は、<code>\(</code> と <code>\)</code>、<code>$</code> と <code>$</code>、<code>\begin&#123;math&#125;</code> と <code>\end&#123;math&#125;</code> の間に置く必要があります。</p>
+<p>より大きな数式、たとえば独立した段落としての数式が必要な場合は、<code>\[</code> と <code>\]</code>、または <code>\begin&#123;displaymath&#125;</code> と <code>\end&#123;displaymath&#125;</code> を使って数式を書く必要があります。</p>
+<h2 id="インラインと行間"><a href="#インラインと行間" class="headerlink" title="インラインと行間"></a>インラインと行間</h2><figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">行内(limits)： <span class="keyword">\sum</span><span class="keyword">\limits</span><span class="built_in">^</span>n<span class="built_in">_</span>&#123;i = 1&#125;</span><br><span class="line">行间(nolimits)：<span class="keyword">\sum</span><span class="keyword">\nolimits</span><span class="built_in">^</span>n<span class="built_in">_</span>&#123;i = 1&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>$$<br>インライン(limits)： \sum\limits^n_{i &#x3D; 1}	\<br>別行立て(nolimits)：\sum\nolimits^n_{i &#x3D; 1}	\<br>$$</p>
+<h2 id="数式番号"><a href="#数式番号" class="headerlink" title="数式番号"></a>数式番号</h2><p>手動番号付けの方法は、この数式 <code>$$x^n+y^n=z^n$$</code> で使用できます。<code>\eqno&#123;(1)&#125;</code> を追加して番号を付けます。ここでの 1 は数式に番号を付けるという意味です。自分で入力してみればわかります。</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$$x^n+y^n=z^n \eqno&#123;(<span class="number">1</span>)&#125;$$</span><br></pre></td></tr></table></figure>
+
+<p>自動番号付けには equation を使用する必要があります</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">x^n+y^n=z^n</span><br><span class="line">\end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<p>数式を引用するときは、手動番号を引用する方式で引用できます。例: <code>$$a^2+b^2=c^2 /eqno (**)$$</code>。引用するときはこのように書きます <code>由公式($**$)即可得到结论</code></p>
+<p>自動番号付き数式を引用するには、数式に label を追加しないと引用できません。たとえば次の数式があります</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;equation&#125; \label&#123;eq:eps&#125;</span><br><span class="line">\epsilon &gt; <span class="number">0</span></span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>引用する方法では <code>\ref</code>、<code>从公式 (\ref&#123;eq:eps&#125;), 我们可以知道的德熙是逗比</code> を使用する必要があります</p>
+<p>次のコードを Latex に貼り付けてからコンパイルしてみてください</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\usepackage[utf8]&#123;inputenc&#125;</span><br><span class="line"></span><br><span class="line">\title&#123;lindexi.oschina.io&#125;</span><br><span class="line">\author&#123;lindexi &#125;</span><br><span class="line">\date&#123;May <span class="number">2016</span>&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;equation&#125; \label&#123;lindexi&#125;</span><br><span class="line">\epsilon &gt; <span class="number">0</span></span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line"></span><br><span class="line">Form (\<span class="keyword">ref</span>&#123;lindexi&#125;), we can know lindexi <span class="keyword">is</span> doubi</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251719338891.jpg"></p>
+<h2 id="空白"><a href="#空白" class="headerlink" title="空白"></a>空白</h2><p>Latex の数式では、<code>~</code>、<code>\quad</code>、<code>\qquad</code> を使って空白を表します</p>
+<h2 id="改行"><a href="#改行" class="headerlink" title="改行"></a>改行</h2><p><code>\\</code> を使用して改行します</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\usepackage[utf8]&#123;inputenc&#125;</span><br><span class="line"></span><br><span class="line">\title&#123;lindexi.oschina.io&#125;</span><br><span class="line">\author&#123;lindexi &#125;</span><br><span class="line">\date&#123;May <span class="number">2018</span>&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line"></span><br><span class="line">\begin&#123;equation&#125; \label&#123;lindexi&#125;</span><br><span class="line">\epsilon &gt; <span class="number">0</span> \quad a=b \\</span><br><span class="line"></span><br><span class="line">\textrm&#123;<span class="keyword">new</span> line&#125;</span><br><span class="line">\end&#123;equation&#125;</span><br><span class="line"></span><br><span class="line">Form (\<span class="keyword">ref</span>&#123;lindexi&#125;), we can know lindexi <span class="keyword">is</span> doubi</span><br><span class="line"></span><br><span class="line">\end&#123;document&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251725263041.jpg"></p>
+<h2 id="ギリシャ文字"><a href="#ギリシャ文字" class="headerlink" title="ギリシャ文字"></a>ギリシャ文字</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\alpha,\beta, \gamma,\lambda,\xi,\pi,\mu,\Phi,\Omega</span><br></pre></td></tr></table></figure>
+
+<p>$\alpha,\beta, \gamma,\lambda,\xi,\pi,\mu,\Phi,\Omega$</p>
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251729258312.jpg"></p>
+<p>大文字にするには最初の文字を大文字にします</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\Alpha,\Beta, \Gamma,\Lambda</span><br></pre></td></tr></table></figure>
+
+<p>$\Alpha , \Beta , \Gamma ,\Lambda$</p>
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251730237391.jpg"> </p>
+<p>小文字ギリシャ文字</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">α \alpha 		θ \theta 		o o 		υ \upsilon</span><br><span class="line">β \beta 		ϑ \vartheta 	π \pi 		φ \phi</span><br><span class="line">γ \gamma 		ι \iota 		$ \varpi 	ϕ \varphi</span><br><span class="line">δ \delta 		κ \kappa 		ρ \rho 		χ \chi</span><br><span class="line">² \epsilon 		λ \lambda  		  \varrho 	ψ \psi</span><br><span class="line">ε \varepsilon 	µ \mu			σ \sigma 	ω \omega</span><br><span class="line">ζ \zeta 		ν \nu			ς \varsigma</span><br><span class="line">η \eta 			ξ \xi			τ \tau</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251924562659.jpg"></p>
+<p>大文字ギリシャ文字</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Γ \Gamma Λ \Lambda 	Σ \Sigma 	Ψ \Psi</span><br><span class="line">∆ \Delta Ξ \Xi 		Υ \Upsilon 	Ω \Omega</span><br><span class="line">Θ \Theta Π \Pi 		Φ \Phi</span><br></pre></td></tr></table></figure>
+
+<h2 id="アクセント記号"><a href="#アクセント記号" class="headerlink" title="アクセント記号"></a>アクセント記号</h2><p>第一声 第二声 第三声</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\hat&#123;a&#125;	\check&#123;a&#125;	\tilde&#123;a&#125; \acute&#123;a&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525192815195.jpg"></p>
+<p>Latex 数式のその他の声調</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\grave&#123;a&#125;  \dot&#123;a&#125;  \ddot&#123;a&#125;  \breve&#123;a&#125; \bar&#123;a&#125;  \vec&#123;a&#125;  \widehat&#123;A&#125;  \widetilde&#123;A&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525192951476.jpg"></p>
+<table>
+<thead>
+<tr>
+<th>構文</th>
+<th>効果</th>
+<th>コメント</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\bar&#123;x&#125;</code></td>
+<td>$\bar{x}$</td>
+<td>上線</td>
+</tr>
+<tr>
+<td><code>\acute&#123;x&#125;</code></td>
+<td>$\acute{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\check&#123;x&#125;</code></td>
+<td>$\check{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\grave&#123;x&#125;</code></td>
+<td>$\grave{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\breve&#123;x&#125;</code></td>
+<td>$\breve{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ddot&#123;x&#125;</code></td>
+<td>$\ddot{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\dot&#123;x&#125;</code></td>
+<td>$\dot{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\hat&#123;x&#125;</code></td>
+<td>$\hat{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\tilde&#123;x&#125;</code></td>
+<td>$\tilde{x}$</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="上付き文字と下付き文字"><a href="#上付き文字と下付き文字" class="headerlink" title="上付き文字と下付き文字"></a>上付き文字と下付き文字</h2><p>上付き文字は <code>^</code> を使用し、下付き文字は <code>_</code> を使用します</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a^<span class="number">2</span>+L_a=doubi</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251731516956.jpg"></p>
+<p>上付き文字または下付き文字として複数の文字を追加する必要がある場合は、波括弧を使って複数の文字をまとめてください</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a^&#123;x+y&#125;+L_&#123;dexi&#125; = doubi</span><br></pre></td></tr></table></figure>
+
+<p>$a^{x+y}+L_{dexi} &#x3D; doubi$</p>
+<h2 id="平方根"><a href="#平方根" class="headerlink" title="平方根"></a>平方根</h2><p>入力コマンドは <code>\sqrt</code> です。n 乗根は対応して <code>\sqrt[n]</code> です。記号だけが必要な場合は <code>\surd</code> を使用してください</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\sqrt&#123;a^<span class="number">2</span>&#125;-\sqrt[<span class="number">5</span>]&#123;a&#125;=\surd&#123;a&#125;</span><br></pre></td></tr></table></figure>
+
+<p>$\sqrt{a^2}-\sqrt[5]{a}&#x3D;\surd{a}$</p>
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251733578522.jpg"></p>
+<h2 id="水平線"><a href="#水平線" class="headerlink" title="水平線"></a>水平線</h2><p><code>\overline</code> と <code>\underline</code> を使用して、式の上または下に水平線を描きます</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\overline&#123;lindexi.oschina.io&#125;+\underline&#123;lindexi.github.io&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251735474848.jpg"></p>
+<p>水平線はすなわち上線と下線です</p>
+<h2 id="上大括弧"><a href="#上大括弧" class="headerlink" title="上大括弧"></a>上大括弧</h2><p><code>\overbrace</code> と <code>\underbrace</code> を使用すると、式の上または下に波括弧を追加できます</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\overbrace&#123;blog.csdn.net/lindexi_gd&#125;_&#123;lindexi&#125; + \underbrace&#123;lindexi.github.io&#125;_&#123;doubi&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525185157410.jpg"></p>
+<h2 id="ベクトル"><a href="#ベクトル" class="headerlink" title="ベクトル"></a>ベクトル</h2><p>ベクトルには <code>\vec</code> を使用できます。左から右へ定義したい場合は、<code>\overleftarrow</code> を使用してください</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\vec a \quad \vec&#123;ab&#125;  \quad \overleftarrow&#123;ab&#125;  \quad \overrightarrow&#123;lindexi&#125; </span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251853101738.jpg"></p>
+<h2 id="ドット"><a href="#ドット" class="headerlink" title="ドット"></a>ドット</h2><p>数学では、ドットを内積に使うことがよくあります。Latex でドットは <code>\cdot</code> を使用します。たとえば x·y を表すには次のコードを使用できます</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x\cdot y</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251857133215.jpg"></p>
+<h2 id="三角関数"><a href="#三角関数" class="headerlink" title="三角関数"></a>三角関数</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\arccos \cos \csc \exp \ker \limsup \min \arcsin \cosh \deg \gcd \lg \ln \Pr \arctan \cot \det \hom \lim \log \sec \arg \coth \dim \inf \liminf \max \sin \sinh \sup \tan \tanh</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525185856758.jpg"></p>
+<table>
+<thead>
+<tr>
+<th>構文</th>
+<th>効果</th>
+<th>コメント</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\sin\theta</code></td>
+<td>$\sin\theta$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\cos\theta</code></td>
+<td>$\cos\theta$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\tan\theta</code></td>
+<td>$\tan\theta$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\arcsin\frac&#123;L&#125;&#123;i&#125;</code></td>
+<td>$\arcsin\frac{L}{i}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\arccos\frac&#123;n&#125;&#123;D&#125;</code></td>
+<td>$\arccos\frac{n}{D}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\arctan\frac&#123;e&#125;&#123;x&#125;</code></td>
+<td>$\arctan\frac{e}{x}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sinh l</code></td>
+<td>$\sinh l$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\cosh i</code></td>
+<td>$\cosh i$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\tanh n</code></td>
+<td>$\tanh n$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\operatorname&#123;sh&#125;d</code></td>
+<td>$\operatorname{sh}d$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\operatorname&#123;argsh&#125;e</code></td>
+<td>$\operatorname{argsh}e$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\operatorname&#123;ch&#125;x</code></td>
+<td>$\operatorname{ch}x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\operatorname&#123;argch&#125;i</code></td>
+<td>$\operatorname{argch}i$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\operatorname&#123;th&#125;i</code></td>
+<td>$\operatorname{th}i$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\operatorname&#123;argth&#125;m</code></td>
+<td>$\operatorname{argth}m$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\lim_&#123;\Delta x\to 0&#125;x</code></td>
+<td>$\lim_{\Delta x\to 0}x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\max H</code></td>
+<td>$\max H$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\min L</code></td>
+<td>$\min L$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\inf s</code></td>
+<td>$\inf s$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sup t</code></td>
+<td>$\sup t$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\exp\!t</code></td>
+<td>$\exp!t$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ln X</code></td>
+<td>$\ln X$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\lg X</code></td>
+<td>$\lg X$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\log X</code></td>
+<td>$\log X$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\log_\alpha X</code></td>
+<td>$\log_\alpha X$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ker x</code></td>
+<td>$\ker x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\deg x</code></td>
+<td>$\deg x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\gcd(T,U,V,W,X)</code></td>
+<td>$\gcd(T,U,V,W,X)$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Pr x</code></td>
+<td>$\Pr x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\det x</code></td>
+<td>$\det x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\hom x</code></td>
+<td>$\hom x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\arg x</code></td>
+<td>$\arg x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\dim x</code></td>
+<td>$\dim x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\lim_&#123;t\to n&#125;T</code></td>
+<td>$\lim_{t\to n}T$</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="極限"><a href="#極限" class="headerlink" title="極限"></a>極限</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\lim_&#123;x \rightarrow <span class="number">0</span>&#125; \frac&#123;\sin x&#125;&#123;x&#125;=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525190142683.jpg"></p>
+<h2 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h2><table>
+<thead>
+<tr>
+<th>構文</th>
+<th>効果</th>
+<th>コメント</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\pmod&#123;m&#125;</code></td>
+<td>$\pmod{m}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>a \bmod b</code></td>
+<td>$a \bmod b$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\nabla</code></td>
+<td>$\nabla$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\partial x</code></td>
+<td>$\partial x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\mathrm&#123;d&#125;x</code></td>
+<td>$\mathrm{d}x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\dot x</code></td>
+<td>$\dot x$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ddot y</code></td>
+<td>$\ddot y$</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="分数"><a href="#分数" class="headerlink" title="分数"></a>分数</h2><p>分数は <code>\frac</code> を使用し、後ろに2つの波括弧を置きます。1つ目は上、2つ目は下です</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y=\frac&#123;x&#125;&#123;b&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525191521894.jpg"></p>
+<h2 id="二項係数"><a href="#二項係数" class="headerlink" title="二項係数"></a>二項係数</h2><p>二項係数は <code>&#123; 第一项 \choose 第二项 &#125;</code> または <code>&#123; 第一项 \atop 第二项 &#125;</code> を使用できます</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; 第一项 \choose 第二项 &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525196151450.jpg"></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; 第一项 \atop 第二项 &#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525196271036.jpg"></p>
+<p>注意: 第1項と括弧の間にはスペースが必要で、第2項と括弧の間にもスペースが必要です</p>
+<h2 id="演算"><a href="#演算" class="headerlink" title="演算"></a>演算</h2><p>積分記号 <code>\int</code></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\int_&#123;<span class="number">0</span>&#125;^&#123;x+<span class="number">2</span>&#125;&#123;k*<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F201852519844417.jpg"></p>
+<p>総和演算子 <code>\sum</code></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\sum_&#123;i=<span class="number">1</span>&#125;^&#123;n&#125;&#123;i&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525191012430.jpg"></p>
+<p>積演算子 <code>\prod</code></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\prod_&#123;<span class="number">2</span>&#125;^&#123;n&#125;&#123;\epsilon&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251911161747.jpg"></p>
+<h2 id="括弧"><a href="#括弧" class="headerlink" title="括弧"></a>括弧</h2><p>丸括弧、角括弧はそのまま入力できます。波括弧は <code>\&#123;</code></p>
+<p>括弧のサイズは <code>\big</code>、<code>\Big</code>、<code>\bigg</code>、および <code>\Bigg</code> を使って異なるサイズを表せます。後ろに異なる括弧と <code>|</code> を追加できます</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">\big(\Big(\bigg(\Bigg( </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251915159300.jpg"></p>
+<h2 id="点"><a href="#点" class="headerlink" title="点"></a>点</h2><p>省略記号を入力するときには、よく点を使用します。<code>\ldots</code> は下揃え、<code>\cdots</code> は中央、<code>\vdots</code> は垂直、<code>\ddots</code> は斜めを表します</p>
+<p>下側</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lindexi \ldots doubi</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251916416320.jpg"></p>
+<p>垂直</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lindexi \vdots doubi</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525191817281.jpg"></p>
+<p>対角</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lindexi \ddots doubi</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251919293216.jpg"></p>
+<p>中央</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lindexi \cdots doubi</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251918523771.jpg"></p>
+<h2 id="配列"><a href="#配列" class="headerlink" title="配列"></a>配列</h2><p>配列を表すには <code>array</code> を使用します</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\mathbf&#123;X&#125; = \left( \begin&#123;array&#125;&#123;ccc&#125; x_&#123;<span class="number">11</span>&#125; &amp; x_&#123;<span class="number">12</span>&#125; &amp; \ldots \\ x_&#123;<span class="number">21</span>&#125; &amp; x_&#123;<span class="number">22</span>&#125; &amp; \ldots \\ \vdots &amp; \vdots &amp; \ddots \end&#123;array&#125; \right) </span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251921113888.jpg"></p>
+<h2 id="二項関係記号"><a href="#二項関係記号" class="headerlink" title="二項関係記号"></a>二項関係記号</h2><p>大なり <code>&gt;</code> 小なり <code>&lt;</code> 等号 <code>=</code></p>
+<p>以下 <code>\leq</code> <code>\le</code></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a \leq b \le a</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251931328841.jpg"></p>
+<p>以上 <code>\geq</code> <code>\ge</code></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a \geq b \ge a</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251932209901.jpg"></p>
+<p>合同等号 <code>\equiv</code></p>
+<p><img src="http://cdn.lindexi.site/lindexi%2F2018525193332067.jpg"></p>
+<h3 id="等号"><a href="#等号" class="headerlink" title="等号"></a>等号</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">相似 sim \sim \\ 约等于 approx \approx \\ 不等于 neq 或 ne \neq </span><br></pre></td></tr></table></figure>
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251937351241.jpg"></p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">子集 subset \subset \\ 真子集 subseteq \subseteq \\ A包括B supset \supset \\ A真包含B supseteq \supseteq</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251940519944.jpg"></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">包含 <span class="keyword">in</span> \<span class="keyword">in</span> ni \ni owns \owns \\ 不包含 notin \notin</span><br></pre></td></tr></table></figure>
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251942265272.jpg"></p>
+<table>
+<thead>
+<tr>
+<th>構文</th>
+<th>効果</th>
+<th>コメント</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\forall</code></td>
+<td>$\forall$</td>
+<td>すべて満たす</td>
+</tr>
+<tr>
+<td><code>\exists</code></td>
+<td>$\exists$</td>
+<td>存在</td>
+</tr>
+<tr>
+<td><code>\empty</code></td>
+<td>$\empty$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\emptyset</code></td>
+<td>$\emptyset$</td>
+<td>空集合</td>
+</tr>
+<tr>
+<td><code>\varnothing</code></td>
+<td>$\varnothing$</td>
+<td>空集合</td>
+</tr>
+<tr>
+<td><code>\in</code></td>
+<td>$\in$</td>
+<td>含まれる</td>
+</tr>
+<tr>
+<td><code>\ni</code></td>
+<td>$\ni$</td>
+<td>含む</td>
+</tr>
+<tr>
+<td><code>\not\in</code></td>
+<td>$\not\in$</td>
+<td>含まれない</td>
+</tr>
+<tr>
+<td><code>\notin</code></td>
+<td>$\notin$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\subset</code></td>
+<td>$\subset$</td>
+<td>部分集合</td>
+</tr>
+<tr>
+<td><code>\subseteq</code></td>
+<td>$\subseteq$</td>
+<td>真部分集合</td>
+</tr>
+<tr>
+<td><code>\supset</code></td>
+<td>$\supset$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\supseteq</code></td>
+<td>$\supseteq$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\cap</code></td>
+<td>$\cap$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigcap</code></td>
+<td>$\bigcap$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\cup</code></td>
+<td>$\cup$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigcup</code></td>
+<td>$\bigcup$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\biguplus</code></td>
+<td>$\biguplus$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqsubset</code></td>
+<td>$\sqsubset$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqsubseteq</code></td>
+<td>$\sqsubseteq$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqsupset</code></td>
+<td>$\sqsupset$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqsupseteq</code></td>
+<td>$\sqsupseteq$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqcap</code></td>
+<td>$\sqcap$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqcup</code></td>
+<td>$\sqcup$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigsqcup</code></td>
+<td>$\bigsqcup$</td>
+<td></td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>構文</th>
+<th>効果</th>
+<th>コメント</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\land</code></td>
+<td>$\land$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\wedge</code></td>
+<td>$\wedge$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigwedge</code></td>
+<td>$\bigwedge$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bar&#123;q&#125; \to p</code></td>
+<td>$\bar{q} \to p$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\lor</code></td>
+<td>$\lor$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\vee</code></td>
+<td>$\vee$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigvee</code></td>
+<td>$\bigvee$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\lnot</code></td>
+<td>$\lnot$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\neg q</code></td>
+<td>$\neg q$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\setminus</code></td>
+<td>$\setminus$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\smallsetminus</code></td>
+<td>$\smallsetminus$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqrt&#123;3&#125;</code></td>
+<td>$\sqrt{3}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqrt[n]&#123;3&#125;</code></td>
+<td>$\sqrt[n]{3}$</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="二項演算子"><a href="#二項演算子" class="headerlink" title="二項演算子"></a>二項演算子</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">加 + ，减 - ，正负 ± pm \pm ，正负 ∓ mp  \mp</span><br><span class="line">左三角 \triangleleft </span><br><span class="line">点乘 · cdot  \cdot ，除 ÷ div \div ，右三角 triangleright \triangleright</span><br><span class="line">乘 × times \times ，除 \ setminus \setminus ，星 star \star</span><br><span class="line">并集 ∪ cup \cup  ，交集 ∩ cap \cap ，星 ∗ ast \ast</span><br><span class="line">sqcup \sqcup ，sqcap \sqcap ，空心圆 ◦ circ \circ</span><br><span class="line">vee ∨ \vee 或 \lor ，wedge ∧ wedge \wedge 或 \land 实心圆 • bullet \bullet</span><br><span class="line">⊕ oplus \oplus ，ominus \ominus ，diamond \diamond</span><br><span class="line">odot \odot ，oslash \oslash ，uplus \uplus</span><br><span class="line">otimes ⊗ \otimes ，bigcirc 大圆 \bigcirc ，amalg \amalg</span><br><span class="line">上三角 bigtriangleup \bigtriangleup ，下三角 bigtriangledown \bigtriangledown ，dagger † \dagger</span><br><span class="line">lhd \lhd ，rhd \rhd </span><br><span class="line">‡ \ddagger</span><br><span class="line">unlhd \unlhd  ，unrhd \unrhd </span><br><span class="line">wr \wr</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251956108902.jpg"></p>
+<p><img src="http://cdn.lindexi.site/lindexi%2F20185251956249060.jpg"></p>
+<h2 id="矢印"><a href="#矢印" class="headerlink" title="矢印"></a>矢印</h2><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">\leftarrow \\leftarrow <span class="keyword">or</span> \\gets </span><br><span class="line">\longleftarrow  \\longleftarrow </span><br><span class="line">\uparrow \\uparrow</span><br><span class="line">\rightarrow \\rightarrow <span class="keyword">or</span> \\to </span><br><span class="line">\longrightarrow  \\longrightarrow </span><br><span class="line">\downarrow \\downarrow</span><br><span class="line">\leftrightarrow  \\leftrightarrow </span><br><span class="line">\longleftrightarrow  \\longleftrightarrow </span><br><span class="line">\updownarrow \\updownarrow</span><br><span class="line">\Leftarrow \\Leftarrow </span><br><span class="line">\Longleftarrow  \\Longleftarrow </span><br><span class="line">\Uparrow \\Uparrow</span><br><span class="line">\Rightarrow  \\Rightarrow </span><br><span class="line">\Longrightarrow  \\Longrightarrow </span><br><span class="line">\Downarrow \\Downarrow</span><br><span class="line">\Leftrightarrow \\Leftrightarrow </span><br><span class="line">\Longleftrightarrow  \\Longleftrightarrow </span><br><span class="line">\Updownarrow \\Updownarrow</span><br><span class="line">\mapsto  \\mapsto </span><br><span class="line">\longmapsto  \\longmapsto </span><br><span class="line">\nearrow \\nearrow</span><br><span class="line">\hookleftarrow  \\hookleftarrow </span><br><span class="line">\hookrightarrow  \\hookrightarrow </span><br><span class="line">\searrow \\searrow</span><br><span class="line">\leftharpoonup  \\leftharpoonup </span><br><span class="line">\rightharpoonup  \\rightharpoonup </span><br><span class="line">\swarrow \\swarrow</span><br><span class="line">\leftharpoondown  \\leftharpoondown </span><br><span class="line">\rightharpoondown \\rightharpoondown </span><br><span class="line">\nwarrow \\nwarrow</span><br><span class="line">­\rightleftharpoons \\rightleftharpoons </span><br><span class="line">\iff \\iff (bigger spaces) </span><br><span class="line">\leadsto \\leadsto</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>$$<br>\leftarrow \setminus leftarrow or \setminus gets \<br>\longleftarrow  \setminus longleftarrow  \<br>\uparrow \setminus uparrow \<br>\rightarrow \setminus rightarrow or \setminus to  \<br>\longrightarrow  \setminus longrightarrow  \<br>\downarrow \setminus downarrow \<br>\leftrightarrow  \setminus leftri ghtarrow \<br>\longleftrightarrow  \setminus longleftrightarrow  \<br>\updownarrow \setminus updownarrow \<br>\Leftarrow \setminus Leftarrow  \<br>\Longleftarrow  \setminus Longleftarrow  \<br>\Uparrow \setminus Uparrow \<br>\Rightarrow  \setminus Rightarrow \<br>\Longrightarrow  \setminus Longrightarrow  \<br>\Downarrow \setminus Downarrow \<br>\Leftrightarrow \setminus Leftrightarrow  \<br>\Longleftrightarrow  \setminus Longleftrightarrow  \<br>\Updownarrow \setminus Updownarrow \<br>\mapsto  \setminus mapsto \<br>\longmapsto  \setminus longmapsto \<br>\nearrow \setminus nearrow \<br>\hookleftarrow  \setminus hookleftarrow  \<br>\hookrightarrow  \setminus hookrightarrow  \<br>\searrow \setminus searrow \<br>\leftharpoonup  \setminus leftharpoonup  \<br>\rightharpoonup  \setminus rightharpoonup \<br>\swarrow \setminus swarrow \<br>\leftharpoondown  \setminus leftharpoondown \<br>\rightharpoondown \setminus rightharpoondown \<br>\nwarrow \setminus nwarrow \<br>­\rightleftharpoons \setminus rightleftharpoons \<br>\iff \setminus iff (bigger spaces) \<br>\leadsto \setminus leadsto\<br>$$</p>
+<p><img src="http://cdn.lindexi.site/lindexi%2F201852520827850.jpg"></p>
+<table>
+<thead>
+<tr>
+<th>構文</th>
+<th>効果</th>
+<th>コメント</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>\Delta ABC\sim\Delta XYZ</code></td>
+<td>$\Delta ABC\sim\Delta XYZ$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sqrt&#123;3&#125;\approx1.732050808\ldots</code></td>
+<td>$\sqrt{3}\approx1.732050808\ldots$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\simeq</code></td>
+<td>$\simeq$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\cong</code></td>
+<td>$\cong$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\dot=</code></td>
+<td>$\dot&#x3D;$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ggg</code></td>
+<td>$\ggg$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\gg</code></td>
+<td>$\gg$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>$&gt;$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ge</code></td>
+<td>$\ge$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\geqq</code></td>
+<td>$\geqq$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>$&#x3D;$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\leq</code></td>
+<td>$\leq$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\leqq</code></td>
+<td>$\leqq$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ll</code></td>
+<td>$\ll$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\lll</code></td>
+<td>$\lll$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>(x-y)^2\equiv(-x+y)^2\equiv x^2-2xy+y^2</code></td>
+<td>$(x-y)^2\equiv(-x+y)^2\equiv x^2-2xy+y^2$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>x\not\equiv N</code></td>
+<td>$x\not\equiv N$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>x\ne A</code></td>
+<td>$x\ne A$</td>
+<td>等しくない</td>
+</tr>
+<tr>
+<td><code>x\neq C</code></td>
+<td>$x\neq C$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>t\propto v</code></td>
+<td>$t\propto v$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\pm</code></td>
+<td>$\pm$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\mp</code></td>
+<td>$\mp$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Diamond</code></td>
+<td>$\Diamond$</td>
+<td>菱形</td>
+</tr>
+<tr>
+<td><code>\Box</code></td>
+<td>$\Box$</td>
+<td>正方形</td>
+</tr>
+<tr>
+<td><code>\Delta</code></td>
+<td>$\Delta$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\triangle</code></td>
+<td>$\triangle$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\angle\Alpha\Beta\Gamma</code></td>
+<td>$\angle{\alpha \beta \Gamma}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sin\!\frac&#123;\pi&#125;&#123;3&#125;=\sin60^\operatorname&#123;\omicron&#125;=\frac&#123;\sqrt&#123;3&#125;&#125;&#123;2&#125;</code></td>
+<td>$\sin \frac{\pi}{3} &#x3D; \sin60^{\operatorname{\omicron}} &#x3D;\frac{\sqrt{3}}{2}$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\perp</code></td>
+<td>$\perp$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\leftarrow</code></td>
+<td>$\leftarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\gets</code></td>
+<td>$\gets$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\rightarrow</code></td>
+<td>$\rightarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\to</code></td>
+<td>$\to$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\leftrightarrow</code></td>
+<td>$\leftrightarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\longleftarrow</code></td>
+<td>$\longleftarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\longrightarrow</code></td>
+<td>$\longrightarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\mapsto</code></td>
+<td>$\mapsto$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\longmapsto</code></td>
+<td>$\longmapsto$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\hookrightarrow</code></td>
+<td>$\hookrightarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\hookleftarrow</code></td>
+<td>$\hookleftarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\nearrow</code></td>
+<td>$\nearrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\searrow</code></td>
+<td>$\searrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\swarrow</code></td>
+<td>$\swarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\nwarrow</code></td>
+<td>$\nwarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\uparrow</code></td>
+<td>$\uparrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\downarrow</code></td>
+<td>$\downarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\updownarrow</code></td>
+<td>$\updownarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\rightharpoonup</code></td>
+<td>$\rightharpoonup$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\rightharpoondown</code></td>
+<td>$\rightharpoondown$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\leftharpoonup</code></td>
+<td>$\leftharpoonup$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\leftharpoondown</code></td>
+<td>$\leftharpoondown$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\upharpoonleft</code></td>
+<td>$\upharpoonleft$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\upharpoonright</code></td>
+<td>$\upharpoonright$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\downharpoonleft</code></td>
+<td>$\downharpoonleft$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\downharpoonright</code></td>
+<td>$\downharpoonright$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Leftarrow</code></td>
+<td>$\Leftarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Rightarrow</code></td>
+<td>$\Rightarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Leftrightarrow</code></td>
+<td>$\Leftrightarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Longleftarrow</code></td>
+<td>$\Longleftarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Longrightarrow</code></td>
+<td>$\Longrightarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Longleftrightarrow (or \iff)</code></td>
+<td>$\Longleftrightarrow (or \iff)$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Uparrow</code></td>
+<td>$\Uparrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Downarrow</code></td>
+<td>$\Downarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Updownarrow</code></td>
+<td>$\Updownarrow$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\eth</code></td>
+<td>$\eth$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\S</code></td>
+<td>$\S$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\P</code></td>
+<td><img src="http://cdn.lindexi.site/246a4e2c-cc8f-497d-860a-7e7287ae38cf2016129195613.jpg"></td>
+<td></td>
+</tr>
+<tr>
+<td><code>\%</code></td>
+<td>$%$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\dagger</code></td>
+<td>$\dagger$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ddagger</code></td>
+<td>$\ddagger$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\star</code></td>
+<td>$\star$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>$*$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ldots</code></td>
+<td>$\ldots$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\smile</code></td>
+<td>$\smile$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\frown</code></td>
+<td>$\frown$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\wr</code></td>
+<td>$\wr$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\oplus</code></td>
+<td>$\oplus$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigoplus</code></td>
+<td>$\bigoplus$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\otimes</code></td>
+<td>$\otimes$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigotimes</code></td>
+<td>$\bigotimes$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\times</code></td>
+<td>$\times$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\cdot</code></td>
+<td>$\cdot$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\div</code></td>
+<td>$\div$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\circ</code></td>
+<td>$\circ$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bullet</code></td>
+<td>$\bullet$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\bigodot</code></td>
+<td>$\bigodot$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\boxtimes</code></td>
+<td>$\boxtimes$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\boxplus</code></td>
+<td>$\boxplus$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\triangleleft</code></td>
+<td>$\triangleleft$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\triangleright</code></td>
+<td>$\triangleright$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\infty</code></td>
+<td>$\infty$</td>
+<td>無限</td>
+</tr>
+<tr>
+<td><code>\bot</code></td>
+<td>$\bot$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\top</code></td>
+<td>$\top$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\vdash</code></td>
+<td>$\vdash$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\vDash</code></td>
+<td>$\vDash$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Vdash</code></td>
+<td>$\Vdash$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\models</code></td>
+<td>$\models$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\lVert</code></td>
+<td>$\lVert$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\rVert</code></td>
+<td>$\rVert$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\imath</code></td>
+<td>$\imath$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\hbar</code></td>
+<td>$\hbar$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\ell</code></td>
+<td>$\ell$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\mho</code></td>
+<td>$\mho$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Finv</code></td>
+<td>$\Finv$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Re</code></td>
+<td>$\Re$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Im</code></td>
+<td>$\Im$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\wp</code></td>
+<td>$\wp$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\complement</code></td>
+<td>$\complement$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\diamondsuit</code></td>
+<td>$\diamondsuit$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\heartsuit</code></td>
+<td>$\heartsuit$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\clubsuit</code></td>
+<td>$\clubsuit$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\spadesuit</code></td>
+<td>$\spadesuit$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\Game</code></td>
+<td>$\Game$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\flat</code></td>
+<td>$\flat$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\natural</code></td>
+<td>$\natural$</td>
+<td></td>
+</tr>
+<tr>
+<td><code>\sharp</code></td>
+<td>$\sharp$</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="デリミタ"><a href="#デリミタ" class="headerlink" title="デリミタ"></a>デリミタ</h2><p><img src="http://cdn.lindexi.site/lindexi%2F2018525208512372.jpg"></p>
+<h2 id="二項否定関係記号"><a href="#二項否定関係記号" class="headerlink" title="二項否定関係記号"></a>二項否定関係記号</h2><p><img src="http://cdn.lindexi.site/lindexi%2F2018525209548089.jpg"></p>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/code/" rel="tag" title="code">code</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Latex-%E6%95%B0%E5%BC%8F%E3%83%81%E3%83%BC%E3%83%88%E3%82%B7%E3%83%BC%E3%83%88"><span class="toc-number">1.</span> <span class="toc-text">Latex 数式チートシート</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A4%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%81%A8%E8%A1%8C%E9%96%93"><span class="toc-number">1.1.</span> <span class="toc-text">インラインと行間</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%BC%8F%E7%95%AA%E5%8F%B7"><span class="toc-number">1.2.</span> <span class="toc-text">数式番号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E7%99%BD"><span class="toc-number">1.3.</span> <span class="toc-text">空白</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E8%A1%8C"><span class="toc-number">1.4.</span> <span class="toc-text">改行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%AE%E3%83%AA%E3%82%B7%E3%83%A3%E6%96%87%E5%AD%97"><span class="toc-number">1.5.</span> <span class="toc-text">ギリシャ文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A2%E3%82%AF%E3%82%BB%E3%83%B3%E3%83%88%E8%A8%98%E5%8F%B7"><span class="toc-number">1.6.</span> <span class="toc-text">アクセント記号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E4%BB%98%E3%81%8D%E6%96%87%E5%AD%97%E3%81%A8%E4%B8%8B%E4%BB%98%E3%81%8D%E6%96%87%E5%AD%97"><span class="toc-number">1.7.</span> <span class="toc-text">上付き文字と下付き文字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="toc-number">1.8.</span> <span class="toc-text">平方根</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B4%E5%B9%B3%E7%B7%9A"><span class="toc-number">1.9.</span> <span class="toc-text">水平線</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E5%A4%A7%E6%8B%AC%E5%BC%A7"><span class="toc-number">1.10.</span> <span class="toc-text">上大括弧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%99%E3%82%AF%E3%83%88%E3%83%AB"><span class="toc-number">1.11.</span> <span class="toc-text">ベクトル</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%89%E3%83%83%E3%83%88"><span class="toc-number">1.12.</span> <span class="toc-text">ドット</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E9%96%A2%E6%95%B0"><span class="toc-number">1.13.</span> <span class="toc-text">三角関数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A5%B5%E9%99%90"><span class="toc-number">1.14.</span> <span class="toc-text">極限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E5%88%86"><span class="toc-number">1.15.</span> <span class="toc-text">微分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%95%B0"><span class="toc-number">1.16.</span> <span class="toc-text">分数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E4%BF%82%E6%95%B0"><span class="toc-number">1.17.</span> <span class="toc-text">二項係数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%94%E7%AE%97"><span class="toc-number">1.18.</span> <span class="toc-text">演算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%AC%E5%BC%A7"><span class="toc-number">1.19.</span> <span class="toc-text">括弧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%B9"><span class="toc-number">1.20.</span> <span class="toc-text">点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E5%88%97"><span class="toc-number">1.21.</span> <span class="toc-text">配列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E9%96%A2%E4%BF%82%E8%A8%98%E5%8F%B7"><span class="toc-number">1.22.</span> <span class="toc-text">二項関係記号</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E5%8F%B7"><span class="toc-number">1.22.1.</span> <span class="toc-text">等号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">1.22.2.</span> <span class="toc-text">集合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E6%BC%94%E7%AE%97%E5%AD%90"><span class="toc-number">1.23.</span> <span class="toc-text">二項演算子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A2%E5%8D%B0"><span class="toc-number">1.24.</span> <span class="toc-text">矢印</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%87%E3%83%AA%E3%83%9F%E3%82%BF"><span class="toc-number">1.25.</span> <span class="toc-text">デリミタ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%A0%85%E5%90%A6%E5%AE%9A%E9%96%A2%E4%BF%82%E8%A8%98%E5%8F%B7"><span class="toc-number">1.26.</span> <span class="toc-text">二項否定関係記号</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "LaTeX 数式早見表",
+          url: "https://blog.wray7.top/2026/04/02/2026-04-02-Latex%20%E5%85%AC%E5%BC%8F%E9%80%9F%E6%9F%A5.ja/",
+          excerpt: "",
+          description: "",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Latex 数式チートシート本記事では、よく使われる数式に対応する Latex 文字をいくつか記録し、必要な文字を素早く検索できるようにします。 Latex で使用するすべての文字式は、\( と \)、$ と $、\begin&amp;#123;math&amp;#125; と \end&amp;#123;math&amp;#125; の間に置く必要があります。 より大きな数式、たとえば独立した段落としての数式が必要",
+          date: "Thu Apr 02 2026 17:05:50 GMT+0800",
+          updated: "Sun Oct 11 2026 04:55:43 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

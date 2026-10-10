@@ -1,0 +1,774 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Wray的Blog">
+<meta property="og:url" content="https://blog.wray7.top/ja/page/6/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://blog.wray7.top/images/banner.webp">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="教程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.wray7.top/images/banner.webp">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/page/6/';
+              langMap['en'] = '/en/page/6/';
+              langMap['ja'] = '/ja/page/6/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+      <picture>
+      </picture>
+        <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Wray的Blog</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+              <span id="subtitle">技术笔记与折腾记录</span>
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container ">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+        <div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content">      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/10/06/2025-10-06-linux%E4%B8%89%E5%89%91%E5%AE%A2/" aria-label="linux三剑客" title="linux三剑客"></a>
+    <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="linux三剑客" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-10-06</span>
+        <span><span class="icon-pencil"></span>2.7k 文字</span>
+        <span><span class="icon-clock"></span>13 分</span>
+      </div>
+      <h2 class="post-title">linux三剑客</h2>
+      <article class="post-article">
+          Linux三剑客sed-i 写入文件
+-i.bak 写入文件并备份
+打印123sed -e &amp;#x27;1p&amp;#x27;	# 打印第一行sed -e &amp;#x27;1,3p&amp;#x27; # 打印1-3行sed -e &amp;#x27;1,+3p&amp;#x27; # 从第1行向下打印3行
+
+
+
+多行合并为一行123sed &amp;#x27;:a;N;$!ba;s/\n/ /g&amp;#x27; file# :a设定一个指令标签 标记当前位置，N读取下一行，$!判断如果不是最后一行 ，ba返回a标签，指令循环执行# $!不是最后一行，$!=100不是第100行
+
+删除空行1sed -e &amp;#x27;/^$/d&amp;#x27;
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/10/05/2025-10-04-%E5%AE%9E%E7%94%A8%E8%BD%AF%E4%BB%B6/" aria-label="实用软件" title="实用软件"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="实用软件" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-10-04</span>
+        <span><span class="icon-pencil"></span>28 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">实用软件</h2>
+      <article class="post-article">
+          iriun webcam	手机作为摄像头spacedesk		手机作为副屏soundwire		手机作为扬声器Aegis		2fa管理
+
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/10/04/2025-10-04-Root%E9%9A%90%E8%97%8F/" aria-label="Root隐藏" title="Root隐藏"></a>
+    <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Root隐藏" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-10-04</span>
+        <span><span class="icon-pencil"></span>84 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">Root隐藏</h2>
+      <article class="post-article">
+          Root隐藏manager: apatch(选择隐藏应用)
+modules: 
+
+nohello(kpm)
+rezygisk
+Tricky store
+Tricky addon(选择全部，取消非必要，设置有效密钥，设置安全补丁自动，设置安全补丁保存，保存)(com.android.vending, com.google.android.gsf, com.google.android.gms)
+play intergrity fix next(只取消playsdk欺骗,执行)
+aphelper
+treatwheel
+
+others
+
+lsposed
+
+detectorplay integrity
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/09/28/2025-09-28-env/" aria-label="env" title="env"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="env" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-09-28</span>
+        <span><span class="icon-pencil"></span>4 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">env</h2>
+      <article class="post-article">
+          platform-tools(adb, fastboot)
+
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/09/27/2025-09-27-Introduction/" aria-label="Introduction" title="Introduction"></a>
+    <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Introduction" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-09-27</span>
+        <span><span class="icon-pencil"></span>1.6k 文字</span>
+        <span><span class="icon-clock"></span>10 分</span>
+      </div>
+      <h2 class="post-title">Introduction</h2>
+      <article class="post-article">
+          Chapter.1 Introduction1. IntroWe are always curious about how many traits depending on nature or nurture, that is genes or environment.
+Human heritability studies often mainly use the Twin Study method to estimate many traits.
+Although experiments mechanistic understanding on brain often can only be
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/09/27/2025-09-27-Fastboot%E5%88%B7%E4%BF%AE%E6%94%B9%E5%8C%85/" aria-label="Fastboot刷修改包" title="Fastboot刷修改包"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Fastboot刷修改包" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-09-27</span>
+        <span><span class="icon-pencil"></span>243 文字</span>
+        <span><span class="icon-clock"></span>2 分</span>
+      </div>
+      <h2 class="post-title">Fastboot刷修改包</h2>
+      <article class="post-article">
+          Fastboot刷修改包设备管理器
+解决adb, fastboot不识别
+
+将未识别设备安装驱动Universal Serial Bus -&amp;gt; android_winusb
+对于非super分区，需要fastboot reboot fastboot 进入fastbootd刷写
+底包刷写使用FastbootFirmwareFlasher（tg）或其它fastboot工具批量刷写全部分区
+先刷底包，以免还需要刷写vendor
+123# 刷写vendorfastboot flash vendor_boot vendor_boot.imgfastboot flash vendor vendor.
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/09/26/2025-09-26-Android%E5%8C%85%E7%A7%BB%E6%A4%8D/" aria-label="Android包移植" title="Android包移植"></a>
+    <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Android包移植" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-09-26</span>
+        <span><span class="icon-pencil"></span>354 文字</span>
+        <span><span class="icon-clock"></span>2 分</span>
+      </div>
+      <h2 class="post-title">Android包移植</h2>
+      <article class="post-article">
+          Android包移植使用unpacker解包卡刷包
+原厂底包vendor123456789101112# 如果system/system/apex是文件#vendor/build.propro.apex.updatable=true############################################## 如果system/system/apex是文件夹#vendor/build.propro.apex.updatable=true
+
+
+不同厂
+vendor修改
+12#vendor/etc原厂包group和passwd复制到新的vendor/etc中
+
+去除avb, data
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/09/23/2025-09-23-%E6%B8%85%E7%90%86wsl%E7%A9%BA%E9%97%B4/" aria-label="清理wsl空间" title="清理wsl空间"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="清理wsl空间" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-09-23</span>
+        <span><span class="icon-pencil"></span>71 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">清理wsl空间</h2>
+      <article class="post-article">
+          清理wsl空间
+要找到wsl的vhd文件: ext4.vhdx(%userprofile%\AppData\Local\Packages\22955VineelSai.ArchWSL_qz230bc1wsk9j\LocalState\)
+打开PowerShell, 输入命令：
+
+12345678910wsl --shutdowndiskpart# open window Diskpartselect vdisk file=&amp;quot;D:\WSL-Arch\ext4.vhdx&amp;quot;attach vdisk readonlycompact vdiskdetach vdiskexit
+
+附件
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/09/19/2025-09-19-arch%E6%9B%B4%E6%96%B0pacman-keyring/" aria-label="arch更新pacman-keyring" title="arch更新pacman-keyring"></a>
+    <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="arch更新pacman-keyring" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-09-19</span>
+        <span><span class="icon-pencil"></span>110 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">arch更新pacman-keyring</h2>
+      <article class="post-article">
+          arch更新pacman-keyringRemove or reset all the keys installed in your system by removing the &amp;#x2F;etc&amp;#x2F;pacman.d&amp;#x2F;gnupg directory (as root) and by rerunning pacman-key –init followed by pacman-key –populate to re-add the default keys.
+Default12sudo pacman -Sy archlinux-keyringsudo pacman -Syu
+
+
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/08/31/2025-08-31-Waydroid/" aria-label="Waydroid" title="Waydroid"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Waydroid" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-08-31</span>
+        <span><span class="icon-pencil"></span>223 文字</span>
+        <span><span class="icon-clock"></span>2 分</span>
+      </div>
+      <h2 class="post-title">Waydroid</h2>
+      <article class="post-article">
+          Waydroid安装：
+1waydroid init -s GAPPS -F
+
+
+
+启动：
+12sudo systemctl enable waydroid-container.service --nowwaydroid session start &amp;amp;&amp;amp; waydroid show-full-ui
+
+
+
+升级
+1waydroid upgrade
+
+
+
+关闭:
+1waydroid session stop
+
+
+
+
+
+键盘映射:
+keymapper
+Waydroid无网络12# /usr/lib/waydroid/data/scripts/waydroid-net.shLXC_US
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/08/30/2025-08-30-%E5%85%8D%E5%AF%86/" aria-label="免密" title="免密"></a>
+    <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="免密" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-08-30</span>
+        <span><span class="icon-pencil"></span>39 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">免密</h2>
+      <article class="post-article">
+          12# /etc/sudoers.d/wraywray    ALL=(ALL) NOPASSWD:ALL
+
+注释规则（一般wsl需要）
+12# /etc/sudoers#%wheel        ALL=(ALL)       ALL
+
+附件
+linux同步时间.pdf
+linux电池管理.pdf
+
+
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2025/08/30/2025-08-30-%E6%B3%A8%E5%86%8C%E8%A1%A8%E8%B7%AF%E5%BE%84/" aria-label="注册表路径" title="注册表路径"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="注册表路径" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2025-08-30</span>
+        <span><span class="icon-pencil"></span>84 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">注册表路径</h2>
+      <article class="post-article">
+          注册表路径自启
+当前用户：HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+
+所有用户：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
+
+仅运行一次的启动项：HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\RunOnce
+  HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\RunOnce
+
+U
+      </article>
+    </div>
+  </div>
+</div>
+  <nav id="page-nav" aria-label="Pagination navigation" data-aos="fade-up">
+    <a class="extend prev" rel="prev" href="/ja/page/5/">&laquo; 戻る</a><a class="page-number" href="/ja/">1</a><span class="space">&hellip;</span><a class="page-number" href="/ja/page/4/">4</a><a class="page-number" href="/ja/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/ja/page/7/">7</a><a class="page-number" href="/ja/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/ja/page/22/">22</a><a class="extend next" rel="next" href="/ja/page/7/">次へ &raquo;</a>
+  </nav>
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+      <div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+
+  </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

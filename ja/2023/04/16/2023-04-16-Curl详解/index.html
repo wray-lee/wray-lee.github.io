@@ -1,0 +1,725 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Curl详解 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Curl详解curl -kfsSL -k&#x2F;--insecure	允许不使用证书到SSL站点 -f&#x2F;--fail    连接失败时不显示http错误。在服务器错误时，阻止一个返回的表示错误原因的 html 页面，而由 curl 命令返回一个错误码 22 来提示错误（避免返回html不方便debug） -s&#x2F;--silent    静默模式。不输出任何东西。将不输出错误和进度信息。 -S&#x2F;--show">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Curl详解">
+<meta property="og:url" content="https://blog.wray7.top/ja/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Curl详解curl -kfsSL -k&#x2F;--insecure	允许不使用证书到SSL站点 -f&#x2F;--fail    连接失败时不显示http错误。在服务器错误时，阻止一个返回的表示错误原因的 html 页面，而由 curl 命令返回一个错误码 22 来提示错误（避免返回html不方便debug） -s&#x2F;--silent    静默模式。不输出任何东西。将不输出错误和进度信息。 -S&#x2F;--show">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg">
+<meta property="article:published_time" content="2023-04-16T10:32:47.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:58.225Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2023/04/16/2023-04-16-Curl详解/';
+              langMap['en'] = '/en/2023/04/16/2023-04-16-Curl详解/';
+              langMap['ja'] = '/ja/2023/04/16/2023-04-16-Curl详解/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Curl详解">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Curl详解</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">Curl详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">区分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">其他指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-%E7%9A%84%E7%94%A8%E6%B3%95%E6%8C%87%E5%8D%97"><span class="toc-number">2.</span> <span class="toc-text">curl 的用法指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2023-04-16-Curl详解" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2023-04-16T10:32:47.000Z" itemprop="datePublished">2023-04-16</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="Curl详解"><a href="#Curl详解" class="headerlink" title="Curl详解"></a>Curl详解</h1><h2 id="curl-kfsSL"><a href="#curl-kfsSL" class="headerlink" title="curl -kfsSL"></a><code>curl -kfsSL</code></h2><ul>
+<li><code>-k/--insecure</code>	允许不使用证书到SSL站点</li>
+<li><code>-f/--fail</code>    连接失败时不显示http错误。在服务器错误时，阻止一个返回的表示错误原因的 html 页面，而由 curl 命令返回一个错误码 22 来提示错误（避免返回html不方便debug）</li>
+<li><code>-s/--silent</code>    静默模式。不输出任何东西。将不输出错误和进度信息。</li>
+<li><code>-S/--show-error</code>    显示错误。指定只输出错误信息，通常与<code>-s</code>一起使用。</li>
+<li><code>-L/--location</code>    会让 HTTP 请求跟随服务器的重定向。curl 默认不跟随重定向。</li>
+</ul>
+<p>curl -fsSL 表示使用 curl 命令下载文件时，不显示进度和错误信息，如果下载失败则立即停止，并自动跟随重定向。这通常是下载文件的一种安静、安全、稳定的方式。</p>
+<h2 id="区分"><a href="#区分" class="headerlink" title="区分"></a>区分</h2><ul>
+<li><code>-l/--list-only</code>    列出ftp目录下的文件名称</li>
+<li><code>-F </code>   参数用来向服务器上传二进制文件。</li>
+</ul>
+<h2 id="其他指令"><a href="#其他指令" class="headerlink" title="其他指令"></a>其他指令</h2><p><code>-o</code>		参数将服务器的回应保存成文件，等同于<code>wget</code>命令。</p>
+<p><code>curl -o example.html https://www.example.com</code></p>
+<p><code>-O</code>		参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。(不需要命名)</p>
+<p><code>curl -O https://www.example.com/foo/bar.html</code></p>
+<p><code>--limit-rate</code>用来限制 HTTP 请求和回应的带宽，模拟慢网速的环境。</p>
+<p><code>curl --limit-rate 200k https://google.com</code></p>
+<hr>
+<h1 id="curl-的用法指南"><a href="#curl-的用法指南" class="headerlink" title="curl 的用法指南"></a>curl 的用法指南</h1><p>作者： <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/">阮一峰</a></p>
+<p>日期： <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/09/">2019年9月 5日</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就是客户端（client）的 URL 工具的意思。</p>
+<p>它的功能非常强大，命令行参数多达几十种。如果熟练的话，完全可以取代 Postman 这一类的图形界面工具。</p>
+<p><img src="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg" alt="img"></p>
+<p>本文介绍它的主要命令行参数，作为日常的参考，方便查阅。内容主要翻译自<a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">《curl cookbook》</a>。为了节约篇幅，下面的例子不包括运行时的输出，初学者可以先看我以前写的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/09/curl.html">《curl 初学者教程》</a>。</p>
+<p>不带有任何参数时，curl 就是发出 GET 请求。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令向<code>www.example.com</code>发出 GET 请求，服务器返回的内容会在命令行输出。</p>
+<h2 id="A"><a href="#A" class="headerlink" title="-A"></a><strong>-A</strong></h2><p><code>-A</code>参数指定客户端的用户代理标头，即<code>User-Agent</code>。curl 的默认用户代理字符串是<code>curl/[version]</code>。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -A <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令将<code>User-Agent</code>改成 Chrome 浏览器。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -A <span class="string">&#x27;&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令会移除<code>User-Agent</code>标头。</p>
+<p>也可以通过<code>-H</code>参数直接指定标头，更改<code>User-Agent</code>。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">&#x27;User-Agent: php/1.0&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="b"><a href="#b" class="headerlink" title="-b"></a><strong>-b</strong></h2><p><code>-b</code>参数用来向服务器发送 Cookie。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b <span class="string">&#x27;foo=bar&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令会生成一个标头<code>Cookie: foo=bar</code>，向服务器发送一个名为<code>foo</code>、值为<code>bar</code>的 Cookie。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b <span class="string">&#x27;foo1=bar;foo2=bar2&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令发送两个 Cookie。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b cookies.txt https://www.google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令读取本地文件<code>cookies.txt</code>，里面是服务器设置的 Cookie（参见<code>-c</code>参数），将其发送到服务器。</p>
+<h2 id="c"><a href="#c" class="headerlink" title="-c"></a><strong>-c</strong></h2><p><code>-c</code>参数将服务器设置的 Cookie 写入一个文件。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -c cookies.txt https://www.google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令将服务器的 HTTP 回应所设置 Cookie 写入文本文件<code>cookies.txt</code>。</p>
+<h2 id="d"><a href="#d" class="headerlink" title="-d"></a><strong>-d</strong></h2><p><code>-d</code>参数用于发送 POST 请求的数据体。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d<span class="string">&#x27;login=emma＆password=123&#x27;</span>-X POST https://google.com/login</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ curl -d <span class="string">&#x27;login=emma&#x27;</span> -d <span class="string">&#x27;password=123&#x27;</span> -X POST  https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
+<p>使用<code>-d</code>参数以后，HTTP 请求会自动加上标头<code>Content-Type : application/x-www-form-urlencoded</code>。并且会自动将请求转为 POST 方法，因此可以省略<code>-X POST</code>。</p>
+<p><code>-d</code>参数可以读取本地文本文件的数据，向服务器发送。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d <span class="string">&#x27;@data.txt&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令读取<code>data.txt</code>文件的内容，作为数据体向服务器发送。</p>
+<h2 id="–data-urlencode"><a href="#–data-urlencode" class="headerlink" title="–data-urlencode"></a><strong>–data-urlencode</strong></h2><p><code>--data-urlencode</code>参数等同于<code>-d</code>，发送 POST 请求的数据体，区别在于会自动将发送的数据进行 URL 编码。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --data-urlencode <span class="string">&#x27;comment=hello world&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面代码中，发送的数据<code>hello world</code>之间有一个空格，需要进行 URL 编码。</p>
+<h2 id="e"><a href="#e" class="headerlink" title="-e"></a><strong>-e</strong></h2><p><code>-e</code>参数用来设置 HTTP 的标头<code>Referer</code>，表示请求的来源。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -e <span class="string">&#x27;https://google.com?q=example&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令将<code>Referer</code>标头设为<code>https://google.com?q=example</code>。</p>
+<p><code>-H</code>参数可以通过直接添加标头<code>Referer</code>，达到同样效果。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&#x27;Referer: https://google.com?q=example&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="F"><a href="#F" class="headerlink" title="-F"></a><strong>-F</strong></h2><p><code>-F</code>参数用来向服务器上传二进制文件。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令会给 HTTP 请求加上标头<code>Content-Type: multipart/form-data</code>，然后将文件<code>photo.png</code>作为<code>file</code>字段上传。</p>
+<p><code>-F</code>参数可以指定 MIME 类型。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png;type=image/png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令指定 MIME 类型为<code>image/png</code>，否则 curl 会把 MIME 类型设为<code>application/octet-stream</code>。</p>
+<p><code>-F</code>参数也可以指定文件名。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png;filename=me.png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令中，原始文件名为<code>photo.png</code>，但是服务器接收到的文件名为<code>me.png</code>。</p>
+<h2 id="G"><a href="#G" class="headerlink" title="-G"></a><strong>-G</strong></h2><p><code>-G</code>参数用来构造 URL 的查询字符串。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -G -d <span class="string">&#x27;q=kitties&#x27;</span> -d <span class="string">&#x27;count=20&#x27;</span> https://google.com/search</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令会发出一个 GET 请求，实际请求的 URL 为<code>https://google.com/search?q=kitties&amp;count=20</code>。如果省略<code>--G</code>，会发出一个 POST 请求。</p>
+<p>如果数据需要 URL 编码，可以结合<code>--data--urlencode</code>参数。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -G --data-urlencode <span class="string">&#x27;comment=hello world&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="H"><a href="#H" class="headerlink" title="-H"></a><strong>-H</strong></h2><p><code>-H</code>参数添加 HTTP 请求的标头。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">&#x27;Accept-Language: en-US&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令添加 HTTP 标头<code>Accept-Language: en-US</code>。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">&#x27;Accept-Language: en-US&#x27;</span> -H <span class="string">&#x27;Secret-Message: xyzzy&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令添加两个 HTTP 标头。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d <span class="string">&#x27;&#123;&quot;login&quot;: &quot;emma&quot;, &quot;pass&quot;: &quot;123&quot;&#125;&#x27;</span> -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令添加 HTTP 请求的标头是<code>Content-Type: application/json</code>，然后用<code>-d</code>参数发送 JSON 数据。</p>
+<h2 id="i"><a href="#i" class="headerlink" title="-i"></a><strong>-i</strong></h2><p><code>-i</code>参数打印出服务器回应的 HTTP 标头。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令收到服务器回应后，先输出服务器回应的标头，然后空一行，再输出网页的源码。</p>
+<h2 id="I"><a href="#I" class="headerlink" title="-I"></a><strong>-I</strong></h2><p><code>-I</code>参数向服务器发出 HEAD 请求，然会将服务器返回的 HTTP 标头打印出来。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -I https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令输出服务器对 HEAD 请求的回应。</p>
+<p><code>--head</code>参数等同于<code>-I</code>。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --<span class="built_in">head</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="k"><a href="#k" class="headerlink" title="-k"></a><strong>-k</strong></h2><p><code>-k</code>参数指定跳过 SSL 检测。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -k https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令不会检查服务器的 SSL 证书是否正确。</p>
+<h2 id="L"><a href="#L" class="headerlink" title="-L"></a><strong>-L</strong></h2><p><code>-L</code>参数会让 HTTP 请求跟随服务器的重定向。curl 默认不跟随重定向。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -L -d <span class="string">&#x27;tweet=hi&#x27;</span> https://api.twitter.com/tweet</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="–limit-rate"><a href="#–limit-rate" class="headerlink" title="–limit-rate"></a><strong>–limit-rate</strong></h2><p><code>--limit-rate</code>用来限制 HTTP 请求和回应的带宽，模拟慢网速的环境。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --limit-rate 200k https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令将带宽限制在每秒 200K 字节。</p>
+<h2 id="o"><a href="#o" class="headerlink" title="-o"></a><strong>-o</strong></h2><p><code>-o</code>参数将服务器的回应保存成文件，等同于<code>wget</code>命令。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -o example.html https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令将<code>www.example.com</code>保存成<code>example.html</code>。</p>
+<h2 id="O"><a href="#O" class="headerlink" title="-O"></a><strong>-O</strong></h2><p><code>-O</code>参数将服务器回应保存成文件，并将 URL 的最后部分当作文件名。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O https://www.example.com/foo/bar.html</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令将服务器回应保存成文件，文件名为<code>bar.html</code>。</p>
+<h2 id="s"><a href="#s" class="headerlink" title="-s"></a><strong>-s</strong></h2><p><code>-s</code>参数将不输出错误和进度信息。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令一旦发生错误，不会显示错误信息。不发生错误的话，会正常显示运行结果。</p>
+<p>如果想让 curl 不产生任何输出，可以使用下面的命令。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -o /dev/null https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="S"><a href="#S" class="headerlink" title="-S"></a><strong>-S</strong></h2><p><code>-S</code>参数指定只输出错误信息，通常与<code>-s</code>一起使用。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -o /dev/null https://google.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令没有任何输出，除非发生错误。</p>
+<h2 id="u"><a href="#u" class="headerlink" title="-u"></a><strong>-u</strong></h2><p><code>-u</code>参数用来设置服务器认证的用户名和密码。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -u <span class="string">&#x27;bob:12345&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令设置用户名为<code>bob</code>，密码为<code>12345</code>，然后将其转为 HTTP 标头<code>Authorization: Basic Ym9iOjEyMzQ1</code>。</p>
+<p>curl 能够识别 URL 里面的用户名和密码。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://bob:12345@google.com/login</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令能够识别 URL 里面的用户名和密码，将其转为上个例子里面的 HTTP 标头。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -u <span class="string">&#x27;bob&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令只设置了用户名，执行后，curl 会提示用户输入密码。</p>
+<h2 id="v"><a href="#v" class="headerlink" title="-v"></a><strong>-v</strong></h2><p><code>-v</code>参数输出通信的整个过程，用于调试。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -v https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p><code>--trace</code>参数也可以用于调试，还会输出原始的二进制数据。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --trace - https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="x"><a href="#x" class="headerlink" title="-x"></a><strong>-x</strong></h2><p><code>-x</code>参数指定 HTTP 请求的代理。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令指定 HTTP 请求通过<code>myproxy.com:8080</code>的 socks5 代理发出。</p>
+<p>如果没有指定代理协议，默认为 HTTP。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -x james:cats@myproxy.com:8080 https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令中，请求的代理使用 HTTP 协议。</p>
+<h2 id="X"><a href="#X" class="headerlink" title="-X"></a><strong>-X</strong></h2><p><code>-X</code>参数指定 HTTP 请求的方法。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
+<p>上面命令对<code>https://www.example.com</code>发出 POST 请求。</p>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/linux/" rel="tag" title="linux">linux</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="英语" class="lazyload">
+        <a href="/ja/2023/04/16/2023-04-16-%E8%8B%B1%E8%AF%AD/" aria-label="前の記事: 英语" title="前の記事: 英语"></a>
+        <div class="article-nav-caption">前の記事</div>
+        <h3 class="article-nav-title">
+            英语
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="云存储" class="lazyload">
+      <a href="/ja/2023/04/13/2023-04-13-%E4%BA%91%E5%AD%98%E5%82%A8/" aria-label="次の記事: 云存储"  title="次の記事: 云存储"></a>
+      <div class="article-nav-caption">次の記事</div>
+      <h3 class="article-nav-title">
+          云存储
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">Curl详解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%86"><span class="toc-number">1.2.</span> <span class="toc-text">区分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8C%87%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">其他指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-%E7%9A%84%E7%94%A8%E6%B3%95%E6%8C%87%E5%8D%97"><span class="toc-number">2.</span> <span class="toc-text">curl 的用法指南</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Curl详解",
+          url: "https://blog.wray7.top/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/",
+          excerpt: "",
+          description: "",
+          stripContent: "Curl详解curl -kfsSL -k/--insecure 允许不使用证书到SSL站点 -f/--fail    连接失败时不显示http错误。在服务器错误时，阻止一个返回的表示错误原因的 html 页面，而由 curl 命令返回一个错误码 22 来提示错误（避免返回html不方便debug） -s/--silent    静默模式。不输出任何东西。将不输出错误和进度信息。 -S/--show-error    显示错误。指定只输出错误信息，通常与-s一起使用。 -L/--location ",
+          date: "Sun Apr 16 2023 18:32:47 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

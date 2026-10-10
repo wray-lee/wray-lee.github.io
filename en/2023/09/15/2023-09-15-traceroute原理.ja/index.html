@@ -1,0 +1,578 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    tracerouteの原理 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  tracerouteの原理経由するルーターでエラーが発生するとエラーパケットが返される。TTLタイムアウトエラーを利用し、TTLを徐々に増やしていけば、返ってくるエラーパケットに基づいて順にルーターアドレスを取得できる 123456789101112#python实现traceroute">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tracerouteの原理">
+<meta property="og:url" content="https://blog.wray7.top/en/2023/09/15/2023-09-15-traceroute%E5%8E%9F%E7%90%86.ja/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  tracerouteの原理経由するルーターでエラーが発生するとエラーパケットが返される。TTLタイムアウトエラーを利用し、TTLを徐々に増やしていけば、返ってくるエラーパケットに基づいて順にルーターアドレスを取得できる 123456789101112#python实现traceroute">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-09-15T03:59:18.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:48:22.041Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2023/09/15/2023-09-15-traceroute原理.ja/';
+              langMap['en'] = '/en/2023/09/15/2023-09-15-traceroute原理.ja/';
+              langMap['ja'] = '/ja/2023/09/15/2023-09-15-traceroute原理.ja/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="tracerouteの原理">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">tracerouteの原理</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#traceroute%E3%81%AE%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">tracerouteの原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#udp%E3%83%99%E3%83%BC%E3%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">udpベース</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icmp%E3%83%99%E3%83%BC%E3%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">icmpベース</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.3.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2023-09-15-traceroute原理.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2023-09-15T03:59:18.000Z" itemprop="datePublished">2023-09-15</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="tracerouteの原理"><a href="#tracerouteの原理" class="headerlink" title="tracerouteの原理"></a>tracerouteの原理</h1><p>経由するルーターでエラーが発生するとエラーパケットが返される。TTLタイムアウトエラーを利用し、TTLを徐々に増やしていけば、返ってくるエラーパケットに基づいて順にルーターアドレスを取得できる</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#python实现traceroute</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> scapy.<span class="built_in">all</span> <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造 IP 数据包，设置目标地址为不存在的地址</span></span><br><span class="line">ip = IP(dst=<span class="string">&#x27;192.0.2.255&#x27;</span>, ttl=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送数据包并接收 ICMP &quot;Time-to-live exceeded&quot; 错误消息</span></span><br><span class="line">ans, unans = sr(ip/ICMP(), timeout=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出接收到的错误消息</span></span><br><span class="line">ans.summary()</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="udpベース"><a href="#udpベース" class="headerlink" title="udpベース"></a>udpベース</h2><p>30000より大きいポートに送信し、返ってくるエラーがTTLタイムアウト（まだターゲットホストに到達していない）か、ポート到達不能（ターゲットホストに到達した）かを見る</p>
+<p>返されるサーバー情報を含むパケット名は<code>time-to-live exceeded</code>、すなわち<code>ttl exceeded</code></p>
+<p><em><strong>ttl exceeded IPヘッダーを変更してtracerouteの返却情報を変更できる&lt;IP 包头欺骗（IP Spoofing）&gt;</strong></em></p>
+<blockquote>
+<p>パケット内のttl-1で自分のルートを隠せる</p>
+<p>パケット内のttlを変更し、同時にDNatを設定すればルート情報を変更できる</p>
+</blockquote>
+<blockquote>
+<p>B上のクライアントがrloginを実行し、A上のrlogindと通信すると仮定する：</p>
+<ol>
+<li><p>BはSYNフラグ付きのデータセグメントを送信し、AにTCP接続を確立する必要があることを通知する。そしてTCPヘッダー内のsequence numberを、自分が今回の接続で使う初期値ISNに設定する。</p>
+</li>
+<li><p>AはBにSYS+ACKフラグ付きのデータセグメントを返し、自分のISNを伝え、Bから送られてきた最初のデータセグメントを確認し、acknowledge numberをBのISN+1に設定する。</p>
+</li>
+<li><p>Bは受信したAのデータセグメントを確認し、acknowledge numberをAのISN+1に設定する。</p>
+</li>
+</ol>
+<p>B —- SYN —-&gt; A<br>B &lt;—- SYN+ACK —- A<br>B —- ACK —-&gt; A </p>
+<p>TCPが使用するsequence numberは32ビットのカウンタで、0～4294967295である。TCPは各接続に対して初期シーケンス番号ISNを選ぶ。遅延や再送などによって3ウェイハンドシェイクが乱れるのを防ぐため、ISNは勝手に選んではならない。システムごとに異なるアルゴリズムがある。TCPがISNをどのように割り当てるか、およびISNが時間とともに変化する規則を理解することは、IPスプーフィング攻撃を成功させるうえで非常に重要である。</p>
+<p>リモートプロシージャコールRPCに基づくコマンド、たとえばrlogin、rcp、rshなどは、&#x2F;etc&#x2F;hosts.equivおよび$HOME&#x2F;.rhostsファイルに基づいてセキュリティ検査を行う。その実質は、送信元IPアドレスのみに基づいてユーザー身元確認を行い、ユーザーのRPCを許可または拒否することである。</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">通过设置iptables规则来filter指定信息</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -A POSTROUTING -p tcp -s &lt;your_server_ip&gt; --dport &lt;target_port&gt; -j SNAT --to-source 8.8.8.8	#从服务器发送的TCP流量的源地址更改为8.8.8.8</span><br><span class="line"></span><br><span class="line">iptables -t nat -A PREROUTING -p tcp -d &lt;your_server_ip&gt; --dport &lt;target_port&gt; -j DNAT --to-destination 8.8.8.8	#将服务器上目标端口TCP流量的目标地址更改为8.8.8.8，到达另一个地址</span><br><span class="line"></span><br><span class="line">iptables -t nat -A OUTPUT -p icmp --source [源ip（即服务器ip）] -j DNAT --to-destination 8.8.8.8	#包被转发到8.8.8.8，出现自己服务器ip</span><br><span class="line"></span><br><span class="line">iptables -t nat -A POSTROUTING -p icmp --icmp-type time-exceeded -j TTL --ttl-set 255 -j DNAT --to-destination [ip]	#路径中不存在自己服务器，目标变为目标ip</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="icmpベース"><a href="#icmpベース" class="headerlink" title="icmpベース"></a>icmpベース</h2><p>icmpエコー要求（echo request）パケットを送信すると、クライアントは受信時にicmpエコー応答（icmp reply）パケットを送信する</p>
+<p>最初のルーターのTTL&#x3D;1、その後1ずつ増やし、ttlのタイムアウトエラーに基づいて、icmp replyを取得するまで経路上のルーターアドレスを順に取得する</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 伪装的第一种方法 IP sproofing</span></span><br><span class="line">IP欺骗攻击的描述： </span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> 假设Z企图攻击A，而A信任B，所谓信任指/etc/hosts.equiv和$HOME/.rhosts中有相关设置</span><br><span class="line">。注意，如何才能知道A信任B呢？没有什么确切的办法。我的建议就是平时注意搜集蛛丝马迹</span><br><span class="line">，厚积薄发。一次成功的攻击其实主要不是因为技术上的高明，而是因为信息搜集的广泛翔实</span><br><span class="line">。动用了自以为很有成就感的技术，却不比人家酒桌上的巧妙提问，攻击只以成功为终极目标</span><br><span class="line">，不在乎手段。 </span><br><span class="line"></span><br><span class="line"><span class="bullet">2.</span> 假设Z已经知道了被信任的B，应该想办法使B的网络功能暂时瘫痪，以免对攻击造成干扰。</span><br><span class="line">著名的SYN flood常常是一次IP欺骗攻击的前奏。请看一个并发服务器的框架： </span><br><span class="line">int initsockid, newsockid; </span><br><span class="line">if ((initsockid = socket(...)) &lt; 0) &#123; </span><br><span class="line">error(&quot;can‘t create socket&quot;); </span><br><span class="line">&#125; </span><br><span class="line">if (bind(initsockid, ...) &lt; 0) &#123; </span><br><span class="line">error(&quot;bind error&quot;); </span><br><span class="line">&#125; </span><br><span class="line">if (listen(initsockid, 5) &lt; 0) &#123; </span><br><span class="line">error(&quot;listen error&quot;); </span><br><span class="line">&#125; </span><br><span class="line">for (;&#123; </span><br><span class="line">newsockid = accept(initsockid, ...); /* 阻塞 <span class="emphasis">*/ </span></span><br><span class="line"><span class="emphasis">if (newsockid &lt; 0) &#123; </span></span><br><span class="line"><span class="emphasis">error(&quot;accept error&quot;); </span></span><br><span class="line"><span class="emphasis">&#125; </span></span><br><span class="line"><span class="emphasis">if (fork() == 0) &#123; /*</span> 子进程 <span class="emphasis">*/ </span></span><br><span class="line"><span class="emphasis">close(initsockid); </span></span><br><span class="line"><span class="emphasis">do(newsockid); /*</span> 处理客户方请求 <span class="emphasis">*/ </span></span><br><span class="line"><span class="emphasis">exit(0); </span></span><br><span class="line"><span class="emphasis">&#125; </span></span><br><span class="line"><span class="emphasis">close(newsockid); </span></span><br><span class="line"><span class="emphasis">&#125; </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">listen函数中第二个参数是5，意思是在initsockid上允许的最大连接请求数目。如果某个时</span></span><br><span class="line"><span class="emphasis">刻initsockid上的连接请求数目已经达到5，后续到达initsockid的连接请求将被TCP丢弃。注</span></span><br><span class="line"><span class="emphasis">意一旦连接通过三次握手建立完成，accept调用已经处理这个连接，则TCP连接请求队列空出</span></span><br><span class="line"><span class="emphasis">一个位置。所以这个5不是指initsockid上只能接受5个连接请求。SYN flood正是一种 Denial</span></span><br><span class="line"><span class="emphasis">of Service，导致B的网络功能暂时中断 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">Z向B发送多个带有SYN标志的数据段请求连接，注意将信源IP 地址换成一个不存在的主机X；B</span></span><br><span class="line"><span class="emphasis">向子虚乌有的X发送SYN+ACK数据段，但没有任何来自X的ACK出现。B的IP层会报告B的TCP层，X</span></span><br><span class="line"><span class="emphasis">不可达，但B的TCP层对此不予理睬，认为只是暂时的。于是B在这个initsockid上再也不能接</span></span><br><span class="line"><span class="emphasis">收正常的连接请求。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">Z(X) ---- SYN ----&gt; B </span></span><br><span class="line"><span class="emphasis">Z(X) ---- SYN ----&gt; B </span></span><br><span class="line"><span class="emphasis">Z(X) ---- SYN ----&gt; B </span></span><br><span class="line"><span class="emphasis">Z(X) ---- SYN ----&gt; B </span></span><br><span class="line"><span class="emphasis">Z(X) ---- SYN ----&gt; B </span></span><br><span class="line"><span class="emphasis">...... </span></span><br><span class="line"><span class="emphasis">X &lt;---- SYN+ACK ---- B </span></span><br><span class="line"><span class="emphasis">X &lt;---- SYN+ACK ---- B </span></span><br><span class="line"><span class="emphasis">X &lt;---- SYN+ACK ---- B </span></span><br><span class="line"><span class="emphasis">X &lt;---- SYN+ACK ---- B </span></span><br><span class="line"><span class="emphasis">X &lt;---- SYN+ACK ---- B </span></span><br><span class="line"><span class="emphasis">...... </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">我认为这样就使得B网络功能暂时瘫痪，可我总觉得好象不对头。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">因为B虽然在initsockid上无法接收TCP连接请求，但可以在another initsockid上接收，</span></span><br><span class="line"><span class="emphasis">这种SYN flood应该只对特定的服务(端口)，不应该影响到全局。当然如果不断地发送连接请</span></span><br><span class="line"><span class="emphasis">求，就和用ping发洪水包一个道理，使得B的TCP/IP忙于处理负载增大。至于SYN flood，回头</span></span><br><span class="line"><span class="emphasis">有机会我单独灌一瓢有关DoS的。如何使B的网络功能暂 碧被居 很多办法，根据具体情况而定</span></span><br><span class="line"><span class="emphasis">，不再赘述。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">3. Z必须确定A当前的ISN。首先连向25端口(SMTP是没有安全校验机制的)，与1中类似，不过</span></span><br><span class="line"><span class="emphasis">这次需要记录A的ISN，以及Z到A的大致的RTT(round trip time)。这个步骤要重复多次以便求</span></span><br><span class="line"><span class="emphasis">出RTT的平均值。现在Z知道了A的ISN基值和增加规律(比如每秒增 加128000，每次连接增加</span></span><br><span class="line"><span class="emphasis">64000)，也知道了从Z到A需要RTT/2 的时间。必须立即进入攻击，否则在这之间有其他主机与</span></span><br><span class="line"><span class="emphasis">A连接， ISN将比预料的多出64000。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">4. Z向A发送带有SYN标志的数据段请求连接，只是信源IP改成了B，注意是针对TCP513端口</span></span><br><span class="line"><span class="emphasis">(rlogin)。A向B回送SYN+ACK数据段，B已经无法响应，B的TCP层只是简单地丢弃A的回送数据</span></span><br><span class="line"><span class="emphasis">段。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">5. Z暂停一小会儿，让A有足够时间发送SYN+ACK，因为Z看不到这个包。然后Z再次伪装成B向A</span></span><br><span class="line"><span class="emphasis">发送ACK，此时发送的数据段带有Z预测的A的ISN+1。如果预测准确，连接建立，数据传送开始</span></span><br><span class="line"><span class="emphasis">。问题在于即使连接建立，A仍然会向B发送数据，而不是Z，Z 仍然无法看到A发往B的数据段</span></span><br><span class="line"><span class="emphasis">，Z必须蒙着头按照rlogin协议标准假冒B向A发送类似 &quot;cat + + &gt;&gt; ~/.rhosts&quot; 这样的命令</span></span><br><span class="line"><span class="emphasis">，于是攻击完成。如果预测不准确，A将发送一个带有RST标志的数据段异常终止连接，Z只有</span></span><br><span class="line"><span class="emphasis">从头再来。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">Z(B) ---- SYN ----&gt; A </span></span><br><span class="line"><span class="emphasis">B &lt;---- SYN+ACK ---- A </span></span><br><span class="line"><span class="emphasis">Z(B) ---- ACK ----&gt; A </span></span><br><span class="line"><span class="emphasis">Z(B) ---- PSH ----&gt; A </span></span><br><span class="line"><span class="emphasis">...... </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">6. IP欺骗攻击利用了RPC服务器仅仅依赖于信源IP地址进行安全校验的特性，建议阅读</span></span><br><span class="line"><span class="emphasis">rlogind的源代码。攻击最困难的地方在于预测A的ISN。我认为攻击难度虽然大，但成功的可</span></span><br><span class="line"><span class="emphasis">能性也很大，不是很理解，似乎有点矛盾。考虑这种情况，入侵者控制了一台由A到B之间的路</span></span><br><span class="line"><span class="emphasis">由器，假设Z就是这台路由器，那么A回送到B的数据段，现在Z是可以看到的，显然攻击难度骤</span></span><br><span class="line"><span class="emphasis">然下降了许多。否则Z必须精确地预见可能从A发往B的信息，以及A期待来自B的什么应答信息</span></span><br><span class="line"><span class="emphasis">，这要求攻击者对协议本身相当熟悉。同时需要明白，这种攻击根本不可能在交互状态下完成</span></span><br><span class="line"><span class="emphasis">，必须写程序完成。当然在准备阶段可以用netxray之类的工具进行协议分析。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">7. 如果Z不是路由器，能否考虑组合使用ICMP重定向以及ARP欺骗等技术？没有仔细分析过，</span></span><br><span class="line"><span class="emphasis">只是随便猜测而已。并且与A、B、Z之间具体的网络拓扑有密切关系，在某些情况下显然大幅</span></span><br><span class="line"><span class="emphasis">度降低了攻击难度。注意IP欺骗攻击理论上是从广域网上发起的，不局限于局域网，这也正是</span></span><br><span class="line"><span class="emphasis">这种攻击的魅力所在。利用IP欺骗攻击得到一个A上的shell，对于许多高级入侵者，得到目标</span></span><br><span class="line"><span class="emphasis">主机的shell，离root权限就不远了，最容易想到的当然是接下来进行buffer overflow攻击。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">8. 也许有人要问，为什么Z不能直接把自己的IP设置成B的？这个问题很不好回答，要具体分</span></span><br><span class="line"><span class="emphasis">析网络拓扑，当然也存在ARP冲突、出不了网关等问题。那么在IP欺骗攻击过程中是否存在ARP</span></span><br><span class="line"><span class="emphasis">冲突问题。回想我前面贴过的ARP欺骗攻击，如果B的ARP Cache没有受到影响，就不会出现ARP</span></span><br><span class="line"><span class="emphasis">冲突。如果Z向A发送数据段时，企图解析A的MAC地址或者路由器的MAC地址，必然会发送ARP请</span></span><br><span class="line"><span class="emphasis">求包，但这个ARP请求包中源IP以及源MAC都是Z的，自然不会引起ARP冲突。而ARP Cache只会</span></span><br><span class="line"><span class="emphasis">被ARP包改变，不受IP包的影响，所以可以肯定地说，IP欺骗攻击过程中不存在ARP冲突。相反</span></span><br><span class="line"><span class="emphasis">，如果Z修改了自己的IP，这种ARP冲突就有可能出现，示具体情况而言。攻击中连带B一起攻</span></span><br><span class="line"><span class="emphasis">击了，其目的无非是防止B干扰了攻击过程， 如果B本身已经down掉，那是再好不过。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">9. fakeip曾经沸沸扬扬了一下，我对之进行端口扫描，发现其tcp端口113是接收入连接的。</span></span><br><span class="line"><span class="emphasis">和IP欺骗等没有直接联系，和安全校验是有关系的。当然，这个东西并不如其名所暗示，对IP</span></span><br><span class="line"><span class="emphasis">层没有任何动作。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">10. 关于预测ISN，我想到另一个问题。就是如何以第三方身份切断 A与B之间的TCP连接，实</span></span><br><span class="line"><span class="emphasis">际上也是预测sequence number的问题。尝试过，也很困难。如果Z是A与B之间的路由器，就不</span></span><br><span class="line"><span class="emphasis">用说了； 或者Z动用了别的技术可以监听到A与B之间的通信，也容易些； 否则预测太难。作</span></span><br><span class="line"><span class="emphasis">者在3中提到连接A的25端口，可我想不明白的 是513端口的ISN和25端口有什么关系？看来需</span></span><br><span class="line"><span class="emphasis">要看看TCP/IP内部实现的源代码。 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">未雨绸缪 </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">虽然IP欺骗攻击有着相当难度，但我们应该清醒地意识到，这种攻击非常广泛，入侵往往由这</span></span><br><span class="line"><span class="emphasis">里开始。预防这种攻击还是比较容易的， 比如删除所有的/etc/hosts.equiv、$HOME/.rhosts</span></span><br><span class="line"><span class="emphasis">文件，修改/etc/ inetd.conf文件，使得RPC机制无法运做，还可以杀掉portmapper等等。设</span></span><br><span class="line"><span class="emphasis">置路由器，过滤来自外部而信源地址却是内部IP的报文。cisio公司的产品就有这种功能。不</span></span><br><span class="line"><span class="emphasis">过路由器只防得了外部入侵，内部入侵呢？ </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">TCP的ISN选择不是随机的，增加也不是随机的，这使攻击者有规可循，可以修改与ISN相关的</span></span><br><span class="line"><span class="emphasis">代码，选择好的算法，使得攻击者难以找到规律。估计Linux下容易做到，那solaris、irix、</span></span><br><span class="line"><span class="emphasis">hp-unix还有aix呢？sigh </span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">虽然写的不怎么，但总算让大家了解了一下IP欺骗攻击，我实验过预测sequence number，不</span></span><br><span class="line"><span class="emphasis">是ISN，企图切断一个TCP连接，感觉难度很大。作者建议要找到规律，不要盲目预测，这需要</span></span><br><span class="line"><span class="emphasis">时间和耐心。现在越发明白什么是那种锲而不舍永远追求的精神，我们所向往的传奇故事背后</span></span><br><span class="line"><span class="emphasis">有着如此沉默的艰辛和毅力，但愿我们学会的是这个，而不是浮华与喧嚣。一个现成的bug足</span></span><br><span class="line"><span class="emphasis">以让你取得root权限，可你在做什么，你是否明白？我们太肤浅了...... </span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 伪装的第二种方法</span></span><br><span class="line">Bgp hijacking</span><br><span class="line">Bgp劫持</span><br><span class="line">通过修改AS宣告信息将流量路由到不属于自己的线路上</span><br><span class="line"></span><br><span class="line"><span class="section">## 路径修改方法</span></span><br><span class="line"></span><br><span class="line">Bgp选路有三个参数</span><br><span class="line"><span class="bullet">-</span> local preference	本地优先值</span><br><span class="line"><span class="bullet">-</span> med	通过延迟的综合考虑选出了优先路径</span><br><span class="line"><span class="bullet">-</span> weight	手动设置的线路权重</span><br></pre></td></tr></table></figure>
+
+<h2 id="添付ファイル"><a href="#添付ファイル" class="headerlink" title="添付ファイル"></a>添付ファイル</h2><ul>
+<li><a href="%E7%BD%91%E5%AE%89%E5%AE%9E%E9%AA%8C.7z">ネットワークセキュリティ実験.7z</a></li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/web/" rel="tag" title="web">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#traceroute%E3%81%AE%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">tracerouteの原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#udp%E3%83%99%E3%83%BC%E3%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">udpベース</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icmp%E3%83%99%E3%83%BC%E3%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">icmpベース</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.3.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "tracerouteの原理",
+          url: "https://blog.wray7.top/2023/09/15/2023-09-15-traceroute%E5%8E%9F%E7%90%86.ja/",
+          excerpt: "",
+          description: "",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  tracerouteの原理経由するルーターでエラーが発生するとエラーパケットが返される。TTLタイムアウトエラーを利用し、TTLを徐々に増やしていけば、返ってくるエラーパケットに基づいて順にルーターアドレスを取得できる 123456789101112#python实现traceroutefrom scapy.all import *# 构造 IP 数据包，设置目标地址为不存在的地址ip",
+          date: "Fri Sep 15 2023 11:59:18 GMT+0800",
+          updated: "Sun Oct 11 2026 04:48:22 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

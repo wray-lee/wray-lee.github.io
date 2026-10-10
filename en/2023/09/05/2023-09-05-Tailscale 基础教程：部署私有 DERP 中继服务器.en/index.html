@@ -1,0 +1,754 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Tailscale Basics Tutorial: Deploying a Private DERP Relay Server | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Tailscale Basics Tutorial: Deploying a Private DERP Relay ServerPrevious article介绍了如何使用 Headscale replace T">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tailscale Basics Tutorial: Deploying a Private DERP Relay Server">
+<meta property="og:url" content="https://blog.wray7.top/en/2023/09/05/2023-09-05-Tailscale%20%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%9A%E9%83%A8%E7%BD%B2%E7%A7%81%E6%9C%89%20DERP%20%E4%B8%AD%E7%BB%A7%E6%9C%8D%E5%8A%A1%E5%99%A8.en/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Tailscale Basics Tutorial: Deploying a Private DERP Relay ServerPrevious article介绍了如何使用 Headscale replace T">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-17-27-yqHlMG.jpg">
+<meta property="og:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-19-02-zLDv51.svg">
+<meta property="og:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-27-11-21-dZ5dtZ.png">
+<meta property="article:published_time" content="2023-09-04T18:16:06.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:48:24.892Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-17-27-yqHlMG.jpg">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2023/09/05/2023-09-05-Tailscale 基础教程：部署私有 DERP 中继服务器.en/';
+              langMap['en'] = '/en/2023/09/05/2023-09-05-Tailscale 基础教程：部署私有 DERP 中继服务器.en/';
+              langMap['ja'] = '/ja/2023/09/05/2023-09-05-Tailscale 基础教程：部署私有 DERP 中继服务器.en/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Tailscale Basics Tutorial: Deploying a Private DERP Relay Server">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Tailscale Basics Tutorial: Deploying a Private DERP Relay Server</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-Basics-Tutorial-Deploying-a-Private-DERP-Relay-Server"><span class="toc-number">1.</span> <span class="toc-text">Tailscale Basics Tutorial: Deploying a Private DERP Relay Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-STUN"><span class="toc-number">2.</span> <span class="toc-text">What Is STUN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-a-Relay"><span class="toc-number">3.</span> <span class="toc-text">What Is a Relay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-Relay-Protocols"><span class="toc-number">4.</span> <span class="toc-text">Introduction to Relay Protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TURN"><span class="toc-number">4.1.</span> <span class="toc-text">TURN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DERP"><span class="toc-number">4.2.</span> <span class="toc-text">DERP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Self-Hosting-a-Private-DERP-Server"><span class="toc-number">5.</span> <span class="toc-text">Self-Hosting a Private DERP Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-a-Domain-Name"><span class="toc-number">5.1.</span> <span class="toc-text">Using a Domain Name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-a-Pure-IP"><span class="toc-number">5.2.</span> <span class="toc-text">Using a Pure IP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preventing-DERP-from-Being-Freeloaded"><span class="toc-number">6.</span> <span class="toc-text">Preventing DERP from Being Freeloaded</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">7.</span> <span class="toc-text">Summary</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2023-09-05-Tailscale 基础教程：部署私有 DERP 中继服务器.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2023-09-04T18:16:06.000Z" itemprop="datePublished">2023-09-05</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h2 id="Tailscale-Basics-Tutorial-Deploying-a-Private-DERP-Relay-Server"><a href="#Tailscale-Basics-Tutorial-Deploying-a-Private-DERP-Relay-Server" class="headerlink" title="Tailscale Basics Tutorial: Deploying a Private DERP Relay Server"></a>Tailscale Basics Tutorial: Deploying a Private DERP Relay Server</h2><p><a target="_blank" rel="noopener" href="https://icloudnative.io/posts/how-to-set-up-or-migrate-headscale/#%E6%80%BB%E7%BB%93">Previous article</a>介绍了如何使用 <code>Headscale</code> replace Tailscale’s official control server, and connect clients on various platforms. This article will introduce how to make Tailscale use custom DERP Servers. Many people may not know what <code>DERP</code> is. That’s okay, I’ll start with <strong>relay servers</strong>.</p>
+<h2 id="What-Is-STUN"><a href="#What-Is-STUN" class="headerlink" title="What Is STUN"></a>What Is STUN</h2><p>Tailscale’s ultimate goal is to enable two machines <strong>located anywhere on the network</strong> to establish a <strong>peer-to-peer connection</strong> (direct connection), but the real world is complex. In most cases, machines are behind NAT and firewalls, so hole punching is needed to achieve direct connections, that is, NAT traversal.</p>
+<p>NAT can be divided into many types according to <strong>NAT mapping behavior</strong> and <strong>stateful firewall behavior</strong>, but for NAT traversal there is no need to care about so many types. You only need to look at <strong>whether the NAT or stateful firewall strictly checks the destination Endpoint</strong>. Based on this factor, NAT can be divided into <strong>Easy NAT</strong> and <strong>Hard NAT</strong>.</p>
+<ul>
+<li><p><strong>Easy NAT</strong> and its variants are called “Endpoint-Independent Mapping” (<strong>EIM, endpoint-independent mapping</strong>)<br>  The Endpoint here refers to the destination Endpoint. That is, as long as the stateful firewall sees an outbound packet initiated by a client itself, it will allow the corresponding inbound packet to enter, <strong>regardless of who sent this inbound packet</strong>.</p>
+</li>
+<li><p><strong>hard NAT</strong> and its variants are called “Endpoint-Dependent Mapping” (<strong>EDM, endpoint-dependent mapping</strong>)<br>  This kind of NAT generates a corresponding mapping for each destination Endpoint. On such a device, if a client initiates an outbound packet to a certain destination Endpoint, assuming the client’s public IP is 2.2.2.2, the stateful firewall will open a port, say 4242. Then only inbound packets from that destination Endpoint are allowed to pass through <code>2.2.2.2:4242</code>; all other clients are not allowed. This kind of NAT is stricter, so it is called Hard NAT.</p>
+</li>
+</ul>
+<p>For Easy NAT, we only need to provide a third-party service that can tell the client “what the client’s public ip:port it sees is”, and then in some way tell this information to the communication peer, so the latter knows which address to connect to! This kind of service is called <strong>STUN</strong> (Session Traversal Utilities for NAT, NAT session traversal application). Its workflow is shown in the figure below:</p>
+<ul>
+<li><p>The laptop sends a request to the STUN server: “From your perspective, what is my address?”</p>
+</li>
+<li><p>The STUN server returns a response: “I see that your UDP packet came from this address: <code>ip:port</code>.”</p>
+</li>
+</ul>
+<p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-17-27-yqHlMG.jpg" alt="img"></p>
+<h2 id="What-Is-a-Relay"><a href="#What-Is-a-Relay" class="headerlink" title="What Is a Relay"></a>What Is a Relay</h2><p>For <strong>Hard NAT</strong>, STUN does not work well. Even if STUN obtains the client’s public <code>ip:port</code> and tells the communication peer, it is of no help, because the firewall opening was created by communicating with STUN, and this opening only allows STUN’s inbound packets to enter. Other communication peers cannot enter even if they know this opening. Usually enterprise-grade NAT is Hard NAT.</p>
+<p>In this case, hole punching is impossible, but we cannot give up. We can choose a compromise: create a relay server. The client communicates with the relay server, and the relay server then relays the packets to the communication peer.</p>
+<p>As for the performance of relaying, it depends on the specific situation:</p>
+<ul>
+<li><p>If a direct connection can be made, then obviously there is no need to use relaying;</p>
+</li>
+<li><p>But if a direct connection cannot be made, and the relay path is very close to the real path of the direct connection between both parties, and the bandwidth is large enough, then relaying will not significantly reduce communication quality. Latency will definitely increase a bit, and some bandwidth will be used, but <strong>compared with being completely unable to connect, it is still acceptable</strong>.</p>
+</li>
+</ul>
+<p>In fact, for most networks, Tailscale can successfully hole punch through various black technologies, and only in very few cases will it choose relaying. Relaying is only a fallback mechanism.</p>
+<h2 id="Introduction-to-Relay-Protocols"><a href="#Introduction-to-Relay-Protocols" class="headerlink" title="Introduction to Relay Protocols"></a>Introduction to Relay Protocols</h2><p>There are multiple ways to implement relay protocols.</p>
+<h3 id="TURN"><a href="#TURN" class="headerlink" title="TURN"></a>TURN</h3><p>TURN stands for Traversal Using Relays around NAT. This is a classic relay implementation method, and its core idea is:</p>
+<ul>
+<li><p>The <strong>user</strong> (person) first authenticates with a TURN server on the public network. After success, the latter will tell you: “I have allocated ip:port for you, and will relay traffic for you next,”</p>
+</li>
+<li><p>Then tell the other party this ip:port address and let it connect to this address. After that, it is a very simple client&#x2F;server communication model.</p>
+</li>
+</ul>
+<p>Unlike STUN, this protocol has no real interactivity and is not very easy to use, so Tailscale did not adopt TURN as its relay protocol.</p>
+<h3 id="DERP"><a href="#DERP" class="headerlink" title="DERP"></a>DERP</h3><p>DERP stands for Detoured Encrypted Routing Protocol. This is a protocol developed by Tailscale itself:</p>
+<ul>
+<li><p>It is a <strong>general-purpose packet relay protocol that runs on top of HTTP</strong>, and most networks allow HTTP communication.</p>
+</li>
+<li><p>It relays encrypted traffic (encrypted payloads) based on the destination’s public key.</p>
+</li>
+</ul>
+<p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-19-02-zLDv51.svg" alt="Tailscale automatically selects the DERP server closest to the target node to relay traffic"></p>
+<p>The algorithm Tailscale uses is very interesting: <strong>connections between all clients first choose DERP mode (relay mode), which means the connection can be established immediately (the lowest-priority mode but one that succeeds 100% of the time), and users do not need to wait at all</strong>. Then path discovery begins in parallel. Usually after a few seconds, we can discover a better path, and then transparently upgrade the existing connection to it, turning it into a peer-to-peer connection (direct connection).</p>
+<p>Therefore, DERP is both Tailscale’s fallback communication method when NAT traversal fails (in this case its role is similar to TURN), and also a side channel that helps us complete NAT traversal in some other scenarios. In other words, it is both our fallback method and, when there is a better traversal link, the infrastructure that helps us upgrade to a peer-to-peer connection.</p>
+<h2 id="Self-Hosting-a-Private-DERP-Server"><a href="#Self-Hosting-a-Private-DERP-Server" class="headerlink" title="Self-Hosting a Private DERP Server"></a>Self-Hosting a Private DERP Server</h2><p>Tailscale’s private key is only stored on the current node, so the DERP server cannot decrypt traffic. It can only, like other routers on the Internet, dumbly forward encrypted traffic from one node to another, except that DERP uses a slightly more advanced protocol to prevent abuse.</p>
+<p>Tailscale has open-sourced the DERP server code. If you are interested, you can read <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale/tree/main/derp">the DERP source code</a>。</p>
+<hr>
+<p>Tailscale officially has many built-in DERP servers distributed around the world, <strong>but none in mainland China</strong>, for reasons you know. This means that once traffic is relayed through a DERP server, latency will be very high. Moreover, the officially provided DERP servers are used by countless people, which poses security risks.</p>
+<p>To achieve low latency and high security, we can refer to <a target="_blank" rel="noopener" href="https://tailscale.com/kb/1118/custom-derp-servers/">Tailscale’s official documentation</a>自建私有的 DERP server. There are two deployment modes: one is based on a domain name, and the other does not require a domain name and can directly use an IP, but requires a bit of black technology. Let’s first look at the simplest domain-name-based solution.</p>
+<h3 id="Using-a-Domain-Name"><a href="#Using-a-Domain-Name" class="headerlink" title="Using a Domain Name"></a>Using a Domain Name</h3><p>This solution needs to meet the following conditions:</p>
+<ul>
+<li><p>You need to have your own domain name and have applied for an SSL certificate</p>
+</li>
+<li><p>You need to prepare one or more cloud hosts</p>
+</li>
+<li><p>If the server is in China, the domain name needs to be filed for ICP registration</p>
+</li>
+<li><p>If the server is abroad, no filing is required</p>
+</li>
+</ul>
+<p>If all the above conditions are met, you can start deploying according to the following steps.</p>
+<p>It is recommended to deploy directly using Docker. I have already built the Docker image, so you can deploy directly:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">🐳  → docker run --restart always \</span><br><span class="line">  --name derper -p 12345:12345 -p 3478:3478/udp \</span><br><span class="line">  -v /root/.acme.sh/xxxx/:/app/certs \</span><br><span class="line">  -e DERP_CERT_MODE=manual \</span><br><span class="line">  -e DERP_ADDR=:12345 \</span><br><span class="line">  -e DERP_DOMAIN=xxxx \</span><br><span class="line">  -d ghcr.io/yangchuansheng/derper:latest</span><br></pre></td></tr></table></figure>
+
+<p>There are a few things to note:</p>
+<ul>
+<li><p>If you can use port 443, try to use port 443; only use another port if absolutely necessary;</p>
+</li>
+<li><p>By default, the STUN service is also enabled, and the UDP port is <code>3478</code>;</p>
+</li>
+<li><p>The firewall needs to allow ports 12345 and 3478;</p>
+</li>
+<li><p>Prepare an SSL certificate;</p>
+</li>
+<li><p>I have redacted the domain part; please replace it with your own domain name.</p>
+</li>
+</ul>
+<p>A key point about the certificate part: <strong>Suppose your domain name is <code>xxx.com</code>, then the certificate name must be <code>xxx.com.crt</code>, not a single character wrong! Similarly, the private key name must be <code>xxx.com.key</code>, not a single character wrong!</strong></p>
+<p>View container logs:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">🐳  → docker logs -f derper</span><br><span class="line">2022/03/26 11:36:28 no config path specified; using /var/lib/derper/derper.key</span><br><span class="line">2022/03/26 11:36:28 derper: serving on :12345 with TLS</span><br><span class="line">2022/03/26 11:36:28 running STUN server on [::]:3478</span><br></pre></td></tr></table></figure>
+
+<p>Currently derper crashes after running for a while. There is no better solution for now, so we can only solve it by scheduled restarts, for example, using crontab to set the container to restart every two hours:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 */2 * * * docker restart derper &amp;&gt; /dev/null</span><br></pre></td></tr></table></figure>
+
+<p>For details, refer to this issue: <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale/issues/4082">Derper TLS handshake error: remote error: tls: internal error</a></p>
+<hr>
+<p>After deploying derper, you can modify the Headscale configuration to use a custom DERP server. Headscale can use custom DERP through two forms of configuration:</p>
+<ul>
+<li><p>One is an online URL, with the format <code>JSON</code>, which is the same format and syntax used by Tailscale’s official control server.</p>
+</li>
+<li><p>The other is a local file, with the format <code>YAML</code>.</p>
+</li>
+</ul>
+<p>We can directly use a local YAML configuration file, with the following content:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/headscale/derp.yaml</span></span><br><span class="line"><span class="attr">regions:</span></span><br><span class="line">  <span class="attr">900:</span></span><br><span class="line">    <span class="attr">regionid:</span> <span class="number">900</span></span><br><span class="line">    <span class="attr">regioncode:</span> <span class="string">thk</span> </span><br><span class="line">    <span class="attr">regionname:</span> <span class="string">Tencent</span> <span class="string">Hongkong</span> </span><br><span class="line">    <span class="attr">nodes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">900a</span></span><br><span class="line">        <span class="attr">regionid:</span> <span class="number">900</span></span><br><span class="line">        <span class="attr">hostname:</span> <span class="string">xxxx</span></span><br><span class="line">        <span class="attr">ipv4:</span> <span class="string">xxxx</span></span><br><span class="line">        <span class="attr">stunport:</span> <span class="number">3478</span></span><br><span class="line">        <span class="attr">stunonly:</span> <span class="literal">false</span></span><br><span class="line">        <span class="attr">derpport:</span> <span class="number">12345</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">900b</span></span><br><span class="line">        <span class="attr">regionid:</span> <span class="number">900</span></span><br><span class="line">        <span class="attr">hostname:</span> <span class="string">xxxx</span></span><br><span class="line">        <span class="attr">ipv4:</span> <span class="string">xxxx</span></span><br><span class="line">        <span class="attr">stunport:</span> <span class="number">3478</span></span><br><span class="line">        <span class="attr">stunonly:</span> <span class="literal">false</span></span><br><span class="line">        <span class="attr">derpport:</span> <span class="number">12345</span></span><br><span class="line">  <span class="attr">901:</span></span><br><span class="line">    <span class="attr">regionid:</span> <span class="number">901</span></span><br><span class="line">    <span class="attr">regioncode:</span> <span class="string">hs</span> </span><br><span class="line">    <span class="attr">regionname:</span> <span class="string">Huawei</span> <span class="string">Shanghai</span> </span><br><span class="line">    <span class="attr">nodes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">901a</span></span><br><span class="line">        <span class="attr">regionid:</span> <span class="number">901</span></span><br><span class="line">        <span class="attr">hostname:</span> <span class="string">xxxx</span></span><br><span class="line">        <span class="attr">ipv4:</span> <span class="string">xxxx</span></span><br><span class="line">        <span class="attr">stunport:</span> <span class="number">3478</span></span><br><span class="line">        <span class="attr">stunonly:</span> <span class="literal">false</span></span><br><span class="line">        <span class="attr">derpport:</span> <span class="number">12345</span></span><br></pre></td></tr></table></figure>
+
+<p>Configuration notes:</p>
+<ul>
+<li><p><code>regions</code> is an <strong>object</strong> in YAML. Each object below represents an <strong>availability zone</strong>, and each <strong>availability zone</strong> can contain multiple DERP nodes, namely <code>nodes</code>.</p>
+</li>
+<li><p>The <code>regionid</code> of each availability zone cannot be repeated.</p>
+</li>
+<li><p>The <code>name</code> of each <code>node</code> cannot be repeated.</p>
+</li>
+<li><p><code>regionname</code> is generally used to describe the availability zone, and <code>regioncode</code> is generally set to the abbreviation of the availability zone.</p>
+</li>
+<li><p>The <code>ipv4</code> field is not required. If your domain name can resolve to your DERP server address over the public network, you can leave it blank. If you use a second-level domain name and you have not added the relevant resolution record for this domain name in a public DNS server, then you need to specify the IP here (provided that your certificate includes this second-level domain name; this is easy to support, just get a wildcard certificate).</p>
+</li>
+<li><p><code>stunonly: false</code> indicates that in addition to using the STUN service, the DERP service can also be used.</p>
+</li>
+<li><p>In the above configuration, I have redacted the domain and IP parts. You need to fill them in according to your actual situation.</p>
+</li>
+</ul>
+<p>Next, you also need to modify Headscale’s configuration file to reference the above custom DERP configuration file. The configuration items that need to be modified are as follows:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/headscale/config.yaml</span></span><br><span class="line"><span class="attr">derp:</span></span><br><span class="line">  <span class="comment"># List of externally available DERP maps encoded in JSON</span></span><br><span class="line">  <span class="attr">urls:</span></span><br><span class="line">  <span class="comment">#  - https://controlplane.tailscale.com/derpmap/default</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Locally available DERP map files encoded in YAML</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># This option is mostly interesting for people hosting</span></span><br><span class="line">  <span class="comment"># their own DERP servers:</span></span><br><span class="line">  <span class="comment"># https://tailscale.com/kb/1118/custom-derp-servers/</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># paths:</span></span><br><span class="line">  <span class="comment">#   - /etc/headscale/derp-example.yaml</span></span><br><span class="line">  <span class="attr">paths:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/etc/headscale/derp.yaml</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># If enabled, a worker will be set up to periodically</span></span><br><span class="line">  <span class="comment"># refresh the given sources and update the derpmap</span></span><br><span class="line">  <span class="comment"># will be set up.</span></span><br><span class="line">  <span class="attr">auto_update_enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># How often should we check for DERP updates?</span></span><br><span class="line">  <span class="attr">update_frequency:</span> <span class="string">24h</span></span><br></pre></td></tr></table></figure>
+
+<p>You can disable Tailscale’s official DERP servers to test whether the self-hosted DERP server works properly.</p>
+<p>After modifying the configuration, restart the headscale service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl restart headscale</span><br></pre></td></tr></table></figure>
+
+<p>On the Tailscale client, use the following command to view the currently available DERP servers:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale netcheck</span><br><span class="line"></span><br><span class="line">Report:</span><br><span class="line">        * UDP: <span class="literal">true</span></span><br><span class="line">        * IPv4: <span class="built_in">yes</span>, xxxxx:57068</span><br><span class="line">        * IPv6: no</span><br><span class="line">        * MappingVariesByDestIP: <span class="literal">false</span></span><br><span class="line">        * HairPinning: <span class="literal">false</span></span><br><span class="line">        * PortMapping: </span><br><span class="line">        * Nearest DERP: Tencent Hongkong</span><br><span class="line">        * DERP latency:</span><br><span class="line">                - thk: 39.7ms (Tencent Hongkong)</span><br></pre></td></tr></table></figure>
+
+<p><code>tailscale netcheck</code> actually only detects the port of <code>3478/udp</code>. Even if netcheck shows it can connect, it does not necessarily mean that port 12345 can forward traffic. The simplest way is to directly open the DERP server URL: <a href="https://xxxx:12345，如果看到如下页面，且地址栏的">https://xxxx:12345，如果看到如下页面，且地址栏的</a> If the SSL certificate tab shows normal and available, then there is really no problem.</p>
+<p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-27-11-21-dZ5dtZ.png" alt="img"></p>
+<p>Check the connection method with the communication peer:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale status</span><br><span class="line">10.1.0.5        coredns              default      linux   -</span><br><span class="line">                carsondemacbook-pro  default      macOS   active; direct xxxx:2756; offline, tx 50424 rx 34056</span><br><span class="line">                oneplus-8t           default      android active; relay <span class="string">&quot;thk&quot;</span>; offline, tx 1608 rx 1552</span><br><span class="line">                openwrt              default      linux   active; direct xxxx:2834; offline, tx 1403688 rx 1217620</span><br></pre></td></tr></table></figure>
+
+<p>This client is a cloud host, and it has 3 communication peers: macOS, OpenWRT, and an Android phone. macOS and OpenWRT are both on a China Telecom home intranet, and the Android phone uses China Telecom mobile data. It can be seen that only the Android phone relays traffic through the custom DERP server, and the hole-punching success rate is quite high. Use ping to test connectivity:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ping 10.1.0.8</span><br><span class="line">PING 10.1.0.8 (10.1.0.8) 56(84) bytes of data.</span><br><span class="line">64 bytes from 10.1.0.8: icmp_seq=1 ttl=64 <span class="keyword">time</span>=150 ms</span><br><span class="line">64 bytes from 10.1.0.8: icmp_seq=2 ttl=64 <span class="keyword">time</span>=131 ms</span><br><span class="line">64 bytes from 10.1.0.8: icmp_seq=3 ttl=64 <span class="keyword">time</span>=161 ms</span><br><span class="line">64 bytes from 10.1.0.8: icmp_seq=4 ttl=64 <span class="keyword">time</span>=137 ms</span><br><span class="line">64 bytes from 10.1.0.8: icmp_seq=5 ttl=64 <span class="keyword">time</span>=156 ms</span><br><span class="line">64 bytes from 10.1.0.8: icmp_seq=6 ttl=64 <span class="keyword">time</span>=169 ms</span><br><span class="line">^C</span><br><span class="line">--- 10.1.0.8 ping statistics ---</span><br><span class="line">6 packets transmitted, 6 received, 0% packet loss, <span class="keyword">time</span> 5005ms</span><br><span class="line">rtt min/avg/max/mdev = 131.728/151.154/169.627/13.193 ms</span><br></pre></td></tr></table></figure>
+
+<p>You can also use the Tailscale command-line tool to test:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale ping 10.1.0.8</span><br><span class="line">pong from oneplus-8t (10.1.0.8) via DERP(thk) <span class="keyword">in</span> 104ms</span><br><span class="line">pong from oneplus-8t (10.1.0.8) via DERP(thk) <span class="keyword">in</span> 111ms</span><br><span class="line">pong from oneplus-8t (10.1.0.8) via DERP(thk) <span class="keyword">in</span> 105ms</span><br></pre></td></tr></table></figure>
+
+<p>This one is a bit more friendly and will directly tell you that you are communicating with the other party through a DERP relay server.</p>
+<p>If the host where the current Tailscale client resides has IPv6 enabled, then it can directly connect peer-to-peer with the phone via IPv6:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ /Applications/Tailscale.app/Contents/MacOS/Tailscale status</span><br><span class="line">                coredns              default      linux   active; direct xxxx:45986; offline, tx 124352 rx 185736</span><br><span class="line">                oneplus-8t           default      android active; direct [240e:472:da0:24a2:a07f:2a67:2a1e:4475]:37237; offline, tx 125216 rx 20052</span><br><span class="line">                openwrt              default      linux   active; direct [240e:390:caf:1870:c02c:e8ff:feb9:b0b]:41641; offline, tx 181992 rx 3910120</span><br><span class="line"></span><br><span class="line">$ /Applications/Tailscale.app/Contents/MacOS/Tailscale ping 10.1.0.8</span><br><span class="line">pong from oneplus-8t (10.1.0.8) via [240e:472:da0:24a2:a07f:2a67:2a1e:4475]:37237 <span class="keyword">in</span> 62ms</span><br></pre></td></tr></table></figure>
+
+<p>So if you enable IPv6, it can greatly increase the success rate of <strong>peer-to-peer connections</strong>.</p>
+<h3 id="Using-a-Pure-IP"><a href="#Using-a-Pure-IP" class="headerlink" title="Using a Pure IP"></a>Using a Pure IP</h3><p>I know that most people do not have their own domain name. Even further, even if they have their own domain name, if it has not been filed for ICP registration, it cannot be deployed and used on domestic servers.</p>
+<p>At this point we can only tamper with the derper source code. Find the <code>cmd/derper/cert.go</code> file in the tailscale repository, and delete or comment out the content related to domain name verification:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(m *manualCertManager)</span></span> getCertificate(hi *tls.ClientHelloInfo) (*tls.Certificate, <span class="type">error</span>) &#123;</span><br><span class="line">	<span class="comment">//if hi.ServerName != m.hostname &#123;</span></span><br><span class="line">	<span class="comment">//	return nil, fmt.Errorf(&quot;cert mismatch with hostname: %q&quot;, hi.ServerName)</span></span><br><span class="line">	<span class="comment">//&#125;</span></span><br><span class="line">	<span class="keyword">return</span> m.cert, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>You also need to create a self-signed certificate, which can be created through a script:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># build_cert.sh</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">CERT_HOST=<span class="variable">$1</span></span><br><span class="line">CERT_DIR=<span class="variable">$2</span></span><br><span class="line">CONF_FILE=<span class="variable">$3</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;[req]</span></span><br><span class="line"><span class="string">default_bits  = 2048</span></span><br><span class="line"><span class="string">distinguished_name = req_distinguished_name</span></span><br><span class="line"><span class="string">req_extensions = req_ext</span></span><br><span class="line"><span class="string">x509_extensions = v3_req</span></span><br><span class="line"><span class="string">prompt = no</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[req_distinguished_name]</span></span><br><span class="line"><span class="string">countryName = XX</span></span><br><span class="line"><span class="string">stateOrProvinceName = N/A</span></span><br><span class="line"><span class="string">localityName = N/A</span></span><br><span class="line"><span class="string">organizationName = Self-signed certificate</span></span><br><span class="line"><span class="string">commonName = <span class="variable">$CERT_HOST</span>: Self-signed certificate</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[req_ext]</span></span><br><span class="line"><span class="string">subjectAltName = @alt_names</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[v3_req]</span></span><br><span class="line"><span class="string">subjectAltName = @alt_names</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[alt_names]</span></span><br><span class="line"><span class="string">IP.1 = <span class="variable">$CERT_HOST</span></span></span><br><span class="line"><span class="string">&quot;</span> &gt; <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> -p <span class="string">&quot;<span class="variable">$CERT_DIR</span>&quot;</span></span><br><span class="line">openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout <span class="string">&quot;<span class="variable">$CERT_DIR</span>/<span class="variable">$CERT_HOST</span>.key&quot;</span> -out <span class="string">&quot;<span class="variable">$CERT_DIR</span>/<span class="variable">$CERT_HOST</span>.crt&quot;</span> -config <span class="string">&quot;<span class="variable">$CONF_FILE</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>Rewrite the Dockerfile and set derper’s domain name to <code>127.0.0.1</code>:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> golang:latest AS builder</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ========= CONFIG =========</span></span><br><span class="line"><span class="comment"># - download links</span></span><br><span class="line"><span class="keyword">ENV</span> MODIFIED_DERPER_GIT=https://github.com/yangchuansheng/ip_derper.git</span><br><span class="line"><span class="keyword">ENV</span> BRANCH=ip_derper</span><br><span class="line"><span class="comment"># ==========================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># build modified derper</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> git <span class="built_in">clone</span> -b <span class="variable">$BRANCH</span> <span class="variable">$MODIFIED_DERPER_GIT</span> tailscale --depth 1 &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> /app/tailscale/cmd/derper &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    /usr/local/go/bin/go build -ldflags <span class="string">&quot;-s -w&quot;</span> -o /app/derper &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">cd</span> /app &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">rm</span> -rf /app/tailscale</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> ubuntu:<span class="number">20.04</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ========= CONFIG =========</span></span><br><span class="line"><span class="comment"># - derper args</span></span><br><span class="line"><span class="keyword">ENV</span> DERP_HOST=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line"><span class="keyword">ENV</span> DERP_CERTS=/app/certs/</span><br><span class="line"><span class="keyword">ENV</span> DERP_STUN true</span><br><span class="line"><span class="keyword">ENV</span> DERP_VERIFY_CLIENTS false</span><br><span class="line"><span class="comment"># ==========================</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># apt</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y openssl curl</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> build_cert.sh /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> --from=builder /app/derper /app/derper</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># build self-signed certs &amp;&amp; start derper</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> bash /app/build_cert.sh <span class="variable">$DERP_HOST</span> <span class="variable">$DERP_CERTS</span> /app/san.conf &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    /app/derper --hostname=<span class="variable">$DERP_HOST</span> \</span></span><br><span class="line"><span class="language-bash">    --certmode=manual \</span></span><br><span class="line"><span class="language-bash">    --certdir=<span class="variable">$DERP_CERTS</span> \</span></span><br><span class="line"><span class="language-bash">    --stun=<span class="variable">$DERP_STUN</span>  \</span></span><br><span class="line"><span class="language-bash">    --verify-clients=<span class="variable">$DERP_VERIFY_CLIENTS</span></span></span><br></pre></td></tr></table></figure>
+
+<p>After building the image, you can directly start the derper container with this image on the host where you want to deploy derper. The command is as follows:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">🐳  → docker run --restart always --net host --name derper -d ghcr.io/yangchuansheng/ip_derper</span><br></pre></td></tr></table></figure>
+
+<p>As with the domain-name solution, the firewall needs to allow the corresponding ports (12345 and 3478).</p>
+<p>View container logs:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">🐳  → docker logs -f derper</span><br><span class="line">Generating a RSA private key</span><br><span class="line">.......................................+++++</span><br><span class="line">..............+++++</span><br><span class="line">writing new private key to <span class="string">&#x27;/app/certs//127.0.0.1.key&#x27;</span></span><br><span class="line">-----</span><br><span class="line">2022/03/26 14:30:31 no config path specified; using /var/lib/derper/derper.key</span><br><span class="line">2022/03/26 14:30:31 derper: serving on :443 with TLS</span><br><span class="line">2022/03/26 14:30:31 running STUN server on [::]:3478</span><br></pre></td></tr></table></figure>
+
+<p>If you want to build the derper image yourself, you can refer to <a target="_blank" rel="noopener" href="https://github.com/yangchuansheng/ip_derper">my GitHub repository</a>。</p>
+<hr>
+<p>Next comes the fancy trick: in the Headscale configuration, we need to <strong>set the DERP domain name to an IP</strong>! If you don’t understand, you can digest it a bit more, then continue reading haha~~</p>
+<p>In addition to derper, the Tailscale client also needs to <strong>skip domain name verification</strong>, which needs to be set in the DERP configuration. However, Headscale’s local YAML file does not currently support this configuration item, so there is no choice; we can only use an online URL. The JSON configuration content is as follows:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Regions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;901&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;RegionID&quot;</span><span class="punctuation">:</span> <span class="number">901</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RegionCode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ali-sh&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RegionName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Aliyun Shanghai&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Nodes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;901a&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;RegionID&quot;</span><span class="punctuation">:</span> <span class="number">901</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;DERPPort&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;HostName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;IPv4&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;InsecureForTests&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Configuration analysis:</p>
+<ul>
+<li><p>For <code>HostName</code>, directly fill in derper’s public IP, that is, the same value as <code>IPv4</code>.</p>
+</li>
+<li><p><code>InsecureForTests</code> must be set to true to skip domain name verification.</p>
+</li>
+</ul>
+<p>You need to turn this JSON file into a URL accessible by the Headscale server, for example, set up Nginx on the Headscale host, or upload it to object storage (such as Alibaba Cloud OSS).</p>
+<p>Next, you also need to modify Headscale’s configuration file to reference the above custom DERP URL. The configuration items that need to be modified are as follows:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/headscale/config.yaml</span></span><br><span class="line"><span class="attr">derp:</span></span><br><span class="line">  <span class="comment"># List of externally available DERP maps encoded in JSON</span></span><br><span class="line">  <span class="attr">urls:</span></span><br><span class="line">  <span class="comment">#  - https://controlplane.tailscale.com/derpmap/default</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">https://xxxxx/derp.json</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Locally available DERP map files encoded in YAML</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># This option is mostly interesting for people hosting</span></span><br><span class="line">  <span class="comment"># their own DERP servers:</span></span><br><span class="line">  <span class="comment"># https://tailscale.com/kb/1118/custom-derp-servers/</span></span><br><span class="line">  <span class="comment">#</span></span><br><span class="line">  <span class="comment"># paths:</span></span><br><span class="line">  <span class="comment">#   - /etc/headscale/derp-example.yaml</span></span><br><span class="line">  <span class="attr">paths:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">/etc/headscale/derp.yaml</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># If enabled, a worker will be set up to periodically</span></span><br><span class="line">  <span class="comment"># refresh the given sources and update the derpmap</span></span><br><span class="line">  <span class="comment"># will be set up.</span></span><br><span class="line">  <span class="attr">auto_update_enabled:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># How often should we check for DERP updates?</span></span><br><span class="line">  <span class="attr">update_frequency:</span> <span class="string">24h</span></span><br></pre></td></tr></table></figure>
+
+<p>After modifying the configuration, restart the headscale service:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl restart headscale</span><br></pre></td></tr></table></figure>
+
+<p>On the Tailscale client, use the following command to view the currently available DERP servers:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale netcheck</span><br><span class="line"></span><br><span class="line">Report:</span><br><span class="line">	* UDP: <span class="literal">true</span></span><br><span class="line">	* IPv4: <span class="built_in">yes</span>, 192.168.100.1:49656</span><br><span class="line">	* IPv6: no</span><br><span class="line">	* MappingVariesByDestIP: <span class="literal">true</span></span><br><span class="line">	* HairPinning: <span class="literal">false</span></span><br><span class="line">	* PortMapping: UPnP</span><br><span class="line">	* Nearest DERP: Home Hangzhou</span><br><span class="line">	* DERP latency:</span><br><span class="line">		- home: 9.7ms   (Home Hangzhou)</span><br><span class="line">		-  hs: 25.2ms  (Huawei Shanghai)</span><br><span class="line">		- thk: 43.5ms  (Tencent Hongkong)</span><br></pre></td></tr></table></figure>
+
+<p>Check the connection method with the communication peer again:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale status</span><br><span class="line">                coredns              default      linux   active; direct xxxx:45986; offline, tx 131012 rx 196020</span><br><span class="line">                oneplus-8t           default      android active; relay <span class="string">&quot;home&quot;</span>; offline, tx 211900 rx 22780</span><br><span class="line">                openwrt              default      linux   active; direct 192.168.100.254:41641; offline, tx 189868 rx 4074772</span><br></pre></td></tr></table></figure>
+
+<p>You can see that this time Tailscale automatically selected a <strong>domestic</strong> DERP server with the optimal route as the relay. You can test the latency:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale ping 10.1.0.8</span><br><span class="line">pong from oneplus-8t (10.1.0.8) via DERP(home) <span class="keyword">in</span> 30ms</span><br><span class="line">pong from oneplus-8t (10.1.0.8) via DERP(home) <span class="keyword">in</span> 45ms</span><br><span class="line">pong from oneplus-8t (10.1.0.8) via DERP(home) <span class="keyword">in</span> 30ms</span><br></pre></td></tr></table></figure>
+
+<p>Perfect! The home here is of course my home broadband. The deployment method is similar to the domestic cloud host mentioned above. You need to additionally enable public network port mapping (12345&#x2F;tcp, 3478&#x2F;udp). There is one more thing to note about the configuration content:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;Regions&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;901&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;RegionID&quot;</span><span class="punctuation">:</span> <span class="number">901</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RegionCode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ali-sh&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RegionName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Aliyun Shanghai&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Nodes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;901a&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;RegionID&quot;</span><span class="punctuation">:</span> <span class="number">901</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;DERPPort&quot;</span><span class="punctuation">:</span> <span class="number">443</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;HostName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;IPv4&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;InsecureForTests&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;902&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;RegionID&quot;</span><span class="punctuation">:</span> <span class="number">902</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RegionCode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;home&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;RegionName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Home Hangzhou&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;Nodes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;Name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;902a&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;RegionID&quot;</span><span class="punctuation">:</span> <span class="number">902</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;DERPPort&quot;</span><span class="punctuation">:</span> <span class="number">12345</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;HostName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;xxxx&quot;</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;InsecureForTests&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">]</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Compared with a domestic cloud host, the home broadband configuration has two differences:</p>
+<ul>
+<li><p>You need to delete the <code>IPv4</code> configuration item. Because the public IP of home broadband changes dynamically, you need to use <strong>DDNS</strong> to dynamically resolve the public IP.</p>
+</li>
+<li><p>For <code>HostName</code>, it is best to fill in a domain name, because your public IP changes dynamically and you cannot fill in an IP unless you keep modifying the configuration file. It doesn’t matter if you fill in a domain name anyway; the domain name will not be verified, and you don’t need to care about the certificate. <strong>As long as the domain name can resolve to your public IP, it is fine.</strong></p>
+</li>
+</ul>
+<h2 id="Preventing-DERP-from-Being-Freeloaded"><a href="#Preventing-DERP-from-Being-Freeloaded" class="headerlink" title="Preventing DERP from Being Freeloaded"></a>Preventing DERP from Being Freeloaded</h2><p>By default, a DERP server can be freeloaded. As long as others know the address and port of your DERP server, they can use it for themselves. If your server has a small bandwidth, too many users may overwhelm it, so we need to modify the configuration to prevent freeloading.</p>
+<blockquote>
+<p>Special note: only the domain-name method can prevent freeloading through authentication. The pure IP method cannot prevent freeloading; you can only carefully hide your IP and port so others cannot know them.</p>
+</blockquote>
+<p>You only need to do two things:</p>
+<p><strong>1. Install Tailscale on the DERP server.</strong></p>
+<p>The first step is to install the Tailscale client on the host where the DERP service resides, and <strong>start the tailscaled process</strong>.</p>
+<p><strong>2. Add the parameter <code>--verify-clients</code> when starting derper.</strong></p>
+<p>This article recommends starting via a container. <a target="_blank" rel="noopener" href="https://github.com/yangchuansheng/docker-image/blob/master/derper/Dockerfile">Dockerfile content</a>如下：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> golang:latest AS builder</span><br><span class="line"></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> org.opencontainers.image.source https://github.com/yangchuansheng/docker-image</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># https://tailscale.com/kb/1118/custom-derp-servers/</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> go install tailscale.com/cmd/derper@main</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> ubuntu</span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ARG</span> DEBIAN_FRONTEND=noninteractive</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y --no-install-recommends apt-utils &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    apt-get install -y ca-certificates &amp;&amp; \</span></span><br><span class="line"><span class="language-bash">    <span class="built_in">mkdir</span> /app/certs</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> DERP_DOMAIN your-hostname.com</span><br><span class="line"><span class="keyword">ENV</span> DERP_CERT_MODE letsencrypt</span><br><span class="line"><span class="keyword">ENV</span> DERP_CERT_DIR /app/certs</span><br><span class="line"><span class="keyword">ENV</span> DERP_ADDR :<span class="number">443</span></span><br><span class="line"><span class="keyword">ENV</span> DERP_STUN true</span><br><span class="line"><span class="keyword">ENV</span> DERP_HTTP_PORT <span class="number">80</span></span><br><span class="line"><span class="keyword">ENV</span> DERP_VERIFY_CLIENTS false</span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> --from=builder /go/bin/derper .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> /app/derper --hostname=<span class="variable">$DERP_DOMAIN</span> \</span></span><br><span class="line"><span class="language-bash">    --certmode=<span class="variable">$DERP_CERT_MODE</span> \</span></span><br><span class="line"><span class="language-bash">    --certdir=<span class="variable">$DERP_CERT_DIR</span> \</span></span><br><span class="line"><span class="language-bash">    --a=<span class="variable">$DERP_ADDR</span> \</span></span><br><span class="line"><span class="language-bash">    --stun=<span class="variable">$DERP_STUN</span>  \</span></span><br><span class="line"><span class="language-bash">    --http-port=<span class="variable">$DERP_HTTP_PORT</span> \</span></span><br><span class="line"><span class="language-bash">    --verify-clients=<span class="variable">$DERP_VERIFY_CLIENTS</span></span></span><br></pre></td></tr></table></figure>
+
+<p>By default, the <code>--verify-clients</code> parameter is set to <code>false</code>. We do not need to make any changes to the Dockerfile content; we only need to add an environment variable when starting the container. Modify the previous startup command as follows:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">🐳  → docker run --restart always \</span><br><span class="line">  --name derper -p 12345:12345 -p 3478:3478/udp \</span><br><span class="line">  -v /root/.acme.sh/xxxx/:/app/certs \</span><br><span class="line">  -e DERP_CERT_MODE=manual \</span><br><span class="line">  -e DERP_ADDR=:12345 \</span><br><span class="line">  -e DERP_DOMAIN=xxxx \</span><br><span class="line">  -e DERP_VERIFY_CLIENTS=<span class="literal">true</span> \</span><br><span class="line">  -d ghcr.io/yangchuansheng/derper:latest</span><br></pre></td></tr></table></figure>
+
+<p>That’s it, and even if others know your DERP server address, they cannot use it. But one thing still needs to be said: even so, you should still try your best not to let others know your server address, to prevent them from having an opportunity to exploit it.</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>This article introduced the significance of STUN for assisting NAT traversal and explained several common relay protocols, including Tailscale’s self-developed DERP protocol. Finally, it taught step by step how to self-host a private DERP server and make Tailscale use our self-hosted DERP server.</p>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/web/" rel="tag" title="web">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-Basics-Tutorial-Deploying-a-Private-DERP-Relay-Server"><span class="toc-number">1.</span> <span class="toc-text">Tailscale Basics Tutorial: Deploying a Private DERP Relay Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-STUN"><span class="toc-number">2.</span> <span class="toc-text">What Is STUN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-a-Relay"><span class="toc-number">3.</span> <span class="toc-text">What Is a Relay</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction-to-Relay-Protocols"><span class="toc-number">4.</span> <span class="toc-text">Introduction to Relay Protocols</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TURN"><span class="toc-number">4.1.</span> <span class="toc-text">TURN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DERP"><span class="toc-number">4.2.</span> <span class="toc-text">DERP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Self-Hosting-a-Private-DERP-Server"><span class="toc-number">5.</span> <span class="toc-text">Self-Hosting a Private DERP Server</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-a-Domain-Name"><span class="toc-number">5.1.</span> <span class="toc-text">Using a Domain Name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-a-Pure-IP"><span class="toc-number">5.2.</span> <span class="toc-text">Using a Pure IP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Preventing-DERP-from-Being-Freeloaded"><span class="toc-number">6.</span> <span class="toc-text">Preventing DERP from Being Freeloaded</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">7.</span> <span class="toc-text">Summary</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Tailscale Basics Tutorial: Deploying a Private DERP Relay Server",
+          url: "https://blog.wray7.top/2023/09/05/2023-09-05-Tailscale%20%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%9A%E9%83%A8%E7%BD%B2%E7%A7%81%E6%9C%89%20DERP%20%E4%B8%AD%E7%BB%A7%E6%9C%8D%E5%8A%A1%E5%99%A8.en/",
+          excerpt: "",
+          description: "",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Tailscale Basics Tutorial: Deploying a Private DERP Relay ServerPrevious article介绍了如何使用 Headscale replace Tailscale’s official control server, and connect cl",
+          date: "Tue Sep 05 2023 02:16:06 GMT+0800",
+          updated: "Sun Oct 11 2026 04:48:24 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

@@ -1,0 +1,663 @@
+  <!DOCTYPE html>
+  <html lang="ja"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Nginx | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Nginx  Configの位置  12#&#x2F;etc&#x2F;nginx&#x2F;nginx.conf#&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;myconfig.conf  12345678910111213141516171819202122232425262728293031323334353637383">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx">
+<meta property="og:url" content="https://blog.wray7.top/ja/2026/06/11/2026-06-11-Nginx.ja/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Nginx  Configの位置  12#&#x2F;etc&#x2F;nginx&#x2F;nginx.conf#&#x2F;etc&#x2F;nginx&#x2F;conf.d&#x2F;myconfig.conf  12345678910111213141516171819202122232425262728293031323334353637383">
+<meta property="og:locale" content="ja_JP">
+<meta property="article:published_time" content="2026-06-11T12:07:12.000Z">
+<meta property="article:modified_time" content="2026-10-10T20:56:21.316Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="web">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/ja/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">ホーム</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">アーカイブ</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/ja/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">プロフィール</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS フィード" aria-label="RSS フィード" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="検索" aria-label="検索"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">日本語</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" aria-selected="false">English</li>
+            <li data-value="ja" role="option" class="selected" aria-selected="true">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/06/11/2026-06-11-Nginx.ja/';
+              langMap['en'] = '/en/2026/06/11/2026-06-11-Nginx.ja/';
+              langMap['ja'] = '/ja/2026/06/11/2026-06-11-Nginx.ja/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Nginx">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Nginx</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nginx"><span class="toc-number">1.</span> <span class="toc-text">Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0"><span class="toc-number">1.1.</span> <span class="toc-text">ファイルマッピング</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BB%A2%E9%80%81"><span class="toc-number">1.2.</span> <span class="toc-text">転送</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E6%A7%8B%E7%AF%89"><span class="toc-number">1.3.</span> <span class="toc-text">ローカルでのサイト構築</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">サイトディレクトリの作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%82%A4%E3%83%88%E5%86%85%E5%AE%B9%E3%81%AE%E7%B7%A8%E9%9B%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">サイト内容の編集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.3.3.</span> <span class="toc-text">nginx設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A%E3%81%AE%E6%9C%89%E5%8A%B9%E5%8C%96"><span class="toc-number">1.3.4.</span> <span class="toc-text">サイト設定の有効化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%86%8D%E8%B5%B7%E5%8B%95"><span class="toc-number">1.3.5.</span> <span class="toc-text">サービスの再起動</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%BC%E6%98%8E%E6%9B%B8%E7%94%B3%E8%AB%8B"><span class="toc-number">1.4.</span> <span class="toc-text">証明書申請</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC"><span class="toc-number">1.5.</span> <span class="toc-text">オンラインプレビュー</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Location"><span class="toc-number">1.6.</span> <span class="toc-text">Location</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#proxy-pass"><span class="toc-number">1.6.1.</span> <span class="toc-text">proxy_pass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%B8%E3%81%AE%E8%BB%A2%E9%80%81"><span class="toc-number">1.6.2.</span> <span class="toc-text">dockerコンテナへの転送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%80%E9%9A%8E%E5%B1%A4%E3%81%B8%E3%81%AE%E8%BB%A2%E9%80%81"><span class="toc-number">1.6.3.</span> <span class="toc-text">同一階層への転送</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%98%E4%B8%80%E3%83%9D%E3%83%BC%E3%83%88-http-https"><span class="toc-number">1.7.</span> <span class="toc-text">単一ポート http-&gt;https</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7"><span class="toc-number">1.8.</span> <span class="toc-text">リバースプロキシ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.9.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-06-11-Nginx.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-06-11T12:07:12.000Z" itemprop="datePublished">2026-06-11</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h1><blockquote>
+<p> Configの位置</p>
+</blockquote>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#/etc/nginx/nginx.conf</span></span><br><span class="line"><span class="comment">#/etc/nginx/conf.d/myconfig.conf</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局配置</span></span><br><span class="line"><span class="attribute">user</span> nginx;</span><br><span class="line"><span class="attribute">worker_processes</span> auto;</span><br><span class="line"><span class="attribute">error_log</span> /var/log/nginx/<span class="literal">error</span>.log;</span><br><span class="line"><span class="attribute">pid</span> /var/run/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 事件模块配置</span></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span> <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># HTTP 服务器配置</span></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="comment"># HTTP 核心模块配置</span></span><br><span class="line">    <span class="attribute">include</span> /etc/nginx/mime.types;</span><br><span class="line">    <span class="attribute">default_type</span> application/octet-stream;</span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/access.log;</span><br><span class="line">    <span class="attribute">sendfile</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">keepalive_timeout</span> <span class="number">65</span>;</span><br><span class="line">    <span class="comment">#导入配置文件方便管理</span></span><br><span class="line">    <span class="attribute">include</span> /etc/nginx/conf.d/<span class="regexp">*.conf</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 文件大小</span></span><br><span class="line">    <span class="attribute">client_max_body_size</span> <span class="number">100M</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 服务器块配置</span></span><br><span class="line">    server &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="attribute">server_name</span> example.com;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 根目录和索引文件配置</span></span><br><span class="line">        <span class="attribute">root</span> /var/www/html;</span><br><span class="line">        <span class="attribute">index</span> index.html;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 路由规则配置</span></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 静态文件缓存配置</span></span><br><span class="line">        <span class="section">location</span> <span class="regexp">~* \.(jpg|jpeg|png|gif|ico|css|js)$</span> &#123;</span><br><span class="line">            <span class="attribute">expires</span> <span class="number">1y</span>;</span><br><span class="line">            <span class="attribute">add_header</span> Cache-Control <span class="string">&quot;public&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 反向代理配置</span></span><br><span class="line">        <span class="section">location</span> /api &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://backend-api;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">	    	<span class="attribute">proxy_set_header</span> REMOTE-HOST <span class="variable">$remote_addr</span>;        </span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        <span class="comment"># HTTPS 配置</span></span><br><span class="line">        <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">        <span class="attribute">ssl_certificate</span> /path/to/certificate.crt;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span> /path/to/private_key.key;</span><br><span class="line">        <span class="attribute">error_page</span> <span class="number">497</span> =<span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>; <span class="comment">#单端口转发,301重定向</span></span><br><span class="line">        <span class="comment">#error_page 497 https://$server_name$request_uri; # 转发http请求为https到当前端口，302重定向</span></span><br><span class="line">        <span class="comment">#error_page 497 https://$host:$server_port$uri$is_args$args;</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="attribute">return</span> <span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>;<span class="comment"># 转发的另一种写法</span></span><br><span class="line">        <span class="attribute">return</span> <span class="number">301</span> <span class="variable">$scheme</span>://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 套cdn后查看访问真实ip</span></span><br><span class="line">        <span class="attribute">set_real_ip_from</span> <span class="number">0.0.0.0</span>/<span class="number">0</span>;</span><br><span class="line">		<span class="attribute">real_ip_header</span> X-Forwarded-For;</span><br><span class="line">		<span class="comment"># 防止爬虫抓取</span></span><br><span class="line">    	<span class="attribute">if</span> (<span class="variable">$http_user_agent</span> <span class="regexp">~* &quot;360Spider|JikeSpider|Spider|spider|bot|Bot|2345Explorer|curl|wget|webZIP|qihoobot|Baiduspider|Googlebot|Googlebot-Mobile|Googlebot-Image|Mediapartners-Google|Adsbot-Google|Feedfetcher-Google|Yahoo!</span> Slurp|Yahoo! Slurp China|YoudaoBot|Sosospider|Sogou spider|Sogou web spider|MSNBot|ia_archiver|Tomato Bot|NSPlayer|bingbot<span class="string">&quot;)</span></span><br><span class="line"><span class="string">    	&#123;</span></span><br><span class="line"><span class="string">        	return 403;</span></span><br><span class="line"><span class="string">	    &#125;</span></span><br><span class="line"><span class="string">        # 关闭代理缓冲。当设置为off时，Nginx会立即将客户端请求发送到后端服务器，并立即将从后端服务器接收到的响应发送回客户端。</span></span><br><span class="line"><span class="string">		proxy_buffering off;</span></span><br><span class="line"><span class="string">		# 启用分块传输编码。分块传输编码允许服务器为动态生成的内容分块发送数据，而不需要预先知道内容的大小。</span></span><br><span class="line"><span class="string">		chunked_transfer_encoding on;</span></span><br><span class="line"><span class="string">		# 开启TCP_NOPUSH，这告诉Nginx在数据包发送到客户端之前，尽可能地发送数据。这通常在		sendfile使用时配合使用，可以提高网络效率。</span></span><br><span class="line"><span class="string">		tcp_nopush on;</span></span><br><span class="line"><span class="string">		# 开启TCP_NODELAY，这告诉Nginx不延迟发送数据，立即发送小数据包。在某些情况下，这可以减少网络的延迟。</span></span><br><span class="line"><span class="string">		tcp_nodelay on;</span></span><br><span class="line"><span class="string">		# 设置保持连接的超时时间，这里设置为120秒。如果在这段时间内，客户端和服务器之间没有进一步的通信，连接将被关闭。</span></span><br><span class="line"><span class="string">		keepalive_timeout 120;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        # 显示目录（路径下无index.html）</span></span><br><span class="line"><span class="string">        autoindex_exact_size off;</span></span><br><span class="line"><span class="string">		#默认为on，显示出文件的确切大小，单位是bytes。</span></span><br><span class="line"><span class="string">		#改为off后，显示出文件的大概大小，单位是kB或者MB或者GB</span></span><br><span class="line"><span class="string">        autoindex_localtime on;</span></span><br><span class="line"><span class="string">		#默认为off，显示的文件时间为GMT时间。</span></span><br><span class="line"><span class="string"> 		#改为on后，显示的文件时间为文件的服务器时间</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        # 自定义404界面</span></span><br><span class="line"><span class="string">		location = /404.html &#123;</span></span><br><span class="line"><span class="string">        	internal;</span></span><br><span class="line"><span class="string">    	&#125;	</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string"># 域名复用用使用return转发（location 不转发/会导致请求位置不正确）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ファイルマッピング"><a href="#ファイルマッピング" class="headerlink" title="ファイルマッピング"></a>ファイルマッピング</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">root</span> /path/to/your/files;</span><br><span class="line">        <span class="attribute">index</span> index.html;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#将网站`/`映射到`/path/to/your/files`</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="転送"><a href="#転送" class="headerlink" title="転送"></a>転送</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name wray7.top;</span><br><span class="line">    access_log /var/log/nginx/wray7.top.log;</span><br><span class="line">    proxy_ssl_server_name on;	<span class="comment"># 纠正域名不匹配（不添加则以用户输入域名与转发目的服务器进行握手，会导致域名不匹配）导致的握手错误</span></span><br><span class="line">    set_real_ip_from 0.0.0.0/0;</span><br><span class="line">    real_ip_header X-Forwarded-For;</span><br><span class="line">    proxy_set_header Host <span class="variable">$http_host</span>;</span><br><span class="line">    proxy_set_header X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Port <span class="variable">$server_port</span>;</span><br><span class="line">    proxy_set_header X-Forwarded-Host <span class="variable">$http_host</span>;</span><br><span class="line">    proxy_set_header Myconfig-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">    proxy_set_header Myconfig-Forwarded-Port <span class="variable">$server_port</span>;</span><br><span class="line">    proxy_set_header Myconfig-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass https://blog.wray7.top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen 443 ssl;</span><br><span class="line">    server_name wray7.top;</span><br><span class="line">    access_log /var/log/nginx/wray7.top.log;</span><br><span class="line">    ssl_certificate /etc/v2ray-agent/tls/wray7.top.crt;</span><br><span class="line">    ssl_certificate_key /etc/v2ray-agent/tls/wray7.top.key;</span><br><span class="line">    set_real_ip_from 0.0.0.0/0;</span><br><span class="line">    real_ip_header X-Forwarded-For;</span><br><span class="line">    proxy_ssl_server_name on;</span><br><span class="line">    location / &#123;</span><br><span class="line">        proxy_pass https://blog.wray7.top;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 自动反代所有请求</span></span><br><span class="line"> <span class="section">location</span> <span class="variable">@proxy</span> &#123;</span><br><span class="line">   <span class="attribute">proxy_set_header</span> Host              <span class="variable">$host</span>;</span><br><span class="line">   <span class="attribute">proxy_set_header</span> X-Real-IP         <span class="variable">$remote_addr</span>;</span><br><span class="line">   <span class="attribute">proxy_set_header</span> X-Forwarded-For   <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">   <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">   <span class="attribute">proxy_set_header</span> X-Forwarded-Host  <span class="variable">$host</span>;</span><br><span class="line">   <span class="attribute">proxy_set_header</span> X-Forwarded-Port  <span class="variable">$server_port</span>;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Upgrade 		   <span class="variable">$http_upgrade</span>;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Connection 	   <span class="variable">$http_connection</span>;</span><br><span class="line"></span><br><span class="line">   <span class="attribute">proxy_pass</span> http://127.0.0.1:8080;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment"># 如果主题存在相关文件则使用，否则回退到上游</span></span><br><span class="line"> <span class="section">location</span> / &#123;</span><br><span class="line">   <span class="attribute">root</span>   /opt/ServerStatus/web; <span class="comment"># 你自己修改的主题目录</span></span><br><span class="line">   <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">   <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ <span class="variable">@proxy</span>;</span><br></pre></td></tr></table></figure>
+
+<p>websocket転送</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line"><span class="attribute">proxy_set_header</span> Connection <span class="variable">$connection_upgrade</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ローカルでのサイト構築"><a href="#ローカルでのサイト構築" class="headerlink" title="ローカルでのサイト構築"></a>ローカルでのサイト構築</h2><h3 id="サイトディレクトリの作成"><a href="#サイトディレクトリの作成" class="headerlink" title="サイトディレクトリの作成"></a>サイトディレクトリの作成</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir -p /var/www/mywebsite</span><br><span class="line">sudo chown -R $USER:$USER /var/www/mywebsite</span><br></pre></td></tr></table></figure>
+
+<h3 id="サイト内容の編集"><a href="#サイト内容の編集" class="headerlink" title="サイト内容の編集"></a>サイト内容の編集</h3><p><code>vim /var/www/mywebsite/index.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My Website<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Welcome to My Website<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is a sample webpage.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="nginx設定"><a href="#nginx設定" class="headerlink" title="nginx設定"></a>nginx設定</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/mywebsite</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">server_name</span> localhost;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">root</span> /var/www/mywebsite;</span><br><span class="line">    <span class="attribute">index</span> index.html;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ =<span class="number">404</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">上述配置指示 <span class="attribute">Nginx</span> 监听端口 <span class="number">80</span>，并将请求根路径 `/` 映射到 `/var/www/mywebsite` 目录下的 `index.html` 文件。</span><br></pre></td></tr></table></figure>
+
+<h3 id="サイト設定の有効化"><a href="#サイト設定の有効化" class="headerlink" title="サイト設定の有効化"></a>サイト設定の有効化</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ln -s /etc/nginx/sites-available/mywebsite /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
+
+<h3 id="サービスの再起動"><a href="#サービスの再起動" class="headerlink" title="サービスの再起動"></a>サービスの再起動</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo nginx -t</span><br><span class="line">sudo systemctl restart nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="証明書申請"><a href="#証明書申請" class="headerlink" title="証明書申請"></a>証明書申請</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt install snapd</span><br><span class="line">snap install --classic certbot</span><br><span class="line"><span class="built_in">ln</span> -s /snap/bin/certbot /usr/bin/certbot</span><br><span class="line">certbot certonly --standalone -d example.com -d www.example.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># Auto Renew</span></span><br><span class="line">systemctl <span class="built_in">enable</span> certbot-renew.timer --now</span><br><span class="line">systemctl list-timers	</span><br><span class="line"></span><br><span class="line"><span class="comment"># Test auto renewal</span></span><br><span class="line"><span class="built_in">sudo</span> certbot renew --dry-run</span><br></pre></td></tr></table></figure>
+
+<h2 id="オンラインプレビュー"><a href="#オンラインプレビュー" class="headerlink" title="オンラインプレビュー"></a>オンラインプレビュー</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置在线预览</span></span><br><span class="line"><span class="section">location</span> <span class="regexp">~ \.log$</span> &#123;</span><br><span class="line">    <span class="attribute">default_type</span> text/plain; </span><br><span class="line">    <span class="attribute">charset</span> utf-<span class="number">8</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 配置下载文件模式</span></span><br><span class="line"><span class="section">location</span> <span class="regexp">~ \.txt$</span> &#123;</span><br><span class="line">    <span class="section">types</span>        &#123; &#125;</span><br><span class="line">    <span class="attribute">default_type</span> application/octet-stream; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#################add_header  方式 ##################</span></span><br><span class="line"><span class="comment"># 配置在线预览</span></span><br><span class="line"><span class="section">location</span> <span class="regexp">~ \.log$</span> &#123;</span><br><span class="line">    <span class="attribute">add_header</span> Content-Type <span class="string">&quot;text/plain; </span></span><br><span class="line"><span class="string">    charset=utf-8&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 配置下载文件模式</span></span><br><span class="line"><span class="section">location</span> <span class="regexp">~ \.txt$</span> &#123;</span><br><span class="line">    <span class="section">types</span>        &#123; &#125;</span><br><span class="line">    <span class="attribute">add_header</span> Content-Type <span class="string">&quot;application/octet-stream; </span></span><br><span class="line"><span class="string">    charset=utf-8&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Location"><a href="#Location" class="headerlink" title="Location"></a>Location</h2><table>
+<thead>
+<tr>
+<th><strong>ユーザーリクエストパス</strong></th>
+<th><strong>location 設定</strong></th>
+<th><strong>proxy_pass 設定</strong></th>
+<th><strong>バックエンドが受け取る実際のパス</strong></th>
+<th><strong>説明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>/api/test</code></td>
+<td><code>location /api/</code></td>
+<td><code>http://host</code> (スラッシュなし)</td>
+<td><code>/api/test</code></td>
+<td><strong>パススルー</strong>：パスを一切変更しない</td>
+</tr>
+<tr>
+<td><code>/api/test</code></td>
+<td><code>location /api/</code></td>
+<td><code>http://host/</code> (スラッシュあり)</td>
+<td><code>/test</code></td>
+<td><strong>置換</strong>：<code>/api/</code> が切除される</td>
+</tr>
+<tr>
+<td><code>/api/test</code></td>
+<td><code>location /api/</code></td>
+<td><code>http://host/new/</code></td>
+<td><code>/newtest</code></td>
+<td><strong>連結</strong>：<code>/api/</code> が切除され、残りの部分はそのまま <code>/new</code> の後ろに連結される (注意：<code>/new</code> の後にスラッシュがないとつながってしまう可能性がある)</td>
+</tr>
+<tr>
+<td><code>/api/test</code></td>
+<td><code>location /api/</code></td>
+<td><code>http://host/new/</code></td>
+<td><code>/new/test</code></td>
+<td><strong>ディレクトリ連結</strong>：最も確実なサブディレクトリプロキシ方式</td>
+</tr>
+</tbody></table>
+<p><strong>location {content}</strong></p>
+<p>{content}はアンカーであり、マッチする内容を決定し、{content}から後ろのすべての内容にマッチする</p>
+<p>proxy__pass の uri が完全かどうかによって、マッチが完全に連結されるかを判断する。完全な uri の場合は、<strong>{content}およびその前の内容を除去した</strong>後続内容を連結する</p>
+<p>完全でない uri の場合は、マッチした内容をすべて連結する</p>
+<blockquote>
+<p>location &#x2F;{content}&#x2F; を処理し、ユーザーが <a target="_blank" rel="noopener" href="https://host/%7Bcontent%7D/123%EF%BC%8C%E5%88%99%E9%80%8F%E4%BC%A0123%E5%88%B0proxy_pass">https://host/{content}/123，则透传123到proxy_pass</a> <a target="_blank" rel="noopener" href="http://host/new">http://host/new</a> にアクセスすると、最初の &#x2F; を探した結果は <a target="_blank" rel="noopener" href="http://host/new123">http://host/new123</a> になる</p>
+<p>つまり location は切り詰めに使用し、proxy_pass はパススルーに使用する</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location /api</span><br><span class="line"></span><br><span class="line">location /api/</span><br><span class="line"></span><br><span class="line">location = /api</span><br></pre></td></tr></table></figure>
+
+
+<p><code>/api</code>は <code>/api1</code> <code>/api2</code> <code>/api/sth</code> <code>/api2/sth</code> にマッチできる</p>
+<p><code>/api/</code>は <code>/api</code> <code>/api/sth</code> のみにマッチできる</p>
+<p><code>= /api</code>は <code>/api</code> のみにマッチする</p>
+<h3 id="proxy-pass"><a href="#proxy-pass" class="headerlink" title="proxy_pass"></a>proxy_pass</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /api &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:3000/</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /api/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:3000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://url/api/content%E6%97%B6">http://url/api/content时</a> にアクセスする</p>
+<p>前者は <a target="_blank" rel="noopener" href="http://localhost:3000//content">http://localhost:3000//content</a> にアクセスする</p>
+<p>後者は <a target="_blank" rel="noopener" href="http://localhost:3000/content">http://localhost:3000/content</a> にアクセスする</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /api/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:3000</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location /api/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:3000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>前者が完全でない uri の場合、<a target="_blank" rel="noopener" href="http://url/api/content%E6%97%B6%EF%BC%8C%E5%AE%9E%E9%99%85%E8%AE%BF%E9%97%AEhttp://localhost:3000/api/content">http://url/api/content时，实际访问http://localhost:3000/api/content</a> にアクセスする</p>
+<p>後者が完全な uri の場合、<a target="_blank" rel="noopener" href="http://url/api/content%E6%97%B6%EF%BC%8C%E5%AE%9E%E9%99%85%E8%AE%BF%E9%97%AEhttp://localhost:3000/content">http://url/api/content时，实际访问http://localhost:3000/content</a> にアクセスする</p>
+<h3 id="dockerコンテナへの転送"><a href="#dockerコンテナへの転送" class="headerlink" title="dockerコンテナへの転送"></a>dockerコンテナへの転送</h3><p>一般に後続内容の連結を行う</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /api/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:5000/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="同一階層への転送"><a href="#同一階層への転送" class="headerlink" title="同一階層への転送"></a>同一階層への転送</h3><p>通常はすべてを渡す</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /api/ &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://localhost:5000</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="単一ポート-http-https"><a href="#単一ポート-http-https" class="headerlink" title="単一ポート http-&gt;https"></a>単一ポート http-&gt;https</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">12102</span> ssl; </span><br><span class="line">	<span class="attribute">http2</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">server_name</span> de.tmp.cirno9empire.top;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /etc/v2ray-agent/tls/de.tmp.cirno9empire.top.crt;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/v2ray-agent/tls/de.tmp.cirno9empire.top.key;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">ssl_session_timeout</span>     <span class="number">1d</span>;</span><br><span class="line">    <span class="attribute">ssl_session_cache</span>       shared:SSL:<span class="number">50m</span>; </span><br><span class="line">    <span class="attribute">ssl_session_tickets</span>     <span class="literal">off</span>;</span><br><span class="line">    <span class="attribute">ssl_protocols</span>           TLSv1.<span class="number">2</span> TLSv1.<span class="number">3</span>;</span><br><span class="line">    <span class="attribute">ssl_ciphers</span>             ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;</span><br><span class="line">    <span class="attribute">ssl_prefer_server_ciphers</span> <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">error_page</span> <span class="number">497</span> =<span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://localhost:5000;</span><br><span class="line">        </span><br><span class="line">        <span class="attribute">proxy_connect_timeout</span> <span class="number">600</span>;</span><br><span class="line">        <span class="attribute">proxy_send_timeout</span>    <span class="number">600</span>;</span><br><span class="line">        <span class="attribute">proxy_read_timeout</span>    <span class="number">600</span>;</span><br><span class="line">        <span class="attribute">send_timeout</span>          <span class="number">600</span>;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-Proto https;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> Connection <span class="string">&quot;upgrade&quot;</span>;</span><br><span class="line">        <span class="attribute">proxy_redirect</span> <span class="literal">off</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>error page 497 を介して再接続する</p>
+<h2 id="リバースプロキシ"><a href="#リバースプロキシ" class="headerlink" title="リバースプロキシ"></a>リバースプロキシ</h2><blockquote>
+<p>gost 経由でも可能</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启 DoT 监听 (本地 853 -&gt; 上游 1.1.1.1:853)</span></span><br><span class="line"><span class="comment"># 只要把证书准备好</span></span><br><span class="line">./gost -L <span class="string">&quot;dot://:853?cert=cert.pem&amp;key=key.pem&quot;</span> -F <span class="string">&quot;dot://1.1.1.1:853&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启 DoH 监听 (本地 443 -&gt; 上游 1.1.1.1 DoH)</span></span><br><span class="line">./gost -L <span class="string">&quot;http2://:443?cert=cert.pem&amp;key=key.pem&quot;</span> -F <span class="string">&quot;https://1.1.1.1/dns-query&quot;</span></span><br></pre></td></tr></table></figure></blockquote>
+<p><strong>汎用</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">stream</span> &#123;</span><br><span class="line">    <span class="comment"># 定义上游 DoT 服务器 (这里以 Cloudflare 为例)</span></span><br><span class="line">    <span class="section">upstream</span> dot_upstream &#123;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">1.1.1.1:853</span>;</span><br><span class="line">        <span class="attribute">server</span> <span class="number">1.0.0.1:853</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">853</span> ssl; <span class="comment"># DoT 标准端口</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 你的证书路径</span></span><br><span class="line">        <span class="attribute">ssl_certificate</span> /etc/nginx/cert/yourdomain.crt;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span> /etc/nginx/cert/yourdomain.key;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 握手优化</span></span><br><span class="line">        <span class="attribute">ssl_session_cache</span> shared:SSL:<span class="number">10m</span>;</span><br><span class="line">        <span class="attribute">ssl_session_timeout</span> <span class="number">10m</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 反代设置</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> dot_upstream;</span><br><span class="line">        <span class="attribute">proxy_ssl</span> <span class="literal">on</span>; <span class="comment"># 如果上游也是 DoT，需要开启 SSL</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 关键：开启 SNI，否则上游可能拒绝连接 (针对 Cloudflare/Google 等)</span></span><br><span class="line">        <span class="attribute">proxy_ssl_server_name</span> <span class="literal">on</span>;</span><br><span class="line">        <span class="attribute">proxy_ssl_name</span> one.one.one.one; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- DoH 配置 (Layer 7, Port 443) ---</span></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="comment"># ... 其他标准 http 配置 ...</span></span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">443</span> ssl http2; <span class="comment"># 必须开启 http2，DoH 强依赖</span></span><br><span class="line">        <span class="attribute">server_name</span> dns.yourdomain.com;</span><br><span class="line"></span><br><span class="line">        <span class="attribute">ssl_certificate</span> /etc/nginx/cert/yourdomain.crt;</span><br><span class="line">        <span class="attribute">ssl_certificate_key</span> /etc/nginx/cert/yourdomain.key;</span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> /dns-query &#123;</span><br><span class="line">            <span class="comment"># 反代到 Cloudflare DoH</span></span><br><span class="line">            <span class="attribute">proxy_pass</span> https://1.1.1.1/dns-query;</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 传递必要的 Header</span></span><br><span class="line">            <span class="attribute">proxy_set_header</span> Host cloudflare-dns.com;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 保持连接</span></span><br><span class="line">            <span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> Connection <span class="string">&quot;&quot;</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 同样需要处理上游 SNI</span></span><br><span class="line">            <span class="attribute">proxy_ssl_server_name</span> <span class="literal">on</span>;</span><br><span class="line">            <span class="attribute">proxy_ssl_name</span> cloudflare-dns.com;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>厳格な検証向け</strong></p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line">    <span class="attribute">server_name</span> docker.yourdomain.com;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># SSL 证书配置 (请替换为你自己的路径)</span></span><br><span class="line">    <span class="attribute">ssl_certificate</span> /etc/nginx/cert/docker.crt;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/nginx/cert/docker.key;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 推荐的 SSL 优化参数</span></span><br><span class="line">    <span class="attribute">ssl_session_timeout</span> <span class="number">1d</span>;</span><br><span class="line">    <span class="attribute">ssl_session_cache</span> shared:MozSSL:<span class="number">10m</span>;</span><br><span class="line">    <span class="attribute">ssl_protocols</span> TLSv1.<span class="number">2</span> TLSv1.<span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> / &#123;</span><br><span class="line">        <span class="comment"># Docker Hub 的官方注册表地址</span></span><br><span class="line">        <span class="attribute">proxy_pass</span> https://registry-1.docker.io;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 关键设置：修改 Host 头，欺骗 Docker Hub</span></span><br><span class="line">        <span class="attribute">proxy_set_header</span> Host registry-<span class="number">1</span>.docker.io;</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 传递真实 IP，防止被 Docker Hub 误判为攻击</span></span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">        <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 禁用缓存（Docker 镜像层较大且需要实时性，Nginx 默认缓存可能导致问题）</span></span><br><span class="line">        <span class="attribute">proxy_buffering</span> <span class="literal">off</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 转发大文件支持</span></span><br><span class="line">        <span class="attribute">client_max_body_size</span> <span class="number">0</span>; </span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 处理 SSL 握手（因为上游也是 HTTPS）</span></span><br><span class="line">        <span class="attribute">proxy_ssl_server_name</span> <span class="literal">on</span>;</span><br><span class="line">        <span class="attribute">proxy_ssl_protocols</span> TLSv1.<span class="number">2</span> TLSv1.<span class="number">3</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 处理 Docker 的特殊 Header</span></span><br><span class="line">        <span class="attribute">proxy_set_header</span> Authorization <span class="variable">$http_authorization</span>;</span><br><span class="line">        <span class="attribute">proxy_pass_header</span>  Authorization;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="添付ファイル"><a href="#添付ファイル" class="headerlink" title="添付ファイル"></a>添付ファイル</h2><ul>
+<li><a href="%E7%BD%91%E5%AE%89%E5%AE%9E%E9%AA%8C.7z">サイバーセキュリティ実験.7z</a></li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/ja/tags/web/" rel="tag" title="web">web</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        538k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        49:10
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">総閲覧数&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">総閲覧者数&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nginx"><span class="toc-number">1.</span> <span class="toc-text">Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0"><span class="toc-number">1.1.</span> <span class="toc-text">ファイルマッピング</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BB%A2%E9%80%81"><span class="toc-number">1.2.</span> <span class="toc-text">転送</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E3%81%AE%E3%82%B5%E3%82%A4%E3%83%88%E6%A7%8B%E7%AF%89"><span class="toc-number">1.3.</span> <span class="toc-text">ローカルでのサイト構築</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%82%A4%E3%83%88%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E3%81%AE%E4%BD%9C%E6%88%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">サイトディレクトリの作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%82%A4%E3%83%88%E5%86%85%E5%AE%B9%E3%81%AE%E7%B7%A8%E9%9B%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">サイト内容の編集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.3.3.</span> <span class="toc-text">nginx設定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A%E3%81%AE%E6%9C%89%E5%8A%B9%E5%8C%96"><span class="toc-number">1.3.4.</span> <span class="toc-text">サイト設定の有効化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%86%8D%E8%B5%B7%E5%8B%95"><span class="toc-number">1.3.5.</span> <span class="toc-text">サービスの再起動</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A8%BC%E6%98%8E%E6%9B%B8%E7%94%B3%E8%AB%8B"><span class="toc-number">1.4.</span> <span class="toc-text">証明書申請</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%AA%E3%83%B3%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC"><span class="toc-number">1.5.</span> <span class="toc-text">オンラインプレビュー</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Location"><span class="toc-number">1.6.</span> <span class="toc-text">Location</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#proxy-pass"><span class="toc-number">1.6.1.</span> <span class="toc-text">proxy_pass</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docker%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E3%81%B8%E3%81%AE%E8%BB%A2%E9%80%81"><span class="toc-number">1.6.2.</span> <span class="toc-text">dockerコンテナへの転送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E4%B8%80%E9%9A%8E%E5%B1%A4%E3%81%B8%E3%81%AE%E8%BB%A2%E9%80%81"><span class="toc-number">1.6.3.</span> <span class="toc-text">同一階層への転送</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%98%E4%B8%80%E3%83%9D%E3%83%BC%E3%83%88-http-https"><span class="toc-number">1.7.</span> <span class="toc-text">単一ポート http-&gt;https</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%AA%E3%83%90%E3%83%BC%E3%82%B9%E3%83%97%E3%83%AD%E3%82%AD%E3%82%B7"><span class="toc-number">1.8.</span> <span class="toc-text">リバースプロキシ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.9.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>投稿</div>
+    <div class="sidebar-state-number">778</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>カテゴリー</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>タグ</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/" aria-label="ホーム"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">ホーム</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/archives" aria-label="アーカイブ"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">アーカイブ</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/ja/about" aria-label="プロフィール"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">プロフィール</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Nginx",
+          url: "https://blog.wray7.top/2026/06/11/2026-06-11-Nginx.ja/",
+          excerpt: "",
+          description: "",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Nginx  Configの位置  12#/etc/nginx/nginx.conf#/etc/nginx/conf.d/myconfig.conf  1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636",
+          date: "Thu Jun 11 2026 20:07:12 GMT+0800",
+          updated: "Sun Oct 11 2026 04:56:21 GMT+0800",
+          cover: "https://www.dmoe.cc/random.php",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
