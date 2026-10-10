@@ -8,6 +8,5 @@ wray (柳玉峰), master's student at Hokkaido University.
 This blog is where I keep my study notes and tutorials.
 
 - GitHub: [wray-lee](https://github.com/wray-lee)
-- Contact: (to be confirmed)
-
-> This page is a draft, pending wray's review.
+- Instagram: [wrayrem](https://www.instagram.com/wrayrem)
+- Email: [i@wray7.top](mailto:i@wray7.top)

@@ -25,7 +25,10 @@
     "migrate-legacy": "bun tools/migrate-legacy.ts",
     "new": "bun tools/new.ts",
     "server": "bun tools/server.ts",
-    "sync": "bun tools/sync.ts"
+    "sync": "bun tools/sync.ts",
+    "translate": "bun tools/translate.ts",
+    "translate:all": "bun tools/translate.ts --all",
+    "translate:dry-run": "bun tools/translate.ts --dry-run"
   },
   "type": "module",
   "version": "1.0.0"

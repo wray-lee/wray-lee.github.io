@@ -1,0 +1,395 @@
+---
+title: ServerStatus-Rust
+date: 2025-08-04 00:06:27
+tags: ["linux"]
+lang: en
+slug: ServerStatus-Rust
+---
+
+> Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+{% raw %}
+# ServerStatus-Rust
+
+
+
+```bash
+# /etc/systemd/system/stat_server.service
+[Unit]
+Description=ServerStatus-Rust Server
+After=network.target
+
+[Service]
+#User=nobody
+#Group=nobody
+Environment="RUST_BACKTRACE=1"
+WorkingDirectory=/opt/ServerStatus
+ExecStart=/opt/ServerStatus/stat_server -c /opt/ServerStatus/config.toml
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+# /etc/systemd/system/stat_server.service
+```
+
+
+
+```bash
+# /etc/systemd/system/stat_client.service
+
+[Unit]
+Description=Serverstat-Rust Client
+After=network.target
+
+[Service]
+User=root
+Group=root
+Environment="RUST_BACKTRACE=1"
+WorkingDirectory=/opt/ServerStatus
+ExecStart=/opt/ServerStatus/client/stat_client -a "https://probe.wray7.top/report" -u h3 -p wray3s -n
+ExecReload=/bin/kill -HUP
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+
+
+```bash
+#/opt/ServerStatus/config.toml
+
+# 侦听地址, ipv6 使用 [::]:9394
+grpc_addr = "0.0.0.0:35601"
+http_addr = "0.0.0.0:8080"
+# 默认30s无上报判定下线
+offline_threshold = 30
+
+# 开启 grpc TLS, 0:关闭 1: TLS 2: mTLS
+grpc_tls = 1
+# 证书最终路径 ${workspace}/${tls_dir}, 包含 server.pem, server.key 文件
+tls_dir = "tls"
+
+# 管理员账号,不设置默认随机生成，用于查看 /detail, /map
+jwt_secret = "IsV/gUjRdrYHY9m5XhQo6w==" # 修改这个, 使用 openssl rand -base64 16 生成 secret
+admin_user = "wrayProbe"
+admin_pass = "a7ec60e1-8bd9-4eca-bf83-f7c7f7d04d6a"
+
+# hosts 跟 hosts_group 两种配置模式任挑一种配置即可
+# name 主机唯一标识，不可重复，alias 为展示名
+# notify = false 单独禁止单台机器的告警，一般针对网络差，频繁上下线
+# monthstart = 1 没启用vnstat时，表示月流量从每月哪天开始统计
+# disabled = true 单机禁用
+# location 支持国旗 emoji https://emojixd.com/group/flags
+# 或国家缩写，如 cn us 等等，所有国家见目录 web/static/flags
+# 自定义标签 labels = "os=centos;ndd=2022/11/25;spec=2C/4G/60G;"
+# os 标签可选，不填则使用上报数据，ndd(next due date) 下次续费时间, spec 为主机规格
+# os 可用值 centos debian ubuntu alpine pi arch windows linux macos android freebsd
+hosts = [
+  {name = "h1", password = "wray1s", alias = "Wray-California", location = "us", type = "kvm", labels = "os=ubuntu;spec=1C/1G/unlimited;"},
+  {name = "h2", password = "wray2s", alias = "Wray-Losangeles", location = "us", type = "kvm", labels = "os=ubuntu;spec=2C/2G/unlimited;"},
+  {name = "h3", password = "wray3s", alias = "Wray-Home-Debian", location = "cn", type = "kvm", labels = "os=debian;spec=4C/8G/unlimited;"},
+  {name = "h4", password = "wray4s", alias = "Wray-Hudiyun-Debian", location = "cn", type = "kvm", notify = true, labels = "os=debian;spec=8C/8G/20Mbps;"},
+  {name = "h5", password = "wray5s", alias = "Wray-Onecloud", location = "cn", type = "armv7l", notify = true, labels = "os=debian;spec=4C/1G/1000Mbps;"},
+
+  # 最小化配置
+  {name = "mac", password = "pp", alias = "macos"},
+  {name = "pi", password = "pp", alias = "pi", labels = "os=pi"},
+  {name = "win", password = "pp", alias = "windows"},
+  {name = "android", password = "pp", alias = "android", labels = "os=android"},
+]
+
+# 动态注册模式，不再需要针对每一个主机做单独配置
+# gid 为模板组id, 自动注册唯一标识，不可重复
+# eg. ./stat_client -a "http://127.0.0.1:8080/report" -g g1 -p pp
+hosts_group = [
+  # 可以按国家地区或用途来做分组
+  {gid = "g1", password = "pp", location = "🏠", type = "kvm", labels = "os=ubuntu;ndd=2022/11/25;spec=2C/4G/60G;"},
+  {gid = "g2", password = "pp", location = "🏢", type = "kvm", notify = true},
+  # 例如不发送通知可以单独做一组
+  {gid = "silent", password = "pp", location = "🏡", type = "kvm", notify = false},
+]
+# 动态注册模式下，无效数据清理间隔，默认 30s
+# 这个设置要比较通知间隔 notify_interval 大，不然收不到告警通知
+group_gc = 50
+
+# !!! 一键部署如果没问题则不需要动，Server 会自行根据你的域名生成 server_url
+# 修正一键部署，请自行替换 ssr.rs 为你的域名,
+# server_url = "https://ssr.rs/report"
+# stat_client 默认安装的路径
+workspace = "/opt/ServerStatus"
+
+# 不开启告警，可忽略后面配置，或者删除不需的通知方式
+# 告警间隔默认为30s
+notify_interval = 45
+# https://core.telegram.org/bots/api
+# https://jinja.palletsprojects.com/en/3.0.x/templates/#if
+[tgbot]
+# 开关 true 打开
+enabled = true
+bot_token = "8138559462:AAH03gzuW_6IAFn8STk0xZZgmmWpddkMBrg"
+chat_id = "909455021"
+# host 可用字段见 payload.rs 文件 HostStat 结构, {{host.xxx}} 为占位变量
+# 例如 host.name 可替换为 host.alias，大家根据自己的喜好来编写通知消息
+# {{ip_info.query}} 主机 ip, {{sys_info.host_name}} 主机 hostname，见 server_status.proto
+title = "❗<b>Server Status</b>"
+online_tpl =  "{{config.title}} \n😆 {{host.location}} {{host.alias}} 主机恢复上线啦"
+offline_tpl = "{{config.title}} \n😱 {{host.location}} {{host.alias}} 主机已经掉线啦"
+# custom 模板置空则停用自定义告警，只保留上下线通知
+custom_tpl = """
+{% if host.memory_used / host.memory_total > 0.5  %}
+<pre>😲 {{host.name}} 主机内存使用率超50%, 当前{{ (100 * host.memory_used / host.memory_total) | round }}%  </pre>
+{% endif %}
+"""
+#{% if host.hdd_used / host.hdd_total  > 0.5  %}
+#<pre>😲 {{host.name}} 主机硬盘使用率超50%, 当前{{ (100 * host.hdd_used / host.hdd_total) | round }}% </pre>
+#{% endif %}
+
+###################### tgbot end ##########################
+
+## 可选 单纯记录 event 到日志文件，调试自定义告警使用
+[log]
+enabled = false
+log_dir = "/opt/ServerStatus/logs"
+tpl = """{% set obj = dict(event=event, host=host, ip_info=ip_info, sys_info=sys_info) %} {{ obj | tojson}}"""
+
+###################### log end ##########################
+
+## 可选 微信通知
+[wechat]
+enabled = false
+corp_id = "<corp id>"
+corp_secret = "<corp secret>"
+agent_id = "<agent id>"
+title = "❗Server Status"
+online_tpl  = "{{config.title}} \n😆 {{host.location}} 的 {{host.name}} 主机恢复上线啦"
+offline_tpl = "{{config.title}} \n😱 {{host.location}} 的 {{host.name}} 主机已经掉线啦"
+custom_tpl = """
+{% if host.memory_used / host.memory_total > 0.8  %}
+😲 {{host.name}} 主机内存使用率超80%
+{% endif %}
+
+{% if host.hdd_used / host.hdd_total > 0.8  %}
+😲 {{host.name}} 主机硬盘使用率超80%
+{% endif %}
+"""
+###################### wechat end ##########################
+
+## 可选 邮件通知
+[email]
+enabled = false
+server = "smtp.gmail.com"
+username = "user@email.com"
+password = "***"
+to = "user1@email.com;user2@email.com"
+subject = "ServerStatus Notification"
+title = "❗<b>Server Status</b><br/>"
+online_tpl  = "{{config.title}} 😆 {{host.location}} 的 {{host.name}} 主机恢复上线啦"
+offline_tpl = "{{config.title}} 😱 {{host.location}} 的 {{host.name}} 主机已经掉线啦"
+custom_tpl = """
+{% if host.memory_used / host.memory_total > 0.8  %}
+<pre>😲 {{host.name}} 主机内存使用率超80%, 当前{{ (100 * host.memory_used / host.memory_total) | round }}%  </pre>
+{% endif %}
+
+{% if host.hdd_used / host.hdd_total > 0.8  %}
+<pre>😲 {{host.name}} 主机硬盘使用率超80%, 当前{{ (100 * host.hdd_used / host.hdd_total) | round }}% </pre>
+{% endif %}
+"""
+
+###################### email end ##########################
+
+## 可选 webhook
+# 理论上支持所有支持 webhook 的软件，如 Discord、 Slack、 飞书、 企业版微信(WorkWechat)、 钉钉(DingTalk)等。
+# webhook 调用基本上都差不多，差异只在最后返回的 json 结构，根据各自的 api 文档自行构建相应的 json 结构即可。
+# script 使用脚本引擎 https://rhai.rs/book/
+[webhook]
+# 总开关
+enabled = false
+  # 可多个 webhook.receiver
+  [[webhook.receiver]] # 通用型 webhook
+  # 局部开关
+  enabled = false
+  # https://webhook.site/#!/2b1ad731-45fe-49a8-ae91-614167019db2
+  url = "https://webhook.site/2b1ad731-45fe-49a8-ae91-614167019db2"
+  headers = { content-type = "application/json", x-data = "y-data" }
+  # headers = { content-type = "text/plain" }
+  # 可选 HTTP Basic Auth
+  username = "u"
+  password = "p"
+  timeout = 5 #s
+  # 简单发送一个 json 对象，#{} 为 Object 对象, [] 为数组
+  # 最终结果, 固定结构 [是否发送通知，结果对象]
+  script = """[true, #{config: config, event: event, host: host, ip_info: ip_info, sys_info:sys_info} ]"""
+
+  [[webhook.receiver]] # Discord
+  enabled = false
+  # https://discord.com/developers/docs/resources/webhook
+  url = "https://discord.com/api/webhooks/xxxxxxxxxxxxxxxxxxxxxxx"
+  headers = { content-type = "application/json" }
+  timeout = 5 #s
+  script = """
+    let message = "";
+    switch event {
+      "Custom" => {      // 自定义事件
+          let threshold = 10;
+          let msgs = [];
+          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);
+          if memory_usage > threshold {
+             msgs.push(`😲 ${host.location} ${host.name} 主机内存使用率超${threshold}%, 当前 ${memory_usage}%`);
+          }
+          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);
+          if hdd_usage > threshold {
+              msgs.push(`😲 ${host.location} ${host.name} 主机硬盘使用率超${threshold}%, 当前 ${hdd_usage}%`);
+          }
+          message = join(msgs, "\\n");
+      },
+      "NodeDown" => {   // 掉线
+          message = `😱 ${host.location} ${host.name} 主机已经掉线啦`;
+      },
+      "NodeUp" => {     // 上线
+          message = `😆 ${host.location} ${host.name} 主机恢复上线啦`;
+      }
+    }
+
+    // 返回的 json 结构，#{} 为 Object 对象, [] 为数组
+    // 最终结果, 固定结构 [是否发送通知，结果对象]
+    [message.len() > 0, #{ embeds: [ #{
+      title: ":bell: ServerStatus-Rust :bell:",
+      fields: [
+        #{ name: "Event", value: event, },
+        #{ name: "Datetime", value: now_str(), },
+        #{ name: "Message", value: message, },
+      ]
+    }]}]
+  """
+
+  [[webhook.receiver]] # Slack
+  enabled = false
+  # https://api.slack.com/messaging/webhooks
+  url = "https://hooks.slack.com/services/xxxxxxxxxxxxxxxxxxxxxxx"
+  headers = { content-type = "application/json" }
+  timeout = 5 #s
+  script = """
+    let message = "";
+    switch event {
+      "Custom" => {      // 自定义事件
+          let threshold = 80;
+          let msgs = [];
+          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);
+          if memory_usage > threshold {
+             msgs.push(`😲 ${host.location} ${host.name} 主机内存使用率超${threshold}%, 当前 ${memory_usage}%`);
+          }
+          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);
+          if hdd_usage > threshold {
+              msgs.push(`😲 ${host.location} ${host.name} 主机硬盘使用率超${threshold}%, 当前 ${hdd_usage}%`);
+          }
+          message = join(msgs, "\\n");
+      },
+      "NodeDown" => {   // 掉线
+          message = `😱 ${host.location} ${host.name} 主机已经掉线啦`;
+      },
+      "NodeUp" => {     // 上线
+          message = `😆 ${host.location} ${host.name} 主机恢复上线啦`;
+      }
+    }
+
+    // 最终结果, 固定结构 [是否发送通知，结果对象]
+    [message.len() > 0, #{text: message}]
+  """
+
+  [[webhook.receiver]] # WorkWechat
+  enabled = false
+  # https://developer.work.weixin.qq.com/document/path/91770
+  url = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxxxxxxxxxxxxxxxxxx"
+  headers = { content-type = "application/json" }
+  timeout = 5 #s
+  script = """
+    let message = "";
+    switch event {
+      "Custom" => {      // 自定义事件
+          let threshold = 80;
+          let msgs = [];
+          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);
+          if memory_usage > threshold {
+             msgs.push(`😲 ${host.location} ${host.name} 主机内存使用率超${threshold}%, 当前 ${memory_usage}%`);
+          }
+          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);
+          if hdd_usage > threshold {
+              msgs.push(`😲 ${host.location} ${host.name} 主机硬盘使用率超${threshold}%, 当前 ${hdd_usage}%`);
+          }
+          message = join(msgs, "\\n");
+      },
+      "NodeDown" => {   // 掉线
+          message = `😱 ${host.location} ${host.name} 主机已经掉线啦`;
+      },
+      "NodeUp" => {     // 上线
+          message = `😆 ${host.location} ${host.name} 主机恢复上线啦`;
+      }
+    }
+
+    // 最终结果, 固定结构 [是否发送通知，结果对象]
+    [message.len() > 0, #{
+      msgtype: "text",
+      text: #{
+        content: message
+      }
+    }]
+  """
+
+  [[webhook.receiver]] # Bark
+  enabled = false
+  # https://github.com/Finb/Bark
+  # https://day.app/2021/06/barkfaq/
+  url = "https://api.day.app/push"
+  headers = { content-type = "application/json; charset=utf-8" }
+  timeout = 5 #s
+  script = """
+    let message = "";
+    switch event {
+      "Custom" => {      // 自定义事件
+          // 使用率阈值，这里是磁盘 超 70% 告警
+          let threshold = 70;
+          let msgs = [];
+          let memory_usage = round(host.memory_used * 100.0 / host.memory_total);
+          if memory_usage > threshold {
+             msgs.push(`😲 ${host.location} ${host.name} 主机内存使用率超${threshold}%, 当前 ${memory_usage}%`);
+          }
+          let hdd_usage = round(host.hdd_used * 100.0 / host.hdd_total);
+          if hdd_usage > threshold {
+              msgs.push(`😲 ${host.location} ${host.name} 主机硬盘使用率超${threshold}%, 当前 ${hdd_usage}%`);
+          }
+          message = join(msgs, "\\n");
+      },
+      "NodeDown" => {   // 掉线
+          message = `😱 ${host.location} ${host.name} 主机已经掉线啦`;
+      },
+      "NodeUp" => {     // 上线
+          message = `😆 ${host.location} ${host.name} 主机恢复上线啦`;
+      }
+    }
+
+    // 最终结果, 固定结构 [是否发送通知，结果对象]
+    [message.len() > 0, #{
+      // 标题
+      title: "ServerStatusRust",
+      // 告警内容
+      body: message,
+      // 修改成你的设备 key, app 内获取
+      device_key: "fLLBrV****kM5H",
+      // 后面为可选字段参考 https://github.com/Finb/bark-server/blob/master/docs/API_V2.md
+      // 其它角标, 铃声, icon, 参考 app 里面的说明即可
+      badge: 1,
+      sound: "minuet.caf",
+      icon: "https://day.app/assets/images/avatar.jpg",
+      group: "SSR",
+      url: "https://github.com/zdz/ServerStatus-Rust"
+
+    }]
+  """
+
+###################### webhook end ##########################
+
+```
+{% endraw %}

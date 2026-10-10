@@ -32,3 +32,14 @@ generator_search:
   enable: true
   field: post
   content: true
+
+# 多语言 i18n（主题内置实现，见 reimu README i18n 章节）：默认 zh-CN；en/ja 文章通过 front-matter lang 生成 /en/、/ja/ 路由
+i18n:
+  enable: true，避免生成中文内容的日英马甲页；回填完成后改回 true
+  type: [page, post]
+  generator: [archive, category, tag, index]
+  languages: [zh-CN, en, ja]
+
+# 全随机 banner：dmoe.cc 动漫壁纸随机接口，每次加载返回一张不同的图
+# 主题所有装饰性图片位（首页头图、文章导航、归档页、默认封面）都走这个配置
+banner: "https://www.dmoe.cc/random.php"
