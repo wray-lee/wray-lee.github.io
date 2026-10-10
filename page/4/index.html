@@ -1,401 +1,716 @@
-<!doctype html>
-<html lang="en"><head>
-<title>Wray的Blog</title>
-<meta charset="UTF-8">
-<meta name="keywords" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <!DOCTYPE html>
+  <html lang="zh-CN"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
 
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wray的Blog">
-<meta property="og:url" content="http://blog.wray7.top/page/4/index.html">
+<meta property="og:url" content="https://blog.wray7.top/page/4/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:locale" content="en_US">
+<meta property="og:description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.wray7.top/images/banner.webp">
 <meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="技术">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="折腾">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.wray7.top/images/banner.webp">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
 
-<link rel="stylesheet" href="/lib/fancybox/fancybox.css">
-<link rel="stylesheet" href="/lib/mdui_043tiny/mdui.css">
-
-
-<link rel="stylesheet" href="/lib/iconfont/iconfont.css?v=1712679378508">
-
-<link rel="stylesheet" href="/css/style.css?v=1712679378508">
-
-
-
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
 
     
-        <link rel="stylesheet" href="/custom.css?v=1712679378508">
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">首页</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">归档</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">关于</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/friend">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">友链</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+      <picture>
+      </picture>
+        <img  fetchpriority="high" src="/images/banner.webp" alt="">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Wray的Blog</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+              <span id="subtitle">技术笔记与折腾记录</span>
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container ">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+        <div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content">      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/2026/05/19/2026-05-19-code%20prompt/" aria-label="code prompt" title="code prompt"></a>
+    <div class="post-cover left">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="code prompt" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-05-19</span>
+        <span><span class="icon-pencil"></span>237 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">code prompt</h2>
+      <article class="post-article">
+          “现在开始，进入‘架构完备性’评估模式。对于当前代码，请执行以下操作：
+拒绝琐碎：忽略语法规范、命名习惯、冗余空格等非逻辑类问题，仅报告可能导致‘系统状态锁死’、‘资源泄露’或‘逻辑竞争’的硬性缺陷。
+定义边界：请指出当前模块中哪一部分逻辑是核心（Core），哪一部分是辅助（Utility），并说明如何通过引入异常处理机制（Exception Handling）将核心逻辑与潜在风险彻底隔离。
+最终产出：在满足‘核心功能不中断’的前提下，给出最简化的修复方案，并确认该方案已覆盖所有已知的异常路径（Happy Path vs Exception Path）。完成后，除非出现重大架构崩溃，否则请停止
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2026/05/14/2026-05-14-Arch%E6%B8%85%E7%90%86%E5%9E%83%E5%9C%BE/" aria-label="Arch清理垃圾" title="Arch清理垃圾"></a>
+    <div class="post-cover right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Arch清理垃圾" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-05-14</span>
+        <span><span class="icon-pencil"></span>80 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">Arch清理垃圾</h2>
+      <article class="post-article">
+          Arch清理垃圾清理安装包缓存sudo pacman -Scc
+清理孤立的软件包sudo pacman -Rsn $(pacman -Qtdq)
+清理日志
+限制日志记录为50M
+
+journalctl --vacuum-size=50M
+清理Auryay -Yc
+清理缓存sudo paccache -rk0
+清理旧内核mhwd-kernel -li
+清理旧配置文件find ~/.config -type f -mtime +365 -exec rm &amp;#123;&amp;#125; \;
+
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/2026/04/28/2026-04-28-%E4%BA%A4%E5%BE%80%E5%87%BD%E5%AD%90/" aria-label="交往函子" title="交往函子"></a>
+    <div class="post-cover left">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="交往函子" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-04-28</span>
+        <span><span class="icon-pencil"></span>408 字</span>
+        <span><span class="icon-clock"></span>2 分钟</span>
+      </div>
+      <h2 class="post-title">交往函子</h2>
+      <article class="post-article">
+          1234567891011121314151617181920212223242526272829graph TD    classDef base fill:#f9f9f9,stroke:#333,stroke-width:2px;    classDef decision fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;    classDef action fill:#fff3e0,stroke:#f57c00,stroke-width:2px;    classDef endpoint fill:#e8f5e9,stroke:#388e3c,s
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2026/04/02/2026-04-02-Latex%20%E5%85%AC%E5%BC%8F%E9%80%9F%E6%9F%A5/" aria-label="Latex 公式速查" title="Latex 公式速查"></a>
+    <div class="post-cover right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Latex 公式速查" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-04-02</span>
+        <span><span class="icon-pencil"></span>2.6k 字</span>
+        <span><span class="icon-clock"></span>14 分钟</span>
+      </div>
+      <h2 class="post-title">Latex 公式速查</h2>
+      <article class="post-article">
+          Latex 公式速查本文记录了一些常用的数学公式对应的 Latex 字符，用于快速查找需要的字符。
+所有的在 Latex 使用的字符公式，都需要放在\(和\)，$ 和 $，\begin&amp;#123;math&amp;#125; 和\end&amp;#123;math&amp;#125;之间。
+如果是对于比较大的数学公式，如需要独立一段的公式，就需要使用于 \[ 和 \] 或 \begin&amp;#123;displaymath&amp;#125; 和 \end&amp;#123;displaymath&amp;#125; 来写公式。
+行内和行间12行内(limits)： \sum\limits^n_&amp;#123;i = 1&amp;#125;行间(nolim
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/2026/02/25/2026-02-25-philosophical%20ai/" aria-label="philosophical ai" title="philosophical ai"></a>
+    <div class="post-cover left">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="philosophical ai" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-02-25</span>
+        <span><span class="icon-pencil"></span>3.2k 字</span>
+        <span><span class="icon-clock"></span>13 分钟</span>
+      </div>
+      <h2 class="post-title">philosophical ai</h2>
+      <article class="post-article">
+          System Prompt: The Full-Stack Structural Realism Architect (v6.4 [Integrated &amp;#x2F; Strict Mode])Role Definition你是我“系统性元认知”的 [Root级全栈架构师]。
+你的核心架构基于 “全栈式结构实在论 (Full-Stack Structural Realism)”。
+你的双重任务是：
+
+现象降维 (Phenomenological Reduction)：拒绝一切文学化、情绪化或玄学化的模糊描述，强制使用 系统工程、拓扑学、博弈论与贝叶斯逻辑，将“世界”重构为 结构 (Struct
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2026/02/11/2026-02-11-The%20Orthogonality%20of%20Rhetoric%20and%20Reality/" aria-label="The Orthogonality of Rhetoric and Reality" title="The Orthogonality of Rhetoric and Reality"></a>
+    <div class="post-cover right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="The Orthogonality of Rhetoric and Reality" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-02-11</span>
+        <span><span class="icon-pencil"></span>528 字</span>
+        <span><span class="icon-clock"></span>4 分钟</span>
+      </div>
+      <h2 class="post-title">The Orthogonality of Rhetoric and Reality</h2>
+      <article class="post-article">
+          The Orthogonality of Rhetoric and Reality
+Proving the inherent unreliability of debate outcomes via topological analysis.
+Subject: Cognitive Science &amp;#x2F; Epistemology &amp;#x2F; Game Theory
+
+In Full-Stack Structural Realism (FSSR), we reject the naive assumption that dialectic discourse linearly conve
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/2026/02/11/2026-02-11-Beyond%20Naive%20Realism%20A%20Manifesto%20for%20Full-Stack%20Structural%20Realism/" aria-label="Beyond Naive Realism A Manifesto for Full-Stack Structural Realism" title="Beyond Naive Realism A Manifesto for Full-Stack Structural Realism"></a>
+    <div class="post-cover left">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Beyond Naive Realism A Manifesto for Full-Stack Structural Realism" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-02-11</span>
+        <span><span class="icon-pencil"></span>503 字</span>
+        <span><span class="icon-clock"></span>4 分钟</span>
+      </div>
+      <h2 class="post-title">Beyond Naive Realism A Manifesto for Full-Stack Structural Realism</h2>
+      <article class="post-article">
+          Beyond Naive Realism: A Manifesto for Full-Stack Structural Realism
+Subject: Cognitive Science &amp;#x2F; Epistemology Date: Feb 2026
+
+In an era saturated with semantic entropy and high-frequency emotional noise, the human cognitive apparatus is often overwhelmed. We drift into “Naive Realism,” mistakin
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2026/01/24/2026-01-24-powershell%E6%8F%90%E6%9D%83/" aria-label="powershell提权" title="powershell提权"></a>
+    <div class="post-cover right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="powershell提权" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-01-24</span>
+        <span><span class="icon-pencil"></span>109 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">powershell提权</h2>
+      <article class="post-article">
+          powershell提权1234567891011$currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())if (-not $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) &amp;#123;    # 如果不是管理员，重新以管理员身份启动本脚本    $processInfo = New-Object S
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/2026/01/24/2026-01-24-Subst%20%E5%B0%86windows%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%A0%E5%B0%84%E4%B8%BA%E7%A3%81%E7%9B%98/" aria-label="Subst 将windows文件夹映射为磁盘" title="Subst 将windows文件夹映射为磁盘"></a>
+    <div class="post-cover left">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Subst 将windows文件夹映射为磁盘" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-01-24</span>
+        <span><span class="icon-pencil"></span>591 字</span>
+        <span><span class="icon-clock"></span>3 分钟</span>
+      </div>
+      <h2 class="post-title">Subst 将windows文件夹映射为磁盘</h2>
+      <article class="post-article">
+          Subst 将windows文件夹映射为磁盘它是 DOS 时代的遗产，但至今仍然是 Windows 中将**“长路径文件夹”映射为“短盘符”**的最快、最原生方式。
+对于你想要构建的“类 Linux”环境，这是一个神器。比如你可以把 C:\dev 直接映射成 X: 盘，这样你的代码路径就是 X:\MyProject，而不是 C:\dev\MyProject。
+1. 基本用法 (临时生效)打开 CMD 或 PowerShell（不需要管理员权限），输入：
+PowerShell
+12# 语法：subst [盘符] [目标文件夹路径]subst X: C:\dev
+
+效果：
+
+“我的电脑”里会瞬间多
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2026/01/20/2026-01-20-Armbian-OES/" aria-label="Armbian-OES" title="Armbian-OES"></a>
+    <div class="post-cover right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Armbian-OES" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-01-20</span>
+        <span><span class="icon-pencil"></span>596 字</span>
+        <span><span class="icon-clock"></span>4 分钟</span>
+      </div>
+      <h2 class="post-title">Armbian-OES</h2>
+      <article class="post-article">
+          Armbian-OES系统安装emmc
+  dd if=path-to-armbian.img of=/dev/mmcblk1 status=progress
+
+armbian-install
+sataMethod 1dd if=path-to-armbian.img of=/dev/sda1 status=progress
+ cfdisk /dev/sda 删除/boot 
+
+  uEnv启动系统后，系统fstab会扫描所有设备挂载，通过label挂载boot可能会是sata先响应
+
+mount /dev/sda2 /mnt vim /mnt/etc/fstab 更改systemd挂载的uu
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/2026/01/20/2026-01-20-SSH%E7%BB%88%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81/" aria-label="SSH终端不支持" title="SSH终端不支持"></a>
+    <div class="post-cover left">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="SSH终端不支持" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-01-20</span>
+        <span><span class="icon-pencil"></span>84 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">SSH终端不支持</h2>
+      <article class="post-article">
+          SSH终端不支持tput: unknown terminal &amp;quot;xterm-kitty&amp;quot;
+解决infocmp 导出本地的配置，通过管道传给 ssh，再由远程服务器的 tic 命令编译并存入服务器用户目录下的 ~/.terminfo 中。
+1infocmp -a xterm-kitty | ssh user@remote_server tic -x -o \~/.terminfo /dev/stdin
+
+附件
+linux同步时间.pdf
+linux电池管理.pdf
+
+
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2026/01/05/2026-01-05-Machine%20Learning/" aria-label="Machine Learning" title="Machine Learning"></a>
+    <div class="post-cover right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="Machine Learning" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-01-05</span>
+        <span><span class="icon-pencil"></span>423 字</span>
+        <span><span class="icon-clock"></span>2 分钟</span>
+      </div>
+      <h2 class="post-title">Machine Learning</h2>
+      <article class="post-article">
+          Machine Learning学习
+有监督学习(supervised learning)：照着学，有训练集的正确答案
+无监督学习(unsupervised learning) ：只给予目的，只有粗略范围的合理答案
+自监督学习（Self-Supervised Learning）：可预见的小内容量化，通过自己打标签学习
+
+
+强化学习(reinforcement learning): 多维度两种学习再包含时间维度（延迟反馈）的拟合，往往是没办法量化的内容
+
+涌现：在训练结果中所出现的意料之外，未发现过的有意义的现象
+Transformer
+Heads: 对矩阵进行分割，每一部分叫做一个head，每
+      </article>
+    </div>
+  </div>
+</div>
+  <nav id="page-nav" aria-label="Pagination navigation" data-aos="fade-up">
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/5/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        169k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        15:27
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+      <div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+
+  </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
     
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
 
 
 
-<script src="/lib/mdui_043tiny/mdui.js" async></script>
-<script src="/lib/fancybox/fancybox.umd.js" async></script>
-<script src="/lib/lax.min.js" async></script>
+
+<script src="/js/script.js"></script>
 
 
-<script async src="/js/app.js?v=1712679378509"></script>
+  
+<script src="/js/aos.js"></script>
 
- 
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-4D4ZJ9G024"></script>
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-
-  gtag("config", "G-4D4ZJ9G024");
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
 </script>
 
 
-<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
-<meta name="generator" content="Hexo 6.3.0"></head><body class="nexmoe mdui-drawer-body-left"><div id="nexmoe-background"><div class="nexmoe-bg" style="background-image: url(https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0)"></div><div class="mdui-appbar mdui-shadow-0"><div class="mdui-toolbar"><a class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target: &#039;#drawer&#039;, swipe: true}" title="menu"><i class="mdui-icon nexmoefont icon-menu"></i></a><div class="mdui-toolbar-spacer"></div><a class="mdui-btn mdui-btn-icon" href="/" title="Wray Lee"><img src="https://cn.gravatar.com/userimage/233116289/1526482abfaf22d825aea126c7edcd17.jpeg?size=256" alt="Wray Lee"></a></div></div></div><div id="nexmoe-header"><div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="Wray Lee">
-            <img src="https://cn.gravatar.com/userimage/233116289/1526482abfaf22d825aea126c7edcd17.jpeg?size=256" alt="Wray Lee" alt="Wray Lee">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div><span>Articles</span>35</div>
-        <div><span>Tags</span>0</div>
-        <div><span>Categories</span>0</div>
-    </div>
-    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/" title="回到首页">
-            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
-            <div class="mdui-list-item-content">
-                回到首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/archive.html" title="文章归档">
-            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
-            <div class="mdui-list-item-content">
-                文章归档
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/PY.html" title="我的朋友">
-            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
-            <div class="mdui-list-item-content">
-                我的朋友
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/donate.html" title="给我赞助">
-            <i class="mdui-list-item-icon nexmoefont icon-coffee"></i>
-            <div class="mdui-list-item-content">
-                给我赞助
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple false" href="/about.html" title="关于博主">
-            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
-            <div class="mdui-list-item-content">
-                关于博主
-            </div>
-        </a>
-        
-    </div>
-    
-    
-        
-        <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-search">
-        
-            <form id="search_form">
-                <label><input class="st-default-search-input" id="search_value" name="q" type="search" placeholder="Search" style="
-                    font-size: 15px !important;
-                    height: 56px !important;
-                    background-image: none;
-                "></label>
-            </form>
-         
-    </div>
-</div>
 
 
-	<script async src="/js/search.js?v=1712679378509"></script>
-
-
-
-    
-        
-        <div class="nexmoe-widget-wrap">
-	<div class="nexmoe-widget nexmoe-social">
-		<a
-			class="mdui-ripple"
-			href="https://t.me/+7RWkqugoPudjMjA1"
-			target="_blank"
-			mdui-tooltip="{content: 'Telegram群'}"
-			style="
-				color: rgb(249, 174, 8);
-				background-color: rgba(249, 174, 8, .1);
-			"
-		>
-			<i
-				class="nexmoefont icon-telegram"
-			></i> </a
-		><a
-			class="mdui-ripple"
-			href="https://space.bilibili.com/13441368"
-			target="_blank"
-			mdui-tooltip="{content: '哔哩哔哩'}"
-			style="
-				color: rgb(231, 106, 141);
-				background-color: rgba(231, 106, 141, .1);
-			"
-		>
-			<i
-				class="nexmoefont icon-bilibili"
-			></i> </a
-		><a
-			class="mdui-ripple"
-			href="https://github.com/wray-lee/"
-			target="_blank"
-			mdui-tooltip="{content: 'GitHub'}"
-			style="
-				color: rgb(25, 23, 23);
-				background-color: rgba(25, 23, 23, .1);
-			"
-		>
-			<i
-				class="nexmoefont icon-github"
-			></i> </a
-		><a
-			class="mdui-ripple"
-			href="https://twitter.com/wraysidlee"
-			target="_blank"
-			mdui-tooltip="{content: 'Twitter'}"
-			style="
-				color: rgb(59, 151, 239);
-				background-color: rgba(59, 151, 239, .1);
-			"
-		>
-			<i
-				class="nexmoefont icon-twitter"
-			></i> </a
-		>
-	</div>
-</div>
-
-    
-        
-        
-
-    
-        
-        
-    
-        
-        
-        
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Archive</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/">2023</a><span class="archive-list-count">33</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-
-    
-        
-        
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">Recent Posts</h3>
-    <div class="nexmoe-widget">
-      <ul>
-        
-          <li>
-            <a href="/2024/04/09/Code/web-basic/">web-basic</a>
-          </li>
-        
-          <li>
-            <a href="/2023/09/05/Network/Server/devops/Crontab/">Crontab</a>
-          </li>
-        
-          <li>
-            <a href="/2023/09/05/Network/Server/devops/Docker/">Docker</a>
-          </li>
-        
-          <li>
-            <a href="/2023/09/04/Code/Git%E6%95%99%E7%A8%8B/">Git教程</a>
-          </li>
-        
-          <li>
-            <a href="/2023/09/04/Code/Shell%E8%AF%AD%E6%B3%95/">Shell语法</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-    
-        
-   
-    <div class="nexmoe-copyright">
-        &copy; 2024 Wray Lee
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://github.com/theme-nexmoe/hexo-theme-nexmoe" target="_blank">Nexmoe</a>
-        
-    </div>
-</div><!-- .nexmoe-drawer --></div><div id="nexmoe-content"><div class="nexmoe-primary"><section class="nexmoe-posts">
-    <div class="nexmoe-post">
-        <a href="/2023/09/04/Network/%E7%BB%84%E7%BD%91/zerotier%E9%85%8D%E7%BD%AE/">
-            
-                <div class="nexmoe-post-cover mdui-ripple"> 
-                    <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="zerotier配置" loading="lazy">
-                    <h1>zerotier配置</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta">
-    <div class="nexmoe-rainbow">
-        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
-        
-        
-    </div>
-    
-    
-    
-    
-    
-</div>
-
-        <article>
-            
-        </article>
-    </div>
-
-    <div class="nexmoe-post">
-        <a href="/2023/09/04/Network/Server/ssh/ssh%E5%A4%9A%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/">
-            
-                <div class="nexmoe-post-cover mdui-ripple"> 
-                    <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="ssh多私钥管理" loading="lazy">
-                    <h1>ssh多私钥管理</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta">
-    <div class="nexmoe-rainbow">
-        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
-        
-        
-    </div>
-    
-    
-    
-    
-    
-</div>
-
-        <article>
-            
-        </article>
-    </div>
-
-    <div class="nexmoe-post">
-        <a href="/2023/09/04/Network/%E7%BB%84%E7%BD%91/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E7%BD%91/">
-            
-                <div class="nexmoe-post-cover mdui-ripple"> 
-                    <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="计算机组网" loading="lazy">
-                    <h1>计算机组网</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta">
-    <div class="nexmoe-rainbow">
-        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
-        
-        
-    </div>
-    
-    
-    
-    
-    
-</div>
-
-        <article>
-            
-        </article>
-    </div>
-
-    <div class="nexmoe-post">
-        <a href="/2023/09/04/Network/Server/iptables/iptables/">
-            
-                <div class="nexmoe-post-cover mdui-ripple"> 
-                    <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="iptables" loading="lazy">
-                    <h1>iptables</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta">
-    <div class="nexmoe-rainbow">
-        <a class="nexmoefont icon-calendar-fill">2023年09月04日</a>
-        
-        
-    </div>
-    
-    
-    
-    
-    
-</div>
-
-        <article>
-            
-        </article>
-    </div>
-
-    <div class="nexmoe-post">
-        <a href="/2019/11/30/hello-world/">
-            
-                <div class="nexmoe-post-cover mdui-ripple"> 
-                    <img src="https://th.bing.com/th/id/R.917ca069a2af6fd72956834eb08358c5?rik=BqcoPnxAZUEIMQ&pid=ImgRaw&r=0" alt="Hello World" loading="lazy">
-                    <h1>Hello World</h1>
-                </div>
-            
-        </a>
-
-        <div class="nexmoe-post-meta">
-    <div class="nexmoe-rainbow">
-        <a class="nexmoefont icon-calendar-fill">2019年11月30日</a>
-        
-        
-    </div>
-    
-    
-    
-    
-    
-</div>
-
-        <article>
-            
-        </article>
-    </div>
-</section><nav class="nexmoe-page-nav"><a class="extend prev" rel="prev" href="/page/3/"><i class="nexmoefont icon-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span></nav></div><div class="nexmoe-post-right">    <div class="nexmoe-fixed">
-        <div class="nexmoe-tool">
-
-            
-
-            
-            
-
-            
-
-            <a href="#nexmoe-content" class="backtop toc-link" aria-label="Back To Top" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
-        </div>
-    </div>
-</div></div><div id="nexmoe-footer"><!--!--></div><div id="nexmoe-search-space"><div class="search-container"><div class="search-header"><div class="search-input-container"><input class="search-input" type="text" placeholder="Search" onInput="sinput();"></div><a class="search-close" onclick="sclose();">×</a></div><div class="search-body"></div></div></div><div><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2058306854838448" crossorigin="anonymous"></script>
-</div></body></html>
+  </body>
+  </html>

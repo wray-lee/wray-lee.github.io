@@ -1,0 +1,610 @@
+  <!DOCTYPE html>
+  <html lang="zh-CN"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    机器学习 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="机器学习种类 监督学习（给与输入和输出的结果，最终形成映射）  强化学习（无监督学习）  自监督学习   监督学习种类（是否有标签） 回归（regression）：无限输入输出 分类（classification）：有限的输入输出  强化学习聚类未给定特定的标签，进行相同特征的分类集合   异常检测降维过程   维度：特征种类的数量   特征提取extraction 特征选择selection 训">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习">
+<meta property="og:url" content="https://blog.wray7.top/2025/03/19/2025-03-19-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="机器学习种类 监督学习（给与输入和输出的结果，最终形成映射）  强化学习（无监督学习）  自监督学习   监督学习种类（是否有标签） 回归（regression）：无限输入输出 分类（classification）：有限的输入输出  强化学习聚类未给定特定的标签，进行相同特征的分类集合   异常检测降维过程   维度：特征种类的数量   特征提取extraction 特征选择selection 训">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-03-19T10:13:45.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:59.018Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">首页</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">归档</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">关于</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/friend">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">友链</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img  fetchpriority="high" src="/images/banner.webp" alt="机器学习">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">机器学习</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">机器学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">种类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.1.1.</span> <span class="toc-text">监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%8D%E7%B1%BB%EF%BC%88%E6%98%AF%E5%90%A6%E6%9C%89%E6%A0%87%E7%AD%BE%EF%BC%89"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">种类（是否有标签）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.1.2.</span> <span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">聚类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">异常检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">降维</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM"><span class="toc-number">1.3.</span> <span class="toc-text">SVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">二维</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.1.1.1.</span> <span class="toc-text">严格定义</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.1.1.1.1.</span> <span class="toc-text">普通定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.1.1.1.2.</span> <span class="toc-text">向量定义</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">线性可分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">最优</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">二次规划</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86"><span class="toc-number">1.3.3.</span> <span class="toc-text">线性不可分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">核函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.4.</span> <span class="toc-text">原问题和对偶问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2025-03-19-机器学习" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2025-03-19T10:13:45.000Z" itemprop="datePublished">2025-03-19</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h1><h2 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h2><ul>
+<li><p>监督学习（给与输入和输出的结果，最终形成映射）</p>
+</li>
+<li><p>强化学习（无监督学习）</p>
+</li>
+<li><p>自监督学习</p>
+</li>
+</ul>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h3><h4 id="种类（是否有标签）"><a href="#种类（是否有标签）" class="headerlink" title="种类（是否有标签）"></a>种类（是否有标签）</h4><ul>
+<li>回归（regression）：无限输入输出</li>
+<li>分类（classification）：有限的输入输出</li>
+</ul>
+<h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p>未给定特定的标签，进行相同特征的分类集合  </p>
+<h4 id="异常检测"><a href="#异常检测" class="headerlink" title="异常检测"></a>异常检测</h4><h4 id="降维"><a href="#降维" class="headerlink" title="降维"></a>降维</h4><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><blockquote>
+<p>  维度：特征种类的数量</p>
+</blockquote>
+<ol>
+<li>特征提取extraction</li>
+<li>特征选择selection</li>
+<li>训练</li>
+<li>验证</li>
+</ol>
+<h2 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><h4 id="二维"><a href="#二维" class="headerlink" title="二维"></a>二维</h4><ul>
+<li>线性可分：二分类中存在一条直线将两种样本分开</li>
+<li>线性不可分：二分类中不存在一条直线将两种样本分开</li>
+</ul>
+<h5 id="严格定义"><a href="#严格定义" class="headerlink" title="严格定义"></a>严格定义</h5><h6 id="普通定义"><a href="#普通定义" class="headerlink" title="普通定义"></a>普通定义</h6><p>一个训练样本集${(X ~ i ~,y ~ i ~),……,(X ~ N ~,Y ~ N ~)}$，在$i&#x3D;1\sim N$线性可分，是指存在（$\omega_1$,$\omega_2$,$b$）,使得对$i &#x3D; 1 \sim N$有<br>$$<br>(1)若 ~ y_i &#x3D; +1, 则 ~ \omega_1 x_{i1} + \omega_2x_{i2} + b &gt; 0	\<br>(2)若 ~ y_i &#x3D; -1, 则 ~ \omega_1 x_{i1} + \omega_2x_{i2} + b &lt; 0<br>$$</p>
+<h6 id="向量定义"><a href="#向量定义" class="headerlink" title="向量定义"></a>向量定义</h6><p>$$<br>X_i &#x3D;<br>\begin{pmatrix}<br>x_{i1}	\<br>x_{i2}<br>\end{pmatrix}^T</p>
+<p>\qquad </p>
+<p>\omega&#x3D;<br>\begin{pmatrix}<br>\omega_1\<br>\omega_2<br>\end{pmatrix}^T</p>
+<p>\<br>(1)若 ~ y_i &#x3D; +1, 则 ~ \omega^T X_i + b &gt; 0	\<br>(2)若 ~ y_i &#x3D; -1, 则 ~ \omega^T X_i + b &lt; 0<br>$$</p>
+<h3 id="线性可分"><a href="#线性可分" class="headerlink" title="线性可分"></a>线性可分</h3><h4 id="最优"><a href="#最优" class="headerlink" title="最优"></a>最优</h4><ol>
+<li>该直线分开了两类</li>
+<li>该直线最大化间隔（margin）</li>
+<li>该直线处于间隔的中间，到所有的支持向量距离相等</li>
+</ol>
+<p>目的：</p>
+<p>​	$最小化\dfrac{1}{2} | \omega | ^2 (| \omega | 为范数)$</p>
+<h4 id="二次规划"><a href="#二次规划" class="headerlink" title="二次规划"></a>二次规划</h4><ol>
+<li>目标函数是二次项</li>
+<li>限制条件是一次项$y_i &#x3D; \omega ^T x_i + b \geq 1, (i&#x3D;1\sim N)$  [$\geq1$为归一化结果，可以通过参数缩放调整]</li>
+</ol>
+<p>满足则为<strong>凸优化问题</strong>则无解或存在唯一最小极值</p>
+<blockquote>
+<p>  选择函数间隔等于 1 是一种规范化手段，目的是为了让问题具有唯一解。如果没有这个规范化条件，$\omega$ 和 $b$ 可以按任意比例缩放（例如，$2\omega, 2b$ 会得到相同的超平面，但函数间隔会变成原来的两倍），这会导致优化目标不明确。通过要求 $y_i (\omega^T x_i + b) \geq 1$，我们固定了函数间隔的尺度，从而使得优化问题有意义。</p>
+<p>  具体来说：</p>
+<ul>
+<li>如果我们不固定函数间隔为 1，而是设为某个常数 $k$，那么 $\omega$ 和 $b$ 会相应地缩放为 $\frac{\omega}{k}$ 和 $\frac{b}{k}$，但几何间隔 $\frac{k}{|\omega|}$ 保持不变。</li>
+<li>因此，选择 $k &#x3D; 1$ 是一种方便的规范化方式，不会影响最终的几何间隔。</li>
+</ul>
+</blockquote>
+<h3 id="线性不可分"><a href="#线性不可分" class="headerlink" title="线性不可分"></a>线性不可分</h3><p>添加松弛变量(slack variable) <strong>$\delta_i$</strong></p>
+<p>$$<br>最小化：	\<br>\dfrac{1}{2} | \omega |^2 + C ~ \Sigma^N_{i&#x3D;1} \delta_i ~ 或 ~ \dfrac{1}{2} | \omega |^2 + C ~ \Sigma^N _{i &#x3D; 1} \delta_i^2	\</p>
+<p>限制条件：	\<br>(1) ~ \delta_i \geq 0	\<br>(2) ~ y_i &#x3D; \omega^T x_i + b \geq 1 - \delta_i ~ , (i &#x3D; 1 \sim N)	\<br>$$</p>
+<h4 id="核函数"><a href="#核函数" class="headerlink" title="核函数"></a>核函数</h4><p>$$<br>K(X_1,X_2) &#x3D; \varphi(X_1)^T \varphi(X_2)<br>$$</p>
+<p>充要条件</p>
+<p>$$</p>
+<ol>
+<li>~ K(X_1,X_2) &#x3D; K(X_2,X_1) \quad (交换性)	\</li>
+<li>~ \forall C_i (i &#x3D; 1 \sim N), \forall N有 \sum\nolimits^N_{i &#x3D; 1} \sum\nolimits^N_{i &#x3D; 1} C_i C_j K(X_i X_j) \quad (半正定性)  	\<br>$$</li>
+</ol>
+<p>例外：</p>
+<p><strong>高斯核函数：</strong> $K(X_1 , X_2) &#x3D; e^{-\frac{ | x_1 - x_2 | ^2}{2 \sigma ^2}}$</p>
+<h3 id="原问题和对偶问题"><a href="#原问题和对偶问题" class="headerlink" title="原问题和对偶问题"></a>原问题和对偶问题</h3><ul>
+<li><p><strong>原问题：</strong><br>$$<br>最小化： f(\omega)	\<br>限制条件：	\<br>g_i(\omega) \leq 0	\quad [i &#x3D; 1\sim K]	\<br>h_i(\omega) &#x3D; 0	\quad [i &#x3D; 1 \sim M]<br>$$</p>
+</li>
+<li><p><strong>对偶问题：</strong></p>
+</li>
+</ul>
+<p>$$<br>定义(拉格朗日函数)： L(\omega, \alpha, \beta) &#x3D; f(\omega) + \sum^K_{i &#x3D; 1} \alpha_i g_i(\omega) + \sum^K_{i &#x3D; 1} \beta_i h_i(\omega)	\<br>&#x3D;f(\omega + \alpha^T) g(\omega) +\beta h(\omega)	\<br>\<br>其中 ~ \alpha &#x3D; [\alpha_1, \alpha_2, …, \alpha_K]^T	\<br>\beta &#x3D; [\beta_1, \beta_2, …, \beta_K]^T	\<br>不等式约束条件(边界)：g(\omega) &#x3D; [g_1(\omega), g_2(\omega), …, g_K(\omega)]^T	\<br>等式约束条件(归一化)：h(\omega) &#x3D; [h_1(\omega), h_2(\omega), …, h_M(\omega)]^T	\<br>$$</p>
+<p>$$<br>最大化：\theta(\alpha, \beta) &#x3D; inf ~ L(\omega, \alpha, \beta), 所有定义域内的\omega	\<br>限制条件：\alpha_i \geq 0, i &#x3D; 1 \sim K<br>$$</p>
+<p><strong>定理</strong>：</p>
+<p>对偶差距$f(\omega^<em>)-\theta(\alpha^</em>, \beta^*)$</p>
+<ol>
+<li></li>
+</ol>
+<p>$$<br>f(\omega^<em>) \geq \theta(\alpha^</em>, \beta^*) \<br>\</p>
+<p>证明：	\<br>\theta(\alpha^<em>, \beta^</em>) &#x3D; inf ~ L(\omega, \alpha^<em>, \beta^</em>)	\<br>\leq L(\omega^<em>, \alpha^</em>, \beta^<em>)	\<br>&#x3D;f(\omega^</em>) + \alpha^{<em>T} g(\omega^</em>) + \beta^{<em>T}h(\omega^</em>)	\<br>\leq f(\omega^<em>)<br>\<br>\<br>已知： ~ g(\omega^</em>) \leq 0; \quad h(\omega^<em>) &#x3D; 0; \quad \alpha(\omega^</em>) \geq 0<br>$$</p>
+<ol start="2">
+<li>原问题的目标函数是凸函数，限制条件是线性函数时</li>
+</ol>
+<p>$$<br>f(\omega^<em>) &#x3D; \theta(\alpha^</em>, \beta^*)<br>$$</p>
+<p>对偶差距为0</p>
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
+<li><a href="%E6%95%99%E4%BD%A0%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E4%B8%80%E4%B8%AA%E5%8D%97%E6%9E%81ip%20-%20%E7%AC%A8%E7%8C%AB%E5%8D%9A%E5%AE%A2.pdf">教你如何获得一个南极ip - 笨猫博客.pdf</a></li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag" title="笔记">笔记</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img data-src="/images/banner.webp" data-sizes="auto" alt="tmp空间扩充（pip空间不足）" class="lazyload">
+        <a href="/2025/03/19/2025-03-19-tmp%E7%A9%BA%E9%97%B4%E6%89%A9%E5%85%85%EF%BC%88pip%E7%A9%BA%E9%97%B4%E4%B8%8D%E8%B6%B3%EF%BC%89/" aria-label="前一篇: tmp空间扩充（pip空间不足）" title="前一篇: tmp空间扩充（pip空间不足）"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">
+            tmp空间扩充（pip空间不足）
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="path" class="lazyload">
+      <a href="/2025/03/06/2025-03-06-path/" aria-label="后一篇: path"  title="后一篇: path"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          path
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        169k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        15:27
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">机器学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%8D%E7%B1%BB"><span class="toc-number">1.1.</span> <span class="toc-text">种类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.1.1.</span> <span class="toc-text">监督学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%8D%E7%B1%BB%EF%BC%88%E6%98%AF%E5%90%A6%E6%9C%89%E6%A0%87%E7%AD%BE%EF%BC%89"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">种类（是否有标签）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">1.1.2.</span> <span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">聚类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">异常检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%8D%E7%BB%B4"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">降维</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.</span> <span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVM"><span class="toc-number">1.3.</span> <span class="toc-text">SVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.1.</span> <span class="toc-text">概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">二维</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%A5%E6%A0%BC%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.1.1.1.</span> <span class="toc-text">严格定义</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E6%99%AE%E9%80%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.1.1.1.1.</span> <span class="toc-text">普通定义</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">1.3.1.1.1.2.</span> <span class="toc-text">向量定义</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%8F%AF%E5%88%86"><span class="toc-number">1.3.2.</span> <span class="toc-text">线性可分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BC%98"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">最优</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E6%AC%A1%E8%A7%84%E5%88%92"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">二次规划</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%B8%8D%E5%8F%AF%E5%88%86"><span class="toc-number">1.3.3.</span> <span class="toc-text">线性不可分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B8%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">核函数</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E9%97%AE%E9%A2%98%E5%92%8C%E5%AF%B9%E5%81%B6%E9%97%AE%E9%A2%98"><span class="toc-number">1.3.4.</span> <span class="toc-text">原问题和对偶问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "机器学习",
+          url: "https://blog.wray7.top/2025/03/19/2025-03-19-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/",
+          excerpt: "",
+          description: "",
+          stripContent: "机器学习种类 监督学习（给与输入和输出的结果，最终形成映射）  强化学习（无监督学习）  自监督学习   监督学习种类（是否有标签） 回归（regression）：无限输入输出 分类（classification）：有限的输入输出  强化学习聚类未给定特定的标签，进行相同特征的分类集合   异常检测降维过程   维度：特征种类的数量   特征提取extraction 特征选择selection 训练 验证  SVM概念二维 线性可分：二分类中存在一条直线将两种样本分开 线性不可分：二分类中不存在",
+          date: "Wed Mar 19 2025 18:13:45 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:59 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

@@ -1,0 +1,663 @@
+  <!DOCTYPE html>
+  <html lang="zh-CN"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Git教程 | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="Git教程hexo clean &amp;&amp; hexo g -d &amp;&amp; hexo g -d &amp;&amp; git push git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序  所有操作除了switch,checkout都是在引用当前所在位置进行 提交记录本身的名字为hash值 commitgit commit创建一个新的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git教程">
+<meta property="og:url" content="https://blog.wray7.top/2026/01/01/2026-01-01-Git%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="Git教程hexo clean &amp;&amp; hexo g -d &amp;&amp; hexo g -d &amp;&amp; git push git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序  所有操作除了switch,checkout都是在引用当前所在位置进行 提交记录本身的名字为hash值 commitgit commit创建一个新的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-01T13:23:28.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:58.186Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="code">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">首页</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">归档</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">关于</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/friend">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">友链</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img  fetchpriority="high" src="/images/banner.webp" alt="Git教程">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Git教程</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Git教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#commit"><span class="toc-number">1.1.</span> <span class="toc-text">commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#branch"><span class="toc-number">1.2.</span> <span class="toc-text">branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#merge-rebase"><span class="toc-number">1.3.</span> <span class="toc-text">merge&#x2F;rebase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge"><span class="toc-number">1.3.1.</span> <span class="toc-text">merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase"><span class="toc-number">1.3.2.</span> <span class="toc-text">rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-number">1.4.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#checkout"><span class="toc-number">1.5.</span> <span class="toc-text">checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-number">1.6.</span> <span class="toc-text">相对引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%8F%98%E6%9B%B4"><span class="toc-number">1.7.</span> <span class="toc-text">撤销变更</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E7%90%86%E5%88%86%E6%94%AF"><span class="toc-number">1.8.</span> <span class="toc-text">整理分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tag%EF%BC%88%E9%81%BF%E5%85%8D%E5%88%86%E6%94%AF%E7%A7%BB%E5%8A%A8%E9%80%A0%E6%88%90%E6%B7%B7%E4%B9%B1%EF%BC%89"><span class="toc-number">1.9.</span> <span class="toc-text">Tag（避免分支移动造成混乱）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#describe"><span class="toc-number">1.10.</span> <span class="toc-text">describe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">远程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#clone"><span class="toc-number">2.1.</span> <span class="toc-text">clone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#main%E5%92%8Co-main"><span class="toc-number">2.2.</span> <span class="toc-text">main和o&#x2F;main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch"><span class="toc-number">2.3.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull"><span class="toc-number">2.4.</span> <span class="toc-text">pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#push"><span class="toc-number">2.5.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84commit%E4%BD%86%E4%BF%9D%E7%95%99%E6%96%87%E4%BB%B6"><span class="toc-number">2.6.</span> <span class="toc-text">丢弃本地未提交的commit但保留文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase-1"><span class="toc-number">2.6.1.</span> <span class="toc-text">rebase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reset-%E5%A4%A7%E5%B0%8F%E5%86%99%E6%9B%B4%E6%94%B9%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8"><span class="toc-number">2.6.2.</span> <span class="toc-text">reset(大小写更改时候使用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF%E6%89%80%E6%9C%89commit"><span class="toc-number">2.7.</span> <span class="toc-text">删除分支所有commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E8%A6%86%E7%9B%96%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">2.8.</span> <span class="toc-text">强制覆盖本地代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">2.9.</span> <span class="toc-text">解决冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E6%96%87%E6%9C%AC"><span class="toc-number">2.9.1.</span> <span class="toc-text">对于文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%88%96%E6%83%B3%E8%A6%81%E7%9B%B4%E6%8E%A5%E5%BA%94%E7%94%A8"><span class="toc-number">2.9.2.</span> <span class="toc-text">对于二进制或想要直接应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.</span> <span class="toc-text">解决历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E8%BF%9C%E7%A8%8B%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.1.</span> <span class="toc-text">保留远程历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E6%9C%AC%E5%9C%B0%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.2.</span> <span class="toc-text">保留本地历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge%E4%B8%8D%E7%BB%A7%E6%89%BF%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.3.</span> <span class="toc-text">merge不继承历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">2.11.</span> <span class="toc-text">git clone指定文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">2.12.</span> <span class="toc-text">开发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">2.13.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-01-01-Git教程" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-01-01T13:23:28.000Z" itemprop="datePublished">2026-01-01</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="Git教程"><a href="#Git教程" class="headerlink" title="Git教程"></a>Git教程</h1><p><code>hexo clean &amp;&amp; hexo g -d &amp;&amp; hexo g -d &amp;&amp; git push</code></p>
+<p>git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序</p>
+<p> 所有操作除了switch,checkout都是在引用当前所在位置进行</p>
+<p>提交记录本身的名字为hash值</p>
+<h2 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h2><p><code>git commit</code>创建一个新的版本（不是完全copy,只会记录不同）</p>
+<p><code>git commit --amend</code>对提交记录进行修改</p>
+<h2 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h2><ul>
+<li><code>git branch &lt;branch_name&gt; &lt;branch_position&gt;</code></li>
+</ul>
+<p>​		branch指向一个commit</p>
+<ul>
+<li><p><code>git branch -f main head~3</code>    <code> 	git branch -f main c0</code>    <code>git branch -f</code> 可以变更分支指向</p>
+</li>
+<li><p><code>git switch &lt;branch_name&gt;</code></p>
+</li>
+</ul>
+<p>​		切换到某一分支</p>
+<p>使用分支移动分支也会跟随者移动</p>
+<h2 id="merge-rebase"><a href="#merge-rebase" class="headerlink" title="merge&#x2F;rebase"></a>merge&#x2F;rebase</h2><h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><p>拉取合并</p>
+<p><code>git merge 1</code></p>
+<p>此时branch在main则拉取1的代码到main，branch仍在main</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>合并到，并复制提交记录</p>
+<p><code>git rebase 1</code></p>
+<p>则把main合并到1的开发路线上，branch在main</p>
+<p>rebase不会移动下层的版本，只会移动引用当前所在的版本</p>
+<hr>
+<p><code>git rebase -i head~3</code>			选中包含head引用位置3个commit,通过gui进行删减，排序，处理后的结果会出现在一条新的路线上（基为head~3）</p>
+<p><code>-i</code>变动当前版本到基版本的所有版本</p>
+<p><code>git rebase -参数 基版本	</code></p>
+<h2 id="head"><a href="#head" class="headerlink" title="head"></a>head</h2><p>即为当前引用所在位置</p>
+<p><code>git checkout 1</code></p>
+<p>将head指向1</p>
+<p>head指向一次提交记录commit</p>
+<p>head作为引用使用要大写HEAD</p>
+<h2 id="checkout"><a href="#checkout" class="headerlink" title="checkout"></a>checkout</h2><p><code>git checkout -b totallyNotMain o/main</code></p>
+<p><code>git checkout -b 选择分支 追踪分支</code>（会创建分支，不需要提前创建好）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建分支后远程提交</span></span><br><span class="line">git push --set-upstream origin remote_branch(新分支名称)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>可以使某一分支追踪远程某一分支，相当于替换了main</p>
+<hr>
+<p>也可以使用</p>
+<p><code>git branch -u 追踪分支 选择分支</code>（不会创建分支，需要提前创建）</p>
+<h2 id="相对引用"><a href="#相对引用" class="headerlink" title="相对引用"></a>相对引用</h2><p>^向上移动一个提交记录</p>
+<p>~num 向上移动num个移动记录</p>
+<p><code>git checkout main^</code></p>
+<p>&#x3D;&#x3D;可以使用分支代表提交记录commit&#x3D;&#x3D;</p>
+<p>^2可以选择第二个父提交</p>
+<p>指令支持链式操作</p>
+<p><code>git checkout HEAD~^2~2</code></p>
+<h2 id="撤销变更"><a href="#撤销变更" class="headerlink" title="撤销变更"></a>撤销变更</h2><p><code>git reset</code>	<code>git revert</code></p>
+<p><code>git reset head^</code>是commit退回到前一个记录，删除当前记录，引用变更到前一个记录</p>
+<p><code>git revert head^</code>在此路线上添加一个新的commit，但是新的commit实际上和前一个相同</p>
+<p>&#x3D;&#x3D;两条命令都是对当前引用所在位置进行操作&#x3D;&#x3D;</p>
+<h2 id="整理分支"><a href="#整理分支" class="headerlink" title="整理分支"></a>整理分支</h2><p><code>git cherry-pick c2 c4</code>	将c2,c4按顺序复制到引用当前所在分支下</p>
+<h2 id="Tag（避免分支移动造成混乱）"><a href="#Tag（避免分支移动造成混乱）" class="headerlink" title="Tag（避免分支移动造成混乱）"></a>Tag（避免分支移动造成混乱）</h2><p><code>git tag v1 c1</code></p>
+<p>在c1上添加v1	tag</p>
+<h2 id="describe"><a href="#describe" class="headerlink" title="describe"></a>describe</h2><p><code>git describe &lt;引用&gt;</code></p>
+<p>output：<tag>_<numCommits>_g<hash></p>
+<hr>
+<hr>
+<h1 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h1><h2 id="clone"><a href="#clone" class="headerlink" title="clone"></a>clone</h2><p><code>git clone</code>复制远程仓库</p>
+<p>首次clone会自动将main和o&#x2F;main引用到同一位置</p>
+<h2 id="main和o-main"><a href="#main和o-main" class="headerlink" title="main和o&#x2F;main"></a>main和o&#x2F;main</h2><p>checkout o&#x2F;main 再进行commit时，由于未下载远程仓库数据，会造成HEAD分离，即o&#x2F;main只有同步时才会发生指向变化</p>
+<p>远程分支o&#x2F;main（o&#x2F;*）实际上是远程main分支的位置</p>
+<h2 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h2><p><code>git fetch</code></p>
+<p>不会更新main分支，只是将远程仓库代码下载，更新了o&#x2F;main引用</p>
+<p>不需要参数，会自动比对下载</p>
+<p><code>git fetch origin &lt;远程选定分支:本地选定分支&gt;</code>(可以使用相对引用)</p>
+<p><code>git fetch origin &lt;:本地分支&gt;</code>会创建本地分支</p>
+<h2 id="pull"><a href="#pull" class="headerlink" title="pull"></a>pull</h2><p>就是<code>fetch+merge</code></p>
+<p><code>git pull</code></p>
+<p>实际上就是<code>git fetch ; git merge o/main</code></p>
+<p>会拉取代码自动合并</p>
+<p>是在当前分支下进行拉取，所以o&#x2F;main不在当前位置会因不同步而无法拉取</p>
+<p><code>git pull --rebase</code>以变基形式拉取代码合并main分支，利用此特性可以实现整条分支的变基</p>
+<p>可以使用类似fetch的<code>git pull &lt;远程分支:本地分支&gt;</code>		<code>git pull &lt;:本地分支&gt;</code></p>
+<h2 id="push"><a href="#push" class="headerlink" title="push"></a>push</h2><p>与pull相反，会上传代码，无自动合并，如果本地仓库旧版需要更新后再push</p>
+<p><code>git push origin &lt;选定分支&gt;</code></p>
+<p>​	将HEAD定位到头部，自动追踪选定分支上传</p>
+<p><code>git push origin &lt;本地选定分支:远程选定分支&gt;</code></p>
+<p>将本地选定分支上传到远程选定分支，若远程不存在则会创建</p>
+<p>可以使用相对引用不上传整条分支<code>git push origin &lt;本地选定分支^:远程选定分支&gt;</code></p>
+<p>​	只会上传到本地选定的上方</p>
+<p><code>git push &lt;:远程分支&gt;</code></p>
+<p>​	会删除远程分支</p>
+<h2 id="丢弃本地未提交的commit但保留文件"><a href="#丢弃本地未提交的commit但保留文件" class="headerlink" title="丢弃本地未提交的commit但保留文件"></a>丢弃本地未提交的commit但保留文件</h2><h3 id="rebase-1"><a href="#rebase-1" class="headerlink" title="rebase"></a>rebase</h3><ol>
+<li><code>touch tmp</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m &#39;tmp&#39;</code></li>
+<li><code>git rm ./tmp</code></li>
+<li><code>git commit -m &#39;commit info&#39;</code></li>
+<li><code>git rebase -i 远程分支</code></li>
+<li>drop 中间的提交。fixup&#x2F;squash 第一次提交。reword 最后一次提交，只保留最后一次commit信息</li>
+</ol>
+<h3 id="reset-大小写更改时候使用"><a href="#reset-大小写更改时候使用" class="headerlink" title="reset(大小写更改时候使用)"></a>reset(大小写更改时候使用)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft &#123;seed&#125;</span><br><span class="line">git commit -m</span><br><span class="line">git push --force</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<h2 id="删除分支所有commit"><a href="#删除分支所有commit" class="headerlink" title="删除分支所有commit"></a>删除分支所有commit</h2><p><code>git update-ref -d HEAD</code></p>
+<h2 id="强制覆盖本地代码"><a href="#强制覆盖本地代码" class="headerlink" title="强制覆盖本地代码"></a>强制覆盖本地代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/main</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h2><h3 id="对于文本"><a href="#对于文本" class="headerlink" title="对于文本"></a>对于文本</h3><p>编辑文本查看冲突位置</p>
+<h3 id="对于二进制或想要直接应用"><a href="#对于二进制或想要直接应用" class="headerlink" title="对于二进制或想要直接应用"></a>对于二进制或想要直接应用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">保留本地</span></span><br><span class="line">git checkout --ours </span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">保留远程</span></span><br><span class="line">git checkout --theirs</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="解决历史"><a href="#解决历史" class="headerlink" title="解决历史"></a>解决历史</h2><h3 id="保留远程历史"><a href="#保留远程历史" class="headerlink" title="保留远程历史"></a>保留远程历史</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin</span><br><span class="line">git reset --hard origin/main</span><br></pre></td></tr></table></figure>
+
+<h3 id="保留本地历史"><a href="#保留本地历史" class="headerlink" title="保留本地历史"></a>保留本地历史</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin main --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="merge不继承历史"><a href="#merge不继承历史" class="headerlink" title="merge不继承历史"></a>merge不继承历史</h3><blockquote>
+<p>不会生成commit</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge dev --squash --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="git-clone指定文件夹"><a href="#git-clone指定文件夹" class="headerlink" title="git clone指定文件夹"></a>git clone指定文件夹</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add -f origin git@github.com:google-research/google-research</span><br><span class="line">git config core.sparseCheckout <span class="literal">true</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;tft&quot;</span> &gt;&gt; .git/info/sparse-checkout</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">git fetch -p <span class="comment"># git fetch --prune(取消追踪删除的分支)</span></span><br><span class="line">git checkout -b <span class="built_in">test</span> <span class="comment"># 创建开发分支</span></span><br><span class="line"><span class="comment"># 开发好后</span></span><br><span class="line"><span class="comment"># github 上使用squash pr提交压缩commit</span></span><br><span class="line"></span><br><span class="line">git checkout main</span><br><span class="line">git pull </span><br><span class="line">git branch -D <span class="built_in">test</span></span><br><span class="line">git push origin --delete <span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">git fetch -p</span><br></pre></td></tr></table></figure>
+
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
+<li><a href="Dockerfile_Rules.pdf">Dockerfile_Rules.pdf</a></li>
+<li><a href="encode.7z">encode.7z</a></li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/code/" rel="tag" title="code">code</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img data-src="/images/banner.webp" data-sizes="auto" alt="Behavior" class="lazyload">
+        <a href="/2026/01/01/2026-01-01-Behavior/" aria-label="前一篇: Behavior" title="前一篇: Behavior"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">
+            Behavior
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="marriage" class="lazyload">
+      <a href="/2025/12/20/2025-12-20-marriage/" aria-label="后一篇: marriage"  title="后一篇: marriage"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          marriage
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        169k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        15:27
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Git教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#commit"><span class="toc-number">1.1.</span> <span class="toc-text">commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#branch"><span class="toc-number">1.2.</span> <span class="toc-text">branch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#merge-rebase"><span class="toc-number">1.3.</span> <span class="toc-text">merge&#x2F;rebase</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#merge"><span class="toc-number">1.3.1.</span> <span class="toc-text">merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase"><span class="toc-number">1.3.2.</span> <span class="toc-text">rebase</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#head"><span class="toc-number">1.4.</span> <span class="toc-text">head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#checkout"><span class="toc-number">1.5.</span> <span class="toc-text">checkout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%BC%95%E7%94%A8"><span class="toc-number">1.6.</span> <span class="toc-text">相对引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%8F%98%E6%9B%B4"><span class="toc-number">1.7.</span> <span class="toc-text">撤销变更</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E7%90%86%E5%88%86%E6%94%AF"><span class="toc-number">1.8.</span> <span class="toc-text">整理分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tag%EF%BC%88%E9%81%BF%E5%85%8D%E5%88%86%E6%94%AF%E7%A7%BB%E5%8A%A8%E9%80%A0%E6%88%90%E6%B7%B7%E4%B9%B1%EF%BC%89"><span class="toc-number">1.9.</span> <span class="toc-text">Tag（避免分支移动造成混乱）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#describe"><span class="toc-number">1.10.</span> <span class="toc-text">describe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">远程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#clone"><span class="toc-number">2.1.</span> <span class="toc-text">clone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#main%E5%92%8Co-main"><span class="toc-number">2.2.</span> <span class="toc-text">main和o&#x2F;main</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch"><span class="toc-number">2.3.</span> <span class="toc-text">fetch</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pull"><span class="toc-number">2.4.</span> <span class="toc-text">pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#push"><span class="toc-number">2.5.</span> <span class="toc-text">push</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E6%9C%AA%E6%8F%90%E4%BA%A4%E7%9A%84commit%E4%BD%86%E4%BF%9D%E7%95%99%E6%96%87%E4%BB%B6"><span class="toc-number">2.6.</span> <span class="toc-text">丢弃本地未提交的commit但保留文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase-1"><span class="toc-number">2.6.1.</span> <span class="toc-text">rebase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reset-%E5%A4%A7%E5%B0%8F%E5%86%99%E6%9B%B4%E6%94%B9%E6%97%B6%E5%80%99%E4%BD%BF%E7%94%A8"><span class="toc-number">2.6.2.</span> <span class="toc-text">reset(大小写更改时候使用)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF%E6%89%80%E6%9C%89commit"><span class="toc-number">2.7.</span> <span class="toc-text">删除分支所有commit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%BA%E5%88%B6%E8%A6%86%E7%9B%96%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">2.8.</span> <span class="toc-text">强制覆盖本地代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81"><span class="toc-number">2.9.</span> <span class="toc-text">解决冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E6%96%87%E6%9C%AC"><span class="toc-number">2.9.1.</span> <span class="toc-text">对于文本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%88%96%E6%83%B3%E8%A6%81%E7%9B%B4%E6%8E%A5%E5%BA%94%E7%94%A8"><span class="toc-number">2.9.2.</span> <span class="toc-text">对于二进制或想要直接应用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.</span> <span class="toc-text">解决历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E8%BF%9C%E7%A8%8B%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.1.</span> <span class="toc-text">保留远程历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%9D%E7%95%99%E6%9C%AC%E5%9C%B0%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.2.</span> <span class="toc-text">保留本地历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge%E4%B8%8D%E7%BB%A7%E6%89%BF%E5%8E%86%E5%8F%B2"><span class="toc-number">2.10.3.</span> <span class="toc-text">merge不继承历史</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-clone%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">2.11.</span> <span class="toc-text">git clone指定文件夹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B"><span class="toc-number">2.12.</span> <span class="toc-text">开发流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">2.13.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Git教程",
+          url: "https://blog.wray7.top/2026/01/01/2026-01-01-Git%E6%95%99%E7%A8%8B/",
+          excerpt: "",
+          description: "",
+          stripContent: "Git教程hexo clean &amp;amp;&amp;amp; hexo g -d &amp;amp;&amp;amp; hexo g -d &amp;amp;&amp;amp; git push git像一个可排序的栈，栈顶在最底端，只能对最近的提交进行更改，如果要更改之前的数据就需要排序  所有操作除了switch,checkout都是在引用当前所在位置进行 提交记录本身的名字为hash值 commitgit commit创建一个新的版本（不是完全copy,只会记录不同） git commit --amend对提交记录进行修改 br",
+          date: "Thu Jan 01 2026 21:23:28 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>

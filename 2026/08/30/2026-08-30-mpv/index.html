@@ -1,0 +1,548 @@
+  <!DOCTYPE html>
+  <html lang="zh-CN"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    mpv | Wray的Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css">
+
+    <meta name="description" content="mpvConfig12345Windows: $&#123;mpvBinDir&#125;\portable_config\mpv.confLinux: ~&#x2F;.config&#x2F;mpv&#x2F;mpv.confbin: portable_config也可以放在bin同级目录    直播1mpv --profile&#x3D;low-latency --untimed Youtube Windows: mpv --pro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mpv">
+<meta property="og:url" content="https://blog.wray7.top/2026/08/30/2026-08-30-mpv/index.html">
+<meta property="og:site_name" content="Wray的Blog">
+<meta property="og:description" content="mpvConfig12345Windows: $&#123;mpvBinDir&#125;\portable_config\mpv.confLinux: ~&#x2F;.config&#x2F;mpv&#x2F;mpv.confbin: portable_config也可以放在bin同级目录    直播1mpv --profile&#x3D;low-latency --untimed Youtube Windows: mpv --pro">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-08-30T11:11:36.000Z">
+<meta property="article:modified_time" content="2026-10-10T17:51:58.996Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+    <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">少女祈祷中...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">首页</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">归档</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">关于</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/friend">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">友链</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅" aria-label="RSS 订阅" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索" aria-label="搜索"></a>
+  </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img  fetchpriority="high" src="/images/banner.webp" alt="mpv">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">mpv</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mpv"><span class="toc-number">1.</span> <span class="toc-text">mpv</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Config"><span class="toc-number">1.1.</span> <span class="toc-text">Config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%92%AD"><span class="toc-number">1.2.</span> <span class="toc-text">直播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Youtube"><span class="toc-number">1.2.1.</span> <span class="toc-text">Youtube</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVP4"><span class="toc-number">1.3.</span> <span class="toc-text">SVP4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-08-30-mpv" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-08-30T11:11:36.000Z" itemprop="datePublished">2026-08-30</time>
+    <time style="display: none;" id="post-update-time">2026-10-11</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <h1 id="mpv"><a href="#mpv" class="headerlink" title="mpv"></a>mpv</h1><h2 id="Config"><a href="#Config" class="headerlink" title="Config"></a>Config</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Windows: <span class="variable">$&#123;mpvBinDir&#125;</span>\portable_config\mpv.conf</span><br><span class="line">Linux: ~/.config/mpv/mpv.conf</span><br><span class="line">bin: portable_config</span><br><span class="line"></span><br><span class="line">也可以放在bin同级目录</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="直播"><a href="#直播" class="headerlink" title="直播"></a>直播</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mpv --profile=low-latency --untimed</span><br></pre></td></tr></table></figure>
+<h3 id="Youtube"><a href="#Youtube" class="headerlink" title="Youtube"></a>Youtube</h3><ul>
+<li><strong>Windows:</strong> <code>mpv --profile=low-latency --untimed $(yt-dlp $&#123;url&#125; --get-url --no-download)</code></li>
+<li><strong>Linux:</strong> <code>yt-dlp $&#123;url&#125; --get-url  -f bestaudio --no-download --cookies &#39;/home/wray/.config/microsoft-edge&#39; | xargs mpv --profile=low-latency --untimed </code></li>
+</ul>
+<h2 id="SVP4"><a href="#SVP4" class="headerlink" title="SVP4"></a>SVP4</h2><blockquote>
+<p>若配置mpv后，potplayer需要配置只有一个滤镜强制使用（vapoursynth优先，因为支持多种补帧），potplayer的vapoursynth和avisynth会冲突</p>
+<p>rife模型在<a target="_blank" rel="noopener" href="https://github.com/AmusementClub/vs-mlrt/releases/tag/external-models">vs-mlrt</a>下载，路径<code>%svp4pro%\rife\models\rife</code>，新的模型是<code>%svp4pro%\rife\models\rife_v2</code></p>
+</blockquote>
+<p>2026.8.27 目前可以使用的最新vapoursynth是R73</p>
+<p>可移除项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Lib\site-packages\cpython</span><br><span class="line">Lib\site-packages\pip</span><br><span class="line">sdk/ - 8MB左右，开发头文件</span><br><span class="line">wheel/ - pip缓存</span><br><span class="line">vsgenstubs4/ - IDE补全</span><br><span class="line">vs-scripts/ - 示例脚本</span><br><span class="line">vsgenstubs.py / vsrepo.py / MANIFEST.<span class="keyword">in</span></span><br><span class="line">7z.dll / 7z.exe - vsrepo解压用的，不装插件就没用，2.5MB</span><br><span class="line">AVFS.exe - 虚拟文件系统，古董了</span><br><span class="line">pfm-192-vapoursynth-win.exe - 1.4MB，插件安装器</span><br><span class="line">VSVFW.dll - VfW接口，mpv不用</span><br><span class="line">python.cat - Windows目录文件</span><br><span class="line">python.exe / pythonw.exe - 你不手动跑 python -m pip 就能删，0.3MB</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Interface - https://mpv.io/manual/stable/#osd</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">osc=no																	<span class="comment"># turn off for ModernX OSC</span></span><br><span class="line">osd-bar=no																<span class="comment"># removes the default bar when scrubbing or changing volume</span></span><br><span class="line">osd-duration=2000														<span class="comment"># how long osd messages show, in ms</span></span><br><span class="line">osd-font=<span class="string">&quot;Segoe UI Semibold&quot;</span> 						 					<span class="comment"># UI font, must be available on your system, &#x27;Noto Sans&#x27; is used often on Linux</span></span><br><span class="line">osd-font-size=30</span><br><span class="line">osd-outline-size=2</span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Watch Later - https://mpv.io/manual/master/#watch-later</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">save-watch-history=<span class="built_in">yes</span></span><br><span class="line">watch-later-options=start,sid											<span class="comment"># save position and selected subs</span></span><br><span class="line">watch-later-options-remove=sub-pos										<span class="comment"># dont save subtitle position</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Window - https://mpv.io/manual/stable/#window</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">title=<span class="string">&quot;<span class="variable">$&#123;filename&#125;</span>&quot;</span>														<span class="comment"># customise as desired</span></span><br><span class="line">keep-open=<span class="built_in">yes</span> 															<span class="comment"># keep mpv open after a video ends</span></span><br><span class="line">border=no																<span class="comment"># optional - if you don&#x27;t want to see the OS border</span></span><br><span class="line">title-bar=no															<span class="comment"># optional - if you don&#x27;t want to see the OS title bar</span></span><br><span class="line">screen-name=DP-1                                                        <span class="comment"># sometimes needed on linux to base autofit on the right montior</span></span><br><span class="line">autofit=75%x75%				    		    							<span class="comment"># maximum size of the window when it opens - large windows wont fill the screen upon open</span></span><br><span class="line">reset-on-next-file=video-pan-x,video-pan-y,video-zoom</span><br><span class="line">hr-seek=no</span><br><span class="line"><span class="comment">#hr-seek-framedrop=yes</span></span><br><span class="line">screenshot-format=jxl</span><br><span class="line">screenshot-high-bit-depth=no</span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Terminal - https://mpv.io/manual/stable/#terminal</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">msg-color=<span class="built_in">yes</span>                           								<span class="comment"># color log messages on terminal</span></span><br><span class="line">msg-module=<span class="built_in">yes</span>                          								<span class="comment"># prepend module name to log messages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Playlist - https://mpv.io/manual/master/#options-prefetch-playlist</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">directory-mode=ignore													<span class="comment"># ignore subdirectories</span></span><br><span class="line">autocreate-playlist=same												<span class="comment"># add other files in directory into a playlist</span></span><br><span class="line">directory-filter-types=video,audio</span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># YouTube/Web Videos - https://mpv.io/manual/master/#options-ytdl-format</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">ytdl-format=bestvideo[format_note!*=AI-upscaled]+bestaudio/bestvideo+bestaudio/best</span><br><span class="line">ytdl-raw-options=extractor-args=<span class="string">&quot;youtube:player_client=default,tv;skip=hls&quot;</span></span><br><span class="line"><span class="comment"># ytdl-format=bestvideo[height&lt;=?1080][vcodec^=avc1]+bestaudio/bestvideo+bestaudio/best		# limit to 1080p h264 for lower CPU usage</span></span><br><span class="line">hls-bitrate=max															<span class="comment"># internet video streaming</span></span><br><span class="line">demuxer-max-bytes=800MiB</span><br><span class="line">demuxer-max-back-bytes=200MiB</span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Video - https://mpv.io/manual/stable/#video</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Options to do with video - essentially whether to utilize the CPU</span></span><br><span class="line"><span class="comment"># or GPU more, you can change api with --gpu-api and enable hardware</span></span><br><span class="line"><span class="comment"># decoding with --hwdec=auto-safe</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">vo=gpu-next																<span class="comment"># newer rendering pipeline</span></span><br><span class="line">gpu-api=opengl</span><br><span class="line"><span class="comment"># profile=fast 															# for slow computers</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Audio - https://mpv.io/manual/stable/#audio</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Disable &#x27;Audio Enhancements&#x27; in Windows sound settings if surround</span></span><br><span class="line"><span class="comment"># downsampling sounds broken.</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">audio-file-auto=fuzzy													<span class="comment"># ensure all audio tracks can be loaded</span></span><br><span class="line">volume-max=150															<span class="comment"># amplify volume above 100</span></span><br><span class="line">alang=jpn,jp,ko,eng,en,enUS,en-US										<span class="comment"># audio language priority</span></span><br><span class="line">slang=eng,en 															<span class="comment"># subtitle language priority</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Subtitles - https://mpv.io/manual/stable/#subtitles</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">sub-auto=fuzzy 															<span class="comment"># external subs don&#x27;t have to match the file name to autoload (use fuzzy otherwise)</span></span><br><span class="line">sub-ass-override=force													<span class="comment"># personal preference - this removes custom fonts from subtitles</span></span><br><span class="line">sub-use-margins=no														<span class="comment"># whether subtitles can go in black bars areas</span></span><br><span class="line">sub-font=<span class="string">&quot;Segoe UI Semibold&quot;</span>											<span class="comment"># change the subtitle font of lines without a specificed font</span></span><br><span class="line">sub-font-size=32														<span class="comment"># subtitle size, use instead of sub-scale to avoid breaking some subtitles</span></span><br><span class="line">sub-border-size=2</span><br><span class="line">sub-back-color=<span class="string">&quot;#000000&quot;</span></span><br><span class="line">sub-shadow-offset=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Profiles - https://mpv.io/manual/stable/#profiles</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line"><span class="comment"># Profiles with options that change based on various parameters</span></span><br><span class="line"><span class="comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────</span></span><br><span class="line">[video]</span><br><span class="line">sub-font=<span class="string">&quot;Segoe UI Semibold&quot;</span></span><br><span class="line">profile-cond=video_codec and (container_fps &gt; 1)</span><br><span class="line"></span><br><span class="line">[av1-hwdec]</span><br><span class="line">profile-cond=video_format==<span class="string">&quot;av1&quot;</span> and height &gt; 1080</span><br><span class="line">profile-desc=av1 hardware decoding</span><br><span class="line">hwdec=auto-safe</span><br><span class="line"></span><br><span class="line">[8K] <span class="comment"># opengl runs out of video memory when playing 8K videos</span></span><br><span class="line">gpu-api=vulkan</span><br><span class="line">profile-desc=8K</span><br><span class="line">profile-cond=width &gt; 3840 and not (audio_codec and (container_fps == nil or container_fps == 1))</span><br><span class="line"></span><br><span class="line">[audio]</span><br><span class="line">sub-font=<span class="string">&quot;A-OTF Shin Go Pro M&quot;</span></span><br><span class="line"><span class="comment"># script-opts-append=modernx-persistent_progress=yes</span></span><br><span class="line">profile-cond=audio_codec and (container_fps == nil or container_fps == 1)</span><br><span class="line"></span><br><span class="line">[loop short videos]</span><br><span class="line">profile-cond=duration &lt; 15</span><br><span class="line">profile-restore=copy</span><br><span class="line">loop-file=inf</span><br><span class="line"></span><br><span class="line">[extension.avif]</span><br><span class="line">image-display-duration=inf</span><br><span class="line">loop-file=inf</span><br><span class="line"><span class="comment">########################################</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#input-ipc-server=/tmp/mpvsocket</span></span><br><span class="line">opengl-early-flush=no</span><br><span class="line">no-resume-playback</span><br><span class="line">hwdec=auto</span><br><span class="line">vo=gpu-next</span><br><span class="line"><span class="comment">#video-sync=display-resample</span></span><br><span class="line"><span class="comment">#force-seekable=yes</span></span><br><span class="line">scale=ewa_lanczossharp</span><br><span class="line">hwdec-codecs=all</span><br><span class="line">hr-seek-framedrop=no</span><br><span class="line"></span><br><span class="line"><span class="comment">###################################</span></span><br><span class="line"><span class="comment">## SVP</span></span><br><span class="line"><span class="comment"># Linux</span></span><br><span class="line"><span class="comment">#input-ipc-server=/tmp/mpvsocket</span></span><br><span class="line"><span class="comment"># Windows</span></span><br><span class="line">input-ipc-server=mpvpipe</span><br><span class="line"></span><br><span class="line"><span class="comment"># Vapoursynth</span></span><br><span class="line"><span class="comment">#hwdec=auto-copy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># MacOs</span></span><br><span class="line"><span class="comment">#opengl-early-flush=no</span></span><br><span class="line"></span><br><span class="line"><span class="comment">####################################</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
+<li><a href="HEVC%E8%A7%A3%E7%A0%81%E5%99%A8.7z">HEVC解码器.7z</a></li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag" title="工具">工具</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+      <div class="article-nav-link-wrap left">
+            <img data-src="/images/banner.webp" data-sizes="auto" alt="Archlinux 忽略包及调整编译选项" class="lazyload">
+        <a href="/2026/08/31/2026-08-31-Archlinux%20%E5%BF%BD%E7%95%A5%E5%8C%85%E5%8F%8A%E8%B0%83%E6%95%B4%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/" aria-label="前一篇: Archlinux 忽略包及调整编译选项" title="前一篇: Archlinux 忽略包及调整编译选项"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">
+            Archlinux 忽略包及调整编译选项
+        </h3>
+      </div>
+    <div class="article-nav-link-wrap right">
+          <img data-src="/images/banner.webp" data-sizes="auto" alt="conda" class="lazyload">
+      <a href="/2026/08/27/2026-08-27-conda/" aria-label="后一篇: conda"  title="后一篇: conda"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+          conda
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        基于&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        169k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        15:27
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">总访问量&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">总访客量&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#mpv"><span class="toc-number">1.</span> <span class="toc-text">mpv</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Config"><span class="toc-number">1.1.</span> <span class="toc-text">Config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B4%E6%92%AD"><span class="toc-number">1.2.</span> <span class="toc-text">直播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Youtube"><span class="toc-number">1.2.1.</span> <span class="toc-text">Youtube</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVP4"><span class="toc-number">1.3.</span> <span class="toc-text">SVP4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee 的技术笔记：折腾、备忘与学习记录</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">263</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">26</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">首页</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">归档</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">关于</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">友链</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+  
+<script src="/js/aos.js"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "mpv",
+          url: "https://blog.wray7.top/2026/08/30/2026-08-30-mpv/",
+          excerpt: "",
+          description: "",
+          stripContent: "mpvConfig12345Windows: $&amp;#123;mpvBinDir&amp;#125;\portable_config\mpv.confLinux: ~/.config/mpv/mpv.confbin: portable_config也可以放在bin同级目录    直播1mpv --profile=low-latency --untimed Youtube Windows: mpv --profile=low-latency --untimed $(yt-dlp $&amp;#123;url&amp;#12",
+          date: "Sun Aug 30 2026 19:11:36 GMT+0800",
+          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js" data-pjax></script>
+
+      
+<script src="/js/tabs.js" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  </body>
+  </html>
