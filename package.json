@@ -1,32 +1,32 @@
 {
-  "name": "hexo-site",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "build": "hexo generate",
-    "clean": "hexo clean",
-    "deploy": "hexo deploy",
-    "server": "hexo server"
-  },
-  "hexo": {
-    "version": "6.3.0"
-  },
   "dependencies": {
-    "@nexmoe/hexo-renderer-inferno": "^0.2.1",
-    "@paralleldrive/cuid2": "^2.2.2",
-    "hexo": "^6.3.0",
-    "hexo-deployer-git": "^4.0.0",
+    "hexo": "^7.3.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-index": "^3.0.0",
-    "hexo-generator-json-content": "^4.2.3",
+    "hexo-generator-searchdb": "^1.4.0",
     "hexo-generator-tag": "^2.0.0",
     "hexo-renderer-ejs": "^2.0.0",
-    "hexo-renderer-marked": "^6.1.1",
-    "hexo-renderer-stylus": "^3.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
     "hexo-server": "^3.0.0",
-    "hexo-theme-landscape": "^1.0.0",
-    "hexo-theme-nexmoe": "^4.2.2",
-    "pnpm": "^8.7.4"
-  }
+    "hexo-theme-reimu": "^1.12.6"
+  },
+  "description": "Wray的Blog —— Hexo + NexT，bun 驱动的 devops 脚本",
+  "hexo": {
+    "version": "7.3.0"
+  },
+  "name": "wray-blog",
+  "private": true,
+  "scripts": {
+    "build": "bun tools/build.ts",
+    "clean": "bunx hexo clean",
+    "deploy": "bun tools/deploy.ts",
+    "migrate-legacy": "bun tools/migrate-legacy.ts",
+    "new": "bun tools/new.ts",
+    "server": "bun tools/server.ts",
+    "sync": "bun tools/sync.ts"
+  },
+  "type": "module",
+  "version": "1.0.0"
 }

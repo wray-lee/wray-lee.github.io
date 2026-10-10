@@ -1,0 +1,34 @@
+# hexo-theme-reimu 配置（Wray的Blog）
+# 主题默认配置见 node_modules/hexo-theme-reimu/_config.yml，这里只覆盖需要改的项
+
+# 主菜单（去掉 friend，没有友链页）
+menu:
+  - name: home
+    url: /
+    icon:
+  - name: archives
+    url: /archives
+    icon:
+  - name: about
+    url: /about
+    icon:
+
+# 头像：source/_data/avatar/avatar.png（由主题 generator 发布到 /avatar/）
+avatar: "avatar.png"
+
+# 社交链接（侧边栏）
+social:
+  github: https://github.com/wray-lee
+
+# 页脚
+footer:
+  since: 2019
+  powered: true
+  count: true
+  busuanzi: true
+
+# 本地搜索：读取 hexo-generator-searchdb 生成的 search.json
+generator_search:
+  enable: true
+  field: post
+  content: true
