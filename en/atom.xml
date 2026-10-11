@@ -12,28 +12,7 @@
     <![CDATA[Tech notes & tinkering logs]]>
   </subtitle>
   <title>Wray's Blog</title>
-  <updated>2026-10-11T08:16:14.087Z</updated>
-  <entry>
-    <author>
-      <name>Wray Lee</name>
-    </author>
-    <category term="标签1" scheme="https://blog.wray7.top/en/tags/%E6%A0%87%E7%AD%BE1/"/>
-    <category term="标签2" scheme="https://blog.wray7.top/en/tags/%E6%A0%87%E7%AD%BE2/"/>
-    <content>
-      <![CDATA[<blockquote><p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p></blockquote><p>Write the main text…</p>]]>
-    </content>
-    <id>https://blog.wray7.top/en/2026/10/11/2026-10-11-%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/</id>
-    <link href="https://blog.wray7.top/en/2026/10/11/2026-10-11-%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/"/>
-    <published>2026-10-11T09:16:09.000Z</published>
-    <summary>
-      <![CDATA[<blockquote>
-<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
-</blockquote>
-<p>Write the ma]]>
-    </summary>
-    <title>Article title</title>
-    <updated>2026-10-11T08:16:14.087Z</updated>
-  </entry>
+  <updated>2026-10-10T20:58:18.154Z</updated>
   <entry>
     <author>
       <name>Wray Lee</name>
@@ -413,5 +392,25 @@
     </summary>
     <title>Windows displays update progress</title>
     <updated>2026-10-10T20:56:36.630Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Wray Lee</name>
+    </author>
+    <category term="Windows" scheme="https://blog.wray7.top/en/tags/Windows/"/>
+    <content>
+      <![CDATA[<blockquote><p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p></blockquote><h1 id="Windows-BitLocker-Termination"><a href="#Windows-BitLocker-Termination" class="headerlink" title="Windows BitLocker Termination"></a>Windows BitLocker Termination</h1><figure class="highlight pwsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">manage<span class="literal">-bde</span> <span class="literal">-off</span> c:</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看进度</span></span><br><span class="line">manage<span class="literal">-bde</span> <span class="literal">-status</span> c:</span><br></pre></td></tr></table></figure><h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul><li><a href="bitlocker.zip">bitlocker.zip</a></li><li><a href="CCleaner_6.38.11537_Portable.7z">CCleaner_6.38.11537_Portable.7z</a></li><li><a href="color.7z">color.7z</a></li><li><a href="nfcTools(PCR532).7z">nfcTools(PCR532).7z</a></li><li><a href="WinX.zip">WinX.zip</a></li><li><a href="%E6%98%BE%E7%A4%BA%E5%99%A8%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE.7z">Monitor color configuration.7z</a></li></ul>]]>
+    </content>
+    <id>https://blog.wray7.top/en/2026/07/22/2026-07-22-Windows%20Bitlocker%20%E7%BB%88%E6%AD%A2/</id>
+    <link href="https://blog.wray7.top/en/2026/07/22/2026-07-22-Windows%20Bitlocker%20%E7%BB%88%E6%AD%A2/"/>
+    <published>2026-07-22T11:59:15.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="Windows]]>
+    </summary>
+    <title>Windows BitLocker termination</title>
+    <updated>2026-10-10T20:56:35.558Z</updated>
   </entry>
 </feed>

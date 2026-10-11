@@ -10,28 +10,7 @@
   <rights>All rights reserved 2026, Wray Lee</rights>
   <subtitle>技術メモと改造記録</subtitle>
   <title>Wrayのブログ</title>
-  <updated>2026-10-11T08:16:15.970Z</updated>
-  <entry>
-    <author>
-      <name>Wray Lee</name>
-    </author>
-    <category term="标签1" scheme="https://blog.wray7.top/ja/tags/%E6%A0%87%E7%AD%BE1/"/>
-    <category term="标签2" scheme="https://blog.wray7.top/ja/tags/%E6%A0%87%E7%AD%BE2/"/>
-    <content>
-      <![CDATA[<blockquote><p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p></blockquote><p>本文を書く…</p>]]>
-    </content>
-    <id>https://blog.wray7.top/ja/2026/10/11/2026-10-11-%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/</id>
-    <link href="https://blog.wray7.top/ja/2026/10/11/2026-10-11-%E6%96%87%E7%AB%A0%E6%A0%87%E9%A2%98/"/>
-    <published>2026-10-11T09:16:09.000Z</published>
-    <summary>
-      <![CDATA[<blockquote>
-<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
-</blockquote>
-<p>本文を書く…</p>]]>
-    </summary>
-    <title>記事のタイトル</title>
-    <updated>2026-10-11T08:16:15.970Z</updated>
-  </entry>
+  <updated>2026-10-10T20:58:29.329Z</updated>
   <entry>
     <author>
       <name>Wray Lee</name>
@@ -412,5 +391,25 @@
     </summary>
     <title>Windows は更新の進行状況を表示します</title>
     <updated>2026-10-10T20:56:44.585Z</updated>
+  </entry>
+  <entry>
+    <author>
+      <name>Wray Lee</name>
+    </author>
+    <category term="Windows" scheme="https://blog.wray7.top/ja/tags/Windows/"/>
+    <content>
+      <![CDATA[<blockquote><p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p></blockquote><h1 id="Windows-Bitlocker-終了"><a href="#Windows-Bitlocker-終了" class="headerlink" title="Windows Bitlocker 終了"></a>Windows Bitlocker 終了</h1><figure class="highlight pwsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">manage<span class="literal">-bde</span> <span class="literal">-off</span> c:</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看进度</span></span><br><span class="line">manage<span class="literal">-bde</span> <span class="literal">-status</span> c:</span><br></pre></td></tr></table></figure><h2 id="添付ファイル"><a href="#添付ファイル" class="headerlink" title="添付ファイル"></a>添付ファイル</h2><ul><li><a href="bitlocker.zip">bitlocker.zip</a></li><li><a href="CCleaner_6.38.11537_Portable.7z">CCleaner_6.38.11537_Portable.7z</a></li><li><a href="color.7z">color.7z</a></li><li><a href="nfcTools(PCR532).7z">nfcTools(PCR532).7z</a></li><li><a href="WinX.zip">WinX.zip</a></li><li><a href="%E6%98%BE%E7%A4%BA%E5%99%A8%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE.7z">ディスプレイの色設定.7z</a></li></ul>]]>
+    </content>
+    <id>https://blog.wray7.top/ja/2026/07/22/2026-07-22-Windows%20Bitlocker%20%E7%BB%88%E6%AD%A2/</id>
+    <link href="https://blog.wray7.top/ja/2026/07/22/2026-07-22-Windows%20Bitlocker%20%E7%BB%88%E6%AD%A2/"/>
+    <published>2026-07-22T11:59:15.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="Windows-Bitlocker-終了"><a href="#Windows-Bitl]]>
+    </summary>
+    <title>Windows BitLocker の終了</title>
+    <updated>2026-10-10T20:56:45.358Z</updated>
   </entry>
 </feed>
