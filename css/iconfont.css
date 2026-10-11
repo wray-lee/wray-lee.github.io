@@ -130,6 +130,12 @@
 .icon-github:before {
   content: '\e619';
 }
+.icon-instagram:before {
+  content: '\e615';
+}
+.icon-email:before {
+  content: '\e63c';
+}
 .sidebar-toc-btn:before {
   font-family: 'iconfont';
   content: '\e633';
