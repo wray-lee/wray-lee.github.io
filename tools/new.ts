@@ -8,7 +8,7 @@
  *   bun run new --help
  *
  * 会在 source/_posts/ 下生成 YYYY-MM-DD-<标题>.md，front matter 已填好当天日期。
- * 建完直接用编辑器写正文，然后 bun run sync(可选) / bun run build / bun run deploy。
+ * 建完直接用编辑器写正文，然后 bun run translate / bun run server 预览 / bun run deploy。
  */
 import { writeFile, mkdir } from "node:fs/promises";
 import { join } from "node:path";
@@ -70,7 +70,7 @@ async function main(): Promise<void> {
   await mkdir(POSTS_DIR, { recursive: true });
   await writeFile(file, front, "utf-8");
   console.log(`已创建: ${file}`);
-  console.log("下一步: 写正文 → bun run build 预览 → bun run deploy 发布");
+  console.log("下一步: 写正文 → bun run translate 生成英日译文 → bun run server 预览 → bun run deploy 发布");
 }
 
 main();

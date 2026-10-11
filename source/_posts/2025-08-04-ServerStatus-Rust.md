@@ -1,10 +1,10 @@
 ---
+disableNunjucks: true
 title: "ServerStatus-Rust"
 date: 2025-08-04 00:06:27
 tags: ["linux"]
 ---
 
-{% raw %}
 # ServerStatus-Rust
 
 
@@ -388,4 +388,3 @@ enabled = false
 ###################### webhook end ##########################
 
 ```
-{% endraw %}

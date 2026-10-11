@@ -1,4 +1,5 @@
 ---
+disableNunjucks: true
 title: ServerStatus-Rust
 date: 2025-08-04 00:06:27
 tags: ["linux"]
@@ -8,7 +9,6 @@ slug: ServerStatus-Rust
 
 > この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
-{% raw %}
 # ServerStatus-Rust
 
 
@@ -392,4 +392,3 @@ enabled = false
 ###################### webhook end ##########################
 
 ```
-{% endraw %}

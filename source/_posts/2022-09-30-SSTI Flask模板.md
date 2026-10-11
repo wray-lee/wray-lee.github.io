@@ -1,10 +1,10 @@
 ---
+disableNunjucks: true
 title: "SSTI Flask模板"
 date: 2022-09-30 00:04:22
 tags: ["web"]
 ---
 
-{% raw %}
 # SSTI Flask模板
 
 # 基础
@@ -102,7 +102,6 @@ root:*:0:0:System
 Administrator:/var/root:/bin/sh
 
 ```
-{% endraw %}
 
 ## 附件
 

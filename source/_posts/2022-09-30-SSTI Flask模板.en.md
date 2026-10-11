@@ -1,4 +1,5 @@
 ---
+disableNunjucks: true
 title: SSTI Flask template
 date: 2022-09-30 00:04:22
 tags: ["web"]
@@ -8,7 +9,6 @@ slug: SSTI Flask模板
 
 > Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
-{% raw %}
 # SSTI Flask Template
 
 # Basics
@@ -106,7 +106,6 @@ root:*:0:0:System
 Administrator:/var/root:/bin/sh
 
 ```
-{% endraw %}
 
 ## Attachments
 

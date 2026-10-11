@@ -1,4 +1,5 @@
 ---
+disableNunjucks: true
 title: SSTI Flaskテンプレート
 date: 2022-09-30 00:04:22
 tags: ["web"]
@@ -8,7 +9,6 @@ slug: SSTI Flask模板
 
 > この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
-{% raw %}
 # SSTI Flaskテンプレート
 
 # 基礎
@@ -106,7 +106,6 @@ root:*:0:0:System
 Administrator:/var/root:/bin/sh
 
 ```
-{% endraw %}
 
 ## 添付ファイル
 

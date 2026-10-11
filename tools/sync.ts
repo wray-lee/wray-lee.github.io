@@ -286,10 +286,11 @@ async function main(): Promise<void> {
       attachSection = "\n\n## 附件\n\n" + attachNames.map((n) => `- [${n}](${encodeURI(n)})`).join("\n") + "\n";
     }
 
-    const front = `---\ntitle: "${rawTitle.replace(/"/g, "'")}"\ndate: ${fmtDate(mtime)}\ntags: [${tags.map((t) => `"${t}"`).join(", ")}]\n---\n\n`;
-    let core = newBody.replace(/\s+$/, "");
-    // 笔记里若有 {{ }} / {% %}（如 Jinja/SSTI 语法），Hexo 会误当模板标签解析致构建失败
-    if (/\{\{|\{%|\{#/.test(core)) core = `{% raw %}\n${core}\n{% endraw %}`;
+    const core = newBody.replace(/\s+$/, "");
+    // 笔记里若有 {{ }} / {% %}（如 Jinja/SSTI 语法），Hexo 会误当模板标签解析致构建失败。
+    // 用 Hexo 原生的 disableNunjucks 关掉模板解析；整篇包 {% raw %} 会让 Markdown 也不渲染
+    const noTpl = /\{\{|\{%|\{#/.test(core) ? "disableNunjucks: true\n" : "";
+    const front = `---\n${noTpl}title: "${rawTitle.replace(/"/g, "'")}"\ndate: ${fmtDate(mtime)}\ntags: [${tags.map((t) => `"${t}"`).join(", ")}]\n---\n\n`;
     const final = front + core + attachSection;
 
     if (!dryRun) {
