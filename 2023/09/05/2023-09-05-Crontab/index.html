@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3xgmxp">
+<link rel="stylesheet" href="/css/loader.css?v=mv3xr5om">
 
     <meta name="description" content="12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)|    |    |    +---------- 月份 (1 - 12)|    |    +--------------- 一个月中的第几天 (1 -">
 <meta property="og:type" content="article">
@@ -23,7 +23,7 @@
 <meta property="og:description" content="12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)|    |    |    +---------- 月份 (1 - 12)|    |    +--------------- 一个月中的第几天 (1 -">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:10.203Z">
+<meta property="article:modified_time" content="2026-10-11T14:44:04.590Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="devops">
 <meta property="article:tag" content="Network">
@@ -33,7 +33,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3xgmxp">
+<link rel="stylesheet" href="/css/style.css?v=mv3xr5om">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -298,19 +298,19 @@
 </thead>
 <tbody><tr>
 <td>*（星号）</td>
-<td>代表任何时间。比如第一个”*”就代表一小时种每分钟都执行一次的意思。</td>
+<td>代表任何时间。比如第一个 <code>*</code>就代表一小时种每分钟都执行一次的意思。</td>
 </tr>
 <tr>
 <td>,（逗号）</td>
-<td>代表不连续的时间。比如”0 8，12，16***命令”就代表在每天的 8 点 0 分、12 点 0 分、16 点 0 分都执行一次命令。</td>
+<td>代表不连续的时间。比如<code>0 8,12,16 * * *</code>就代表在每天的 8 点 0 分、12 点 0 分、16 点 0 分都执行一次命令。</td>
 </tr>
 <tr>
 <td>-（中杠）</td>
-<td>代表连续的时间范围。比如”0 5 ** 1-6命令”，代表在周一到周六的凌晨 5 点 0 分执行命令。</td>
+<td>代表连续的时间范围。比如<code>0 5 * * 1-6</code>，代表在周一到周六的凌晨 5 点 0 分执行命令。</td>
 </tr>
 <tr>
 <td>&#x2F;（正斜线）</td>
-<td>代表每隔多久执行一次。比如”&#x2F;10***命令”，代表每隔 10 分钟就执行一次命令。</td>
+<td>代表每隔多久执行一次。比如<code>*/10 * * * *</code>，代表每隔 10 分钟就执行一次命令。</td>
 </tr>
 </tbody></table>
 <hr>
@@ -364,10 +364,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        561.7k
+        561.6k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:07
+        51:06
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -478,11 +478,11 @@
 
 
 
-<script src="/js/script.js?v=mv3xgmxp"></script>
+<script src="/js/script.js?v=mv3xr5om"></script>
 
 
   
-<script src="/js/aos.js?v=mv3xgmxp"></script>
+<script src="/js/aos.js?v=mv3xr5om"></script>
 
   <script>
     var aosInit = () => {
@@ -501,11 +501,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3xgmxp" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3xr5om" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3xgmxp" defer></script>
+<script src="/js/generator_search.js?v=mv3xr5om" defer></script>
 
 
 
@@ -537,15 +537,15 @@
           description: "",
           stripContent: "12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)|    |    |    +---------- 月份 (1 - 12)|    |    +--------------- 一个月中的第几天 (1 - 31)|    +-------------------- 小时 (0 - 23)+--------",
           date: "Tue Sep 05 2023 00:00:00 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:10 GMT+0800",
+          updated: "Sun Oct 11 2026 22:44:04 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3xgmxp" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3xr5om" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3xgmxp" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3xr5om" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -604,5 +604,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3xgmxp"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3xr5om"></script></body>
   </html>

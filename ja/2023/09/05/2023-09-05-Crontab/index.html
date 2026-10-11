@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3xgmxp">
+<link rel="stylesheet" href="/css/loader.css?v=mv3xr5om">
 
     <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)|    |    |    +-------">
 <meta property="og:type" content="article">
@@ -23,7 +23,7 @@
 <meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)|    |    |    +-------">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2023-09-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:47:46.351Z">
+<meta property="article:modified_time" content="2026-10-11T14:44:48.093Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="devops">
 <meta property="article:tag" content="Network">
@@ -33,7 +33,7 @@
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3xgmxp">
+<link rel="stylesheet" href="/css/style.css?v=mv3xr5om">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -288,9 +288,9 @@
 <ul>
 <li>ここで、f1 は分、f2 は時、f3 は月内の日、f4 は月、f5 は曜日を表します。program は実行するプログラムを表します。</li>
 <li>f1 が * の場合は毎分 program を実行することを表し、f2 が * の場合は毎時プログラムを実行することを表します。以下同様です。</li>
-<li>f1 が a-b の場合は第 a 分から第 b 分までの期間に実行することを表し、f2 が a-b の場合は第 a 時から第 b 時まで実行することを表します。以下同様です。</li>
-<li>f1 が *&#x2F;n の場合は n 分間隔で 1 回実行することを表し、f2 が *&#x2F;n の場合は n 時間間隔で 1 回実行することを表します。以下同様です。</li>
-<li>f1 が a, b, c,… の場合は第 a, b, c,… 分に実行することを表し、f2 が a, b, c,… の場合は第 a, b, c… 時に実行することを表します。以下同様です。</li>
+<li>f1 が a-b の場合は a 分から b 分までの期間に実行することを表し、f2 が a-b の場合は a 時から b 時まで実行することを表します。以下同様です。</li>
+<li>f1 が *&#x2F;n の場合は n 分ごとに 1 回実行することを表し、f2 が *&#x2F;n の場合は n 時間ごとに 1 回実行することを表します。以下同様です。</li>
+<li>f1 が a, b, c,… の場合は a, b, c,… 分に実行することを表し、f2 が a, b, c,… の場合は a, b, c… 時に実行することを表します。以下同様です。</li>
 </ul>
 <table>
 <thead>
@@ -301,23 +301,23 @@
 </thead>
 <tbody><tr>
 <td>*（アスタリスク）</td>
-<td>任意の時間を表します。たとえば最初の「*」は、1 時間の中で毎分実行するという意味を表します。</td>
+<td>任意の時間を表します。たとえば最初の <code>*</code> は、1 時間のうち毎分実行するという意味を表します。</td>
 </tr>
 <tr>
 <td>,（カンマ）</td>
-<td>不連続な時間を表します。たとえば「0 8，12，16***コマンド」は、毎日 8 時 0 分、12 時 0 分、16 時 0 分にコマンドを 1 回実行することを表します。</td>
+<td>不連続な時間を表します。たとえば <code>0 8,12,16 * * *</code> は、毎日 8 時 0 分、12 時 0 分、16 時 0 分にコマンドを 1 回実行することを表します。</td>
 </tr>
 <tr>
 <td>-（ハイフン）</td>
-<td>連続した時間範囲を表します。たとえば「0 5 ** 1-6コマンド」は、月曜から土曜の午前 5 時 0 分にコマンドを実行することを表します。</td>
+<td>連続した時間範囲を表します。たとえば <code>0 5 * * 1-6</code> は、月曜日から土曜日の午前 5 時 0 分にコマンドを実行することを表します。</td>
 </tr>
 <tr>
 <td>&#x2F;（スラッシュ）</td>
-<td>どのくらいの間隔で実行するかを表します。たとえば「&#x2F;10***コマンド」は、10 分ごとにコマンドを 1 回実行することを表します。</td>
+<td>どのくらいの間隔で実行するかを表します。たとえば <code>*/10 * * * *</code> は、10 分ごとにコマンドを 1 回実行することを表します。</td>
 </tr>
 </tbody></table>
 <hr>
-<p><code>/</code> を使用して各設定を行う場合、各設定の先頭位置をゼロにする必要があります。これは、正時にコマンドが何度も重複実行されるのを避けるためです。</p>
+<p><code>/</code> を使用して各設定を行う場合は、正時（毎時 0 分）にコマンドが重複して複数回実行されるのを避けるため、各設定の先頭を 0 にする必要があります。</p>
 
     </div>
     <footer class="article-footer">
@@ -367,10 +367,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        561.7k
+        561.6k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:07
+        51:06
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -481,11 +481,11 @@
 
 
 
-<script src="/js/script.js?v=mv3xgmxp"></script>
+<script src="/js/script.js?v=mv3xr5om"></script>
 
 
   
-<script src="/js/aos.js?v=mv3xgmxp"></script>
+<script src="/js/aos.js?v=mv3xr5om"></script>
 
   <script>
     var aosInit = () => {
@@ -504,11 +504,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3xgmxp" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3xr5om" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3xgmxp" defer></script>
+<script src="/js/generator_search.js?v=mv3xr5om" defer></script>
 
 
 
@@ -540,15 +540,15 @@
           description: "",
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)|    |    |    +---------- 月份 (1 - 12)|    |    +--------------- 一个月中的第几天",
           date: "Tue Sep 05 2023 00:00:00 GMT+0800",
-          updated: "Sun Oct 11 2026 04:47:46 GMT+0800",
+          updated: "Sun Oct 11 2026 22:44:48 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3xgmxp" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3xr5om" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3xgmxp" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3xr5om" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -607,5 +607,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3xgmxp"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3xr5om"></script></body>
   </html>

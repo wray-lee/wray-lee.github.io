@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3xgmxp">
+<link rel="stylesheet" href="/css/loader.css?v=mv3xr5om">
 
     <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0">
 <meta property="og:type" content="article">
@@ -23,7 +23,7 @@
 <meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:47:46.688Z">
+<meta property="article:modified_time" content="2026-10-11T14:44:20.375Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="devops">
 <meta property="article:tag" content="Network">
@@ -33,7 +33,7 @@
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3xgmxp">
+<link rel="stylesheet" href="/css/style.css?v=mv3xr5om">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -286,11 +286,11 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">*    *    *    *    *</span><br><span class="line">-    -    -    -    -</span><br><span class="line">|    |    |    |    |</span><br><span class="line">|    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)</span><br><span class="line">|    |    |    +---------- 月份 (1 - 12)</span><br><span class="line">|    |    +--------------- 一个月中的第几天 (1 - 31)</span><br><span class="line">|    +-------------------- 小时 (0 - 23)</span><br><span class="line">+------------------------- 分钟 (0 - 59)</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>Here, f1 indicates minutes, f2 indicates hours, f3 indicates the day of the month, f4 indicates the month, and f5 indicates the day of the week. program indicates the program to be executed.</li>
-<li>When f1 is *, it indicates that program must be executed every minute; when f2 is *, it indicates that the program must be executed every hour, and the rest follow the same pattern.</li>
-<li>When f1 is a-b, it indicates that it must be executed during the period from minute a to minute b; when f2 is a-b, it indicates that it must be executed from hour a to hour b, and the rest follow the same pattern.</li>
-<li>When f1 is *&#x2F;n, it indicates execution once every n-minute interval; when f2 is *&#x2F;n, it indicates execution once every n-hour interval, and the rest follow the same pattern.</li>
-<li>When f1 is a, b, c, …, it indicates that it must be executed at minutes a, b, c, …; when f2 is a, b, c, …, it indicates that it must be executed at hours a, b, c, …, and the rest follow the same pattern.</li>
+<li>Where f1 represents minutes, f2 represents hours, f3 represents the day of the month, f4 represents the month, and f5 represents the day of the week. program represents the program to be executed.</li>
+<li>When f1 is *, it means program should be executed every minute; when f2 is *, it means the program should be executed every hour, and so on.</li>
+<li>When f1 is a-b, it means execution should occur from minute a to minute b; when f2 is a-b, it means execution should occur from hour a to hour b, and so on.</li>
+<li>When f1 is *&#x2F;n, it means execute once every n minutes; when f2 is *&#x2F;n, it means execute once every n hours, and so on.</li>
+<li>When f1 is a, b, c, …, it means execution should occur at minutes a, b, c, …; when f2 is a, b, c, …, it means execution should occur at hours a, b, c, …, and so on.</li>
 </ul>
 <table>
 <thead>
@@ -301,23 +301,23 @@
 </thead>
 <tbody><tr>
 <td>* (asterisk)</td>
-<td>Represents any time. For example, the first “*” means executing once every minute in an hour.</td>
+<td>Represents any time. For example, the first <code>*</code> means execute once every minute in an hour.</td>
 </tr>
 <tr>
 <td>, (comma)</td>
-<td>Represents non-consecutive times. For example, “0 8,12,16***command” means executing the command once at 8:00, 12:00, and 16:00 every day.</td>
+<td>Represents non-contiguous times. For example, <code>0 8,12,16 * * *</code> means execute the command once at 8:00, 12:00, and 16:00 every day.</td>
 </tr>
 <tr>
 <td>- (hyphen)</td>
-<td>Represents a continuous time range. For example, “0 5 ** 1-6 command” means executing the command at 5:00 AM from Monday to Saturday.</td>
+<td>Represents a continuous time range. For example, <code>0 5 * * 1-6</code> means execute the command at 5:00 AM from Monday to Saturday.</td>
 </tr>
 <tr>
 <td>&#x2F; (forward slash)</td>
-<td>Represents how often to execute. For example, “&#x2F;10***command” means executing the command once every 10 minutes.</td>
+<td>Represents how often to execute. For example, <code>*/10 * * * *</code> means execute the command once every 10 minutes.</td>
 </tr>
 </tbody></table>
 <hr>
-<p>When using <code>/</code> for each configuration, you need to set the leading position of each configuration to zero, to avoid multiple repeated commands on the hour.</p>
+<p>When using <code>/</code> for each configuration, the leading position of each configuration needs to be zero-padded, to avoid repeated commands multiple times at the hour.</p>
 
     </div>
     <footer class="article-footer">
@@ -367,10 +367,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        561.7k
+        561.6k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:07
+        51:06
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -481,11 +481,11 @@
 
 
 
-<script src="/js/script.js?v=mv3xgmxp"></script>
+<script src="/js/script.js?v=mv3xr5om"></script>
 
 
   
-<script src="/js/aos.js?v=mv3xgmxp"></script>
+<script src="/js/aos.js?v=mv3xr5om"></script>
 
   <script>
     var aosInit = () => {
@@ -504,11 +504,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3xgmxp" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3xr5om" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3xgmxp" defer></script>
+<script src="/js/generator_search.js?v=mv3xr5om" defer></script>
 
 
 
@@ -540,15 +540,15 @@
           description: "",
           stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  12345678*    *    *    *    *-    -    -    -    -|    |    |    |    ||    |    |    |    +----- 星期中星期几 (0 - 6) (星期天 为0)|    |    |    +---------- 月份 (1 - 1",
           date: "Tue Sep 05 2023 00:00:00 GMT+0800",
-          updated: "Sun Oct 11 2026 04:47:46 GMT+0800",
+          updated: "Sun Oct 11 2026 22:44:20 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3xgmxp" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3xr5om" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3xgmxp" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3xr5om" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -607,5 +607,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3xgmxp"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3xr5om"></script></body>
   </html>
