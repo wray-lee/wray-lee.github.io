@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css">
+<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
 
     <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -260,29 +260,8 @@
 
           <section id="main" aria-label="Main content">      <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/2023/09/04/2023-09-04-iptables/" aria-label="iptables" title="iptables"></a>
-    <div class="post-cover left">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="iptables" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-09-04</span>
-        <span><span class="icon-pencil"></span>104 字</span>
-        <span><span class="icon-clock"></span>1 分钟</span>
-      </div>
-      <h2 class="post-title">iptables</h2>
-      <article class="post-article">
-          1iptables -A (FORWARD/INPUT/OUTPUT/POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)
-
-12345sysctl -w net.ipv4.conf.all.forwarding=1sysctl -w net.ipv6.conf.all.forwarding=1iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADEiptables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j 
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2023/09/04/2023-09-04-markdown%E8%AF%AD%E6%B3%95/" aria-label="markdown语法" title="markdown语法"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="markdown语法" class="lazyload">
     </div>
     <div class="post-info">
@@ -327,6 +306,27 @@ dsds
 饼图12345pie	title pie	&amp;quot;50%&amp;quot;:50	&amp;quot;30%&amp;quot;:30	&amp;quot;20%&amp;quot;:20
 
 甘特图12345678gantt	dateFormat 2022-09-20	title gantt	section A	task1	:don
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2023/09/04/2023-09-04-iptables/" aria-label="iptables" title="iptables"></a>
+    <div class="post-cover right">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="iptables" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-09-04</span>
+        <span><span class="icon-pencil"></span>104 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">iptables</h2>
+      <article class="post-article">
+          1iptables -A (FORWARD/INPUT/OUTPUT/POSTROUTING)模式 -i 入口 -o 出口 -t nat -j MASQUERADE(自动选择nat模式)
+
+12345sysctl -w net.ipv4.conf.all.forwarding=1sysctl -w net.ipv6.conf.all.forwarding=1iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADEiptables -t mangle -A POSTROUTING -p tcp --tcp-flags SYN,RST SYN -j 
       </article>
     </div>
   </div>
@@ -405,8 +405,28 @@ session [num] 选择会话
 </div>
       <div class="post-wrapper">
   <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/2023/09/04/2023-09-04-zerotier%E8%87%AA%E5%BB%BAplanet/" aria-label="zerotier自建planet" title="zerotier自建planet"></a>
+      <a class="post-link" href="/2023/09/04/2023-09-04-wireguard%E9%85%8D%E7%BD%AE/" aria-label="wireguard配置" title="wireguard配置"></a>
     <div class="post-cover right">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="wireguard配置" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-09-04</span>
+        <span><span class="icon-pencil"></span>32 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">wireguard配置</h2>
+      <article class="post-article">
+          Wireguard配置一键配置1curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh &amp;amp;&amp;amp; chmod +x wireguard-install.sh &amp;amp;&amp;amp; ./wireguard-install.sh
+
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/2023/09/04/2023-09-04-zerotier%E8%87%AA%E5%BB%BAplanet/" aria-label="zerotier自建planet" title="zerotier自建planet"></a>
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="zerotier自建planet" class="lazyload">
     </div>
     <div class="post-info">
@@ -424,26 +444,6 @@ compose需要增加ports: ‘9993:9993’和’9993:9993&amp;#x2F;udp’, 服务
 拷贝moon.json到宿主机, 修改stableEndpoints
 在宿主机用mkmoonworld-x86生成行星文件
 把修改后的moon.json拷回容器, 在容器内生成moon文件, 创建moons.d文件夹, 
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/2023/09/04/2023-09-04-wireguard%E9%85%8D%E7%BD%AE/" aria-label="wireguard配置" title="wireguard配置"></a>
-    <div class="post-cover left">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="wireguard配置" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-09-04</span>
-        <span><span class="icon-pencil"></span>32 字</span>
-        <span><span class="icon-clock"></span>1 分钟</span>
-      </div>
-      <h2 class="post-title">wireguard配置</h2>
-      <article class="post-article">
-          Wireguard配置一键配置1curl -O https://raw.githubusercontent.com/angristan/wireguard-install/master/wireguard-install.sh &amp;amp;&amp;amp; chmod +x wireguard-install.sh &amp;amp;&amp;amp; ./wireguard-install.sh
-
       </article>
     </div>
   </div>
@@ -717,11 +717,11 @@ encod
 
 
 
-<script src="/js/script.js"></script>
+<script src="/js/script.js?v=mv3f1dj6"></script>
 
 
   
-<script src="/js/aos.js"></script>
+<script src="/js/aos.js?v=mv3f1dj6"></script>
 
   <script>
     var aosInit = () => {
@@ -740,11 +740,11 @@ encod
   </script>
 
 
-<script src="/js/pjax_script.js" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js" defer></script>
+<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
 
 
 
@@ -800,5 +800,5 @@ encod
 
 
 
-  <script src="/js/banner-gallery.js"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
   </html>
