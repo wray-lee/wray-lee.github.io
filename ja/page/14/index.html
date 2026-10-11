@@ -247,8 +247,32 @@
 
           <section id="main" aria-label="Main content">      <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/ja/2023/09/04/2023-09-04-HTTP/" aria-label="HTTP" title="HTTP"></a>
+      <a class="post-link" href="/ja/2023/09/04/2023-09-04-Nat%E7%B1%BB%E5%9E%8B/" aria-label="Nat类型" title="Nat类型"></a>
     <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Nat类型" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-09-04</span>
+        <span><span class="icon-pencil"></span>279 文字</span>
+        <span><span class="icon-clock"></span>2 分</span>
+      </div>
+      <h2 class="post-title">Nat类型</h2>
+      <article class="post-article">
+          Full cone nat 全锥形nat无条件转发
+Restricted cone nat地址受限锥形nat与内网发生通讯的外网主机才能进行nat
+Port restricted cone nat端口受限锥形nat在前者基础添加外网主机端口，通讯过的外网主机特定端口发送的数据可以nat
+symmetric nat 对称nat不进行转发
+
+client(192.168.0.3, 100)和server(1.1.1.1, 1111)在路由器上建立好映射关系后，如果这个时候路由器(8.8.8.8)在800端口上收到从另外一台server(2.2.2.2, 2222)发来的数据，是不是应该转发给(19
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2023/09/04/2023-09-04-HTTP/" aria-label="HTTP" title="HTTP"></a>
+    <div class="post-cover right">
           <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="HTTP" class="lazyload">
     </div>
     <div class="post-info">
@@ -280,9 +304,9 @@
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/09/04/2023-09-04-Nodejs/" aria-label="Nodejs" title="Nodejs"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Nodejs" class="lazyload">
     </div>
     <div class="post-info">
@@ -300,6 +324,78 @@
 one-click
 
 npm config set prefix &amp;#39;F:\nodejs&amp;#39; &amp;amp;&amp;amp; npm config set prefix &amp;#39;F:\nodejs\npm_cache&amp;#39;   
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2023/09/04/2023-09-04-SSTI/" aria-label="SSTI" title="SSTI"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="SSTI" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-09-04</span>
+        <span><span class="icon-pencil"></span>114 文字</span>
+        <span><span class="icon-clock"></span>1 分</span>
+      </div>
+      <h2 class="post-title">SSTI</h2>
+      <article class="post-article">
+          变量和语句基本概念&amp;#123;%%&amp;#125;	声明变量
+&amp;#123;&amp;#123;&amp;#125;&amp;#125;将表达式打印到模板输出
+未包含在模板中的注释
+访问变量属性.或者[]
+12&amp;#123;&amp;#123;&amp;quot;&amp;quot;.__class__&amp;#125;&amp;#125;&amp;#123;&amp;#123;&amp;quot;&amp;quot;[&amp;#x27;__classs__&amp;#x27;]&amp;#125;&amp;#125;
+
+过滤规则123456_	\x5f[]	attr()	request.args.	&amp;#123;&amp;#123;()|attr(request.args.x1)&amp;#125;&amp;#125;&amp;amp;x1=??&amp;amp
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap left" data-aos="fade-up">
+      <a class="post-link" href="/ja/2023/09/04/2023-09-04-SSTI%20Flask%E6%A8%A1%E6%9D%BF/" aria-label="SSTI Flask模板" title="SSTI Flask模板"></a>
+    <div class="post-cover left">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="SSTI Flask模板" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-09-04</span>
+        <span><span class="icon-pencil"></span>1.5k 文字</span>
+        <span><span class="icon-clock"></span>8 分</span>
+      </div>
+      <h2 class="post-title">SSTI Flask模板</h2>
+      <article class="post-article">
+          基础123控制结构 &amp;#123;% %&amp;#125;变量取值 &amp;#123;&amp;#123; &amp;#125;&amp;#125;注释 &amp;#123;# #&amp;#125;
+
+1234567891011121314151617181920212223242526272829__class__            类的一个内置属性，表示实例对象的类。__base__             类型对象的直接基类__bases__            类型对象的全部基类，以元组形式，类型的实例通常没有属性 __bases____mro__              此属性是由类组成的元组，在方法解析期间会基于它来查找基类
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2023/09/04/2023-09-04-Shell%E8%AF%AD%E6%B3%95/" aria-label="Shell语法" title="Shell语法"></a>
+    <div class="post-cover right">
+          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Shell语法" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-09-04</span>
+        <span><span class="icon-pencil"></span>1k 文字</span>
+        <span><span class="icon-clock"></span>4 分</span>
+      </div>
+      <h2 class="post-title">Shell语法</h2>
+      <article class="post-article">
+          文件描述符0	标准输入
+1	标准输出，指向屏幕
+2	标准错误输出（log属于）
+运算符12&amp;gt;`	输出重定向，右移，实际上是`1&amp;gt;` `将左边语句的输出覆盖写入到右边文件内，相当于`** | tee some_text.txt&amp;gt;&amp;gt;`	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于`** | tee -a some_text.txt
+
+&amp;lt;	输入重定向	command &amp;lt; file	从文件中读入
+&amp;lt;&amp;lt;	输入追加重定向	command &amp;lt;&amp;lt; EOF	读入后续输入直到EOF	（可以用作给指令添加退出条件）
+123456789
       </article>
     </div>
   </div>
@@ -326,79 +422,8 @@ npm config set prefix &amp;#39;F:\nodejs&amp;#39; &amp;amp;&amp;amp; npm config 
 </div>
       <div class="post-wrapper">
   <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/ja/2023/09/04/2023-09-04-Nat%E7%B1%BB%E5%9E%8B/" aria-label="Nat类型" title="Nat类型"></a>
-    <div class="post-cover right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Nat类型" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-09-04</span>
-        <span><span class="icon-pencil"></span>279 文字</span>
-        <span><span class="icon-clock"></span>2 分</span>
-      </div>
-      <h2 class="post-title">Nat类型</h2>
-      <article class="post-article">
-          Full cone nat 全锥形nat无条件转发
-Restricted cone nat地址受限锥形nat与内网发生通讯的外网主机才能进行nat
-Port restricted cone nat端口受限锥形nat在前者基础添加外网主机端口，通讯过的外网主机特定端口发送的数据可以nat
-symmetric nat 对称nat不进行转发
-
-client(192.168.0.3, 100)和server(1.1.1.1, 1111)在路由器上建立好映射关系后，如果这个时候路由器(8.8.8.8)在800端口上收到从另外一台server(2.2.2.2, 2222)发来的数据，是不是应该转发给(19
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/ja/2023/09/04/2023-09-04-Shell%E8%AF%AD%E6%B3%95/" aria-label="Shell语法" title="Shell语法"></a>
-    <div class="post-cover left">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Shell语法" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-09-04</span>
-        <span><span class="icon-pencil"></span>1k 文字</span>
-        <span><span class="icon-clock"></span>4 分</span>
-      </div>
-      <h2 class="post-title">Shell语法</h2>
-      <article class="post-article">
-          文件描述符0	标准输入
-1	标准输出，指向屏幕
-2	标准错误输出（log属于）
-运算符12&amp;gt;`	输出重定向，右移，实际上是`1&amp;gt;` `将左边语句的输出覆盖写入到右边文件内，相当于`** | tee some_text.txt&amp;gt;&amp;gt;`	输出追加重定向，右右移，将左边语句的输出添加到右边文件末尾，相当于`** | tee -a some_text.txt
-
-&amp;lt;	输入重定向	command &amp;lt; file	从文件中读入
-&amp;lt;&amp;lt;	输入追加重定向	command &amp;lt;&amp;lt; EOF	读入后续输入直到EOF	（可以用作给指令添加退出条件）
-123456789
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/ja/2023/09/04/2023-09-04-SSTI%20Flask%E6%A8%A1%E6%9D%BF/" aria-label="SSTI Flask模板" title="SSTI Flask模板"></a>
-    <div class="post-cover right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="SSTI Flask模板" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-09-04</span>
-        <span><span class="icon-pencil"></span>1.5k 文字</span>
-        <span><span class="icon-clock"></span>8 分</span>
-      </div>
-      <h2 class="post-title">SSTI Flask模板</h2>
-      <article class="post-article">
-          基础123控制结构 &amp;#123;% %&amp;#125;变量取值 &amp;#123;&amp;#123; &amp;#125;&amp;#125;注释 &amp;#123;# #&amp;#125;
-
-1234567891011121314151617181920212223242526272829__class__            类的一个内置属性，表示实例对象的类。__base__             类型对象的直接基类__bases__            类型对象的全部基类，以元组形式，类型的实例通常没有属性 __bases____mro__              此属性是由类组成的元组，在方法解析期间会基于它来查找基类
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/09/04/2023-09-04-Youtube-dl%E4%B8%8B%E8%BD%BD/" aria-label="Youtube-dl下载" title="Youtube-dl下载"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Youtube-dl下载" class="lazyload">
     </div>
     <div class="post-info">
@@ -416,9 +441,9 @@ client(192.168.0.3, 100)和server(1.1.1.1, 1111)在路由器上建立好映射�
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/09/04/2023-09-04-Wireguard/" aria-label="Wireguard" title="Wireguard"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Wireguard" class="lazyload">
     </div>
     <div class="post-info">
@@ -433,31 +458,6 @@ client(192.168.0.3, 100)和server(1.1.1.1, 1111)在路由器上建立好映射�
 Config Template
 
 12345678910111213141516171819202122232425262728293031323334[Interface]Address = 10.77.0.1/24,fd77:77:77::1/64ListenPort = 59831PrivateKey = ODS9kt3XxBgo0KfVXb6XEPqsSaEOtBOL915l7LLtwEY=PostUp = iptables -I INPUT -p udp --dport 59831 -j ACCEPTPostUp = iptables -I FORWARD -i eth0 -o w
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/ja/2023/09/04/2023-09-04-SSTI/" aria-label="SSTI" title="SSTI"></a>
-    <div class="post-cover left">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="SSTI" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-09-04</span>
-        <span><span class="icon-pencil"></span>114 文字</span>
-        <span><span class="icon-clock"></span>1 分</span>
-      </div>
-      <h2 class="post-title">SSTI</h2>
-      <article class="post-article">
-          变量和语句基本概念&amp;#123;%%&amp;#125;	声明变量
-&amp;#123;&amp;#123;&amp;#125;&amp;#125;将表达式打印到模板输出
-未包含在模板中的注释
-访问变量属性.或者[]
-12&amp;#123;&amp;#123;&amp;quot;&amp;quot;.__class__&amp;#125;&amp;#125;&amp;#123;&amp;#123;&amp;quot;&amp;quot;[&amp;#x27;__classs__&amp;#x27;]&amp;#125;&amp;#125;
-
-过滤规则123456_	\x5f[]	attr()	request.args.	&amp;#123;&amp;#123;()|attr(request.args.x1)&amp;#125;&amp;#125;&amp;amp;x1=??&amp;amp
       </article>
     </div>
   </div>
@@ -730,5 +730,5 @@ Config Template
 
 
 
-  <script src="/js/banner-random.js"></script></body>
+  <script src="/js/banner-gallery.js"></script></body>
   </html>
