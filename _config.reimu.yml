@@ -35,11 +35,21 @@ generator_search:
 
 # 多语言 i18n（主题内置实现，见 reimu README i18n 章节）：默认 zh-CN；en/ja 文章通过 front-matter lang 生成 /en/、/ja/ 路由
 i18n:
-  enable: true，避免生成中文内容的日英马甲页；回填完成后改回 true
+  enable: true
   type: [page, post]
   generator: [archive, category, tag, index]
   languages: [zh-CN, en, ja]
 
-# 全随机 banner：dmoe.cc 动漫壁纸随机接口，每次加载返回一张不同的图
-# 主题所有装饰性图片位（首页头图、文章导航、归档页、默认封面）都走这个配置
-banner: "https://www.dmoe.cc/random.php"
+# banner 用主题自带默认图（灵梦）作占位与失败回退；页面加载后在线换成随机东方图
+# scripts/fix-banner-fallback.js 给这些 <img> 打标记，source/js/banner-gallery.js 每次加载从 paulzzh 东方随机图 API 取图替换
+banner: "/images/banner.webp"
+
+# 主题在手机宽度（≤479px）只显示当前页码；补显最后一页（紧挨"下一页"的那个），呈现为"5 / 22"
+injector:
+  head_end: |
+    <style>
+    @media screen and (max-width: 479px) {
+      #page-nav .page-number:has(+ .next) { display: inline-block; }
+      #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+    }
+    </style>
