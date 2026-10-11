@@ -7,25 +7,25 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    云存储 | Wray的Blog
+    クラウドストレージ | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="云存储工具Alist  Linux:davfs2 Windows:rclone,Raidrive  Linux实现开机自动挂载在WebDAV普通挂载后，重启就会发现通过 WebDAV 挂载的磁盘没有了，也就意味着你每次重启 Linux 系统，都需要重新挂载，这时候需要更改几个设置来实现开机自动挂载。 第一步、编辑davfs2.conf配置文件，将use_locks的1改为0 1vim &#x2F;etc&#x2F;d">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  クラウドストレージツールAlist  Linux:davfs2 Windows:rclone,Raidrive  LinuxWebDAV での起動時自動マウントを実現する通常のマウント後、再起動すると WebDAV 経由でマウントしたディスクが消えていることに気づきます。つまり Linu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="云存储">
+<meta property="og:title" content="クラウドストレージ">
 <meta property="og:url" content="https://blog.wray7.top/ja/2023/04/13/2023-04-13-%E4%BA%91%E5%AD%98%E5%82%A8/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="云存储工具Alist  Linux:davfs2 Windows:rclone,Raidrive  Linux实现开机自动挂载在WebDAV普通挂载后，重启就会发现通过 WebDAV 挂载的磁盘没有了，也就意味着你每次重启 Linux 系统，都需要重新挂载，这时候需要更改几个设置来实现开机自动挂载。 第一步、编辑davfs2.conf配置文件，将use_locks的1改为0 1vim &#x2F;etc&#x2F;d">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  クラウドストレージツールAlist  Linux:davfs2 Windows:rclone,Raidrive  LinuxWebDAV での起動時自動マウントを実現する通常のマウント後、再起動すると WebDAV 経由でマウントしたディスクが消えていることに気づきます。つまり Linu">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://cdn.lincloud.pro/blog/images/202110121401.jpg">
 <meta property="og:image" content="https://cdn.lincloud.pro/blog/images/202110121402.jpg">
 <meta property="article:published_time" content="2023-04-13T07:52:16.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:59.007Z">
+<meta property="article:modified_time" content="2026-10-10T20:42:57.376Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -179,11 +179,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="云存储">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="クラウドストレージ">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">云存储</h1>
+            <h1 data-aos="slide-up">クラウドストレージ</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -198,7 +198,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%91%E5%AD%98%E5%82%A8"><span class="toc-number">1.</span> <span class="toc-text">云存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.2.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E5%9C%A8WebDAV"><span class="toc-number">1.2.1.</span> <span class="toc-text">实现开机自动挂载在WebDAV</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#arch"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">arch</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#etc-fstab"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">&#x2F;etc&#x2F;fstab</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-fstab"><span class="toc-number">1.2.2.</span> <span class="toc-text">Using fstab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">1.3.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rclone%E5%AE%B9%E9%87%8F%E5%A4%A7%E5%B0%8F%E6%98%BE%E7%A4%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">rclone容量大小显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="toc-number">1.3.2.</span> <span class="toc-text">编写脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">1.3.3.</span> <span class="toc-text">添加计划任务开机自启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8"><span class="toc-number">1.</span> <span class="toc-text">クラウドストレージ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%84%E3%83%BC%E3%83%AB"><span class="toc-number">1.1.</span> <span class="toc-text">ツール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.2.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebDAV-%E3%81%A7%E3%81%AE%E8%B5%B7%E5%8B%95%E6%99%82%E8%87%AA%E5%8B%95%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">WebDAV での起動時自動マウントを実現する</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#arch"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">arch</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#etc-fstab"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">&#x2F;etc&#x2F;fstab</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-fstab"><span class="toc-number">1.2.2.</span> <span class="toc-text">Using fstab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">1.3.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rclone-%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%B5%E3%82%A4%E3%82%BA%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">rclone の容量サイズ表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">スクリプトの作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%B7%E5%8B%95%E6%99%82%E8%87%AA%E5%8B%95%E8%B5%B7%E5%8B%95%E3%81%AE%E3%82%BF%E3%82%B9%E3%82%AF%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">起動時自動起動のタスクを追加する</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.4.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -266,7 +266,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2023-04-13-云存储" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2023-04-13-云存储.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -281,67 +281,73 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="云存储"><a href="#云存储" class="headerlink" title="云存储"></a>云存储</h1><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><p><strong>Alist</strong></p>
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="クラウドストレージ"><a href="#クラウドストレージ" class="headerlink" title="クラウドストレージ"></a>クラウドストレージ</h1><h2 id="ツール"><a href="#ツール" class="headerlink" title="ツール"></a>ツール</h2><p><strong>Alist</strong></p>
 <ul>
 <li>Linux:davfs2</li>
 <li>Windows:rclone,Raidrive</li>
 </ul>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="实现开机自动挂载在WebDAV"><a href="#实现开机自动挂载在WebDAV" class="headerlink" title="实现开机自动挂载在WebDAV"></a>实现开机自动挂载在WebDAV</h3><p>普通挂载后，重启就会发现通过 WebDAV 挂载的磁盘没有了，也就意味着你每次重启 Linux 系统，都需要重新挂载，这时候需要更改几个设置来实现开机自动挂载。</p>
-<p><strong>第一步、编辑davfs2.conf配置文件，将use_locks的1改为0</strong></p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="WebDAV-での起動時自動マウントを実現する"><a href="#WebDAV-での起動時自動マウントを実現する" class="headerlink" title="WebDAV での起動時自動マウントを実現する"></a>WebDAV での起動時自動マウントを実現する</h3><p>通常のマウント後、再起動すると WebDAV 経由でマウントしたディスクが消えていることに気づきます。つまり Linux システムを再起動するたびに再マウントが必要になります。このとき、いくつかの設定を変更して起動時の自動マウントを実現する必要があります。</p>
+<p><strong>ステップ1、davfs2.conf 設定ファイルを編集し、use_locks の 1 を 0 に変更する</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/davfs2/davfs2.conf </span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.lincloud.pro/blog/images/202110121401.jpg" alt="image-20211012153936525"></p>
-<p><strong>第二步、修改secrets文件，添加账号信息</strong></p>
+<p><strong>ステップ2、secrets ファイルを変更し、アカウント情報を追加する</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/davfs2/secrets</span><br></pre></td></tr></table></figure>
 
-<p>在底部添加账号信息，如</p>
+<p>下部にアカウント情報を追加します。例：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://pan.cloud.com/dav user password</span><br></pre></td></tr></table></figure>
 
-<p><strong>第三步、添加开机挂载命令</strong></p>
+<p><strong>ステップ3、起動時マウントコマンドを追加する</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.local</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h5 id="arch"><a href="#arch" class="headerlink" title="arch"></a>arch</h5><p>在写启动脚本之前，需要写一个service：</p>
+<h5 id="arch"><a href="#arch" class="headerlink" title="arch"></a>arch</h5><p>起動スクリプトを書く前に、service を作成する必要があります：</p>
 <ol>
-<li><p>首先切换用户到root，然后进入&#x2F;etc&#x2F;systemd&#x2F;system目录</p>
+<li><p>まずユーザーを root に切り替え、次に &#x2F;etc&#x2F;systemd&#x2F;system ディレクトリへ移動します</p>
 </li>
-<li><p>创建一个.service文件，名称顺便取，本例中为<strong>AutoExec.service</strong></p>
+<li><p>.service ファイルを作成します。名前は任意です。この例では <strong>AutoExec.service</strong> とします</p>
 </li>
-<li><p>设置权限：</p>
+<li><p>権限を設定します：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 AutoExec.service</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>添加以下内容到AutoExec.service</p>
+<li><p>以下を AutoExec.service に追加します</p>
 </li>
 </ol>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=AutoExec</span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/root/AutoExec.sh</span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
 <ol>
-<li>上面的ExecStart&#x3D;&#x2F;root&#x2F;AutoExec.sh表明开机会执行&#x2F;root&#x2F;AutoExec.sh，那么命令写在这里面就行了，<br>当然，文件是可以任意指定的，改为&#x2F;etc&#x2F;rc.local之类的都没问题。</li>
-<li>连接到multi-user.target.wants：<br>ln -s AutoExec.service multi-user.target.wants&#x2F;<br>（注：这一步是为了让这个服务开机自启动，效果和systemctl enable AutoExec.service是等价的）</li>
-<li>创建&#x2F;root&#x2F;AutoExec.sh，向里面写入想要开机启动的命令，</li>
+<li><p>上記の ExecStart&#x3D;&#x2F;root&#x2F;AutoExec.sh は、起動時に &#x2F;root&#x2F;AutoExec.sh を実行することを示します。したがって、コマンドはこの中に書けばよいです。<br>もちろん、ファイルは任意に指定でき、&#x2F;etc&#x2F;rc.local などに変更しても問題ありません。</p>
+</li>
+<li><p>multi-user.target.wants にリンクします：<br>ln -s AutoExec.service multi-user.target.wants&#x2F;<br>（注：この手順は、このサービスを起動時に自動起動させるためのもので、効果は systemctl enable AutoExec.service と同等です）</p>
+</li>
+<li><p>&#x2F;root&#x2F;AutoExec.sh を作成し、その中に起動時に実行したいコマンドを書きます。</p>
+</li>
 </ol>
-<p>并设置权限：</p>
+<p>そして権限を設定します：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 744 /root/AutoExec.sh</span><br></pre></td></tr></table></figure>
 
 
 
-<p>（文件路径和文件名可随便改，但一定要添加可执行权限）</p>
-<p>以上就设置完了，<strong>systemctl start AutoExec.service</strong>，就能看到<strong>AutoExec.sh</strong>里的命令执行了，当然，每次开机也是自动执行的。</p>
+<p>（ファイルパスとファイル名は自由に変更できますが、必ず実行権限を追加してください）</p>
+<p>以上で設定は完了です。<strong>systemctl start AutoExec.service</strong> とすると、<strong>AutoExec.sh</strong> 内のコマンドが実行されるのが確認できます。もちろん、毎回の起動時にも自動実行されます。</p>
 <h4 id="etc-fstab"><a href="#etc-fstab" class="headerlink" title="&#x2F;etc&#x2F;fstab"></a>&#x2F;etc&#x2F;fstab</h4><h3 id="Using-fstab"><a href="#Using-fstab" class="headerlink" title="Using fstab"></a>Using fstab</h3><p>To define how the webdav resource should be mounted into the filesystem, <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Append">append</a> a <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Fstab">fstab</a> entry under the following format:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/fstab</span><br><span class="line">https://webdav.example/path /mnt/webdav davfs rw,user,uid=username,noauto 0 0</span><br></pre></td></tr></table></figure>
 
 <p>where <em>username</em> is the owner of the mounted file system. It may be a numeric ID or a user name and only <em>root</em> can mount a uid different from the mounting user. <code>_netdev</code> mount option could be used to automount network drives.</p>
 <hr>
-<p>末尾添加挂载命令，和挂在U盘一样</p>
+<p>末尾にマウントコマンドを追加します。USB メモリをマウントするのと同じです</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount -t davfs https://pan.cloud.com/dav /cloud</span><br></pre></td></tr></table></figure>
 
-<p>重启即可自动挂载。</p>
-<p><strong>最后一步、测试</strong></p>
-<p>输入<code> df -h</code> 查看是否成功</p>
-<p><img src="https://cdn.lincloud.pro/blog/images/202110121402.jpg" alt="屏幕截图 2021-10-12 155223"></p>
-<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>安装alist和winfsp，sshfs，rclone</p>
-<h3 id="rclone容量大小显示"><a href="#rclone容量大小显示" class="headerlink" title="rclone容量大小显示"></a>rclone容量大小显示</h3><p>如果只是为了显示总大小的话，可以在 rClone 挂载时通过 <code>--vfs-disk-space-total-size</code> 手动设置总大小，并用 <code>--vfs-used-is-size</code> 让 rClone 主动计算已用空间大小，但是也只是方便显示而已，WebDAV 服务端不主动实现 rClone about 所需的 attribute, 那么挂载的时候无法得知已占用的空间或者总文件数之类的信息，如果想要配合 rClone 的 Union backend 还是没有办法按照剩余空间或者已占用空间选择 remote.</p>
-<h3 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h3><p>添加环境变量后编写vbs脚本以便于创建进程</p>
+<p>再起動すれば自動マウントされます。</p>
+<p><strong>最後のステップ、テスト</strong></p>
+<p><code> df -h</code> を入力して、成功したか確認します</p>
+<p><img src="https://cdn.lincloud.pro/blog/images/202110121402.jpg" alt="スクリーンショット 2021-10-12 155223"></p>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><p>alist と winfsp、sshfs、rclone をインストールします</p>
+<h3 id="rclone-の容量サイズ表示"><a href="#rclone-の容量サイズ表示" class="headerlink" title="rclone の容量サイズ表示"></a>rclone の容量サイズ表示</h3><p>もし総サイズを表示するためだけであれば、rClone のマウント時に <code>--vfs-disk-space-total-size</code> で総サイズを手動設定し、<code>--vfs-used-is-size</code> で rClone に使用済み領域サイズを能動的に計算させることができます。しかし、これは表示を便利にするだけです。WebDAV サーバー側が rClone の about に必要な attribute を能動的に実装しない場合、マウント時に使用済み容量や総ファイル数などの情報を知ることはできません。rClone の Union backend と連携させたい場合でも、残り容量や使用済み容量に基づいて remote を選択する方法はありません。</p>
+<h3 id="スクリプトの作成"><a href="#スクリプトの作成" class="headerlink" title="スクリプトの作成"></a>スクリプトの作成</h3><p>環境変数を追加した後、プロセスを作成するために vbs スクリプトを作成します</p>
 <figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27; start_alist.vbs</span></span><br><span class="line"><span class="keyword">Dim</span> ws</span><br><span class="line"><span class="keyword">Set</span> ws = Wscript.<span class="built_in">CreateObject</span>(<span class="string">&quot;Wscript.Shell&quot;</span>)</span><br><span class="line">ws.run <span class="string">&quot;alist server&quot;</span>,vbhide</span><br></pre></td></tr></table></figure>
 
 
@@ -356,26 +362,26 @@
 
 <figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&#x27; unmount.vbs</span></span><br><span class="line"><span class="keyword">dim</span> alist</span><br><span class="line"><span class="keyword">set</span> alist = Wscript.<span class="built_in">CreateObject</span>(<span class="string">&quot;Wscript.Shell&quot;</span>)</span><br><span class="line">alist.run <span class="string">&quot;taskkill /f /im rclone.exe&quot;</span>,vhide</span><br></pre></td></tr></table></figure>
 
-<h3 id="添加计划任务开机自启"><a href="#添加计划任务开机自启" class="headerlink" title="添加计划任务开机自启"></a>添加计划任务开机自启</h3><p>计算机管理-&gt;计划任务</p>
+<h3 id="起動時自動起動のタスクを追加する"><a href="#起動時自動起動のタスクを追加する" class="headerlink" title="起動時自動起動のタスクを追加する"></a>起動時自動起動のタスクを追加する</h3><p>コンピューターの管理 -&gt; タスク スケジューラ</p>
 <ul>
-<li>启动alist</li>
+<li>alist を起動</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-16&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Task</span> <span class="attr">version</span>=<span class="string">&quot;1.2&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://schemas.microsoft.com/windows/2004/02/mit/task&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RegistrationInfo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Date</span>&gt;</span>2023-04-07T19:51:22.5095963<span class="tag">&lt;/<span class="name">Date</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Author</span>&gt;</span>WRAY-WIN\Wray<span class="tag">&lt;/<span class="name">Author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">URI</span>&gt;</span>\启动Alist<span class="tag">&lt;/<span class="name">URI</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RegistrationInfo</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Triggers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LogonTrigger</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">Enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LogonTrigger</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Triggers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Principals</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Principal</span> <span class="attr">id</span>=<span class="string">&quot;Author&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">UserId</span>&gt;</span>S-1-5-21-368654724-991334976-4025094292-1001<span class="tag">&lt;/<span class="name">UserId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">LogonType</span>&gt;</span>InteractiveToken<span class="tag">&lt;/<span class="name">LogonType</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RunLevel</span>&gt;</span>HighestAvailable<span class="tag">&lt;/<span class="name">RunLevel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Principal</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Principals</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Settings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MultipleInstancesPolicy</span>&gt;</span>IgnoreNew<span class="tag">&lt;/<span class="name">MultipleInstancesPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">DisallowStartIfOnBatteries</span>&gt;</span>false<span class="tag">&lt;/<span class="name">DisallowStartIfOnBatteries</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">StopIfGoingOnBatteries</span>&gt;</span>false<span class="tag">&lt;/<span class="name">StopIfGoingOnBatteries</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowHardTerminate</span>&gt;</span>true<span class="tag">&lt;/<span class="name">AllowHardTerminate</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">StartWhenAvailable</span>&gt;</span>true<span class="tag">&lt;/<span class="name">StartWhenAvailable</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RunOnlyIfNetworkAvailable</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RunOnlyIfNetworkAvailable</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">IdleSettings</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">StopOnIdleEnd</span>&gt;</span>true<span class="tag">&lt;/<span class="name">StopOnIdleEnd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RestartOnIdle</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RestartOnIdle</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">IdleSettings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowStartOnDemand</span>&gt;</span>true<span class="tag">&lt;/<span class="name">AllowStartOnDemand</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">Enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Hidden</span>&gt;</span>false<span class="tag">&lt;/<span class="name">Hidden</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RunOnlyIfIdle</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RunOnlyIfIdle</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">WakeToRun</span>&gt;</span>false<span class="tag">&lt;/<span class="name">WakeToRun</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ExecutionTimeLimit</span>&gt;</span>PT72H<span class="tag">&lt;/<span class="name">ExecutionTimeLimit</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Priority</span>&gt;</span>7<span class="tag">&lt;/<span class="name">Priority</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Settings</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Actions</span> <span class="attr">Context</span>=<span class="string">&quot;Author&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Exec</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Command</span>&gt;</span>F:\v2rayA\clash\alist\start_alist_v3.vbs<span class="tag">&lt;/<span class="name">Command</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">WorkingDirectory</span>&gt;</span>F:\v2rayA\clash\alist<span class="tag">&lt;/<span class="name">WorkingDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Exec</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Actions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Task</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>挂载alist</li>
+<li>alist をマウント</li>
 </ul>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-16&quot;</span>?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Task</span> <span class="attr">version</span>=<span class="string">&quot;1.2&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://schemas.microsoft.com/windows/2004/02/mit/task&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">RegistrationInfo</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Date</span>&gt;</span>2023-04-07T21:46:09.4992218<span class="tag">&lt;/<span class="name">Date</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Author</span>&gt;</span>WRAY-WIN\Wray<span class="tag">&lt;/<span class="name">Author</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">URI</span>&gt;</span>\挂载alist<span class="tag">&lt;/<span class="name">URI</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">RegistrationInfo</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Triggers</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">LogonTrigger</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">Enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">LogonTrigger</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Triggers</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Principals</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Principal</span> <span class="attr">id</span>=<span class="string">&quot;Author&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">UserId</span>&gt;</span>S-1-5-21-368654724-991334976-4025094292-1001<span class="tag">&lt;/<span class="name">UserId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">LogonType</span>&gt;</span>InteractiveToken<span class="tag">&lt;/<span class="name">LogonType</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RunLevel</span>&gt;</span>LeastPrivilege<span class="tag">&lt;/<span class="name">RunLevel</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Principal</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Principals</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Settings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">MultipleInstancesPolicy</span>&gt;</span>IgnoreNew<span class="tag">&lt;/<span class="name">MultipleInstancesPolicy</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">DisallowStartIfOnBatteries</span>&gt;</span>false<span class="tag">&lt;/<span class="name">DisallowStartIfOnBatteries</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">StopIfGoingOnBatteries</span>&gt;</span>false<span class="tag">&lt;/<span class="name">StopIfGoingOnBatteries</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowHardTerminate</span>&gt;</span>true<span class="tag">&lt;/<span class="name">AllowHardTerminate</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">StartWhenAvailable</span>&gt;</span>false<span class="tag">&lt;/<span class="name">StartWhenAvailable</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RunOnlyIfNetworkAvailable</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RunOnlyIfNetworkAvailable</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">IdleSettings</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">StopOnIdleEnd</span>&gt;</span>true<span class="tag">&lt;/<span class="name">StopOnIdleEnd</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">RestartOnIdle</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RestartOnIdle</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">IdleSettings</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">AllowStartOnDemand</span>&gt;</span>true<span class="tag">&lt;/<span class="name">AllowStartOnDemand</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Enabled</span>&gt;</span>true<span class="tag">&lt;/<span class="name">Enabled</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Hidden</span>&gt;</span>false<span class="tag">&lt;/<span class="name">Hidden</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RunOnlyIfIdle</span>&gt;</span>false<span class="tag">&lt;/<span class="name">RunOnlyIfIdle</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">WakeToRun</span>&gt;</span>false<span class="tag">&lt;/<span class="name">WakeToRun</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ExecutionTimeLimit</span>&gt;</span>PT72H<span class="tag">&lt;/<span class="name">ExecutionTimeLimit</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Priority</span>&gt;</span>7<span class="tag">&lt;/<span class="name">Priority</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Settings</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">Actions</span> <span class="attr">Context</span>=<span class="string">&quot;Author&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Exec</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">Command</span>&gt;</span>F:\v2rayA\clash\alist\mount.vbs<span class="tag">&lt;/<span class="name">Command</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">WorkingDirectory</span>&gt;</span>F:\v2rayA\clash\alist<span class="tag">&lt;/<span class="name">WorkingDirectory</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Exec</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">Actions</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Task</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
+<h2 id="添付ファイル"><a href="#添付ファイル" class="headerlink" title="添付ファイル"></a>添付ファイル</h2><ul>
 <li><a href="CleanMyPC%201.12.1.2157%20RePack%20(&%20Portable)%20by%209649.zip">CleanMyPC 1.12.1.2157 RePack (&amp; Portable) by 9649.zip</a></li>
-<li><a href="GTCRN%E6%A8%A1%E5%9E%8B%E9%99%8D%E5%99%AA.7z">GTCRN模型降噪.7z</a></li>
-<li><a href="typora%E8%A1%A5%E4%B8%81.zip">typora补丁.zip</a></li>
+<li><a href="GTCRN%E6%A8%A1%E5%9E%8B%E9%99%8D%E5%99%AA.7z">GTCRNモデルノイズ除去.7z</a></li>
+<li><a href="typora%E8%A1%A5%E4%B8%81.zip">typoraパッチ.zip</a></li>
 <li><a href="WinExt%20Pro%20v21.0.0.7z">WinExt Pro v21.0.0.7z</a></li>
-<li><a href="winxmove-1.1%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4.7z">winxmove-1.1窗口大小调整.7z</a></li>
-<li><a href="%E5%8A%A8%E6%80%81%E5%B1%95%E6%9F%9C%E7%94%9F%E6%88%90%E5%99%A8v1.2.7z">动态展柜生成器v1.2.7z</a></li>
-<li><a href="%E5%B7%A5%E5%85%B7.7z">工具.7z</a></li>
-<li><a href="%E7%AA%97%E5%8F%A3%E5%8C%96%E5%B7%A5%E5%85%B7.7z">窗口化工具.7z</a></li>
+<li><a href="winxmove-1.1%E7%AA%97%E5%8F%A3%E5%A4%A7%E5%B0%8F%E8%B0%83%E6%95%B4.7z">winxmove-1.1ウィンドウサイズ調整.7z</a></li>
+<li><a href="%E5%8A%A8%E6%80%81%E5%B1%95%E6%9F%9C%E7%94%9F%E6%88%90%E5%99%A8v1.2.7z">動的ショーケース生成器v1.2.7z</a></li>
+<li><a href="%E5%B7%A5%E5%85%B7.7z">ツール.7z</a></li>
+<li><a href="%E7%AA%97%E5%8F%A3%E5%8C%96%E5%B7%A5%E5%85%B7.7z">ウィンドウ化ツール.7z</a></li>
 </ul>
 
     </div>
@@ -387,19 +393,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Curl详解" class="lazyload">
-        <a href="/ja/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/" aria-label="前の記事: Curl详解" title="前の記事: Curl详解"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Curl詳解" class="lazyload">
+        <a href="/ja/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/" aria-label="前の記事: Curl詳解" title="前の記事: Curl詳解"></a>
         <div class="article-nav-caption">前の記事</div>
         <h3 class="article-nav-title">
-            Curl详解
+            Curl詳解
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SPF 是什么" class="lazyload">
-      <a href="/ja/2023/03/20/2023-03-20-SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/" aria-label="次の記事: SPF 是什么"  title="次の記事: SPF 是什么"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SPFとは何ですか" class="lazyload">
+      <a href="/ja/2023/03/20/2023-03-20-SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/" aria-label="次の記事: SPFとは何ですか"  title="次の記事: SPFとは何ですか"></a>
       <div class="article-nav-caption">次の記事</div>
       <h3 class="article-nav-title">
-          SPF 是什么
+          SPFとは何ですか
       </h3>
     </div>
   </nav>
@@ -451,7 +457,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%91%E5%AD%98%E5%82%A8"><span class="toc-number">1.</span> <span class="toc-text">云存储</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">1.1.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.2.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E6%8C%82%E8%BD%BD%E5%9C%A8WebDAV"><span class="toc-number">1.2.1.</span> <span class="toc-text">实现开机自动挂载在WebDAV</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#arch"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">arch</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#etc-fstab"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">&#x2F;etc&#x2F;fstab</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-fstab"><span class="toc-number">1.2.2.</span> <span class="toc-text">Using fstab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">1.3.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rclone%E5%AE%B9%E9%87%8F%E5%A4%A7%E5%B0%8F%E6%98%BE%E7%A4%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">rclone容量大小显示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E5%86%99%E8%84%9A%E6%9C%AC"><span class="toc-number">1.3.2.</span> <span class="toc-text">编写脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF"><span class="toc-number">1.3.3.</span> <span class="toc-text">添加计划任务开机自启</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.4.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%82%AF%E3%83%A9%E3%82%A6%E3%83%89%E3%82%B9%E3%83%88%E3%83%AC%E3%83%BC%E3%82%B8"><span class="toc-number">1.</span> <span class="toc-text">クラウドストレージ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%84%E3%83%BC%E3%83%AB"><span class="toc-number">1.1.</span> <span class="toc-text">ツール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux"><span class="toc-number">1.2.</span> <span class="toc-text">Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebDAV-%E3%81%A7%E3%81%AE%E8%B5%B7%E5%8B%95%E6%99%82%E8%87%AA%E5%8B%95%E3%83%9E%E3%82%A6%E3%83%B3%E3%83%88%E3%82%92%E5%AE%9F%E7%8F%BE%E3%81%99%E3%82%8B"><span class="toc-number">1.2.1.</span> <span class="toc-text">WebDAV での起動時自動マウントを実現する</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#arch"><span class="toc-number">1.2.1.0.1.</span> <span class="toc-text">arch</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#etc-fstab"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">&#x2F;etc&#x2F;fstab</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-fstab"><span class="toc-number">1.2.2.</span> <span class="toc-text">Using fstab</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Windows"><span class="toc-number">1.3.</span> <span class="toc-text">Windows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rclone-%E3%81%AE%E5%AE%B9%E9%87%8F%E3%82%B5%E3%82%A4%E3%82%BA%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.3.1.</span> <span class="toc-text">rclone の容量サイズ表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%97%E3%83%88%E3%81%AE%E4%BD%9C%E6%88%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">スクリプトの作成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B5%B7%E5%8B%95%E6%99%82%E8%87%AA%E5%8B%95%E8%B5%B7%E5%8B%95%E3%81%AE%E3%82%BF%E3%82%B9%E3%82%AF%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%99%E3%82%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">起動時自動起動のタスクを追加する</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.4.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -540,11 +546,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -563,11 +569,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -593,21 +599,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "云存储",
+          title: "クラウドストレージ",
           url: "https://blog.wray7.top/2023/04/13/2023-04-13-%E4%BA%91%E5%AD%98%E5%82%A8/",
           excerpt: "",
           description: "",
-          stripContent: "云存储工具Alist  Linux:davfs2 Windows:rclone,Raidrive  Linux实现开机自动挂载在WebDAV普通挂载后，重启就会发现通过 WebDAV 挂载的磁盘没有了，也就意味着你每次重启 Linux 系统，都需要重新挂载，这时候需要更改几个设置来实现开机自动挂载。 第一步、编辑davfs2.conf配置文件，将use_locks的1改为0 1vim /etc/davfs2/davfs2.conf    第二步、修改secrets文件，添加账号信息 1vim /",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  クラウドストレージツールAlist  Linux:davfs2 Windows:rclone,Raidrive  LinuxWebDAV での起動時自動マウントを実現する通常のマウント後、再起動すると WebDAV 経由でマウントしたディスクが消えていることに気づきます。つまり Linux システムを再起動するたびに再マウントが必要になります。このとき、いくつかの設定を変更して起動時の",
           date: "Thu Apr 13 2023 15:52:16 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:59 GMT+0800",
+          updated: "Sun Oct 11 2026 04:42:57 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -666,5 +672,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

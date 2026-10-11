@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="Armbian-OES系统安装emmc   dd if&#x3D;path-to-armbian.img of&#x3D;&#x2F;dev&#x2F;mmcblk1 status&#x3D;progress  armbian-install sataMethod 1dd if&#x3D;path-to-armbian.img of&#x3D;&#x2F;dev&#x2F;sda1 status&#x3D;progress  cfdisk &#x2F;dev&#x2F;sda 删除&#x2F;boot     uEnv启动系">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Armbian-OESSystem Installationemmc   dd if&#x3D;path-to-armbian.img of&#x3D;&#x2F;dev&#x2F;mmcblk1 status&#x3D;progress  armbian-ins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Armbian-OES">
 <meta property="og:url" content="https://blog.wray7.top/en/2026/01/20/2026-01-20-Armbian-OES/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Armbian-OES系统安装emmc   dd if&#x3D;path-to-armbian.img of&#x3D;&#x2F;dev&#x2F;mmcblk1 status&#x3D;progress  armbian-install sataMethod 1dd if&#x3D;path-to-armbian.img of&#x3D;&#x2F;dev&#x2F;sda1 status&#x3D;progress  cfdisk &#x2F;dev&#x2F;sda 删除&#x2F;boot     uEnv启动系">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Armbian-OESSystem Installationemmc   dd if&#x3D;path-to-armbian.img of&#x3D;&#x2F;dev&#x2F;mmcblk1 status&#x3D;progress  armbian-ins">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-01-20T04:27:31.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.225Z">
+<meta property="article:modified_time" content="2026-10-10T20:54:26.435Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Armbian-OES"><span class="toc-number">1.</span> <span class="toc-text">Armbian-OES</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">系统安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#emmc"><span class="toc-number">1.1.1.</span> <span class="toc-text">emmc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sata"><span class="toc-number">1.1.2.</span> <span class="toc-text">sata</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-1"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Method 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-2"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">Method 2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">1.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-number">1.3.</span> <span class="toc-text">更新</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Armbian-OES"><span class="toc-number">1.</span> <span class="toc-text">Armbian-OES</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#System-Installation"><span class="toc-number">1.1.</span> <span class="toc-text">System Installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#emmc"><span class="toc-number">1.1.1.</span> <span class="toc-text">emmc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sata"><span class="toc-number">1.1.2.</span> <span class="toc-text">sata</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-1"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Method 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-2"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">Method 2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boot"><span class="toc-number">1.2.</span> <span class="toc-text">Boot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update"><span class="toc-number">1.3.</span> <span class="toc-text">Update</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2026-01-20-Armbian-OES" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2026-01-20-Armbian-OES.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,36 +278,39 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="Armbian-OES"><a href="#Armbian-OES" class="headerlink" title="Armbian-OES"></a>Armbian-OES</h1><h2 id="系统安装"><a href="#系统安装" class="headerlink" title="系统安装"></a>系统安装</h2><h3 id="emmc"><a href="#emmc" class="headerlink" title="emmc"></a>emmc</h3><blockquote>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="Armbian-OES"><a href="#Armbian-OES" class="headerlink" title="Armbian-OES"></a>Armbian-OES</h1><h2 id="System-Installation"><a href="#System-Installation" class="headerlink" title="System Installation"></a>System Installation</h2><h3 id="emmc"><a href="#emmc" class="headerlink" title="emmc"></a>emmc</h3><blockquote>
 <p>  <code>dd if=path-to-armbian.img of=/dev/mmcblk1 status=progress</code></p>
 </blockquote>
 <p><code>armbian-install</code></p>
 <h3 id="sata"><a href="#sata" class="headerlink" title="sata"></a>sata</h3><h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h4><p><code>dd if=path-to-armbian.img of=/dev/sda1 status=progress</code></p>
-<p> <code>cfdisk /dev/sda</code> 删除<code>/boot</code> </p>
+<p> <code>cfdisk /dev/sda</code> Delete <code>/boot</code> </p>
 <blockquote>
-<p>  uEnv启动系统后，系统fstab会扫描所有设备挂载，通过label挂载boot可能会是sata先响应</p>
+<p>  After uEnv boots the system, the system fstab will scan all device mounts; mounting boot by label may cause SATA to respond first.</p>
 </blockquote>
-<p><code>mount /dev/sda2 /mnt</code> <code>vim /mnt/etc/fstab</code> 更改systemd挂载的uuid为sata</p>
-<p>更改<code>/boot/uEnv.txt</code>  的uuid为sata的uuid</p>
-<p><strong>将sata空间占满</strong></p>
+<p><code>mount /dev/sda2 /mnt</code> <code>vim /mnt/etc/fstab</code> Change the UUID mounted by systemd to the SATA UUID.</p>
+<p>Change the UUID of <code>/boot/uEnv.txt</code>  to the SATA UUID.</p>
+<p><strong>Fill up the SATA space</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">reboot</span><br><span class="line">parted /dev/sda resizepart 2 100%</span><br><span class="line">resize2fs /dev/sda2</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
 
-<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h4><p><strong>不浪费空间，emmc启动系统后运行</strong></p>
+<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h4><p><strong>Do not waste space; run after the system boots from emmc</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cfdisk /dev/sda</span><br><span class="line">mkfs.btrfs /dev/sda1</span><br><span class="line">mount /dev/sda1 /mnt</span><br><span class="line"><span class="comment"># 排除虚拟目录和当前挂载点</span></span><br><span class="line">rsync -avx --progress --exclude=&#123;<span class="string">&#x27;/proc&#x27;</span>,<span class="string">&#x27;/sys&#x27;</span>,<span class="string">&#x27;/dev&#x27;</span>,<span class="string">&#x27;/run&#x27;</span>,<span class="string">&#x27;/boot&#x27;</span>,<span class="string">&#x27;/mnt&#x27;</span>,<span class="string">&#x27;/media&#x27;</span>,<span class="string">&#x27;/tmp&#x27;</span>&#125; / /mnt/</span><br><span class="line"><span class="built_in">mkdir</span> -p /mnt/&#123;proc,sys,dev,run,boot,mnt,media,tmp&#125;</span><br><span class="line"><span class="built_in">chmod</span> 1777 /mnt/tmp</span><br></pre></td></tr></table></figure>
 
-<p><code>mount /dev/sda1 /mnt</code> <code>vim /mnt/etc/fstab</code> 更改systemd挂载的uuid为sata</p>
-<p>更改<code>/boot/uEnv.txt</code>  的uuid为sata的uuid</p>
-<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>arm linux 会先挂在boot应用<code>dtb</code>以及<code>uEnv.txt</code>后，确定系统硬盘位置，在通过系统下<code>/etc/fstab</code> 映射挂在整个系统目录</p>
+<p><code>mount /dev/sda1 /mnt</code> <code>vim /mnt/etc/fstab</code> Change the UUID mounted by systemd to the SATA UUID.</p>
+<p>Change the UUID of <code>/boot/uEnv.txt</code>  to the SATA UUID.</p>
+<h2 id="Boot"><a href="#Boot" class="headerlink" title="Boot"></a>Boot</h2><p>ARM Linux will first mount the boot application <code>dtb</code> and <code>uEnv.txt</code>, then determine the system disk location, and then map&#x2F;mount the entire system directory through <code>/etc/fstab</code> under the system.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /boot/uEnv.txt</span></span><br><span class="line">LINUX=/zImage</span><br><span class="line">INITRD=/uInitrd</span><br><span class="line">FDT=/dtb/amlogic/meson-g12b-a311d-oes-00050000.dtb <span class="comment"># 这里是dtb, meson-g12b-a311d-oes-00050000.dtb 避免网络丢包与不稳定</span></span><br><span class="line"><span class="comment"># 下面UUID为系统盘 / 挂载的设备，如果将系统装入外置硬盘，则需要更改uuid为外置硬盘的uuid</span></span><br><span class="line"><span class="comment"># ** armbian-update 依赖一致的/ /boot 挂载设备，如果需要更新，则需要在先更改uEnv中的uuid设备为emmc，重启，更新， 挂载sata, chroot到sata系统再执行一次更新， 退出chroot改回uEnv **</span></span><br><span class="line">APPEND=root=UUID=ee23f37e-7972-4267-8c8c-3d003ad91903 rootflags=compress=zstd:6 rootfstype=btrfs console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 coherent_pool=2M libata.force=noncq ubootpart= fsck.fix=<span class="built_in">yes</span> fsck.repair=<span class="built_in">yes</span> net.ifnames=0 max_loop=128 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1</span><br></pre></td></tr></table></figure>
 
 
 
-<p>可用版</p>
+<p>Working version</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">LINUX=/zImage</span><br><span class="line">INITRD=/uInitrd</span><br><span class="line">FDT=/dtb/amlogic/meson-g12b-a311d-oes-00050000.dtb</span><br><span class="line"><span class="comment"># sata</span></span><br><span class="line">APPEND=root=UUID=ee23f37e-7972-4267-8c8c-3d003ad91903 rootflags=compress=zstd:6 rootfstype=btrfs console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 coherent_pool=2M libata.force=noncq ubootpart= fsck.fix=<span class="built_in">yes</span> fsck.repair=<span class="built_in">yes</span> net.ifnames=0 max_loop=128 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1</span><br><span class="line"></span><br><span class="line"><span class="comment"># emmc</span></span><br><span class="line"><span class="comment">#APPEND=root=UUID=17d936bc-2338-4942-8221-9e529306c246 rootflags=compress=zstd:6 rootfstype=btrfs console=ttyAML0,115200n8 console=tty0 no_console_suspend consoleblank=0 coherent_pool=2M libata.force=noncq ubootpart= fsck.fix=yes fsck.repair=yes net.ifnames=0 max_loop=128 cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改uEnv为emmc后</span></span><br><span class="line">armbian-update</span><br><span class="line"></span><br><span class="line">mount /dev/sda1 /mnt/s</span><br><span class="line">mount -t proc /proc /mnt/s/proc</span><br><span class="line">mount -t sysfs /sys /mnt/s/sys</span><br><span class="line">mount --<span class="built_in">bind</span> /dev /mnt/s/dev</span><br><span class="line">mount --<span class="built_in">bind</span> /dev/pts /mnt/s/dev/pts</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">chroot</span> /mnt/s</span><br><span class="line"></span><br><span class="line">armbian-update</span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改回uEnv</span></span><br></pre></td></tr></table></figure>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 改uEnv为emmc后</span></span><br><span class="line">armbian-update</span><br><span class="line"></span><br><span class="line">mount /dev/sda1 /mnt/s</span><br><span class="line">mount -t proc /proc /mnt/s/proc</span><br><span class="line">mount -t sysfs /sys /mnt/s/sys</span><br><span class="line">mount --<span class="built_in">bind</span> /dev /mnt/s/dev</span><br><span class="line">mount --<span class="built_in">bind</span> /dev/pts /mnt/s/dev/pts</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">chroot</span> /mnt/s</span><br><span class="line"></span><br><span class="line">armbian-update</span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改回uEnv</span></span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
       
@@ -317,19 +320,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Subst 将windows文件夹映射为磁盘" class="lazyload">
-        <a href="/en/2026/01/24/2026-01-24-Subst%20%E5%B0%86windows%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%A0%E5%B0%84%E4%B8%BA%E7%A3%81%E7%9B%98/" aria-label="Prev: Subst 将windows文件夹映射为磁盘" title="Prev: Subst 将windows文件夹映射为磁盘"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Subst maps a Windows folder to a drive" class="lazyload">
+        <a href="/en/2026/01/24/2026-01-24-Subst%20%E5%B0%86windows%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%A0%E5%B0%84%E4%B8%BA%E7%A3%81%E7%9B%98/" aria-label="Prev: Subst maps a Windows folder to a drive" title="Prev: Subst maps a Windows folder to a drive"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            Subst 将windows文件夹映射为磁盘
+            Subst maps a Windows folder to a drive
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SSH终端不支持" class="lazyload">
-      <a href="/en/2026/01/20/2026-01-20-SSH%E7%BB%88%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81/" aria-label="Next: SSH终端不支持"  title="Next: SSH终端不支持"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SSH terminal is not supported" class="lazyload">
+      <a href="/en/2026/01/20/2026-01-20-SSH%E7%BB%88%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81/" aria-label="Next: SSH terminal is not supported"  title="Next: SSH terminal is not supported"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          SSH终端不支持
+          SSH terminal is not supported
       </h3>
     </div>
   </nav>
@@ -381,7 +384,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Armbian-OES"><span class="toc-number">1.</span> <span class="toc-text">Armbian-OES</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-number">1.1.</span> <span class="toc-text">系统安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#emmc"><span class="toc-number">1.1.1.</span> <span class="toc-text">emmc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sata"><span class="toc-number">1.1.2.</span> <span class="toc-text">sata</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-1"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Method 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-2"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">Method 2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-number">1.2.</span> <span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-number">1.3.</span> <span class="toc-text">更新</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Armbian-OES"><span class="toc-number">1.</span> <span class="toc-text">Armbian-OES</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#System-Installation"><span class="toc-number">1.1.</span> <span class="toc-text">System Installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#emmc"><span class="toc-number">1.1.1.</span> <span class="toc-text">emmc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sata"><span class="toc-number">1.1.2.</span> <span class="toc-text">sata</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-1"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Method 1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Method-2"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">Method 2</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boot"><span class="toc-number">1.2.</span> <span class="toc-text">Boot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Update"><span class="toc-number">1.3.</span> <span class="toc-text">Update</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -470,11 +473,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -493,11 +496,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -527,17 +530,17 @@
           url: "https://blog.wray7.top/2026/01/20/2026-01-20-Armbian-OES/",
           excerpt: "",
           description: "",
-          stripContent: "Armbian-OES系统安装emmc   dd if=path-to-armbian.img of=/dev/mmcblk1 status=progress  armbian-install sataMethod 1dd if=path-to-armbian.img of=/dev/sda1 status=progress  cfdisk /dev/sda 删除/boot     uEnv启动系统后，系统fstab会扫描所有设备挂载，通过label挂载boot可能会是sata先响应  moun",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Armbian-OESSystem Installationemmc   dd if=path-to-armbian.img of=/dev/mmcblk1 status=progress  armbian-install sataMethod 1dd if=path-to-armbian.img of=/dev",
           date: "Tue Jan 20 2026 12:27:31 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:54:26 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -596,5 +599,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

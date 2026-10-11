@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径]	#将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口]	#将特定容器端口映射">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  RegistryLogin: docker login Logout: docker logout Search images: docker search [镜像名] ImagesView images: doc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/09/05/2023-09-05-Docker/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径]	#将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口]	#将特定容器端口映射">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  RegistryLogin: docker login Logout: docker logout Search images: docker search [镜像名] ImagesView images: doc">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-09-04T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:10.205Z">
+<meta property="article:modified_time" content="2026-10-10T20:47:36.755Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="devops">
 <meta property="article:tag" content="Network">
@@ -33,7 +33,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -197,7 +197,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%93%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F"><span class="toc-number">2.</span> <span class="toc-text">镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E9%93%BE%E6%8E%A5%EF%BC%88%E5%AE%B9%E5%99%A8%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">容器链接（容器网络）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%8A%A0%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">网络创建与加入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9Cdns%E9%85%8D%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">网络dns配置</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Registry"><span class="toc-number">1.</span> <span class="toc-text">Registry</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Images"><span class="toc-number">2.</span> <span class="toc-text">Images</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Containers"><span class="toc-number">3.</span> <span class="toc-text">Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Container-linking-container-networking"><span class="toc-number">4.</span> <span class="toc-text">Container linking (container networking)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Network-creation-and-joining"><span class="toc-number">4.1.</span> <span class="toc-text">Network creation and joining</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Network-DNS-configuration"><span class="toc-number">4.2.</span> <span class="toc-text">Network DNS configuration</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -265,7 +265,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2023-09-05-Docker" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2023-09-05-Docker.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -280,42 +280,45 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p><strong>登录</strong>：<code>docker login</code></p>
-<p><strong>登出</strong>：<code>docker logout</code></p>
-<p><strong>查找镜像</strong>：<code>docker search [镜像名]</code></p>
-<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p><strong>查看镜像</strong>：<code>docker images</code></p>
-<p><strong>使用镜像生成容器</strong>：<code>docker run [镜像名]</code></p>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h2 id="Registry"><a href="#Registry" class="headerlink" title="Registry"></a>Registry</h2><p><strong>Login</strong>: <code>docker login</code></p>
+<p><strong>Logout</strong>: <code>docker logout</code></p>
+<p><strong>Search images</strong>: <code>docker search [镜像名]</code></p>
+<h2 id="Images"><a href="#Images" class="headerlink" title="Images"></a>Images</h2><p><strong>View images</strong>: <code>docker images</code></p>
+<p><strong>Create a container using an image</strong>: <code>docker run [镜像名]</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#docker run 参数</span></span><br><span class="line">-v [主机路径]:[容器路径]	<span class="comment">#将容器路径挂载到主机</span></span><br><span class="line">-P <span class="comment">#容器内部端口随机映射到主机端口</span></span><br><span class="line">-p [主机端口]:[容器端口]	<span class="comment">#将特定容器端口映射到特定主机端口</span></span><br><span class="line">--name [容器名字]	<span class="comment">#容器命名</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>删除镜像</strong>：<code>docker rmi [镜像名]</code></p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p><strong>查看容器</strong>：<code>docker ps -a</code></p>
-<p><strong>删除容器</strong>：<code>docker rm [容器名]</code></p>
-<p><strong>进入容器</strong>：<code>docker exec -it [容器序号/容器名字] /bin/bash</code> &#x2F; <code>docker exec -it [容器序号] /bin/sh</code></p>
+<p><strong>Delete image</strong>: <code>docker rmi [镜像名]</code></p>
+<h2 id="Containers"><a href="#Containers" class="headerlink" title="Containers"></a>Containers</h2><p><strong>View containers</strong>: <code>docker ps -a</code></p>
+<p><strong>Delete container</strong>: <code>docker rm [容器名]</code></p>
+<p><strong>Enter container</strong>: <code>docker exec -it [容器序号/容器名字] /bin/bash</code> &#x2F; <code>docker exec -it [容器序号] /bin/sh</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-i:interact 交互操作</span><br><span class="line">-t:terminal 终端</span><br><span class="line">-d:down 后台运行</span><br></pre></td></tr></table></figure>
 
-<p><strong>启动已有容器</strong>：<code>docker restart [container]</code></p>
-<p><strong>停止已有容器运行</strong>：<code>docker stop [container]</code>		<code>sudo aa-remove-unknown(遇到permission denied)</code></p>
-<h2 id="容器链接（容器网络）"><a href="#容器链接（容器网络）" class="headerlink" title="容器链接（容器网络）"></a>容器链接（容器网络）</h2><h3 id="网络创建与加入"><a href="#网络创建与加入" class="headerlink" title="网络创建与加入"></a>网络创建与加入</h3><p><strong>创建网络</strong>：</p>
+<p><strong>Start existing container</strong>: <code>docker restart [container]</code></p>
+<p><strong>Stop existing container</strong>: <code>docker stop [container]</code>		<code>sudo aa-remove-unknown(遇到permission denied)</code></p>
+<h2 id="Container-linking-container-networking"><a href="#Container-linking-container-networking" class="headerlink" title="Container linking (container networking)"></a>Container linking (container networking)</h2><h3 id="Network-creation-and-joining"><a href="#Network-creation-and-joining" class="headerlink" title="Network creation and joining"></a>Network creation and joining</h3><p><strong>Create network</strong>:</p>
 <ul>
 <li><code>docker network create -d bridge [网络桥名字]</code></li>
 <li><code>docker network create -d overlay [网络隧道名]</code></li>
 </ul>
-<p><strong>加入网络</strong>：</p>
+<p><strong>Join network</strong>:</p>
 <ul>
-<li>创建容器时：</li>
+<li>When creating a container:</li>
 </ul>
 <p><code>docker run -itd --name [容器名] --network [网络名] [镜像名] [/bin/bash(终端环境)]</code></p>
 <ul>
-<li>已有容器时加入：</li>
+<li>Join when the container already exists:</li>
 </ul>
 <p><code>docker network connect [network_name] [container_name] </code></p>
-<h3 id="网络dns配置"><a href="#网络dns配置" class="headerlink" title="网络dns配置"></a>网络dns配置</h3><p>主机的<code>/etc/docker/daemon.json</code>可以配置容器默认dns配置</p>
-<p><strong>查看容器dns</strong>：</p>
+<h3 id="Network-DNS-configuration"><a href="#Network-DNS-configuration" class="headerlink" title="Network DNS configuration"></a>Network DNS configuration</h3><p>The host’s <code>/etc/docker/daemon.json</code> can configure the container’s default DNS configuration</p>
+<p><strong>View container DNS</strong>:</p>
 <p><code>docker run -it --rm  [container]  cat etc/resolv.conf</code></p>
-<p><strong>手动指定容器dns</strong>：</p>
+<p><strong>Manually specify container DNS</strong>:</p>
 <p><code>docker run -it --rm -h [容器主机名]  --dns=[dns_ip] --dns-search=test.com [container]</code></p>
 <hr>
-<p>参数：</p>
+<p>Parameters:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--<span class="built_in">rm</span>：容器退出时自动清理容器内部的文件系统。</span><br><span class="line"></span><br><span class="line">-h HOSTNAME 或者 --hostname=HOSTNAME： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。</span><br><span class="line"></span><br><span class="line">--dns=IP_ADDRESS： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。</span><br><span class="line"></span><br><span class="line">--dns-search=DOMAIN： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。</span><br></pre></td></tr></table></figure>
 
 <p>​</p>
@@ -393,7 +396,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%93%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F"><span class="toc-number">2.</span> <span class="toc-text">镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E9%93%BE%E6%8E%A5%EF%BC%88%E5%AE%B9%E5%99%A8%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">容器链接（容器网络）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%8A%A0%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">网络创建与加入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9Cdns%E9%85%8D%E7%BD%AE"><span class="toc-number">4.2.</span> <span class="toc-text">网络dns配置</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Registry"><span class="toc-number">1.</span> <span class="toc-text">Registry</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Images"><span class="toc-number">2.</span> <span class="toc-text">Images</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Containers"><span class="toc-number">3.</span> <span class="toc-text">Containers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Container-linking-container-networking"><span class="toc-number">4.</span> <span class="toc-text">Container linking (container networking)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Network-creation-and-joining"><span class="toc-number">4.1.</span> <span class="toc-text">Network creation and joining</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Network-DNS-configuration"><span class="toc-number">4.2.</span> <span class="toc-text">Network DNS configuration</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -482,11 +485,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -505,11 +508,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -539,17 +542,17 @@
           url: "https://blog.wray7.top/2023/09/05/2023-09-05-Docker/",
           excerpt: "",
           description: "",
-          stripContent: "仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径] #将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口] #将特定容器端口映射到特定主机端口--name [容器名字] #容器命名  删除镜像：docker rmi [镜像名] ",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  RegistryLogin: docker login Logout: docker logout Search images: docker search [镜像名] ImagesView images: docker images Create a container using an image: dock",
           date: "Tue Sep 05 2023 00:00:00 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:10 GMT+0800",
+          updated: "Sun Oct 11 2026 04:47:36 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -608,5 +611,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

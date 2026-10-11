@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="Ntp1234# &#x2F;etc&#x2F;systemd&#x2F;timesyncd.conf[Time]NTP&#x3D;time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org   FallbackNTP&#x3D;pool.ntp.org time.windows.com">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Ntp1234# &#x2F;etc&#x2F;systemd&#x2F;timesyncd.conf[Time]NTP&#x3D;time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ntp">
 <meta property="og:url" content="https://blog.wray7.top/en/2025/08/05/2025-08-05-Ntp/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Ntp1234# &#x2F;etc&#x2F;systemd&#x2F;timesyncd.conf[Time]NTP&#x3D;time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org   FallbackNTP&#x3D;pool.ntp.org time.windows.com">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Ntp1234# &#x2F;etc&#x2F;systemd&#x2F;timesyncd.conf[Time]NTP&#x3D;time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-05T14:43:24.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.233Z">
+<meta property="article:modified_time" content="2026-10-10T20:52:09.304Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ntp"><span class="toc-number">1.</span> <span class="toc-text">Ntp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%B3%BB%E7%BB%9FUTC%E6%94%B9RTC"><span class="toc-number">1.1.</span> <span class="toc-text">多系统UTC改RTC</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ntp"><span class="toc-number">1.</span> <span class="toc-text">Ntp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-system-UTC-to-RTC"><span class="toc-number">1.1.</span> <span class="toc-text">Multi-system UTC to RTC</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2025-08-05-Ntp" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2025-08-05-Ntp.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,7 +278,10 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="Ntp"><a href="#Ntp" class="headerlink" title="Ntp"></a>Ntp</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/timesyncd.conf</span></span><br><span class="line">[Time]</span><br><span class="line">NTP=time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org   </span><br><span class="line">FallbackNTP=pool.ntp.org time.windows.com 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org </span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="Ntp"><a href="#Ntp" class="headerlink" title="Ntp"></a>Ntp</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/timesyncd.conf</span></span><br><span class="line">[Time]</span><br><span class="line">NTP=time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org   </span><br><span class="line">FallbackNTP=pool.ntp.org time.windows.com 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org </span><br></pre></td></tr></table></figure>
 
 
 
@@ -286,7 +289,7 @@
 
 
 
-<h2 id="多系统UTC改RTC"><a href="#多系统UTC改RTC" class="headerlink" title="多系统UTC改RTC"></a>多系统UTC改RTC</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查当前设置</span></span><br><span class="line">timdatectl status | grep <span class="built_in">local</span></span><br><span class="line">timdatectl set-local-rtc <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改回</span></span><br><span class="line"><span class="comment"># timdatectl set-local-rtc false</span></span><br></pre></td></tr></table></figure>
+<h2 id="Multi-system-UTC-to-RTC"><a href="#Multi-system-UTC-to-RTC" class="headerlink" title="Multi-system UTC to RTC"></a>Multi-system UTC to RTC</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查当前设置</span></span><br><span class="line">timdatectl status | grep <span class="built_in">local</span></span><br><span class="line">timdatectl set-local-rtc <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改回</span></span><br><span class="line"><span class="comment"># timdatectl set-local-rtc false</span></span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
       
@@ -296,19 +299,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Windows清除默认程序" class="lazyload">
-        <a href="/en/2025/08/06/2025-08-06-Windows%E6%B8%85%E9%99%A4%E9%BB%98%E8%AE%A4%E7%A8%8B%E5%BA%8F/" aria-label="Prev: Windows清除默认程序" title="Prev: Windows清除默认程序"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Windows Clear Default Programs" class="lazyload">
+        <a href="/en/2025/08/06/2025-08-06-Windows%E6%B8%85%E9%99%A4%E9%BB%98%E8%AE%A4%E7%A8%8B%E5%BA%8F/" aria-label="Prev: Windows Clear Default Programs" title="Prev: Windows Clear Default Programs"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            Windows清除默认程序
+            Windows Clear Default Programs
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="新建 Text Document" class="lazyload">
-      <a href="/en/2025/08/05/2025-08-05-%E6%96%B0%E5%BB%BA%20Text%20Document/" aria-label="Next: 新建 Text Document"  title="Next: 新建 Text Document"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="New Text Document" class="lazyload">
+      <a href="/en/2025/08/05/2025-08-05-%E6%96%B0%E5%BB%BA%20Text%20Document/" aria-label="Next: New Text Document"  title="Next: New Text Document"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          新建 Text Document
+          New Text Document
       </h3>
     </div>
   </nav>
@@ -360,7 +363,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ntp"><span class="toc-number">1.</span> <span class="toc-text">Ntp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%B3%BB%E7%BB%9FUTC%E6%94%B9RTC"><span class="toc-number">1.1.</span> <span class="toc-text">多系统UTC改RTC</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ntp"><span class="toc-number">1.</span> <span class="toc-text">Ntp</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Multi-system-UTC-to-RTC"><span class="toc-number">1.1.</span> <span class="toc-text">Multi-system UTC to RTC</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -449,11 +452,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -472,11 +475,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -506,17 +509,17 @@
           url: "https://blog.wray7.top/2025/08/05/2025-08-05-Ntp/",
           excerpt: "",
           description: "",
-          stripContent: "Ntp1234# /etc/systemd/timesyncd.conf[Time]NTP=time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org   FallbackNTP=pool.ntp.org time.windows.com 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.poo",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Ntp1234# /etc/systemd/timesyncd.conf[Time]NTP=time.windows.com pool.ntp.org 3.arch.pool.ntp.org 2.arch.pool.ntp.org 1.arch.pool.ntp.org 0.arch.pool.ntp.org  ",
           date: "Tue Aug 05 2025 22:43:24 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:52:09 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -575,5 +578,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

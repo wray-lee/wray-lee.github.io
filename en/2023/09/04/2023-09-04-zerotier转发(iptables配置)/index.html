@@ -7,24 +7,24 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    zerotier转发(iptables配置) | Wray的Blog
+    zerotier forwarding (iptables configuration) | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="网络三层NAT配置方法（linux主机） 假设zerotier虚拟局域网的网段是192.168.192.0 局域网A 192.168.1.0 局域网B 192.168.2.0 (如果需要互联)在局域网A和B中需要各有一台主机安装zerotier并作为两个内网互联的网关 分别是192.168.1.10（192.168.192.10） 192.168.2.10（192.168.192.20）#括号里面">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Layer 3 Network NAT Configuration Method (Linux Host) Assume that the ZeroTier virtual LAN subnet is 192.16">
 <meta property="og:type" content="article">
-<meta property="og:title" content="zerotier转发(iptables配置)">
+<meta property="og:title" content="zerotier forwarding (iptables configuration)">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/09/04/2023-09-04-zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="网络三层NAT配置方法（linux主机） 假设zerotier虚拟局域网的网段是192.168.192.0 局域网A 192.168.1.0 局域网B 192.168.2.0 (如果需要互联)在局域网A和B中需要各有一台主机安装zerotier并作为两个内网互联的网关 分别是192.168.1.10（192.168.192.10） 192.168.2.10（192.168.192.20）#括号里面">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Layer 3 Network NAT Configuration Method (Linux Host) Assume that the ZeroTier virtual LAN subnet is 192.16">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6">
 <meta property="article:published_time" content="2023-09-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:10.198Z">
+<meta property="article:modified_time" content="2026-10-10T20:46:42.765Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="组网">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -179,11 +179,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="zerotier转发(iptables配置)">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="zerotier forwarding (iptables configuration)">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">zerotier转发(iptables配置)</h1>
+            <h1 data-aos="slide-up">zerotier forwarding (iptables configuration)</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -198,7 +198,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%B8%89%E5%B1%82NAT%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%EF%BC%88linux%E4%B8%BB%E6%9C%BA%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">网络三层NAT配置方法（linux主机）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9C%A8zerotier%E7%BD%91%E7%AB%99%E7%9A%84networks%E9%87%8C%E9%9D%A2%E7%9A%84Managed-Routes%E4%B8%8B%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1%E8%A1%A8-%E5%A2%9E%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">1. 在zerotier网站的networks里面的Managed Routes下配置路由表,增加如下内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BC%80%E5%90%AF%E5%86%85%E6%A0%B8%E8%BD%AC%E5%8F%91"><span class="toc-number">1.2.</span> <span class="toc-text">2. 开启内核转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 防火墙设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A7%E7%89%88zerotier-%E2%80%9Ccannot-bind-local-interface-port%E2%80%9D%E6%88%96%E6%97%A0%E6%B3%95%E6%8E%A5%E5%85%A5%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">旧版zerotier “cannot bind local interface port”或无法接入网络处理</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Layer-3-Network-NAT-Configuration-Method-Linux-Host"><span class="toc-number">1.</span> <span class="toc-text">Layer 3 Network NAT Configuration Method (Linux Host)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-In-the-networks-on-the-ZeroTier-website-under-Managed-Routes-configure-the-routing-table-and-add-the-following-content"><span class="toc-number">1.1.</span> <span class="toc-text">1. In the networks on the ZeroTier website, under Managed Routes, configure the routing table and add the following content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Enable-kernel-forwarding"><span class="toc-number">1.2.</span> <span class="toc-text">2. Enable kernel forwarding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Firewall-settings"><span class="toc-number">1.3.</span> <span class="toc-text">3. Firewall settings</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Handling-for-old-ZeroTier-%E2%80%9Ccannot-bind-local-interface-port%E2%80%9D-or-inability-to-connect-to-the-network"><span class="toc-number">2.</span> <span class="toc-text">Handling for old ZeroTier “cannot bind local interface port” or inability to connect to the network</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -266,7 +266,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2023-09-04-zerotier转发(iptables配置)" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2023-09-04-zerotier转发(iptables配置).en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -281,23 +281,25 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="网络三层NAT配置方法（linux主机）"><a href="#网络三层NAT配置方法（linux主机）" class="headerlink" title="网络三层NAT配置方法（linux主机）"></a>网络三层NAT配置方法（linux主机）</h1><ul>
-<li>假设zerotier虚拟局域网的网段是192.168.192.0 局域网A 192.168.1.0 局域网B 192.168.2.0</li>
-<li>(如果需要互联)在局域网A和B中需要各有一台主机安装zerotier并作为两个内网互联的网关</li>
-<li>分别是192.168.1.10（192.168.192.10） 192.168.2.10（192.168.192.20）#括号里面为虚拟局域网的IP地址</li>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="Layer-3-Network-NAT-Configuration-Method-Linux-Host"><a href="#Layer-3-Network-NAT-Configuration-Method-Linux-Host" class="headerlink" title="Layer 3 Network NAT Configuration Method (Linux Host)"></a>Layer 3 Network NAT Configuration Method (Linux Host)</h1><ul>
+<li>Assume that the ZeroTier virtual LAN subnet is 192.168.192.0, LAN A is 192.168.1.0, and LAN B is 192.168.2.0</li>
+<li>(If interconnection is required) In LAN A and LAN B, there must be one host each with ZeroTier installed, serving as the gateway for interconnection between the two internal networks</li>
+<li>They are respectively 192.168.1.10 (192.168.192.10) and 192.168.2.10 (192.168.192.20) # The IP addresses in the parentheses are the virtual LAN IP addresses</li>
 </ul>
-<h2 id="1-在zerotier网站的networks里面的Managed-Routes下配置路由表-增加如下内容"><a href="#1-在zerotier网站的networks里面的Managed-Routes下配置路由表-增加如下内容" class="headerlink" title="1. 在zerotier网站的networks里面的Managed Routes下配置路由表,增加如下内容"></a>1. 在zerotier网站的networks里面的Managed Routes下配置路由表,增加如下内容</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果单向连接,仅需填写下方一个即可.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#本地网络段 via 远端ZeroTier IP</span></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">1.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.10</span></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">2.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.20</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-In-the-networks-on-the-ZeroTier-website-under-Managed-Routes-configure-the-routing-table-and-add-the-following-content"><a href="#1-In-the-networks-on-the-ZeroTier-website-under-Managed-Routes-configure-the-routing-table-and-add-the-following-content" class="headerlink" title="1. In the networks on the ZeroTier website, under Managed Routes, configure the routing table and add the following content"></a>1. In the networks on the ZeroTier website, under Managed Routes, configure the routing table and add the following content</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果单向连接,仅需填写下方一个即可.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#本地网络段 via 远端ZeroTier IP</span></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">1.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.10</span></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">2.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.20</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-开启内核转发"><a href="#2-开启内核转发" class="headerlink" title="2. 开启内核转发"></a>2. 开启内核转发</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;net.ipv4.ip_forward = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">#与zt以外网卡互通</span><br><span class="line">zerotier-cli set [zt网络号] allowGlobal=<span class="number">1</span></span><br><span class="line">zerotier-cli set [zt网络号] allowDefault=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<h2 id="2-Enable-kernel-forwarding"><a href="#2-Enable-kernel-forwarding" class="headerlink" title="2. Enable kernel forwarding"></a>2. Enable kernel forwarding</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;net.ipv4.ip_forward = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">#与zt以外网卡互通</span><br><span class="line">zerotier-cli set [zt网络号] allowGlobal=<span class="number">1</span></span><br><span class="line">zerotier-cli set [zt网络号] allowDefault=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-防火墙设置"><a href="#3-防火墙设置" class="headerlink" title="3. 防火墙设置"></a>3. 防火墙设置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -A FORWARD -i ztly53odaw -o eth0 -j ACCEPT</span><br><span class="line"><span class="built_in">sudo</span> iptables -A FORWARD -i eth0 -o ztly53odaw -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"><span class="comment">#或</span></span><br><span class="line"><span class="comment">#sudo iptables -A FORWARD -i eth0 -o ztly53odaw -j ACCEPT</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE	<span class="comment">#不中断原始流量下路由流量</span></span><br><span class="line"></span><br><span class="line">iptables-save</span><br></pre></td></tr></table></figure>
+<h2 id="3-Firewall-settings"><a href="#3-Firewall-settings" class="headerlink" title="3. Firewall settings"></a>3. Firewall settings</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> iptables -A FORWARD -i ztly53odaw -o eth0 -j ACCEPT</span><br><span class="line"><span class="built_in">sudo</span> iptables -A FORWARD -i eth0 -o ztly53odaw -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"><span class="comment">#或</span></span><br><span class="line"><span class="comment">#sudo iptables -A FORWARD -i eth0 -o ztly53odaw -j ACCEPT</span></span><br><span class="line"><span class="built_in">sudo</span> iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE	<span class="comment">#不中断原始流量下路由流量</span></span><br><span class="line"></span><br><span class="line">iptables-save</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks">参考: Route between ZeroTier and Physical Networks - ZeroTier Knowledge Base - Confluence (atlassian.net)<img src="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6" alt="icon-default.png?t&#x3D;M5H6"><a target="_blank" rel="noopener" href="https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks">https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks</a></a></p>
+<p><a target="_blank" rel="noopener" href="https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks">Reference: Route between ZeroTier and Physical Networks - ZeroTier Knowledge Base - Confluence (atlassian.net)<img src="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6" alt="icon-default.png?t&#x3D;M5H6"><a target="_blank" rel="noopener" href="https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks">https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks</a></a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#物理网卡 eth0;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ZeroTier虚拟网卡 zt7nnig26</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#你可以在路由器ssh环境中用 ifconfig 查询</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#ZeroTier一般以zt开头</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#可以根据IP地址判断</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> iptables -A FORWARD -i eth0 -o ztly53odaw -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># state 报错的话用这个</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#sudo iptables -A FORWARD -i eth0 -o ztly53odaw -j ACCEPT</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> iptables -A FORWARD -i ztly53odaw -o eth0 -j ACCEPT</span><br><span class="line"></span><br><span class="line">iptables-save <span class="comment">#保存配置到文件,否则重启规则会丢失.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#sudo 看系统, 不一定要带</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h1 id="旧版zerotier-“cannot-bind-local-interface-port”或无法接入网络处理"><a href="#旧版zerotier-“cannot-bind-local-interface-port”或无法接入网络处理" class="headerlink" title="旧版zerotier “cannot bind local interface port”或无法接入网络处理"></a>旧版zerotier “cannot bind local interface port”或无法接入网络处理</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">killall -9 zerotier-one //杀死zerotier所有进程</span><br><span class="line">netstat -lp | grep zero //查看9993端口是否被占用</span><br><span class="line">zerotier-one -d //启动zerotier客户端</span><br><span class="line">zerotier-cli listnetworks //列出连接的zerotier网络</span><br><span class="line"><span class="comment">#旧版orbit无法使用则用生成的签名放入moons.d</span></span><br><span class="line">看到status这一项为ACCESS_DENIED说明端口绑定成功</span><br></pre></td></tr></table></figure>
-
+<h1 id="Handling-for-old-ZeroTier-“cannot-bind-local-interface-port”-or-inability-to-connect-to-the-network"><a href="#Handling-for-old-ZeroTier-“cannot-bind-local-interface-port”-or-inability-to-connect-to-the-network" class="headerlink" title="Handling for old ZeroTier “cannot bind local interface port” or inability to connect to the network"></a>Handling for old ZeroTier “cannot bind local interface port” or inability to connect to the network</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">killall -9 zerotier-one //杀死zerotier所有进程</span><br><span class="line">netstat -lp | grep zero //查看9993端口是否被占用</span><br><span class="line">zerotier-one -d //启动zerotier客户端</span><br><span class="line">zerotier-cli listnetworks //列出连接的zerotier网络</span><br><span class="line"><span class="comment">#旧版orbit无法使用则用生成的签名放入moons.d</span></span><br><span class="line">看到status这一项为ACCESS_DENIED说明端口绑定成功</span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
       
@@ -307,19 +309,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="zerotier自建planet" class="lazyload">
-        <a href="/en/2023/09/04/2023-09-04-zerotier%E8%87%AA%E5%BB%BAplanet/" aria-label="Prev: zerotier自建planet" title="Prev: zerotier自建planet"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="ZeroTier configuration" class="lazyload">
+        <a href="/en/2023/09/04/2023-09-04-zerotier%E9%85%8D%E7%BD%AE/" aria-label="Prev: ZeroTier configuration" title="Prev: ZeroTier configuration"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            zerotier自建planet
+            ZeroTier configuration
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="zerotier配置" class="lazyload">
-      <a href="/en/2023/09/04/2023-09-04-zerotier%E9%85%8D%E7%BD%AE/" aria-label="Next: zerotier配置"  title="Next: zerotier配置"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Information Collection" class="lazyload">
+      <a href="/en/2023/09/04/2023-09-04-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" aria-label="Next: Information Collection"  title="Next: Information Collection"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          zerotier配置
+          Information Collection
       </h3>
     </div>
   </nav>
@@ -371,7 +373,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E4%B8%89%E5%B1%82NAT%E9%85%8D%E7%BD%AE%E6%96%B9%E6%B3%95%EF%BC%88linux%E4%B8%BB%E6%9C%BA%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">网络三层NAT配置方法（linux主机）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9C%A8zerotier%E7%BD%91%E7%AB%99%E7%9A%84networks%E9%87%8C%E9%9D%A2%E7%9A%84Managed-Routes%E4%B8%8B%E9%85%8D%E7%BD%AE%E8%B7%AF%E7%94%B1%E8%A1%A8-%E5%A2%9E%E5%8A%A0%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9"><span class="toc-number">1.1.</span> <span class="toc-text">1. 在zerotier网站的networks里面的Managed Routes下配置路由表,增加如下内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BC%80%E5%90%AF%E5%86%85%E6%A0%B8%E8%BD%AC%E5%8F%91"><span class="toc-number">1.2.</span> <span class="toc-text">2. 开启内核转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">3. 防火墙设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A7%E7%89%88zerotier-%E2%80%9Ccannot-bind-local-interface-port%E2%80%9D%E6%88%96%E6%97%A0%E6%B3%95%E6%8E%A5%E5%85%A5%E7%BD%91%E7%BB%9C%E5%A4%84%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">旧版zerotier “cannot bind local interface port”或无法接入网络处理</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Layer-3-Network-NAT-Configuration-Method-Linux-Host"><span class="toc-number">1.</span> <span class="toc-text">Layer 3 Network NAT Configuration Method (Linux Host)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-In-the-networks-on-the-ZeroTier-website-under-Managed-Routes-configure-the-routing-table-and-add-the-following-content"><span class="toc-number">1.1.</span> <span class="toc-text">1. In the networks on the ZeroTier website, under Managed Routes, configure the routing table and add the following content</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Enable-kernel-forwarding"><span class="toc-number">1.2.</span> <span class="toc-text">2. Enable kernel forwarding</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Firewall-settings"><span class="toc-number">1.3.</span> <span class="toc-text">3. Firewall settings</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Handling-for-old-ZeroTier-%E2%80%9Ccannot-bind-local-interface-port%E2%80%9D-or-inability-to-connect-to-the-network"><span class="toc-number">2.</span> <span class="toc-text">Handling for old ZeroTier “cannot bind local interface port” or inability to connect to the network</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -460,11 +462,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -483,11 +485,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -513,21 +515,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "zerotier转发(iptables配置)",
+          title: "zerotier forwarding (iptables configuration)",
           url: "https://blog.wray7.top/2023/09/04/2023-09-04-zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/",
           excerpt: "",
           description: "",
-          stripContent: "网络三层NAT配置方法（linux主机） 假设zerotier虚拟局域网的网段是192.168.192.0 局域网A 192.168.1.0 局域网B 192.168.2.0 (如果需要互联)在局域网A和B中需要各有一台主机安装zerotier并作为两个内网互联的网关 分别是192.168.1.10（192.168.192.10） 192.168.2.10（192.168.192.20）#括号里面为虚拟局域网的IP地址  1. 在zerotier网站的networks里面的Managed Rou",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Layer 3 Network NAT Configuration Method (Linux Host) Assume that the ZeroTier virtual LAN subnet is 192.168.192.0, LAN A is 192.168.1.0, and LAN B is 192.16",
           date: "Mon Sep 04 2023 00:00:00 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:10 GMT+0800",
+          updated: "Sun Oct 11 2026 04:46:42 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -586,5 +588,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

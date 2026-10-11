@@ -7,23 +7,23 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    Batsh基本语法 | Wray的Blog
+    Batshの基本構文 | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="Batsh基本语法注释1.单行注释 rem blabla@REM blabla:: blabla2.行末或单行注释	%blabla%  命令后添加 &gt; nul 可不显示指令作用内容 语法头一般会在头部输入@echo off echo回显指令,相当于cout,但是会显示自身使用@echo off可以不显示echo@作用为此条命令的echo也不显示 延时指令timeout -t &lt;font">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Batsh基本文法コメント 1行コメント rem blabla@REM blabla:: blabla 行末または1行コメント	%blabla%   コマンドの後に &gt; nul を追加すると、命令の実行内容を表示しないようにできます 文法ヘッダー通常、先頭に@echo offを入力">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Batsh基本语法">
+<meta property="og:title" content="Batshの基本構文">
 <meta property="og:url" content="https://blog.wray7.top/ja/2024/04/08/2024-04-08-Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Batsh基本语法注释1.单行注释 rem blabla@REM blabla:: blabla2.行末或单行注释	%blabla%  命令后添加 &gt; nul 可不显示指令作用内容 语法头一般会在头部输入@echo off echo回显指令,相当于cout,但是会显示自身使用@echo off可以不显示echo@作用为此条命令的echo也不显示 延时指令timeout -t &lt;font">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Batsh基本文法コメント 1行コメント rem blabla@REM blabla:: blabla 行末または1行コメント	%blabla%   コマンドの後に &gt; nul を追加すると、命令の実行内容を表示しないようにできます 文法ヘッダー通常、先頭に@echo offを入力">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2024-04-08T06:42:29.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.958Z">
+<meta property="article:modified_time" content="2026-10-10T20:49:45.522Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Batsh基本语法">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Batshの基本構文">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">Batsh基本语法</h1>
+            <h1 data-aos="slide-up">Batshの基本構文</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Batsh基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4"><span class="toc-number">2.0.1.</span> <span class="toc-text">头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E6%8C%87%E4%BB%A4"><span class="toc-number">2.0.2.</span> <span class="toc-text">延时指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.0.3.</span> <span class="toc-text">目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dir%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">Dir函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8Efor%E7%9A%84dir"><span class="toc-number">2.0.3.1.1.</span> <span class="toc-text">用于for的dir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">2.0.3.1.2.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.0.3.1.3.</span> <span class="toc-text">运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.0.4.</span> <span class="toc-text">服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-number">2.0.5.</span> <span class="toc-text">提权</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Powershell"><span class="toc-number">2.1.</span> <span class="toc-text">Powershell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">删除文件夹</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Batsh%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Batsh基本文法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88"><span class="toc-number">1.1.</span> <span class="toc-text">コメント</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">文法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%98%E3%83%83%E3%83%80%E3%83%BC"><span class="toc-number">2.0.1.</span> <span class="toc-text">ヘッダー</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%85%E5%BB%B6%E5%91%BD%E4%BB%A4"><span class="toc-number">2.0.2.</span> <span class="toc-text">遅延命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0"><span class="toc-number">2.0.3.</span> <span class="toc-text">ディレクトリ構造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dir%E9%96%A2%E6%95%B0"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">Dir関数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#for%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdir"><span class="toc-number">2.0.3.1.1.</span> <span class="toc-text">forで使用するdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AD%98%E5%88%A5%E5%AD%90"><span class="toc-number">2.0.3.1.2.</span> <span class="toc-text">識別子</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BC%94%E7%AE%97%E5%AD%90"><span class="toc-number">2.0.3.1.3.</span> <span class="toc-text">演算子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9"><span class="toc-number">2.0.4.</span> <span class="toc-text">サービス</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A9%E9%99%90%E6%98%87%E6%A0%BC"><span class="toc-number">2.0.5.</span> <span class="toc-text">権限昇格</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Powershell"><span class="toc-number">2.1.</span> <span class="toc-text">Powershell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%81%AE%E5%89%8A%E9%99%A4"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">フォルダの削除</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2024-04-08-Batsh基本语法" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2024-04-08-Batsh基本语法.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,46 +278,52 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="Batsh基本语法"><a href="#Batsh基本语法" class="headerlink" title="Batsh基本语法"></a>Batsh基本语法</h1><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>1.单行注释 <code>rem blabla</code><br><code>@REM blabla</code><br><code>:: blabla</code><br>2.行末或单行注释	<code>%blabla%</code></p>
-<p> 命令后添加 &gt; nul 可不显示指令作用内容</p>
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h3 id="头"><a href="#头" class="headerlink" title="头"></a>头</h3><p>一般会在头部输入<code>@echo off</code></p>
-<p>echo回显指令,相当于cout,但是会显示自身<br>使用@echo off可以不显示echo<br>@作用为此条命令的echo也不显示</p>
-<h3 id="延时指令"><a href="#延时指令" class="headerlink" title="延时指令"></a>延时指令</h3><p><code>timeout -t &lt;font color=Gainsboro&gt;*time* &lt;/font&gt;</code></p>
-<p>相当于<code>sleep()</code></p>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><p><code>%~dp0 </code>	为文件当前所在目录</p>
-<h4 id="Dir函数"><a href="#Dir函数" class="headerlink" title="Dir函数"></a><code>Dir</code>函数</h4><p><code>DIR *.* /B &gt;list.txt</code> 			提取当前目录下所有文件名至list.txt中</p>
-<p>可以直接用于遍历</p>
-<h5 id="用于for的dir"><a href="#用于for的dir" class="headerlink" title="用于for的dir"></a>用于for的dir</h5><p><code> for /f &quot;delims= ,token= &quot; in (&#39;dir /a-d /b&#39;) do&#123;&#125;</code></p>
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="Batsh基本文法"><a href="#Batsh基本文法" class="headerlink" title="Batsh基本文法"></a>Batsh基本文法</h1><h2 id="コメント"><a href="#コメント" class="headerlink" title="コメント"></a>コメント</h2><ol>
+<li>1行コメント <code>rem blabla</code><br><code>@REM blabla</code><br><code>:: blabla</code></li>
+<li>行末または1行コメント	<code>%blabla%</code></li>
+</ol>
+<p> コマンドの後に &gt; nul を追加すると、命令の実行内容を表示しないようにできます</p>
+<h1 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h1><h3 id="ヘッダー"><a href="#ヘッダー" class="headerlink" title="ヘッダー"></a>ヘッダー</h3><p>通常、先頭に<code>@echo off</code>を入力します</p>
+<p>echoはエコー命令で、coutに相当しますが、自身も表示します<br>@echo offを使用するとechoを表示しないようにできます<br>@の役割は、このコマンドのechoも表示しないようにすることです</p>
+<h3 id="遅延命令"><a href="#遅延命令" class="headerlink" title="遅延命令"></a>遅延命令</h3><p><code>timeout -t &lt;font color=Gainsboro&gt;*time* &lt;/font&gt;</code></p>
+<p><code>sleep()</code>に相当します</p>
+<h3 id="ディレクトリ構造"><a href="#ディレクトリ構造" class="headerlink" title="ディレクトリ構造"></a>ディレクトリ構造</h3><p><code>%~dp0 </code>	はファイルが現在あるディレクトリです</p>
+<h4 id="Dir関数"><a href="#Dir関数" class="headerlink" title="Dir関数"></a><code>Dir</code>関数</h4><p><code>DIR *.* /B &gt;list.txt</code> 			現在のディレクトリ下のすべてのファイル名をlist.txtに抽出します</p>
+<p>そのまま走査に使用できます</p>
+<h5 id="forで使用するdir"><a href="#forで使用するdir" class="headerlink" title="forで使用するdir"></a>forで使用するdir</h5><p><code> for /f &quot;delims= ,token= &quot; in (&#39;dir /a-d /b&#39;) do&#123;&#125;</code></p>
 <hr>
-<p>delims 用于分割目录下元素：<br>{“第1行第1列 第1行第2列 第1行第3列”， &#x2F;&#x2F;第一个元素</p>
-<p>“第2行第1列 第2行第2列 第2行第3列”， &#x2F;&#x2F;第二个元素</p>
-<p>“第3行第1列 第3行第2列 第3行第3列”}   &#x2F;&#x2F;第三个元素</p>
+<p>delims はディレクトリ下の要素を分割するために使用します：<br>{“第1行第1列 第1行第2列 第1行第3列”， &#x2F;&#x2F;最初の要素</p>
+<p>“第2行第1列 第2行第2列 第2行第3列”， &#x2F;&#x2F;2番目の要素</p>
+<p>“第3行第1列 第3行第2列 第3行第3列”}   &#x2F;&#x2F;3番目の要素</p>
 <p>-&gt;</p>
 <p>第1行第1列<br>第2行第1列<br>第3行第1列</p>
 <hr>
-<p>token用于取delims分割后的那一部分</p>
+<p>token は delims で分割した後の該当部分を取り出すために使用します</p>
 <p><code>for /f &quot;tokens=2 delims= &quot; %%i in (a.txt) do echo %%i</code></p>
-<p>执行结果：</p>
+<p>実行結果：</p>
 <p>第1行第2列<br>第2行第2列<br>第3行第2列</p>
 <hr>
-<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><p><code>/R %%i</code>用于遍历当前目录</p>
-<h5 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h5><ul>
+<h5 id="識別子"><a href="#識別子" class="headerlink" title="識別子"></a>識別子</h5><p><code>/R %%i</code> は現在のディレクトリを走査するために使用します</p>
+<h5 id="演算子"><a href="#演算子" class="headerlink" title="演算子"></a>演算子</h5><ul>
 <li><code>%%~</code></li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~n 取得文件名。 ~x 取得扩展名。 ~nx 取得全名，包括扩展名。 ~s 取得目录及全名。 ~p 取得路径。 ~dp 取得绝对路径。</span><br><span class="line"></span><br><span class="line">运算符放在变量名字前，写成%%~ni	Linux中$&#123;.*var&#125; 同样如此</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h3><p><code>sc</code> 只用于服务</p>
-<p><code>net</code> 既可以用于服务，又可以用于网络、用户、登录的绝大部分场景</p>
-<p><code>sc</code> 在命令行中无法执行，在bat脚本中可以正常执行</p>
-<p><code>net</code> 则没有这种问题</p>
-<p><code>sc</code> 只用于服务，回显会详细</p>
-<h3 id="提权"><a href="#提权" class="headerlink" title="提权"></a>提权</h3><ul>
-<li>快捷方式使用管理员运行</li>
-<li>runas命令</li>
-<li>powershell中Start-Process命令</li>
-<li>vbs调用Shell.Application对象的ShellExecute</li>
+<h3 id="サービス"><a href="#サービス" class="headerlink" title="サービス"></a>サービス</h3><p><code>sc</code> はサービスのみに使用します</p>
+<p><code>net</code> はサービスだけでなく、ネットワーク、ユーザー、ログインの大部分のシナリオにも使用できます</p>
+<p><code>sc</code> はコマンドラインでは実行できませんが、batスクリプトでは正常に実行できます</p>
+<p><code>net</code> にはそのような問題はありません</p>
+<p><code>sc</code> はサービスのみに使用し、エコーは詳細に表示されます</p>
+<h3 id="権限昇格"><a href="#権限昇格" class="headerlink" title="権限昇格"></a>権限昇格</h3><ul>
+<li>ショートカットは管理者として実行を使用</li>
+<li>runasコマンド</li>
+<li>powershellのStart-Processコマンド</li>
+<li>vbsでShell.ApplicationオブジェクトのShellExecuteを呼び出す</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">runas命令是一个Windows内置的命令，它可以让你以指定的用户身份运行一个程序或命令。它的语法是：runas /user:&lt;user&gt; &lt;program&gt;，其中&lt;user&gt;是你要使用的用户账户，&lt;program&gt;是你要运行的程序或命令。例如，如果你要以管理员身份运行bat脚本，你可以这样写：runas /user:Administrator myscript.bat。但是这样会提示你输入管理员密码，如果你不想输入密码，你可以使用/savecred参数来保存凭据，但是这样可能会有安全风险。</span><br><span class="line"></span><br><span class="line">Start-Process命令是一个PowerShell内置的命令，它可以让你启动一个或多个进程，并设置一些选项，比如工作目录、窗口样式、重定向输出等。它的语法是：Start-Process -FilePath &lt;file&gt; [-ArgumentList &lt;args&gt;] [-Verb RunAs] [-WindowStyle &lt;style&gt;] [-Wait]，其中&lt;file&gt;是你要运行的文件，&lt;args&gt;是你要传递给文件的参数，-Verb RunAs是指定以管理员身份运行，-WindowStyle &lt;style&gt;是指定窗口样式，比如Normal, Hidden, Minimized, or Maximized，-Wait是指定等待进程结束再继续执行。例如，如果你要以管理员身份运行bat脚本，并等待它结束，你可以这样写：Start-Process -FilePath myscript.bat -Verb RunAs -Wait。但是这样会弹出UAC确认对话框，如果你不想弹出对话框，你可以使用vbs脚本来调用Shell.Application对象的ShellExecute方法。</span><br></pre></td></tr></table></figure>
 
@@ -329,7 +335,7 @@
 
 
 
-<h2 id="Powershell"><a href="#Powershell" class="headerlink" title="Powershell"></a>Powershell</h2><h4 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> folder <span class="literal">-Recurse</span> | <span class="built_in">rm</span> <span class="literal">-force</span> <span class="literal">-recurse</span> &amp;&amp; <span class="built_in">rm</span> folder <span class="literal">-force</span></span><br></pre></td></tr></table></figure>
+<h2 id="Powershell"><a href="#Powershell" class="headerlink" title="Powershell"></a>Powershell</h2><h4 id="フォルダの削除"><a href="#フォルダの削除" class="headerlink" title="フォルダの削除"></a>フォルダの削除</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> folder <span class="literal">-Recurse</span> | <span class="built_in">rm</span> <span class="literal">-force</span> <span class="literal">-recurse</span> &amp;&amp; <span class="built_in">rm</span> folder <span class="literal">-force</span></span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
       
@@ -339,19 +345,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="web-basic" class="lazyload">
-        <a href="/ja/2024/04/09/2024-04-09-web-basic/" aria-label="前の記事: web-basic" title="前の記事: web-basic"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="ウェブベーシック" class="lazyload">
+        <a href="/ja/2024/04/09/2024-04-09-web-basic/" aria-label="前の記事: ウェブベーシック" title="前の記事: ウェブベーシック"></a>
         <div class="article-nav-caption">前の記事</div>
         <h3 class="article-nav-title">
-            web-basic
+            ウェブベーシック
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Vim笔记" class="lazyload">
-      <a href="/ja/2024/04/02/2024-04-02-Vim%E7%AC%94%E8%AE%B0/" aria-label="次の記事: Vim笔记"  title="次の記事: Vim笔记"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Vimノート" class="lazyload">
+      <a href="/ja/2024/04/02/2024-04-02-Vim%E7%AC%94%E8%AE%B0/" aria-label="次の記事: Vimノート"  title="次の記事: Vimノート"></a>
       <div class="article-nav-caption">次の記事</div>
       <h3 class="article-nav-title">
-          Vim笔记
+          Vimノート
       </h3>
     </div>
   </nav>
@@ -403,7 +409,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Batsh基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A"><span class="toc-number">1.1.</span> <span class="toc-text">注释</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4"><span class="toc-number">2.0.1.</span> <span class="toc-text">头</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E6%8C%87%E4%BB%A4"><span class="toc-number">2.0.2.</span> <span class="toc-text">延时指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">2.0.3.</span> <span class="toc-text">目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dir%E5%87%BD%E6%95%B0"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">Dir函数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%A8%E4%BA%8Efor%E7%9A%84dir"><span class="toc-number">2.0.3.1.1.</span> <span class="toc-text">用于for的dir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">2.0.3.1.2.</span> <span class="toc-text">标识符</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.0.3.1.3.</span> <span class="toc-text">运算符</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1"><span class="toc-number">2.0.4.</span> <span class="toc-text">服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E6%9D%83"><span class="toc-number">2.0.5.</span> <span class="toc-text">提权</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Powershell"><span class="toc-number">2.1.</span> <span class="toc-text">Powershell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">删除文件夹</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Batsh%E5%9F%BA%E6%9C%AC%E6%96%87%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">Batsh基本文法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%B3%E3%83%A1%E3%83%B3%E3%83%88"><span class="toc-number">1.1.</span> <span class="toc-text">コメント</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">文法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%98%E3%83%83%E3%83%80%E3%83%BC"><span class="toc-number">2.0.1.</span> <span class="toc-text">ヘッダー</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%85%E5%BB%B6%E5%91%BD%E4%BB%A4"><span class="toc-number">2.0.2.</span> <span class="toc-text">遅延命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0"><span class="toc-number">2.0.3.</span> <span class="toc-text">ディレクトリ構造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Dir%E9%96%A2%E6%95%B0"><span class="toc-number">2.0.3.1.</span> <span class="toc-text">Dir関数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#for%E3%81%A7%E4%BD%BF%E7%94%A8%E3%81%99%E3%82%8Bdir"><span class="toc-number">2.0.3.1.1.</span> <span class="toc-text">forで使用するdir</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AD%98%E5%88%A5%E5%AD%90"><span class="toc-number">2.0.3.1.2.</span> <span class="toc-text">識別子</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%BC%94%E7%AE%97%E5%AD%90"><span class="toc-number">2.0.3.1.3.</span> <span class="toc-text">演算子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9"><span class="toc-number">2.0.4.</span> <span class="toc-text">サービス</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A9%E9%99%90%E6%98%87%E6%A0%BC"><span class="toc-number">2.0.5.</span> <span class="toc-text">権限昇格</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Powershell"><span class="toc-number">2.1.</span> <span class="toc-text">Powershell</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%81%AE%E5%89%8A%E9%99%A4"><span class="toc-number">2.1.0.1.</span> <span class="toc-text">フォルダの削除</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -492,11 +498,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -515,11 +521,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -545,21 +551,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "Batsh基本语法",
+          title: "Batshの基本構文",
           url: "https://blog.wray7.top/2024/04/08/2024-04-08-Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/",
           excerpt: "",
           description: "",
-          stripContent: "Batsh基本语法注释1.单行注释 rem blabla@REM blabla:: blabla2.行末或单行注释 %blabla%  命令后添加 &amp;gt; nul 可不显示指令作用内容 语法头一般会在头部输入@echo off echo回显指令,相当于cout,但是会显示自身使用@echo off可以不显示echo@作用为此条命令的echo也不显示 延时指令timeout -t &amp;lt;font color=Gainsboro&amp;gt;*time* &amp;lt;/font&amp;gt; 相当于sleep(",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Batsh基本文法コメント 1行コメント rem blabla@REM blabla:: blabla 行末または1行コメント %blabla%   コマンドの後に &amp;gt; nul を追加すると、命令の実行内容を表示しないようにできます 文法ヘッダー通常、先頭に@echo offを入力します echoはエコー命令で、coutに相当しますが、自身も表示します@echo offを使用する",
           date: "Mon Apr 08 2024 14:42:29 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:49:45 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -618,5 +624,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

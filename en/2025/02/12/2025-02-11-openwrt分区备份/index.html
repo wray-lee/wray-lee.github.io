@@ -7,23 +7,23 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    openwrt分区备份 | Wray的Blog
+    OpenWrt partition backup | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="123456789101112131415161718192021222324252627282930mkdir &#x2F;mnt&#x2F;mmcblk0p27mount -t ext4 &#x2F;dev&#x2F;mmcblk0p27 &#x2F;mnt&#x2F;mmcblk0p27dd if&#x3D;&#x2F;dev&#x2F;mmcblk0 bs&#x3D;512 count&#x3D;34 of&#x3D;&#x2F;mnt&#x2F;mmcblk0p27&#x2F;mmcblk0_GPT.bin conv&#x3D;fsyncdd">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  123456789101112131415161718192021222324252627282930mkdir &#x2F;mnt&#x2F;mmcblk0p27mount -t ext4 &#x2F;dev&#x2F;mmcblk0p27 &#x2F;mnt&#x2F;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="openwrt分区备份">
+<meta property="og:title" content="OpenWrt partition backup">
 <meta property="og:url" content="https://blog.wray7.top/en/2025/02/12/2025-02-11-openwrt%E5%88%86%E5%8C%BA%E5%A4%87%E4%BB%BD/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930mkdir &#x2F;mnt&#x2F;mmcblk0p27mount -t ext4 &#x2F;dev&#x2F;mmcblk0p27 &#x2F;mnt&#x2F;mmcblk0p27dd if&#x3D;&#x2F;dev&#x2F;mmcblk0 bs&#x3D;512 count&#x3D;34 of&#x3D;&#x2F;mnt&#x2F;mmcblk0p27&#x2F;mmcblk0_GPT.bin conv&#x3D;fsyncdd">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  123456789101112131415161718192021222324252627282930mkdir &#x2F;mnt&#x2F;mmcblk0p27mount -t ext4 &#x2F;dev&#x2F;mmcblk0p27 &#x2F;mnt&#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-11T15:26:14.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.265Z">
+<meta property="article:modified_time" content="2026-10-10T20:50:12.042Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="openwrt分区备份">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="OpenWrt partition backup">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">openwrt分区备份</h1>
+            <h1 data-aos="slide-up">OpenWrt partition backup</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2025-02-11-openwrt分区备份" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2025-02-11-openwrt分区备份.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,7 +278,10 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/mmcblk0p27</span><br><span class="line">mount -t ext4 /dev/mmcblk0p27 /mnt/mmcblk0p27</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0 bs=512 count=34 of=/mnt/mmcblk0p27/mmcblk0_GPT.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p1 of=/mnt/mmcblk0p27/mmcblk0p1_0SBL1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p2 of=/mnt/mmcblk0p27/mmcblk0p2_0BOOTCONFIG.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p3 of=/mnt/mmcblk0p27/mmcblk0p3_0BOOTCONFIG1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p4 of=/mnt/mmcblk0p27/mmcblk0p4_0QSEE.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p5 of=/mnt/mmcblk0p27/mmcblk0p5_0QSEE_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p6 of=/mnt/mmcblk0p27/mmcblk0p6_0DEVCFG.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p7 of=/mnt/mmcblk0p27/mmcblk0p7_0DEVCFG_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p8 of=/mnt/mmcblk0p27/mmcblk0p8_0RPM.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p9 of=/mnt/mmcblk0p27/mmcblk0p9_0RPM_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p10 of=/mnt/mmcblk0p27/mmcblk0p10_0CDT.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p11 of=/mnt/mmcblk0p27/mmcblk0p11_0CDT_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p12 of=/mnt/mmcblk0p27/mmcblk0p12_0APPSBLENV.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p13 of=/mnt/mmcblk0p27/mmcblk0p13_0APPSBL.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p14 of=/mnt/mmcblk0p27/mmcblk0p14_0APPSBL_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p15 of=/mnt/mmcblk0p27/mmcblk0p15_0ART.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p16 of=/mnt/mmcblk0p27/mmcblk0p16_0HLOS.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p17 of=/mnt/mmcblk0p27/mmcblk0p17_0HLOS_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p18 of=/mnt/mmcblk0p27/mmcblk0p18_rootfs.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p19 of=/mnt/mmcblk0p27/mmcblk0p19_0WIFIFW.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p20 of=/mnt/mmcblk0p27/mmcblk0p20_rootfs_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p21 of=/mnt/mmcblk0p27/mmcblk0p21_0WIFIFW_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p22 of=/mnt/mmcblk0p27/mmcblk0p22_rootfs_data.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p23 of=/mnt/mmcblk0p27/mmcblk0p23_0ETHPHYFW.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p24 of=/mnt/mmcblk0p27/mmcblk0p24_plugin.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p25 of=/mnt/mmcblk0p27/mmcblk0p25_log.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p26 of=/mnt/mmcblk0p27/mmcblk0p26_swap.bin conv=fsync</span><br><span class="line"><span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> /mnt/mmcblk0p27</span><br><span class="line">mount -t ext4 /dev/mmcblk0p27 /mnt/mmcblk0p27</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0 bs=512 count=34 of=/mnt/mmcblk0p27/mmcblk0_GPT.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p1 of=/mnt/mmcblk0p27/mmcblk0p1_0SBL1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p2 of=/mnt/mmcblk0p27/mmcblk0p2_0BOOTCONFIG.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p3 of=/mnt/mmcblk0p27/mmcblk0p3_0BOOTCONFIG1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p4 of=/mnt/mmcblk0p27/mmcblk0p4_0QSEE.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p5 of=/mnt/mmcblk0p27/mmcblk0p5_0QSEE_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p6 of=/mnt/mmcblk0p27/mmcblk0p6_0DEVCFG.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p7 of=/mnt/mmcblk0p27/mmcblk0p7_0DEVCFG_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p8 of=/mnt/mmcblk0p27/mmcblk0p8_0RPM.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p9 of=/mnt/mmcblk0p27/mmcblk0p9_0RPM_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p10 of=/mnt/mmcblk0p27/mmcblk0p10_0CDT.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p11 of=/mnt/mmcblk0p27/mmcblk0p11_0CDT_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p12 of=/mnt/mmcblk0p27/mmcblk0p12_0APPSBLENV.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p13 of=/mnt/mmcblk0p27/mmcblk0p13_0APPSBL.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p14 of=/mnt/mmcblk0p27/mmcblk0p14_0APPSBL_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p15 of=/mnt/mmcblk0p27/mmcblk0p15_0ART.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p16 of=/mnt/mmcblk0p27/mmcblk0p16_0HLOS.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p17 of=/mnt/mmcblk0p27/mmcblk0p17_0HLOS_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p18 of=/mnt/mmcblk0p27/mmcblk0p18_rootfs.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p19 of=/mnt/mmcblk0p27/mmcblk0p19_0WIFIFW.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p20 of=/mnt/mmcblk0p27/mmcblk0p20_rootfs_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p21 of=/mnt/mmcblk0p27/mmcblk0p21_0WIFIFW_1.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p22 of=/mnt/mmcblk0p27/mmcblk0p22_rootfs_data.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p23 of=/mnt/mmcblk0p27/mmcblk0p23_0ETHPHYFW.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p24 of=/mnt/mmcblk0p27/mmcblk0p24_plugin.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p25 of=/mnt/mmcblk0p27/mmcblk0p25_log.bin conv=fsync</span><br><span class="line"><span class="built_in">dd</span> <span class="keyword">if</span>=/dev/mmcblk0p26 of=/mnt/mmcblk0p27/mmcblk0p26_swap.bin conv=fsync</span><br><span class="line"><span class="built_in">sync</span></span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
       
@@ -441,11 +444,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -464,11 +467,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -494,21 +497,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "openwrt分区备份",
+          title: "OpenWrt partition backup",
           url: "https://blog.wray7.top/2025/02/12/2025-02-11-openwrt%E5%88%86%E5%8C%BA%E5%A4%87%E4%BB%BD/",
           excerpt: "",
           description: "",
-          stripContent: "123456789101112131415161718192021222324252627282930mkdir /mnt/mmcblk0p27mount -t ext4 /dev/mmcblk0p27 /mnt/mmcblk0p27dd if=/dev/mmcblk0 bs=512 count=34 of=/mnt/mmcblk0p27/mmcblk0_GPT.bin conv=fsyncdd if=/dev/mmcblk0p1 of=/mnt/mmcblk0p27/mmcblk0p1_0SB",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  123456789101112131415161718192021222324252627282930mkdir /mnt/mmcblk0p27mount -t ext4 /dev/mmcblk0p27 /mnt/mmcblk0p27dd if=/dev/mmcblk0 bs=512 count=34 of=/m",
           date: "Tue Feb 11 2025 23:26:14 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:50:12 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -567,5 +570,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

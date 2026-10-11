@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
     <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -260,19 +260,22 @@
 
           <section id="main" aria-label="Main content">      <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/en/2022/07/01/2022-07-01-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E8%BF%94%E5%9B%9E%E5%80%BC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" aria-label="运算符重载返回值数据类型" title="运算符重载返回值数据类型"></a>
+      <a class="post-link" href="/en/2022/07/01/2022-07-01-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E8%BF%94%E5%9B%9E%E5%80%BC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" aria-label="Operator overloading return value data type" title="Operator overloading return value data type"></a>
     <div class="post-cover left">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="运算符重载返回值数据类型" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Operator overloading return value data type" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-07-01</span>
-        <span><span class="icon-pencil"></span>27 words</span>
+        <span><span class="icon-pencil"></span>35 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">运算符重载返回值数据类型</h2>
+      <h2 class="post-title">Operator overloading return value data type</h2>
       <article class="post-article">
-          基本运算符+-*&amp;#x2F;和后置自增（减）运算符返回值为对象，其余均为引用
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+The basic operators +-*&amp;#x2F; and the postfix increment (decrement) operators have return values that are objects; all the rest are references.
 
       </article>
     </div>
@@ -280,40 +283,45 @@
 </div>
       <div class="post-wrapper">
   <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/en/2022/06/21/2022-06-21-powershell%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" aria-label="powershell设置代理" title="powershell设置代理"></a>
+      <a class="post-link" href="/en/2022/06/21/2022-06-21-powershell%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86/" aria-label="Configure proxy in PowerShell" title="Configure proxy in PowerShell"></a>
     <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="powershell设置代理" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Configure proxy in PowerShell" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-06-21</span>
-        <span><span class="icon-pencil"></span>111 words</span>
+        <span><span class="icon-pencil"></span>108 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">powershell设置代理</h2>
+      <h2 class="post-title">Configure proxy in PowerShell</h2>
       <article class="post-article">
-          function set_proxy_variable {	Set-Item Env:http_proxy “http://127.0.0.1:1080“  # 代理地址	Set-Item Env:https_proxy “http://127.0.0.1:1080“ # 代理地址}
-function unset_proxy_variable {    Remove-Item Env:http_proxy    Remove-Item Env:https_proxy}
-New-Alias -Name spp -Value set_proxy_variable		#设置spp开启代理快捷键New
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+function set_proxy_variable {	Set-Item Env:http_proxy “http://127.0.0.1:1080“  # Proxy address	Set-Item Env:https_proxy “http://127.0.0.1:1080“ # Proxy address}
+function unset_proxy_variable {    Remove-Item
       </article>
     </div>
   </div>
 </div>
       <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/en/2022/06/14/2022-06-14-%E5%BA%93/" aria-label="库" title="库"></a>
+      <a class="post-link" href="/en/2022/06/14/2022-06-14-%E5%BA%93/" aria-label="Library" title="Library"></a>
     <div class="post-cover left">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="库" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Library" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-06-14</span>
-        <span><span class="icon-pencil"></span>33 words</span>
+        <span><span class="icon-pencil"></span>42 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">库</h2>
+      <h2 class="post-title">Library</h2>
       <article class="post-article">
-          pip包管理器要一直保持最新;pyinstaller打包为exe,指定路径(即使在ide中，因为是终端执行);
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+Keep the pip package manager always up to date;Package to exe with pyinstaller, specify the path (even in the IDE, because it is executed in the terminal);
 
       </article>
     </div>
@@ -328,12 +336,16 @@ New-Alias -Name spp -Value set_proxy_variable		#设置spp开启代理快捷键Ne
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-05-16</span>
-        <span><span class="icon-pencil"></span>1 word</span>
+        <span><span class="icon-pencil"></span>51 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
       <h2 class="post-title">skey</h2>
       <article class="post-article">
-          560e83e05725a72f659cb863e4bbf8ac82cb0803f8f5cc7a2949071ace94ef83
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+I don’t see any Chinese text to translate here — the input appears to be a hexadecimal string (likely a hash), not natural language.
+Could you please provide the Chinese text you’d like me to translate?
 
       </article>
     </div>
@@ -341,43 +353,47 @@ New-Alias -Name spp -Value set_proxy_variable		#设置spp开启代理快捷键Ne
 </div>
       <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/en/2022/03/29/2022-03-29-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fvlan%E6%97%A0%E6%B3%95ping%E9%80%9A/" aria-label="内网穿透vlan无法ping通" title="内网穿透vlan无法ping通"></a>
+      <a class="post-link" href="/en/2022/03/29/2022-03-29-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8Fvlan%E6%97%A0%E6%B3%95ping%E9%80%9A/" aria-label="VLAN cannot be pinged through NAT traversal." title="VLAN cannot be pinged through NAT traversal."></a>
     <div class="post-cover left">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="内网穿透vlan无法ping通" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="VLAN cannot be pinged through NAT traversal." class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-03-29</span>
-        <span><span class="icon-pencil"></span>49 words</span>
+        <span><span class="icon-pencil"></span>43 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">内网穿透vlan无法ping通</h2>
+      <h2 class="post-title">VLAN cannot be pinged through NAT traversal.</h2>
       <article class="post-article">
-          控制面板-&amp;gt;系统和安全-&amp;gt;Windows Defender防火墙-&amp;gt;高级设置-&amp;gt;入站规则
-启用文件和打印机共享（回显请求 -ICMPV4 -IN）
-附件
-网安实验.7z
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
-
+Control Panel -&amp;gt; System and Security -&amp;gt; Windows Defender Firewall -&amp;gt; Advanced settings -&amp;gt; Inbound Rules
+Enable File and Printer Sharing (Echo Request - ICMPv4 - In)
+Attachments
+Cybersecurity Lab.
       </article>
     </div>
   </div>
 </div>
       <div class="post-wrapper">
   <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/en/2022/03/07/2022-03-07-%E7%A1%AC%E4%BB%B6%E7%94%B5%E8%B7%AF%E5%9B%BE%EF%BC%88%E9%91%AB%E6%99%BA%E9%80%A0%EF%BC%89/" aria-label="硬件电路图（鑫智造）" title="硬件电路图（鑫智造）"></a>
+      <a class="post-link" href="/en/2022/03/07/2022-03-07-%E7%A1%AC%E4%BB%B6%E7%94%B5%E8%B7%AF%E5%9B%BE%EF%BC%88%E9%91%AB%E6%99%BA%E9%80%A0%EF%BC%89/" aria-label="Hardware Circuit Diagram (Xinzhizao)" title="Hardware Circuit Diagram (Xinzhizao)"></a>
     <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="硬件电路图（鑫智造）" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Hardware Circuit Diagram (Xinzhizao)" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-03-07</span>
-        <span><span class="icon-pencil"></span>4 words</span>
+        <span><span class="icon-pencil"></span>18 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">硬件电路图（鑫智造）</h2>
+      <h2 class="post-title">Hardware Circuit Diagram (Xinzhizao)</h2>
       <article class="post-article">
-          http://www.wmdang.com/
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+http://www.wmdang.com/
 
       </article>
     </div>
@@ -385,80 +401,78 @@ New-Alias -Name spp -Value set_proxy_variable		#设置spp开启代理快捷键Ne
 </div>
       <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/en/2022/03/05/2022-03-04-reg%E8%AF%AD%E6%B3%95/" aria-label="reg语法" title="reg语法"></a>
+      <a class="post-link" href="/en/2022/03/05/2022-03-04-reg%E8%AF%AD%E6%B3%95/" aria-label="reg syntax" title="reg syntax"></a>
     <div class="post-cover left">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="reg语法" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="reg syntax" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-03-04</span>
-        <span><span class="icon-pencil"></span>2.2k words</span>
-        <span><span class="icon-clock"></span>9 mins</span>
+        <span><span class="icon-pencil"></span>1.6k words</span>
+        <span><span class="icon-clock"></span>10 mins</span>
       </div>
-      <h2 class="post-title">reg语法</h2>
+      <h2 class="post-title">reg syntax</h2>
       <article class="post-article">
-          .reg 文件具有以下语法：
-RegistryEditorVersionBlank line[RegistryPath1]“DataItemName1”&amp;#x3D;”DataType1:DataValue1”DataItemName2”&amp;#x3D;”DataType2:DataValue2”Blank line[RegistryPath2]“DataItemName3”&amp;#x3D;”DataType3:DataValue3”
-其中：
-RegistryEditorVersion 是“Windows Registry Editor Version 5.00”（对于 Windows 2000、Win
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+.reg files have the following syntax:
+RegistryEditorVersionBlank line[RegistryPath1]“DataItemName1”&amp;#x3D;”DataType1:DataValue1”DataItemName2”&amp;#x3D;”DataType2:DataValue2”Blank line[RegistryPath2]“DataItemName
       </article>
     </div>
   </div>
 </div>
       <div class="post-wrapper">
   <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/en/2022/03/05/2022-03-04-%E9%9A%90%E8%97%8F%E5%88%86%E5%8C%BA%E5%91%BD%E4%BB%A4/" aria-label="隐藏分区命令" title="隐藏分区命令"></a>
+      <a class="post-link" href="/en/2022/03/05/2022-03-04-%E9%9A%90%E8%97%8F%E5%88%86%E5%8C%BA%E5%91%BD%E4%BB%A4/" aria-label="Hide partition command" title="Hide partition command"></a>
     <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="隐藏分区命令" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Hide partition command" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-03-04</span>
-        <span><span class="icon-pencil"></span>154 words</span>
+        <span><span class="icon-pencil"></span>118 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">隐藏分区命令</h2>
+      <h2 class="post-title">Hide partition command</h2>
       <article class="post-article">
-          打开命令提示符，输入命令：diskpart——list disk——select disk 0解释：diskpart，进入磁盘操作环境。list disk，查看自己电脑有几个磁盘，这里显示我电脑就一个磁盘。select disk 0，选择要操作的磁盘
-列出选中磁盘的详细信息：detail disk注意：即使，分区隐藏了，其编号还是不会变的。
-在依次输入命令：select partition 5——set id&amp;#x3D;12解释：选中分区——设置参数。id参数：id&amp;#x3D;12，表示隐藏分区id&amp;#x3D;07，表示显示分区。（这可以把隐藏的分区重新找回来）
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
+Open Command Prompt,Enter the command: diskpart——list disk——select disk 0Explanation:diskpart, enter the disk operation environment.list disk, check how many disks your computer has; here it shows my compute
       </article>
     </div>
   </div>
 </div>
       <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/en/2021/11/21/2021-11-21-%E8%AE%BE%E7%BD%AE%E4%B8%BA%E5%8F%97%E4%BF%9D%E6%8A%A4%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%EF%BC%8C%E5%B9%B6%E9%9A%90%E8%97%8F/" aria-label="设置为受保护的操作系统文件，并隐藏" title="设置为受保护的操作系统文件，并隐藏"></a>
+      <a class="post-link" href="/en/2021/11/21/2021-11-21-%E8%AE%BE%E7%BD%AE%E4%B8%BA%E5%8F%97%E4%BF%9D%E6%8A%A4%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%96%87%E4%BB%B6%EF%BC%8C%E5%B9%B6%E9%9A%90%E8%97%8F/" aria-label="Set as a protected operating system file and hide it." title="Set as a protected operating system file and hide it."></a>
     <div class="post-cover left">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="设置为受保护的操作系统文件，并隐藏" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Set as a protected operating system file and hide it." class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2021-11-21</span>
-        <span><span class="icon-pencil"></span>362 words</span>
+        <span><span class="icon-pencil"></span>275 words</span>
         <span><span class="icon-clock"></span>2 mins</span>
       </div>
-      <h2 class="post-title">设置为受保护的操作系统文件，并隐藏</h2>
+      <h2 class="post-title">Set as a protected operating system file and hide it.</h2>
       <article class="post-article">
-          &amp;#x2F;&amp;#x2F; 设置为受保护的操作系统文件，并隐藏attrib d:\n.txt +s +h
-&amp;#x2F;&amp;#x2F; 取消设置为受保护的操作系统文件，并取消隐藏attrib d:\n.txt -s -h
-C:\Users\Administrator&amp;gt;help attrib显示或更改文件属性。
-ATTRIB [+R | -R] [+A | -A ] [+S | -S] [+H | -H] [+I | -I]       [drive:][path][filename] [&amp;#x2F;S [&amp;#x2F;D] [&amp;#x2F;L]]
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
-设置属性。
-
-
-清除属性。  R 只读文件属性。
+&amp;#x2F;&amp;#x2F; Set as a protected operating system file, and hide itattrib d:\n.txt +s +h
+&amp;#x2F;&amp;#x2F; Unset as a protected operating system file, and unhide itattrib d:\n.txt -s -h
+C:\Users\Administrator&amp;gt;h
       </article>
     </div>
   </div>
 </div>
       <div class="post-wrapper">
   <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/en/2021/11/15/2021-11-15-%E8%BD%BB%E5%8A%9E%E5%85%AC%E4%BB%A3%E7%A0%81/" aria-label="轻办公代码" title="轻办公代码"></a>
+      <a class="post-link" href="/en/2021/11/15/2021-11-15-%E8%BD%BB%E5%8A%9E%E5%85%AC%E4%BB%A3%E7%A0%81/" aria-label="Lightweight office code" title="Lightweight office code"></a>
     <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="轻办公代码" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Lightweight office code" class="lazyload">
     </div>
     <div class="post-info">
       <div class="post-meta">
@@ -466,14 +480,15 @@ ATTRIB [+R | -R] [+A | -A ] [+S | -S] [+H | -H] [+I | -I]       [drive:][path][f
         <span><span class="icon-pencil"></span>128 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
-      <h2 class="post-title">轻办公代码</h2>
+      <h2 class="post-title">Lightweight office code</h2>
       <article class="post-article">
-          破折号：0151
-在WORD中要输入罗马数字，遵循以下ALT+小键盘数字  代码如下：
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+
+Em dash: 0151
+To enter Roman numerals in WORD, follow the following ALT + numeric keypad numbers. The codes are as follows:
 ALT+8544 &amp;#x3D; Ⅰ         ALT+8545 &amp;#x3D; Ⅱ       ALT + 8546 &amp;#x3D;Ⅲ
-ALT + 8547 &amp;#x3D; Ⅳ       ALT+8548 &amp;#x3D; Ⅴ       ALT+8549 &amp;#x3D;  Ⅵ 
-ALT+8550 &amp;#x3D; Ⅶ       ALT + 8551 &amp;#x3D; Ⅷ         ALT + 8552 &amp;#x3D;  Ⅸ      
-ALT+8553 &amp;#x3D; Ⅹ       ALT + 8554 &amp;#x
+ALT + 8547 &amp;#x
       </article>
     </div>
   </div>
@@ -487,16 +502,16 @@ ALT+8553 &amp;#x3D; Ⅹ       ALT + 8554 &amp;#x
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2019-11-30</span>
-        <span><span class="icon-pencil"></span>85 words</span>
+        <span><span class="icon-pencil"></span>99 words</span>
         <span><span class="icon-clock"></span>1 min</span>
       </div>
       <h2 class="post-title">hello-world</h2>
       <article class="post-article">
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &amp;quot;My New Post&amp;quot;
+          
+Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
-More info: Writing
-Run server1$ hexo ser
+Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartC
       </article>
     </div>
   </div>
@@ -629,11 +644,11 @@ Run server1$ hexo ser
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -652,11 +667,11 @@ Run server1$ hexo ser
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -712,5 +727,5 @@ Run server1$ hexo ser
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

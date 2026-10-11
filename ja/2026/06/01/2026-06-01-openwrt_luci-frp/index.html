@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="Frpc&#x2F;usr&#x2F;lib&#x2F;lua&#x2F;luci&#x2F;model&#x2F;cbi&#x2F;frp&#x2F;basic.lua 搜索Protocol Type或是protocol，这里是对应frpc界面上的协议选择，增加一个quic的协议，修改后如下，供参考： 123456e &#x3D; t:taboption(&quot;other&quot;, ListValue, &quot;protocol&quot;, translate(&amp;qu">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Frpc&#x2F;usr&#x2F;lib&#x2F;lua&#x2F;luci&#x2F;model&#x2F;cbi&#x2F;frp&#x2F;basic.lua Protocol Typeまたはprotocolを検索します。ここはfrpc画面のプロトコル選択に対応しており、quicプロトコルを追加します。変更後は以下のとおりです。ご参考までに： 12345">
 <meta property="og:type" content="article">
 <meta property="og:title" content="openwrt_luci-frp">
 <meta property="og:url" content="https://blog.wray7.top/ja/2026/06/01/2026-06-01-openwrt_luci-frp/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Frpc&#x2F;usr&#x2F;lib&#x2F;lua&#x2F;luci&#x2F;model&#x2F;cbi&#x2F;frp&#x2F;basic.lua 搜索Protocol Type或是protocol，这里是对应frpc界面上的协议选择，增加一个quic的协议，修改后如下，供参考： 123456e &#x3D; t:taboption(&quot;other&quot;, ListValue, &quot;protocol&quot;, translate(&amp;qu">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Frpc&#x2F;usr&#x2F;lib&#x2F;lua&#x2F;luci&#x2F;model&#x2F;cbi&#x2F;frp&#x2F;basic.lua Protocol Typeまたはprotocolを検索します。ここはfrpc画面のプロトコル選択に対応しており、quicプロトコルを追加します。変更後は以下のとおりです。ご参考までに： 12345">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2026-06-01T08:53:59.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.297Z">
+<meta property="article:modified_time" content="2026-10-10T20:55:22.862Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2026-06-01-openwrt_luci-frp" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2026-06-01-openwrt_luci-frp.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,8 +278,11 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h2 id="Frpc"><a href="#Frpc" class="headerlink" title="Frpc"></a>Frpc</h2><p><code>/usr/lib/lua/luci/model/cbi/frp/basic.lua</code></p>
-<p>搜索Protocol Type或是protocol，这里是对应frpc界面上的协议选择，增加一个quic的协议，修改后如下，供参考：</p>
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h2 id="Frpc"><a href="#Frpc" class="headerlink" title="Frpc"></a>Frpc</h2><p><code>/usr/lib/lua/luci/model/cbi/frp/basic.lua</code></p>
+<p>Protocol Typeまたはprotocolを検索します。ここはfrpc画面のプロトコル選択に対応しており、quicプロトコルを追加します。変更後は以下のとおりです。ご参考までに：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">e = <span class="attr">t</span>:<span class="title function_">taboption</span>(<span class="string">&quot;other&quot;</span>, <span class="title class_">ListValue</span>, <span class="string">&quot;protocol&quot;</span>, <span class="title function_">translate</span>(<span class="string">&quot;protocol Type&quot;</span>))</span><br><span class="line">e.<span class="property">description</span> = <span class="title function_">translate</span>(<span class="string">&quot;Frp support kcp protocol since v0.12.0&quot;</span>)</span><br><span class="line">e.<span class="property">default</span> = <span class="string">&quot;tcp&quot;</span></span><br><span class="line"><span class="attr">e</span>:<span class="title function_">value</span>(<span class="string">&quot;tcp&quot;</span>, <span class="title function_">translate</span>(<span class="string">&quot;TCP Protocol&quot;</span>))</span><br><span class="line"><span class="attr">e</span>:<span class="title function_">value</span>(<span class="string">&quot;kcp&quot;</span>, <span class="title function_">translate</span>(<span class="string">&quot;KCP Protocol&quot;</span>))</span><br><span class="line"><span class="attr">e</span>:<span class="title function_">value</span>(<span class="string">&quot;quic&quot;</span>, <span class="title function_">translate</span>(<span class="string">&quot;QUIC Protocol&quot;</span>))</span><br></pre></td></tr></table></figure>
 
 
@@ -295,19 +298,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Openwrt 服务(Init script)" class="lazyload">
-        <a href="/ja/2026/06/02/2026-06-02-Openwrt%20%E6%9C%8D%E5%8A%A1(Init%20script)/" aria-label="前の記事: Openwrt 服务(Init script)" title="前の記事: Openwrt 服务(Init script)"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Openwrt サービス(Init script)" class="lazyload">
+        <a href="/ja/2026/06/02/2026-06-02-Openwrt%20%E6%9C%8D%E5%8A%A1(Init%20script)/" aria-label="前の記事: Openwrt サービス(Init script)" title="前の記事: Openwrt サービス(Init script)"></a>
         <div class="article-nav-caption">前の記事</div>
         <h3 class="article-nav-title">
-            Openwrt 服务(Init script)
+            Openwrt サービス(Init script)
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="接口分流" class="lazyload">
-      <a href="/ja/2026/05/24/2026-05-24-%E6%8E%A5%E5%8F%A3%E5%88%86%E6%B5%81/" aria-label="次の記事: 接口分流"  title="次の記事: 接口分流"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="インターフェース振り分け" class="lazyload">
+      <a href="/ja/2026/05/24/2026-05-24-%E6%8E%A5%E5%8F%A3%E5%88%86%E6%B5%81/" aria-label="次の記事: インターフェース振り分け"  title="次の記事: インターフェース振り分け"></a>
       <div class="article-nav-caption">次の記事</div>
       <h3 class="article-nav-title">
-          接口分流
+          インターフェース振り分け
       </h3>
     </div>
   </nav>
@@ -448,11 +451,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -471,11 +474,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -505,17 +508,17 @@
           url: "https://blog.wray7.top/2026/06/01/2026-06-01-openwrt_luci-frp/",
           excerpt: "",
           description: "",
-          stripContent: "Frpc/usr/lib/lua/luci/model/cbi/frp/basic.lua 搜索Protocol Type或是protocol，这里是对应frpc界面上的协议选择，增加一个quic的协议，修改后如下，供参考： 123456e = t:taboption(&amp;quot;other&amp;quot;, ListValue, &amp;quot;protocol&amp;quot;, translate(&amp;quot;protocol Type&amp;quot;))e.description = translate(",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Frpc/usr/lib/lua/luci/model/cbi/frp/basic.lua Protocol Typeまたはprotocolを検索します。ここはfrpc画面のプロトコル選択に対応しており、quicプロトコルを追加します。変更後は以下のとおりです。ご参考までに： 123456e = t:taboption(&amp;quot;other&amp;quot;, ListValue, &amp;qu",
           date: "Mon Jun 01 2026 16:53:59 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:55:22 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -574,5 +577,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

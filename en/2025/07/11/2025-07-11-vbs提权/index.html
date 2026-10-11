@@ -7,23 +7,23 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    vbs提权 | Wray的Blog
+    VBS privilege escalation | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="vbs提权1234567891011121314151617181920If WScript.Arguments.Named.Exists(&quot;elevate&quot;) &#x3D; False Then  CreateObject(&quot;Shell.Application&quot;).ShellExecute &quot;wscript.exe&quot;, &quot;&quot;&amp;">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  VBS Privilege Escalation1234567891011121314151617181920If WScript.Arguments.Named.Exists(&quot;elevate&amp;quot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vbs提权">
+<meta property="og:title" content="VBS privilege escalation">
 <meta property="og:url" content="https://blog.wray7.top/en/2025/07/11/2025-07-11-vbs%E6%8F%90%E6%9D%83/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="vbs提权1234567891011121314151617181920If WScript.Arguments.Named.Exists(&quot;elevate&quot;) &#x3D; False Then  CreateObject(&quot;Shell.Application&quot;).ShellExecute &quot;wscript.exe&quot;, &quot;&quot;&amp;">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  VBS Privilege Escalation1234567891011121314151617181920If WScript.Arguments.Named.Exists(&quot;elevate&amp;quot">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-07-11T13:12:42.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.960Z">
+<meta property="article:modified_time" content="2026-10-10T20:51:46.927Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="vbs提权">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="VBS privilege escalation">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">vbs提权</h1>
+            <h1 data-aos="slide-up">VBS privilege escalation</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vbs%E6%8F%90%E6%9D%83"><span class="toc-number">1.</span> <span class="toc-text">vbs提权</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">连接</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VBS-Privilege-Escalation"><span class="toc-number">1.</span> <span class="toc-text">VBS Privilege Escalation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">1.1.</span> <span class="toc-text">Syntax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Strings"><span class="toc-number">1.1.1.</span> <span class="toc-text">Strings</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Declaration"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">Declaration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Concatenation"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">Concatenation</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2025-07-11-vbs提权" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2025-07-11-vbs提权.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,11 +278,14 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="vbs提权"><a href="#vbs提权" class="headerlink" title="vbs提权"></a>vbs提权</h1><figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">If</span> WScript.Arguments.Named.Exists(<span class="string">&quot;elevate&quot;</span>) = <span class="literal">False</span> <span class="keyword">Then</span></span><br><span class="line">  CreateObject(<span class="string">&quot;Shell.Application&quot;</span>).ShellExecute <span class="string">&quot;wscript.exe&quot;</span>, <span class="string">&quot;&quot;&quot;&quot;</span> &amp; WScript.ScriptFullName &amp; <span class="string">&quot;&quot;&quot; /elevate&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;runas&quot;</span>, <span class="number">1</span></span><br><span class="line">  WScript.Quit</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27; 此时会更改路径，需要重新获取工作路径</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Dim</span> fso</span><br><span class="line"><span class="keyword">Set</span> fso = CreateObject(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">Dim</span> scriptPath</span><br><span class="line">scriptPath = fso.GetParentFolderName(WScript.ScriptFullName)</span><br><span class="line"></span><br><span class="line"><span class="keyword">Dim</span> clash</span><br><span class="line"><span class="keyword">Set</span> clash = Wscript.CreateObject(<span class="string">&quot;Wscript.Shell&quot;</span>)</span><br><span class="line">clash.CurrentDirectory = scriptPath</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">clash.run <span class="string">&quot;clash.exe -d ./config&quot;</span>, <span class="number">0</span>, <span class="literal">False</span></span><br><span class="line">Wscript.quit</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="VBS-Privilege-Escalation"><a href="#VBS-Privilege-Escalation" class="headerlink" title="VBS Privilege Escalation"></a>VBS Privilege Escalation</h1><figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">If</span> WScript.Arguments.Named.Exists(<span class="string">&quot;elevate&quot;</span>) = <span class="literal">False</span> <span class="keyword">Then</span></span><br><span class="line">  CreateObject(<span class="string">&quot;Shell.Application&quot;</span>).ShellExecute <span class="string">&quot;wscript.exe&quot;</span>, <span class="string">&quot;&quot;&quot;&quot;</span> &amp; WScript.ScriptFullName &amp; <span class="string">&quot;&quot;&quot; /elevate&quot;</span>, <span class="string">&quot;&quot;</span>, <span class="string">&quot;runas&quot;</span>, <span class="number">1</span></span><br><span class="line">  WScript.Quit</span><br><span class="line"><span class="keyword">End</span> <span class="keyword">If</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&#x27; 此时会更改路径，需要重新获取工作路径</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">Dim</span> fso</span><br><span class="line"><span class="keyword">Set</span> fso = CreateObject(<span class="string">&quot;Scripting.FileSystemObject&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">Dim</span> scriptPath</span><br><span class="line">scriptPath = fso.GetParentFolderName(WScript.ScriptFullName)</span><br><span class="line"></span><br><span class="line"><span class="keyword">Dim</span> clash</span><br><span class="line"><span class="keyword">Set</span> clash = Wscript.CreateObject(<span class="string">&quot;Wscript.Shell&quot;</span>)</span><br><span class="line">clash.CurrentDirectory = scriptPath</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">clash.run <span class="string">&quot;clash.exe -d ./config&quot;</span>, <span class="number">0</span>, <span class="literal">False</span></span><br><span class="line">Wscript.quit</span><br></pre></td></tr></table></figure>
 
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><h4 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h4><p>vb中的字符串需要使用<code>&quot;&#123;content&#125;&quot;</code> 即双引号进行声明，要表达正常的双引号为<code>&quot;&quot;&quot;</code> 外侧双引号声明，内部的一个为实际表达</p>
-<h4 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h4><p>字符串使用<code>&amp;</code> 进行连接</p>
-<p>表达”hello world”则为</p>
+<h2 id="Syntax"><a href="#Syntax" class="headerlink" title="Syntax"></a>Syntax</h2><h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><h4 id="Declaration"><a href="#Declaration" class="headerlink" title="Declaration"></a>Declaration</h4><p>Strings in VB need to be declared using <code>&quot;&#123;content&#125;&quot;</code>, i.e., double quotation marks. To express a normal double quotation mark, use <code>&quot;&quot;&quot;</code>: the outer double quotation marks are for declaration, and the inner one is the actual expression.</p>
+<h4 id="Concatenation"><a href="#Concatenation" class="headerlink" title="Concatenation"></a>Concatenation</h4><p>Strings are concatenated using <code>&amp;</code>.</p>
+<p>To express “hello world”, it is:</p>
 <figure class="highlight vb"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span>hello world<span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;</span>hello<span class="string">&quot; &amp; &quot;</span> <span class="string">&quot; &amp; &quot;</span>world<span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
@@ -293,19 +296,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="zerotier转发(iptables配置)" class="lazyload">
-        <a href="/en/2025/07/16/2025-07-16-zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/" aria-label="Prev: zerotier转发(iptables配置)" title="Prev: zerotier转发(iptables配置)"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="ZeroTier forwarding (iptables configuration)" class="lazyload">
+        <a href="/en/2025/07/16/2025-07-16-zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/" aria-label="Prev: ZeroTier forwarding (iptables configuration)" title="Prev: ZeroTier forwarding (iptables configuration)"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            zerotier转发(iptables配置)
+            ZeroTier forwarding (iptables configuration)
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="iperf3 测试" class="lazyload">
-      <a href="/en/2025/07/06/2025-07-06-iperf3%20%E6%B5%8B%E8%AF%95/" aria-label="Next: iperf3 测试"  title="Next: iperf3 测试"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="iperf3 test" class="lazyload">
+      <a href="/en/2025/07/06/2025-07-06-iperf3%20%E6%B5%8B%E8%AF%95/" aria-label="Next: iperf3 test"  title="Next: iperf3 test"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          iperf3 测试
+          iperf3 test
       </h3>
     </div>
   </nav>
@@ -357,7 +360,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#vbs%E6%8F%90%E6%9D%83"><span class="toc-number">1.</span> <span class="toc-text">vbs提权</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">声明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">连接</span></a></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#VBS-Privilege-Escalation"><span class="toc-number">1.</span> <span class="toc-text">VBS Privilege Escalation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Syntax"><span class="toc-number">1.1.</span> <span class="toc-text">Syntax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Strings"><span class="toc-number">1.1.1.</span> <span class="toc-text">Strings</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Declaration"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">Declaration</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Concatenation"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">Concatenation</span></a></li></ol></li></ol></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -446,11 +449,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -469,11 +472,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -499,21 +502,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "vbs提权",
+          title: "VBS privilege escalation",
           url: "https://blog.wray7.top/2025/07/11/2025-07-11-vbs%E6%8F%90%E6%9D%83/",
           excerpt: "",
           description: "",
-          stripContent: "vbs提权1234567891011121314151617181920If WScript.Arguments.Named.Exists(&amp;quot;elevate&amp;quot;) = False Then  CreateObject(&amp;quot;Shell.Application&amp;quot;).ShellExecute &amp;quot;wscript.exe&amp;quot;, &amp;quot;&amp;quot;&amp;quot;&amp;quot; &amp;amp; WScript.ScriptFullName &amp;amp; &amp;qu",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  VBS Privilege Escalation1234567891011121314151617181920If WScript.Arguments.Named.Exists(&amp;quot;elevate&amp;quot;) = False Then  CreateObject(&amp;quot;Shell.Applicat",
           date: "Fri Jul 11 2025 21:12:42 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:51:46 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -572,5 +575,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

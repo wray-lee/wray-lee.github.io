@@ -7,23 +7,23 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    Powershell oh-my-posh conda 启动慢优化 | Wray的Blog
+    Powershell oh-my-posh conda slow startup optimization | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="Powershell oh-my-posh+conda 启动慢优化如果装了 conda ，conda init powershell 后大概会拖慢一秒左右启动时间，可以在你 powershell 的$profile 同级目录下的 profile.ps1里注释掉启动 conda 那个语句，然后自己设个 alias ，用 conda 时手动激活 附件 Group3.7z">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  PowerShell oh-my-posh + conda Slow Startup OptimizationIf you have conda installed, after conda init powers">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Powershell oh-my-posh conda 启动慢优化">
+<meta property="og:title" content="Powershell oh-my-posh conda slow startup optimization">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/02/06/2023-02-06-Powershell%20oh-my-posh%20conda%20%E5%90%AF%E5%8A%A8%E6%85%A2%E4%BC%98%E5%8C%96/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Powershell oh-my-posh+conda 启动慢优化如果装了 conda ，conda init powershell 后大概会拖慢一秒左右启动时间，可以在你 powershell 的$profile 同级目录下的 profile.ps1里注释掉启动 conda 那个语句，然后自己设个 alias ，用 conda 时手动激活 附件 Group3.7z">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  PowerShell oh-my-posh + conda Slow Startup OptimizationIf you have conda installed, after conda init powers">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-02-06T13:25:26.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.949Z">
+<meta property="article:modified_time" content="2026-10-10T21:10:15.713Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="Windows">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Powershell oh-my-posh conda 启动慢优化">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Powershell oh-my-posh conda slow startup optimization">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">Powershell oh-my-posh conda 启动慢优化</h1>
+            <h1 data-aos="slide-up">Powershell oh-my-posh conda slow startup optimization</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Powershell-oh-my-posh-conda-%E5%90%AF%E5%8A%A8%E6%85%A2%E4%BC%98%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">Powershell oh-my-posh+conda 启动慢优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PowerShell-oh-my-posh-conda-Slow-Startup-Optimization"><span class="toc-number">1.</span> <span class="toc-text">PowerShell oh-my-posh + conda Slow Startup Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2023-02-06-Powershell oh-my-posh conda 启动慢优化" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2023-02-06-Powershell oh-my-posh conda 启动慢优化.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,8 +278,11 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="Powershell-oh-my-posh-conda-启动慢优化"><a href="#Powershell-oh-my-posh-conda-启动慢优化" class="headerlink" title="Powershell oh-my-posh+conda 启动慢优化"></a>Powershell oh-my-posh+conda 启动慢优化</h1><p>如果装了 conda ，conda init powershell 后大概会拖慢一秒左右启动时间，可以在你 powershell 的<code>$profile</code> 同级目录下的 <code>profile.ps1</code>里注释掉启动 conda 那个语句，然后自己设个 alias ，用 conda 时手动激活</p>
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="PowerShell-oh-my-posh-conda-Slow-Startup-Optimization"><a href="#PowerShell-oh-my-posh-conda-Slow-Startup-Optimization" class="headerlink" title="PowerShell oh-my-posh + conda Slow Startup Optimization"></a>PowerShell oh-my-posh + conda Slow Startup Optimization</h1><p>If you have conda installed, after <code>conda init powershell</code> it will roughly slow down startup by about one second. You can comment out the statement that starts conda in <code>profile.ps1</code> under the same directory as your PowerShell’s <code>$profile</code>, then set an alias yourself, and manually activate it when using conda.</p>
+<h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul>
 <li><a href="Group3.7z">Group3.7z</a></li>
 </ul>
 
@@ -292,19 +295,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="winget 安装msi显示另一个正在进行(1500)" class="lazyload">
-        <a href="/en/2023/02/08/2023-02-08-winget%20%E5%AE%89%E8%A3%85msi%E6%98%BE%E7%A4%BA%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%AD%A3%E5%9C%A8%E8%BF%9B%E8%A1%8C(1500)/" aria-label="Prev: winget 安装msi显示另一个正在进行(1500)" title="Prev: winget 安装msi显示另一个正在进行(1500)"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="winget installing MSI shows another installation is in progress (1500)" class="lazyload">
+        <a href="/en/2023/02/08/2023-02-08-winget%20%E5%AE%89%E8%A3%85msi%E6%98%BE%E7%A4%BA%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%AD%A3%E5%9C%A8%E8%BF%9B%E8%A1%8C(1500)/" aria-label="Prev: winget installing MSI shows another installation is in progress (1500)" title="Prev: winget installing MSI shows another installation is in progress (1500)"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            winget 安装msi显示另一个正在进行(1500)
+            winget installing MSI shows another installation is in progress (1500)
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="BitTorrent 原理简介" class="lazyload">
-      <a href="/en/2023/02/03/2023-02-03-BitTorrent%20%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/" aria-label="Next: BitTorrent 原理简介"  title="Next: BitTorrent 原理简介"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="A Brief Introduction to BitTorrent Principles" class="lazyload">
+      <a href="/en/2023/02/03/2023-02-03-BitTorrent%20%E5%8E%9F%E7%90%86%E7%AE%80%E4%BB%8B/" aria-label="Next: A Brief Introduction to BitTorrent Principles"  title="Next: A Brief Introduction to BitTorrent Principles"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          BitTorrent 原理简介
+          A Brief Introduction to BitTorrent Principles
       </h3>
     </div>
   </nav>
@@ -356,7 +359,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Powershell-oh-my-posh-conda-%E5%90%AF%E5%8A%A8%E6%85%A2%E4%BC%98%E5%8C%96"><span class="toc-number">1.</span> <span class="toc-text">Powershell oh-my-posh+conda 启动慢优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#PowerShell-oh-my-posh-conda-Slow-Startup-Optimization"><span class="toc-number">1.</span> <span class="toc-text">PowerShell oh-my-posh + conda Slow Startup Optimization</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -445,11 +448,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -468,11 +471,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -498,21 +501,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "Powershell oh-my-posh conda 启动慢优化",
+          title: "Powershell oh-my-posh conda slow startup optimization",
           url: "https://blog.wray7.top/2023/02/06/2023-02-06-Powershell%20oh-my-posh%20conda%20%E5%90%AF%E5%8A%A8%E6%85%A2%E4%BC%98%E5%8C%96/",
           excerpt: "",
           description: "",
-          stripContent: "Powershell oh-my-posh+conda 启动慢优化如果装了 conda ，conda init powershell 后大概会拖慢一秒左右启动时间，可以在你 powershell 的$profile 同级目录下的 profile.ps1里注释掉启动 conda 那个语句，然后自己设个 alias ，用 conda 时手动激活 附件 Group3.7z  ",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  PowerShell oh-my-posh + conda Slow Startup OptimizationIf you have conda installed, after conda init powershell it will roughly slow down startup by about on",
           date: "Mon Feb 06 2023 21:25:26 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 05:10:15 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -571,5 +574,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

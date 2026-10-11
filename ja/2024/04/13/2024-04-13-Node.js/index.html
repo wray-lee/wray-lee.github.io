@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="Node.js变量类中的方法和变量 在 JavaScript 中有 6 种不同的数据类型：  string number boolean object function symbol  3 种对象类型：  Object Date Array   2 个不包含任何值的数据类型：  null undefined  12345678var.tostring()	&#x2F;&#x2F;输出为utf-8编码var.tostr">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Node.js変数クラス内のメソッドと変数 JavaScript には 6 種類の異なるデータ型があります：  string number boolean object function symbol  3 つのオブジェクト型：  Object Date Array   2 つの値を一切">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node.js">
 <meta property="og:url" content="https://blog.wray7.top/ja/2024/04/13/2024-04-13-Node.js/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Node.js变量类中的方法和变量 在 JavaScript 中有 6 种不同的数据类型：  string number boolean object function symbol  3 种对象类型：  Object Date Array   2 个不包含任何值的数据类型：  null undefined  12345678var.tostring()	&#x2F;&#x2F;输出为utf-8编码var.tostr">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Node.js変数クラス内のメソッドと変数 JavaScript には 6 種類の異なるデータ型があります：  string number boolean object function symbol  3 つのオブジェクト型：  Object Date Array   2 つの値を一切">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2024-04-12T21:10:32.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.189Z">
+<meta property="article:modified_time" content="2026-10-10T20:49:38.313Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="code">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">1.</span> <span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Buffer"><span class="toc-number">1.1.</span> <span class="toc-text">Buffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs%E6%A8%A1%E5%9D%97"><span class="toc-number">1.2.</span> <span class="toc-text">fs模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path%E6%A8%A1%E5%9D%97"><span class="toc-number">1.3.</span> <span class="toc-text">path模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-number">1.5.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">1.</span> <span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Buffer"><span class="toc-number">1.1.</span> <span class="toc-text">Buffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB"><span class="toc-number">1.2.</span> <span class="toc-text">fsモジュール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB"><span class="toc-number">1.3.</span> <span class="toc-text">pathモジュール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">モジュール化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%AF%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3"><span class="toc-number">1.5.</span> <span class="toc-text">クロージャ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.6.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2024-04-13-Node.js" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2024-04-13-Node.js.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,8 +278,11 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><p>变量类中的方法和变量</p>
-<p>在 JavaScript 中有 6 种不同的数据类型：</p>
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><p>変数クラス内のメソッドと変数</p>
+<p>JavaScript には 6 種類の異なるデータ型があります：</p>
 <ul>
 <li>string</li>
 <li>number</li>
@@ -288,13 +291,13 @@
 <li>function</li>
 <li>symbol</li>
 </ul>
-<p>3 种对象类型：</p>
+<p>3 つのオブジェクト型：</p>
 <ul>
 <li>Object</li>
 <li>Date</li>
 <li>Array</li>
 </ul>
-<p> 2 个不包含任何值的数据类型：</p>
+<p> 2 つの値を一切含まないデータ型：</p>
 <ul>
 <li>null</li>
 <li>undefined</li>
@@ -305,60 +308,60 @@
 
 
 
-<h2 id="fs模块"><a href="#fs模块" class="headerlink" title="fs模块"></a>fs模块</h2><p>导入模块</p>
+<h2 id="fsモジュール"><a href="#fsモジュール" class="headerlink" title="fsモジュール"></a>fsモジュール</h2><p>モジュールのインポート</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>写入</p>
+<p>書き込み</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 异步</span></span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="string">&#x27;content&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;写入失败&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;写入成功&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 同步</span></span><br><span class="line">fs.<span class="title function_">writeFileSync</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="string">&#x27;content&#x27;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//写入到脚本目录</span></span><br><span class="line">fs.<span class="title function_">writeFile</span>(__dirname + <span class="string">&#x27;tmp&#x27;</span>, <span class="string">&#x27;content&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span>&#123;&#125;);</span><br></pre></td></tr></table></figure>
 
 <p>追加</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">appendFile</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="string">&#x27;content&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Failed&#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">appendFileSync</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="string">&#x27;content&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">writeFile</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="string">&#x27;content&#x27;</span>, &#123;<span class="attr">flag</span>: a&#125;, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Failed&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>流式写入</p>
+<p>ストリーム書き込み</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ws = fs.<span class="title function_">createWriteStream</span>(<span class="string">&#x27;./tmp&#x27;</span>);</span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&#x27;content\r\n&#x27;</span>);</span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&#x27;content\r\n&#x27;</span>);</span><br><span class="line">ws.<span class="title function_">write</span>(<span class="string">&#x27;content&#x27;</span>);</span><br><span class="line">ws.<span class="title function_">close</span>();</span><br></pre></td></tr></table></figure>
 
-<p>读取</p>
+<p>読み取り</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//data为读取内容</span></span><br><span class="line">fs.<span class="title function_">readFile</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Failed&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;data.toString()&#x27;</span>)	<span class="comment">//默认输出16进制hex编码</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> data = fs.<span class="title function_">readFileSync</span>(<span class="string">&#x27;./tmp&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(data);</span><br></pre></td></tr></table></figure>
 
-<p>流式读取</p>
+<p>ストリーム読み取り</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rs = fs.<span class="title function_">createReadStream</span>(<span class="string">&#x27;./tmp&#x27;</span>);</span><br><span class="line"></span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;data&#x27;</span>, <span class="function"><span class="params">chunck</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(chunk);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">rs.<span class="title function_">on</span>(<span class="string">&#x27;end&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Finished&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>管道复制</p>
+<p>パイプコピー</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rs.<span class="title function_">pipe</span>(ws)</span><br></pre></td></tr></table></figure>
 
-<p>重命名和移动</p>
+<p>名前変更と移動</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重命名</span></span><br><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="string">&#x27;./newname&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">rename</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="string">&#x27;./dir/tmp&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>删除</p>
+<p>削除</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将被移除</span></span><br><span class="line"><span class="comment">//fs.rmdir(&#x27;./dir&#x27;, err =&gt; &#123;</span></span><br><span class="line"><span class="comment">//    if(err) &#123; console.log();return; &#125;</span></span><br><span class="line"><span class="comment">//    console.log</span></span><br><span class="line"><span class="comment">//&#125;)</span></span><br><span class="line">fs.<span class="title function_">unlink</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">fs.<span class="title function_">rm</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>创建文件夹</p>
+<p>フォルダの作成</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">mkdir</span>(<span class="string">&#x27;./dir&#x27;</span>, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>); <span class="keyword">return</span>; &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//递归创建</span></span><br><span class="line">fs.<span class="title function_">mkdir</span>(<span class="string">&#x27;./a/b/c&#x27;</span>, &#123;<span class="attr">recursive</span>: <span class="literal">true</span>&#125;, <span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>); <span class="keyword">return</span>;&#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>读取文件夹</p>
+<p>フォルダの読み取り</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">readdir</span>(<span class="string">&#x27;./dir&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>); <span class="keyword">return</span>; &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<p>读取信息</p>
+<p>情報の読み取り</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fs.<span class="title function_">stat</span>(<span class="string">&#x27;./tmp&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(); <span class="keyword">return</span>; &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>()</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//isFile </span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="path模块"><a href="#path模块" class="headerlink" title="path模块"></a>path模块</h2><p><code>dir = __dirname + &#39;/tmp&#39; </code> windows下返回的目录路径斜杠不统一</p>
-<p>可通过resolve拼接解决</p>
+<h2 id="pathモジュール"><a href="#pathモジュール" class="headerlink" title="pathモジュール"></a>pathモジュール</h2><p><code>dir = __dirname + &#39;/tmp&#39; </code> Windows で返されるディレクトリパスのスラッシュが統一されていない</p>
+<p>resolve で結合することで解決できます</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line">path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;./tmp&#x27;</span>)</span><br><span class="line">path.<span class="title function_">resolve</span>(绝对路径， 相对路径)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//m.js</span></span><br><span class="line"><span class="keyword">function</span> a &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> b &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1.</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    a,</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">a</span> = a;</span><br><span class="line"><span class="built_in">exports</span>.<span class="property">b</span> = b;</span><br></pre></td></tr></table></figure>
+<h2 id="モジュール化"><a href="#モジュール化" class="headerlink" title="モジュール化"></a>モジュール化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//m.js</span></span><br><span class="line"><span class="keyword">function</span> a &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> b &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1.</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    a,</span><br><span class="line">    b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2.</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">a</span> = a;</span><br><span class="line"><span class="built_in">exports</span>.<span class="property">b</span> = b;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> m = <span class="built_in">require</span>(<span class="string">&#x27;./m.js&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><p>将函数封装在变量里面</p>
+<h2 id="クロージャ"><a href="#クロージャ" class="headerlink" title="クロージャ"></a>クロージャ</h2><p>関数を変数の中にカプセル化する</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> add = (<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> counter = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">function</span>(<span class="params"></span>) &#123; <span class="keyword">return</span> counter+=<span class="number">1</span>; &#125;);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
+<h2 id="添付ファイル"><a href="#添付ファイル" class="headerlink" title="添付ファイル"></a>添付ファイル</h2><ul>
 <li><a href="Dockerfile_Rules.pdf">Dockerfile_Rules.pdf</a></li>
 <li><a href="encode.7z">encode.7z</a></li>
 </ul>
@@ -372,19 +375,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="正则表达式再深入" class="lazyload">
-        <a href="/ja/2024/04/15/2024-04-15-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%8D%E6%B7%B1%E5%85%A5/" aria-label="前の記事: 正则表达式再深入" title="前の記事: 正则表达式再深入"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="正規表現をさらに深く" class="lazyload">
+        <a href="/ja/2024/04/15/2024-04-15-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%8D%E6%B7%B1%E5%85%A5/" aria-label="前の記事: 正規表現をさらに深く" title="前の記事: 正規表現をさらに深く"></a>
         <div class="article-nav-caption">前の記事</div>
         <h3 class="article-nav-title">
-            正则表达式再深入
+            正規表現をさらに深く
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="web-basic" class="lazyload">
-      <a href="/ja/2024/04/09/2024-04-09-web-basic/" aria-label="次の記事: web-basic"  title="次の記事: web-basic"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="ウェブベーシック" class="lazyload">
+      <a href="/ja/2024/04/09/2024-04-09-web-basic/" aria-label="次の記事: ウェブベーシック"  title="次の記事: ウェブベーシック"></a>
       <div class="article-nav-caption">次の記事</div>
       <h3 class="article-nav-title">
-          web-basic
+          ウェブベーシック
       </h3>
     </div>
   </nav>
@@ -436,7 +439,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">1.</span> <span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Buffer"><span class="toc-number">1.1.</span> <span class="toc-text">Buffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs%E6%A8%A1%E5%9D%97"><span class="toc-number">1.2.</span> <span class="toc-text">fs模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path%E6%A8%A1%E5%9D%97"><span class="toc-number">1.3.</span> <span class="toc-text">path模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-number">1.5.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.6.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Node-js"><span class="toc-number">1.</span> <span class="toc-text">Node.js</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Buffer"><span class="toc-number">1.1.</span> <span class="toc-text">Buffer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fs%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB"><span class="toc-number">1.2.</span> <span class="toc-text">fsモジュール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#path%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB"><span class="toc-number">1.3.</span> <span class="toc-text">pathモジュール</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">モジュール化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%AF%E3%83%AD%E3%83%BC%E3%82%B8%E3%83%A3"><span class="toc-number">1.5.</span> <span class="toc-text">クロージャ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">1.6.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -525,11 +528,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -548,11 +551,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -582,17 +585,17 @@
           url: "https://blog.wray7.top/2024/04/13/2024-04-13-Node.js/",
           excerpt: "",
           description: "",
-          stripContent: "Node.js变量类中的方法和变量 在 JavaScript 中有 6 种不同的数据类型：  string number boolean object function symbol  3 种对象类型：  Object Date Array   2 个不包含任何值的数据类型：  null undefined  12345678var.tostring() //输出为utf-8编码var.tostring(2) //输出为二进制var.lengthvar   可跨块访问，可重定义let, cons",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Node.js変数クラス内のメソッドと変数 JavaScript には 6 種類の異なるデータ型があります：  string number boolean object function symbol  3 つのオブジェクト型：  Object Date Array   2 つの値を一切含まないデータ型：  null undefined  12345678var.tostring() ",
           date: "Sat Apr 13 2024 05:10:32 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:49:38 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -651,5 +654,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

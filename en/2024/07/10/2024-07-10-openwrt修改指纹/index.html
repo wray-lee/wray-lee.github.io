@@ -7,23 +7,23 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    openwrt修改指纹 | Wray的Blog
+    Modify OpenWrt fingerprint | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="openwrt指纹修改个人编译后指纹与官方不符，需要替换为官方指纹。vi &#x2F;usr&#x2F;lib&#x2F;opkg&#x2F;status将5.10.100-1-68a2948d7c9d61b7fbc2eb39be16e450替换为官方的5.10.107-1-6c49d71fca1b8e8ae0022be8b63be63f 然后再输入 opkg install kmod-usb-n">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  OpenWrt Fingerprint ModificationAfter compiling it yourself, the fingerprint does not match the official on">
 <meta property="og:type" content="article">
-<meta property="og:title" content="openwrt修改指纹">
+<meta property="og:title" content="Modify OpenWrt fingerprint">
 <meta property="og:url" content="https://blog.wray7.top/en/2024/07/10/2024-07-10-openwrt%E4%BF%AE%E6%94%B9%E6%8C%87%E7%BA%B9/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="openwrt指纹修改个人编译后指纹与官方不符，需要替换为官方指纹。vi &#x2F;usr&#x2F;lib&#x2F;opkg&#x2F;status将5.10.100-1-68a2948d7c9d61b7fbc2eb39be16e450替换为官方的5.10.107-1-6c49d71fca1b8e8ae0022be8b63be63f 然后再输入 opkg install kmod-usb-n">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  OpenWrt Fingerprint ModificationAfter compiling it yourself, the fingerprint does not match the official on">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-10T05:06:56.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.265Z">
+<meta property="article:modified_time" content="2026-10-10T20:50:01.334Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="openwrt修改指纹">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Modify OpenWrt fingerprint">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">openwrt修改指纹</h1>
+            <h1 data-aos="slide-up">Modify OpenWrt fingerprint</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#openwrt%E6%8C%87%E7%BA%B9%E4%BF%AE%E6%94%B9"><span class="toc-number">1.</span> <span class="toc-text">openwrt指纹修改</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenWrt-Fingerprint-Modification"><span class="toc-number">1.</span> <span class="toc-text">OpenWrt Fingerprint Modification</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2024-07-10-openwrt修改指纹" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2024-07-10-openwrt修改指纹.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,8 +278,11 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="openwrt指纹修改"><a href="#openwrt指纹修改" class="headerlink" title="openwrt指纹修改"></a>openwrt指纹修改</h1><p>个人编译后指纹与官方不符，需要替换为官方指纹。<br>vi &#x2F;usr&#x2F;lib&#x2F;opkg&#x2F;status<br>将<br>5.10.100-1-68a2948d7c9d61b7fbc2eb39be16e450<br>替换为官方的<br>5.10.107-1-6c49d71fca1b8e8ae0022be8b63be63f</p>
-<p>然后再输入</p>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="OpenWrt-Fingerprint-Modification"><a href="#OpenWrt-Fingerprint-Modification" class="headerlink" title="OpenWrt Fingerprint Modification"></a>OpenWrt Fingerprint Modification</h1><p>After compiling it yourself, the fingerprint does not match the official one and needs to be replaced with the official fingerprint.<br>vi &#x2F;usr&#x2F;lib&#x2F;opkg&#x2F;status<br>Replace<br>5.10.100-1-68a2948d7c9d61b7fbc2eb39be16e450<br>with the official<br>5.10.107-1-6c49d71fca1b8e8ae0022be8b63be63f</p>
+<p>Then enter</p>
 <p>opkg install kmod-usb-net-rtl8152 –force-depends</p>
 
     </div>
@@ -291,19 +294,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Shell语法" class="lazyload">
-        <a href="/en/2024/07/11/2024-07-11-Shell%E8%AF%AD%E6%B3%95/" aria-label="Prev: Shell语法" title="Prev: Shell语法"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Shell syntax" class="lazyload">
+        <a href="/en/2024/07/11/2024-07-11-Shell%E8%AF%AD%E6%B3%95/" aria-label="Prev: Shell syntax" title="Prev: Shell syntax"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            Shell语法
+            Shell syntax
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="openwrt安装证书" class="lazyload">
-      <a href="/en/2024/07/10/2024-07-10-openwrt%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" aria-label="Next: openwrt安装证书"  title="Next: openwrt安装证书"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="OpenWrt certificate installation" class="lazyload">
+      <a href="/en/2024/07/10/2024-07-10-openwrt%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" aria-label="Next: OpenWrt certificate installation"  title="Next: OpenWrt certificate installation"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          openwrt安装证书
+          OpenWrt certificate installation
       </h3>
     </div>
   </nav>
@@ -355,7 +358,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#openwrt%E6%8C%87%E7%BA%B9%E4%BF%AE%E6%94%B9"><span class="toc-number">1.</span> <span class="toc-text">openwrt指纹修改</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenWrt-Fingerprint-Modification"><span class="toc-number">1.</span> <span class="toc-text">OpenWrt Fingerprint Modification</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -444,11 +447,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -467,11 +470,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -497,21 +500,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "openwrt修改指纹",
+          title: "Modify OpenWrt fingerprint",
           url: "https://blog.wray7.top/2024/07/10/2024-07-10-openwrt%E4%BF%AE%E6%94%B9%E6%8C%87%E7%BA%B9/",
           excerpt: "",
           description: "",
-          stripContent: "openwrt指纹修改个人编译后指纹与官方不符，需要替换为官方指纹。vi &amp;#x2F;usr&amp;#x2F;lib&amp;#x2F;opkg&amp;#x2F;status将5.10.100-1-68a2948d7c9d61b7fbc2eb39be16e450替换为官方的5.10.107-1-6c49d71fca1b8e8ae0022be8b63be63f 然后再输入 opkg install kmod-usb-net-rtl8152 –force-depends ",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  OpenWrt Fingerprint ModificationAfter compiling it yourself, the fingerprint does not match the official one and needs to be replaced with the official finge",
           date: "Wed Jul 10 2024 13:06:56 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:50:01 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -570,5 +573,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

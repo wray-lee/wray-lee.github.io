@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="iptables增删查改12graph LR	A(raw)--&gt;B(mangle)--&gt;C(nat)--&gt;D(filter)--&gt;E(raw)--&gt;F(mangle)--&gt;G(nat)--&gt;H(filter)    12345678graph TB	A(Network)--&gt;B(table:nat\nchain:PREROUTING)	B--proc">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  iptablesの追加・削除・確認・変更12graph LR	A(raw)--&gt;B(mangle)--&gt;C(nat)--&gt;D(filter)--&gt;E(raw)--&gt;F(mangle)--&gt;G(nat)--&gt;H(filter)    1234567">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iptables">
 <meta property="og:url" content="https://blog.wray7.top/ja/2024/04/20/2024-04-20-iptables/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="iptables增删查改12graph LR	A(raw)--&gt;B(mangle)--&gt;C(nat)--&gt;D(filter)--&gt;E(raw)--&gt;F(mangle)--&gt;G(nat)--&gt;H(filter)    12345678graph TB	A(Network)--&gt;B(table:nat\nchain:PREROUTING)	B--proc">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  iptablesの追加・削除・確認・変更12graph LR	A(raw)--&gt;B(mangle)--&gt;C(nat)--&gt;D(filter)--&gt;E(raw)--&gt;F(mangle)--&gt;G(nat)--&gt;H(filter)    1234567">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2024-04-20T12:20:24.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.217Z">
+<meta property="article:modified_time" content="2026-10-10T20:49:56.453Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iptables%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9"><span class="toc-number">1.</span> <span class="toc-text">iptables增删查改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE"><span class="toc-number">1.1.</span> <span class="toc-text">四表五链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E8%A1%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">四表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E9%93%BE"><span class="toc-number">1.1.2.</span> <span class="toc-text">五链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">动作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0"><span class="toc-number">1.3.</span> <span class="toc-text">添加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0filter%E8%A1%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">增加filter表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0nat%E8%A1%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">添加nat表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B"><span class="toc-number">1.5.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-number">1.6.</span> <span class="toc-text">修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-number">1.7.</span> <span class="toc-text">端口转发</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iptables%E3%81%AE%E8%BF%BD%E5%8A%A0%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%A2%BA%E8%AA%8D%E3%83%BB%E5%A4%89%E6%9B%B4"><span class="toc-number">1.</span> <span class="toc-text">iptablesの追加・削除・確認・変更</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%81%A4%E3%81%AE%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%A85%E3%81%A4%E3%81%AE%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3"><span class="toc-number">1.1.</span> <span class="toc-text">4つのテーブルと5つのチェーン</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%81%A4%E3%81%AE%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB"><span class="toc-number">1.1.1.</span> <span class="toc-text">4つのテーブル</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%81%A4%E3%81%AE%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3"><span class="toc-number">1.1.2.</span> <span class="toc-text">5つのチェーン</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3"><span class="toc-number">1.2.</span> <span class="toc-text">アクション</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0"><span class="toc-number">1.3.</span> <span class="toc-text">追加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#filter%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E8%BF%BD%E5%8A%A0"><span class="toc-number">1.3.1.</span> <span class="toc-text">filterテーブルの追加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nat%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E8%BF%BD%E5%8A%A0"><span class="toc-number">1.3.2.</span> <span class="toc-text">natテーブルの追加</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8A%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">削除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%BA%E8%AA%8D"><span class="toc-number">1.5.</span> <span class="toc-text">確認</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%89%E6%9B%B4"><span class="toc-number">1.6.</span> <span class="toc-text">変更</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%9D%E3%83%BC%E3%83%88%E8%BB%A2%E9%80%81"><span class="toc-number">1.7.</span> <span class="toc-text">ポート転送</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2024-04-20-iptables" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2024-04-20-iptables.ja" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,7 +278,10 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="iptables增删查改"><a href="#iptables增删查改" class="headerlink" title="iptables增删查改"></a>iptables增删查改</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">	A(raw)--&gt;B(mangle)--&gt;C(nat)--&gt;D(filter)--&gt;E(raw)--&gt;F(mangle)--&gt;G(nat)--&gt;H(filter)</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
+</blockquote>
+<h1 id="iptablesの追加・削除・確認・変更"><a href="#iptablesの追加・削除・確認・変更" class="headerlink" title="iptablesの追加・削除・確認・変更"></a>iptablesの追加・削除・確認・変更</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">	A(raw)--&gt;B(mangle)--&gt;C(nat)--&gt;D(filter)--&gt;E(raw)--&gt;F(mangle)--&gt;G(nat)--&gt;H(filter)</span><br></pre></td></tr></table></figure>
 
 
 
@@ -286,22 +289,22 @@
 
 
 
-<h2 id="四表五链"><a href="#四表五链" class="headerlink" title="四表五链"></a>四表五链</h2><h3 id="四表"><a href="#四表" class="headerlink" title="四表"></a>四表</h3><ul>
-<li><p>filter	默认表</p>
+<h2 id="4つのテーブルと5つのチェーン"><a href="#4つのテーブルと5つのチェーン" class="headerlink" title="4つのテーブルと5つのチェーン"></a>4つのテーブルと5つのチェーン</h2><h3 id="4つのテーブル"><a href="#4つのテーブル" class="headerlink" title="4つのテーブル"></a>4つのテーブル</h3><ul>
+<li><p>filter	デフォルトテーブル</p>
 <ul>
 <li>INPUT</li>
 <li>FORWARD</li>
 <li>OUTPUT</li>
 </ul>
 </li>
-<li><p>nat	 用于nat时修改包</p>
+<li><p>nat	 NAT時にパケットを変更するために使用</p>
 <ul>
 <li>PREROUTING</li>
 <li>POSTROUTING</li>
 <li>OUTPUT</li>
 </ul>
 </li>
-<li><p>mangle	用于修改包</p>
+<li><p>mangle	パケットの変更に使用</p>
 <ul>
 <li>INPUT</li>
 <li>FORWARD</li>
@@ -310,50 +313,50 @@
 <li>POSTROUTING</li>
 </ul>
 </li>
-<li><p>raw	用于高级功能（网络过滤等）</p>
+<li><p>raw	高度な機能（ネットワークフィルタリングなど）に使用</p>
 </li>
 </ul>
-<h3 id="五链"><a href="#五链" class="headerlink" title="五链"></a>五链</h3><ul>
-<li><strong>INPUT链</strong> ：处理输入数据包。</li>
-<li><strong>OUTPUT链</strong> ：处理输出数据包。</li>
-<li><strong>FORWARD链</strong> ：处理转发数据包。</li>
-<li><strong>PREROUTING链</strong> ：用于目标地址转换(DNAT)。	在路由前更改传入的包</li>
-<li><strong>POSTOUTING链</strong> ：用于源地址转换(SNAT)	        在数据包即将离开时更改数据包</li>
+<h3 id="5つのチェーン"><a href="#5つのチェーン" class="headerlink" title="5つのチェーン"></a>5つのチェーン</h3><ul>
+<li><strong>INPUTチェーン</strong>：入力パケットを処理する。</li>
+<li><strong>OUTPUTチェーン</strong>：出力パケットを処理する。</li>
+<li><strong>FORWARDチェーン</strong>：転送パケットを処理する。</li>
+<li><strong>PREROUTINGチェーン</strong>：宛先アドレス変換（DNAT）に使用。	ルーティング前に入力パケットを変更する</li>
+<li><strong>POSTOUTINGチェーン</strong>：送信元アドレス変換（SNAT）	        パケットが離れる直前にパケットを変更する</li>
 </ul>
-<h2 id="动作"><a href="#动作" class="headerlink" title="动作"></a>动作</h2><ul>
-<li><strong>ACCEPT</strong> ：接收数据包。</li>
-<li><strong>DROP</strong> ：丢弃数据包。</li>
-<li><strong>REDIRECT</strong> ：重定向、映射、透明代理。</li>
-<li><strong>SNAT</strong> ：源地址转换。</li>
-<li><strong>DNAT</strong> ：目标地址转换。</li>
-<li><strong>MASQUERADE</strong> ：IP伪装(NAT)，用于ADSL。</li>
-<li><strong>LOG</strong> ：日志记录。</li>
+<h2 id="アクション"><a href="#アクション" class="headerlink" title="アクション"></a>アクション</h2><ul>
+<li><strong>ACCEPT</strong>：パケットを受け入れる。</li>
+<li><strong>DROP</strong>：パケットを破棄する。</li>
+<li><strong>REDIRECT</strong>：リダイレクト、マッピング、透過プロキシ。</li>
+<li><strong>SNAT</strong>：送信元アドレス変換。</li>
+<li><strong>DNAT</strong>：宛先アドレス変換。</li>
+<li><strong>MASQUERADE</strong>：IPマスカレード（NAT）、ADSLで使用。</li>
+<li><strong>LOG</strong>：ログ記録。</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">-t, --table table：对指定的表 table 进行操作， table 必须是 raw， nat，filter，mangle 中的一个。如果不指定此选项，默认的是 filter 表。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通用匹配：源地址目标地址的匹配</span></span><br><span class="line">-p：指定要匹配的数据包协议类型；</span><br><span class="line">-s, --<span class="built_in">source</span> [!] address[/mask] ：把指定的一个／一组地址作为源地址，按此规则进行过滤。当后面没有 mask 时，address 是一个地址，比如：192.168.1.1；当 mask 指定时，可以表示一组范围内的地址，比如：192.168.1.0/255.255.255.0。</span><br><span class="line">-d, --destination [!] address[/mask] ：地址格式同上，但这里是指定地址为目的地址，按此进行过滤。</span><br><span class="line">-i, --in-interface [!] &lt;网络接口name&gt; ：指定数据包的来自来自网络接口，比如最常见的 eth0 。注意：它只对 INPUT，FORWARD，PREROUTING 这三个链起作用。如果没有指定此选项， 说明可以来自任何一个网络接口。同前面类似，<span class="string">&quot;!&quot;</span> 表示取反。</span><br><span class="line">-o, --out-interface [!] &lt;网络接口name&gt; ：指定数据包出去的网络接口。只对 OUTPUT，FORWARD，POSTROUTING 三个链起作用。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看管理命令</span></span><br><span class="line">-L, --list [chain] 列出链 chain 上面的所有规则，如果没有指定链，列出表上所有链的所有规则。</span><br><span class="line"></span><br><span class="line"><span class="comment"># 规则管理命令</span></span><br><span class="line">-A, --append chain rule-specification 在指定链 chain 的末尾插入指定的规则，也就是说，这条规则会被放到最后，最后才会被执行。规则是由后面的匹配来指定。</span><br><span class="line">-I, --insert chain [rulenum] rule-specification 在链 chain 中的指定位置插入一条或多条规则。如果指定的规则号是1，则在链的头部插入。这也是默认的情况，如果没有指定规则号。</span><br><span class="line">-D, --delete chain rule-specification -D, --delete chain rulenum 在指定的链 chain 中删除一个或多个指定规则。</span><br><span class="line">-R num：Replays替换/修改第几条规则</span><br><span class="line"></span><br><span class="line"><span class="comment"># 链管理命令(这都是立即生效的)</span></span><br><span class="line">-P, --policy chain target ：为指定的链 chain 设置策略 target。注意，只有内置的链才允许有策略，用户自定义的是不允许的。</span><br><span class="line">-F, --flush [chain] 清空指定链 chain 上面的所有规则。如果没有指定链，清空该表上所有链的所有规则。</span><br><span class="line">-N, --new-chain chain 用指定的名字创建一个新的链。</span><br><span class="line">-X, --delete-chain [chain] ：删除指定的链，这个链必须没有被其它任何规则引用，而且这条上必须没有任何规则。如果没有指定链名，则会删除该表中所有非内置的链。</span><br><span class="line">-E, --rename-chain old-chain new-chain ：用指定的新名字去重命名指定的链。这并不会对链内部造成任何影响。</span><br><span class="line">-Z, --zero [chain] ：把指定链，或者表中的所有链上的所有计数器清零。</span><br><span class="line"></span><br><span class="line">-j, --jump target &lt;指定目标&gt; ：即满足某条件时该执行什么样的**动作**。target 可以是内置的目标，比如 ACCEPT，也可以是用户自定义的链。</span><br><span class="line">-h：显示帮助信息；</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h2><h3 id="增加filter表"><a href="#增加filter表" class="headerlink" title="增加filter表"></a>增加filter表</h3><ul>
-<li>添加到末尾</li>
+<h2 id="追加"><a href="#追加" class="headerlink" title="追加"></a>追加</h2><h3 id="filterテーブルの追加"><a href="#filterテーブルの追加" class="headerlink" title="filterテーブルの追加"></a>filterテーブルの追加</h3><ul>
+<li>末尾に追加</li>
 </ul>
 <p><code>iptables -A INPUT -p tcp -m tcp --dport 21 -j ACCEPT</code></p>
 <ul>
-<li>添加到指定位置</li>
+<li>指定位置に追加</li>
 </ul>
 <p><code>iptables -I INPUT 3 -p tcp -m tcp --dport 20 -j ACCEPT</code></p>
-<h3 id="添加nat表"><a href="#添加nat表" class="headerlink" title="添加nat表"></a>添加nat表</h3><p><code>iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -j MASQUERADE</code></p>
-<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT 3			<span class="comment">#删除input的第3条规则</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -D POSTROUTING 1      <span class="comment">#删除nat表中postrouting的第一条规则</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables -F INPUT             <span class="comment">#清空 filter表INPUT所有规则</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables -F                           <span class="comment">#清空所有规则</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables -t nat -F POSTROUTING        <span class="comment">#清空nat表POSTROUTING所有规则</span></span><br></pre></td></tr></table></figure>
+<h3 id="natテーブルの追加"><a href="#natテーブルの追加" class="headerlink" title="natテーブルの追加"></a>natテーブルの追加</h3><p><code>iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -j MASQUERADE</code></p>
+<h2 id="削除"><a href="#削除" class="headerlink" title="削除"></a>削除</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT 3			<span class="comment">#删除input的第3条规则</span></span><br><span class="line"></span><br><span class="line">iptables -t nat -D POSTROUTING 1      <span class="comment">#删除nat表中postrouting的第一条规则</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables -F INPUT             <span class="comment">#清空 filter表INPUT所有规则</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables -F                           <span class="comment">#清空所有规则</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">iptables -t nat -F POSTROUTING        <span class="comment">#清空nat表POSTROUTING所有规则</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><ul>
-<li>查看filter表</li>
+<h2 id="確認"><a href="#確認" class="headerlink" title="確認"></a>確認</h2><ul>
+<li>filterテーブルを確認</li>
 </ul>
-<p><code>iptables -L -n --line-number </code> 		（不用<code>-t</code> 指定默认filter）</p>
+<p><code>iptables -L -n --line-number </code> 		（<code>-t</code> を指定しない場合、デフォルトはfilter）</p>
 <ul>
-<li>查看nat表</li>
+<li>natテーブルを確認</li>
 </ul>
 <p><code>iptables -t nat -vnL POSTROUTING --line-number</code></p>
-<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><p><code>iptables -R INPUT 3 -j DROP</code>		replace  </p>
-<h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><p><code>-A PREROUTING -p tcp --dport 8022 -j REDIRECT --to-port 22</code></p>
+<h2 id="変更"><a href="#変更" class="headerlink" title="変更"></a>変更</h2><p><code>iptables -R INPUT 3 -j DROP</code>		replace  </p>
+<h2 id="ポート転送"><a href="#ポート転送" class="headerlink" title="ポート転送"></a>ポート転送</h2><p><code>-A PREROUTING -p tcp --dport 8022 -j REDIRECT --to-port 22</code></p>
 
     </div>
     <footer class="article-footer">
@@ -364,19 +367,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="python" class="lazyload">
-        <a href="/ja/2024/05/22/2024-05-21-python/" aria-label="前の記事: python" title="前の記事: python"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Python" class="lazyload">
+        <a href="/ja/2024/05/22/2024-05-21-python/" aria-label="前の記事: Python" title="前の記事: Python"></a>
         <div class="article-nav-caption">前の記事</div>
         <h3 class="article-nav-title">
-            python
+            Python
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="正则表达式再深入" class="lazyload">
-      <a href="/ja/2024/04/15/2024-04-15-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%8D%E6%B7%B1%E5%85%A5/" aria-label="次の記事: 正则表达式再深入"  title="次の記事: 正则表达式再深入"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="正規表現をさらに深く" class="lazyload">
+      <a href="/ja/2024/04/15/2024-04-15-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%8D%E6%B7%B1%E5%85%A5/" aria-label="次の記事: 正規表現をさらに深く"  title="次の記事: 正規表現をさらに深く"></a>
       <div class="article-nav-caption">次の記事</div>
       <h3 class="article-nav-title">
-          正则表达式再深入
+          正規表現をさらに深く
       </h3>
     </div>
   </nav>
@@ -428,7 +431,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iptables%E5%A2%9E%E5%88%A0%E6%9F%A5%E6%94%B9"><span class="toc-number">1.</span> <span class="toc-text">iptables增删查改</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E8%A1%A8%E4%BA%94%E9%93%BE"><span class="toc-number">1.1.</span> <span class="toc-text">四表五链</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E8%A1%A8"><span class="toc-number">1.1.1.</span> <span class="toc-text">四表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E9%93%BE"><span class="toc-number">1.1.2.</span> <span class="toc-text">五链</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">动作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0"><span class="toc-number">1.3.</span> <span class="toc-text">添加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0filter%E8%A1%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">增加filter表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0nat%E8%A1%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">添加nat表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B"><span class="toc-number">1.5.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9"><span class="toc-number">1.6.</span> <span class="toc-text">修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91"><span class="toc-number">1.7.</span> <span class="toc-text">端口转发</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#iptables%E3%81%AE%E8%BF%BD%E5%8A%A0%E3%83%BB%E5%89%8A%E9%99%A4%E3%83%BB%E7%A2%BA%E8%AA%8D%E3%83%BB%E5%A4%89%E6%9B%B4"><span class="toc-number">1.</span> <span class="toc-text">iptablesの追加・削除・確認・変更</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%81%A4%E3%81%AE%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%A85%E3%81%A4%E3%81%AE%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3"><span class="toc-number">1.1.</span> <span class="toc-text">4つのテーブルと5つのチェーン</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%81%A4%E3%81%AE%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB"><span class="toc-number">1.1.1.</span> <span class="toc-text">4つのテーブル</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%81%A4%E3%81%AE%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3"><span class="toc-number">1.1.2.</span> <span class="toc-text">5つのチェーン</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%82%A2%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3"><span class="toc-number">1.2.</span> <span class="toc-text">アクション</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%BD%E5%8A%A0"><span class="toc-number">1.3.</span> <span class="toc-text">追加</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#filter%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E8%BF%BD%E5%8A%A0"><span class="toc-number">1.3.1.</span> <span class="toc-text">filterテーブルの追加</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nat%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%81%AE%E8%BF%BD%E5%8A%A0"><span class="toc-number">1.3.2.</span> <span class="toc-text">natテーブルの追加</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8A%E9%99%A4"><span class="toc-number">1.4.</span> <span class="toc-text">削除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%BA%E8%AA%8D"><span class="toc-number">1.5.</span> <span class="toc-text">確認</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%89%E6%9B%B4"><span class="toc-number">1.6.</span> <span class="toc-text">変更</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%83%9D%E3%83%BC%E3%83%88%E8%BB%A2%E9%80%81"><span class="toc-number">1.7.</span> <span class="toc-text">ポート転送</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -517,11 +520,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -540,11 +543,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -574,17 +577,17 @@
           url: "https://blog.wray7.top/2024/04/20/2024-04-20-iptables/",
           excerpt: "",
           description: "",
-          stripContent: "iptables增删查改12graph LR A(raw)--&amp;gt;B(mangle)--&amp;gt;C(nat)--&amp;gt;D(filter)--&amp;gt;E(raw)--&amp;gt;F(mangle)--&amp;gt;G(nat)--&amp;gt;H(filter)    12345678graph TB A(Network)--&amp;gt;B(table:nat\nchain:PREROUTING) B--process--&amp;gt;C(table:filter\nchain:INPUT) B--&amp;gt;G C--",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  iptablesの追加・削除・確認・変更12graph LR A(raw)--&amp;gt;B(mangle)--&amp;gt;C(nat)--&amp;gt;D(filter)--&amp;gt;E(raw)--&amp;gt;F(mangle)--&amp;gt;G(nat)--&amp;gt;H(filter)    12345678graph TB A(Network)--&amp;gt;B(table:nat\nchain:PRERO",
           date: "Sat Apr 20 2024 20:20:24 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:49:56 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -643,5 +646,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

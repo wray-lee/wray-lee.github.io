@@ -7,20 +7,20 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    Tailscale 基础教程：Headscale 的部署方法和使用教程 | Wray的Blog
+    Tailscale Basic Tutorial: Headscale Deployment Method and Usage Tutorial | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="Tailscale 基础教程：Headscale 的部署方法和使用教程 基础命令  1234567891011headscale namespaces create defaultheadscale preauthkeys create -e 65535h -u default --reusable	#生成auth_keyheadscale node listtailscale up --logi">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial Basic commands  1234567891011headscale na">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tailscale 基础教程：Headscale 的部署方法和使用教程">
+<meta property="og:title" content="Tailscale Basic Tutorial: Headscale Deployment Method and Usage Tutorial">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/11/27/2023-11-27-Tailscale%20%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%9AHeadscale%20%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="Tailscale 基础教程：Headscale 的部署方法和使用教程 基础命令  1234567891011headscale namespaces create defaultheadscale preauthkeys create -e 65535h -u default --reusable	#生成auth_keyheadscale node listtailscale up --logi">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial Basic commands  1234567891011headscale na">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting5@main/uPic/2022-11-29-10-20-bADiKL.png">
 <meta property="og:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-14-50-Q4bWmK.png">
@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-23-30-zcQX3F.png">
 <meta property="og:image" content="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-21-10-52-TzXGEZ.png">
 <meta property="article:published_time" content="2023-11-27T09:52:55.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.324Z">
+<meta property="article:modified_time" content="2026-10-10T20:49:31.875Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
@@ -47,7 +47,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -192,11 +192,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Tailscale 基础教程：Headscale 的部署方法和使用教程">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Tailscale Basic Tutorial: Headscale Deployment Method and Usage Tutorial">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">Tailscale 基础教程：Headscale 的部署方法和使用教程</h1>
+            <h1 data-aos="slide-up">Tailscale Basic Tutorial: Headscale Deployment Method and Usage Tutorial</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -211,7 +211,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%9AHeadscale-%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Tailscale 基础教程：Headscale 的部署方法和使用教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text">Docker部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Running-headscale-in-a-container"><span class="toc-number"></span> <span class="toc-text">Running headscale in a container</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Goal"><span class="toc-number">1.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure-and-run-headscale"><span class="toc-number">2.</span> <span class="toc-text">Configure and run headscale</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-a-machine-normal-login"><span class="toc-number">2.1.</span> <span class="toc-text">Register a machine (normal login)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-machine-using-a-pre-authenticated-key"><span class="toc-number">2.2.</span> <span class="toc-text">Register machine using a pre authenticated key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debugging-headscale-running-in-Docker"><span class="toc-number">3.</span> <span class="toc-text">Debugging headscale running in Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-the-debug-Docker-container"><span class="toc-number">3.1.</span> <span class="toc-text">Running the debug Docker container</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Executing-commands-in-the-debug-container"><span class="toc-number">3.2.</span> <span class="toc-text">Executing commands in the debug container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">4.</span> <span class="toc-text">Tailscale 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Headscale-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">5.</span> <span class="toc-text">Headscale 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Headscale-%E9%83%A8%E7%BD%B2"><span class="toc-number">6.</span> <span class="toc-text">Headscale 部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5"><span class="toc-number">7.</span> <span class="toc-text">Tailscale 客户端接入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-number">7.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">7.2.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android"><span class="toc-number">7.3.</span> <span class="toc-text">Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">7.4.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96-Linux-%E5%8F%91%E8%A1%8C%E7%89%88"><span class="toc-number">7.5.</span> <span class="toc-text">其他 Linux 发行版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS"><span class="toc-number">7.6.</span> <span class="toc-text">iOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-Pre-Authkeys-%E6%8E%A5%E5%85%A5"><span class="toc-number">7.7.</span> <span class="toc-text">通过 Pre-Authkeys 接入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E9%80%9A%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">8.</span> <span class="toc-text">打通局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-Basic-Tutorial-Headscale-Deployment-and-Usage-Tutorial"><span class="toc-number">1.</span> <span class="toc-text">Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-Deployment"><span class="toc-number">2.</span> <span class="toc-text">Docker Deployment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Running-headscale-in-a-container"><span class="toc-number"></span> <span class="toc-text">Running headscale in a container</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Goal"><span class="toc-number">1.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure-and-run-headscale"><span class="toc-number">2.</span> <span class="toc-text">Configure and run headscale</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-a-machine-normal-login"><span class="toc-number">2.1.</span> <span class="toc-text">Register a machine (normal login)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-machine-using-a-pre-authenticated-key"><span class="toc-number">2.2.</span> <span class="toc-text">Register machine using a pre authenticated key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debugging-headscale-running-in-Docker"><span class="toc-number">3.</span> <span class="toc-text">Debugging headscale running in Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-the-debug-Docker-container"><span class="toc-number">3.1.</span> <span class="toc-text">Running the debug Docker container</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Executing-commands-in-the-debug-container"><span class="toc-number">3.2.</span> <span class="toc-text">Executing commands in the debug container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Tailscale"><span class="toc-number">4.</span> <span class="toc-text">What Is Tailscale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Headscale"><span class="toc-number">5.</span> <span class="toc-text">What Is Headscale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Headscale-Deployment"><span class="toc-number">6.</span> <span class="toc-text">Headscale Deployment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-Client-Onboarding"><span class="toc-number">7.</span> <span class="toc-text">Tailscale Client Onboarding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-number">7.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">7.2.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android"><span class="toc-number">7.3.</span> <span class="toc-text">Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">7.4.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-Linux-Distributions"><span class="toc-number">7.5.</span> <span class="toc-text">Other Linux Distributions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS"><span class="toc-number">7.6.</span> <span class="toc-text">iOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Onboarding-via-Pre-Authkeys"><span class="toc-number">7.7.</span> <span class="toc-text">Onboarding via Pre-Authkeys</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connecting-the-LAN"><span class="toc-number">8.</span> <span class="toc-text">Connecting the LAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">9.</span> <span class="toc-text">Summary</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -279,7 +279,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2023-11-27-Tailscale 基础教程：Headscale 的部署方法和使用教程" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2023-11-27-Tailscale 基础教程：Headscale 的部署方法和使用教程.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -294,20 +294,23 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h2 id="Tailscale-基础教程：Headscale-的部署方法和使用教程"><a href="#Tailscale-基础教程：Headscale-的部署方法和使用教程" class="headerlink" title="Tailscale 基础教程：Headscale 的部署方法和使用教程"></a>Tailscale 基础教程：Headscale 的部署方法和使用教程</h2><blockquote>
-<p>基础命令</p>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h2 id="Tailscale-Basic-Tutorial-Headscale-Deployment-and-Usage-Tutorial"><a href="#Tailscale-Basic-Tutorial-Headscale-Deployment-and-Usage-Tutorial" class="headerlink" title="Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial"></a>Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial</h2><blockquote>
+<p>Basic commands</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">headscale namespaces create default</span><br><span class="line"></span><br><span class="line">headscale preauthkeys create -e 65535h -u default --reusable	#生成auth_key</span><br><span class="line"></span><br><span class="line">headscale node list</span><br><span class="line"></span><br><span class="line">tailscale up --login-server=http://&lt;HEADSCALE_PUB_IP&gt;:8080 --accept-routes=true --accept-dns=false --advertise-routes=192.168.100.0/24</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## tailscale up --login-server=http://124.221.253.77:8080 --accept-routes=true --accept-dns=false --advertise-routes=10.10.0.0/24,121.48.165.112/32,202.115.0.0/24 --authkey 068287073b622d63fd62286744bb6646b7e13fa13fff9d53 --reset --force-reauth</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">## 671eddba4d7cef3dd4bbc27aa61771d926dab8c5a72b5d64</span></span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Docker部署"><a href="#Docker部署" class="headerlink" title="Docker部署"></a>Docker部署</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line">version: <span class="string">&#x27;3.5&#x27;</span></span><br><span class="line">services:</span><br><span class="line">  headscale:</span><br><span class="line">    image: headscale/headscale:latest</span><br><span class="line">    container_name: headscale</span><br><span class="line">    volumes:</span><br><span class="line">      - ./config:/etc/headscale</span><br><span class="line">      - ./data/data:/var/lib/headscale</span><br><span class="line">    ports:</span><br><span class="line">      - 8080:8080</span><br><span class="line">    <span class="built_in">command</span>: headscale serve</span><br><span class="line">    restart: unless-stopped</span><br></pre></td></tr></table></figure>
+<h2 id="Docker-Deployment"><a href="#Docker-Deployment" class="headerlink" title="Docker Deployment"></a>Docker Deployment</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line">version: <span class="string">&#x27;3.5&#x27;</span></span><br><span class="line">services:</span><br><span class="line">  headscale:</span><br><span class="line">    image: headscale/headscale:latest</span><br><span class="line">    container_name: headscale</span><br><span class="line">    volumes:</span><br><span class="line">      - ./config:/etc/headscale</span><br><span class="line">      - ./data/data:/var/lib/headscale</span><br><span class="line">    ports:</span><br><span class="line">      - 8080:8080</span><br><span class="line">    <span class="built_in">command</span>: headscale serve</span><br><span class="line">    restart: unless-stopped</span><br></pre></td></tr></table></figure>
 
 <p><code>docker-compose up -d</code></p>
-<p>修改配置文件，将 <code>server_url</code> 改为公网 IP 或域名</p>
-<p>如果暂时用不到 DNS 功能，可以先将 <code>magic_dns</code> 设为 false</p>
-<p><code>server_url</code> 设置为 <code>http://&lt;PUBLIC_IP&gt;:8080</code>，将 <code>&lt;PUBLIC_IP&gt;</code> 替换为公网 IP 或者域名。</p>
-<p>可自定义私有网段，也可同时开启 IPv4 和 IPv6：</p>
+<p>Modify the configuration file, change <code>server_url</code> to the public IP or domain name.</p>
+<p>If the DNS function is not needed for now, you can first set <code>magic_dns</code> to false.</p>
+<p>Set <code>server_url</code> to <code>http://&lt;PUBLIC_IP&gt;:8080</code>, and replace <code>&lt;PUBLIC_IP&gt;</code> with the public IP or domain name.</p>
+<p>You can customize the private network segment, and you can also enable both IPv4 and IPv6:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ip_prefixes:</span></span><br><span class="line"><span class="comment"># Format: 100.64.0.0/16</span></span><br><span class="line">  <span class="comment"># - fd7a:115c:a1e0::/48</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">100.64</span><span class="number">.77</span><span class="number">.0</span><span class="string">/24</span></span><br></pre></td></tr></table></figure>
 
 
@@ -425,137 +428,137 @@
 
 <p>Using <code>docker exec</code> allows you to run commands in an existing container.</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting5@main/uPic/2022-11-29-10-20-bADiKL.png" alt="img"></p>
-<p>目前国家工信部在大力推动三大运营商发展 IPv6，对家用宽带而言，可以使用的 IPv4 公网 IP 会越来越少。有部分地区即使拿到了公网 IPv4 地址，也是个大内网地址，根本不是真正的公网 IP，访问家庭内网的资源将会变得越来越困难。</p>
-<p>部分小伙伴可能会选择使用 frp 等针对特定协议和端口的内网穿透方案，但这种方案还是不够酸爽，无法访问家庭内网任意设备的任意端口。更佳的选择还是通过 VPN 来组建大内网。至于该选择哪种 VPN，毫无疑问肯定是 WireGuard，WireGuard 就是 VPN 的未来。<strong>我已经不止一次向大家推荐使用 WireGuard 了，我累了，不想再讲了，你爱 JB 用辣鸡 OpenVPN 之类的就用吧，你开心就好。</strong></p>
-<p>WireGuard 相比于传统 VPN 的核心优势是没有 VPN 网关，所有节点之间都可以点对点（P2P）连接，也就是我之前提到的 <a target="_blank" rel="noopener" href="https://icloudnative.io/posts/wireguard-full-mesh/#1-%E5%85%A8%E4%BA%92%E8%81%94%E6%A8%A1%E5%BC%8F%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%85%8D%E7%BD%AE">全互联模式（full mesh）</a>，效率更高，速度更快，成本更低。</p>
-<p>WireGuard 目前最大的痛点就是上层应用的功能不够健全，因为 WireGuard 推崇的是 Unix 的哲学，WireGuard 本身只是一个内核级别的模块，只是一个数据平面，至于上层的更高级的功能（比如秘钥交换机制，UDP 打洞，ACL 等），需要通过用户空间的应用来实现。</p>
-<p>所以为了基于 WireGuard 实现更完美的 VPN 工具，现在已经涌现出了很多项目在互相厮杀。笔者前段时间一直在推崇 <a target="_blank" rel="noopener" href="https://icloudnative.io/posts/configure-a-mesh-network-with-netmaker/">Netmaker</a>，它通过可视化界面来配置 WireGuard 的全互联模式，它支持 UDP 打洞、多租户等各种高端功能，几乎适配所有平台，非常强大。然而现实世界是复杂的，无法保证所有的 NAT 都能打洞成功，且 Netmaker 目前还没有 fallback 机制，如果打洞失败，无法 fallback 改成走中继节点。Tailscale 在这一点上比 Netmaker 高明许多，它支持 fallback 机制，可以尽最大努力实现全互联模式，部分节点即使打洞不成功，也能通过中继节点在这个虚拟网络中畅通无阻。</p>
-<p>没错，我移情别恋了，从 Netmaker 阵营转向了 Tailscale，是渣男没错了。</p>
-<h2 id="Tailscale-是什么"><a href="#Tailscale-是什么" class="headerlink" title="Tailscale 是什么"></a>Tailscale 是什么</h2><p>Tailscale 是一种基于 WireGuard 的虚拟组网工具，和 Netmaker 类似，<strong>最大的区别在于 Tailscale 是在用户态实现了 WireGuard 协议，而 Netmaker 直接使用了内核态的 WireGuard</strong>。所以 Tailscale 相比于内核态 WireGuard 性能会有所损失，但与 OpenVPN 之流相比还是能甩好几十条街的，Tailscale 虽然在性能上做了些许取舍，但在功能和易用性上绝对是完爆其他工具：</p>
+<p>At present, the Ministry of Industry and Information Technology of China is vigorously promoting the three major operators to develop IPv6. For home broadband, the available public IPv4 addresses will become fewer and fewer. In some areas, even if you get a public IPv4 address, it is a large internal network address, not a true public IP at all, and accessing resources on the home intranet will become increasingly difficult.</p>
+<p>Some friends may choose to use frp and other intranet penetration solutions for specific protocols and ports, but this kind of solution is still not satisfying enough—it cannot access any port of any device on the home intranet. A better choice is still to build a large intranet through VPN. As for which VPN to choose, there is no doubt that it must be WireGuard; WireGuard is the future of VPN. <strong>I have recommended WireGuard to everyone more than once. I’m tired and don’t want to talk about it anymore. If you love to use garbage like OpenVPN, then go ahead, as long as you’re happy.</strong></p>
+<p>The core advantage of WireGuard over traditional VPNs is that there is no VPN gateway; all nodes can connect peer-to-peer (P2P), which is the <a target="_blank" rel="noopener" href="https://icloudnative.io/posts/wireguard-full-mesh/#1-%E5%85%A8%E4%BA%92%E8%81%94%E6%A8%A1%E5%BC%8F%E6%9E%B6%E6%9E%84%E4%B8%8E%E9%85%8D%E7%BD%AE">full mesh mode</a>，效率更高，速度更快，成本更低。 I mentioned earlier.</p>
+<p>The biggest pain point of WireGuard at present is that the functions of upper-layer applications are not complete enough, because WireGuard advocates the Unix philosophy. WireGuard itself is only a kernel-level module, only a data plane. As for higher-level functions at the upper layer (such as key exchange mechanisms, UDP hole punching, ACL, etc.), they need to be implemented through user-space applications.</p>
+<p>Therefore, in order to implement a more perfect VPN tool based on WireGuard, many projects have emerged and are fighting each other. Some time ago, the author had been promoting <a target="_blank" rel="noopener" href="https://icloudnative.io/posts/configure-a-mesh-network-with-netmaker/">Netmaker</a>，它通过可视化界面来配置 WireGuard’s full mesh mode. It supports UDP hole punching, multi-tenancy, and various high-end features, is almost compatible with all platforms, and is very powerful. However, the real world is complex, and it cannot be guaranteed that all NATs can successfully punch holes. Moreover, Netmaker currently has no fallback mechanism; if hole punching fails, it cannot fall back to using relay nodes. Tailscale is much smarter than Netmaker on this point. It supports a fallback mechanism and can try its best to implement full mesh mode. Even if some nodes fail to punch holes, they can still move freely in this virtual network through relay nodes.</p>
+<p>That’s right, I’ve fallen out of love and switched from the Netmaker camp to Tailscale. I’m indeed a scumbag.</p>
+<h2 id="What-Is-Tailscale"><a href="#What-Is-Tailscale" class="headerlink" title="What Is Tailscale"></a>What Is Tailscale</h2><p>Tailscale is a virtual networking tool based on WireGuard. Similar to Netmaker, <strong>the biggest difference is that Tailscale implements the WireGuard protocol in user space, while Netmaker directly uses kernel-space WireGuard</strong>. Therefore, compared with kernel-space WireGuard, Tailscale will suffer some performance loss, but compared with the likes of OpenVPN, it can still leave them far behind. Although Tailscale has made some trade-offs in performance, it absolutely crushes other tools in terms of functionality and ease of use:</p>
 <ol>
-<li>开箱即用</li>
+<li>Out of the box</li>
 </ol>
 <ul>
-<li>无需配置防火墙</li>
-<li>没有额外的配置</li>
+<li>No firewall configuration required</li>
+<li>No additional configuration</li>
 </ul>
 <ol>
-<li>高安全性&#x2F;私密性</li>
+<li>High security&#x2F;privacy</li>
 </ol>
 <ul>
-<li>自动密钥轮换</li>
-<li>点对点连接</li>
-<li>支持用户审查端到端的访问记录</li>
+<li>Automatic key rotation</li>
+<li>Peer-to-peer connections</li>
+<li>Supports user auditing of end-to-end access records</li>
 </ul>
 <ol>
-<li>在原有的 ICE、STUN 等 UDP 协议外，实现了 DERP TCP 协议来实现 NAT 穿透</li>
-<li>基于公网的控制服务器下发 ACL 和配置，实现节点动态更新</li>
-<li>通过第三方（如 Google） SSO 服务生成用户和私钥，实现身份认证</li>
+<li>In addition to the original ICE, STUN and other UDP protocols, it implements the DERP TCP protocol to achieve NAT traversal</li>
+<li>A public-network-based control server distributes ACLs and configurations to enable dynamic node updates</li>
+<li>Generates users and private keys through third-party (such as Google) SSO services to implement identity authentication</li>
 </ol>
-<p>简而言之，我们可以将 Tailscale 看成是更为易用、功能更完善的 WireGuard。</p>
+<p>In short, we can regard Tailscale as a more user-friendly and more fully featured WireGuard.</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-14-50-Q4bWmK.png" alt="img"></p>
-<p>光有这些还不够，作为一个白嫖党，咱更关心的是<strong>免费</strong>与<strong>开源</strong>。</p>
-<p>Tailscale 是一款商业产品，但个人用户是可以白嫖的，个人用户在接入设备不超过 20 台的情况下是可以免费使用的（虽然有一些限制，比如子网网段无法自定义，且无法设置多个子网）。除 Windows 和 macOS 的图形应用程序外，其他 Tailscale 客户端的组件（包含 Android 客户端）是在 BSD 许可下以开源项目的形式开发的，你可以在他们的 <a target="_blank" rel="noopener" href="https://github.com/tailscale/">GitHub 仓库</a>找到各个操作系统的客户端源码。</p>
-<p>对于大部份用户来说，白嫖 Tailscale 已经足够了，如果你有更高的需求，比如自定义网段，可以选择付费。</p>
-<p><strong>我就不想付费行不行？行，不过得往下看。</strong></p>
-<h2 id="Headscale-是什么"><a href="#Headscale-是什么" class="headerlink" title="Headscale 是什么"></a>Headscale 是什么</h2><p>Tailscale 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 <a target="_blank" rel="noopener" href="https://github.com/juanfont/headscale">Headscale</a>，这也是唯一的一款，希望能发展壮大。</p>
-<p>Headscale 由欧洲航天局的 Juan Font 使用 Go 语言开发，在 BSD 许可下发布，实现了 Tailscale 控制服务器的所有主要功能，可以部署在企业内部，没有任何设备数量的限制，且所有的网络流量都由自己控制。</p>
-<p>目前 Headscale 还没有可视化界面，期待后续更新吧。</p>
-<h2 id="Headscale-部署"><a href="#Headscale-部署" class="headerlink" title="Headscale 部署"></a>Headscale 部署</h2><p>Headscale 部署很简单，推荐直接在 Linux 主机上安装。</p>
+<p>These alone are not enough. As a freeloader, what I care about more is <strong>free</strong> and <strong>open source</strong>.</p>
+<p>Tailscale is a commercial product, but individual users can freeload it. Individual users can use it for free when the number of connected devices does not exceed 20 (although there are some restrictions, such as subnet CIDR blocks cannot be customized, and multiple subnets cannot be set). Except for the graphical applications for Windows and macOS, the components of other Tailscale clients (including the Android client) are developed as open-source projects under the BSD license. You can find them in their <a target="_blank" rel="noopener" href="https://github.com/tailscale/">GitHub repository</a>找到各个操作系统的客户端源码。</p>
+<p>For most users, freeloading Tailscale is already enough. If you have higher requirements, such as custom network segments, you can choose to pay.</p>
+<p><strong>What if I just don’t want to pay? Sure, but you’ll need to read on.</strong></p>
+<h2 id="What-Is-Headscale"><a href="#What-Is-Headscale" class="headerlink" title="What Is Headscale"></a>What Is Headscale</h2><p>Tailscale’s control server is not open source, and it has many restrictions for free users. This is their cash cow, which is understandable. Fortunately, there is currently an open-source implementation called <a target="_blank" rel="noopener" href="https://github.com/juanfont/headscale">Headscale</a>，这也是唯一的一款，希望能发展壮大。</p>
+<p>Headscale was developed by Juan Font of the European Space Agency using the Go language, and is released under the BSD license. It implements all the main functions of the Tailscale control server, can be deployed inside an enterprise, has no limit on the number of devices, and all network traffic is controlled by yourself.</p>
+<p>Currently Headscale does not yet have a visual interface; look forward to future updates.</p>
+<h2 id="Headscale-Deployment"><a href="#Headscale-Deployment" class="headerlink" title="Headscale Deployment"></a>Headscale Deployment</h2><p>Headscale deployment is very simple. It is recommended to install it directly on a Linux host.</p>
 <blockquote>
-<p>理论上来说只要你的 Headscale 服务可以暴露到公网出口就行，但最好不要有 NAT，所以推荐将 Headscale 部署在有公网 IP 的云主机上。</p>
+<p>Theoretically, as long as your Headscale service can be exposed to the public network egress, it is fine, but it is best not to have NAT, so it is recommended to deploy Headscale on a cloud host with a public IP.</p>
 </blockquote>
-<p>首先需要到其 GitHub 仓库的 Release 页面下载最新版的二进制文件。</p>
+<p>First, you need to go to the Release page of its GitHub repository to download the latest binary file.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ wget --output-document=/usr/local/bin/headscale \</span><br><span class="line">   https://github.com/juanfont/headscale/releases/download/v&lt;HEADSCALE VERSION&gt;/headscale_&lt;HEADSCALE VERSION&gt;_linux_&lt;ARCH&gt;</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">chmod</span> +x /usr/local/bin/headscale</span><br></pre></td></tr></table></figure>
 
 
 
-<p>创建配置目录：</p>
+<p>Create a configuration directory:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> -p /etc/headscale</span><br></pre></td></tr></table></figure>
 
 
 
-<p>创建目录用来存储数据与证书：</p>
+<p>Create directories for storing data and certificates:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> -p /var/lib/headscale</span><br></pre></td></tr></table></figure>
 
 
 
-<p>创建空的 SQLite 数据库文件：</p>
+<p>Create an empty SQLite database file:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">touch</span> /var/lib/headscale/db.sqlite</span><br></pre></td></tr></table></figure>
 
 
 
-<p>创建 Headscale 配置文件：</p>
+<p>Create the Headscale configuration file:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://github.com/juanfont/headscale/raw/main/config-example.yaml -O /etc/headscale/config.yaml</span><br></pre></td></tr></table></figure>
 
 
 
 <ul>
-<li><p>修改配置文件，将 <code>server_url</code> 改为公网 IP 或域名。<strong>如果是国内服务器，域名必须要备案</strong>。我的域名无法备案，所以我就直接用公网 IP 了。</p>
+<li><p>Modify the configuration file, change <code>server_url</code> to the public IP or domain name. <strong>If it is a domestic server, the domain name must be filed&#x2F;registered with the authorities</strong>. My domain name cannot be filed, so I just used the public IP directly.</p>
 </li>
-<li><p>如果暂时用不到 DNS 功能，可以先将 <code>magic_dns</code> 设为 false。</p>
+<li><p>If the DNS function is not needed for now, you can first set <code>magic_dns</code> to false.</p>
 </li>
-<li><p><code>server_url</code> 设置为 <code>http://&lt;PUBLIC_IP&gt;:8080</code>，将 <code>&lt;PUBLIC_IP&gt;</code> 替换为公网 IP 或者域名。</p>
+<li><p>Set <code>server_url</code> to <code>http://&lt;PUBLIC_IP&gt;:8080</code>, and replace <code>&lt;PUBLIC_IP&gt;</code> with the public IP or domain name.</p>
 </li>
-<li><p>可自定义私有网段，也可同时开启 IPv4 和 IPv6：</p>
+<li><p>You can customize the private network segment, and you can also enable both IPv4 and IPv6:</p>
   <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ip_prefixes:</span></span><br><span class="line">  <span class="comment"># - fd7a:115c:a1e0::/48</span></span><br><span class="line">  <span class="bullet">-</span> <span class="number">10.1</span><span class="number">.0</span><span class="number">.0</span><span class="string">/16</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>创建 SystemD service 配置文件：</p>
+<p>Create the SystemD service configuration file:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/system/headscale.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=headscale controller</span><br><span class="line">After=syslog.target</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">User=headscale</span><br><span class="line">Group=headscale</span><br><span class="line">ExecStart=/usr/local/bin/headscale serve</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=5</span><br><span class="line"></span><br><span class="line"><span class="comment"># Optional security enhancements</span></span><br><span class="line">NoNewPrivileges=<span class="built_in">yes</span></span><br><span class="line">PrivateTmp=<span class="built_in">yes</span></span><br><span class="line">ProtectSystem=strict</span><br><span class="line">ProtectHome=<span class="built_in">yes</span></span><br><span class="line">ReadWritePaths=/var/lib/headscale /var/run/headscale</span><br><span class="line">AmbientCapabilities=CAP_NET_BIND_SERVICE</span><br><span class="line">RuntimeDirectory=headscale</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
 
 
-<p>创建 headscale 用户：</p>
+<p>Create the headscale user:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ useradd headscale -d /home/headscale -m</span><br></pre></td></tr></table></figure>
 
 
 
-<p>修改 &#x2F;var&#x2F;lib&#x2F;headscale 目录的 owner：</p>
+<p>Modify the owner of the &#x2F;var&#x2F;lib&#x2F;headscale directory:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">chown</span> -R headscale:headscale /var/lib/headscale</span><br></pre></td></tr></table></figure>
 
 
 
-<p>修改配置文件中的 <code>unix_socket</code>：</p>
+<p>Modify <code>unix_socket</code> in the configuration file:</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">unix_socket:</span> <span class="string">/var/run/headscale/headscale.sock</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>Reload SystemD 以加载新的配置文件：</p>
+<p>Reload SystemD to load the new configuration file:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl daemon-reload</span><br></pre></td></tr></table></figure>
 
 
 
-<p>启动 Headscale 服务并设置开机自启：</p>
+<p>Start the Headscale service and set it to start on boot:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl <span class="built_in">enable</span> --now headscale</span><br></pre></td></tr></table></figure>
 
 
 
-<p>查看运行状态：</p>
+<p>Check the running status:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl status headscale</span><br></pre></td></tr></table></figure>
 
 
 
-<p>查看占用端口：</p>
+<p>Check the occupied ports:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ ss -tulnp|grep headscale</span><br><span class="line"></span><br><span class="line">tcp LISTEN 0 1024 [::]:9090 [::]:* <span class="built_in">users</span>:((&quot;headscale&quot;,pi</span><br><span class="line"></span><br><span class="line">d=<span class="number">10899</span>,fd=<span class="number">13</span>))</span><br><span class="line"></span><br><span class="line">tcp LISTEN 0 1024 [::]:50443 [::]:* <span class="built_in">users</span>:((&quot;headscale&quot;,pi</span><br><span class="line"></span><br><span class="line">d=<span class="number">10899</span>,fd=<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">tcp LISTEN 0 1024 [::]:8080 [::]:* <span class="built_in">users</span>:((&quot;headscale&quot;,pi</span><br><span class="line"></span><br><span class="line">d=<span class="number">10899</span>,fd=<span class="number">12</span>))</span><br></pre></td></tr></table></figure>
 
 
 
-<p>Tailscale 中有一个概念叫 tailnet，你可以理解成租户，租户与租户之间是相互隔离的，具体看参考 Tailscale 的官方文档： <a target="_blank" rel="noopener" href="https://tailscale.com/kb/1136/tailnet/">What is a tailnet</a>。Headscale 也有类似的实现叫 namespace，即命名空间。我们需要先创建一个 namespace，以便后续客户端接入，例如：</p>
+<p>There is a concept in Tailscale called tailnet, which you can understand as a tenant. Tenants are isolated from each other. For details, refer to Tailscale’s official documentation: <a target="_blank" rel="noopener" href="https://tailscale.com/kb/1136/tailnet/">What is a tailnet</a>。Headscale There is a similar implementation called namespace, i.e., namespace. We need to first create a namespace so that clients can connect later, for example:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ headscale namespaces create default</span><br></pre></td></tr></table></figure>
 
 
 
-<p>查看命名空间：</p>
+<p>View namespaces:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ headscale namespaces list</span><br><span class="line"></span><br><span class="line">ID | Name | Created</span><br><span class="line"></span><br><span class="line">1 | default | 2022-03-09 06:12:06</span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="Tailscale-客户端接入"><a href="#Tailscale-客户端接入" class="headerlink" title="Tailscale 客户端接入"></a>Tailscale 客户端接入</h2><p>目前除了 iOS 客户端，其他平台的客户端都有办法自定义 Tailscale 的控制服务器。</p>
+<h2 id="Tailscale-Client-Onboarding"><a href="#Tailscale-Client-Onboarding" class="headerlink" title="Tailscale Client Onboarding"></a>Tailscale Client Onboarding</h2><p>Currently, except for the iOS client, clients on other platforms all have ways to customize Tailscale’s control server.</p>
 <table>
 <thead>
 <tr>
 <th align="left">OS</th>
-<th align="left">是否支持 Headscale</th>
+<th align="left">Whether Headscale Is Supported</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -576,151 +579,151 @@
 </tr>
 <tr>
 <td align="left">Windows</td>
-<td align="left">Yes 参考 <a target="_blank" rel="noopener" href="https://github.com/juanfont/headscale/blob/main/docs/windows-client.md">Windows 客户端文档</a></td>
+<td align="left">Yes, refer to <a target="_blank" rel="noopener" href="https://github.com/juanfont/headscale/blob/main/docs/windows-client.md">Windows client documentation</a></td>
 </tr>
 <tr>
 <td align="left">Android</td>
-<td align="left">支持,参考 <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale-android/pull/55">这个 PR</a></td>
+<td align="left">Supported, refer to <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale-android/pull/55">this PR</a></td>
 </tr>
 <tr>
 <td align="left">iOS</td>
-<td align="left">暂不支持</td>
+<td align="left">Not yet supported</td>
 </tr>
 </tbody></table>
-<p>我们先来看下 Linux 平台的接入。</p>
-<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>Tailscale 官方提供了各种 Linux 发行版的软件包，但国内的网络你懂得，软件源根本用不了。好在官方还提供了 <a target="_blank" rel="noopener" href="https://tailscale.com/download/linux/static">静态编译的二进制文件</a>，我们可以直接下载。例如：</p>
+<p>Let’s first look at onboarding on the Linux platform.</p>
+<h3 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h3><p>Tailscale officially provides packages for various Linux distributions, but you know how the domestic network is—the software repositories simply cannot be used. Fortunately, the official also provides <a target="_blank" rel="noopener" href="https://tailscale.com/download/linux/static">statically compiled binary files</a>，我们可以直接下载。例如：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://pkgs.tailscale.com/stable/tailscale_1.22.2_amd64.tgz</span><br></pre></td></tr></table></figure>
 
 
 
-<p>解压：</p>
+<p>Extract:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ tar zxvf tailscale_1.22.2_amd64.tgz</span><br><span class="line">x tailscale_1.22.2_amd64/</span><br><span class="line">x tailscale_1.22.2_amd64/tailscale</span><br><span class="line">x tailscale_1.22.2_amd64/tailscaled</span><br><span class="line">x tailscale_1.22.2_amd64/systemd/</span><br><span class="line">x tailscale_1.22.2_amd64/systemd/tailscaled.defaults</span><br><span class="line">x tailscale_1.22.2_amd64/systemd/tailscaled.service</span><br></pre></td></tr></table></figure>
 
 
 
-<p>将二进制文件复制到官方软件包默认的路径下：</p>
+<p>Copy the binary file to the default path of the official package:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cp</span> tailscale_1.22.2_amd64/tailscaled /usr/sbin/tailscaled</span><br><span class="line">$ <span class="built_in">cp</span> tailscale_1.22.2_amd64/tailscale /usr/bin/tailscale</span><br></pre></td></tr></table></figure>
 
 
 
-<p>将 systemD service 配置文件复制到系统路径下：</p>
+<p>Copy the systemD service configuration file to the system path:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cp</span> tailscale_1.22.2_amd64/systemd/tailscaled.service /lib/systemd/system/tailscaled.service</span><br></pre></td></tr></table></figure>
 
 
 
-<p>将环境变量配置文件复制到系统路径下：</p>
+<p>Copy the environment variable configuration file to the system path:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cp</span> tailscale_1.22.2_amd64/systemd/tailscaled.defaults /etc/default/tailscaled</span><br></pre></td></tr></table></figure>
 
 
 
-<p>启动 tailscaled.service 并设置开机自启：</p>
+<p>Start tailscaled.service and set it to start on boot:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl <span class="built_in">enable</span> --now tailscaled</span><br></pre></td></tr></table></figure>
 
 
 
-<p>查看服务状态：</p>
+<p>Check the service status:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl status tailscaled</span><br></pre></td></tr></table></figure>
 
 
 
-<p>Tailscale 接入 Headscale：</p>
+<p>Connect Tailscale to Headscale:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将 &lt;HEADSCALE_PUB_IP&gt; 换成你的 Headscale 公网 IP 或域名</span></span><br><span class="line">$ tailscale up --login-server=http://&lt;HEADSCALE_PUB_IP&gt;:8080 --accept-routes=<span class="literal">true</span> --accept-dns=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>这里推荐将 DNS 功能关闭，因为它会覆盖系统的默认 DNS。如果你对 DNS 有需求，可自己研究官方文档，这里不再赘述。</p>
-<p>执行完上面的命令后，会出现下面的信息：</p>
+<p>Here it is recommended to disable the DNS function, because it will override the system’s default DNS. If you need DNS, you can study the official documentation yourself; I will not go into details here.</p>
+<p>After executing the above command, the following information will appear:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">To authenticate, visit:</span><br><span class="line"></span><br><span class="line">http://xxxxxx:8080/register?key=905cf165204800247fbd33989dbc22be95c987286c45aac303393704</span><br><span class="line"></span><br><span class="line">1150d846</span><br></pre></td></tr></table></figure>
 
 
 
-<p>在浏览器中打开该链接，就会出现如下的界面：</p>
+<p>Open the link in a browser, and the following interface will appear:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-06-08qWbz.png" alt="img"></p>
-<p>将其中的命令复制粘贴到 headscale 所在机器的终端中，并将 NAMESPACE 替换为前面所创建的 namespace。</p>
+<p>Copy and paste the command into the terminal of the machine where headscale is located, and replace NAMESPACE with the namespace created earlier.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ headscale -n default nodes register --key 905cf165204800247fbd33989dbc22be95c987286c45aac3033937041150d846</span><br><span class="line">Machine register</span><br></pre></td></tr></table></figure>
 
 
 
-<p>注册成功，查看注册的节点：</p>
+<p>Registration successful. View the registered nodes:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ headscale nodes list</span><br><span class="line"></span><br><span class="line">ID | Name | NodeKey | Namespace | IP addresses | Ephemeral | Last seen | Onlin</span><br><span class="line"></span><br><span class="line">e | Expired</span><br><span class="line"></span><br><span class="line">1 | coredns | [Ew3RB] | default | 10.1.0.1 | <span class="literal">false</span> | 2022-03-20 09:08:58 | onlin</span><br><span class="line"></span><br><span class="line">e | no</span><br></pre></td></tr></table></figure>
 
 
 
-<p>回到 Tailscale 客户端所在的 Linux 主机，可以看到 Tailscale 会自动创建相关的路由表和 iptables 规则。路由表可通过以下命令查看：</p>
+<p>Return to the Linux host where the Tailscale client is located. You can see that Tailscale will automatically create the relevant routing table and iptables rules. The routing table can be viewed with the following command:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ip route show table 52</span><br></pre></td></tr></table></figure>
 
 
 
-<p>查看 iptables 规则：</p>
+<p>View iptables rules:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ iptables -S</span><br><span class="line">-P INPUT DROP</span><br><span class="line">-P FORWARD ACCEPT</span><br><span class="line">-P OUTPUT ACCEPT</span><br><span class="line">-N ts-forward</span><br><span class="line">-N ts-input</span><br><span class="line">-A INPUT -j ts-input</span><br><span class="line">-A FORWARD -j ts-forward</span><br><span class="line">-A ts-forward -i tailscale0 -j MARK --set-xmark 0x40000/0xffffffff</span><br><span class="line">-A ts-forward -m mark --mark 0x40000 -j ACCEPT</span><br><span class="line">-A ts-forward -s 100.64.0.0/10 -o tailscale0 -j DROP</span><br><span class="line">-A ts-forward -o tailscale0 -j ACCEPT</span><br><span class="line">-A ts-input -s 10.1.0.5/32 -i lo -j ACCEPT</span><br><span class="line">-A ts-input -s 100.115.92.0/23 ! -i tailscale0 -j RETURN</span><br><span class="line">-A ts-input -s 100.64.0.0/10 ! -i tailscale0 -j DROP</span><br><span class="line"></span><br><span class="line">$ iptables -S -t nat</span><br><span class="line">-P PREROUTING ACCEPT</span><br><span class="line">-P INPUT ACCEPT</span><br><span class="line">-P OUTPUT ACCEPT</span><br><span class="line">-P POSTROUTING ACCEPT</span><br><span class="line">-A ts-postrouting -m mark --mark 0x40000 -j MASQUERADE</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>macOS 有 3 种安装方法：</p>
+<h3 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h3><p>There are 3 installation methods for macOS:</p>
 <ul>
-<li>直接通过应用商店安装，地址： <a target="_blank" rel="noopener" href="https://apps.apple.com/ca/app/tailscale/id1475387142%E3%80%82%E5%89%8D%E6%8F%90%E6%98%AF%E4%BD%A0**%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E7%BE%8E%E5%8C%BA">https://apps.apple.com/ca/app/tailscale/id1475387142。前提是你**需要一个美区</a> ID**。。。</li>
-<li>下载 <a target="_blank" rel="noopener" href="https://pkgs.tailscale.com/stable/#macos">安装包</a>直接安装，绕过应用商店。</li>
-<li>安装开源的命令行工具 <code>tailscale</code> 和 <code>tailscaled</code>。相关链接： <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS%E3%80%82">https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS。</a></li>
+<li>Install directly through the App Store, address: <a target="_blank" rel="noopener" href="https://apps.apple.com/ca/app/tailscale/id1475387142%E3%80%82%E5%89%8D%E6%8F%90%E6%98%AF%E4%BD%A0**%E9%9C%80%E8%A6%81%E4%B8%80%E4%B8%AA%E7%BE%8E%E5%8C%BA">https://apps.apple.com/ca/app/tailscale/id1475387142。前提是你**需要一个美区</a> ID**…</li>
+<li>Download the <a target="_blank" rel="noopener" href="https://pkgs.tailscale.com/stable/#macos">installation package</a>直接安装，绕过应用商店。</li>
+<li>Install the open-source command-line tools <code>tailscale</code> and <code>tailscaled</code>. Related links: <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS%E3%80%82">https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS。</a></li>
 </ul>
-<p>这三种安装包的核心数据包处理代码是相同的，唯一的区别在于在于打包方式以及与系统的交互方式。</p>
-<p>应用商店里的应用运行在一个 <a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AboutAppSandbox/AboutAppSandbox.html">应用沙箱</a>中，与系统的其他部分隔离。在沙箱内，应用可以是一个 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/networkextension">网络扩展</a>，以实现 VPN 或者类 VPN 的功能。网络扩展实现的功能对应用商店之外的应用是无法生效的。</p>
-<p>从 macOS 从 10.15 开始新增了 <a target="_blank" rel="noopener" href="https://developer.apple.com/system-extensions/">系统扩展</a>，说白了就是运行在用户态的内核扩展，它相比于传统的网络扩展增强了很多功能，比如内容过滤、透明代理、DNS 代理等。Tailscale 独立于应用商店的安装包使用的就是<strong>系统扩展</strong>，通过 DMG 或者 zip 压缩包进行分发。</p>
-<p>不要同时安装应用商店版本和独立分发版本，同时只能装一个。</p>
-<p>而命令行工具既没有使用网络扩展也没有使用系统扩展，而是使用的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/TUN/TAP">utun 接口</a>，相比于 GUI 版本缺少了部分功能，比如 MagicDNS 和 Taildrop。</p>
-<p>总览：</p>
+<p>The core packet processing code of these three installation packages is the same. The only difference lies in the packaging method and the way they interact with the system.</p>
+<p>The app in the App Store runs in an <a target="_blank" rel="noopener" href="https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AboutAppSandbox/AboutAppSandbox.html">app sandbox</a>中，与系统的其他部分隔离。在沙箱内，应用可以是一个 <a target="_blank" rel="noopener" href="https://developer.apple.com/documentation/networkextension">network extension</a>，以实现 VPN or VPN-like functionality. The functionality implemented by the network extension cannot take effect for apps outside the App Store.</p>
+<p>Starting from macOS 10.15, <a target="_blank" rel="noopener" href="https://developer.apple.com/system-extensions/">system extensions</a>，说白了就是运行在用户态的内核扩展，它相比于传统的网络扩展增强了很多功能，比如内容过滤、透明代理、DNS proxies, etc. were added. The Tailscale installation package independent of the App Store uses <strong>system extensions</strong>, distributed through DMG or zip archives.</p>
+<p>Do not install both the App Store version and the independently distributed version at the same time; only one can be installed at a time.</p>
+<p>The command-line tool uses neither a network extension nor a system extension, but uses the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/TUN/TAP">utun interface</a>，相比于 The GUI version lacks some features, such as MagicDNS and Taildrop.</p>
+<p>Overview:</p>
 <table>
 <thead>
 <tr>
 <th align="left"></th>
-<th align="left">应用商店（网络扩展）</th>
-<th align="left">独立应用（系统扩展）</th>
-<th align="left">命令行版本</th>
+<th align="left">App Store (Network Extension)</th>
+<th align="left">Standalone App (System Extension)</th>
+<th align="left">Command-Line Version</th>
 </tr>
 </thead>
 <tbody><tr>
-<td align="left">是否可用</td>
+<td align="left">Available</td>
 <td align="left"><a target="_blank" rel="noopener" href="https://apps.apple.com/ca/app/tailscale/id1475387142">yes</a></td>
 <td align="left">yes, <a target="_blank" rel="noopener" href="https://tailscale.com/kb/1167/release-stages/#beta">beta</a></td>
 <td align="left"><a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS">yes</a></td>
 </tr>
 <tr>
-<td align="left">图形界面</td>
+<td align="left">GUI</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
 <td align="left">no; CLI</td>
 </tr>
 <tr>
-<td align="left">macOS 最低版本</td>
+<td align="left">Minimum macOS version</td>
 <td align="left">macOS 10.13</td>
 <td align="left">macOS 10.15</td>
 <td align="left">macOS 10.13</td>
 </tr>
 <tr>
-<td align="left">后台运行</td>
+<td align="left">Runs in background</td>
 <td align="left">no; sandboxed</td>
-<td align="left">理论上支持; 尚未实现</td>
+<td align="left">Theoretically supported; not yet implemented</td>
 <td align="left">yes</td>
 </tr>
 <tr>
-<td align="left">使用的钥匙串🔑</td>
-<td align="left">用户级</td>
-<td align="left">系统级</td>
-<td align="left">直接存放在文件中</td>
+<td align="left">Keychain used 🔑</td>
+<td align="left">User-level</td>
+<td align="left">System-level</td>
+<td align="left">Stored directly in files</td>
 </tr>
 <tr>
-<td align="left">沙盒隔离</td>
+<td align="left">Sandbox isolation</td>
 <td align="left">yes</td>
 <td align="left">no</td>
 <td align="left">no</td>
 </tr>
 <tr>
-<td align="left">自动更新</td>
-<td align="left">yes; 应用商店直接更新</td>
+<td align="left">Automatic updates</td>
+<td align="left">yes; updated directly by App Store</td>
 <td align="left">yes; <a target="_blank" rel="noopener" href="https://sparkle-project.org/">Sparkle</a></td>
 <td align="left">no</td>
 </tr>
 <tr>
-<td align="left">是否开源</td>
+<td align="left">Open source</td>
 <td align="left">no</td>
 <td align="left">no</td>
 <td align="left">yes</td>
@@ -735,115 +738,115 @@
 <td align="left">Taildrop</td>
 <td align="left">yes</td>
 <td align="left">yes</td>
-<td align="left">未实现</td>
+<td align="left">Not implemented</td>
 </tr>
 </tbody></table>
-<p>安装完 GUI 版应用后还需要做一些骚操作，才能让 Tailscale 使用 Headscale 作为控制服务器。当然，Headscale 已经给我们提供了详细的操作步骤，你只需要在浏览器中打开 URL：<code>http://&lt;HEADSCALE_PUB_IP&gt;:8080/apple</code>，便会出现如下的界面：</p>
+<p>After installing the GUI app, you still need to do some hacky operations to make Tailscale use Headscale as the control server. Of course, Headscale has already provided us with detailed operation steps. You just need to open the URL in a browser: <code>http://&lt;HEADSCALE_PUB_IP&gt;:8080/apple</code>, and the following interface will appear:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-17-53-rjcTVg.png" alt="img"></p>
-<p>你只需要按照图中所述的步骤操作即可，本文就不再赘述了。</p>
-<p>非应用商店版本的 macOS 客户端需要将 <code>io.tailscale.ipn.macos</code> 替换为 <code>io.tailscale.ipn.macsys</code>。即：<code>defaults write io.tailscale.ipn.macsys ControlURL http://&lt;HEADSCALE_PUB_IP&gt;:8080</code></p>
-<p>修改完成后重启 Tailscale 客户端，在 macOS 顶部状态栏中找到 Tailscale 并点击，然后再点击 <code>Log in</code>。</p>
+<p>You just need to follow the steps described in the image; this article will not repeat them.</p>
+<p>For the non-App Store version of the macOS client, you need to replace <code>io.tailscale.ipn.macos</code> with <code>io.tailscale.ipn.macsys</code>. That is: <code>defaults write io.tailscale.ipn.macsys ControlURL http://&lt;HEADSCALE_PUB_IP&gt;:8080</code></p>
+<p>After modification, restart the Tailscale client. Find Tailscale in the macOS top status bar and click it, then click <code>Log in</code>.</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-43-pTW3r7.png" alt="img"></p>
-<p>然后立马就会跳转到浏览器并打开一个页面。</p>
+<p>Then it will immediately jump to the browser and open a page.</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-46-AbzngB.png" alt="img"></p>
-<p>接下来与之前 Linux 客户端相同，回到 Headscale 所在的机器执行浏览器中的命令即可，注册成功：</p>
+<p>Next, same as the previous Linux client, return to the machine where Headscale is located and execute the command in the browser. Registration successful:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-51-Gcjcmy.png" alt="img"></p>
-<p>回到 Headscale 所在主机，查看注册的节点：</p>
+<p>Return to the host where Headscale is located and view the registered nodes:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ headscale nodes list</span><br><span class="line"></span><br><span class="line">ID | Name | NodeKey | Namespace | IP addresses | Ephemeral | Last seen | Onlin</span><br><span class="line"></span><br><span class="line">e | Expired</span><br><span class="line"></span><br><span class="line">1 | coredns | [Ew3RB] | default | 10.1.0.1 | <span class="literal">false</span> | 2022-03-20 09:08:58 | onlin</span><br><span class="line"></span><br><span class="line">e | no</span><br><span class="line">2 | carsondemacbook-pro | [k7bzX] | default   | 10.1.0.2     | <span class="literal">false</span>     | 2022-03-20 09:48:30 | online  | no</span><br></pre></td></tr></table></figure>
 
 
 
-<p>回到 macOS，测试是否能 ping 通对端节点：</p>
+<p>Return to macOS and test whether the peer node can be pinged:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ping -c 2 10.1.0.1</span><br><span class="line">PING 10.1.0.1 (10.1.0.1): 56 data bytes</span><br><span class="line">64 bytes from 10.1.0.1: icmp_seq=0 ttl=64 <span class="keyword">time</span>=37.025 ms</span><br><span class="line">64 bytes from 10.1.0.1: icmp_seq=1 ttl=64 <span class="keyword">time</span>=38.181 ms</span><br><span class="line"></span><br><span class="line">--- 10.1.0.1 ping statistics ---</span><br><span class="line">2 packets transmitted, 2 packets received, 0.0% packet loss</span><br><span class="line">round-trip min/avg/max/stddev = 37.025/37.603/38.181/0.578 ms</span><br></pre></td></tr></table></figure>
 
 
 
-<p>也可以使用 Tailscale CLI 来测试：</p>
+<p>You can also use the Tailscale CLI to test:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ /Applications/Tailscale.app/Contents/MacOS/Tailscale ping 10.1.0.1</span><br><span class="line">pong from coredns (10.1.0.1) via xxxx:41641 <span class="keyword">in</span> 36ms</span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>Android 客户端从 1.30.0 版本开始支持自定义控制服务器（即 coordination server），你可以通过 <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.tailscale.ipn">Google Play</a> 或者 <a target="_blank" rel="noopener" href="https://f-droid.org/packages/com.tailscale.ipn/">F-Droid</a> 下载最新版本的客户端。</p>
-<p>安装完成后打开 Tailscale App，会出现如下的界面：</p>
+<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>Starting from version 1.30.0, the Android client supports a custom control server (i.e., coordination server). You can download the latest version of the client through <a target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.tailscale.ipn">Google Play</a> or <a target="_blank" rel="noopener" href="https://f-droid.org/packages/com.tailscale.ipn/">F-Droid</a>.</p>
+<p>After installation, open the Tailscale App, and the following interface will appear:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-12-m2IYpv.jpeg" alt="img"></p>
-<p>点开右上角的“三个点”，你会看到只有一个 <code>About</code> 选项：</p>
+<p>Tap the “three dots” in the upper right corner, and you will see only one <code>About</code> option:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-14-ghdl4A.jpeg" alt="img"></p>
-<p>接下来就需要一些骚操作了，你需要反复不停地<strong>点开再关闭</strong>右上角的“三个点”，重复三四次之后，便会出现一个 <code>Change server</code> 选项：</p>
+<p>Next, some hacky operations are needed. You need to repeatedly <strong>open and close</strong> the “three dots” in the upper right corner. After repeating three or four times, a <code>Change server</code> option will appear:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-23-mcAexh.jpeg" alt="img"></p>
-<p>点击 <code>Change server</code>，将 headscale 控制服务器的地址填进去：</p>
+<p>Click <code>Change server</code>, and fill in the address of the headscale control server:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-37-fkRIxW.jpeg" alt="img"></p>
-<p>然后点击 <code>Save and restart</code> 重启，点击 <code>Sign in with other</code>，就会跳出这个页面：</p>
+<p>Then click <code>Save and restart</code> to restart, and click <code>Sign in with other</code>, and this page will pop up:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-06-07-09-30-bf83jv.jpeg" alt="img"></p>
-<p>将其中的命令粘贴到 Headscale 所在主机的终端，将 <strong>NAMESPACE</strong> 替换为之前创建的 namespace，然后执行命令即可。注册成功后可将该页面关闭，回到 App 主页，效果如图：</p>
+<p>Paste the command into the terminal of the host where Headscale is located, replace <strong>NAMESPACE</strong> with the namespace created earlier, and then execute the command. After successful registration, you can close this page and return to the App home page. The effect is as shown:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-48-M07ibg.jpeg" alt="img"></p>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>Windows Tailscale 客户端想要使用 Headscale 作为控制服务器，只需在浏览器中打开 URL：<code>http://&lt;HEADSCALE_PUB_IP&gt;:8080/windows</code>，便会出现如下的界面：</p>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>If the Windows Tailscale client wants to use Headscale as the control server, you only need to open the URL in a browser: <code>http://&lt;HEADSCALE_PUB_IP&gt;:8080/windows</code>, and the following interface will appear:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-23-30-zcQX3F.png" alt="img"></p>
-<p>按照其中的步骤操作即可。</p>
-<h3 id="其他-Linux-发行版"><a href="#其他-Linux-发行版" class="headerlink" title="其他 Linux 发行版"></a>其他 Linux 发行版</h3><p>除了常规的 Linux 发行版之外，还有一些特殊场景的 Linux 发行版，比如 OpenWrt、威联通（QNAP）、群晖等，这些发行版的安装方法已经有人写好了，这里就不详细描述了，我只给出相关的 GitHub 仓库，大家如果自己有需求，直接去看相关仓库的文档即可。</p>
+<p>Just follow the steps in it.</p>
+<h3 id="Other-Linux-Distributions"><a href="#Other-Linux-Distributions" class="headerlink" title="Other Linux Distributions"></a>Other Linux Distributions</h3><p>In addition to regular Linux distributions, there are also Linux distributions for special scenarios, such as OpenWrt, QNAP, Synology, etc. Someone has already written installation methods for these distributions, so I will not describe them in detail here. I will only give the relevant GitHub repositories. If you have your own needs, just go look at the documentation of the relevant repositories.</p>
 <ul>
-<li>OpenWrt： <a target="_blank" rel="noopener" href="https://github.com/adyanth/openwrt-tailscale-enabler">https://github.com/adyanth/openwrt-tailscale-enabler</a></li>
-<li>群晖： <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale-synology">https://github.com/tailscale/tailscale-synology</a></li>
-<li>威联通： <a target="_blank" rel="noopener" href="https://github.com/ivokub/tailscale-qpkg">https://github.com/ivokub/tailscale-qpkg</a></li>
+<li>OpenWrt: <a target="_blank" rel="noopener" href="https://github.com/adyanth/openwrt-tailscale-enabler">https://github.com/adyanth/openwrt-tailscale-enabler</a></li>
+<li>Synology: <a target="_blank" rel="noopener" href="https://github.com/tailscale/tailscale-synology">https://github.com/tailscale/tailscale-synology</a></li>
+<li>QNAP: <a target="_blank" rel="noopener" href="https://github.com/ivokub/tailscale-qpkg">https://github.com/ivokub/tailscale-qpkg</a></li>
 </ul>
-<h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><p>Tailscale iOS 客户端源代码没有开源，目前还无法破解使其使用第三方控制服务器，遗憾~~</p>
-<h3 id="通过-Pre-Authkeys-接入"><a href="#通过-Pre-Authkeys-接入" class="headerlink" title="通过 Pre-Authkeys 接入"></a>通过 Pre-Authkeys 接入</h3><p>前面的接入方法都需要服务端同意，步骤比较烦琐，其实还有更简单的方法，可以直接接入，不需要服务端同意。</p>
-<p>首先在服务端生成 pre-authkey 的 token，有效期可以设置为 24 小时：</p>
+<h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><p>The Tailscale iOS client source code is not open source, and it is currently impossible to crack it to use a third-party control server. What a pity~~</p>
+<h3 id="Onboarding-via-Pre-Authkeys"><a href="#Onboarding-via-Pre-Authkeys" class="headerlink" title="Onboarding via Pre-Authkeys"></a>Onboarding via Pre-Authkeys</h3><p>The previous onboarding methods all require server-side approval, and the steps are rather cumbersome. In fact, there is a simpler method that can connect directly without server-side approval.</p>
+<p>First, generate a pre-authkey token on the server. The validity period can be set to 24 hours:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ headscale preauthkeys create -e 24h -n default</span><br></pre></td></tr></table></figure>
 
 
 
-<p>查看已经生成的 key：</p>
+<p>View the already generated keys:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ headscale -n default preauthkeys list</span><br><span class="line">ID | Key                                              | Reusable | Ephemeral | Used  | Expiration          | Created            </span><br><span class="line">1  | 57e419c40e30b0dxxxxxxxf15562c18a8c6xxxx28ae76f57 | <span class="literal">false</span>    | <span class="literal">false</span>     | <span class="literal">false</span> | 2022-05-30 07:14:17 | 2022-05-29 07:14:17</span><br></pre></td></tr></table></figure>
 
 
 
-<p>现在新节点就可以无需服务端同意直接接入了：</p>
+<p>Now new nodes can connect directly without server-side approval:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale up --login-server=http://&lt;HEADSCALE_PUB_IP&gt;:8080 --accept-routes=<span class="literal">true</span> --accept-dns=<span class="literal">false</span> --authkey <span class="variable">$KEY</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="打通局域网"><a href="#打通局域网" class="headerlink" title="打通局域网"></a>打通局域网</h2><p>到目前为止我们只是打造了一个点对点的 Mesh 网络，各个节点之间都可以通过 WireGuard 的私有网络 IP 进行直连。但我们可以更大胆一点，还记得我在文章开头提到的访问家庭内网的资源吗？我们可以通过适当的配置让每个节点都能访问其他节点的局域网 IP。这个使用场景就比较多了，你可以直接访问家庭内网的 NAS，或者内网的任何一个服务，<strong>更高级的玩家可以使用这个方法来访问云上 Kubernetes 集群的 Pod IP 和 Service IP。</strong></p>
-<p>假设你的家庭内网有一台 Linux 主机（比如 OpenWrt）安装了 Tailscale 客户端，我们希望其他 Tailscale 客户端可以直接通过家中的局域网 IP（例如 <strong>192.168.100.0&#x2F;24</strong>） 访问家庭内网的任何一台设备。</p>
-<p>配置方法很简单，首先需要设置 IPv4 与 IPv6 路由转发：</p>
+<h2 id="Connecting-the-LAN"><a href="#Connecting-the-LAN" class="headerlink" title="Connecting the LAN"></a>Connecting the LAN</h2><p>So far we have only built a peer-to-peer Mesh network, and each node can directly connect to others through WireGuard’s private network IP. But we can be bolder. Do you remember the access to home intranet resources I mentioned at the beginning of the article? Through proper configuration, we can let each node access the LAN IP of other nodes. There are many use cases for this. You can directly access the NAS on the home intranet, or any service on the intranet. <strong>More advanced players can use this method to access the Pod IP and Service IP of a Kubernetes cluster in the cloud.</strong></p>
+<p>Suppose your home intranet has a Linux host (such as OpenWrt) with the Tailscale client installed. We want other Tailscale clients to be able to directly access any device on the home intranet through the home LAN IP (for example, <strong>192.168.100.0&#x2F;24</strong>).</p>
+<p>The configuration method is very simple. First, you need to set up IPv4 and IPv6 route forwarding:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&#x27;net.ipv4.ip_forward = 1&#x27;</span> | <span class="built_in">tee</span> /etc/sysctl.d/ipforwarding.conf</span><br><span class="line">$ <span class="built_in">echo</span> <span class="string">&#x27;net.ipv6.conf.all.forwarding = 1&#x27;</span> | <span class="built_in">tee</span> -a /etc/sysctl.d/ipforwarding.conf</span><br><span class="line">$ sysctl -p /etc/sysctl.d/ipforwarding.conf</span><br></pre></td></tr></table></figure>
 
 
 
-<p>客户端修改注册节点的命令，在原来命令的基础上加上参数 <code>--advertise-routes=192.168.100.0/24</code>，告诉 Headscale 服务器“我这个节点可以转发这些地址的路由”。</p>
+<p>On the client, modify the command for registering the node. Add the parameter <code>--advertise-routes=192.168.100.0/24</code> to the original command to tell the Headscale server, “This node can forward routes for these addresses.”</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tailscale up --login-server=http://&lt;HEADSCALE_PUB_IP&gt;:8080 --accept-routes=<span class="literal">true</span> --accept-dns=<span class="literal">false</span> --advertise-routes=192.168.100.0/24 --reset</span><br></pre></td></tr></table></figure>
 
 
 
-<p>在 Headscale 端查看路由，可以看到相关路由是关闭的。</p>
+<p>Check the routes on the Headscale side, and you can see that the relevant routes are disabled.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$ headscale nodes list|grep openwrt</span><br><span class="line"></span><br><span class="line">6 | openwrt | [7LdVc] | default | 10.1.0.6 | <span class="literal">false</span> | 2022-03-20 15:50:46 | onlin</span><br><span class="line"></span><br><span class="line">e | no</span><br><span class="line"></span><br><span class="line">$ headscale routes list -i 6</span><br><span class="line"></span><br><span class="line">Route | Enabled</span><br><span class="line"></span><br><span class="line">192.168.100.0/24 | <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>开启路由：</p>
+<p>Enable routes:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ headscale routes <span class="built_in">enable</span> -i 6 -r <span class="string">&quot;192.168.100.0/24&quot;</span></span><br><span class="line"></span><br><span class="line">Route | Enabled</span><br><span class="line"></span><br><span class="line">192.168.100.0/24 | <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>如果有多条路由需要用 <code>,</code> 隔开：</p>
+<p>If there are multiple routes, they need to be separated with <code>,</code>:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ headscale routes <span class="built_in">enable</span> -i 6 -r <span class="string">&quot;192.168.100.0/24,xxxx&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>也可以通过参数 -a 开启所有路由：</p>
+<p>You can also enable all routes with the parameter -a:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ headscale routes <span class="built_in">enable</span> -i 6 -a</span><br></pre></td></tr></table></figure>
 
 
 
-<p>其他节点查看路由结果：</p>
+<p>Other nodes view the route results:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ip route show table 52|grep <span class="string">&quot;192.168.100.0/24&quot;</span></span><br><span class="line">192.168.100.0/24 dev tailscale0</span><br></pre></td></tr></table></figure>
 
 
 
-<p>其他节点启动时需要增加 <code>--accept-routes=true</code> 选项来声明 “我接受外部其他节点发布的路由”。</p>
-<p>现在你在任何一个 Tailscale 客户端所在的节点都可以 ping 通家庭内网的机器了，你在公司或者星巴克也可以像在家里一样用同样的 IP 随意访问家中的任何一个设备，就问你香不香？</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>目前从稳定性来看，Tailscale 比 Netmaker 略胜一筹，基本上不会像 Netmaker 一样时不时出现 ping 不通的情况，这取决于 Tailscale 在用户态对 NAT 穿透所做的种种优化，他们还专门写了一篇文章介绍 <a target="_blank" rel="noopener" href="https://tailscale.com/blog/how-nat-traversal-works/">NAT 穿透的原理</a>， <a target="_blank" rel="noopener" href="https://arthurchiao.art/blog/how-nat-traversal-works-zh/">中文版</a>翻译自国内的 eBPF 大佬赵亚楠，墙裂推荐大家阅读。放一张图给大家感受一下：</p>
+<p>When other nodes start, they need to add the <code>--accept-routes=true</code> option to declare, “I accept routes advertised by other external nodes.”</p>
+<p>Now you can ping machines on the home intranet from any node where a Tailscale client is located. At the office or Starbucks, you can also use the same IP to freely access any device at home just like at home. Isn’t that awesome?</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>From the perspective of stability, Tailscale is currently slightly better than Netmaker. It basically will not, like Netmaker, occasionally fail to ping. This depends on the various optimizations Tailscale has made for NAT traversal in user space. They also wrote a dedicated article introducing <a target="_blank" rel="noopener" href="https://tailscale.com/blog/how-nat-traversal-works/">the principles of NAT traversal</a>， <a target="_blank" rel="noopener" href="https://arthurchiao.art/blog/how-nat-traversal-works-zh/">Chinese version</a>翻译自国内的 by eBPF expert Zhao Yanan. I strongly recommend everyone read it. Here is a picture to give you a feel:</p>
 <p><img src="https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-21-10-52-TzXGEZ.png" alt="img"></p>
-<p>本文给大家介绍了 Tailscale 和 Headscale，包括 Headscale 的安装部署和各个平台客户端的接入，以及如何打通各个节点所在的局域网。下篇文章将会给大家介绍 <a target="_blank" rel="noopener" href="https://icloudnative.io/posts/custom-derp-servers/">如何让 Tailscale 使用自定义的 DERP Servers</a>（也就是中继服务器），See you~~</p>
+<p>This article introduced Tailscale and Headscale, including Headscale installation and deployment, onboarding for clients on various platforms, and how to connect the LANs where each node is located. The next article will introduce <a target="_blank" rel="noopener" href="https://icloudnative.io/posts/custom-derp-servers/">how to make Tailscale use custom DERP Servers</a>（也就是中继服务器），See you~~</p>
 
     </div>
     <footer class="article-footer">
@@ -854,19 +857,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="新建 Text Document" class="lazyload">
-        <a href="/en/2023/12/13/2023-12-13-%E6%96%B0%E5%BB%BA%20Text%20Document/" aria-label="Prev: 新建 Text Document" title="Prev: 新建 Text Document"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="New Text Document" class="lazyload">
+        <a href="/en/2023/12/13/2023-12-13-%E6%96%B0%E5%BB%BA%20Text%20Document/" aria-label="Prev: New Text Document" title="Prev: New Text Document"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            新建 Text Document
+            New Text Document
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="自建derper" class="lazyload">
-      <a href="/en/2023/11/27/2023-11-27-%E8%87%AA%E5%BB%BAderper/" aria-label="Next: 自建derper"  title="Next: 自建derper"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Self-hosted derper" class="lazyload">
+      <a href="/en/2023/11/27/2023-11-27-%E8%87%AA%E5%BB%BAderper/" aria-label="Next: Self-hosted derper"  title="Next: Self-hosted derper"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          自建derper
+          Self-hosted derper
       </h3>
     </div>
   </nav>
@@ -918,7 +921,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%9AHeadscale-%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">Tailscale 基础教程：Headscale 的部署方法和使用教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker%E9%83%A8%E7%BD%B2"><span class="toc-number">2.</span> <span class="toc-text">Docker部署</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Running-headscale-in-a-container"><span class="toc-number"></span> <span class="toc-text">Running headscale in a container</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Goal"><span class="toc-number">1.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure-and-run-headscale"><span class="toc-number">2.</span> <span class="toc-text">Configure and run headscale</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-a-machine-normal-login"><span class="toc-number">2.1.</span> <span class="toc-text">Register a machine (normal login)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-machine-using-a-pre-authenticated-key"><span class="toc-number">2.2.</span> <span class="toc-text">Register machine using a pre authenticated key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debugging-headscale-running-in-Docker"><span class="toc-number">3.</span> <span class="toc-text">Debugging headscale running in Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-the-debug-Docker-container"><span class="toc-number">3.1.</span> <span class="toc-text">Running the debug Docker container</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Executing-commands-in-the-debug-container"><span class="toc-number">3.2.</span> <span class="toc-text">Executing commands in the debug container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">4.</span> <span class="toc-text">Tailscale 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Headscale-%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">5.</span> <span class="toc-text">Headscale 是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Headscale-%E9%83%A8%E7%BD%B2"><span class="toc-number">6.</span> <span class="toc-text">Headscale 部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5"><span class="toc-number">7.</span> <span class="toc-text">Tailscale 客户端接入</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-number">7.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">7.2.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android"><span class="toc-number">7.3.</span> <span class="toc-text">Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">7.4.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96-Linux-%E5%8F%91%E8%A1%8C%E7%89%88"><span class="toc-number">7.5.</span> <span class="toc-text">其他 Linux 发行版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS"><span class="toc-number">7.6.</span> <span class="toc-text">iOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-Pre-Authkeys-%E6%8E%A5%E5%85%A5"><span class="toc-number">7.7.</span> <span class="toc-text">通过 Pre-Authkeys 接入</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E9%80%9A%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">8.</span> <span class="toc-text">打通局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">总结</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-Basic-Tutorial-Headscale-Deployment-and-Usage-Tutorial"><span class="toc-number">1.</span> <span class="toc-text">Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Docker-Deployment"><span class="toc-number">2.</span> <span class="toc-text">Docker Deployment</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Running-headscale-in-a-container"><span class="toc-number"></span> <span class="toc-text">Running headscale in a container</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Goal"><span class="toc-number">1.</span> <span class="toc-text">Goal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configure-and-run-headscale"><span class="toc-number">2.</span> <span class="toc-text">Configure and run headscale</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-a-machine-normal-login"><span class="toc-number">2.1.</span> <span class="toc-text">Register a machine (normal login)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-machine-using-a-pre-authenticated-key"><span class="toc-number">2.2.</span> <span class="toc-text">Register machine using a pre authenticated key</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debugging-headscale-running-in-Docker"><span class="toc-number">3.</span> <span class="toc-text">Debugging headscale running in Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Running-the-debug-Docker-container"><span class="toc-number">3.1.</span> <span class="toc-text">Running the debug Docker container</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Executing-commands-in-the-debug-container"><span class="toc-number">3.2.</span> <span class="toc-text">Executing commands in the debug container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Tailscale"><span class="toc-number">4.</span> <span class="toc-text">What Is Tailscale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-Is-Headscale"><span class="toc-number">5.</span> <span class="toc-text">What Is Headscale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Headscale-Deployment"><span class="toc-number">6.</span> <span class="toc-text">Headscale Deployment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tailscale-Client-Onboarding"><span class="toc-number">7.</span> <span class="toc-text">Tailscale Client Onboarding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux"><span class="toc-number">7.1.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#macOS"><span class="toc-number">7.2.</span> <span class="toc-text">macOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android"><span class="toc-number">7.3.</span> <span class="toc-text">Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number">7.4.</span> <span class="toc-text">Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Other-Linux-Distributions"><span class="toc-number">7.5.</span> <span class="toc-text">Other Linux Distributions</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS"><span class="toc-number">7.6.</span> <span class="toc-text">iOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Onboarding-via-Pre-Authkeys"><span class="toc-number">7.7.</span> <span class="toc-text">Onboarding via Pre-Authkeys</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connecting-the-LAN"><span class="toc-number">8.</span> <span class="toc-text">Connecting the LAN</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Summary"><span class="toc-number">9.</span> <span class="toc-text">Summary</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -1007,11 +1010,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -1030,11 +1033,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -1060,21 +1063,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "Tailscale 基础教程：Headscale 的部署方法和使用教程",
+          title: "Tailscale Basic Tutorial: Headscale Deployment Method and Usage Tutorial",
           url: "https://blog.wray7.top/2023/11/27/2023-11-27-Tailscale%20%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B%EF%BC%9AHeadscale%20%E7%9A%84%E9%83%A8%E7%BD%B2%E6%96%B9%E6%B3%95%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/",
           excerpt: "",
           description: "",
-          stripContent: "Tailscale 基础教程：Headscale 的部署方法和使用教程 基础命令  1234567891011headscale namespaces create defaultheadscale preauthkeys create -e 65535h -u default --reusable #生成auth_keyheadscale node listtailscale up --login-server=http://&amp;lt;HEADSCALE_PUB_IP&amp;gt;:8080 --ac",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial Basic commands  1234567891011headscale namespaces create defaultheadscale preauthkeys creat",
           date: "Mon Nov 27 2023 17:52:55 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:49:31 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -1133,5 +1136,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>

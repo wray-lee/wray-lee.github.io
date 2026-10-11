@@ -7,23 +7,23 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    ffmpeg图像处理 | Wray的Blog
+    ffmpeg image processing | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
 
-    <meta name="description" content="FFmpeg—-图片处理最近在学习的时候发现了一个功能强大的软件ffmpeg，可以用它很完美的处理视频、音频、图片，并且该软件可以命令行执行可以完美的融入代码程序，运行速度也不错。说明：下面测试命令中image_source 是要处理的输入文件，out_source是处理完成之后的输出文件 1.图片压缩ffmpeg可以很完美的压缩图片生成新图片，并可以设置压缩等级 12ffmpeg -i imag">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  FFmpeg—-Image ProcessingRecently, while studying, I discovered a powerful piece of software called ffmpeg.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ffmpeg图像处理">
+<meta property="og:title" content="ffmpeg image processing">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/04/25/2023-04-24-ffmpeg%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="FFmpeg—-图片处理最近在学习的时候发现了一个功能强大的软件ffmpeg，可以用它很完美的处理视频、音频、图片，并且该软件可以命令行执行可以完美的融入代码程序，运行速度也不错。说明：下面测试命令中image_source 是要处理的输入文件，out_source是处理完成之后的输出文件 1.图片压缩ffmpeg可以很完美的压缩图片生成新图片，并可以设置压缩等级 12ffmpeg -i imag">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  FFmpeg—-Image ProcessingRecently, while studying, I discovered a powerful piece of software called ffmpeg.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-24T15:34:12.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.995Z">
+<meta property="article:modified_time" content="2026-10-10T20:43:30.109Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3f1dj6">
+<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="ffmpeg图像处理">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="ffmpeg image processing">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">ffmpeg图像处理</h1>
+            <h1 data-aos="slide-up">ffmpeg image processing</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg%E2%80%94-%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">FFmpeg—-图片处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">1.图片压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E7%BA%A6%E6%9D%9F%E6%AF%94%E4%BE%8B%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">2.约束比例压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">3.图片裁剪</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E6%B0%B4%E5%8D%B0%E5%9B%BE%E7%89%87"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">4.添加水印图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0%E6%96%87%E5%AD%97%E6%B0%B4%E5%8D%B0"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">5.添加文字水印</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%9B%BE%E7%89%87%E6%97%8B%E8%BD%AC%E6%8C%87%E5%AE%9A%E7%9A%84%E8%A7%92%E5%BA%A6"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">6.图片旋转指定的角度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-%E5%9B%BE%E7%89%87%E6%97%8B%E8%BD%AC%E7%89%B9%E6%AE%8A%E7%AE%80%E4%BE%BF%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">7.图片旋转特殊简便命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-%E5%9B%BE%E7%89%87%E5%B7%A6%E5%8F%B3%E9%95%9C%E5%83%8F"><span class="toc-number">1.0.0.0.8.</span> <span class="toc-text">8.图片左右镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-%E5%B0%86%E5%9B%BE%E7%89%87%E4%B8%8A%E4%B8%8B%E9%95%9C%E5%83%8F"><span class="toc-number">1.0.0.0.9.</span> <span class="toc-text">9.将图片上下镜像</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg%E2%80%94-Image-Processing"><span class="toc-number">1.</span> <span class="toc-text">FFmpeg—-Image Processing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-Image-Compression"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">1. Image Compression</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Compression-with-Constrained-Proportions"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">2. Compression with Constrained Proportions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Image-Cropping"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">3. Image Cropping</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-Add-an-Image-Watermark"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">4. Add an Image Watermark</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-Add-a-Text-Watermark"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">5. Add a Text Watermark</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-Rotate-an-Image-by-a-Specified-Angle"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">6. Rotate an Image by a Specified Angle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-Special-Simplified-Commands-for-Image-Rotation"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">7. Special Simplified Commands for Image Rotation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-Mirror-an-Image-Horizontally"><span class="toc-number">1.0.0.0.8.</span> <span class="toc-text">8. Mirror an Image Horizontally</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-Mirror-an-Image-Vertically"><span class="toc-number">1.0.0.0.9.</span> <span class="toc-text">9. Mirror an Image Vertically</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -263,7 +263,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2023-04-24-ffmpeg图像处理" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2023-04-24-ffmpeg图像处理.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -278,35 +278,38 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="FFmpeg—-图片处理"><a href="#FFmpeg—-图片处理" class="headerlink" title="FFmpeg—-图片处理"></a>FFmpeg—-图片处理</h1><p>最近在学习的时候发现了一个功能强大的软件ffmpeg，可以用它很完美的处理视频、音频、图片，并且该软件可以命令行执行可以完美的融入代码程序，运行速度也不错。<br><strong>说明</strong>：下面测试命令中<strong>image_source 是要处理的输入文件</strong>，<strong>out_source是处理完成之后的输出文件</strong></p>
-<h5 id="1-图片压缩"><a href="#1-图片压缩" class="headerlink" title="1.图片压缩"></a>1.图片压缩</h5><p>ffmpeg可以很完美的压缩图片生成新图片，并可以设置压缩等级</p>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="FFmpeg—-Image-Processing"><a href="#FFmpeg—-Image-Processing" class="headerlink" title="FFmpeg—-Image Processing"></a>FFmpeg—-Image Processing</h1><p>Recently, while studying, I discovered a powerful piece of software called ffmpeg. It can handle video, audio, and images perfectly, and it can be run from the command line and integrated seamlessly into code programs, with decent running speed.<br><strong>Note</strong>: In the test commands below, <strong>image_source is the input file to be processed</strong>, and <strong>out_source is the output file after processing</strong></p>
+<h5 id="1-Image-Compression"><a href="#1-Image-Compression" class="headerlink" title="1. Image Compression"></a>1. Image Compression</h5><p>FFmpeg can compress images perfectly to generate new images, and you can set the compression level</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -q compress_level out_source</span><br><span class="line"><span class="comment">#compress_level：压缩等级为正整数，数值越大压缩等级越高</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="2-约束比例压缩"><a href="#2-约束比例压缩" class="headerlink" title="2.约束比例压缩"></a>2.约束比例压缩</h5><p>ffmpeg可以将图片压缩成指定的尺寸</p>
+<h5 id="2-Compression-with-Constrained-Proportions"><a href="#2-Compression-with-Constrained-Proportions" class="headerlink" title="2. Compression with Constrained Proportions"></a>2. Compression with Constrained Proportions</h5><p>FFmpeg can compress images to a specified size</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf scale=width:height out_source</span><br><span class="line"><span class="comment">#width为压缩后的图片宽度</span></span><br><span class="line"><span class="comment">#height为压缩后的图片高度</span></span><br><span class="line"><span class="comment">#当width或height其中有一个数值为-1时将保持原来图片尺寸比例压缩</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="3-图片裁剪"><a href="#3-图片裁剪" class="headerlink" title="3.图片裁剪"></a>3.图片裁剪</h5><p>ffmpeg可以指定图片裁剪位置和裁剪的图片尺寸</p>
+<h5 id="3-Image-Cropping"><a href="#3-Image-Cropping" class="headerlink" title="3. Image Cropping"></a>3. Image Cropping</h5><p>FFmpeg can specify the crop position and the cropped image dimensions</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf crop=width:height:from_x:from_y out_source</span><br><span class="line"><span class="comment">#width是要裁剪出的图片的宽度</span></span><br><span class="line"><span class="comment">#height是要裁剪出的图片的高度</span></span><br><span class="line"><span class="comment">#from_x是裁剪的起始X轴的位置</span></span><br><span class="line"><span class="comment">#from_y是裁剪的起始Y轴的位置</span></span><br><span class="line"><span class="comment">#如果不指定from_x和from_y表示从原始图片中心位置开始裁剪</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="4-添加水印图片"><a href="#4-添加水印图片" class="headerlink" title="4.添加水印图片"></a>4.添加水印图片</h5><p>ffmpeg可以为图片添加水印，可以设置水印图片的大小、位置和透明度</p>
+<h5 id="4-Add-an-Image-Watermark"><a href="#4-Add-an-Image-Watermark" class="headerlink" title="4. Add an Image Watermark"></a>4. Add an Image Watermark</h5><p>FFmpeg can add a watermark to an image, and can set the size, position, and transparency of the watermark image</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf movie=logo_source,scale=logo_width:logo_height,lut=a=val*opacity_num[watermask];[<span class="keyword">in</span>][watermask] overlay=from_x:from_y[<span class="keyword">out</span>] -y  out_source</span><br><span class="line"><span class="meta">#logo_source为水印图片地址</span></span><br><span class="line"><span class="meta">#logo_width为水印图片的宽度</span></span><br><span class="line"><span class="meta">#logo_height为水印图片的高度</span></span><br><span class="line"><span class="meta">#opacity_num为水印图片的透明度</span></span><br><span class="line"><span class="meta">#from_x为水印的起始X轴的位置</span></span><br><span class="line"><span class="meta">#from_y为水印的起始Y轴的位置</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="5-添加文字水印"><a href="#5-添加文字水印" class="headerlink" title="5.添加文字水印"></a>5.添加文字水印</h5><p>ffmpeg可以为图片添加文字水印，可以设置字体、颜色、尺寸、文字内容、文字位置</p>
+<h5 id="5-Add-a-Text-Watermark"><a href="#5-Add-a-Text-Watermark" class="headerlink" title="5. Add a Text Watermark"></a>5. Add a Text Watermark</h5><p>FFmpeg can add a text watermark to an image, and can set the font, color, size, text content, and text position</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf drawtext=fontfile=font_ttf_path:fontcolor=font_color:fontsize=font_size:text=message_info:x=from_x:y=from_y  out_source</span><br><span class="line"><span class="comment">#font_ttf_path为字体路径，此项必须设置否则会出现字体无法找到的错误;</span></span><br><span class="line"><span class="comment">#字体路径要设置绝对路径并且要注意路径正反斜线转义(例如C\\:/Windows/Fonts/simhei.ttf)</span></span><br><span class="line"><span class="comment">#font_color为字体的颜色</span></span><br><span class="line"><span class="comment">#font_size为字体的大小</span></span><br><span class="line"><span class="comment">#message_info为水印文字内容</span></span><br><span class="line"><span class="comment">#from_x为水印的起始X轴的位置</span></span><br><span class="line"><span class="comment">#from_y为水印的起始Y轴的位置</span></span><br><span class="line"><span class="comment">#如果水印内容是中文需要设置中文字体否则会文字显示乱码</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="6-图片旋转指定的角度"><a href="#6-图片旋转指定的角度" class="headerlink" title="6.图片旋转指定的角度"></a>6.图片旋转指定的角度</h5><p>ffmpeg可以将图片按照指定的角度旋转生成新图片</p>
+<h5 id="6-Rotate-an-Image-by-a-Specified-Angle"><a href="#6-Rotate-an-Image-by-a-Specified-Angle" class="headerlink" title="6. Rotate an Image by a Specified Angle"></a>6. Rotate an Image by a Specified Angle</h5><p>FFmpeg can rotate an image by a specified angle to generate a new image</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf rotate=route_num*PI/180 -y  out_source</span><br><span class="line"><span class="comment">#route_num是要旋转的角度</span></span><br><span class="line"><span class="comment">#当route_num大于0的时候顺时针旋转,当route_num小于0的时候逆时针旋转</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="7-图片旋转特殊简便命令"><a href="#7-图片旋转特殊简便命令" class="headerlink" title="7.图片旋转特殊简便命令"></a>7.图片旋转特殊简便命令</h5><p>上面的命令理论上可以完成所有的图片旋转操作，但ffmpeg仍然存在特殊简便旋转命令</p>
+<h5 id="7-Special-Simplified-Commands-for-Image-Rotation"><a href="#7-Special-Simplified-Commands-for-Image-Rotation" class="headerlink" title="7. Special Simplified Commands for Image Rotation"></a>7. Special Simplified Commands for Image Rotation</h5><p>The above commands can theoretically perform all image rotation operations, but FFmpeg still has special simplified rotation commands</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf transpose=route_number -y out_source</span><br><span class="line"><span class="comment">#route_number=0顺时针旋转90度再左右镜像</span></span><br><span class="line"><span class="comment">#route_number=1顺时针旋转90度</span></span><br><span class="line"><span class="comment">#route_number=2逆时针旋转90度</span></span><br><span class="line"><span class="comment">#route_number=3逆时针旋转90度再左右镜像</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="8-图片左右镜像"><a href="#8-图片左右镜像" class="headerlink" title="8.图片左右镜像"></a>8.图片左右镜像</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf hflip out_source</span><br></pre></td></tr></table></figure>
+<h5 id="8-Mirror-an-Image-Horizontally"><a href="#8-Mirror-an-Image-Horizontally" class="headerlink" title="8. Mirror an Image Horizontally"></a>8. Mirror an Image Horizontally</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf hflip out_source</span><br></pre></td></tr></table></figure>
 
-<h5 id="9-将图片上下镜像"><a href="#9-将图片上下镜像" class="headerlink" title="9.将图片上下镜像"></a>9.将图片上下镜像</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf vflip out_source</span><br></pre></td></tr></table></figure>
+<h5 id="9-Mirror-an-Image-Vertically"><a href="#9-Mirror-an-Image-Vertically" class="headerlink" title="9. Mirror an Image Vertically"></a>9. Mirror an Image Vertically</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i image_source -vf vflip out_source</span><br></pre></td></tr></table></figure>
 
-<h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul>
-<li><a href="Montserrat%E5%AD%97%E4%BD%93.zip">Montserrat字体.zip</a></li>
-<li><a href="%E8%B6%85%E5%88%86%E8%BE%A8%E7%8E%87-reallesrgan.7z">超分辨率-reallesrgan.7z</a></li>
+<h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul>
+<li><a href="Montserrat%E5%AD%97%E4%BD%93.zip">Montserrat Font.zip</a></li>
+<li><a href="%E8%B6%85%E5%88%86%E8%BE%A8%E7%8E%87-reallesrgan.7z">Super-resolution-reallesrgan.7z</a></li>
 </ul>
 
     </div>
@@ -318,19 +321,19 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="批量删除代码前行号正则" class="lazyload">
-        <a href="/en/2023/04/25/2023-04-25-%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E4%BB%A3%E7%A0%81%E5%89%8D%E8%A1%8C%E5%8F%B7%E6%AD%A3%E5%88%99/" aria-label="Prev: 批量删除代码前行号正则" title="Prev: 批量删除代码前行号正则"></a>
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Regex for batch removing line numbers before code" class="lazyload">
+        <a href="/en/2023/04/25/2023-04-25-%E6%89%B9%E9%87%8F%E5%88%A0%E9%99%A4%E4%BB%A3%E7%A0%81%E5%89%8D%E8%A1%8C%E5%8F%B7%E6%AD%A3%E5%88%99/" aria-label="Prev: Regex for batch removing line numbers before code" title="Prev: Regex for batch removing line numbers before code"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
-            批量删除代码前行号正则
+            Regex for batch removing line numbers before code
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="markdown语法" class="lazyload">
-      <a href="/en/2023/04/24/2023-04-23-markdown%E8%AF%AD%E6%B3%95/" aria-label="Next: markdown语法"  title="Next: markdown语法"></a>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Markdown syntax" class="lazyload">
+      <a href="/en/2023/04/24/2023-04-23-markdown%E8%AF%AD%E6%B3%95/" aria-label="Next: Markdown syntax"  title="Next: Markdown syntax"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
-          markdown语法
+          Markdown syntax
       </h3>
     </div>
   </nav>
@@ -382,7 +385,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg%E2%80%94-%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">FFmpeg—-图片处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">1.图片压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E7%BA%A6%E6%9D%9F%E6%AF%94%E4%BE%8B%E5%8E%8B%E7%BC%A9"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">2.约束比例压缩</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">3.图片裁剪</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%B7%BB%E5%8A%A0%E6%B0%B4%E5%8D%B0%E5%9B%BE%E7%89%87"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">4.添加水印图片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E6%B7%BB%E5%8A%A0%E6%96%87%E5%AD%97%E6%B0%B4%E5%8D%B0"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">5.添加文字水印</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%9B%BE%E7%89%87%E6%97%8B%E8%BD%AC%E6%8C%87%E5%AE%9A%E7%9A%84%E8%A7%92%E5%BA%A6"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">6.图片旋转指定的角度</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-%E5%9B%BE%E7%89%87%E6%97%8B%E8%BD%AC%E7%89%B9%E6%AE%8A%E7%AE%80%E4%BE%BF%E5%91%BD%E4%BB%A4"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">7.图片旋转特殊简便命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-%E5%9B%BE%E7%89%87%E5%B7%A6%E5%8F%B3%E9%95%9C%E5%83%8F"><span class="toc-number">1.0.0.0.8.</span> <span class="toc-text">8.图片左右镜像</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-%E5%B0%86%E5%9B%BE%E7%89%87%E4%B8%8A%E4%B8%8B%E9%95%9C%E5%83%8F"><span class="toc-number">1.0.0.0.9.</span> <span class="toc-text">9.将图片上下镜像</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%84%E4%BB%B6"><span class="toc-number">1.1.</span> <span class="toc-text">附件</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#FFmpeg%E2%80%94-Image-Processing"><span class="toc-number">1.</span> <span class="toc-text">FFmpeg—-Image Processing</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-Image-Compression"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">1. Image Compression</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-Compression-with-Constrained-Proportions"><span class="toc-number">1.0.0.0.2.</span> <span class="toc-text">2. Compression with Constrained Proportions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Image-Cropping"><span class="toc-number">1.0.0.0.3.</span> <span class="toc-text">3. Image Cropping</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-Add-an-Image-Watermark"><span class="toc-number">1.0.0.0.4.</span> <span class="toc-text">4. Add an Image Watermark</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-Add-a-Text-Watermark"><span class="toc-number">1.0.0.0.5.</span> <span class="toc-text">5. Add a Text Watermark</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-Rotate-an-Image-by-a-Specified-Angle"><span class="toc-number">1.0.0.0.6.</span> <span class="toc-text">6. Rotate an Image by a Specified Angle</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-Special-Simplified-Commands-for-Image-Rotation"><span class="toc-number">1.0.0.0.7.</span> <span class="toc-text">7. Special Simplified Commands for Image Rotation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-Mirror-an-Image-Horizontally"><span class="toc-number">1.0.0.0.8.</span> <span class="toc-text">8. Mirror an Image Horizontally</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-Mirror-an-Image-Vertically"><span class="toc-number">1.0.0.0.9.</span> <span class="toc-text">9. Mirror an Image Vertically</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.1.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -471,11 +474,11 @@
 
 
 
-<script src="/js/script.js?v=mv3f1dj6"></script>
+<script src="/js/script.js?v=mv3g39ky"></script>
 
 
   
-<script src="/js/aos.js?v=mv3f1dj6"></script>
+<script src="/js/aos.js?v=mv3g39ky"></script>
 
   <script>
     var aosInit = () => {
@@ -494,11 +497,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3f1dj6" defer></script>
+<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
 
 
 
@@ -524,21 +527,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "ffmpeg图像处理",
+          title: "ffmpeg image processing",
           url: "https://blog.wray7.top/2023/04/25/2023-04-24-ffmpeg%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/",
           excerpt: "",
           description: "",
-          stripContent: "FFmpeg—-图片处理最近在学习的时候发现了一个功能强大的软件ffmpeg，可以用它很完美的处理视频、音频、图片，并且该软件可以命令行执行可以完美的融入代码程序，运行速度也不错。说明：下面测试命令中image_source 是要处理的输入文件，out_source是处理完成之后的输出文件 1.图片压缩ffmpeg可以很完美的压缩图片生成新图片，并可以设置压缩等级 12ffmpeg -i image_source -q compress_level out_source#compress_lev",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  FFmpeg—-Image ProcessingRecently, while studying, I discovered a powerful piece of software called ffmpeg. It can handle video, audio, and images perfectly, ",
           date: "Mon Apr 24 2023 23:34:12 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 04:43:30 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3f1dj6" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3f1dj6" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -597,5 +600,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3f1dj6"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
   </html>
