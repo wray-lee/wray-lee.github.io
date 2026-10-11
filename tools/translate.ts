@@ -136,11 +136,17 @@ function protectSegments(text: string): { text: string; protected: string[] } {
   return { text: text, protected: kept };
 }
 
+// 后一轮保护会把前一轮的占位符包进去（如 URL 紧跟 __PH_n__、<__PH_n__>），需反复还原直到不再变化
 function restoreSegments(text: string, kept: string[]): string {
-  return text.replace(/__PH_(\d+)__/g, function (_m: string, n: string): string {
-    const v = kept[parseInt(n, 10)];
-    return v !== undefined ? v : _m;
-  });
+  let prev: string;
+  do {
+    prev = text;
+    text = text.replace(/__PH_(\d+)__/g, function (_m: string, n: string): string {
+      const v = kept[parseInt(n, 10)];
+      return v !== undefined ? v : _m;
+    });
+  } while (text !== prev);
+  return text;
 }// ---------------- LLM 调用 ----------------
 // 注意：绝不打印 API_KEY。错误信息只截取响应前 300 字符（不含密钥）。
 async function callLLM(system: string, user: string): Promise<string> {
@@ -162,6 +168,8 @@ async function callLLM(system: string, user: string): Promise<string> {
         temperature: 0.3,
         stream: true,
       }),
+      // 流卡住时不至于永远挂起（覆盖整个请求含读流）
+      signal: AbortSignal.timeout(10 * 60 * 1000),
     });
   } catch (e) {
     throw new Error("网络请求失败: " + (e as Error).message);
