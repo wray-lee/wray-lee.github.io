@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
 
     <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -288,23 +288,19 @@ application配置文件在~&amp;#x2F;.config&amp;#x2F;应用包在&amp;#x2F;etc&
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-10-11</span>
-        <span><span class="icon-pencil"></span>38 字</span>
-        <span><span class="icon-clock"></span>1 分钟</span>
+        <span><span class="icon-pencil"></span>745 字</span>
+        <span><span class="icon-clock"></span>5 分钟</span>
       </div>
       <h2 class="post-title">凝聚招新</h2>
       <article class="post-article">
-          
-# 凝聚招新
+          凝聚招新Sign in同往届，基本的html修改，按钮disalbed改为abled即可
+Backdoor@eval()反应过来小马，直接post个cnss&amp;#x3D;system(“ls”);&amp;lt;-（这里分号不要忘记）
+1ls /		
 
-## Sign in
-
-同往届，基本的html修改，按钮disalbed改为abled即可
-
-## Backdoor
-
-
-
-@eval()反应过来小马，直接post个cnss=system(&#34;ls&#34;);
+发现flag解出
+ezunserialize注意unicode码，序列化传入？cnss&amp;#x3D;{}，成员数量设高跳过wakeup
+WebpackLeakdirsearch直接扫服务器目录，发现vim的swp文件，里面发现@eval，同样
+GET 发送一个cnss@30fc5b20a309996f3ab12662e3c4ac932c08db7f&amp;#x3
       </article>
     </div>
   </div>
@@ -323,26 +319,13 @@ application配置文件在~&amp;#x2F;.config&amp;#x2F;应用包在&amp;#x2F;etc&
       </div>
       <h2 class="post-title">SSTI</h2>
       <article class="post-article">
-          
-# SSTI
-
-## 变量和语句基本概念
-
-{%%}	声明变量
-
+          SSTI变量和语句基本概念{%%}	声明变量
 {{}}将表达式打印到模板输出
-
 {##}未包含在模板中的注释
-
-## 访问变量属性
-
-.或者[]
-
+访问变量属性.或者[]
 12&amp;#123;&amp;#123;&amp;quot;&amp;quot;.__class__&amp;#125;&amp;#125;&amp;#123;&amp;#123;&amp;quot;&amp;quot;[&amp;#x27;__classs__&amp;#x27;]&amp;#125;&amp;#125;
 
-## 过滤规则
-
-123456_	\x5f[]	attr()	request.args.	&amp;#123;&amp;#123;()|attr(request.args.x1)&amp;#125;&amp;#125;&amp;amp;x1=??&amp;a
+过滤规则123456_	\x5f[]	attr()	request.args.	&amp;#123;&amp;#123;()|attr(request.args.x1)&amp;#125;&amp;#125;&amp;amp;x1=??&amp;amp;x2=??.	\x2E	|attr()&amp;#
       </article>
     </div>
   </div>
@@ -382,14 +365,9 @@ ClientAliveInterval	300ClientAliveCountMax	10
       </div>
       <h2 class="post-title">SSTI Flask模板</h2>
       <article class="post-article">
-          
-# SSTI Flask模板
+          SSTI Flask模板基础123控制结构 &amp;#123;% %&amp;#125;变量取值 &amp;#123;&amp;#123; &amp;#125;&amp;#125;注释 &amp;#123;# #&amp;#125;
 
-# 基础
-
-123控制结构 &amp;#123;% %&amp;#125;变量取值 &amp;#123;&amp;#123; &amp;#125;&amp;#125;注释 &amp;#123;# #&amp;#125;
-
-12345678910111213141516171819202122232425262728293031323334__class__            类的一个内置属性，表示实例对象的类。__base__             类型对象的直接基类__bases__            类型对象的全部基类，以元组形式，类型的实例通常没有属性 __bases____mro__           
+12345678910111213141516171819202122232425262728293031323334__class__            类的一个内置属性，表示实例对象的类。__base__             类型对象的直接基类__bases__            类型对象的全部基类，以元组形式，类型的实例通常没有属性 __bases____mro__              此属性是由类
       </article>
     </div>
   </div>
@@ -578,10 +556,10 @@ sit
       </div>
       <div>
         <span class="icon-brush"></span>
-        553.6k
+        555.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:31
+        50:43
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -683,11 +661,11 @@ sit
 
 
 
-<script src="/js/script.js?v=mv3jw6ct"></script>
+<script src="/js/script.js?v=mv3kbdof"></script>
 
 
   
-<script src="/js/aos.js?v=mv3jw6ct"></script>
+<script src="/js/aos.js?v=mv3kbdof"></script>
 
   <script>
     var aosInit = () => {
@@ -706,11 +684,11 @@ sit
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3jw6ct" defer></script>
+<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
 
 
 
@@ -766,5 +744,5 @@ sit
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3jw6ct"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
   </html>

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
 
     <meta name="description" content="Wray Lee の技術メモ：改造・備忘・学習の記録">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -291,26 +291,20 @@
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-10-11</span>
-        <span><span class="icon-pencil"></span>112 文字</span>
-        <span><span class="icon-clock"></span>1 分</span>
+        <span><span class="icon-pencil"></span>916 文字</span>
+        <span><span class="icon-clock"></span>5 分</span>
       </div>
       <h2 class="post-title">結束と新規募集</h2>
       <article class="post-article">
           
 この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
+凝集 新規募集Sign in例年と同じく、基本的なHTML修正で、ボタンのdisalbedをabledに変更するだけでよい
+Backdoor@eval()を見て、ウェブシェルだと気づく。直接 cnss&amp;#x3D;system(“ls”); をPOSTする &amp;lt;-（ここでセミコロンを忘れないこと）
+1ls /		
 
-# 凝集 新規募集
-
-## Sign in
-
-例年と同じく、基本的なHTML修正で、ボタンのdisalbedをabledに変更するだけでよい
-
-## Backdoor
-
-
-
-@eval()を見て、ウェブシェルだと気づく。直接 cnss=system(&#34;ls&#34;); をPOSTする 
+flagを発見して解く
+ezunserializeUnicodeコードに注意。シリアライズして渡す？cnss&amp;#x3D;{}、メンバー数を多く設定してwakeupをスキ
       </article>
     </div>
   </div>
@@ -324,7 +318,7 @@
     <div class="post-info">
       <div class="post-meta">
         <span><span class="icon-calendar"></span>2022-10-03</span>
-        <span><span class="icon-pencil"></span>182 文字</span>
+        <span><span class="icon-pencil"></span>204 文字</span>
         <span><span class="icon-clock"></span>1 分</span>
       </div>
       <h2 class="post-title">SSTI</h2>
@@ -332,26 +326,13 @@
           
 この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
-
-# SSTI
-
-## 変数と文の基本概念
-
-{%%}	変数を宣言する
-
-{{}}は式をテンプレート出力に出力します
-
+SSTI変数とステートメントの基本概念{%%}	変数の宣言
+{{}}式をテンプレート出力に出力する
 {##}テンプレートに含まれないコメント
-
-## 変数属性へのアクセス
-
-.または[]
-
+変数属性へのアクセス.または[]
 12&amp;#123;&amp;#123;&amp;quot;&amp;quot;.__class__&amp;#125;&amp;#125;&amp;#123;&amp;#123;&amp;quot;&amp;quot;[&amp;#x27;__classs__&amp;#x27;]&amp;#125;&amp;#125;
 
-## フィルタリングルール
-
-SSTIにはLinuxのパイ
+フィルタリングルール123456_	\x5f[]	attr()	request.args.	
       </article>
     </div>
   </div>
@@ -397,14 +378,9 @@ ClientAliveInterval	300ClientAliveCountMax	10
           
 この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
+SSTI Flaskテンプレート基礎123控制结构 &amp;#123;% %&amp;#125;变量取值 &amp;#123;&amp;#123; &amp;#125;&amp;#125;注释 &amp;#123;# #&amp;#125;
 
-# SSTI Flaskテンプレート
-
-# 基礎
-
-123控制结构 &amp;#123;% %&amp;#125;变量取值 &amp;#123;&amp;#123; &amp;#125;&amp;#125;注释 &amp;#123;# #&amp;#125;
-
-12345678910111213141516171819202122232425262728293031323334__class__            类的一个内置属性，表示实例对象的类。__base__             类型对象的直接基类__bases__       
+12345678910111213141516171819202122232425262728293031323334__class__            类的一个内置属性，表示实例对象的类。__base__             类型对象的直接基类__bases__            类型对象
       </article>
     </div>
   </div>
@@ -617,10 +593,10 @@ route print
       </div>
       <div>
         <span class="icon-brush"></span>
-        553.6k
+        555.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:31
+        50:43
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -722,11 +698,11 @@ route print
 
 
 
-<script src="/js/script.js?v=mv3jw6ct"></script>
+<script src="/js/script.js?v=mv3kbdof"></script>
 
 
   
-<script src="/js/aos.js?v=mv3jw6ct"></script>
+<script src="/js/aos.js?v=mv3kbdof"></script>
 
   <script>
     var aosInit = () => {
@@ -745,11 +721,11 @@ route print
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3jw6ct" defer></script>
+<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
 
 
 
@@ -805,5 +781,5 @@ route print
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3jw6ct"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
   </html>

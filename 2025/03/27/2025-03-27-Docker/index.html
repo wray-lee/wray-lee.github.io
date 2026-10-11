@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
 
-    <meta name="description" content="# Docker  ## 仓库  **登录**：&#96;docker login&#96;  **登出**：&#96;docker logout&#96;  **查找镜像**：&#96;docker search [镜像名]&#96;  ## 镜像  **查看镜像**：&#96;docker images&#96;  **使用镜像生成容器**：&#96;docker run [镜像名]&#96;  12345#docker run 参数-v [主机路径]:[容器路径]	#">
+    <meta name="description" content="Docker仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径]	#将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口]	#将特定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="https://blog.wray7.top/2025/03/27/2025-03-27-Docker/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="# Docker  ## 仓库  **登录**：&#96;docker login&#96;  **登出**：&#96;docker logout&#96;  **查找镜像**：&#96;docker search [镜像名]&#96;  ## 镜像  **查看镜像**：&#96;docker images&#96;  **使用镜像生成容器**：&#96;docker run [镜像名]&#96;  12345#docker run 参数-v [主机路径]:[容器路径]	#">
+<meta property="og:description" content="Docker仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径]	#将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口]	#将特定">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-27T10:51:48.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.216Z">
+<meta property="article:modified_time" content="2026-10-11T08:24:48.473Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker"><span class="toc-number">1.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F"><span class="toc-number">1.2.</span> <span class="toc-text">镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E9%93%BE%E6%8E%A5%EF%BC%88%E5%AE%B9%E5%99%A8%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">容器链接（容器网络）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%8A%A0%E5%85%A5"><span class="toc-number">1.4.1.</span> <span class="toc-text">网络创建与加入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9Cdns%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.2.</span> <span class="toc-text">网络dns配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8IP"><span class="toc-number">1.4.3.</span> <span class="toc-text">查看所有容器IP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-compose"><span class="toc-number">1.5.</span> <span class="toc-text">docker-compose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="toc-number">1.5.1.</span> <span class="toc-text">设置静态ip</span></a></li></ol></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -278,99 +278,53 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        
-# Docker
-
-## 仓库
-
-**登录**：`docker login`
-
-**登出**：`docker logout`
-
-**查找镜像**：`docker search [镜像名]`
-
-## 镜像
-
-**查看镜像**：`docker images`
-
-**使用镜像生成容器**：`docker run [镜像名]`
-
+        <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><p><strong>登录</strong>：<code>docker login</code></p>
+<p><strong>登出</strong>：<code>docker logout</code></p>
+<p><strong>查找镜像</strong>：<code>docker search [镜像名]</code></p>
+<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><p><strong>查看镜像</strong>：<code>docker images</code></p>
+<p><strong>使用镜像生成容器</strong>：<code>docker run [镜像名]</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">docker run 参数</span></span><br><span class="line">-v [主机路径]:[容器路径]	#将容器路径挂载到主机</span><br><span class="line">-P #容器内部端口随机映射到主机端口</span><br><span class="line">-p [主机端口]:[容器端口]	#将特定容器端口映射到特定主机端口</span><br><span class="line">--name [容器名字]	#容器命名</span><br></pre></td></tr></table></figure>
 
-**删除镜像**：`docker rmi [镜像名]`
-
-## 容器
-
-**查看容器**：`docker ps -a`
-
-**删除容器**：`docker rm [容器名]`
-
-**进入容器**：`docker exec -it [容器序号/容器名字] /bin/bash` / `docker exec -it [容器序号] /bin/sh`
-
+<p><strong>删除镜像</strong>：<code>docker rmi [镜像名]</code></p>
+<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><p><strong>查看容器</strong>：<code>docker ps -a</code></p>
+<p><strong>删除容器</strong>：<code>docker rm [容器名]</code></p>
+<p><strong>进入容器</strong>：<code>docker exec -it [容器序号/容器名字] /bin/bash</code> &#x2F; <code>docker exec -it [容器序号] /bin/sh</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-i:interact 交互操作</span><br><span class="line">-t:terminal 终端</span><br><span class="line">-d:down 后台运行</span><br></pre></td></tr></table></figure>
 
-**启动已有容器**：`docker restart [container]`
-
-**停止已有容器运行**：`docker stop [container]`		`sudo aa-remove-unknown(遇到permission denied)`
-
-## 容器链接（容器网络）
-
-### 网络创建与加入
-
-**创建网络**：
-
-- `docker network create -d bridge [网络桥名字]`
-- `docker network create -d overlay [网络隧道名]`
-
-**加入网络**：
-
-- 创建容器时：
-
-`docker run -itd --name [容器名] --network [网络名] [镜像名] [/bin/bash(终端环境)]`
-
-- 已有容器时加入：
-
-`docker network connect [network_name] [container_name] `
-
-### 网络dns配置
-
-主机的`/etc/docker/daemon.json`可以配置容器默认dns配置
-
-**查看容器dns**：
-
-`docker run -it --rm  [container]  cat etc/resolv.conf`
-
-**手动指定容器dns**：
-
-`docker run -it --rm -h [容器主机名]  --dns=[dns_ip] --dns-search=test.com [container]`
-
----
-
-参数：
-
+<p><strong>启动已有容器</strong>：<code>docker restart [container]</code></p>
+<p><strong>停止已有容器运行</strong>：<code>docker stop [container]</code>		<code>sudo aa-remove-unknown(遇到permission denied)</code></p>
+<h2 id="容器链接（容器网络）"><a href="#容器链接（容器网络）" class="headerlink" title="容器链接（容器网络）"></a>容器链接（容器网络）</h2><h3 id="网络创建与加入"><a href="#网络创建与加入" class="headerlink" title="网络创建与加入"></a>网络创建与加入</h3><p><strong>创建网络</strong>：</p>
+<ul>
+<li><code>docker network create -d bridge [网络桥名字]</code></li>
+<li><code>docker network create -d overlay [网络隧道名]</code></li>
+</ul>
+<p><strong>加入网络</strong>：</p>
+<ul>
+<li>创建容器时：</li>
+</ul>
+<p><code>docker run -itd --name [容器名] --network [网络名] [镜像名] [/bin/bash(终端环境)]</code></p>
+<ul>
+<li>已有容器时加入：</li>
+</ul>
+<p><code>docker network connect [network_name] [container_name] </code></p>
+<h3 id="网络dns配置"><a href="#网络dns配置" class="headerlink" title="网络dns配置"></a>网络dns配置</h3><p>主机的<code>/etc/docker/daemon.json</code>可以配置容器默认dns配置</p>
+<p><strong>查看容器dns</strong>：</p>
+<p><code>docker run -it --rm  [container]  cat etc/resolv.conf</code></p>
+<p><strong>手动指定容器dns</strong>：</p>
+<p><code>docker run -it --rm -h [容器主机名]  --dns=[dns_ip] --dns-search=test.com [container]</code></p>
+<hr>
+<p>参数：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--rm：容器退出时自动清理容器内部的文件系统。</span><br><span class="line"></span><br><span class="line">-h HOSTNAME 或者 --hostname=HOSTNAME： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。</span><br><span class="line"></span><br><span class="line">--dns=IP_ADDRESS： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。</span><br><span class="line"></span><br><span class="line">--dns-search=DOMAIN： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。</span><br></pre></td></tr></table></figure>
 
-### 查看所有容器IP
-
-`docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)`
-
-
-
-## docker-compose 
-
-root无法删除容器
-
-`aa-remove-unknown`
-
-​					
-
+<h3 id="查看所有容器IP"><a href="#查看所有容器IP" class="headerlink" title="查看所有容器IP"></a>查看所有容器IP</h3><p><code>docker inspect --format=&#39;{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39; $(docker ps -aq)</code></p>
+<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h2><p>root无法删除容器</p>
+<p><code>aa-remove-unknown</code></p>
+<p>​					</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">services:</span><br><span class="line"></span><br><span class="line">  rewards-home:</span><br><span class="line">    image: ghcr.io/haq/microsoft-rewards-bot</span><br><span class="line">    container_name: rewards_home</span><br><span class="line">    shm_size: 4gb</span><br><span class="line">    volumes:</span><br><span class="line">     - /root/reward/accounts.json:/app/accounts.json</span><br><span class="line">    <span class="built_in">command</span>: python3 main.py --telegram 6459231936:AAFKp__lNTyIxgc5_pzpwdYFqdsa2Ud7wZ4 909455021 -p <span class="string">&#x27;socks5://10.17.1.111:7999&#x27;</span>; <span class="built_in">rm</span> .X99-lock</span><br><span class="line">    privileged: <span class="literal">true</span></span><br><span class="line">    network_mode: <span class="string">&quot;host&quot;</span></span><br><span class="line">    pull_policy: always </span><br><span class="line">    restart: <span class="string">&quot;no&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 
-### 设置静态ip
-
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">networks:</span></span><br><span class="line">   <span class="attr">gptnet:</span></span><br><span class="line">     <span class="attr">driver:</span> <span class="string">bridge</span></span><br><span class="line">     <span class="attr">ipam:</span></span><br><span class="line">       <span class="attr">config:</span></span><br><span class="line">         <span class="bullet">-</span> <span class="attr">subnet:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.0</span><span class="string">/30</span></span><br><span class="line">           <span class="attr">gateway:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">gpt:</span></span><br><span class="line">    <span class="comment">#image: yidadaa/chatgpt-next-web:latest # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">rocky9/nextchat-nightly:latest</span> <span class="comment"># 总是使用 latest ,更新时重新 pull 该 tag 镜像即可</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gpt</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./gpt.env.bak</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">gptnet:</span></span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.2</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br></pre></td></tr></table></figure>
+<h3 id="设置静态ip"><a href="#设置静态ip" class="headerlink" title="设置静态ip"></a>设置静态ip</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">networks:</span></span><br><span class="line">   <span class="attr">gptnet:</span></span><br><span class="line">     <span class="attr">driver:</span> <span class="string">bridge</span></span><br><span class="line">     <span class="attr">ipam:</span></span><br><span class="line">       <span class="attr">config:</span></span><br><span class="line">         <span class="bullet">-</span> <span class="attr">subnet:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.0</span><span class="string">/30</span></span><br><span class="line">           <span class="attr">gateway:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">gpt:</span></span><br><span class="line">    <span class="comment">#image: yidadaa/chatgpt-next-web:latest # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">rocky9/nextchat-nightly:latest</span> <span class="comment"># 总是使用 latest ,更新时重新 pull 该 tag 镜像即可</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gpt</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./gpt.env.bak</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">gptnet:</span></span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.2</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br></pre></td></tr></table></figure>
 
     </div>
     <footer class="article-footer">
@@ -420,10 +374,10 @@ root无法删除容器
       </div>
       <div>
         <span class="icon-brush"></span>
-        553.6k
+        555.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:31
+        50:43
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -445,7 +399,7 @@ root无法删除容器
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker"><span class="toc-number">1.</span> <span class="toc-text">Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%93%E5%BA%93"><span class="toc-number">1.1.</span> <span class="toc-text">仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%9C%E5%83%8F"><span class="toc-number">1.2.</span> <span class="toc-text">镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%B9%E5%99%A8%E9%93%BE%E6%8E%A5%EF%BC%88%E5%AE%B9%E5%99%A8%E7%BD%91%E7%BB%9C%EF%BC%89"><span class="toc-number">1.4.</span> <span class="toc-text">容器链接（容器网络）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%8A%A0%E5%85%A5"><span class="toc-number">1.4.1.</span> <span class="toc-text">网络创建与加入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9Cdns%E9%85%8D%E7%BD%AE"><span class="toc-number">1.4.2.</span> <span class="toc-text">网络dns配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E5%AE%B9%E5%99%A8IP"><span class="toc-number">1.4.3.</span> <span class="toc-text">查看所有容器IP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-compose"><span class="toc-number">1.5.</span> <span class="toc-text">docker-compose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="toc-number">1.5.1.</span> <span class="toc-text">设置静态ip</span></a></li></ol></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -534,11 +488,11 @@ root无法删除容器
 
 
 
-<script src="/js/script.js?v=mv3jw6ct"></script>
+<script src="/js/script.js?v=mv3kbdof"></script>
 
 
   
-<script src="/js/aos.js?v=mv3jw6ct"></script>
+<script src="/js/aos.js?v=mv3kbdof"></script>
 
   <script>
     var aosInit = () => {
@@ -557,11 +511,11 @@ root无法删除容器
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3jw6ct" defer></script>
+<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
 
 
 
@@ -591,17 +545,17 @@ root无法删除容器
           url: "https://blog.wray7.top/2025/03/27/2025-03-27-Docker/",
           excerpt: "",
           description: "",
-          stripContent: " # Docker  ## 仓库  **登录**：`docker login`  **登出**：`docker logout`  **查找镜像**：`docker search [镜像名]`  ## 镜像  **查看镜像**：`docker images`  **使用镜像生成容器**：`docker run [镜像名]`  12345#docker run 参数-v [主机路径]:[容器路径] #将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口] #将特定",
+          stripContent: "Docker仓库登录：docker login 登出：docker logout 查找镜像：docker search [镜像名] 镜像查看镜像：docker images 使用镜像生成容器：docker run [镜像名] 12345#docker run 参数-v [主机路径]:[容器路径] #将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口] #将特定容器端口映射到特定主机端口--name [容器名字] #容器命名  删除镜像：docker rmi ",
           date: "Thu Mar 27 2025 18:51:48 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 16:24:48 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3kbdof" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3jw6ct" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3kbdof" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -660,5 +614,5 @@ root无法删除容器
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3jw6ct"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
   </html>

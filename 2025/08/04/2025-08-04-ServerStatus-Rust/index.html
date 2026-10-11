@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
 
-    <meta name="description" content="# ServerStatus-Rust    123456789101112131415161718# &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;stat_server.service[Unit]Description&#x3D;ServerStatus-Rust ServerAfter&#x3D;network.target[Service]#User&#x3D;nobody#Group&#x3D;nobodyEnvironment&#x3D;">
+    <meta name="description" content="ServerStatus-Rust123456789101112131415161718# &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;stat_server.service[Unit]Description&#x3D;ServerStatus-Rust ServerAfter&#x3D;network.target[Service]#User&#x3D;nobody#Group&#x3D;nobodyEnvironment&#x3D;&quot;R">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ServerStatus-Rust">
 <meta property="og:url" content="https://blog.wray7.top/2025/08/04/2025-08-04-ServerStatus-Rust/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="# ServerStatus-Rust    123456789101112131415161718# &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;stat_server.service[Unit]Description&#x3D;ServerStatus-Rust ServerAfter&#x3D;network.target[Service]#User&#x3D;nobody#Group&#x3D;nobodyEnvironment&#x3D;">
+<meta property="og:description" content="ServerStatus-Rust123456789101112131415161718# &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;stat_server.service[Unit]Description&#x3D;ServerStatus-Rust ServerAfter&#x3D;network.target[Service]#User&#x3D;nobody#Group&#x3D;nobodyEnvironment&#x3D;&quot;R">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-08-03T16:06:27.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.270Z">
+<meta property="article:modified_time" content="2026-10-11T08:24:48.475Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ServerStatus-Rust"><span class="toc-number">1.</span> <span class="toc-text">ServerStatus-Rust</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -278,12 +278,7 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        
-# ServerStatus-Rust
-
-
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/system/stat_server.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=ServerStatus-Rust Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="comment">#User=nobody</span></span><br><span class="line"><span class="comment">#Group=nobody</span></span><br><span class="line">Environment=<span class="string">&quot;RUST_BACKTRACE=1&quot;</span></span><br><span class="line">WorkingDirectory=/opt/ServerStatus</span><br><span class="line">ExecStart=/opt/ServerStatus/stat_server -c /opt/ServerStatus/config.toml</span><br><span class="line">ExecReload=/bin/kill -HUP <span class="variable">$MAINPID</span></span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># /etc/systemd/system/stat_server.service</span></span><br></pre></td></tr></table></figure>
+        <h1 id="ServerStatus-Rust"><a href="#ServerStatus-Rust" class="headerlink" title="ServerStatus-Rust"></a>ServerStatus-Rust</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/system/stat_server.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=ServerStatus-Rust Server</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line"><span class="comment">#User=nobody</span></span><br><span class="line"><span class="comment">#Group=nobody</span></span><br><span class="line">Environment=<span class="string">&quot;RUST_BACKTRACE=1&quot;</span></span><br><span class="line">WorkingDirectory=/opt/ServerStatus</span><br><span class="line">ExecStart=/opt/ServerStatus/stat_server -c /opt/ServerStatus/config.toml</span><br><span class="line">ExecReload=/bin/kill -HUP <span class="variable">$MAINPID</span></span><br><span class="line">Restart=on-failure</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br><span class="line"><span class="comment"># /etc/systemd/system/stat_server.service</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -341,10 +336,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        553.6k
+        555.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:31
+        50:43
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -366,7 +361,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ServerStatus-Rust"><span class="toc-number">1.</span> <span class="toc-text">ServerStatus-Rust</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -455,11 +450,11 @@
 
 
 
-<script src="/js/script.js?v=mv3jw6ct"></script>
+<script src="/js/script.js?v=mv3kbdof"></script>
 
 
   
-<script src="/js/aos.js?v=mv3jw6ct"></script>
+<script src="/js/aos.js?v=mv3kbdof"></script>
 
   <script>
     var aosInit = () => {
@@ -478,11 +473,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3jw6ct" defer></script>
+<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
 
 
 
@@ -512,17 +507,17 @@
           url: "https://blog.wray7.top/2025/08/04/2025-08-04-ServerStatus-Rust/",
           excerpt: "",
           description: "",
-          stripContent: " # ServerStatus-Rust    123456789101112131415161718# /etc/systemd/system/stat_server.service[Unit]Description=ServerStatus-Rust ServerAfter=network.target[Service]#User=nobody#Group=nobodyEnvironment=&amp;quot;RUST_BACKTRACE=1&amp;quot;WorkingDirectory=/opt/",
+          stripContent: "ServerStatus-Rust123456789101112131415161718# /etc/systemd/system/stat_server.service[Unit]Description=ServerStatus-Rust ServerAfter=network.target[Service]#User=nobody#Group=nobodyEnvironment=&amp;quot;RUST_BACKTRACE=1&amp;quot;WorkingDirectory=/opt/ServerS",
           date: "Mon Aug 04 2025 00:06:27 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 16:24:48 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3kbdof" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3jw6ct" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3kbdof" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -581,5 +576,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3jw6ct"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
   </html>

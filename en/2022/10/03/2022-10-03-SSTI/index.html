@@ -13,17 +13,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
 
-    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # SSTI  ## Basic Concepts of Variables and Statements  {%%}	Declare a variable  {{}}Print the expression t">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  SSTIBasic Concepts of Variables and Statements{%%}	Declare a variable {{}}Print the expression to template">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSTI">
 <meta property="og:url" content="https://blog.wray7.top/en/2022/10/03/2022-10-03-SSTI/index.html">
 <meta property="og:site_name" content="Wray's Blog">
-<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # SSTI  ## Basic Concepts of Variables and Statements  {%%}	Declare a variable  {{}}Print the expression t">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  SSTIBasic Concepts of Variables and Statements{%%}	Declare a variable {{}}Print the expression to template">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-03T09:10:32.000Z">
-<meta property="article:modified_time" content="2026-10-11T08:09:23.632Z">
+<meta property="article:modified_time" content="2026-10-11T08:24:48.468Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3jw6ct">
+<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.</span> <span class="toc-text">Attachments</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SSTI"><span class="toc-number">1.</span> <span class="toc-text">SSTI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Concepts-of-Variables-and-Statements"><span class="toc-number">1.1.</span> <span class="toc-text">Basic Concepts of Variables and Statements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accessing-Variable-Attributes"><span class="toc-number">1.2.</span> <span class="toc-text">Accessing Variable Attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Filtering-Rules"><span class="toc-number">1.3.</span> <span class="toc-text">Filtering Rules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.4.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -281,33 +281,17 @@
         <blockquote>
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
-
-# SSTI
-
-## Basic Concepts of Variables and Statements
-
-{%%}	Declare a variable
-
-{{}}Print the expression to template output
-
-{##}Comments not included in the template
-
-## Accessing Variable Attributes
-
-. or []
-
+<h1 id="SSTI"><a href="#SSTI" class="headerlink" title="SSTI"></a>SSTI</h1><h2 id="Basic-Concepts-of-Variables-and-Statements"><a href="#Basic-Concepts-of-Variables-and-Statements" class="headerlink" title="Basic Concepts of Variables and Statements"></a>Basic Concepts of Variables and Statements</h2><p>{%%}	Declare a variable</p>
+<p>{{}}Print the expression to template output</p>
+<p>{##}Comments not included in the template</p>
+<h2 id="Accessing-Variable-Attributes"><a href="#Accessing-Variable-Attributes" class="headerlink" title="Accessing Variable Attributes"></a>Accessing Variable Attributes</h2><p>. or []</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">&quot;&quot;</span>.__class__&#125;&#125;</span><br><span class="line">&#123;&#123;<span class="string">&quot;&quot;</span>[<span class="string">&#x27;__classs__&#x27;</span>]&#125;&#125;</span><br></pre></td></tr></table></figure>
 
-## Filtering Rules
+<h2 id="Filtering-Rules"><a href="#Filtering-Rules" class="headerlink" title="Filtering Rules"></a>Filtering Rules</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_	\x5f</span><br><span class="line"></span><br><span class="line">[]	attr()	request.args.	&#123;&#123;()|attr(request.args.x1)&#125;&#125;&amp;x1=??&amp;x2=??</span><br><span class="line"></span><br><span class="line">.	\x2E	|attr()</span><br><span class="line">&#x27;+&#x27;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_	\x5f</span><br><span class="line"></span><br><span class="line">[]	attr()	request.args.	&#123;&#123;()|attr(request.args.x1)&#125;&#125;&amp;x1=??&amp;x2=??</span><br><span class="line"></span><br><span class="line">.	\x2E	|attr()</span><br><span class="line">&#x27;+&#x27;</span><br></pre></td></tr></table></figure>
-
-There is a Linux-like pipe | in SSTI
-
-You can use
-
+<p>There is a Linux-like pipe | in SSTI</p>
+<p>You can use</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;<span class="string">&quot;&quot;</span>|attr()&#125;&#125;代替.或[]</span><br></pre></td></tr></table></figure>
-
 
 <h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul>
 <li><a href="xss_eg.pdf">xss_eg.pdf</a></li>
@@ -361,10 +345,10 @@ You can use
       </div>
       <div>
         <span class="icon-brush"></span>
-        553.6k
+        555.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:31
+        50:43
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -386,7 +370,7 @@ You can use
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.</span> <span class="toc-text">Attachments</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SSTI"><span class="toc-number">1.</span> <span class="toc-text">SSTI</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Concepts-of-Variables-and-Statements"><span class="toc-number">1.1.</span> <span class="toc-text">Basic Concepts of Variables and Statements</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accessing-Variable-Attributes"><span class="toc-number">1.2.</span> <span class="toc-text">Accessing Variable Attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Filtering-Rules"><span class="toc-number">1.3.</span> <span class="toc-text">Filtering Rules</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Attachments"><span class="toc-number">1.4.</span> <span class="toc-text">Attachments</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -475,11 +459,11 @@ You can use
 
 
 
-<script src="/js/script.js?v=mv3jw6ct"></script>
+<script src="/js/script.js?v=mv3kbdof"></script>
 
 
   
-<script src="/js/aos.js?v=mv3jw6ct"></script>
+<script src="/js/aos.js?v=mv3kbdof"></script>
 
   <script>
     var aosInit = () => {
@@ -498,11 +482,11 @@ You can use
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3jw6ct" defer></script>
+<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
 
 
 
@@ -532,17 +516,17 @@ You can use
           url: "https://blog.wray7.top/2022/10/03/2022-10-03-SSTI/",
           excerpt: "",
           description: "",
-          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # SSTI  ## Basic Concepts of Variables and Statements  {%%} Declare a variable  {{}}Print the expression to template output  {##}Comments not included in th",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  SSTIBasic Concepts of Variables and Statements{%%} Declare a variable {{}}Print the expression to template output {##}Comments not included in the template A",
           date: "Mon Oct 03 2022 17:10:32 GMT+0800",
-          updated: "Sun Oct 11 2026 16:09:23 GMT+0800",
+          updated: "Sun Oct 11 2026 16:24:48 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3jw6ct" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3kbdof" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3jw6ct" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3kbdof" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -601,5 +585,5 @@ You can use
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3jw6ct"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
   </html>
