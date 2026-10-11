@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
+<link rel="stylesheet" href="/css/loader.css?v=mv3xgmxp">
 
     <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  チートUnity vsの依存関係では「ローカルにコピー」をオフにする必要があり、プロジェクトディレクトリをきれいに保つ。C#はC++のようにヘッダーファイル経由で呼び出すのとは異なり、デフォルトですべてのクラスをコピーする。   Mono： Managed&#x2F;Assembly-CSharp">
 <meta property="og:type" content="article">
@@ -23,7 +23,7 @@
 <meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  チートUnity vsの依存関係では「ローカルにコピー」をオフにする必要があり、プロジェクトディレクトリをきれいに保つ。C#はC++のようにヘッダーファイル経由で呼び出すのとは異なり、デフォルトですべてのクラスをコピーする。   Mono： Managed&#x2F;Assembly-CSharp">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2026-06-13T17:46:39.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:57:20.967Z">
+<meta property="article:modified_time" content="2026-10-11T14:06:40.172Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="code">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
+<link rel="stylesheet" href="/css/style.css?v=mv3xgmxp">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -329,7 +329,7 @@
 <tr>
 <td align="left"><strong><code>UObject::GetDefaultObj()</code></strong></td>
 <td align="left"><code>APlayer_char_main_C::GetDefaultObj()</code></td>
-<td align="left">あるクラスの**デフォルトオブジェクト（CDO）**を取得する。コード内では、倍率を計算するためにデフォルトの移動速度と基礎数値を読み取るのに使う。</td>
+<td align="left">あるクラスの<strong>デフォルトオブジェクト（CDO）</strong>を取得する。コード内では、倍率を計算するためにデフォルトの移動速度と基礎数値を読み取るのに使う。</td>
 </tr>
 </tbody></table>
 <h3 id="2-座標と空間-Actor-Spatial"><a href="#2-座標と空間-Actor-Spatial" class="headerlink" title="2. 座標と空間 (Actor &amp; Spatial)"></a>2. 座標と空間 (Actor &amp; Spatial)</h3><p>これらの関数は、ゲームワールド内のオブジェクトの位置や距離を取得または設定するのに使用する。</p>
@@ -364,7 +364,7 @@
 <tr>
 <td align="left"><strong><code>USkinnedMeshComponent::GetSocketLocation(...)</code></strong></td>
 <td align="left"><code>Monster-&gt;Mesh-&gt;GetSocketLocation(...)</code></td>
-<td align="left">スケルタルメッシュ上の指定**ボーンまたはソケット（Socket）**のワールド座標を取得する。コード内ではモンスターの頭部ボーン <code>bone_head</code> の位置取得に使用。</td>
+<td align="left">スケルタルメッシュ上の指定<strong>ボーンまたはソケット（Socket）</strong>のワールド座標を取得する。コード内ではモンスターの頭部ボーン <code>bone_head</code> の位置取得に使用。</td>
 </tr>
 </tbody></table>
 <h3 id="3-コントローラーとカメラ-Controller-Camera"><a href="#3-コントローラーとカメラ-Controller-Camera" class="headerlink" title="3. コントローラーとカメラ (Controller &amp; Camera)"></a>3. コントローラーとカメラ (Controller &amp; Camera)</h3><p>これらの関数は、プレイヤー視点の制御および3Dワールドから2Dスクリーンへの変換に関わる。</p>
@@ -417,7 +417,7 @@
 <td align="left"><strong>回転補間</strong>。スムーズなエイムに使用し、クロスヘアを瞬間的に固定するのではなく、目標角度へ滑らかに移行させる。</td>
 </tr>
 </tbody></table>
-<h2 id="Unity-1"><a href="#Unity-1" class="headerlink" title="Unity"></a>Unity</h2><p>対象をUnreal Engine (UE)から<strong>Unity</strong>へ移すと、基盤となるプログラミングパラダイムは**C++ (UE SDK)<strong>から</strong>C# (Unity API &#x2F; Mono)**へ変わる。</p>
+<h2 id="Unity-1"><a href="#Unity-1" class="headerlink" title="Unity"></a>Unity</h2><p>対象をUnreal Engine (UE)から<strong>Unity</strong>へ移すと、基盤となるプログラミングパラダイムは<strong>C++ (UE SDK)</strong>から<strong>C# (Unity API &#x2F; Mono)</strong>へ変わる。</p>
 <p>論理の中核（距離計算、エイム角度など）は同じだが、<strong>API名</strong>、<strong>オブジェクト構造</strong>、<strong>座標系</strong>は大きく異なる。</p>
 <p>以下は、あなたのコードで使用されているUE関数のUnityにおける対応関係のまとめである：</p>
 <h3 id="1-コアシステムとオブジェクト取得-Core-Object"><a href="#1-コアシステムとオブジェクト取得-Core-Object" class="headerlink" title="1. コアシステムとオブジェクト取得 (Core &amp; Object)"></a>1. コアシステムとオブジェクト取得 (Core &amp; Object)</h3><p>UEは <code>UWorld</code> -&gt; <code>Level</code> -&gt; <code>Actor</code> の階層に基づき、Unityは <code>Scene</code> -&gt; <code>GameObject</code> -&gt; <code>Component</code> に基づく。</p>
@@ -530,7 +530,7 @@
 <td align="left">カメラ角度を設定する（エイムボットを実現）。</td>
 </tr>
 </tbody></table>
-<h3 id="4-数学とエイム計算-Math-Aimbot"><a href="#4-数学とエイム計算-Math-Aimbot" class="headerlink" title="4. 数学とエイム計算 (Math &amp; Aimbot)"></a>4. 数学とエイム計算 (Math &amp; Aimbot)</h3><p>Unity内部では回転を**クォータニオン (Quaternion)<strong>で処理するが、便宜上、通常は</strong>オイラー角 (Euler Angles&#x2F;Vector3)**を外部に公開する。</p>
+<h3 id="4-数学とエイム計算-Math-Aimbot"><a href="#4-数学とエイム計算-Math-Aimbot" class="headerlink" title="4. 数学とエイム計算 (Math &amp; Aimbot)"></a>4. 数学とエイム計算 (Math &amp; Aimbot)</h3><p>Unity内部では回転を<strong>クォータニオン (Quaternion)</strong>で処理するが、便宜上、通常は<strong>オイラー角 (Euler Angles&#x2F;Vector3)</strong>を外部に公開する。</p>
 <table>
 <thead>
 <tr>
@@ -561,7 +561,7 @@
 </tr>
 </tbody></table>
 <hr>
-<h3 id="コード移行例-C-UE-C-Unity"><a href="#コード移行例-C-UE-C-Unity" class="headerlink" title="コード移行例 (C++ UE -&gt; C# Unity)"></a>コード移行例 (C++ UE -&gt; C# Unity)</h3><p>簡単な**エイムボット (Aimbot)**ロジックを実装すると仮定した場合、コードスタイルの変化は以下のとおり：</p>
+<h3 id="コード移行例-C-UE-C-Unity"><a href="#コード移行例-C-UE-C-Unity" class="headerlink" title="コード移行例 (C++ UE -&gt; C# Unity)"></a>コード移行例 (C++ UE -&gt; C# Unity)</h3><p>簡単な<strong>エイムボット (Aimbot)</strong>ロジックを実装すると仮定した場合、コードスタイルの変化は以下のとおり：</p>
 <h4 id="UE-C"><a href="#UE-C" class="headerlink" title="UE (C++)"></a>UE (C++)</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FVector CamLoc = PC-&gt;PlayerCameraManager-&gt;<span class="built_in">GetCameraLocation</span>();</span><br><span class="line">FVector TargetLoc = EnemyHeadPos;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算角度</span></span><br><span class="line">FRotator TargetRot = UKismetMathLibrary::<span class="built_in">FindLookAtRotation</span>(CamLoc, TargetLoc);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置角度</span></span><br><span class="line">PC-&gt;<span class="built_in">SetControlRotation</span>(TargetRot);</span><br></pre></td></tr></table></figure>
 
 <h4 id="Unity-C"><a href="#Unity-C" class="headerlink" title="Unity (C#)"></a>Unity (C#)</h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Vector3 CamLoc = Camera.main.transform.position;</span><br><span class="line">Vector3 TargetLoc = EnemyHeadPos; <span class="comment">// 获取方式见下文</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算方向向量</span></span><br><span class="line">Vector3 Direction = TargetLoc - CamLoc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计算目标旋转 (四元数)</span></span><br><span class="line">Quaternion TargetRot = Quaternion.LookRotation(Direction);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置角度 (通常设置摄像机或玩家身体的欧拉角)</span></span><br><span class="line"><span class="comment">// Unity 中 Pitch 是 X轴, Yaw 是 Y轴</span></span><br><span class="line">Camera.main.transform.rotation = TargetRot; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者如果只想要平滑移动：</span></span><br><span class="line">Camera.main.transform.rotation = Quaternion.Slerp(Camera.main.transform.rotation, TargetRot, Time.deltaTime * SmoothSpeed);</span><br></pre></td></tr></table></figure>
@@ -600,7 +600,7 @@
 <li><strong>ImGui::End()</strong>：Begin() の if の<strong>外側</strong>に書く（つまり、Beginが何を返しても必ずEndを呼び出す）。</li>
 <li><strong>ImGui::EndTabBar()</strong>：BeginTabBarのifの<strong>内側</strong>に<strong>必ず</strong>書く。</li>
 <li><strong>ImGui::EndTabItem()</strong>：BeginTabItemのifの<strong>内側</strong>に<strong>必ず</strong>書く。</li>
-<li>**if (ImGui::CollapsingHeader(“Combat (Aimbot&#x2F;Magic)”, ImGuiTreeNodeFlags_DefaultOpen) **  横方向タブ</li>
+<li><strong>if (ImGui::CollapsingHeader(“Combat (Aimbot&#x2F;Magic)”, ImGuiTreeNodeFlags_DefaultOpen) </strong>  横方向タブ</li>
 </ol>
 <h3 id="子タブをデフォルトで開く"><a href="#子タブをデフォルトで開く" class="headerlink" title="子タブをデフォルトで開く"></a>子タブをデフォルトで開く</h3><ol>
 <li><p>初期namespaceを直接trueと定義する</p>
@@ -639,9 +639,9 @@
 
 
 <h1 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h1><p><strong>起源エンジン (Source Engine)</strong> はValveが開発したエンジン（代表作：CS:GO&#x2F;CS2, Apex Legends, L4D2, TF2）。</p>
-<p>Unreal EngineからSource Engineへ移ると、最大の違いは次の点にある：UEは**リフレクションシステム (UObject&#x2F;Reflection)<strong>に強く依存し、Source Engineは</strong>仮想関数インターフェース (Virtual Interfaces)<strong>と</strong>ネットワーク変数 (Netvars)**に強く依存する。</p>
+<p>Unreal EngineからSource Engineへ移ると、最大の違いは次の点にある：UEは<strong>リフレクションシステム (UObject&#x2F;Reflection)</strong>に強く依存し、Source Engineは<strong>仮想関数インターフェース (Virtual Interfaces)</strong>と<strong>ネットワーク変数 (Netvars)</strong>に強く依存する。</p>
 <p>以下は、あなたが使用した機能のSource Engineにおける対応方法である：</p>
-<h3 id="1-コアシステムとオブジェクト取得-Interfaces-vs-UWorld"><a href="#1-コアシステムとオブジェクト取得-Interfaces-vs-UWorld" class="headerlink" title="1. コアシステムとオブジェクト取得 (Interfaces vs UWorld)"></a>1. コアシステムとオブジェクト取得 (Interfaces vs UWorld)</h3><p>UEにはグローバルな <code>UWorld</code> があり、その中にすべてのActorが格納されている。<br>Source Engineは**インターフェースパターン (Interface Pattern)**を使用する。エンジンが公開しているグローバルインターフェースポインタを取得する必要がある。</p>
+<h3 id="1-コアシステムとオブジェクト取得-Interfaces-vs-UWorld"><a href="#1-コアシステムとオブジェクト取得-Interfaces-vs-UWorld" class="headerlink" title="1. コアシステムとオブジェクト取得 (Interfaces vs UWorld)"></a>1. コアシステムとオブジェクト取得 (Interfaces vs UWorld)</h3><p>UEにはグローバルな <code>UWorld</code> があり、その中にすべてのActorが格納されている。<br>Source Engineは<strong>インターフェースパターン (Interface Pattern)</strong>を使用する。エンジンが公開しているグローバルインターフェースポインタを取得する必要がある。</p>
 <table>
 <thead>
 <tr>
@@ -676,7 +676,7 @@
 <td align="left">ローカルプレイヤーは通常 <code>GetClientEntity(GetLocalPlayerIndex())</code> で取得する。</td>
 </tr>
 </tbody></table>
-<h3 id="2-座標と空間-Vectors-Netvars"><a href="#2-座標と空間-Vectors-Netvars" class="headerlink" title="2. 座標と空間 (Vectors &amp; Netvars)"></a>2. 座標と空間 (Vectors &amp; Netvars)</h3><p>UEの属性（HP、Posなど）は通常クラスメンバ変数である。<br>Source Engineの属性は通常**Netvars (ネットワーク変数)**であり、メモリオフセット（Offset）またはRecvTableを読み取って取得する。</p>
+<h3 id="2-座標と空間-Vectors-Netvars"><a href="#2-座標と空間-Vectors-Netvars" class="headerlink" title="2. 座標と空間 (Vectors &amp; Netvars)"></a>2. 座標と空間 (Vectors &amp; Netvars)</h3><p>UEの属性（HP、Posなど）は通常クラスメンバ変数である。<br>Source Engineの属性は通常<strong>Netvars (ネットワーク変数)</strong>であり、メモリオフセット（Offset）またはRecvTableを読み取って取得する。</p>
 <table>
 <thead>
 <tr>
@@ -741,7 +741,7 @@
 <td align="left">Sourceでは、サーバーへ送る <code>viewangles</code> を変更しつつ、ローカルカメラの角度を<strong>変更しない</strong>ことができる。結果として、前方を見ているのに弾丸は横の敵へ飛ぶ。UEでこれを行うのは難しい（通常はBone Transformを変更する必要がある）。</td>
 </tr>
 </tbody></table>
-<h3 id="4-ワールドtoスクリーン-W2S"><a href="#4-ワールドtoスクリーン-W2S" class="headerlink" title="4. ワールドtoスクリーン (W2S)"></a>4. ワールドtoスクリーン (W2S)</h3><p>Source EngineのW2Sは**ViewMatrix (ビュー行列)**に依存する必要がある。</p>
+<h3 id="4-ワールドtoスクリーン-W2S"><a href="#4-ワールドtoスクリーン-W2S" class="headerlink" title="4. ワールドtoスクリーン (W2S)"></a>4. ワールドtoスクリーン (W2S)</h3><p>Source EngineのW2Sは<strong>ViewMatrix (ビュー行列)</strong>に依存する必要がある。</p>
 <table>
 <thead>
 <tr>
@@ -847,10 +847,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        555.8k
+        561.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:43
+        51:07
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -883,7 +883,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -961,11 +961,11 @@
 
 
 
-<script src="/js/script.js?v=mv3kbdof"></script>
+<script src="/js/script.js?v=mv3xgmxp"></script>
 
 
   
-<script src="/js/aos.js?v=mv3kbdof"></script>
+<script src="/js/aos.js?v=mv3xgmxp"></script>
 
   <script>
     var aosInit = () => {
@@ -984,11 +984,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3xgmxp" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
+<script src="/js/generator_search.js?v=mv3xgmxp" defer></script>
 
 
 
@@ -1020,15 +1020,15 @@
           description: "",
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  チートUnity vsの依存関係では「ローカルにコピー」をオフにする必要があり、プロジェクトディレクトリをきれいに保つ。C#はC++のようにヘッダーファイル経由で呼び出すのとは異なり、デフォルトですべてのクラスをコピーする。   Mono： Managed/Assembly-CSharp.dll dnSpyリバース IL2CPP： GameAssembly.dllとil2cpp_dat",
           date: "Sun Jun 14 2026 01:46:39 GMT+0800",
-          updated: "Sun Oct 11 2026 04:57:20 GMT+0800",
+          updated: "Sun Oct 11 2026 22:06:40 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3kbdof" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3xgmxp" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3kbdof" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3xgmxp" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -1087,5 +1087,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3xgmxp"></script></body>
   </html>

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
+<link rel="stylesheet" href="/css/loader.css?v=mv3xgmxp">
 
     <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  NetBird123456789101112131415161718192021222324uci set network.netbird&#x3D;interfaceuci set network.netbird.proto&#x3D;&#x27;none&#x27;uci set network.net">
 <meta property="og:type" content="article">
@@ -23,7 +23,7 @@
 <meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  NetBird123456789101112131415161718192021222324uci set network.netbird&#x3D;interfaceuci set network.netbird.proto&#x3D;&#x27;none&#x27;uci set network.net">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2026-08-05T12:04:23.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:56:58.096Z">
+<meta property="article:modified_time" content="2026-10-11T14:08:16.934Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
+<link rel="stylesheet" href="/css/style.css?v=mv3xgmxp">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -289,6 +289,7 @@
 
 
 
+
 <h2 id="mwan3との共存"><a href="#mwan3との共存" class="headerlink" title="mwan3との共存"></a>mwan3との共存</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh /etc/rc.common</span></span><br><span class="line"></span><br><span class="line">START=99</span><br><span class="line">STOP=10</span><br><span class="line"></span><br><span class="line">USE_PROCD=1</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">start_service</span></span>() &#123;</span><br><span class="line">    procd_open_instance netbird</span><br><span class="line">    procd_set_param <span class="built_in">command</span> /usr/bin/netbird</span><br><span class="line">    procd_append_param <span class="built_in">command</span> service run</span><br><span class="line"></span><br><span class="line">    procd_set_param <span class="built_in">env</span> NB_STATE_DIR=<span class="string">&quot;/etc/config/netbird&quot;</span></span><br><span class="line">    procd_append_param <span class="built_in">env</span> NB_USE_LEGACY_ROUTING=<span class="string">&quot;1&quot;</span>  <span class="comment"># 不使用标记</span></span><br><span class="line">    procd_append_param <span class="built_in">env</span> NB_DNS_STATE_FILE=<span class="string">&quot;/var/lib/netbird/state.json&quot;</span></span><br><span class="line"></span><br><span class="line">    procd_set_param pidfile /var/run/netbird.pid</span><br><span class="line">    procd_close_instance</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
     <footer class="article-footer">
@@ -338,10 +339,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        555.8k
+        561.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:43
+        51:07
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -374,7 +375,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -452,11 +453,11 @@
 
 
 
-<script src="/js/script.js?v=mv3kbdof"></script>
+<script src="/js/script.js?v=mv3xgmxp"></script>
 
 
   
-<script src="/js/aos.js?v=mv3kbdof"></script>
+<script src="/js/aos.js?v=mv3xgmxp"></script>
 
   <script>
     var aosInit = () => {
@@ -475,11 +476,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3xgmxp" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
+<script src="/js/generator_search.js?v=mv3xgmxp" defer></script>
 
 
 
@@ -511,15 +512,15 @@
           description: "",
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  NetBird123456789101112131415161718192021222324uci set network.netbird=interfaceuci set network.netbird.proto=&amp;#x27;none&amp;#x27;uci set network.netbird.device=&amp;#x27;wt0&amp;#x27;uci commit networkuci a",
           date: "Wed Aug 05 2026 20:04:23 GMT+0800",
-          updated: "Sun Oct 11 2026 04:56:58 GMT+0800",
+          updated: "Sun Oct 11 2026 22:08:16 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3kbdof" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3xgmxp" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3kbdof" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3xgmxp" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -578,5 +579,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3xgmxp"></script></body>
   </html>

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3kbdof">
+<link rel="stylesheet" href="/css/loader.css?v=mv3xgmxp">
 
     <meta name="description" content="By 01月12日 2017 P2P P2PBTTCPUDPTrackerDHT 引言之前我这边在生产环境中使用 Murder 软件的 BT 上传下载的方式来实现大文件的快速分发。这属于 BT 软件的应用。最近重新看了下 BT 协议的分析与实现，现在重新了解下 BT 协议原理。 BitTorrent 原理简述123456789101112131415161718192021222324252627">
 <meta property="og:type" content="article">
@@ -23,7 +23,7 @@
 <meta property="og:description" content="By 01月12日 2017 P2P P2PBTTCPUDPTrackerDHT 引言之前我这边在生产环境中使用 Murder 软件的 BT 上传下载的方式来实现大文件的快速分发。这属于 BT 软件的应用。最近重新看了下 BT 协议的分析与实现，现在重新了解下 BT 协议原理。 BitTorrent 原理简述123456789101112131415161718192021222324252627">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:10.178Z">
+<meta property="article:modified_time" content="2026-10-11T14:06:40.163Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="Network">
 <meta name="twitter:card" content="summary">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3kbdof">
+<link rel="stylesheet" href="/css/style.css?v=mv3xgmxp">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -285,7 +285,7 @@
 <p>虽然目前的主流 BT 软件都大同小异，但是往往各软件都有一些各自的特点。</p>
 <p>当然这些都不能起到决定性作用，前面说了，BT 下载速度取决于<strong>其他用户的上传速度</strong>，因此用户越多越好，而用户靠 <strong>Peer、DHT、Tracker</strong> 获得。</p>
 <blockquote>
-<p>**Peer：**获得一个有效用户后才会起作用，该用户会把它获得的用户信息告诉你。<br>——<br>**DHT：**布式储存用户信息，获得一个用户后，会通过该用户获得更多的用户信息。缺点是需要养（下载热门资源）。</p>
+<p><strong>Peer：</strong>获得一个有效用户后才会起作用，该用户会把它获得的用户信息告诉你。<br>——<br><strong>DHT：</strong>布式储存用户信息，获得一个用户后，会通过该用户获得更多的用户信息。缺点是需要养（下载热门资源）。</p>
 </blockquote>
 <p>Peer、DHT 我们做不了什么，但是 Tracker 大部分软件都支持自定义，所以如果你的 BT 软件支持自定义 Tracker，那么可以试试下面这个<strong>整合了全网热门 Tracker 的项目：</strong></p>
 <ul>
@@ -296,7 +296,7 @@
 <p>这就引出了一个问题，<em><strong>Tracker 是什么？</strong></em></p>
 <p>Tracker 是 BT 下载中一个<strong>几乎必须</strong>的角色。</p>
 <blockquote>
-<p>**Tracker：**记录下载同一个资源的用户信息并提供给你，帮助你与其他用户建立连接。<br><em><strong>以上三者的优缺点是互补的，不存在谁替代谁，一起用效果最好！</strong></em></p>
+<p><strong>Tracker：</strong>记录下载同一个资源的用户信息并提供给你，帮助你与其他用户建立连接。<br><em><strong>以上三者的优缺点是互补的，不存在谁替代谁，一起用效果最好！</strong></em></p>
 </blockquote>
 <p><strong>使用 Tracker 可以帮你获取到更多的用户，用户数量增加，相应的也会提高下载速度。</strong></p>
 <blockquote>
@@ -351,10 +351,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        555.8k
+        561.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:43
+        51:07
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -387,7 +387,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -465,11 +465,11 @@
 
 
 
-<script src="/js/script.js?v=mv3kbdof"></script>
+<script src="/js/script.js?v=mv3xgmxp"></script>
 
 
   
-<script src="/js/aos.js?v=mv3kbdof"></script>
+<script src="/js/aos.js?v=mv3xgmxp"></script>
 
   <script>
     var aosInit = () => {
@@ -488,11 +488,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3kbdof" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3xgmxp" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3kbdof" defer></script>
+<script src="/js/generator_search.js?v=mv3xgmxp" defer></script>
 
 
 
@@ -524,15 +524,15 @@
           description: "",
           stripContent: "By 01月12日 2017 P2P P2PBTTCPUDPTrackerDHT 引言之前我这边在生产环境中使用 Murder 软件的 BT 上传下载的方式来实现大文件的快速分发。这属于 BT 软件的应用。最近重新看了下 BT 协议的分析与实现，现在重新了解下 BT 协议原理。 BitTorrent 原理简述123456789101112131415161718192021222324252627282930313233343536373839404142434445与传统客户端/服务器网络通信",
           date: "Mon Sep 04 2023 00:00:00 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:10 GMT+0800",
+          updated: "Sun Oct 11 2026 22:06:40 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3kbdof" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3xgmxp" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3kbdof" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3xgmxp" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -591,5 +591,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3kbdof"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3xgmxp"></script></body>
   </html>
