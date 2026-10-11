@@ -7,3 +7,4 @@ db.json
 .DS_Store
 Thumbs.db
 .env
+.playwright-mcp/
