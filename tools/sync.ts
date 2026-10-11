@@ -202,6 +202,16 @@ async function main(): Promise<void> {
     const mtime = new Date(st.mtimeMs);
     const day = fmtDay(mtime);
 
+    // 沿用旧文章的 date（permalink 含 :year/:month/:day，日期一变 URL 就变，外部链接与译文全断）
+    let postDate = fmtDate(mtime);
+    if (prev) {
+      try {
+        const old = await readFile(join(ROOT, prev.post), "utf-8");
+        const m = old.match(/^date:\s*(.+)$/m);
+        if (m) postDate = m[1].trim();
+      } catch {}
+    }
+
     // 旧版本：删掉重建，保证附件/图片不重复堆积
     if (prev) {
       const oldPost = join(ROOT, prev.post);
@@ -239,7 +249,9 @@ async function main(): Promise<void> {
     const tag = relDir === "." ? "笔记" : relDir.split(/[\\/]/)[0];
     const tags = [cleanName(tag) || "笔记"];
 
-    const postPath = uniquePostPath(day, rawTitle);
+    // 路径绑定笔记：笔记改了沿用原文件名（否则文件名带 mtime 日期，一改就换名，
+    // 文章 URL 变化、旧译文变成孤儿）
+    const postPath = prev ? join(ROOT, prev.post) : uniquePostPath(day, rawTitle);
     const slug = slugOf(postPath);
     const assetDir = join(POSTS_DIR, slug);
 
@@ -290,7 +302,7 @@ async function main(): Promise<void> {
     // 笔记里若有 {{ }} / {% %}（如 Jinja/SSTI 语法），Hexo 会误当模板标签解析致构建失败。
     // 用 Hexo 原生的 disableNunjucks 关掉模板解析；整篇包 {% raw %} 会让 Markdown 也不渲染
     const noTpl = /\{\{|\{%|\{#/.test(core) ? "disableNunjucks: true\n" : "";
-    const front = `---\n${noTpl}title: "${rawTitle.replace(/"/g, "'")}"\ndate: ${fmtDate(mtime)}\ntags: [${tags.map((t) => `"${t}"`).join(", ")}]\n---\n\n`;
+    const front = `---\n${noTpl}title: "${rawTitle.replace(/"/g, "'")}"\ndate: ${postDate}\ntags: [${tags.map((t) => `"${t}"`).join(", ")}]\n---\n\n`;
     const final = front + core + attachSection;
 
     if (!dryRun) {
@@ -299,7 +311,7 @@ async function main(): Promise<void> {
       manifest.files[notePath] = { mtimeMs: st.mtimeMs, post: relative(ROOT, postPath) };
     }
     imported++;
-    importedList.push(`${day}  ${rawTitle}`);
+    importedList.push(`${basename(postPath, ".md")}`);
   }
 
   if (!dryRun) await writeFile(MANIFEST, JSON.stringify(manifest, null, 2), "utf-8");

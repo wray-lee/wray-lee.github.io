@@ -77,8 +77,8 @@ async function main(): Promise<void> {
 
   // 1. 构建（先 clean，避免已删除文章的残留页面被同步到 main）
   console.log("构建中...");
-  await run(["node", "./node_modules/hexo/bin/hexo", "clean"]);
-  await run(["node", "./node_modules/hexo/bin/hexo", "generate"]);
+  await run(["bunx", "hexo", "clean"]);
+  await run(["bunx", "hexo", "generate"]);
   if (!existsSync(join(PUBLIC, "index.html"))) throw new Error("构建产物缺失 public/index.html，中止。");
   console.log("构建完成。");
 

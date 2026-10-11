@@ -14,5 +14,6 @@ if (process.argv.includes("--help") || process.argv.includes("-h")) {
 }
 
 $.cwd(ROOT);
-await $`node ./node_modules/hexo/bin/hexo generate`;
+await $`bunx hexo clean`;
+await $`bunx hexo generate`;
 console.log("\n构建完成 → public/");

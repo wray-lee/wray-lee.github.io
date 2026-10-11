@@ -381,10 +381,14 @@ async function main(): Promise<void> {
   for (const file of files) {
     const full = join(POSTS_DIR, file);
     const content = await readFile(full, "utf-8");
-    const hash = sha256(content);
+    // core.autocrlf=true 下 git checkout 会在 LF/CRLF 间转换，内容没变哈希却变了；
+    // 旧 manifest 按原始内容算（有的文件 LF/CRLF 混用），原样/LF/CRLF 任一对上都算未修改
+    const lf = content.replace(/\r\n/g, "\n");
+    const hash = sha256(lf);
+    const same = new Set([hash, sha256(content), sha256(lf.replace(/\n/g, "\r\n"))]);
     const entry = manifest[file] || {};
     for (const lang of optLangs) {
-      if (!optAll && entry[lang] && entry[lang].hash === hash) continue;
+      if (!optAll && entry[lang] && same.has(entry[lang].hash)) continue;
       tasks.push({ file: full, rel: file, lang: lang, hash: hash, content: content });
     }
   }

@@ -285,7 +285,7 @@
       "post": "source\\_posts\\2023-09-24-nixos安装.md"
     },
     "C:\\Users\\Wray\\OneDrive\\教程\\linux\\Openwrt\\NetBird.md": {
-      "mtimeMs": 1785927863000,
+      "mtimeMs": 1791721672000,
       "post": "source\\_posts\\2026-08-05-NetBird.md"
     },
     "C:\\Users\\Wray\\OneDrive\\教程\\linux\\Openwrt\\Openwrt 服务(Init script).md": {
@@ -915,6 +915,10 @@
     "C:\\Users\\Wray\\OneDrive\\教程\\群晖硬盘丢失修复.md": {
       "mtimeMs": 1745203771000,
       "post": "source\\_posts\\2025-04-21-群晖硬盘丢失修复.md"
+    },
+    "C:\\Users\\Wray\\OneDrive\\教程\\linux\\Openwrt\\DS-Lite.md": {
+      "mtimeMs": 1791727610028.9675,
+      "post": "source\\_posts\\2026-10-11-DS-Lite.md"
     }
   }
 }
