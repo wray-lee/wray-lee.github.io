@@ -13,27 +13,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Curl詳解curl -kfsSL -k&#x2F;--insecure 証明書なしでSSLサイトにアクセスすることを許可する -f&#x2F;--fail    接続失敗時にHTTPエラーを表示しない。サーバーエラー時に、エラー原因を示すHTMLページが返されるのを阻止し、代わりにcurlコマンドがエラー">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Curl詳細解説curl -kfsSL -k&#x2F;--insecure	SSL サイトへの証明書なしの接続を許可する -f&#x2F;--fail    接続失敗時に http エラーを表示しない。サーバーエラー時に、エラー原因を表す html ページが返されるのを防ぎ、代わりに curl コマンドが">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Curl詳解">
 <meta property="og:url" content="https://blog.wray7.top/ja/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Wrayのブログ">
-<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Curl詳解curl -kfsSL -k&#x2F;--insecure 証明書なしでSSLサイトにアクセスすることを許可する -f&#x2F;--fail    接続失敗時にHTTPエラーを表示しない。サーバーエラー時に、エラー原因を示すHTMLページが返されるのを阻止し、代わりにcurlコマンドがエラー">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Curl詳細解説curl -kfsSL -k&#x2F;--insecure	SSL サイトへの証明書なしの接続を許可する -f&#x2F;--fail    接続失敗時に http エラーを表示しない。サーバーエラー時に、エラー原因を表す html ページが返されるのを防ぎ、代わりに curl コマンドが">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg">
 <meta property="article:published_time" content="2023-04-16T10:32:47.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:43:12.820Z">
+<meta property="article:modified_time" content="2026-10-11T08:10:38.866Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="技術, ノート, 改造, チュートリアル">
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -197,7 +197,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl%E8%A9%B3%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">Curl詳解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%A5"><span class="toc-number">1.2.</span> <span class="toc-text">区別</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">1.3.</span> <span class="toc-text">その他のコマンド</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89"><span class="toc-number">2.</span> <span class="toc-text">curl の使い方ガイド</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><span class="toc-number">2.1.</span> <span class="toc-text">はじめに</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl%E8%A9%B3%E7%B4%B0%E8%A7%A3%E8%AA%AC"><span class="toc-number">1.</span> <span class="toc-text">Curl詳細解説</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%A5"><span class="toc-number">1.2.</span> <span class="toc-text">区別</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">1.3.</span> <span class="toc-text">その他のコマンド</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89"><span class="toc-number">2.</span> <span class="toc-text">curl の使い方ガイド</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><span class="toc-number">2.1.</span> <span class="toc-text">はじめに</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -216,7 +216,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -283,98 +283,98 @@
         <blockquote>
 <p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
 </blockquote>
-<h1 id="Curl詳解"><a href="#Curl詳解" class="headerlink" title="Curl詳解"></a>Curl詳解</h1><h2 id="curl-kfsSL"><a href="#curl-kfsSL" class="headerlink" title="curl -kfsSL"></a><code>curl -kfsSL</code></h2><ul>
-<li><code>-k/--insecure</code> 証明書なしでSSLサイトにアクセスすることを許可する</li>
-<li><code>-f/--fail</code>    接続失敗時にHTTPエラーを表示しない。サーバーエラー時に、エラー原因を示すHTMLページが返されるのを阻止し、代わりにcurlコマンドがエラーコード22を返してエラーを通知する（HTMLが返るとデバッグしにくいのを避ける）</li>
+<h1 id="Curl詳細解説"><a href="#Curl詳細解説" class="headerlink" title="Curl詳細解説"></a>Curl詳細解説</h1><h2 id="curl-kfsSL"><a href="#curl-kfsSL" class="headerlink" title="curl -kfsSL"></a><code>curl -kfsSL</code></h2><ul>
+<li><code>-k/--insecure</code>	SSL サイトへの証明書なしの接続を許可する</li>
+<li><code>-f/--fail</code>    接続失敗時に http エラーを表示しない。サーバーエラー時に、エラー原因を表す html ページが返されるのを防ぎ、代わりに curl コマンドがエラーコード 22 を返してエラーを通知する（html が返るとデバッグしにくいのを避ける）</li>
 <li><code>-s/--silent</code>    サイレントモード。何も出力しない。エラーと進捗情報を出力しない。</li>
 <li><code>-S/--show-error</code>    エラーを表示する。エラー情報のみを出力するよう指定し、通常は<code>-s</code>と一緒に使用する。</li>
-<li><code>-L/--location</code>    HTTPリクエストにサーバーのリダイレクトを追従させる。curlはデフォルトではリダイレクトを追従しない。</li>
+<li><code>-L/--location</code>    HTTP リクエストがサーバーのリダイレクトに従うようにする。curl はデフォルトではリダイレクトに従わない。</li>
 </ul>
-<p>curl -fsSL は、curlコマンドでファイルをダウンロードする際に、進捗とエラー情報を表示せず、ダウンロードに失敗した場合は直ちに停止し、自動的にリダイレクトを追従することを示す。これは通常、ファイルをダウンロードする際の静かで安全かつ安定した方法である。</p>
+<p>curl -fsSL は、curl コマンドでファイルをダウンロードする際に、進捗とエラー情報を表示せず、ダウンロードに失敗した場合は直ちに停止し、自動的にリダイレクトに従うことを意味する。これは通常、ファイルをダウンロードするための静かで安全かつ安定した方法である。</p>
 <h2 id="区別"><a href="#区別" class="headerlink" title="区別"></a>区別</h2><ul>
-<li><code>-l/--list-only</code>    ftpディレクトリ下のファイル名を一覧表示する</li>
-<li><code>-F </code>   パラメータはサーバーにバイナリファイルをアップロードするために使用する。</li>
+<li><code>-l/--list-only</code>    ftp ディレクトリ下のファイル名を一覧表示する</li>
+<li><code>-F </code>   パラメータは、サーバーへバイナリファイルをアップロードするために使用する。</li>
 </ul>
-<h2 id="その他のコマンド"><a href="#その他のコマンド" class="headerlink" title="その他のコマンド"></a>その他のコマンド</h2><p><code>-o</code>		パラメータはサーバーの応答をファイルとして保存する。<code>wget</code>コマンドと同じ。</p>
+<h2 id="その他のコマンド"><a href="#その他のコマンド" class="headerlink" title="その他のコマンド"></a>その他のコマンド</h2><p><code>-o</code>		パラメータはサーバーの応答をファイルとして保存し、<code>wget</code> コマンドと同等である。</p>
 <p><code>curl -o example.html https://www.example.com</code></p>
-<p><code>-O</code>		パラメータはサーバーの応答をファイルとして保存し、URLの最後の部分をファイル名として扱う。(名前を付ける必要なし)</p>
+<p><code>-O</code>		パラメータはサーバー応答をファイルとして保存し、URL の最後の部分をファイル名とする。（名前を付ける必要はない）</p>
 <p><code>curl -O https://www.example.com/foo/bar.html</code></p>
-<p><code>--limit-rate</code>はHTTPリクエストとレスポンスの帯域幅を制限し、遅いネットワーク環境をシミュレートするために使用する。</p>
+<p><code>--limit-rate</code> は HTTP リクエストと応答の帯域幅を制限し、遅いネットワーク速度の環境をシミュレートするために使用する。</p>
 <p><code>curl --limit-rate 200k https://google.com</code></p>
 <hr>
-<h1 id="curl-の使い方ガイド"><a href="#curl-の使い方ガイド" class="headerlink" title="curl の使い方ガイド"></a>curl の使い方ガイド</h1><p>作者： <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/">阮一峰</a></p>
+<h1 id="curl-の使い方ガイド"><a href="#curl-の使い方ガイド" class="headerlink" title="curl の使い方ガイド"></a>curl の使い方ガイド</h1><p>著者： <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/">阮一峰</a></p>
 <p>日付： <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/09/">2019年9月5日</a></p>
-<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>curl はよく使われるコマンドラインツールで、Webサーバーにリクエストを送るために使用する。その名前はクライアント（client）の URL ツールという意味である。</p>
-<p>その機能は非常に強力で、コマンドライン引数は数十種類に及ぶ。習熟すれば、Postman のようなGUIツールを完全に置き換えることができる。</p>
+<h2 id="はじめに"><a href="#はじめに" class="headerlink" title="はじめに"></a>はじめに</h2><p>curl はよく使われるコマンドラインツールで、Web サーバーにリクエストを送るために使用する。その名前は、クライアント（client）の URL ツールという意味である。</p>
+<p>その機能は非常に強力で、コマンドライン引数は数十種類に及ぶ。習熟すれば、Postman のような GUI ツールを完全に置き換えることができる。</p>
 <p><img src="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg" alt="img"></p>
-<p>本文では、日常的な参照や確認に便利なように、その主なコマンドライン引数を紹介する。内容は主に<a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">《curl cookbook》</a>。为了节约篇幅，下面的例子不包括运行时的输出，初学者可以先看我以前写的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/09/curl.html">《curl 初心者チュートリアル》</a>。 から翻訳している。</p>
-<p>パラメータを何も指定しない場合、curl は GET リクエストを送信する。</p>
+<p>本記事では、その主なコマンドライン引数を日常の参考として紹介し、参照しやすくする。内容は主に<a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">『curl cookbook』</a>から翻訳したものである。紙面を節約するため、以下の例には実行時の出力は含まれていない。初心者は、以前に書いた<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/09/curl.html">『curl 初心者チュートリアル』</a>を先に参照するとよい。</p>
+<p>引数を何も指定しない場合、curl は GET リクエストを送信する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは<code>www.example.com</code>に GET リクエストを送信し、サーバーが返した内容がコマンドラインに出力される。</p>
-<h2 id="A"><a href="#A" class="headerlink" title="-A"></a><strong>-A</strong></h2><p><code>-A</code>パラメータはクライアントのユーザーエージェントヘッダー、すなわち<code>User-Agent</code>を指定する。curl のデフォルトのユーザーエージェント文字列は<code>curl/[version]</code>である。</p>
+<p>上記のコマンドは<code>www.example.com</code>へ GET リクエストを送信し、サーバーが返した内容はコマンドラインに出力される。</p>
+<h2 id="A"><a href="#A" class="headerlink" title="-A"></a><strong>-A</strong></h2><p><code>-A</code> パラメータはクライアントのユーザーエージェントヘッダー、すなわち<code>User-Agent</code>を指定する。curl のデフォルトのユーザーエージェント文字列は<code>curl/[version]</code>である。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -A <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは<code>User-Agent</code>を Chrome ブラウザに変更する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -A <span class="string">&#x27;&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは<code>User-Agent</code>ヘッダーを削除する。</p>
-<p><code>-H</code>パラメータで直接ヘッダーを指定し、<code>User-Agent</code>を変更することもできる。</p>
+<p><code>-H</code> パラメータでヘッダーを直接指定し、<code>User-Agent</code>を変更することもできる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">&#x27;User-Agent: php/1.0&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="b"><a href="#b" class="headerlink" title="-b"></a><strong>-b</strong></h2><p><code>-b</code>パラメータはサーバーに Cookie を送信するために使用する。</p>
+<h2 id="b"><a href="#b" class="headerlink" title="-b"></a><strong>-b</strong></h2><p><code>-b</code> パラメータは、サーバーへ Cookie を送信するために使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b <span class="string">&#x27;foo=bar&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはヘッダー<code>Cookie: foo=bar</code>を生成し、<code>foo</code>という名前で値が<code>bar</code>の Cookie をサーバーに送信する。</p>
+<p>上記のコマンドは<code>Cookie: foo=bar</code>というヘッダーを生成し、<code>foo</code>という名前で値が<code>bar</code>の Cookie をサーバーへ送信する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b <span class="string">&#x27;foo1=bar;foo2=bar2&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは 2 つの Cookie を送信する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b cookies.txt https://www.google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはローカルファイル<code>cookies.txt</code>を読み取り、その中にあるサーバーが設定した Cookie（<code>-c</code>パラメータを参照）をサーバーに送信する。</p>
-<h2 id="c"><a href="#c" class="headerlink" title="-c"></a><strong>-c</strong></h2><p><code>-c</code>パラメータはサーバーが設定した Cookie をファイルに書き込む。</p>
+<p>上記のコマンドはローカルファイル<code>cookies.txt</code>を読み込み、その中にあるサーバーが設定した Cookie（<code>-c</code> パラメータを参照）をサーバーへ送信する。</p>
+<h2 id="c"><a href="#c" class="headerlink" title="-c"></a><strong>-c</strong></h2><p><code>-c</code> パラメータは、サーバーが設定した Cookie をファイルに書き込む。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -c cookies.txt https://www.google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはサーバーの HTTP レスポンスによって設定された Cookie をテキストファイル<code>cookies.txt</code>に書き込む。</p>
-<h2 id="d"><a href="#d" class="headerlink" title="-d"></a><strong>-d</strong></h2><p><code>-d</code>パラメータは POST リクエストのデータ本体を送信するために使用する。</p>
+<p>上記のコマンドは、サーバーの HTTP 応答が設定した Cookie をテキストファイル<code>cookies.txt</code>に書き込む。</p>
+<h2 id="d"><a href="#d" class="headerlink" title="-d"></a><strong>-d</strong></h2><p><code>-d</code> パラメータは、POST リクエストのデータ本体を送信するために使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d<span class="string">&#x27;login=emma＆password=123&#x27;</span>-X POST https://google.com/login</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ curl -d <span class="string">&#x27;login=emma&#x27;</span> -d <span class="string">&#x27;password=123&#x27;</span> -X POST  https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p><code>-d</code>パラメータを使用すると、HTTP リクエストに自動的にヘッダー<code>Content-Type : application/x-www-form-urlencoded</code>が追加される。また、リクエストは自動的に POST メソッドに変換されるため、<code>-X POST</code>を省略できる。</p>
-<p><code>-d</code>パラメータはローカルのテキストファイルのデータを読み取り、サーバーに送信できる。</p>
+<p><code>-d</code> パラメータを使用すると、HTTP リクエストに自動的に<code>Content-Type : application/x-www-form-urlencoded</code>ヘッダーが追加される。また、リクエストは自動的に POST メソッドに変換されるため、<code>-X POST</code>を省略できる。</p>
+<p><code>-d</code> パラメータは、ローカルのテキストファイルのデータを読み込み、サーバーへ送信できる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d <span class="string">&#x27;@data.txt&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは<code>data.txt</code>ファイルの内容を読み取り、データ本体としてサーバーに送信する。</p>
-<h2 id="–data-urlencode"><a href="#–data-urlencode" class="headerlink" title="–data-urlencode"></a><strong>–data-urlencode</strong></h2><p><code>--data-urlencode</code>パラメータは<code>-d</code>と同等で、POST リクエストのデータ本体を送信するが、送信するデータを自動的に URL エンコードする点が異なる。</p>
+<p>上記のコマンドは<code>data.txt</code>ファイルの内容を読み込み、データ本体としてサーバーへ送信する。</p>
+<h2 id="–data-urlencode"><a href="#–data-urlencode" class="headerlink" title="–data-urlencode"></a><strong>–data-urlencode</strong></h2><p><code>--data-urlencode</code> パラメータは<code>-d</code>と同等で、POST リクエストのデータ本体を送信するが、違いは送信するデータを自動的に URL エンコードすることである。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --data-urlencode <span class="string">&#x27;comment=hello world&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコードでは、送信するデータ<code>hello world</code>の間にスペースがあり、URL エンコードが必要である。</p>
-<h2 id="e"><a href="#e" class="headerlink" title="-e"></a><strong>-e</strong></h2><p><code>-e</code>パラメータは HTTP のヘッダー<code>Referer</code>を設定するために使用し、リクエストの参照元を表す。</p>
+<h2 id="e"><a href="#e" class="headerlink" title="-e"></a><strong>-e</strong></h2><p><code>-e</code> パラメータは、HTTP の<code>Referer</code>ヘッダーを設定し、リクエストの送信元を表すために使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -e <span class="string">&#x27;https://google.com?q=example&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは<code>Referer</code>ヘッダーを<code>https://google.com?q=example</code>に設定する。</p>
-<p><code>-H</code>パラメータは、ヘッダー<code>Referer</code>を直接追加することで同じ効果を得られる。</p>
+<p><code>-H</code> パラメータは、<code>Referer</code>ヘッダーを直接追加することで同じ効果を得られる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&#x27;Referer: https://google.com?q=example&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="F"><a href="#F" class="headerlink" title="-F"></a><strong>-F</strong></h2><p><code>-F</code>パラメータはサーバーにバイナリファイルをアップロードするために使用する。</p>
+<h2 id="F"><a href="#F" class="headerlink" title="-F"></a><strong>-F</strong></h2><p><code>-F</code> パラメータは、サーバーへバイナリファイルをアップロードするために使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは HTTP リクエストにヘッダー<code>Content-Type: multipart/form-data</code>を追加し、ファイル<code>photo.png</code>を<code>file</code>フィールドとしてアップロードする。</p>
-<p><code>-F</code>パラメータで MIME タイプを指定できる。</p>
+<p>上記のコマンドは、HTTP リクエストに<code>Content-Type: multipart/form-data</code>ヘッダーを追加し、ファイル<code>photo.png</code>を<code>file</code>フィールドとしてアップロードする。</p>
+<p><code>-F</code> パラメータで MIME タイプを指定できる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png;type=image/png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは MIME タイプを<code>image/png</code>に指定する。そうでなければ curl は MIME タイプを<code>application/octet-stream</code>に設定する。</p>
-<p><code>-F</code>パラメータでもファイル名を指定できる。</p>
+<p><code>-F</code> パラメータでもファイル名を指定できる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png;filename=me.png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドでは、元のファイル名は<code>photo.png</code>であるが、サーバーが受け取るファイル名は<code>me.png</code>である。</p>
-<h2 id="G"><a href="#G" class="headerlink" title="-G"></a><strong>-G</strong></h2><p><code>-G</code>パラメータは URL のクエリ文字列を構築するために使用する。</p>
+<p>上記のコマンドでは、元のファイル名は<code>photo.png</code>だが、サーバーが受け取るファイル名は<code>me.png</code>である。</p>
+<h2 id="G"><a href="#G" class="headerlink" title="-G"></a><strong>-G</strong></h2><p><code>-G</code> パラメータは、URL のクエリ文字列を構築するために使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -G -d <span class="string">&#x27;q=kitties&#x27;</span> -d <span class="string">&#x27;count=20&#x27;</span> https://google.com/search</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは GET リクエストを送信し、実際にリクエストされる URL は<code>https://google.com/search?q=kitties&amp;count=20</code>である。<code>--G</code>を省略すると、POST リクエストを送信する。</p>
-<p>データを URL エンコードする必要がある場合は、<code>--data--urlencode</code>パラメータと組み合わせることができる。</p>
+<p>上記のコマンドは GET リクエストを送信し、実際にリクエストする URL は<code>https://google.com/search?q=kitties&amp;count=20</code>である。<code>--G</code>を省略すると、POST リクエストを送信する。</p>
+<p>データに URL エンコードが必要な場合は、<code>--data--urlencode</code> パラメータと組み合わせることができる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -G --data-urlencode <span class="string">&#x27;comment=hello world&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="H"><a href="#H" class="headerlink" title="-H"></a><strong>-H</strong></h2><p><code>-H</code>パラメータは HTTP リクエストのヘッダーを追加する。</p>
+<h2 id="H"><a href="#H" class="headerlink" title="-H"></a><strong>-H</strong></h2><p><code>-H</code> パラメータは HTTP リクエストのヘッダーを追加する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">&#x27;Accept-Language: en-US&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは HTTP ヘッダー<code>Accept-Language: en-US</code>を追加する。</p>
@@ -384,76 +384,76 @@
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d <span class="string">&#x27;&#123;&quot;login&quot;: &quot;emma&quot;, &quot;pass&quot;: &quot;123&quot;&#125;&#x27;</span> -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは HTTP リクエストのヘッダーとして<code>Content-Type: application/json</code>を追加し、次に<code>-d</code>パラメータで JSON データを送信する。</p>
-<h2 id="i"><a href="#i" class="headerlink" title="-i"></a><strong>-i</strong></h2><p><code>-i</code>パラメータはサーバーが応答した HTTP ヘッダーを出力する。</p>
+<h2 id="i"><a href="#i" class="headerlink" title="-i"></a><strong>-i</strong></h2><p><code>-i</code> パラメータは、サーバー応答の HTTP ヘッダーを出力する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはサーバーの応答を受け取った後、まずサーバーが応答したヘッダーを出力し、次に 1 行空けて、その後に Web ページのソースコードを出力する。</p>
-<h2 id="I"><a href="#I" class="headerlink" title="-I"></a><strong>-I</strong></h2><p><code>-I</code>パラメータはサーバーに HEAD リクエストを送信し、その後サーバーが返す HTTP ヘッダーを出力する。</p>
+<p>上記のコマンドはサーバー応答を受け取ると、まずサーバー応答のヘッダーを出力し、次に 1 行空けて、その後に Web ページのソースコードを出力する。</p>
+<h2 id="I"><a href="#I" class="headerlink" title="-I"></a><strong>-I</strong></h2><p><code>-I</code> パラメータはサーバーへ HEAD リクエストを送信し、その後サーバーが返す HTTP ヘッダーを出力する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -I https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは HEAD リクエストに対するサーバーの応答を出力する。</p>
-<p><code>--head</code>パラメータは<code>-I</code>と同等である。</p>
+<p>上記のコマンドは、HEAD リクエストに対するサーバーの応答を出力する。</p>
+<p><code>--head</code> パラメータは<code>-I</code>と同等である。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --<span class="built_in">head</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="k"><a href="#k" class="headerlink" title="-k"></a><strong>-k</strong></h2><p><code>-k</code>パラメータは SSL 検査をスキップするよう指定する。</p>
+<h2 id="k"><a href="#k" class="headerlink" title="-k"></a><strong>-k</strong></h2><p><code>-k</code> パラメータは SSL 検証をスキップするよう指定する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -k https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはサーバーの SSL 証明書が正しいかどうかを検査しない。</p>
-<h2 id="L"><a href="#L" class="headerlink" title="-L"></a><strong>-L</strong></h2><p><code>-L</code>パラメータは HTTP リクエストにサーバーのリダイレクトを追従させる。curl はデフォルトではリダイレクトを追従しない。</p>
+<p>上記のコマンドは、サーバーの SSL 証明書が正しいかどうかを確認しない。</p>
+<h2 id="L"><a href="#L" class="headerlink" title="-L"></a><strong>-L</strong></h2><p><code>-L</code> パラメータは、HTTP リクエストがサーバーのリダイレクトに従うようにする。curl はデフォルトではリダイレクトに従わない。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -L -d <span class="string">&#x27;tweet=hi&#x27;</span> https://api.twitter.com/tweet</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="–limit-rate"><a href="#–limit-rate" class="headerlink" title="–limit-rate"></a><strong>–limit-rate</strong></h2><p><code>--limit-rate</code>は HTTP リクエストとレスポンスの帯域幅を制限し、遅いネットワーク環境をシミュレートするために使用する。</p>
+<h2 id="–limit-rate"><a href="#–limit-rate" class="headerlink" title="–limit-rate"></a><strong>–limit-rate</strong></h2><p><code>--limit-rate</code> は HTTP リクエストと応答の帯域幅を制限し、遅いネットワーク速度の環境をシミュレートするために使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --limit-rate 200k https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは帯域幅を毎秒 200K バイトに制限する。</p>
-<h2 id="o"><a href="#o" class="headerlink" title="-o"></a><strong>-o</strong></h2><p><code>-o</code>パラメータはサーバーの応答をファイルとして保存する。<code>wget</code>コマンドと同じである。</p>
+<h2 id="o"><a href="#o" class="headerlink" title="-o"></a><strong>-o</strong></h2><p><code>-o</code> パラメータはサーバーの応答をファイルとして保存し、<code>wget</code> コマンドと同等である。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -o example.html https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドは<code>www.example.com</code>を<code>example.html</code>として保存する。</p>
-<h2 id="O"><a href="#O" class="headerlink" title="-O"></a><strong>-O</strong></h2><p><code>-O</code>パラメータはサーバーの応答をファイルとして保存し、URL の最後の部分をファイル名として扱う。</p>
+<h2 id="O"><a href="#O" class="headerlink" title="-O"></a><strong>-O</strong></h2><p><code>-O</code> パラメータはサーバー応答をファイルとして保存し、URL の最後の部分をファイル名とする。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O https://www.example.com/foo/bar.html</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはサーバーの応答をファイルとして保存し、ファイル名は<code>bar.html</code>である。</p>
-<h2 id="s"><a href="#s" class="headerlink" title="-s"></a><strong>-s</strong></h2><p><code>-s</code>パラメータはエラーと進捗情報を出力しない。</p>
+<p>上記のコマンドはサーバー応答をファイルとして保存し、ファイル名は<code>bar.html</code>である。</p>
+<h2 id="s"><a href="#s" class="headerlink" title="-s"></a><strong>-s</strong></h2><p><code>-s</code> パラメータは、エラーと進捗情報を出力しない。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはエラーが発生してもエラーメッセージを表示しない。エラーが発生しなければ、実行結果を通常どおり表示する。</p>
-<p>curl に何も出力させたくない場合は、次のコマンドを使用できる。</p>
+<p>上記のコマンドは、エラーが発生してもエラーメッセージを表示しない。エラーが発生しなければ、実行結果を通常どおり表示する。</p>
+<p>curl に何も出力させたくない場合は、以下のコマンドを使用できる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -o /dev/null https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="S"><a href="#S" class="headerlink" title="-S"></a><strong>-S</strong></h2><p><code>-S</code>パラメータはエラー情報のみを出力するよう指定し、通常は<code>-s</code>と一緒に使用する。</p>
+<h2 id="S"><a href="#S" class="headerlink" title="-S"></a><strong>-S</strong></h2><p><code>-S</code> パラメータはエラー情報のみを出力するよう指定し、通常は<code>-s</code>と一緒に使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -o /dev/null https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはエラーが発生しない限り、何も出力しない。</p>
-<h2 id="u"><a href="#u" class="headerlink" title="-u"></a><strong>-u</strong></h2><p><code>-u</code>パラメータはサーバー認証のユーザー名とパスワードを設定するために使用する。</p>
+<p>上記のコマンドは、エラーが発生しない限り何も出力しない。</p>
+<h2 id="u"><a href="#u" class="headerlink" title="-u"></a><strong>-u</strong></h2><p><code>-u</code> パラメータは、サーバー認証のユーザー名とパスワードを設定するために使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -u <span class="string">&#x27;bob:12345&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドはユーザー名を<code>bob</code>、パスワードを<code>12345</code>に設定し、それを HTTP ヘッダー<code>Authorization: Basic Ym9iOjEyMzQ1</code>に変換する。</p>
 <p>curl は URL 内のユーザー名とパスワードを認識できる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://bob:12345@google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは URL 内のユーザー名とパスワードを認識し、それを前の例の HTTP ヘッダーに変換する。</p>
+<p>上記のコマンドは URL 内のユーザー名とパスワードを認識し、前の例の HTTP ヘッダーに変換できる。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -u <span class="string">&#x27;bob&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドはユーザー名のみを設定しており、実行後、curl はユーザーにパスワード入力を促す。</p>
-<h2 id="v"><a href="#v" class="headerlink" title="-v"></a><strong>-v</strong></h2><p><code>-v</code>パラメータは通信の全過程を出力し、デバッグに使用する。</p>
+<p>上記のコマンドはユーザー名のみを設定しており、実行後、curl はユーザーにパスワードの入力を促す。</p>
+<h2 id="v"><a href="#v" class="headerlink" title="-v"></a><strong>-v</strong></h2><p><code>-v</code> パラメータは通信のやり取り全体を出力し、デバッグに使用する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -v https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p><code>--trace</code>パラメータもデバッグに使用でき、生のバイナリデータも出力する。</p>
+<p><code>--trace</code> パラメータもデバッグに使用でき、生のバイナリデータも出力する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --trace - https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="x"><a href="#x" class="headerlink" title="-x"></a><strong>-x</strong></h2><p><code>-x</code>パラメータは HTTP リクエストのプロキシを指定する。</p>
+<h2 id="x"><a href="#x" class="headerlink" title="-x"></a><strong>-x</strong></h2><p><code>-x</code> パラメータは HTTP リクエストのプロキシを指定する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは HTTP リクエストを<code>myproxy.com:8080</code>の socks5 プロキシ経由で送信するよう指定する。</p>
+<p>上記のコマンドは、HTTP リクエストを<code>myproxy.com:8080</code>の socks5 プロキシ経由で送信するよう指定する。</p>
 <p>プロキシプロトコルを指定しない場合、デフォルトは HTTP である。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -x james:cats@myproxy.com:8080 https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>上記のコマンドでは、リクエストのプロキシは HTTP プロトコルを使用する。</p>
-<h2 id="X"><a href="#X" class="headerlink" title="-X"></a><strong>-X</strong></h2><p><code>-X</code>パラメータは HTTP リクエストのメソッドを指定する。</p>
+<h2 id="X"><a href="#X" class="headerlink" title="-X"></a><strong>-X</strong></h2><p><code>-X</code> パラメータは HTTP リクエストのメソッドを指定する。</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>上記のコマンドは<code>https://www.example.com</code>に POST リクエストを送信する。</p>
+<p>上記のコマンドは<code>https://www.example.com</code>へ POST リクエストを送信する。</p>
 
     </div>
     <footer class="article-footer">
@@ -503,10 +503,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -528,7 +528,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl%E8%A9%B3%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">Curl詳解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%A5"><span class="toc-number">1.2.</span> <span class="toc-text">区別</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">1.3.</span> <span class="toc-text">その他のコマンド</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89"><span class="toc-number">2.</span> <span class="toc-text">curl の使い方ガイド</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><span class="toc-number">2.1.</span> <span class="toc-text">はじめに</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl%E8%A9%B3%E7%B4%B0%E8%A7%A3%E8%AA%AC"><span class="toc-number">1.</span> <span class="toc-text">Curl詳細解説</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BA%E5%88%A5"><span class="toc-number">1.2.</span> <span class="toc-text">区別</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%9D%E3%81%AE%E4%BB%96%E3%81%AE%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89"><span class="toc-number">1.3.</span> <span class="toc-text">その他のコマンド</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-%E3%81%AE%E4%BD%BF%E3%81%84%E6%96%B9%E3%82%AC%E3%82%A4%E3%83%89"><span class="toc-number">2.</span> <span class="toc-text">curl の使い方ガイド</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%81%AF%E3%81%98%E3%82%81%E3%81%AB"><span class="toc-number">2.1.</span> <span class="toc-text">はじめに</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -539,7 +539,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -547,7 +547,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -617,11 +617,11 @@
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -640,11 +640,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -674,17 +674,17 @@
           url: "https://blog.wray7.top/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/",
           excerpt: "",
           description: "",
-          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Curl詳解curl -kfsSL -k/--insecure 証明書なしでSSLサイトにアクセスすることを許可する -f/--fail    接続失敗時にHTTPエラーを表示しない。サーバーエラー時に、エラー原因を示すHTMLページが返されるのを阻止し、代わりにcurlコマンドがエラーコード22を返してエラーを通知する（HTMLが返るとデバッグしにくいのを避ける） -s/--sile",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Curl詳細解説curl -kfsSL -k/--insecure SSL サイトへの証明書なしの接続を許可する -f/--fail    接続失敗時に http エラーを表示しない。サーバーエラー時に、エラー原因を表す html ページが返されるのを防ぎ、代わりに curl コマンドがエラーコード 22 を返してエラーを通知する（html が返るとデバッグしにくいのを避ける） -s/",
           date: "Sun Apr 16 2023 18:32:47 GMT+0800",
-          updated: "Sun Oct 11 2026 04:43:12 GMT+0800",
+          updated: "Sun Oct 11 2026 16:10:38 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -743,5 +743,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

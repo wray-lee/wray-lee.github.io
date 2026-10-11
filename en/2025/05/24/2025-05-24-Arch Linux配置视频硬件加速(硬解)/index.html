@@ -7,33 +7,33 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding) | Wray's Blog
+    Configuring Video Hardware Acceleration (Hardware Decoding) on Arch Linux | Wray's Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingTwo mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source (sup">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingThe two mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)">
+<meta property="og:title" content="Configuring Video Hardware Acceleration (Hardware Decoding) on Arch Linux">
 <meta property="og:url" content="https://blog.wray7.top/en/2025/05/24/2025-05-24-Arch%20Linux%E9%85%8D%E7%BD%AE%E8%A7%86%E9%A2%91%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F(%E7%A1%AC%E8%A7%A3)/index.html">
 <meta property="og:site_name" content="Wray's Blog">
-<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingTwo mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source (sup">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingThe two mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">
 <meta property="article:published_time" content="2025-05-23T16:02:26.000Z">
-<meta property="article:modified_time" content="2026-10-11T06:54:55.095Z">
+<meta property="article:modified_time" content="2026-10-11T08:12:09.680Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="tech, notes, tinkering, tutorials">
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -178,11 +178,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Configuring Video Hardware Acceleration (Hardware Decoding) on Arch Linux">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)</h1>
+            <h1 data-aos="slide-up">Configuring Video Hardware Acceleration (Hardware Decoding) on Arch Linux</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -216,7 +216,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -283,7 +283,7 @@
         <blockquote>
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
-<h1 id="Hardware-decoding"><a href="#Hardware-decoding" class="headerlink" title="Hardware decoding"></a>Hardware decoding</h1><p>Two mainstream interfaces: <code>VA-API</code> and <code>VDPAU  （仅x11）</code></p>
+<h1 id="Hardware-decoding"><a href="#Hardware-decoding" class="headerlink" title="Hardware decoding"></a>Hardware decoding</h1><p>The two mainstream interfaces: <code>VA-API</code> and <code>VDPAU  （仅x11）</code></p>
 <h2 id="Drivers"><a href="#Drivers" class="headerlink" title="Drivers"></a>Drivers</h2><table>
 <thead>
 <tr>
@@ -293,43 +293,42 @@
 </thead>
 <tbody><tr>
 <td>NVIDIA</td>
-<td>Open source (supports VA-API and VDPAU): <br /><code>Nouveau</code>  <br /><br />For GeForce 8 to GeForce GTX 750 hardware, please use the <code>libva-mesa-driver</code> package and <code>mesa-vdpau包</code><br/><br /> You also need the <code>nouveau-fw  (AUR)</code> firmware package (currently extracted from the NVIDIA binary driver) <br /><br /><br /> Closed source: <code>nvidia-utils</code> (supports VDPAU and NVDEC)</td>
+<td>Open source (supports VA-API and VDPAU): <br /><code>Nouveau</code>  <br /><br />For GeForce 8 to GeForce GTX 750 hardware, please use the <code>libva-mesa-driver</code> package and <code>mesa-vdpau包</code><br/><br />; you also need the <code>nouveau-fw  (AUR)</code> firmware package (currently extracted from the NVIDIA binary driver) <br /><br /><br />Proprietary: <code>nvidia-utils</code> (supports VDPAU and NVDEC)</td>
 </tr>
 <tr>
 <td>Intel (supports VA-API)</td>
-<td>Broadwell (~2014) and later HD Graphics series (e.g., Intel Arc series graphics), please use the <code>intel-media-driver</code> package. <br /><br />For GMA 4500 (2008) to Coffee Lake (2017) GPUs, please use the <code>libva-intel-driver</code> package. <br/><br />GMA 4500 H.264 decoding is supported by <code>libva-intel-driver-g45-h264  (AUR)</code>, see Intel graphics processor#Hardware-accelerated H.264 decoding on GMA 4500.<br/><br />For VP9 decoding from Haswell Refresh to Skylake, and hybrid VP8 encoding from Broadwell to Skylake, please use <code>intel-hybrid-codec-driver-git  (AUR)</code>.<br/><br />Hardware from Skylake and later also requires the <code>linux-firmware</code> package.</td>
+<td>Broadwell (~2014) and later HD Graphics series (e.g., Intel Arc series graphics), please use the <code>intel-media-driver</code> package. <br /><br />For GPUs from GMA 4500 (2008) to Coffee Lake (2017), please use the <code>libva-intel-driver</code> package. <br/><br />GMA 4500 H.264 decoding is supported by <code>libva-intel-driver-g45-h264  (AUR)</code>, see Intel Graphics Processor#Hardware-accelerated H.264 decoding on GMA 4500.<br/><br />For VP9 decoding from Haswell Refresh to Skylake, and hybrid VP8 encoding from Broadwell to Skylake, please use <code>intel-hybrid-codec-driver-git  (AUR)</code>.<br/><br />Skylake and later hardware also requires the <code>linux-firmware</code> package.</td>
 </tr>
 <tr>
 <td>AMD</td>
-<td>Open source (supports VA-API and VDPAU): VA-API for Radeon HD 2000 and newer GPUs is supported by the <code>libva-mesa-driver</code> package<br/> VDPAU for Radeon R600 and newer GPUs is supported by the <code>mesa-vdpau</code> package<br /><br /> Proprietary (supports VA-API, VDPAU and AMF): <code> amf-amdgpu-pro  (AUR)</code></td>
+<td>Open source (supports VA-API and VDPAU): VA-API for Radeon HD 2000 and newer GPUs is supported by the <code>libva-mesa-driver</code> package<br/>VDPAU for Radeon R600 and newer GPUs is supported by the <code>mesa-vdpau</code> package<br /><br />Proprietary (supports VA-API, VDPAU and AMF): <code> amf-amdgpu-pro  (AUR)</code></td>
 </tr>
 </tbody></table>
 <h2 id="Translation-layers"><a href="#Translation-layers" class="headerlink" title="Translation layers"></a>Translation layers</h2><ul>
 <li><p><strong><code>libva-vdpau-driver</code></strong> — VA-API with VDPAU as backend.</p>
 </li>
-<li><p><strong><code>nvidia-vaapi-driver</code></strong> — VA-API with CUDA NVDEC as backend.</p>
+<li><p><strong><code>nvidia-vaapi-driver</code></strong> — VA-API with CUDA  NVDEC as backend.</p>
 </li>
 </ul>
 <h2 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h2><p><code>libva-utils</code> -&gt; <code>vainfo</code></p>
 <p><code>vdpauinfo</code></p>
-<h1 id="Configuring-video-hardware-acceleration-on-Arch-Linux"><a href="#Configuring-video-hardware-acceleration-on-Arch-Linux" class="headerlink" title="Configuring video hardware acceleration on Arch Linux"></a>Configuring video hardware acceleration on Arch Linux</h1><p>A few days ago I decided to use Arch Linux as my main system, and then the problem came: the CPU is too weak, and when catching up on anime I was basically watching a slideshow<img src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png" alt=":sob:">，于是开始搞硬件加速。然而众所周知，Linux配置显卡驱动相关是很蛋疼的（其实开源驱动还好），所以折腾了半天，顺手写了这篇东西。。</p>
-<p>Here I only discuss the configuration of open-source drivers; proprietary drivers are too much of a pain..</p>
-<p>Currently there are two widely used hardware acceleration APIs under Linux: VA-API and VDPAU. Different applications support them differently, so it is best to configure both.</p>
+<h1 id="Configuring-video-hardware-acceleration-on-Arch-Linux"><a href="#Configuring-video-hardware-acceleration-on-Arch-Linux" class="headerlink" title="Configuring video hardware acceleration on Arch Linux"></a>Configuring video hardware acceleration on Arch Linux</h1><p>A few days ago I decided to use Arch Linux as my main system. Then the problem came: the CPU is too weak, and when catching up on anime it was completely like watching a slideshow<img src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png" alt=":sob:">, so I started working on hardware acceleration. However, as everyone knows, configuring graphics drivers on Linux is quite a pain (actually, open-source drivers are okay), so after fiddling for a long time, I wrote this up along the way…</p>
+<p>Here we only discuss the configuration of open-source drivers; proprietary drivers are too much of a pain…</p>
+<p>Currently, there are two widely used hardware acceleration APIs under Linux: VA-API and VDPAU. Different applications support them differently, so it is best to configure both.</p>
 <p>First, you need to install the relevant drivers:</p>
 <p><strong>VA-API</strong></p>
 <ul>
 <li><code>libva-intel-driver</code> provides the driver for Intel integrated graphics.</li>
 <li><code>libva-mesa-driver</code> provides drivers for NVIDIA and AMD.</li>
-<li><code>libva-vdpau-driver</code> provides a driver that supports all graphics cards, but in fact it calls VDPAU at the underlying level; it only translates the API, so VDPAU must be configured before it can be used.</li>
+<li><code>libva-vdpau-driver</code> provides a driver that supports all graphics cards, but it actually calls VDPAU underneath; it only translates the API, so VDPAU must be configured before it can be used.</li>
 </ul>
 <p><strong>VDPAU</strong></p>
 <ul>
-<li><code>mesa-vdpau</code> provides drivers for NVIDIA and AMD (but for NVIDIA graphics cards you need to install the AUR package <code>nouveau-fw</code>, extracted from the proprietary driver).</li>
-<li><code>libvdpau-va-gl</code> provides a driver that supports all graphics cards, but unlike <code>libva-vdpau-driver</code>, it calls VA-API at the underlying level.</li>
+<li><code>mesa-vdpau</code> provides drivers for NVIDIA and AMD (but for NVIDIA graphics cards you need to install the AUR package <code>nouveau-fw</code> extracted from the proprietary driver).</li>
+<li><code>libvdpau-va-gl</code> provides a driver that supports all graphics cards, but unlike <code>libva-vdpau-driver</code>, it calls VA-API underneath.</li>
 </ul>
-<p>Because I put Arch onto a USB drive and boot it on different machines, I need to install all of the Intel&#x2F;NVIDIA&#x2F;AMD ones..</p>
-<p>A simple analysis reveals that each graphics card has a corresponding VA-API driver, but Intel integrated graphics has no corresponding VDPAU driver, so <code>libvdpau-va-gl</code> is needed to call VA-API to support VDPAU. Therefore, to support all graphics cards, install these packages: <code>libva-intel-driver</code> <code>libva-mesa-driver</code> <code>mesa-vdpau</code> <code>libvdpau-va-gl</code> <code>nouveau-fw</code>(AUR). Although in theory for VDPAU all graphics cards really only need translation to VA-API, I think native performance is a bit better than translated (probably)..</p>
-<p>In theory this should be fine; the system will automatically select the corresponding driver. However, sometimes automatic detection is not very good (especially on machines with integrated + discrete graphics, where the system defaults to the weaker integrated graphics), so it is best to use environment variables to specify the driver to use: (the following configuration is only for the drivers I previously selected)</p>
+<p>Because I put Arch on a USB drive and booted it on different machines, I had to install all the Intel&#x2F;NVIDIA&#x2F;AMD ones… A simple analysis shows that each graphics card has a corresponding VA-API driver, but Intel integrated graphics has no corresponding VDPAU driver, so <code>libvdpau-va-gl</code> is needed to call VA-API to support VDPAU. Therefore, to support all graphics cards, install these packages: <code>libva-intel-driver</code> <code>libva-mesa-driver</code> <code>mesa-vdpau</code> <code>libvdpau-va-gl</code> <code>nouveau-fw</code>(AUR). Although logically, for VDPAU all graphics cards actually just need to be translated to VA-API, I think native is always a bit better in performance than translation (probably)…</p>
+<p>Logically, this should be fine, and the system will automatically select the corresponding driver. However, sometimes automatic detection is not very good (especially for machines with integrated + discrete graphics, where the system defaults to using the weaker integrated graphics), so it is best to use environment variables to specify the driver to use: (the following configuration is only for the drivers I selected earlier)</p>
 <table>
 <thead>
 <tr>
@@ -340,7 +339,7 @@
 </thead>
 <tbody><tr>
 <td align="center">Intel</td>
-<td align="center">i965                                                                                                                                                                                mesa&#x2F;mesa-amber (Intel 7th generation and earlier)                                                                                                                 32-bit supported mesa lib32-*                                                                                                                                                                                xf86-video-intel                                                                                                                                                  vulkan-intel&#x2F;amdvlk                                                                                       (yay -S xf86-video-intel vulkan-intel mesa-amber lib32-mesa-amber libvdpau-va-gl-i965)</td>
+<td align="center">i965                                                                                                                                                                                mesa&#x2F;mesa-amber (Intel 7th gen and earlier)                                                                                                                 mesa lib32-* for 32-bit support                                                                                                                                                                                xf86-video-intel                                                                                                                                                  vulkan-intel&#x2F;amdvlk                                                                                       (yay -S xf86-video-intel vulkan-intel mesa-amber lib32-mesa-amber libvdpau-va-gl-i965)</td>
 <td align="center">va_gl</td>
 </tr>
 <tr>
@@ -354,12 +353,12 @@
 <td align="center">radeonsi</td>
 </tr>
 </tbody></table>
-<p>Also, if it is a machine with integrated + discrete graphics and you want to use the discrete GPU driver, you also need to set <code>DRI_PRIME=1</code>. Note that this is not just a hardware acceleration setting; it will also force all other programs that use the graphics card to use the discrete GPU, so on a laptop it will consume quite a lot of power.</p>
-<p>However, as I said before, I need to support different machines, and switching environment variables on every boot is too troublesome, so I wrote a simple script to automatically identify the graphics card based on the currently loaded kernel modules and set the environment variables.</p>
+<p>At the same time, if it is a machine with integrated + discrete graphics and you want to use the discrete graphics driver, you also need to set <code>DRI_PRIME=1</code>. Note that this is not only a setting for hardware acceleration; it will also force all other programs that use the graphics card to use the discrete graphics, so on a laptop it will be quite power-hungry.</p>
+<p>However, as I said earlier, I need to support different machines, and switching environment variables every time I boot is too troublesome, so I wrote a simple script to automatically identify the graphics card based on the currently loaded kernel module and set the environment variables.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">unset LIBVA_DRIVER_NAME VDPAU_DRIVER DRI_PRIME</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if lspci -k | grep -q -e amdgpu -e radeon; then</span><br><span class="line">	export LIBVA_DRIVER_NAME=radeonsi</span><br><span class="line">	export VDPAU_DRIVER=radeonsi</span><br><span class="line">elif lspci -k | grep -q nouveau; then</span><br><span class="line">	export LIBVA_DRIVER_NAME=nouveau</span><br><span class="line">	export VDPAU_DRIVER=nouveau</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if lspci -k | grep -q i915; then</span><br><span class="line">	if [ -z &quot;$LIBVA_DRIVER_NAME&quot; ]; then</span><br><span class="line">		export LIBVA_DRIVER_NAME=i965</span><br><span class="line">		export VDPAU_DRIVER=va_gl</span><br><span class="line">	else</span><br><span class="line">		export DRI_PRIME=1</span><br><span class="line">	fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
-<p>Add the script to <code>/etc/xprofile</code> (for display manager) and&#x2F;or <code>/etc/profile</code> (if you need to use hardware acceleration without starting a graphical interface), and the environment variables will be configured automatically.</p>
-<p>However, note that <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PRIME#Black_screen_with_GL-based_compositors">OpenGL-based window managers have problems when using PRIME</a>，建议切换到基于Xrender的窗口管理器，或者只把上述脚本加入<code>/etc/profile</code>，在桌面环境提供的终端中运行需要硬件加速的程序。</p>
+<p>Add the script to <code>/etc/xprofile</code> (for display managers) and&#x2F;or <code>/etc/profile</code> (if you need to use hardware acceleration without starting a graphical interface), and the environment variables will be configured automatically.</p>
+<p>However, note that <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PRIME#Black_screen_with_GL-based_compositors">OpenGL-based window managers have problems when using PRIME</a>, so it is recommended to switch to an Xrender-based window manager, or only add the above script to <code>/etc/profile</code> and run programs that need hardware acceleration in a terminal provided by the desktop environment.</p>
 
     </div>
     <footer class="article-footer">
@@ -409,10 +408,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -445,7 +444,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -453,7 +452,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -523,11 +522,11 @@
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -546,11 +545,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -576,21 +575,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)",
+          title: "Configuring Video Hardware Acceleration (Hardware Decoding) on Arch Linux",
           url: "https://blog.wray7.top/2025/05/24/2025-05-24-Arch%20Linux%E9%85%8D%E7%BD%AE%E8%A7%86%E9%A2%91%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F(%E7%A1%AC%E8%A7%A3)/",
           excerpt: "",
           description: "",
-          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingTwo mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source (supports VA-API and VDPAU): Nouveau  For GeForce 8 to",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingThe two mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source (supports VA-API and VDPAU): Nouveau  For GeForce ",
           date: "Sat May 24 2025 00:02:26 GMT+0800",
-          updated: "Sun Oct 11 2026 14:54:55 GMT+0800",
+          updated: "Sun Oct 11 2026 16:12:09 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -649,5 +648,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

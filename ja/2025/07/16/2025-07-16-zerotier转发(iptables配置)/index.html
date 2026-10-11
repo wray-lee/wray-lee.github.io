@@ -13,27 +13,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  ネットワーク3層NAT設定方法（Linuxホスト） zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定する （相互接続が必要な場合）LAN AとBにそれぞれ1台、zerotierをイ">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  ネットワークレイヤ3 NAT設定方法（Linuxホスト） zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定します （相互接続が必要な場合）LAN AとLAN Bにそれぞれ1台、ze">
 <meta property="og:type" content="article">
 <meta property="og:title" content="zerotier転送(iptables設定)">
 <meta property="og:url" content="https://blog.wray7.top/ja/2025/07/16/2025-07-16-zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/index.html">
 <meta property="og:site_name" content="Wrayのブログ">
-<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  ネットワーク3層NAT設定方法（Linuxホスト） zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定する （相互接続が必要な場合）LAN AとBにそれぞれ1台、zerotierをイ">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  ネットワークレイヤ3 NAT設定方法（Linuxホスト） zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定します （相互接続が必要な場合）LAN AとLAN Bにそれぞれ1台、ze">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:image" content="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6">
 <meta property="article:published_time" content="2025-07-15T19:16:06.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:52:06.681Z">
+<meta property="article:modified_time" content="2026-10-11T08:11:52.205Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://csdnimg.cn/release/blog_editor_html/release2.1.4/ckeditor/plugins/CsdnLink/icons/icon-default.png?t=M5H6">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="技術, ノート, 改造, チュートリアル">
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -197,7 +197,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF3%E5%B1%A4NAT%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95%EF%BC%88Linux%E3%83%9B%E3%82%B9%E3%83%88%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">ネットワーク3層NAT設定方法（Linuxホスト）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-zerotier%E7%BD%91%E7%AB%99%E7%9A%84networks%E9%87%8C%E9%9D%A2%E7%9A%84Managed-%E3%81%AERoutes%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%88%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%80%81%E4%BB%A5%E4%B8%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%97%E3%81%BE%E3%81%99"><span class="toc-number">1.1.</span> <span class="toc-text">1. zerotier网站的networks里面的Managed のRoutesでルートテーブルを設定し、以下の内容を追加します</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E8%BB%A2%E9%80%81%E3%82%92%E6%9C%89%E5%8A%B9%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">2. カーネル転送を有効化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.3.</span> <span class="toc-text">3. ファイアウォール設定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A7%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3zerotier%E3%80%8Ccannot-bind-local-interface-port%E3%80%8D%E3%81%BE%E3%81%9F%E3%81%AF%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6"><span class="toc-number">2.</span> <span class="toc-text">旧バージョンzerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openwrt%E8%A8%AD%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text">openwrt設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Firewall"><span class="toc-number">3.1.</span> <span class="toc-text">Firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Forward"><span class="toc-number">3.2.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">3.3.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%A43-NAT%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95%EF%BC%88Linux%E3%83%9B%E3%82%B9%E3%83%88%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">ネットワークレイヤ3 NAT設定方法（Linuxホスト）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-zerotier%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AEnetworks%E5%86%85%E3%81%AEManaged-Routes%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%80%81%E4%BB%A5%E4%B8%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%97%E3%81%BE%E3%81%99"><span class="toc-number">1.1.</span> <span class="toc-text">1. zerotierサイトのnetworks内のManaged Routesでルーティングテーブルを設定し、以下の内容を追加します</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E8%BB%A2%E9%80%81%E3%82%92%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2. カーネル転送を有効にする</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.3.</span> <span class="toc-text">3. ファイアウォール設定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A7%E7%89%88zerotier%E3%80%8Ccannot-bind-local-interface-port%E3%80%8D%E3%81%BE%E3%81%9F%E3%81%AF%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6"><span class="toc-number">2.</span> <span class="toc-text">旧版zerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openwrt%E8%A8%AD%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text">openwrt設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Firewall"><span class="toc-number">3.1.</span> <span class="toc-text">Firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Forward"><span class="toc-number">3.2.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">3.3.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -216,7 +216,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -283,14 +283,14 @@
         <blockquote>
 <p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
 </blockquote>
-<h1 id="ネットワーク3層NAT設定方法（Linuxホスト）"><a href="#ネットワーク3層NAT設定方法（Linuxホスト）" class="headerlink" title="ネットワーク3層NAT設定方法（Linuxホスト）"></a>ネットワーク3層NAT設定方法（Linuxホスト）</h1><ul>
-<li>zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定する</li>
-<li>（相互接続が必要な場合）LAN AとBにそれぞれ1台、zerotierをインストールし、2つの内部ネットワークを相互接続するゲートウェイとして機能するホストが必要</li>
-<li>それぞれ192.168.1.10（192.168.192.10）、192.168.2.10（192.168.192.20）#括弧内は仮想LANのIPアドレス</li>
+<h1 id="ネットワークレイヤ3-NAT設定方法（Linuxホスト）"><a href="#ネットワークレイヤ3-NAT設定方法（Linuxホスト）" class="headerlink" title="ネットワークレイヤ3 NAT設定方法（Linuxホスト）"></a>ネットワークレイヤ3 NAT設定方法（Linuxホスト）</h1><ul>
+<li>zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定します</li>
+<li>（相互接続が必要な場合）LAN AとLAN Bにそれぞれ1台、zerotierをインストールしたホストが必要で、2つの内部ネットワークを相互接続するゲートウェイとして機能します</li>
+<li>それぞれ192.168.1.10（192.168.192.10）、192.168.2.10（192.168.192.20）です。#括弧内は仮想LANのIPアドレスです</li>
 </ul>
-<h2 id="1-zerotier网站的networks里面的Managed-のRoutesでルートテーブルを設定し、以下の内容を追加します"><a href="#1-zerotier网站的networks里面的Managed-のRoutesでルートテーブルを設定し、以下の内容を追加します" class="headerlink" title="1. zerotier网站的networks里面的Managed のRoutesでルートテーブルを設定し、以下の内容を追加します"></a>1. <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=zerotier&spm=1001.2101.3001.7020">zerotier</a>网站的networks里面的Managed のRoutesでルートテーブルを設定し、以下の内容を追加します</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果单向连接,仅需填写下方一个即可.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#本地网络段 via 远端ZeroTier IP</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">1.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.10</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">2.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.20</span> </span><br></pre></td></tr></table></figure>
+<h2 id="1-zerotierサイトのnetworks内のManaged-Routesでルーティングテーブルを設定し、以下の内容を追加します"><a href="#1-zerotierサイトのnetworks内のManaged-Routesでルーティングテーブルを設定し、以下の内容を追加します" class="headerlink" title="1. zerotierサイトのnetworks内のManaged Routesでルーティングテーブルを設定し、以下の内容を追加します"></a>1. <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=zerotier&spm=1001.2101.3001.7020">zerotier</a>サイトのnetworks内のManaged Routesでルーティングテーブルを設定し、以下の内容を追加します</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果单向连接,仅需填写下方一个即可.</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#本地网络段 via 远端ZeroTier IP</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">1.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.10</span> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">192.168</span>.<span class="number">2.0</span>/<span class="number">24</span> via <span class="number">192.168</span>.<span class="number">192.20</span> </span><br></pre></td></tr></table></figure>
 
-<h2 id="2-カーネル転送を有効化"><a href="#2-カーネル転送を有効化" class="headerlink" title="2. カーネル転送を有効化"></a>2. カーネル転送を有効化</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;net.ipv4.ip_forward = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">echo <span class="string">&quot;net.ipv4.conf.all.src_valid_mark=1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">echo <span class="string">&quot;net.ipv6.conf.all.forwarding = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">echo <span class="string">&quot;net.ipv6.conf.default.forwarding = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line"></span><br><span class="line">#与zt以外网卡互通</span><br><span class="line">zerotier-cli set [zt网络号] allowGlobal=<span class="number">1</span></span><br><span class="line">zerotier-cli set [zt网络号] allowDefault=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+<h2 id="2-カーネル転送を有効にする"><a href="#2-カーネル転送を有効にする" class="headerlink" title="2. カーネル転送を有効にする"></a>2. カーネル転送を有効にする</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">&quot;net.ipv4.ip_forward = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">echo <span class="string">&quot;net.ipv4.conf.all.src_valid_mark=1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">echo <span class="string">&quot;net.ipv6.conf.all.forwarding = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line">echo <span class="string">&quot;net.ipv6.conf.default.forwarding = 1&quot;</span> &gt;&gt; <span class="regexp">/etc/</span>sysctl.<span class="property">conf</span></span><br><span class="line"></span><br><span class="line">#与zt以外网卡互通</span><br><span class="line">zerotier-cli set [zt网络号] allowGlobal=<span class="number">1</span></span><br><span class="line">zerotier-cli set [zt网络号] allowDefault=<span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-ファイアウォール設定"><a href="#3-ファイアウォール設定" class="headerlink" title="3. ファイアウォール設定"></a>3. ファイアウォール設定</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo iptables -A FORWARD -i ztly53odaw -o eth0 -j ACCEPT</span><br><span class="line">sudo iptables -A FORWARD -i eth0 -o ztly53odaw -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">或</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="built_in">sudo</span> iptables -A FORWARD -i eth0 -o ztly53odaw -j ACCEPT</span></span><br><span class="line">sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE	#不中断原始流量下路由流量</span><br><span class="line"></span><br><span class="line">iptables-save</span><br></pre></td></tr></table></figure>
 
@@ -300,7 +300,7 @@
 
 
 <hr>
-<h1 id="旧バージョンzerotier「cannot-bind-local-interface-port」またはネットワークに接続できない場合の対処"><a href="#旧バージョンzerotier「cannot-bind-local-interface-port」またはネットワークに接続できない場合の対処" class="headerlink" title="旧バージョンzerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処"></a>旧バージョンzerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">killall -9 zerotier-one //杀死zerotier所有进程</span><br><span class="line">netstat -lp | grep zero //查看9993端口是否被占用</span><br><span class="line">zerotier-one -d //启动zerotier客户端</span><br><span class="line">zerotier-cli listnetworks //列出连接的zerotier网络</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">旧版orbit无法使用则用生成的签名放入moons.d</span></span><br><span class="line">看到status这一项为ACCESS_DENIED说明端口绑定成功</span><br></pre></td></tr></table></figure>
+<h1 id="旧版zerotier「cannot-bind-local-interface-port」またはネットワークに接続できない場合の対処"><a href="#旧版zerotier「cannot-bind-local-interface-port」またはネットワークに接続できない場合の対処" class="headerlink" title="旧版zerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処"></a>旧版zerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">killall -9 zerotier-one //杀死zerotier所有进程</span><br><span class="line">netstat -lp | grep zero //查看9993端口是否被占用</span><br><span class="line">zerotier-one -d //启动zerotier客户端</span><br><span class="line">zerotier-cli listnetworks //列出连接的zerotier网络</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">旧版orbit无法使用则用生成的签名放入moons.d</span></span><br><span class="line">看到status这一项为ACCESS_DENIED说明端口绑定成功</span><br></pre></td></tr></table></figure>
 
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp | grep 9993 | awk -F <span class="string">&#x27; &#x27;</span> <span class="string">&#x27;&#123;len=split($7,arr,&quot;/&quot;);for(i=1;i&lt;len;i++)&#123;$7=arr[i];print $7&#125;&#125;&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br><span class="line"></span><br><span class="line">netstat -anp | grep 9993 | awk <span class="string">&#x27;&#123;len=split($NF,arr,&quot;/&quot;);for(i=1;i&lt;len;++i)&#123;$7=arr[i]&#125;;print $7&#125;&#x27;</span> | sed -n <span class="string">&#x27;1p&#x27;</span> | xargs <span class="built_in">kill</span> -9</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -329,10 +329,10 @@
 
 
 
-<p>このときztネットワークは内部ネットワークにアクセスできる。内部ネットワークからztにアクセスする場合は静的ルートを設定し、送信元IPにはルーターのzt IPを選択する。</p>
+<p>この時点でztネットワークから内部ネットワークにアクセスできます。内部ネットワークからztにアクセスする場合は静的ルートを設定し、送信元IPはルーターのzt IPを選択します</p>
 <h2 id="添付ファイル"><a href="#添付ファイル" class="headerlink" title="添付ファイル"></a>添付ファイル</h2><ul>
 <li><a href="moon%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE.zip">moonノード設定.zip</a></li>
-<li><a href="zerotier%E6%90%AD%E5%BB%BAmoon.pdf">zerotierでmoon構築.pdf</a></li>
+<li><a href="zerotier%E6%90%AD%E5%BB%BAmoon.pdf">zerotierでmoonを構築.pdf</a></li>
 <li><a href="zerotier%E9%85%8D%E7%BD%AE.pdf">zerotier設定.pdf</a></li>
 </ul>
 
@@ -384,10 +384,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -409,7 +409,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF3%E5%B1%A4NAT%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95%EF%BC%88Linux%E3%83%9B%E3%82%B9%E3%83%88%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">ネットワーク3層NAT設定方法（Linuxホスト）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-zerotier%E7%BD%91%E7%AB%99%E7%9A%84networks%E9%87%8C%E9%9D%A2%E7%9A%84Managed-%E3%81%AERoutes%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%88%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%80%81%E4%BB%A5%E4%B8%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%97%E3%81%BE%E3%81%99"><span class="toc-number">1.1.</span> <span class="toc-text">1. zerotier网站的networks里面的Managed のRoutesでルートテーブルを設定し、以下の内容を追加します</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E8%BB%A2%E9%80%81%E3%82%92%E6%9C%89%E5%8A%B9%E5%8C%96"><span class="toc-number">1.2.</span> <span class="toc-text">2. カーネル転送を有効化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.3.</span> <span class="toc-text">3. ファイアウォール設定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A7%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3zerotier%E3%80%8Ccannot-bind-local-interface-port%E3%80%8D%E3%81%BE%E3%81%9F%E3%81%AF%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6"><span class="toc-number">2.</span> <span class="toc-text">旧バージョンzerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openwrt%E8%A8%AD%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text">openwrt設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Firewall"><span class="toc-number">3.1.</span> <span class="toc-text">Firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Forward"><span class="toc-number">3.2.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">3.3.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%AC%E3%82%A4%E3%83%A43-NAT%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95%EF%BC%88Linux%E3%83%9B%E3%82%B9%E3%83%88%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">ネットワークレイヤ3 NAT設定方法（Linuxホスト）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-zerotier%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AEnetworks%E5%86%85%E3%81%AEManaged-Routes%E3%81%A7%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%97%E3%80%81%E4%BB%A5%E4%B8%8B%E3%81%AE%E5%86%85%E5%AE%B9%E3%82%92%E8%BF%BD%E5%8A%A0%E3%81%97%E3%81%BE%E3%81%99"><span class="toc-number">1.1.</span> <span class="toc-text">1. zerotierサイトのnetworks内のManaged Routesでルーティングテーブルを設定し、以下の内容を追加します</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E8%BB%A2%E9%80%81%E3%82%92%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2. カーネル転送を有効にする</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E3%83%95%E3%82%A1%E3%82%A4%E3%82%A2%E3%82%A6%E3%82%A9%E3%83%BC%E3%83%AB%E8%A8%AD%E5%AE%9A"><span class="toc-number">1.3.</span> <span class="toc-text">3. ファイアウォール設定</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%97%A7%E7%89%88zerotier%E3%80%8Ccannot-bind-local-interface-port%E3%80%8D%E3%81%BE%E3%81%9F%E3%81%AF%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%AB%E6%8E%A5%E7%B6%9A%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%84%E5%A0%B4%E5%90%88%E3%81%AE%E5%AF%BE%E5%87%A6"><span class="toc-number">2.</span> <span class="toc-text">旧版zerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openwrt%E8%A8%AD%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text">openwrt設定</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Firewall"><span class="toc-number">3.1.</span> <span class="toc-text">Firewall</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Forward"><span class="toc-number">3.2.</span> <span class="toc-text">Forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E4%BB%98%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB"><span class="toc-number">3.3.</span> <span class="toc-text">添付ファイル</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -420,7 +420,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -428,7 +428,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -498,11 +498,11 @@
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -521,11 +521,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -555,17 +555,17 @@
           url: "https://blog.wray7.top/2025/07/16/2025-07-16-zerotier%E8%BD%AC%E5%8F%91(iptables%E9%85%8D%E7%BD%AE)/",
           excerpt: "",
           description: "",
-          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  ネットワーク3層NAT設定方法（Linuxホスト） zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定する （相互接続が必要な場合）LAN AとBにそれぞれ1台、zerotierをインストールし、2つの内部ネットワークを相互接続するゲートウェイとして機能するホストが必要 それぞれ1",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  ネットワークレイヤ3 NAT設定方法（Linuxホスト） zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定します （相互接続が必要な場合）LAN AとLAN Bにそれぞれ1台、zerotierをインストールしたホストが必要で、2つの内部ネットワークを相互接続するゲートウェイとして",
           date: "Wed Jul 16 2025 03:16:06 GMT+0800",
-          updated: "Sun Oct 11 2026 04:52:06 GMT+0800",
+          updated: "Sun Oct 11 2026 16:11:52 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -624,5 +624,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

@@ -13,25 +13,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  What is SPFIn the currently widely used email sending protocol SMTP, the sender can arbitrarily set the sen">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  What is SPFIn the currently widely used mail-sending protocol [SMTP](https:&#x2F;&#x2F;zh.wikipedia.org&#x2F;zh-hans&#x2F;Simpl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="What is SPF?">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/03/20/2023-03-20-SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/index.html">
 <meta property="og:site_name" content="Wray's Blog">
-<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  What is SPFIn the currently widely used email sending protocol SMTP, the sender can arbitrarily set the sen">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  What is SPFIn the currently widely used mail-sending protocol [SMTP](https:&#x2F;&#x2F;zh.wikipedia.org&#x2F;zh-hans&#x2F;Simpl">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-03-20T07:05:00.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:42:55.549Z">
+<meta property="article:modified_time" content="2026-10-11T08:10:15.078Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="web">
 <meta name="twitter:card" content="summary">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="tech, notes, tinkering, tutorials">
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-SPF"><span class="toc-number">1.</span> <span class="toc-text">What is SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Deploy-SPF"><span class="toc-number">2.</span> <span class="toc-text">How to Deploy SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Format-of-SPF-Records"><span class="toc-number">3.</span> <span class="toc-text">Format of SPF Records</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Qualifier-and-Mechanism"><span class="toc-number">3.1.</span> <span class="toc-text">Qualifier and Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Qualifier"><span class="toc-number">3.1.1.</span> <span class="toc-text">Qualifier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mechanism"><span class="toc-number">3.1.2.</span> <span class="toc-text">Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#all"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">all</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#include"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">include</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#exists"><span class="toc-number">3.1.2.3.</span> <span class="toc-text">exists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Other-Mechanisms"><span class="toc-number">3.1.2.4.</span> <span class="toc-text">Other Mechanisms</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modifier"><span class="toc-number">3.2.</span> <span class="toc-text">Modifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SPF-Record-Example-Analysis"><span class="toc-number">4.</span> <span class="toc-text">SPF Record Example Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Further-Reading"><span class="toc-number">5.</span> <span class="toc-text">Further Reading</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-SPF"><span class="toc-number">1.</span> <span class="toc-text">What is SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Deploy-SPF"><span class="toc-number">2.</span> <span class="toc-text">How to Deploy SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Format-of-SPF-Records"><span class="toc-number">3.</span> <span class="toc-text">Format of SPF Records</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Qualifier-and-Mechanism"><span class="toc-number">3.1.</span> <span class="toc-text">Qualifier and Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Qualifier"><span class="toc-number">3.1.1.</span> <span class="toc-text">Qualifier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mechanism"><span class="toc-number">3.1.2.</span> <span class="toc-text">Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#all"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">all</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#include"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">include</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#exists"><span class="toc-number">3.1.2.3.</span> <span class="toc-text">exists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Other-Mechanisms"><span class="toc-number">3.1.2.4.</span> <span class="toc-text">Other Mechanisms</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modifier"><span class="toc-number">3.2.</span> <span class="toc-text">Modifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Analysis-of-SPF-Records"><span class="toc-number">4.</span> <span class="toc-text">Example Analysis of SPF Records</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Further-Reading"><span class="toc-number">5.</span> <span class="toc-text">Further Reading</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -214,7 +214,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -281,13 +281,13 @@
         <blockquote>
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
-<h2 id="What-is-SPF"><a href="#What-is-SPF" class="headerlink" title="What is SPF"></a>What is SPF</h2><p>In the currently widely used email sending protocol <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a>, the sender can arbitrarily set the sender’s email address, and anyone can impersonate <em><a href="mailto:&#98;&#111;&#115;&#x73;&#64;&#121;&#111;&#x75;&#114;&#45;&#x63;&#111;&#x72;&#x70;&#x2e;&#99;&#111;&#109;">boss@your-corp.com</a></em> to send emails to others. Therefore, the SPF (Sender Policy Framework) mechanism was proposed to verify the email sender (Mail Transfer Agent, MTA), so that only servers recognized by <em>your-corp.com</em> can send emails with <em><a href="mailto:&#98;&#x6f;&#115;&#115;&#64;&#x79;&#111;&#117;&#x72;&#45;&#x63;&#111;&#114;&#112;&#46;&#x63;&#111;&#109;">boss@your-corp.com</a></em> as the sender. The email recipient uses SPF records and IP addresses to identify whether the sending server is legitimate, and according to the instructions of the SPF record, decides to accept or reject the email.</p>
-<h2 id="How-to-Deploy-SPF"><a href="#How-to-Deploy-SPF" class="headerlink" title="How to Deploy SPF"></a>How to Deploy SPF</h2><p>There used to be a dedicated SPF resource record type in the DNS system, but it has been abolished. SPF records now all exist in the form of TXT resource records, and the hostname is generally @. For example, this blog’s SPF is as follows:</p>
+<h2 id="What-is-SPF"><a href="#What-is-SPF" class="headerlink" title="What is SPF"></a>What is SPF</h2><p>In the currently widely used mail-sending protocol [SMTP](<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/Simple">https://zh.wikipedia.org/zh-hans/Simple</a> Mail Transfer Protocol), the sender can arbitrarily set the sender’s email address, and anyone can impersonate <em><a href="mailto:&#98;&#111;&#115;&#115;&#x40;&#x79;&#111;&#117;&#x72;&#45;&#99;&#111;&#x72;&#112;&#46;&#x63;&#111;&#109;">boss@your-corp.com</a></em> to send emails to others. Therefore, the SPF (Sender Policy Framework) mechanism was proposed to verify the email sender (Mail Transfer Agent, MTA), so that only servers recognized by <em>your-corp.com</em> can send emails with <em><a href="mailto:&#x62;&#x6f;&#115;&#115;&#64;&#121;&#x6f;&#x75;&#x72;&#x2d;&#x63;&#111;&#x72;&#112;&#46;&#99;&#x6f;&#x6d;">boss@your-corp.com</a></em> as the sender. The email recipient uses SPF records and IP addresses to identify whether the sending server is legitimate, and based on the instructions in the SPF record decides whether to accept or reject the email.</p>
+<h2 id="How-to-Deploy-SPF"><a href="#How-to-Deploy-SPF" class="headerlink" title="How to Deploy SPF"></a>How to Deploy SPF</h2><p>The DNS system once had a dedicated SPF resource record type, but it has been abolished. Nowadays SPF all exists in the form of TXT resource records, and the hostname is generally @. For example, this blog’s SPF is as follows:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="Format-of-SPF-Records"><a href="#Format-of-SPF-Records" class="headerlink" title="Format of SPF Records"></a>Format of SPF Records</h2><p>An SPF record uses a single space as the delimiter between multiple terms, and each term is composed of components such as qualifier, mechanism, and modifier. During parsing, matching proceeds from left to right; if any term matches successfully, the matching process stops immediately and the SPF validation result is returned according to the qualifier.</p>
-<p>An SPF record starts with the fixed <code>v=spf1 </code>, indicating the SPF version, which is currently fixed as spf1.</p>
-<h3 id="Qualifier-and-Mechanism"><a href="#Qualifier-and-Mechanism" class="headerlink" title="Qualifier and Mechanism"></a>Qualifier and Mechanism</h3><h4 id="Qualifier"><a href="#Qualifier" class="headerlink" title="Qualifier"></a>Qualifier</h4><p>Qualifiers in SPF are placed before mechanisms, and there are four types as follows. Among them, + is the default qualifier and can be omitted.</p>
+<h2 id="Format-of-SPF-Records"><a href="#Format-of-SPF-Records" class="headerlink" title="Format of SPF Records"></a>Format of SPF Records</h2><p>An SPF record uses a single space as the delimiter for multiple terms, and each term consists of components such as qualifier, mechanism, and modifier. During parsing, matching proceeds from left to right. If any term matches successfully, the matching process stops immediately and the SPF verification result is returned according to the qualifier.</p>
+<p>An SPF record starts with the fixed <code>v=spf1 </code>, which identifies the SPF version, currently fixed as spf1.</p>
+<h3 id="Qualifier-and-Mechanism"><a href="#Qualifier-and-Mechanism" class="headerlink" title="Qualifier and Mechanism"></a>Qualifier and Mechanism</h3><h4 id="Qualifier"><a href="#Qualifier" class="headerlink" title="Qualifier"></a>Qualifier</h4><p>Qualifiers in SPF are placed before the mechanism, and there are the following four. Among them, + is the default qualifier and can be omitted.</p>
 <table>
 <thead>
 <tr>
@@ -299,30 +299,30 @@
 <tbody><tr>
 <td>+</td>
 <td>Pass</td>
-<td>An explicit statement that the sender’s machine has passed the check and can send email from this domain’s mailboxes</td>
+<td>An explicit statement that the sender’s machine passed the check and can send mail from this domain’s mailboxes</td>
 </tr>
 <tr>
 <td>-</td>
 <td>Fail</td>
-<td>An explicit statement that the sender’s machine has not passed the check and is not allowed to send email from this domain’s mailboxes</td>
+<td>An explicit statement that the sender’s machine failed the check and is not allowed to send mail from this domain’s mailboxes</td>
 </tr>
 <tr>
 <td>~</td>
 <td>Soft Fail</td>
-<td>A weaker statement that the sender’s machine appears not to have passed the check</td>
+<td>A weaker statement that the sender’s machine appears to have failed the check</td>
 </tr>
 <tr>
 <td>?</td>
 <td>Neutral</td>
-<td>The administrator of this domain has not explicitly stated whether the sender’s machine has passed the check</td>
+<td>The administrator of this domain has not explicitly stated whether the sender’s machine passed the check</td>
 </tr>
 </tbody></table>
-<h4 id="Mechanism"><a href="#Mechanism" class="headerlink" title="Mechanism"></a>Mechanism</h4><h5 id="all"><a href="#all" class="headerlink" title="all"></a>all</h5><p>all will always match successfully; for this reason, mechanisms after all will not take effect. all is generally used as the last mechanism, together with a qualifier to configure the “default behavior”—if all other policies fail to match, what this domain’s policy is for these missed cases.</p>
-<p>Take this site’s SPF configuration <code>v=spf1 include:spf.mail.qq.com ~all</code> as an example: if the include mechanism fails to match, it will eventually reach all and match successfully, and according to its qualifier returns a “soft fail” result—generally the email recipient will not reject this email, but will classify it as spam.</p>
-<h5 id="include"><a href="#include" class="headerlink" title="include"></a>include</h5><p>The format of include is <code>include: *domain-spec*</code>; it will trigger a recursive SPF validation process, causing the email recipient to check the SPF record set by <em>domain-spec</em>. Only when the validation result of <em>domain-spec</em> is pass (note: soft fail does not work either) will this mechanism be considered a successful match.</p>
-<p>The include mechanism is expected to handle “cross-administrative-boundary” situations, that is, the required SPF rules are placed under a domain that is not under this domain’s jurisdiction. It is more like “importing a third-party dependency library”, while the redirect mentioned below is more like “a piece of shared code inside the company”.</p>
-<h5 id="exists"><a href="#exists" class="headerlink" title="exists"></a>exists</h5><p>The format is <code>exists: *domain-spec*</code>. The recipient will send an A record query to the specified domain (even for IPv6, an A record query is used). If there is any return, it matches successfully. It can be used to perform some relatively complex validation.</p>
-<p>Here, <em>domain-spec</em> can include the following macros:</p>
+<h4 id="Mechanism"><a href="#Mechanism" class="headerlink" title="Mechanism"></a>Mechanism</h4><h5 id="all"><a href="#all" class="headerlink" title="all"></a>all</h5><p>all will always match successfully. For this reason, mechanisms after all will not take effect. all is generally used as the last mechanism, together with a qualifier, to configure the “default behavior”—if all other policies fail to match, what this domain’s policy is for these exceptions.</p>
+<p>Take this site’s SPF configuration <code>v=spf1 include:spf.mail.qq.com ~all</code> as an example: if the include mechanism fails to match, then it eventually reaches all and matches successfully, returning a “soft fail” result according to its qualifier—generally the email recipient will not reject this email, but will classify it as spam.</p>
+<h5 id="include"><a href="#include" class="headerlink" title="include"></a>include</h5><p>The format of include is <code>include: *domain-spec*</code>. It triggers a recursive SPF verification process, causing the email recipient to check the SPF record set by <em>domain-spec</em>. Only when the verification result of <em>domain-spec</em> is pass (note: soft fail does not count either) is this mechanism considered to have matched successfully.</p>
+<p>The include mechanism is expected to handle “cross-administrative-boundary” situations, that is, when the required SPF rules are placed under a domain not managed by this domain. It is more like “importing a third-party dependency library”, while the redirect mentioned below is more like “a piece of shared code inside the company”.</p>
+<h5 id="exists"><a href="#exists" class="headerlink" title="exists"></a>exists</h5><p>The format is <code>exists: *domain-spec*</code>. The recipient will send an A record query to the specified domain (even for IPv6, an A record query is used). If there is any response, it matches successfully. It can be used for some relatively complex verification.</p>
+<p>Among them, <em>domain-spec</em> can include the following macros:</p>
 <table>
 <thead>
 <tr>
@@ -334,7 +334,7 @@
 <tbody><tr>
 <td>s</td>
 <td>Sender’s email address</td>
-<td><a href="mailto:&#x68;&#115;&#105;&#97;&#x6f;&#x78;&#x79;&#x63;&#104;&#101;&#x6e;&#64;&#101;&#x78;&#97;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#x6f;&#x6d;">hsiaoxychen@example.com</a></td>
+<td><a href="mailto:&#x68;&#115;&#x69;&#x61;&#111;&#120;&#121;&#99;&#104;&#101;&#110;&#x40;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#111;&#109;">hsiaoxychen@example.com</a></td>
 </tr>
 <tr>
 <td>l</td>
@@ -348,7 +348,7 @@
 </tr>
 <tr>
 <td>d</td>
-<td>The SPF authoritative domain currently being validated. It is generally consistent with the above, but may change when parsing include</td>
+<td>The current SPF authoritative domain being verified. Generally consistent with the above, but may change when parsing include</td>
 <td>example.com</td>
 </tr>
 <tr>
@@ -358,7 +358,7 @@
 </tr>
 <tr>
 <td>v</td>
-<td>If IPv4, then <code>in-addr</code>; if IPv6, then <code>ip6</code></td>
+<td><code>in-addr</code> if IPv4, <code>ip6</code> if IPv6</td>
 <td>in-addr</td>
 </tr>
 <tr>
@@ -370,16 +370,16 @@
 <p>Also, if r is appended after a macro, the value can be reversed. For example, suppose we have the following SPF record:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v=spf1 exists:%&#123;ir&#125;.%&#123;l&#125;._spf.example.com -all</span><br></pre></td></tr></table></figure>
 
-<p>Also, there is only one A record under the _spf.example.com subdomain:</p>
+<p>Also, under the _spf.example.com subdomain there is only one A record:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4.1.5.114.noreply._spf.example.com IN A 127.0.0.1</span><br></pre></td></tr></table></figure>
 
-<p>Then only emails sent from <code>114.5.1.4</code> and originating from <code>noreply@example.com</code> can pass SPF validation.</p>
-<h5 id="Other-Mechanisms"><a href="#Other-Mechanisms" class="headerlink" title="Other Mechanisms"></a>Other Mechanisms</h5><p>Other mechanisms include: a, mx, ip4, ip6, and exists. Their mechanisms are relatively similar and easy to understand, summarized as follows:</p>
+<p>Then only emails from <code>noreply@example.com</code> sent from <code>114.5.1.4</code> can pass SPF verification.</p>
+<h5 id="Other-Mechanisms"><a href="#Other-Mechanisms" class="headerlink" title="Other Mechanisms"></a>Other Mechanisms</h5><p>Other mechanisms include: a, mx, ip4, ip6, exists. Their mechanisms are relatively similar and easier to understand, summarized as follows:</p>
 <table>
 <thead>
 <tr>
 <th>a</th>
-<th>If the sender IP matches the IP address of any A record (or AAAA record, determined by whether this sending behavior is via IPv4 or IPv6) of the specified domain, it matches successfully</th>
+<th>If the sender IP matches the IP address of any A record (or AAAA record, depending on whether this sending action goes over IPv4 or IPv6) of the specified domain, it matches successfully</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -395,33 +395,33 @@
 <td>If the sender IP matches the specified IPv6 address (range), it matches successfully</td>
 </tr>
 </tbody></table>
-<h3 id="Modifier"><a href="#Modifier" class="headerlink" title="Modifier"></a>Modifier</h3><p>The syntax of modifiers is slightly different from that of mechanisms: they have no qualifier, and the key-value separator is not <code>:</code> but <code>=</code>. There are currently two modifiers: redirect and exp. exp is used to tell the server how to generate explanatory text after SPF validation fails, and will not be introduced here; redirect can “redirect” the subsequent SPF validation process to the target domain. For example, gmail.com’s SPF record:</p>
+<h3 id="Modifier"><a href="#Modifier" class="headerlink" title="Modifier"></a>Modifier</h3><p>The syntax of a modifier is slightly different from that of a mechanism: it has no qualifier, and the key-value separation is not <code>:</code> but <code>=</code>. There are currently two modifiers: redirect and exp. exp is used to tell the server how to generate explanatory text after SPF verification fails, and will not be introduced here; redirect can “redirect” the subsequent SPF verification process to the target domain. For example, gmail.com’s SPF record:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➞  dig gmail.com txt +short</span><br><span class="line"><span class="string">&quot;globalsign-smime-dv=CDYX+XFHUw2wml6/Gb8+59BsH31KzUr6c1l2BPvqKX8=&quot;</span></span><br><span class="line"><span class="string">&quot;v=spf1 redirect=_spf.google.com&quot;</span></span><br><span class="line"></span><br><span class="line">➞  dig _spf.google.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:_netblocks.google.com include:_netblocks2.google.com include:_netblocks3.google.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>Although it is under a different domain, the SPF policy of _spf.google.com can represent gmail.com.</p>
+<p>Although under a different domain, the SPF policy of _spf.google.com can represent gmail.com.</p>
 <p>Note that redirect must appear as the last part of the SPF record, and when all is present, redirect must be ignored.</p>
-<h2 id="SPF-Record-Example-Analysis"><a href="#SPF-Record-Example-Analysis" class="headerlink" title="SPF Record Example Analysis"></a>SPF Record Example Analysis</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➞  dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br><span class="line"><span class="comment"># 检查 spf.mail.qq.com 的匹配结果，如果匹配失败，则返回 soft fail</span></span><br><span class="line"></span><br><span class="line">➞  dig spf.mail.qq.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf-a.mail.qq.com include:spf-b.mail.qq.com include:spf-c.mail.qq.com include:spf-d.mail.qq.com include:spf-e.mail.qq.com include:spf-f.mail.qq.com include:spf-g.mail.qq.com -all&quot;</span></span><br><span class="line"><span class="comment"># 依次检查各个 include 的匹配结果，如果都匹配失败，则返回 fail</span></span><br><span class="line"></span><br><span class="line">➞  dig spf-a.mail.qq.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 ip4:203.205.251.0/24 ip4:103.7.29.0/24 ip4:59.36.129.0/24 ip4:113.108.23.0/24 ip4:113.108.11.0/24 ip4:119.147.193.0/24 ip4:119.147.194.0/24 ip4:59.78.209.0/24 ip4:113.96.223.0/24 ip4:183.3.226.0/24 ip4:183.3.255.0/24 ip4:59.36.132.0/24 -all&quot;</span></span><br><span class="line"><span class="comment"># 如果发件方不在这些 ip 段之中则返回 fail</span></span><br></pre></td></tr></table></figure>
+<h2 id="Example-Analysis-of-SPF-Records"><a href="#Example-Analysis-of-SPF-Records" class="headerlink" title="Example Analysis of SPF Records"></a>Example Analysis of SPF Records</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">➞  dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br><span class="line"><span class="comment"># 检查 spf.mail.qq.com 的匹配结果，如果匹配失败，则返回 soft fail</span></span><br><span class="line"></span><br><span class="line">➞  dig spf.mail.qq.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf-a.mail.qq.com include:spf-b.mail.qq.com include:spf-c.mail.qq.com include:spf-d.mail.qq.com include:spf-e.mail.qq.com include:spf-f.mail.qq.com include:spf-g.mail.qq.com -all&quot;</span></span><br><span class="line"><span class="comment"># 依次检查各个 include 的匹配结果，如果都匹配失败，则返回 fail</span></span><br><span class="line"></span><br><span class="line">➞  dig spf-a.mail.qq.com txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 ip4:203.205.251.0/24 ip4:103.7.29.0/24 ip4:59.36.129.0/24 ip4:113.108.23.0/24 ip4:113.108.11.0/24 ip4:119.147.193.0/24 ip4:119.147.194.0/24 ip4:59.78.209.0/24 ip4:113.96.223.0/24 ip4:183.3.226.0/24 ip4:183.3.255.0/24 ip4:59.36.132.0/24 -all&quot;</span></span><br><span class="line"><span class="comment"># 如果发件方不在这些 ip 段之中则返回 fail</span></span><br></pre></td></tr></table></figure>
 
-<p>It seems that SPF records in practical use almost never use mechanisms such as exists and exp; most simply define the legitimate IP ranges.</p>
-<p>Another fairly typical way of writing an SPF record is:</p>
+<p>It seems that in practically applied SPF records, mechanisms such as exists and exp are almost never used; most merely simply define legitimate IP ranges.</p>
+<p>Another relatively typical way of writing an SPF record is:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v=spf1 a mx ip4:114.5.1.4 -all</span><br></pre></td></tr></table></figure>
 
-<p>meaning “only the IPs in this domain’s a and mx records, as well as 114.5.1.4, can send mail on behalf of this domain”, commonly seen in self-hosted private mail servers.</p>
+<p>It means “only the IPs in this domain’s a and mx records plus 114.5.1.4 can send email on behalf of this domain”, commonly seen in self-built private mail servers.</p>
 <h2 id="Further-Reading"><a href="#Further-Reading" class="headerlink" title="Further Reading"></a>Further Reading</h2><ul>
 <li>Using SPF Macros to Solve the Operational Challenges of SPF<ul>
 <li>If you are interested in exists and macros in SPF, this article is well worth reading</li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/network/264663.html">Red Team vs Blue Team: Email Forgery - FreeBuf Cybersecurity Industry Portal</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/network/264663.html">Red Team vs. Blue Team: Email Spoofing - FreeBuf Cybersecurity Industry Portal</a></li>
 <li>[2011.08420] Weak Links in Authentication Chains: A Large-scale Analysis of Email Sender Spoofing Attacks<ul>
-<li>A paper from Tsinghua University that studies multiple email forgery attack methods that bypass mechanisms such as SPF, DKIM, and DMARC</li>
+<li>A paper from Tsinghua University that studies multiple email spoofing attack methods that bypass mechanisms such as SPF, DKIM, and DMARC</li>
 </ul>
 </li>
 </ul>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7208">RFC 7208 - Sender Policy Framework (SPF) for Authorizing Use of Domains in Email, Version 1</a></li>
 <li><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc4408">RFC 4408 - Sender Policy Framework (SPF) for Authorizing Use of Domains in E-Mail, Version 1</a> [OBSOLETE]</li>
-<li><a target="_blank" rel="noopener" href="https://www.renfei.org/blog/introduction-to-spf.html">SPF Records: Principles, Syntax, and Configuration Methods - Blog - Renfei Song</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.renfei.org/blog/introduction-to-spf.html">An Introduction to SPF Records: Principles, Syntax, and Configuration Methods - Blog - Renfei Song</a></li>
 <li><a target="_blank" rel="noopener" href="https://postmarkapp.com/blog/explaining-spf">Explaining SPF record | Postmark</a></li>
 </ul>
 
@@ -473,10 +473,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -498,7 +498,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-SPF"><span class="toc-number">1.</span> <span class="toc-text">What is SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Deploy-SPF"><span class="toc-number">2.</span> <span class="toc-text">How to Deploy SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Format-of-SPF-Records"><span class="toc-number">3.</span> <span class="toc-text">Format of SPF Records</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Qualifier-and-Mechanism"><span class="toc-number">3.1.</span> <span class="toc-text">Qualifier and Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Qualifier"><span class="toc-number">3.1.1.</span> <span class="toc-text">Qualifier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mechanism"><span class="toc-number">3.1.2.</span> <span class="toc-text">Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#all"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">all</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#include"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">include</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#exists"><span class="toc-number">3.1.2.3.</span> <span class="toc-text">exists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Other-Mechanisms"><span class="toc-number">3.1.2.4.</span> <span class="toc-text">Other Mechanisms</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modifier"><span class="toc-number">3.2.</span> <span class="toc-text">Modifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SPF-Record-Example-Analysis"><span class="toc-number">4.</span> <span class="toc-text">SPF Record Example Analysis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Further-Reading"><span class="toc-number">5.</span> <span class="toc-text">Further Reading</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-SPF"><span class="toc-number">1.</span> <span class="toc-text">What is SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-Deploy-SPF"><span class="toc-number">2.</span> <span class="toc-text">How to Deploy SPF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Format-of-SPF-Records"><span class="toc-number">3.</span> <span class="toc-text">Format of SPF Records</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Qualifier-and-Mechanism"><span class="toc-number">3.1.</span> <span class="toc-text">Qualifier and Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Qualifier"><span class="toc-number">3.1.1.</span> <span class="toc-text">Qualifier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mechanism"><span class="toc-number">3.1.2.</span> <span class="toc-text">Mechanism</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#all"><span class="toc-number">3.1.2.1.</span> <span class="toc-text">all</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#include"><span class="toc-number">3.1.2.2.</span> <span class="toc-text">include</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#exists"><span class="toc-number">3.1.2.3.</span> <span class="toc-text">exists</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Other-Mechanisms"><span class="toc-number">3.1.2.4.</span> <span class="toc-text">Other Mechanisms</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Modifier"><span class="toc-number">3.2.</span> <span class="toc-text">Modifier</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Example-Analysis-of-SPF-Records"><span class="toc-number">4.</span> <span class="toc-text">Example Analysis of SPF Records</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Further-Reading"><span class="toc-number">5.</span> <span class="toc-text">Further Reading</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -509,7 +509,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -517,7 +517,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -587,11 +587,11 @@
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -610,11 +610,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -644,17 +644,17 @@
           url: "https://blog.wray7.top/2023/03/20/2023-03-20-SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/",
           excerpt: "",
           description: "",
-          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  What is SPFIn the currently widely used email sending protocol SMTP, the sender can arbitrarily set the sender’s email address, and anyone can impersonate bo",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  What is SPFIn the currently widely used mail-sending protocol [SMTP](https://zh.wikipedia.org/zh-hans/Simple Mail Transfer Protocol), the sender can arbitrar",
           date: "Mon Mar 20 2023 15:05:00 GMT+0800",
-          updated: "Sun Oct 11 2026 04:42:55 GMT+0800",
+          updated: "Sun Oct 11 2026 16:10:15 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -713,5 +713,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

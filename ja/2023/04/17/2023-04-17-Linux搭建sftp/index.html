@@ -7,31 +7,31 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    Linuxでsftpを構築する | Wrayのブログ
+    Linuxでsftpを構築 | Wrayのブログ
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Linuxでsftpを構築するsshd_configを設定する vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config  以下の内容を変更し、保存して終了する \#この行をコメントアウト \#Subsystem sftp &#x2F;usr&#x2F;libexec&#x2F;openssh&#x2F;sftp-server この行を">
+    <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Linuxでsftpを構築sshd_config を設定 vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config  以下の内容を変更し、保存して終了 #この行をコメントアウト #Subsystem sftp &#x2F;usr&#x2F;libexec&#x2F;openssh&#x2F;sftp-server この行を追加： Sub">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linuxでsftpを構築する">
+<meta property="og:title" content="Linuxでsftpを構築">
 <meta property="og:url" content="https://blog.wray7.top/ja/2023/04/17/2023-04-17-Linux%E6%90%AD%E5%BB%BAsftp/index.html">
 <meta property="og:site_name" content="Wrayのブログ">
-<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Linuxでsftpを構築するsshd_configを設定する vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config  以下の内容を変更し、保存して終了する \#この行をコメントアウト \#Subsystem sftp &#x2F;usr&#x2F;libexec&#x2F;openssh&#x2F;sftp-server この行を">
+<meta property="og:description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Linuxでsftpを構築sshd_config を設定 vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config  以下の内容を変更し、保存して終了 #この行をコメントアウト #Subsystem sftp &#x2F;usr&#x2F;libexec&#x2F;openssh&#x2F;sftp-server この行を追加： Sub">
 <meta property="og:locale" content="ja_JP">
 <meta property="article:published_time" content="2023-04-17T05:52:51.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:43:32.489Z">
+<meta property="article:modified_time" content="2026-10-11T08:10:33.626Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="技術, ノート, 改造, チュートリアル">
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -176,11 +176,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Linuxでsftpを構築する">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Linuxでsftpを構築">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">Linuxでsftpを構築する</h1>
+            <h1 data-aos="slide-up">Linuxでsftpを構築</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E3%81%A7sftp%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B"><span class="toc-number">1.</span> <span class="toc-text">Linuxでsftpを構築する</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E3%81%A7sftp%E3%82%92%E6%A7%8B%E7%AF%89"><span class="toc-number">1.</span> <span class="toc-text">Linuxでsftpを構築</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -214,7 +214,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -281,65 +281,63 @@
         <blockquote>
 <p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
 </blockquote>
-<h1 id="Linuxでsftpを構築する"><a href="#Linuxでsftpを構築する" class="headerlink" title="Linuxでsftpを構築する"></a>Linuxでsftpを構築する</h1><p>sshd_configを設定する</p>
+<h1 id="Linuxでsftpを構築"><a href="#Linuxでsftpを構築" class="headerlink" title="Linuxでsftpを構築"></a>Linuxでsftpを構築</h1><p>sshd_config を設定</p>
 <pre><code>vi /etc/ssh/sshd_config
 </code></pre>
-<p>以下の内容を変更し、保存して終了する</p>
-<pre><code>\#この行をコメントアウト
-\#Subsystem sftp /usr/libexec/openssh/sftp-server
+<p>以下の内容を変更し、保存して終了</p>
+<pre><code>#この行をコメントアウト
+#Subsystem sftp /usr/libexec/openssh/sftp-server
 この行を追加：
-Subsystem sftp internal-sftp
+Subsystem sftp internal-sftp 
 </code></pre>
 <hr>
-<p>1、ユーザー sftpuser を作成し、sshログインを禁止し、ホームディレクトリを作成しない</p>
+<p>1、ユーザー sftpuser を作成し、ssh ログインを禁止し、ホームディレクトリを作成しない</p>
 <pre><code>useradd -s /sbin/nologin -M sftpuser
 </code></pre>
 <p>2、ユーザーパスワードを設定</p>
 <pre><code>passwd sftpuser
 </code></pre>
-<p>3、sftpルートディレクトリを作成する。すべてのsftpユーザーはこのディレクトリ配下で活動する。（今後新しいユーザーを追加しない場合は、このディレクトリをスキップできる）</p>
+<p>3、sftp ルートディレクトリを作成する。すべての sftp ユーザーはこのディレクトリ配下で操作します。（今後新しいユーザーを追加しない場合は、このディレクトリをスキップできます）</p>
 <pre><code>mkdir /sftp
 </code></pre>
-<p>4、ディレクトリ権限を設定する。ディレクトリ権限の設定には2つの要点がある：</p>
-<p>   そのディレクトリから上位のシステムルートディレクトリまでのディレクトリ所有者はすべてrootのみでなければならない</p>
-<p>   そのディレクトリから上位のシステムルートディレクトリまでの間で、グループ書き込み権限を持ってはならない</p>
-<p>   chown root:root &#x2F;sftp</p>
-<p>   chmod 755 &#x2F;sftp   注：このディレクトリの権限は最大755。777に設定するとエラーになる。これも私が悩まされた点である。</p>
-<p>5、ユーザーsftpuserのルートディレクトリを作成する。ディレクトリ名はユーザー名</p>
+<p>4、ディレクトリ権限を設定する。ディレクトリ権限の設定には 2 つの要点があります：</p>
+<p>   そのディレクトリからシステムルートディレクトリまでの上位すべてのディレクトリの所有者は root のみでなければなりません<br>   そのディレクトリからシステムルートディレクトリまでの上位すべてのディレクトリは、グループ書き込み権限を持ってはなりません</p>
+<p>   chown root:root &#x2F;sftp<br>   chmod 755 &#x2F;sftp   注：このディレクトリの権限は最大 755 です。777 に設定するとエラーになります。これは私が悩んだ点の一つでもあります。</p>
+<p>5、ユーザー sftpuser のルートディレクトリを作成する。ディレクトリ名はユーザー名とする</p>
 <pre><code>cd /sftp
 mkdir sftpuser
 </code></pre>
-<p>6、sftpuserディレクトリの権限を設定</p>
+<p>6、sftpuser ディレクトリの権限を設定</p>
 <pre><code>chown root:sftpuser /sftp/sftpuser
-（注：ユーザーsftpuserを設定する。所有者をrootに設定した場合、そのディレクトリsftpuserには読み書き権限がないことを示す。そのディレクトリ下に他のディレクトリを作成し、sftpuserユーザーに読み書き権限を付与する；
-  そのディレクトリに読み書き権限が必要な場合は、権限を設定：chown sftpuser:sftpuser /home/sftp/sftpuser）
-chmod 755 /sftp/sftpuser  注：ここでのディレクトリsftpuserの権限も755のみ可能。そうでなければディレクトリを制限できない。
+（注：ユーザー sftpuser を設定する場合、所有者を root に設定すると、その sftpuser ディレクトリには読み書き権限がないことを意味します。そのディレクトリ配下に他のディレクトリを作成し、sftpuser ユーザーに読み書き権限を付与します；
+  そのディレクトリに読み書き権限が必要な場合は、権限を設定します：chown sftpuser:sftpuser /home/sftp/sftpuser）
+chmod 755 /sftp/sftpuser  注：ここでの sftpuser ディレクトリの権限も 755 のみ可能です。そうでなければディレクトリを制限できません。
 </code></pre>
-<p>7、sshd_configを設定</p>
+<p>7、sshd_config を設定</p>
 <pre><code>vi /etc/ssh/sshd_config
 </code></pre>
 <p>8、以下の内容を変更し、保存して終了</p>
-<pre><code>\#この行をコメントアウト
-\#Subsystem sftp /usr/libexec/openssh/sftp-server
+<pre><code>#この行をコメントアウト
+#Subsystem sftp /usr/libexec/openssh/sftp-server
 この行を追加：
-Subsystem sftp internal-sftp #sftpサービスがシステム標準のinternal-sftpを使用するよう指定する。追加しない場合、ユーザーはsftpでログインできない。
-\#設定ファイルの末尾に追加
-Match User sftpuser#ユーザーをマッチする。複数のグループをマッチする場合、複数のグループはカンマで区切る
-ChrootDirectory /sftp/%u #chrootで指定ユーザーのルートディレクトリを設定する。chrootの意味：http://www.ibm.com/developerworks/cn/linux/l-cn-chroot/；
-   \#ここでの%uはアカウント名を指す。/home/sftp/%u の意味は：/sftp/sftpuser
-ForceCommand internal-sftp #sftpコマンドを指定
-X11Forwarding no #この2行は、そのユーザーにポート転送を使用させたくない場合に追加し、そうでなければ削除する
+Subsystem sftp internal-sftp #sftp サービスでシステム標準の internal-sftp を使用するよう指定します。これを追加しないと、ユーザーは sftp でログインできません。
+#設定ファイルの末尾に追加
+Match User sftpuser#ユーザーをマッチします。複数のグループをマッチする場合は、グループ間をカンマで区切ります
+ChrootDirectory /sftp/%u #chroot で指定ユーザーのルートディレクトリを設定します。chroot の意味：http://www.ibm.com/developerworks/cn/linux/l-cn-chroot/；
+   #ここでの %u はアカウント名を指します。/home/sftp/%u の意味は：/sftp/sftpuser
+ForceCommand internal-sftp #sftp コマンドを指定
+X11Forwarding no #この 2 行は、そのユーザーにポート転送を使用させたくない場合に追加し、そうでなければ削除します
 AllowTcpForwarding no
 </code></pre>
-<p> 9、sshdサーバーを再起動</p>
+<p> 9、sshd サーバーを再起動</p>
 <pre><code>systemctl restart sshd.service
-\#sshd起動状態を確認するコマンド：
+#sshd の起動状態を確認するコマンド：
 systemctl status sshd.service
 </code></pre>
-<p>10、sftpuserユーザーのログインテスト：</p>
+<p>10、sftpuser ユーザーのログインテスト：</p>
 <pre><code>sftp -oPort=22 sftpuser@127.0.0.1
 </code></pre>
-<p>以上でsftpユーザーの作成、権限変更、ルートディレクトリ制限が完了した。</p>
+<p>これで、sftp ユーザーの作成、権限の変更、ルートディレクトリの制限が完了しました。</p>
 
     </div>
     <footer class="article-footer">
@@ -389,10 +387,10 @@ systemctl status sshd.service
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -414,7 +412,7 @@ systemctl status sshd.service
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">見出し</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E3%81%A7sftp%E3%82%92%E6%A7%8B%E7%AF%89%E3%81%99%E3%82%8B"><span class="toc-number">1.</span> <span class="toc-text">Linuxでsftpを構築する</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E3%81%A7sftp%E3%82%92%E6%A7%8B%E7%AF%89"><span class="toc-number">1.</span> <span class="toc-text">Linuxでsftpを構築</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -425,7 +423,7 @@ systemctl status sshd.service
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -433,7 +431,7 @@ systemctl status sshd.service
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -503,11 +501,11 @@ systemctl status sshd.service
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -526,11 +524,11 @@ systemctl status sshd.service
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -556,21 +554,21 @@ systemctl status sshd.service
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "Linuxでsftpを構築する",
+          title: "Linuxでsftpを構築",
           url: "https://blog.wray7.top/2023/04/17/2023-04-17-Linux%E6%90%AD%E5%BB%BAsftp/",
           excerpt: "",
           description: "",
-          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Linuxでsftpを構築するsshd_configを設定する vi /etc/ssh/sshd_config  以下の内容を変更し、保存して終了する \#この行をコメントアウト \#Subsystem sftp /usr/libexec/openssh/sftp-server この行を追加： Subsystem sftp internal-sftp   1、ユーザー sftpuser",
+          stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Linuxでsftpを構築sshd_config を設定 vi /etc/ssh/sshd_config  以下の内容を変更し、保存して終了 #この行をコメントアウト #Subsystem sftp /usr/libexec/openssh/sftp-server この行を追加： Subsystem sftp internal-sftp    1、ユーザー sftpuser を作成し、",
           date: "Mon Apr 17 2023 13:52:51 GMT+0800",
-          updated: "Sun Oct 11 2026 04:43:32 GMT+0800",
+          updated: "Sun Oct 11 2026 16:10:33 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -629,5 +627,5 @@ systemctl status sshd.service
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

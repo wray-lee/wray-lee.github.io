@@ -7,33 +7,33 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    Curl Explained in Detail | Wray's Blog
+    Curl Explained | Wray's Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Curl Detailed Explanationcurl -kfsSL -k&#x2F;--insecure	Allow connecting to SSL sites without certificates -f&#x2F;--">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Curl Detailed Explanationcurl -kfsSL -k&#x2F;--insecure	Allow connecting to SSL sites without using certificates">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Curl Explained in Detail">
+<meta property="og:title" content="Curl Explained">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Wray's Blog">
-<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Curl Detailed Explanationcurl -kfsSL -k&#x2F;--insecure	Allow connecting to SSL sites without certificates -f&#x2F;--">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Curl Detailed Explanationcurl -kfsSL -k&#x2F;--insecure	Allow connecting to SSL sites without using certificates">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg">
 <meta property="article:published_time" content="2023-04-16T10:32:47.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:43:38.335Z">
+<meta property="article:modified_time" content="2026-10-11T08:10:26.136Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="tech, notes, tinkering, tutorials">
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -178,11 +178,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Curl Explained in Detail">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Curl Explained">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">Curl Explained in Detail</h1>
+            <h1 data-aos="slide-up">Curl Explained</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -197,7 +197,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl-Detailed-Explanation"><span class="toc-number">1.</span> <span class="toc-text">Curl Detailed Explanation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Differences"><span class="toc-number">1.2.</span> <span class="toc-text">Differences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Options"><span class="toc-number">1.3.</span> <span class="toc-text">Other Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-Usage-Guide"><span class="toc-number">2.</span> <span class="toc-text">curl Usage Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">2.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl-Detailed-Explanation"><span class="toc-number">1.</span> <span class="toc-text">Curl Detailed Explanation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Differences"><span class="toc-number">1.2.</span> <span class="toc-text">Differences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Commands"><span class="toc-number">1.3.</span> <span class="toc-text">Other Commands</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-Usage-Guide"><span class="toc-number">2.</span> <span class="toc-text">curl Usage Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">2.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -216,7 +216,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -284,35 +284,35 @@
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
 <h1 id="Curl-Detailed-Explanation"><a href="#Curl-Detailed-Explanation" class="headerlink" title="Curl Detailed Explanation"></a>Curl Detailed Explanation</h1><h2 id="curl-kfsSL"><a href="#curl-kfsSL" class="headerlink" title="curl -kfsSL"></a><code>curl -kfsSL</code></h2><ul>
-<li><code>-k/--insecure</code>	Allow connecting to SSL sites without certificates</li>
-<li><code>-f/--fail</code>    Do not display http errors when connection fails. On server error, prevent an HTML page indicating the error cause from being returned, and instead have the curl command return error code 22 to indicate the error (avoid returning HTML, which is inconvenient for debugging)</li>
-<li><code>-s/--silent</code>    Silent mode. Output nothing. Will not output errors and progress information.</li>
-<li><code>-S/--show-error</code>    Show errors. Specifies to output only error information, usually used together with <code>-s</code>.</li>
+<li><code>-k/--insecure</code>	Allow connecting to SSL sites without using certificates</li>
+<li><code>-f/--fail</code>    Do not display HTTP errors when connection fails. On server errors, prevent an HTML page indicating the cause of the error from being returned, and instead have the curl command return error code 22 to indicate the error (to avoid returned HTML being inconvenient for debugging)</li>
+<li><code>-s/--silent</code>    Silent mode. Output nothing. Will not output error and progress information.</li>
+<li><code>-S/--show-error</code>    Show errors. Specify to output only error messages, usually used together with <code>-s</code>.</li>
 <li><code>-L/--location</code>    Makes HTTP requests follow server redirects. curl does not follow redirects by default.</li>
 </ul>
-<p>curl -fsSL means that when using the curl command to download files, it does not display progress or error information, stops immediately if the download fails, and automatically follows redirects. This is usually a quiet, safe, and stable way to download files.</p>
+<p>curl -fsSL means when using the curl command to download files, do not display progress and error information, stop immediately if the download fails, and automatically follow redirects. This is usually a quiet, safe, and stable way to download files.</p>
 <h2 id="Differences"><a href="#Differences" class="headerlink" title="Differences"></a>Differences</h2><ul>
-<li><code>-l/--list-only</code>    List the file names in the ftp directory</li>
-<li><code>-F </code>   parameter is used to upload binary files to the server.</li>
+<li><code>-l/--list-only</code>    List file names in the ftp directory</li>
+<li><code>-F </code>   The parameter is used to upload binary files to the server.</li>
 </ul>
-<h2 id="Other-Options"><a href="#Other-Options" class="headerlink" title="Other Options"></a>Other Options</h2><p><code>-o</code>		parameter saves the server response as a file, equivalent to the <code>wget</code> command.</p>
+<h2 id="Other-Commands"><a href="#Other-Commands" class="headerlink" title="Other Commands"></a>Other Commands</h2><p><code>-o</code>		The parameter saves the server response as a file, equivalent to the <code>wget</code> command.</p>
 <p><code>curl -o example.html https://www.example.com</code></p>
-<p><code>-O</code>		parameter saves the server response as a file, and uses the last part of the URL as the filename. (No need to name it)</p>
+<p><code>-O</code>		The parameter saves the server response as a file and uses the last part of the URL as the filename. (No need to name it)</p>
 <p><code>curl -O https://www.example.com/foo/bar.html</code></p>
 <p><code>--limit-rate</code> is used to limit the bandwidth of HTTP requests and responses, simulating a slow network environment.</p>
 <p><code>curl --limit-rate 200k https://google.com</code></p>
 <hr>
 <h1 id="curl-Usage-Guide"><a href="#curl-Usage-Guide" class="headerlink" title="curl Usage Guide"></a>curl Usage Guide</h1><p>Author: <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/">Ruan Yifeng</a></p>
 <p>Date: <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2019/09/">September 5, 2019</a></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>curl is a commonly used command-line tool used to request Web servers. Its name means the client (client) URL tool.</p>
-<p>Its functionality is very powerful, with as many as dozens of command-line parameters. If you are proficient, it can completely replace GUI tools like Postman.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>curl is a commonly used command-line tool for making requests to web servers. Its name means the URL tool of the client (client).</p>
+<p>Its functionality is very powerful, with dozens of command-line parameters. If you are proficient, it can completely replace graphical interface tools like Postman.</p>
 <p><img src="https://www.wangbase.com/blogimg/asset/201909/bg2019090501.jpg" alt="img"></p>
-<p>This article introduces its main command-line parameters, as a daily reference for easy lookup. The content is mainly translated from <a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">《curl cookbook》</a>。为了节约篇幅，下面的例子不包括运行时的输出，初学者可以先看我以前写的<a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/09/curl.html">《curl Beginner’s Tutorial》</a>。</p>
-<p>When used without any parameters, curl sends a GET request.</p>
+<p>This article introduces its main command-line parameters as a daily reference for easy lookup. The content is mainly translated from <a target="_blank" rel="noopener" href="https://catonmat.net/cookbooks/curl">curl cookbook</a>. To save space, the examples below do not include runtime output. Beginners can first read my previously written <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2011/09/curl.html">curl Beginner Tutorial</a>.</p>
+<p>When no parameters are provided, curl sends a GET request.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command sends a GET request to <code>www.example.com</code>, and the content returned by the server will be output on the command line.</p>
-<h2 id="A"><a href="#A" class="headerlink" title="-A"></a><strong>-A</strong></h2><p><code>-A</code> parameter specifies the client’s User-Agent header, i.e. <code>User-Agent</code>. curl’s default User-Agent string is <code>curl/[version]</code>.</p>
+<h2 id="A"><a href="#A" class="headerlink" title="-A"></a><strong>-A</strong></h2><p>The <code>-A</code> parameter specifies the client’s user agent header, i.e. <code>User-Agent</code>. curl’s default user agent string is <code>curl/[version]</code>.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -A <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command changes <code>User-Agent</code> to the Chrome browser.</p>
@@ -322,59 +322,59 @@
 <p>You can also directly specify the header via the <code>-H</code> parameter to change <code>User-Agent</code>.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">&#x27;User-Agent: php/1.0&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="b"><a href="#b" class="headerlink" title="-b"></a><strong>-b</strong></h2><p><code>-b</code> parameter is used to send Cookies to the server.</p>
+<h2 id="b"><a href="#b" class="headerlink" title="-b"></a><strong>-b</strong></h2><p>The <code>-b</code> parameter is used to send cookies to the server.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b <span class="string">&#x27;foo=bar&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>The above command generates a header <code>Cookie: foo=bar</code>, sending a Cookie named <code>foo</code> with value <code>bar</code> to the server.</p>
+<p>The above command generates a header <code>Cookie: foo=bar</code>, sending a cookie named <code>foo</code> with value <code>bar</code> to the server.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b <span class="string">&#x27;foo1=bar;foo2=bar2&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>The above command sends two Cookies.</p>
+<p>The above command sends two cookies.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -b cookies.txt https://www.google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>The above command reads the local file <code>cookies.txt</code>, which contains Cookies set by the server (see the <code>-c</code> parameter), and sends them to the server.</p>
-<h2 id="c"><a href="#c" class="headerlink" title="-c"></a><strong>-c</strong></h2><p><code>-c</code> parameter writes the Cookies set by the server to a file.</p>
+<p>The above command reads the local file <code>cookies.txt</code>, which contains cookies set by the server (see the <code>-c</code> parameter), and sends them to the server.</p>
+<h2 id="c"><a href="#c" class="headerlink" title="-c"></a><strong>-c</strong></h2><p>The <code>-c</code> parameter writes cookies set by the server to a file.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -c cookies.txt https://www.google.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>The above command writes the Cookies set by the server’s HTTP response to the text file <code>cookies.txt</code>.</p>
-<h2 id="d"><a href="#d" class="headerlink" title="-d"></a><strong>-d</strong></h2><p><code>-d</code> parameter is used to send the data body of a POST request.</p>
+<p>The above command writes the cookies set in the server’s HTTP response to the text file <code>cookies.txt</code>.</p>
+<h2 id="d"><a href="#d" class="headerlink" title="-d"></a><strong>-d</strong></h2><p>The <code>-d</code> parameter is used to send the data body of a POST request.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d<span class="string">&#x27;login=emma＆password=123&#x27;</span>-X POST https://google.com/login</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line">$ curl -d <span class="string">&#x27;login=emma&#x27;</span> -d <span class="string">&#x27;password=123&#x27;</span> -X POST  https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p>After using the <code>-d</code> parameter, the HTTP request automatically adds the header <code>Content-Type : application/x-www-form-urlencoded</code>. It also automatically converts the request to the POST method, so <code>-X POST</code> can be omitted.</p>
-<p><code>-d</code> parameter can read data from a local text file and send it to the server.</p>
+<p>After using the <code>-d</code> parameter, the HTTP request will automatically add the header <code>Content-Type : application/x-www-form-urlencoded</code>. It will also automatically convert the request to the POST method, so <code>-X POST</code> can be omitted.</p>
+<p>The <code>-d</code> parameter can read data from a local text file and send it to the server.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d <span class="string">&#x27;@data.txt&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command reads the contents of the <code>data.txt</code> file and sends it to the server as the data body.</p>
-<h2 id="–data-urlencode"><a href="#–data-urlencode" class="headerlink" title="–data-urlencode"></a><strong>–data-urlencode</strong></h2><p><code>--data-urlencode</code> parameter is equivalent to <code>-d</code>, sending the data body of a POST request, with the difference that it automatically URL-encodes the sent data.</p>
+<h2 id="–data-urlencode"><a href="#–data-urlencode" class="headerlink" title="–data-urlencode"></a><strong>–data-urlencode</strong></h2><p>The <code>--data-urlencode</code> parameter is equivalent to <code>-d</code>, sending the data body of a POST request, except that it automatically URL-encodes the sent data.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --data-urlencode <span class="string">&#x27;comment=hello world&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p>In the above code, there is a space in the sent data <code>hello world</code>, which needs to be URL-encoded.</p>
-<h2 id="e"><a href="#e" class="headerlink" title="-e"></a><strong>-e</strong></h2><p><code>-e</code> parameter is used to set the HTTP header <code>Referer</code>, indicating the origin of the request.</p>
+<p>In the above code, the sent data <code>hello world</code> contains a space and needs URL encoding.</p>
+<h2 id="e"><a href="#e" class="headerlink" title="-e"></a><strong>-e</strong></h2><p>The <code>-e</code> parameter is used to set the HTTP header <code>Referer</code>, indicating the source of the request.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -e <span class="string">&#x27;https://google.com?q=example&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command sets the <code>Referer</code> header to <code>https://google.com?q=example</code>.</p>
-<p><code>-H</code> parameter can achieve the same effect by directly adding the header <code>Referer</code>.</p>
+<p>The <code>-H</code> parameter can achieve the same effect by directly adding the header <code>Referer</code>.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&#x27;Referer: https://google.com?q=example&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="F"><a href="#F" class="headerlink" title="-F"></a><strong>-F</strong></h2><p><code>-F</code> parameter is used to upload binary files to the server.</p>
+<h2 id="F"><a href="#F" class="headerlink" title="-F"></a><strong>-F</strong></h2><p>The <code>-F</code> parameter is used to upload binary files to the server.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
-<p>The above command adds the header <code>Content-Type: multipart/form-data</code> to the HTTP request, then uploads the file <code>photo.png</code> as the <code>file</code> field.</p>
-<p><code>-F</code> parameter can specify the MIME type.</p>
+<p>The above command adds the header <code>Content-Type: multipart/form-data</code> to the HTTP request, and then uploads the file <code>photo.png</code> as the <code>file</code> field.</p>
+<p>The <code>-F</code> parameter can specify the MIME type.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png;type=image/png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command specifies the MIME type as <code>image/png</code>; otherwise curl will set the MIME type to <code>application/octet-stream</code>.</p>
-<p><code>-F</code> parameter can also specify the filename.</p>
+<p>The <code>-F</code> parameter can also specify the filename.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -F <span class="string">&#x27;file=@photo.png;filename=me.png&#x27;</span> https://google.com/profile</span><br></pre></td></tr></table></figure></blockquote>
 <p>In the above command, the original filename is <code>photo.png</code>, but the filename received by the server is <code>me.png</code>.</p>
-<h2 id="G"><a href="#G" class="headerlink" title="-G"></a><strong>-G</strong></h2><p><code>-G</code> parameter is used to construct the URL query string.</p>
+<h2 id="G"><a href="#G" class="headerlink" title="-G"></a><strong>-G</strong></h2><p>The <code>-G</code> parameter is used to construct the URL query string.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -G -d <span class="string">&#x27;q=kitties&#x27;</span> -d <span class="string">&#x27;count=20&#x27;</span> https://google.com/search</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command sends a GET request, and the actual requested URL is <code>https://google.com/search?q=kitties&amp;count=20</code>. If <code>--G</code> is omitted, a POST request will be sent.</p>
 <p>If the data needs URL encoding, you can combine it with the <code>--data--urlencode</code> parameter.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -G --data-urlencode <span class="string">&#x27;comment=hello world&#x27;</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="H"><a href="#H" class="headerlink" title="-H"></a><strong>-H</strong></h2><p><code>-H</code> parameter adds HTTP request headers.</p>
+<h2 id="H"><a href="#H" class="headerlink" title="-H"></a><strong>-H</strong></h2><p>The <code>-H</code> parameter adds an HTTP request header.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -H <span class="string">&#x27;Accept-Language: en-US&#x27;</span> https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command adds the HTTP header <code>Accept-Language: en-US</code>.</p>
@@ -383,52 +383,52 @@
 <p>The above command adds two HTTP headers.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -d <span class="string">&#x27;&#123;&quot;login&quot;: &quot;emma&quot;, &quot;pass&quot;: &quot;123&quot;&#125;&#x27;</span> -H <span class="string">&#x27;Content-Type: application/json&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p>The above command adds the HTTP request header <code>Content-Type: application/json</code>, then uses the <code>-d</code> parameter to send JSON data.</p>
-<h2 id="i"><a href="#i" class="headerlink" title="-i"></a><strong>-i</strong></h2><p><code>-i</code> parameter prints the HTTP headers of the server response.</p>
+<p>The above command adds the HTTP request header <code>Content-Type: application/json</code>, and then uses the <code>-d</code> parameter to send JSON data.</p>
+<h2 id="i"><a href="#i" class="headerlink" title="-i"></a><strong>-i</strong></h2><p>The <code>-i</code> parameter prints out the HTTP headers of the server response.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -i https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>After receiving the server response, the above command first outputs the response headers, then a blank line, then the webpage source code.</p>
-<h2 id="I"><a href="#I" class="headerlink" title="-I"></a><strong>-I</strong></h2><p><code>-I</code> parameter sends a HEAD request to the server, and then prints the HTTP headers returned by the server.</p>
+<p>After receiving the server response, the above command first outputs the headers of the server response, then leaves a blank line, and then outputs the source code of the webpage.</p>
+<h2 id="I"><a href="#I" class="headerlink" title="-I"></a><strong>-I</strong></h2><p>The <code>-I</code> parameter sends a HEAD request to the server, and then prints out the HTTP headers returned by the server.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -I https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command outputs the server’s response to the HEAD request.</p>
-<p><code>--head</code> parameter is equivalent to <code>-I</code>.</p>
+<p>The <code>--head</code> parameter is equivalent to <code>-I</code>.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --<span class="built_in">head</span> https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="k"><a href="#k" class="headerlink" title="-k"></a><strong>-k</strong></h2><p><code>-k</code> parameter specifies skipping SSL verification.</p>
+<h2 id="k"><a href="#k" class="headerlink" title="-k"></a><strong>-k</strong></h2><p>The <code>-k</code> parameter specifies to skip SSL verification.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -k https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command will not check whether the server’s SSL certificate is correct.</p>
-<h2 id="L"><a href="#L" class="headerlink" title="-L"></a><strong>-L</strong></h2><p><code>-L</code> parameter makes HTTP requests follow server redirects. curl does not follow redirects by default.</p>
+<h2 id="L"><a href="#L" class="headerlink" title="-L"></a><strong>-L</strong></h2><p>The <code>-L</code> parameter makes HTTP requests follow server redirects. curl does not follow redirects by default.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -L -d <span class="string">&#x27;tweet=hi&#x27;</span> https://api.twitter.com/tweet</span><br></pre></td></tr></table></figure></blockquote>
 <h2 id="–limit-rate"><a href="#–limit-rate" class="headerlink" title="–limit-rate"></a><strong>–limit-rate</strong></h2><p><code>--limit-rate</code> is used to limit the bandwidth of HTTP requests and responses, simulating a slow network environment.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --limit-rate 200k https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command limits the bandwidth to 200K bytes per second.</p>
-<h2 id="o"><a href="#o" class="headerlink" title="-o"></a><strong>-o</strong></h2><p><code>-o</code> parameter saves the server response as a file, equivalent to the <code>wget</code> command.</p>
+<h2 id="o"><a href="#o" class="headerlink" title="-o"></a><strong>-o</strong></h2><p>The <code>-o</code> parameter saves the server response as a file, equivalent to the <code>wget</code> command.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -o example.html https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command saves <code>www.example.com</code> as <code>example.html</code>.</p>
-<h2 id="O"><a href="#O" class="headerlink" title="-O"></a><strong>-O</strong></h2><p><code>-O</code> parameter saves the server response as a file and uses the last part of the URL as the filename.</p>
+<h2 id="O"><a href="#O" class="headerlink" title="-O"></a><strong>-O</strong></h2><p>The <code>-O</code> parameter saves the server response as a file and uses the last part of the URL as the filename.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O https://www.example.com/foo/bar.html</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command saves the server response as a file, with the filename <code>bar.html</code>.</p>
-<h2 id="s"><a href="#s" class="headerlink" title="-s"></a><strong>-s</strong></h2><p><code>-s</code> parameter will not output error and progress information.</p>
+<h2 id="s"><a href="#s" class="headerlink" title="-s"></a><strong>-s</strong></h2><p>The <code>-s</code> parameter will not output error and progress information.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>Once an error occurs, the above command will not display error information. If no error occurs, it will display the running result normally.</p>
-<p>If you want curl to produce no output at all, you can use the following command.</p>
+<p>Once an error occurs, the above command will not display error information. If no error occurs, the running result will be displayed normally.</p>
+<p>If you want curl to produce no output, you can use the following command.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -o /dev/null https://google.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="S"><a href="#S" class="headerlink" title="-S"></a><strong>-S</strong></h2><p><code>-S</code> parameter specifies outputting only error information, usually used together with <code>-s</code>.</p>
+<h2 id="S"><a href="#S" class="headerlink" title="-S"></a><strong>-S</strong></h2><p>The <code>-S</code> parameter specifies to output only error messages, usually used together with <code>-s</code>.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s -o /dev/null https://google.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command has no output unless an error occurs.</p>
-<h2 id="u"><a href="#u" class="headerlink" title="-u"></a><strong>-u</strong></h2><p><code>-u</code> parameter is used to set the username and password for server authentication.</p>
+<h2 id="u"><a href="#u" class="headerlink" title="-u"></a><strong>-u</strong></h2><p>The <code>-u</code> parameter is used to set the username and password for server authentication.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -u <span class="string">&#x27;bob:12345&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
-<p>The above command sets the username to <code>bob</code>, the password to <code>12345</code>, and then converts them into the HTTP header <code>Authorization: Basic Ym9iOjEyMzQ1</code>.</p>
+<p>The above command sets the username to <code>bob</code> and the password to <code>12345</code>, then converts them into the HTTP header <code>Authorization: Basic Ym9iOjEyMzQ1</code>.</p>
 <p>curl can recognize the username and password in the URL.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl https://bob:12345@google.com/login</span><br></pre></td></tr></table></figure></blockquote>
@@ -436,21 +436,21 @@
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -u <span class="string">&#x27;bob&#x27;</span> https://google.com/login</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command only sets the username; after execution, curl will prompt the user to enter the password.</p>
-<h2 id="v"><a href="#v" class="headerlink" title="-v"></a><strong>-v</strong></h2><p><code>-v</code> parameter outputs the entire communication process, used for debugging.</p>
+<h2 id="v"><a href="#v" class="headerlink" title="-v"></a><strong>-v</strong></h2><p>The <code>-v</code> parameter outputs the entire communication process, used for debugging.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -v https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p><code>--trace</code> parameter can also be used for debugging and will also output the raw binary data.</p>
+<p>The <code>--trace</code> parameter can also be used for debugging, and will also output the raw binary data.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl --trace - https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<h2 id="x"><a href="#x" class="headerlink" title="-x"></a><strong>-x</strong></h2><p><code>-x</code> parameter specifies the proxy for HTTP requests.</p>
+<h2 id="x"><a href="#x" class="headerlink" title="-x"></a><strong>-x</strong></h2><p>The <code>-x</code> parameter specifies the proxy for HTTP requests.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -x socks5://james:cats@myproxy.com:8080 https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command specifies that the HTTP request is sent through the socks5 proxy at <code>myproxy.com:8080</code>.</p>
 <p>If no proxy protocol is specified, the default is HTTP.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -x james:cats@myproxy.com:8080 https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
-<p>In the above command, the request proxy uses the HTTP protocol.</p>
-<h2 id="X"><a href="#X" class="headerlink" title="-X"></a><strong>-X</strong></h2><p><code>-X</code> parameter specifies the HTTP request method.</p>
+<p>In the above command, the proxy for the request uses the HTTP protocol.</p>
+<h2 id="X"><a href="#X" class="headerlink" title="-X"></a><strong>-X</strong></h2><p>The <code>-X</code> parameter specifies the method of the HTTP request.</p>
 <blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -X POST https://www.example.com</span><br></pre></td></tr></table></figure></blockquote>
 <p>The above command sends a POST request to <code>https://www.example.com</code>.</p>
@@ -503,10 +503,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -528,7 +528,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl-Detailed-Explanation"><span class="toc-number">1.</span> <span class="toc-text">Curl Detailed Explanation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Differences"><span class="toc-number">1.2.</span> <span class="toc-text">Differences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Options"><span class="toc-number">1.3.</span> <span class="toc-text">Other Options</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-Usage-Guide"><span class="toc-number">2.</span> <span class="toc-text">curl Usage Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">2.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Curl-Detailed-Explanation"><span class="toc-number">1.</span> <span class="toc-text">Curl Detailed Explanation</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#curl-kfsSL"><span class="toc-number">1.1.</span> <span class="toc-text">curl -kfsSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Differences"><span class="toc-number">1.2.</span> <span class="toc-text">Differences</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Commands"><span class="toc-number">1.3.</span> <span class="toc-text">Other Commands</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#curl-Usage-Guide"><span class="toc-number">2.</span> <span class="toc-text">curl Usage Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-number">2.1.</span> <span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">2.2.</span> <span class="toc-text">-A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#b"><span class="toc-number">2.3.</span> <span class="toc-text">-b</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c"><span class="toc-number">2.4.</span> <span class="toc-text">-c</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#d"><span class="toc-number">2.5.</span> <span class="toc-text">-d</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93data-urlencode"><span class="toc-number">2.6.</span> <span class="toc-text">–data-urlencode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#e"><span class="toc-number">2.7.</span> <span class="toc-text">-e</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">2.8.</span> <span class="toc-text">-F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">2.9.</span> <span class="toc-text">-G</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">2.10.</span> <span class="toc-text">-H</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#i"><span class="toc-number">2.11.</span> <span class="toc-text">-i</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">2.12.</span> <span class="toc-text">-I</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k"><span class="toc-number">2.13.</span> <span class="toc-text">-k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#L"><span class="toc-number">2.14.</span> <span class="toc-text">-L</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93limit-rate"><span class="toc-number">2.15.</span> <span class="toc-text">–limit-rate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#o"><span class="toc-number">2.16.</span> <span class="toc-text">-o</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O"><span class="toc-number">2.17.</span> <span class="toc-text">-O</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#s"><span class="toc-number">2.18.</span> <span class="toc-text">-s</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#S"><span class="toc-number">2.19.</span> <span class="toc-text">-S</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#u"><span class="toc-number">2.20.</span> <span class="toc-text">-u</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v"><span class="toc-number">2.21.</span> <span class="toc-text">-v</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#x"><span class="toc-number">2.22.</span> <span class="toc-text">-x</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X"><span class="toc-number">2.23.</span> <span class="toc-text">-X</span></a></li></ol></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -539,7 +539,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -547,7 +547,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -617,11 +617,11 @@
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -640,11 +640,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -670,21 +670,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "Curl Explained in Detail",
+          title: "Curl Explained",
           url: "https://blog.wray7.top/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/",
           excerpt: "",
           description: "",
-          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Curl Detailed Explanationcurl -kfsSL -k/--insecure Allow connecting to SSL sites without certificates -f/--fail    Do not display http errors when connection",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Curl Detailed Explanationcurl -kfsSL -k/--insecure Allow connecting to SSL sites without using certificates -f/--fail    Do not display HTTP errors when conn",
           date: "Sun Apr 16 2023 18:32:47 GMT+0800",
-          updated: "Sun Oct 11 2026 04:43:38 GMT+0800",
+          updated: "Sun Oct 11 2026 16:10:26 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -743,5 +743,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

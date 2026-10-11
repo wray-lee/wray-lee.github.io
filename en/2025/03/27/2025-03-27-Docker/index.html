@@ -13,25 +13,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Docker  ## 仓库  **登录**：&#96;docker login&#96;  **登出**：&#96;docker logout&#96;  **查找镜像**：&#96;docker search [镜像名]&#96;  ## 镜像  **查">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Docker  ## Registry  **Login**: &#96;docker login&#96;  **Logout**: &#96;docker logout&#96;  **Search images**: &#96;docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker">
 <meta property="og:url" content="https://blog.wray7.top/en/2025/03/27/2025-03-27-Docker/index.html">
 <meta property="og:site_name" content="Wray's Blog">
-<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Docker  ## 仓库  **登录**：&#96;docker login&#96;  **登出**：&#96;docker logout&#96;  **查找镜像**：&#96;docker search [镜像名]&#96;  ## 镜像  **查">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Docker  ## Registry  **Login**: &#96;docker login&#96;  **Logout**: &#96;docker logout&#96;  **Search images**: &#96;docker">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-27T10:51:48.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:50:45.722Z">
+<meta property="article:modified_time" content="2026-10-11T08:11:18.061Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="devops">
 <meta name="twitter:card" content="summary">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="tech, notes, tinkering, tutorials">
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -214,7 +214,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -284,76 +284,76 @@
 
 # Docker
 
-## 仓库
+## Registry
 
-**登录**：`docker login`
+**Login**: `docker login`
 
-**登出**：`docker logout`
+**Logout**: `docker logout`
 
-**查找镜像**：`docker search [镜像名]`
+**Search images**: `docker search [镜像名]`
 
-## 镜像
+## Images
 
-**查看镜像**：`docker images`
+**View images**: `docker images`
 
-**使用镜像生成容器**：`docker run [镜像名]`
+**Create a container from an image**: `docker run [镜像名]`
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">docker run 参数</span></span><br><span class="line">-v [主机路径]:[容器路径]	#将容器路径挂载到主机</span><br><span class="line">-P #容器内部端口随机映射到主机端口</span><br><span class="line">-p [主机端口]:[容器端口]	#将特定容器端口映射到特定主机端口</span><br><span class="line">--name [容器名字]	#容器命名</span><br></pre></td></tr></table></figure>
 
-**删除镜像**：`docker rmi [镜像名]`
+**Remove image**: `docker rmi [镜像名]`
 
-## 容器
+## Containers
 
-**查看容器**：`docker ps -a`
+**View containers**: `docker ps -a`
 
-**删除容器**：`docker rm [容器名]`
+**Remove container**: `docker rm [容器名]`
 
-**进入容器**：`docker exec -it [容器序号/容器名字] /bin/bash` / `docker exec -it [容器序号] /bin/sh`
+**Enter container**: `docker exec -it [容器序号/容器名字] /bin/bash` / `docker exec -it [容器序号] /bin/sh`
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-i:interact 交互操作</span><br><span class="line">-t:terminal 终端</span><br><span class="line">-d:down 后台运行</span><br></pre></td></tr></table></figure>
 
-**启动已有容器**：`docker restart [container]`
+**Start an existing container**: `docker restart [container]`
 
-**停止已有容器运行**：`docker stop [container]`		`sudo aa-remove-unknown(遇到permission denied)`
+**Stop an existing container**: `docker stop [container]`		`sudo aa-remove-unknown(遇到permission denied)`
 
-## 容器链接（容器网络）
+## Container linking (container networking)
 
-### 网络创建与加入
+### Network creation and joining
 
-**创建网络**：
+**Create network**:
 
 - `docker network create -d bridge [网络桥名字]`
 - `docker network create -d overlay [网络隧道名]`
 
-**加入网络**：
+**Join network**:
 
-- 创建容器时：
+- When creating a container:
 
 `docker run -itd --name [容器名] --network [网络名] [镜像名] [/bin/bash(终端环境)]`
 
-- 已有容器时加入：
+- Joining an existing container:
 
 `docker network connect [network_name] [container_name] `
 
-### 网络dns配置
+### Network DNS configuration
 
-主机的`/etc/docker/daemon.json`可以配置容器默认dns配置
+The host's `/etc/docker/daemon.json` can configure the default DNS configuration for containers
 
-**查看容器dns**：
+**View container DNS**:
 
 `docker run -it --rm  [container]  cat etc/resolv.conf`
 
-**手动指定容器dns**：
+**Manually specify container DNS**:
 
 `docker run -it --rm -h [容器主机名]  --dns=[dns_ip] --dns-search=test.com [container]`
 
 ---
 
-参数：
+Parameters:
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--rm：容器退出时自动清理容器内部的文件系统。</span><br><span class="line"></span><br><span class="line">-h HOSTNAME 或者 --hostname=HOSTNAME： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。</span><br><span class="line"></span><br><span class="line">--dns=IP_ADDRESS： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。</span><br><span class="line"></span><br><span class="line">--dns-search=DOMAIN： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。</span><br></pre></td></tr></table></figure>
 
-### 查看所有容器IP
+### View all container IPs
 
 `docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)`
 
@@ -361,7 +361,7 @@
 
 ## docker-compose 
 
-root无法删除容器
+root cannot delete containers
 
 `aa-remove-unknown`
 
@@ -371,7 +371,7 @@ root无法删除容器
 
 
 
-### 设置静态ip
+### Set static IP
 
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">networks:</span></span><br><span class="line">   <span class="attr">gptnet:</span></span><br><span class="line">     <span class="attr">driver:</span> <span class="string">bridge</span></span><br><span class="line">     <span class="attr">ipam:</span></span><br><span class="line">       <span class="attr">config:</span></span><br><span class="line">         <span class="bullet">-</span> <span class="attr">subnet:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.0</span><span class="string">/30</span></span><br><span class="line">           <span class="attr">gateway:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">gpt:</span></span><br><span class="line">    <span class="comment">#image: yidadaa/chatgpt-next-web:latest # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">rocky9/nextchat-nightly:latest</span> <span class="comment"># 总是使用 latest ,更新时重新 pull 该 tag 镜像即可</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gpt</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./gpt.env.bak</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="attr">gptnet:</span></span><br><span class="line">        <span class="attr">ipv4_address:</span> <span class="number">172.20</span><span class="number">.0</span><span class="number">.2</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br></pre></td></tr></table></figure>
 
@@ -423,10 +423,10 @@ root无法删除容器
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -459,7 +459,7 @@ root无法删除容器
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -467,7 +467,7 @@ root无法删除容器
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -537,11 +537,11 @@ root无法删除容器
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -560,11 +560,11 @@ root无法删除容器
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -594,17 +594,17 @@ root无法删除容器
           url: "https://blog.wray7.top/2025/03/27/2025-03-27-Docker/",
           excerpt: "",
           description: "",
-          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Docker  ## 仓库  **登录**：`docker login`  **登出**：`docker logout`  **查找镜像**：`docker search [镜像名]`  ## 镜像  **查看镜像**：`docker images`  **使用镜像生成容器**：`docker run [镜",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.   # Docker  ## Registry  **Login**: `docker login`  **Logout**: `docker logout`  **Search images**: `docker search [镜像名]`  ## Images  **View images**: `docker",
           date: "Thu Mar 27 2025 18:51:48 GMT+0800",
-          updated: "Sun Oct 11 2026 04:50:45 GMT+0800",
+          updated: "Sun Oct 11 2026 16:11:18 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -663,5 +663,5 @@ root无法删除容器
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>

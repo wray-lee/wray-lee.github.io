@@ -13,25 +13,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/loader.css?v=mv3ju4jj">
 
-    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Setting up SFTP on LinuxConfigure sshd_config vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config  Modify the following content, then s">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Setting up SFTP on LinuxConfigure sshd_config ​    vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config Modify the follow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Setting Up SFTP on Linux">
 <meta property="og:url" content="https://blog.wray7.top/en/2023/04/17/2023-04-17-Linux%E6%90%AD%E5%BB%BAsftp/index.html">
 <meta property="og:site_name" content="Wray's Blog">
-<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Setting up SFTP on LinuxConfigure sshd_config vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config  Modify the following content, then s">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Setting up SFTP on LinuxConfigure sshd_config ​    vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config Modify the follow">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-17T05:52:51.000Z">
-<meta property="article:modified_time" content="2026-10-10T20:43:03.862Z">
+<meta property="article:modified_time" content="2026-10-11T08:09:52.695Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
-      <meta name="keywords" content="技术, 笔记, 折腾, 教程">
+      <meta name="keywords" content="tech, notes, tinkering, tutorials">
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3j42eu">
+<link rel="stylesheet" href="/css/style.css?v=mv3ju4jj">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -195,7 +195,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setting-up-SFTP-on-Linux"><span class="toc-number">1.</span> <span class="toc-text">Setting up SFTP on Linux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comment-out-this-line"><span class="toc-number">2.</span> <span class="toc-text">Comment out this line</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setting-up-SFTP-on-Linux"><span class="toc-number">1.</span> <span class="toc-text">Setting up SFTP on Linux</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -214,7 +214,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -282,57 +282,73 @@
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
 <h1 id="Setting-up-SFTP-on-Linux"><a href="#Setting-up-SFTP-on-Linux" class="headerlink" title="Setting up SFTP on Linux"></a>Setting up SFTP on Linux</h1><p>Configure sshd_config</p>
-<pre><code>vi /etc/ssh/sshd_config
-</code></pre>
+<p>​    vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
 <p>Modify the following content, then save and exit</p>
-<pre><code># Comment out this line
-#Subsystem sftp /usr/libexec/openssh/sftp-server
-Add this line:
-Subsystem sftp internal-sftp 
-</code></pre>
+<p>​    #Comment out this line</p>
+<p>​    #Subsystem sftp &#x2F;usr&#x2F;libexec&#x2F;openssh&#x2F;sftp-server</p>
+<p>​    Add this line:</p>
+<p>​    Subsystem sftp internal-sftp </p>
 <hr>
 <ol>
-<li><p>Create user sftpuser, disable SSH login, and do not create a home directory</p>
-<p> useradd -s &#x2F;sbin&#x2F;nologin -M sftpuser</p>
-</li>
-<li><p>Set the user password</p>
-<p> passwd sftpuser</p>
-</li>
-<li><p>Create the SFTP root directory; all SFTP users will operate under this directory. (If you will not add new users later, you can skip this directory.)</p>
-<p> mkdir &#x2F;sftp</p>
-</li>
+<li>Create the user sftpuser, disable SSH login, and do not create a home directory</li>
+</ol>
+<p>​    useradd -s &#x2F;sbin&#x2F;nologin -M sftpuser</p>
+<ol start="2">
+<li>Set the user password</li>
+</ol>
+<p>​    passwd sftpuser</p>
+<ol start="3">
+<li>Create the SFTP root directory. All SFTP users will operate under this directory. (If you will not add new users in the future, you can skip this directory.)</li>
+</ol>
+<p>​    mkdir &#x2F;sftp</p>
+<ol start="4">
 <li><p>Set directory permissions. There are two key points for setting directory permissions:</p>
-<p>From the directory upward all the way to the system root directory, the owner of every directory can only be root.</p>
-<p>From the directory upward all the way to the system root directory, none can have group write permission.</p>
+<p>From the directory all the way up to the system root directory, the owner can only be root.</p>
+<p>From the directory all the way up to the system root directory, group write permission must not be present.</p>
 <p>chown root:root &#x2F;sftp</p>
-<p>chmod 755 &#x2F;sftp   Note: The maximum permission for this directory is 755; setting it to 777 will cause an error. This is also something that troubled me.</p>
+<p>chmod 755 &#x2F;sftp   Note: The maximum permission for this directory is 755. Setting it to 777 will cause an error. This is also one place that troubled me.</p>
 </li>
-<li><p>Create the root directory for user sftpuser, with the directory name being the username</p>
-<p> cd &#x2F;sftp</p>
-<p> mkdir sftpuser</p>
-</li>
-<li><p>Set permissions for the sftpuser directory</p>
-<p> chown root:sftpuser &#x2F;sftp&#x2F;sftpuser</p>
-<p> (Note: For user sftpuser, if the owner is set to root, it means sftpuser does not have read&#x2F;write permission on this directory. Create other directories under this directory and grant read&#x2F;write permissions to user sftpuser;</p>
-<p>   If you need read&#x2F;write permission on this directory, set permissions: chown sftpuser:sftpuser &#x2F;home&#x2F;sftp&#x2F;sftpuser)</p>
-<p> chmod 755 &#x2F;sftp&#x2F;sftpuser  Note: The permission for the directory sftpuser here can only be 755; otherwise, the directory cannot be restricted.</p>
-</li>
-<li><p>Configure sshd_config</p>
-<p> vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
-</li>
-<li><p>Modify the following content, then save and exit</p>
-<h1 id="Comment-out-this-line"><a href="#Comment-out-this-line" class="headerlink" title="Comment out this line"></a>Comment out this line</h1><p> #Subsystem sftp &#x2F;usr&#x2F;libexec&#x2F;openssh&#x2F;sftp-server<br> Add this line:<br> Subsystem sftp internal-sftp #Specify that the sftp service uses the system’s built-in internal-sftp. If this is not added, users cannot log in via sftp.<br> #Add at the end of the configuration file<br> Match User sftpuser #Match user. If matching multiple groups, separate multiple groups with commas.<br> ChrootDirectory &#x2F;sftp&#x2F;%u #Use chroot to set the specified user’s root directory. The meaning of chroot: <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-cn-chroot/%EF%BC%9B">http://www.ibm.com/developerworks/cn/linux/l-cn-chroot/；</a><br>#Here %u refers to the account name; &#x2F;home&#x2F;sftp&#x2F;%u means: &#x2F;sftp&#x2F;sftpuser<br> ForceCommand internal-sftp #Specify the sftp command<br> X11Forwarding no #These two lines: add them if you do not want this user to be able to use port forwarding; otherwise delete them.<br> AllowTcpForwarding no</p>
-</li>
-<li><p>Restart the sshd server</p>
-<p>systemctl restart sshd.service</p>
-<p>#Command to check sshd startup status:</p>
-<p>systemctl status sshd.service</p>
-</li>
-<li><p>Login test for user sftpuser:</p>
-<p>sftp -oPort&#x3D;22 <a href="mailto:&#x73;&#x66;&#116;&#x70;&#x75;&#x73;&#x65;&#x72;&#x40;&#49;&#x32;&#55;&#x2e;&#48;&#46;&#x30;&#x2e;&#x31;">sftpuser@127.0.0.1</a></p>
+<li><p>Create the root directory for the user sftpuser, with the directory name being the username</p>
 </li>
 </ol>
-<p>At this point, you have completed creating the SFTP user, modifying permissions, and restricting the root directory.</p>
+<p>​    cd &#x2F;sftp</p>
+<p>​    mkdir sftpuser</p>
+<ol start="6">
+<li>Set permissions for the sftpuser directory</li>
+</ol>
+<p>​    chown root:sftpuser &#x2F;sftp&#x2F;sftpuser</p>
+<p>​    (Note: Set the user sftpuser. If the owner is set to root, it means that the directory sftpuser has no read&#x2F;write permission. Create other directories under this directory and grant read&#x2F;write permissions to the sftpuser user;</p>
+<p>​      If you need read&#x2F;write permission on this directory, set the permission: chown sftpuser:sftpuser &#x2F;home&#x2F;sftp&#x2F;sftpuser)</p>
+<p>​    chmod 755 &#x2F;sftp&#x2F;sftpuser  Note: The permission for the directory sftpuser here can also only be 755; otherwise, the directory cannot be restricted.</p>
+<ol start="7">
+<li>Configure sshd_config</li>
+</ol>
+<p>​    vi &#x2F;etc&#x2F;ssh&#x2F;sshd_config</p>
+<ol start="8">
+<li>Modify the following content, then save and exit</li>
+</ol>
+<p>​    #Comment out this line</p>
+<p>​    #Subsystem sftp &#x2F;usr&#x2F;libexec&#x2F;openssh&#x2F;sftp-server</p>
+<p>​    Add this line:</p>
+<p>​    Subsystem sftp internal-sftp #Specify that the SFTP service uses the system’s built-in internal-sftp. If this is not added, users cannot log in via SFTP.</p>
+<p>​    #Add at the end of the configuration file</p>
+<p>​    Match User sftpuser#Match the user. If multiple groups need to be matched, separate multiple groups with commas.</p>
+<p>​    ChrootDirectory &#x2F;sftp&#x2F;%u #Use chroot to set the specified user’s root directory. The meaning of chroot: <a target="_blank" rel="noopener" href="http://www.ibm.com/developerworks/cn/linux/l-cn-chroot/">http://www.ibm.com/developerworks/cn/linux/l-cn-chroot/</a>;</p>
+<p>​       #Here %u refers to the account name. &#x2F;home&#x2F;sftp&#x2F;%u means: &#x2F;sftp&#x2F;sftpuser</p>
+<p>​    ForceCommand internal-sftp #Specify the SFTP command</p>
+<p>​    X11Forwarding no #These two lines: if you do not want this user to be able to use port forwarding, add them; otherwise, delete them.</p>
+<p>​    AllowTcpForwarding no</p>
+<ol start="9">
+<li>Restart the sshd server</li>
+</ol>
+<p>​    systemctl restart sshd.service</p>
+<p>​    #Command to check sshd startup status:</p>
+<p>​    systemctl status sshd.service</p>
+<ol start="10">
+<li>sftpuser login test:</li>
+</ol>
+<p>​    sftp -oPort&#x3D;22 <a href="mailto:&#115;&#x66;&#x74;&#112;&#117;&#x73;&#101;&#x72;&#64;&#49;&#x32;&#x37;&#x2e;&#x30;&#x2e;&#48;&#x2e;&#49;">sftpuser@127.0.0.1</a></p>
+<p>At this point, you have completed creating an SFTP user, modifying permissions, and restricting the root directory.</p>
 
     </div>
     <footer class="article-footer">
@@ -382,10 +398,10 @@ Subsystem sftp internal-sftp
       </div>
       <div>
         <span class="icon-brush"></span>
-        554.2k
+        553.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        50:26
+        50:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -407,7 +423,7 @@ Subsystem sftp internal-sftp
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setting-up-SFTP-on-Linux"><span class="toc-number">1.</span> <span class="toc-text">Setting up SFTP on Linux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Comment-out-this-line"><span class="toc-number">2.</span> <span class="toc-text">Comment out this line</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Setting-up-SFTP-on-Linux"><span class="toc-number">1.</span> <span class="toc-text">Setting up SFTP on Linux</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -418,7 +434,7 @@ Subsystem sftp internal-sftp
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">789</div>
+    <div class="sidebar-state-number">792</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -426,7 +442,7 @@ Subsystem sftp internal-sftp
   </div>
   <div class="sidebar-state-tag">
     <div>Tag</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -496,11 +512,11 @@ Subsystem sftp internal-sftp
 
 
 
-<script src="/js/script.js?v=mv3j42eu"></script>
+<script src="/js/script.js?v=mv3ju4jj"></script>
 
 
   
-<script src="/js/aos.js?v=mv3j42eu"></script>
+<script src="/js/aos.js?v=mv3ju4jj"></script>
 
   <script>
     var aosInit = () => {
@@ -519,11 +535,11 @@ Subsystem sftp internal-sftp
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3ju4jj" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3j42eu" defer></script>
+<script src="/js/generator_search.js?v=mv3ju4jj" defer></script>
 
 
 
@@ -553,17 +569,17 @@ Subsystem sftp internal-sftp
           url: "https://blog.wray7.top/2023/04/17/2023-04-17-Linux%E6%90%AD%E5%BB%BAsftp/",
           excerpt: "",
           description: "",
-          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Setting up SFTP on LinuxConfigure sshd_config vi /etc/ssh/sshd_config  Modify the following content, then save and exit # Comment out this line #Subsystem sf",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Setting up SFTP on LinuxConfigure sshd_config ​    vi &amp;#x2F;etc&amp;#x2F;ssh&amp;#x2F;sshd_config Modify the following content, then save and exit ​    #Comment out ",
           date: "Mon Apr 17 2023 13:52:51 GMT+0800",
-          updated: "Sun Oct 11 2026 04:43:03 GMT+0800",
+          updated: "Sun Oct 11 2026 16:09:52 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3j42eu" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3ju4jj" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3j42eu" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3ju4jj" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -622,5 +638,5 @@ Subsystem sftp internal-sftp
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3j42eu"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3ju4jj"></script></body>
   </html>
