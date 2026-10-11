@@ -43,6 +43,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -172,7 +179,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="msf使用">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="msf使用">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -298,7 +305,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="markdown语法" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="markdown语法" class="lazyload">
         <a href="/2023/09/04/2023-09-04-markdown%E8%AF%AD%E6%B3%95/" aria-label="前一篇: markdown语法" title="前一篇: markdown语法"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
@@ -306,7 +313,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="ssh多私钥管理" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="ssh多私钥管理" class="lazyload">
       <a href="/2023/09/04/2023-09-04-ssh%E5%A4%9A%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" aria-label="后一篇: ssh多私钥管理"  title="后一篇: ssh多私钥管理"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
@@ -505,7 +512,7 @@
           stripContent: "metasploit 流程msfconsole  search [ms17_010] 查找漏洞 use [] 选择漏洞 show options 查看参数 session 查看会话  session [num] 选择会话 1run vnc  后门msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe 监听use exploit/multi/handler 攻击主机 生成木马linux : msv",
           date: "Mon Sep 04 2023 00:00:00 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:10 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

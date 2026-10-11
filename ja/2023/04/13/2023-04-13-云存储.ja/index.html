@@ -43,6 +43,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -172,7 +179,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="クラウドストレージ">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="クラウドストレージ">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -569,7 +576,7 @@
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  クラウドストレージツールAlist  Linux:davfs2 Windows:rclone,Raidrive  LinuxWebDAV での起動時自動マウントを実現する通常のマウント後、再起動すると WebDAV 経由でマウントしたディスクが消えていることに気づきます。つまり Linux システムを再起動するたびに再マウントが必要になります。このとき、いくつかの設定を変更して起動時の",
           date: "Thu Apr 13 2023 15:52:16 GMT+0800",
           updated: "Sun Oct 11 2026 04:42:57 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

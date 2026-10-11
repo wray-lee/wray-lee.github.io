@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="SSH multiple private key management">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="SSH multiple private key management">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -467,7 +474,7 @@
           stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  1234567891011121314151617#Windows 上是 ~/.ssh/config#Linux 上是 /etc/ssh/ssh_config### 别名（Host）：Host 和 HostName 的值可以相同# 如 ssh aliyun，在这里等于 ssh -i C:\Users\Think\",
           date: "Sun Mar 05 2023 01:12:51 GMT+0800",
           updated: "Sun Oct 11 2026 04:42:19 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

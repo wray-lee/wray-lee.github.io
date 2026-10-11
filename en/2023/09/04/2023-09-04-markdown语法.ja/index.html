@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Markdown記法">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Markdown記法">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -536,7 +543,7 @@
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  第1級見出し第2級見出し第3級見出し第4級見出し（以下同様、最大第6級まで）改行構文1行目2行目3行目 直接改行でもかまいません 強調構文斜体 太字 斜体太字 リスト順序付きリスト 1 2 3  順序なしリスト 1番目 2番目 3番目  プラス記号 ハイフンとアスタリスクも使用できます 区切り線   3本の区切り線    さらに3本 縦区切り線追伸に使用 &amp;gt;  dsds dsds",
           date: "Mon Sep 04 2023 00:00:00 GMT+0800",
           updated: "Sun Oct 11 2026 04:46:26 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

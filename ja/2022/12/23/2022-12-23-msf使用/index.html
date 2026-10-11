@@ -42,6 +42,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -171,7 +178,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="msf使用">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="msf使用">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -304,7 +311,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="(子级域名访问)域名代理语法" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="(子级域名访问)域名代理语法" class="lazyload">
         <a href="/ja/2023/01/09/2023-01-08-(%E5%AD%90%E7%BA%A7%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE)%E5%9F%9F%E5%90%8D%E4%BB%A3%E7%90%86%E8%AF%AD%E6%B3%95/" aria-label="前の記事: (子级域名访问)域名代理语法" title="前の記事: (子级域名访问)域名代理语法"></a>
         <div class="article-nav-caption">前の記事</div>
         <h3 class="article-nav-title">
@@ -312,7 +319,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="信息收集" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="信息收集" class="lazyload">
       <a href="/ja/2022/12/20/2022-12-20-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" aria-label="次の記事: 信息收集"  title="次の記事: 信息收集"></a>
       <div class="article-nav-caption">次の記事</div>
       <h3 class="article-nav-title">
@@ -511,7 +518,7 @@
           stripContent: "msf使用metasploit 流程msfconsole  search [ms17_010] 查找漏洞  use [] 选择漏洞  show options 查看参数  session 查看会话 session [num] 选择会话   12run vnc  后门msvenom -p [payload] lhost=[] lport=[] -f(format) exe -o(output) file_name.exe 监听use exploit/multi/handler 攻击主机 生成木马l",
           date: "Fri Dec 23 2022 16:26:47 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

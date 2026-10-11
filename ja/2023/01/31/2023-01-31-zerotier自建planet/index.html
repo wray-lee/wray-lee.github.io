@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="zerotier自建planet">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="zerotier自建planet">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -332,7 +339,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Crontab" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Crontab" class="lazyload">
         <a href="/ja/2023/02/02/2023-02-02-Crontab/" aria-label="前の記事: Crontab" title="前の記事: Crontab"></a>
         <div class="article-nav-caption">前の記事</div>
         <h3 class="article-nav-title">
@@ -340,7 +347,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="stream" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="stream" class="lazyload">
       <a href="/ja/2023/01/29/2023-01-29-stream/" aria-label="次の記事: stream"  title="次の記事: stream"></a>
       <div class="article-nav-caption">次の記事</div>
       <h3 class="article-nav-title">
@@ -539,7 +546,7 @@
           stripContent: "zerotier自建planet使用作者的docker, 最终中心节点显示为leaf, 测试移动4g和电信宽带延迟为500ms, 到中心节点分别为120ms和40ms, 实际没有走自定义的节点.经过研究, 需要再进行设置. 提供下思路, 如下:  compose需要增加ports: ‘9993:9993’和’9993:9993&amp;#x2F;udp’, 服务器和防火墙也得放行 进入容器, 生成moon.json 拷贝moon.json到宿主机, 修改stableEndpoints 在宿主机用mkmo",
           date: "Tue Jan 31 2023 22:18:08 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

@@ -56,6 +56,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -185,7 +192,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Tailscale 基础教程：Headscale 的部署方法和使用教程">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Tailscale 基础教程：Headscale 的部署方法和使用教程">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -841,7 +848,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="新建 Text Document" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="新建 Text Document" class="lazyload">
         <a href="/en/2023/12/13/2023-12-13-%E6%96%B0%E5%BB%BA%20Text%20Document/" aria-label="Prev: 新建 Text Document" title="Prev: 新建 Text Document"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
@@ -849,7 +856,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="自建derper" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="自建derper" class="lazyload">
       <a href="/en/2023/11/27/2023-11-27-%E8%87%AA%E5%BB%BAderper/" aria-label="Next: 自建derper"  title="Next: 自建derper"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
@@ -1048,7 +1055,7 @@
           stripContent: "Tailscale 基础教程：Headscale 的部署方法和使用教程 基础命令  1234567891011headscale namespaces create defaultheadscale preauthkeys create -e 65535h -u default --reusable #生成auth_keyheadscale node listtailscale up --login-server=http://&amp;lt;HEADSCALE_PUB_IP&amp;gt;:8080 --ac",
           date: "Mon Nov 27 2023 17:52:55 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

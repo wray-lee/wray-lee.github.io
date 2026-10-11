@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Setting Up SFTP on Linux">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Setting Up SFTP on Linux">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -316,7 +323,7 @@ Subsystem sftp internal-sftp
 <p>systemctl status sshd.service</p>
 </li>
 <li><p>Login test for user sftpuser:</p>
-<p>sftp -oPort&#x3D;22 <a href="mailto:&#115;&#x66;&#x74;&#x70;&#117;&#115;&#101;&#114;&#x40;&#49;&#50;&#55;&#46;&#48;&#x2e;&#48;&#x2e;&#x31;">sftpuser@127.0.0.1</a></p>
+<p>sftp -oPort&#x3D;22 <a href="mailto:&#x73;&#102;&#x74;&#x70;&#117;&#115;&#x65;&#114;&#64;&#49;&#x32;&#55;&#x2e;&#x30;&#46;&#x30;&#x2e;&#49;">sftpuser@127.0.0.1</a></p>
 </li>
 </ol>
 <p>At this point, you have completed creating the SFTP user, modifying permissions, and restricting the root directory.</p>
@@ -519,7 +526,7 @@ Subsystem sftp internal-sftp
           stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Setting up SFTP on LinuxConfigure sshd_config vi /etc/ssh/sshd_config  Modify the following content, then save and exit # Comment out this line #Subsystem sf",
           date: "Mon Apr 17 2023 13:52:51 GMT+0800",
           updated: "Sun Oct 11 2026 04:43:03 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

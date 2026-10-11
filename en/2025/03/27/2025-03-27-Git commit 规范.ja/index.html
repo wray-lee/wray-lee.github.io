@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Gitコミット規約">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Gitコミット規約">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -481,7 +488,7 @@
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Git commit 規約 feat： 新規&amp;#x2F;修正機能（feature）。 fix： バグ修正（bug fix）。 docs： ドキュメント（documentation）。 style： フォーマット（コードの動作に影響しない変更 white-space、formatting、missing semi colons、etc）。 refactor： リファクタリング（新機能の追",
           date: "Thu Mar 27 2025 17:57:56 GMT+0800",
           updated: "Sun Oct 11 2026 04:51:04 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

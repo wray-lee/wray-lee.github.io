@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="NAT越えVLANでpingが通らない">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="NAT越えVLANでpingが通らない">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -472,7 +479,7 @@
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  コントロール パネル-&amp;gt;システムとセキュリティ-&amp;gt;Windows Defender ファイアウォール-&amp;gt;詳細設定-&amp;gt;受信の規則 ファイルとプリンターの共有（エコー要求 -ICMPV4 -IN）を有効にする 添付ファイル ネットワークセキュリティ実験.7z  ",
           date: "Tue Mar 29 2022 17:48:00 GMT+0800",
           updated: "Sun Oct 11 2026 03:22:30 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

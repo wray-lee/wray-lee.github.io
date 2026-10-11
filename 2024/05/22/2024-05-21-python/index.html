@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="python">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="python">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -298,7 +305,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Archlinux实现vnc远程访问" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Archlinux实现vnc远程访问" class="lazyload">
         <a href="/2024/05/24/2024-05-24-Archlinux%E5%AE%9E%E7%8E%B0vnc%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" aria-label="前一篇: Archlinux实现vnc远程访问" title="前一篇: Archlinux实现vnc远程访问"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
@@ -306,7 +313,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="iptables" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="iptables" class="lazyload">
       <a href="/2024/04/20/2024-04-20-iptables/" aria-label="后一篇: iptables"  title="后一篇: iptables"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
@@ -505,7 +512,7 @@
           stripContent: "Python闭包一个函数可以访问到它被定义时所在的环境 12345678def outerFunc(a):    def innerFunc(b):        return a+b    retrun innerFunc        tmp = outerFunc(1)print(tmp(2)) # 输出3  这个例子中，第一次传入的参数1在tmp被调用时仍然存在，并没有因为第一次执行后被销毁 装饰器 接受函数作为参数，补充函数功能，先于被装饰函数执行  1234567891011def ",
           date: "Tue May 21 2024 23:18:19 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

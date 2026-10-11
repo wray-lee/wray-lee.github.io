@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Subst maps a Windows folder to a drive">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Subst maps a Windows folder to a drive">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -531,7 +538,7 @@
           stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Subst Map a Windows folder to a driveIt is a legacy of the DOS era, but to this day it remains the fastest and most native way in Windows to map “long-path f",
           date: "Sat Jan 24 2026 17:30:39 GMT+0800",
           updated: "Sun Oct 11 2026 04:54:54 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

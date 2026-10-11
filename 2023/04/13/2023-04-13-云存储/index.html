@@ -43,6 +43,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -172,7 +179,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="云存储">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="云存储">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -374,7 +381,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Curl详解" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Curl详解" class="lazyload">
         <a href="/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/" aria-label="前一篇: Curl详解" title="前一篇: Curl详解"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
@@ -382,7 +389,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="SPF 是什么" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SPF 是什么" class="lazyload">
       <a href="/2023/03/20/2023-03-20-SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/" aria-label="后一篇: SPF 是什么"  title="后一篇: SPF 是什么"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
@@ -581,7 +588,7 @@
           stripContent: "云存储工具Alist  Linux:davfs2 Windows:rclone,Raidrive  Linux实现开机自动挂载在WebDAV普通挂载后，重启就会发现通过 WebDAV 挂载的磁盘没有了，也就意味着你每次重启 Linux 系统，都需要重新挂载，这时候需要更改几个设置来实现开机自动挂载。 第一步、编辑davfs2.conf配置文件，将use_locks的1改为0 1vim /etc/davfs2/davfs2.conf    第二步、修改secrets文件，添加账号信息 1vim /",
           date: "Thu Apr 13 2023 15:52:16 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:59 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

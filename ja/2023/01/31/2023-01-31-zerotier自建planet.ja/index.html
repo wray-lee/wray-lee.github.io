@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="zerotier自前planet">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="zerotier自前planet">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -524,7 +531,7 @@
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  zerotier 自前 planet作者の Docker を使用。最終的な中心ノードは leaf と表示され、モバイル 4G と中国電信ブロードバンドの遅延をテストすると 500ms、中心ノードまではそれぞれ 120ms と 40ms で、実際にはカスタムノードを経由していない。調査の結果、さらに設定が必要となる。以下に方針を示す:  compose には ports: ‘9993:9",
           date: "Tue Jan 31 2023 22:18:08 GMT+0800",
           updated: "Sun Oct 11 2026 04:42:01 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

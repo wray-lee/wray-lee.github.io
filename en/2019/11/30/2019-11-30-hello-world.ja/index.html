@@ -43,6 +43,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -172,7 +179,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="ハローワールド">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="ハローワールド">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -485,7 +492,7 @@
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  Hexo! へようこそ。これはあなたの最初の投稿です。詳細については ドキュメント を確認してください。Hexo の使用中に問題が発生した場合は、トラブルシューティング で回答が見つかるか、GitHub. で私に質問できます。 クイックスタート新しい投稿を作成1$ hexo new &amp;quot;My New Post&amp;quot;  詳細: 執筆 サーバーを実行1$ hexo serve",
           date: "Sat Nov 30 2019 00:00:00 GMT+0800",
           updated: "Sun Oct 11 2026 04:36:20 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

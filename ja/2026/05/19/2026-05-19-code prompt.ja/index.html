@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="コードプロンプト">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="コードプロンプト">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -474,7 +481,7 @@
           stripContent: " この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  「これより、『アーキテクチャ完全性』評価モードに入ります。現在のコードに対して、次の操作を実行してください： 些末な指摘の拒否：文法規約、命名慣習、冗長な空白などの非論理的な問題は無視し、『システム状態のロックアップ』、『リソースリーク』、または『論理競合』を引き起こす可能性のあるハードな欠陥のみを報告してください。 境界の定義：現在のモジュールにおいて、どの部分のロジックがコア（Co",
           date: "Tue May 19 2026 19:30:37 GMT+0800",
           updated: "Sun Oct 11 2026 04:55:26 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

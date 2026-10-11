@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="刷机之前必须备份的两个分区">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="刷机之前必须备份的两个分区">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -281,7 +288,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="openwrt安装证书" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="openwrt安装证书" class="lazyload">
         <a href="/en/2024/07/10/2024-07-10-openwrt%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6/" aria-label="Prev: openwrt安装证书" title="Prev: openwrt安装证书"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
@@ -289,7 +296,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Archlinux实现vnc远程访问" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Archlinux实现vnc远程访问" class="lazyload">
       <a href="/en/2024/05/24/2024-05-24-Archlinux%E5%AE%9E%E7%8E%B0vnc%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE/" aria-label="Next: Archlinux实现vnc远程访问"  title="Next: Archlinux实现vnc远程访问"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
@@ -488,7 +495,7 @@
           stripContent: "刷机之前必须备份的两个分区1.备份分区介绍EFS分区，用来存取手机IMEI串号、无线网卡，MAC地址以及网络设置等重要信息，目前发现升级不明基带的ROM以及频繁刷机或者错误的双清会导致EFS信息丢失，IMEI串号被清空或置零，基带未知，无法使用移动网络等故障。 PERSIST分区，是系统的一个ext4分区，这个分区内包含DRM相关文件、传感器注册表、你的wifi、蓝牙、mac地址都在这里了，通常会导致指南针不动了，陀螺仪没反应了，相机打开要好几秒了，打电话息屏异常等等问题。 说了这么多，就是想告",
           date: "Thu Jul 04 2024 22:16:35 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="What is SPF?">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="What is SPF?">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -268,7 +275,7 @@
         <blockquote>
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
-<p>In the currently widely used email sending protocol <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a>, the sender can arbitrarily set the sender’s email address, and anyone can impersonate <em><a href="mailto:&#38;&#x23;&#x78;&#x36;&#x32;&#59;&#x26;&#x23;&#49;&#49;&#x31;&#59;&#38;&#x23;&#120;&#55;&#x33;&#59;&#38;&#35;&#x31;&#49;&#x35;&#x3b;&#x26;&#35;&#x78;&#52;&#x30;&#x3b;&#x26;&#x23;&#x78;&#x37;&#57;&#x3b;&#x26;&#x23;&#49;&#x31;&#x31;&#59;&#x26;&#35;&#x31;&#x31;&#55;&#x3b;&#38;&#x23;&#49;&#49;&#52;&#59;&#38;&#35;&#x78;&#x32;&#x64;&#x3b;&#x26;&#x23;&#x39;&#x39;&#59;&#x26;&#x23;&#120;&#x36;&#102;&#59;&#x26;&#35;&#x31;&#x31;&#x34;&#59;&#38;&#x23;&#120;&#x37;&#48;&#59;&#x26;&#35;&#x78;&#x32;&#x65;&#x3b;&#x26;&#35;&#x39;&#57;&#59;&#38;&#35;&#x78;&#54;&#x66;&#59;&#x26;&#x23;&#x78;&#54;&#100;&#59;">boss@your-corp.com</a></em> to send emails to others. Therefore, the SPF (Sender Policy Framework) mechanism was proposed to verify the email sender (Mail Transfer Agent, MTA); only servers recognized by <em>your-corp.com</em> can send emails with <em><a href="mailto:&#x26;&#35;&#120;&#54;&#x32;&#59;&#x26;&#35;&#120;&#x36;&#x66;&#x3b;&#x26;&#x23;&#49;&#x31;&#53;&#59;&#x26;&#x23;&#49;&#49;&#x35;&#59;&#x26;&#35;&#54;&#52;&#59;&#38;&#x23;&#x31;&#x32;&#x31;&#x3b;&#x26;&#x23;&#x31;&#x31;&#49;&#59;&#x26;&#35;&#120;&#55;&#x35;&#59;&#38;&#x23;&#120;&#55;&#x32;&#x3b;&#38;&#x23;&#x34;&#x35;&#59;&#x26;&#x23;&#120;&#54;&#x33;&#x3b;&#x26;&#x23;&#x78;&#54;&#x66;&#59;&#x26;&#35;&#120;&#55;&#50;&#x3b;&#38;&#35;&#x78;&#55;&#48;&#59;&#38;&#x23;&#52;&#x36;&#x3b;&#x26;&#x23;&#120;&#54;&#51;&#59;&#38;&#x23;&#120;&#54;&#x66;&#x3b;&#x26;&#x23;&#120;&#54;&#100;&#59;">boss@your-corp.com</a></em> as the sender. The email recipient uses SPF records and IP addresses to identify whether the sending server is legitimate, and according to the instructions in the SPF record decides whether to accept or reject the email.</p>
+<p>In the currently widely used email sending protocol <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a>, the sender can arbitrarily set the sender’s email address, and anyone can impersonate <em><a href="mailto:&#38;&#x23;&#x78;&#54;&#50;&#59;&#38;&#x23;&#49;&#x31;&#49;&#59;&#x26;&#x23;&#x78;&#55;&#51;&#59;&#x26;&#x23;&#x31;&#49;&#x35;&#x3b;&#38;&#x23;&#x78;&#52;&#x30;&#59;&#x26;&#x23;&#x78;&#55;&#57;&#59;&#38;&#35;&#49;&#x31;&#x31;&#x3b;&#38;&#x23;&#x31;&#x31;&#x37;&#x3b;&#38;&#x23;&#49;&#x31;&#52;&#x3b;&#38;&#x23;&#120;&#50;&#100;&#x3b;&#x26;&#35;&#x39;&#x39;&#x3b;&#38;&#35;&#120;&#54;&#102;&#59;&#x26;&#35;&#x31;&#49;&#x34;&#x3b;&#x26;&#35;&#120;&#x37;&#48;&#59;&#x26;&#35;&#120;&#50;&#x65;&#59;&#38;&#x23;&#x39;&#x39;&#59;&#38;&#35;&#120;&#x36;&#x66;&#59;&#x26;&#35;&#120;&#x36;&#x64;&#59;">boss@your-corp.com</a></em> to send emails to others. Therefore, the SPF (Sender Policy Framework) mechanism was proposed to verify the email sender (Mail Transfer Agent, MTA); only servers recognized by <em>your-corp.com</em> can send emails with <em><a href="mailto:&#38;&#x23;&#x78;&#x36;&#50;&#59;&#x26;&#35;&#x78;&#x36;&#x66;&#x3b;&#x26;&#35;&#49;&#x31;&#x35;&#x3b;&#x26;&#x23;&#49;&#49;&#x35;&#x3b;&#x26;&#x23;&#x36;&#x34;&#59;&#38;&#x23;&#x31;&#x32;&#x31;&#59;&#38;&#x23;&#49;&#49;&#x31;&#59;&#38;&#35;&#120;&#55;&#x35;&#x3b;&#38;&#35;&#x78;&#x37;&#x32;&#x3b;&#x26;&#35;&#x34;&#x35;&#59;&#38;&#35;&#120;&#54;&#x33;&#x3b;&#x26;&#35;&#120;&#54;&#102;&#x3b;&#x26;&#35;&#x78;&#x37;&#50;&#59;&#x26;&#35;&#x78;&#55;&#48;&#x3b;&#x26;&#x23;&#x34;&#x36;&#x3b;&#x26;&#35;&#x78;&#x36;&#51;&#59;&#38;&#x23;&#120;&#x36;&#x66;&#59;&#x26;&#35;&#x78;&#x36;&#x64;&#59;">boss@your-corp.com</a></em> as the sender. The email recipient uses SPF records and IP addresses to identify whether the sending server is legitimate, and according to the instructions in the SPF record decides whether to accept or reject the email.</p>
 <h2 id="How-to-Deploy-SPF"><a href="#How-to-Deploy-SPF" class="headerlink" title="How to Deploy SPF"></a>How to Deploy SPF</h2><p>There was once a dedicated SPF resource record type in the DNS system, but it has been abolished. Nowadays, SPF exists in the form of TXT resource records, and the hostname is generally @. For example, this blog’s SPF is as follows:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -611,7 +618,7 @@
           stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  In the currently widely used email sending protocol SMTP, the sender can arbitrarily set the sender’s email address, and anyone can impersonate boss@your-cor",
           date: "Mon Sep 04 2023 00:00:00 GMT+0800",
           updated: "Sun Oct 11 2026 04:46:03 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

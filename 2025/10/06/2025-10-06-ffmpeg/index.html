@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="ffmpeg">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="ffmpeg">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -290,7 +297,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="linux 不通过dm开机自动登录" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="linux 不通过dm开机自动登录" class="lazyload">
         <a href="/2025/11/30/2025-11-30-linux%20%E4%B8%8D%E9%80%9A%E8%BF%87dm%E5%BC%80%E6%9C%BA%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/" aria-label="前一篇: linux 不通过dm开机自动登录" title="前一篇: linux 不通过dm开机自动登录"></a>
         <div class="article-nav-caption">前一篇</div>
         <h3 class="article-nav-title">
@@ -298,7 +305,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="系统优化" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="系统优化" class="lazyload">
       <a href="/2025/10/06/2025-10-06-%E7%B3%BB%E7%BB%9F%E4%BC%98%E5%8C%96/" aria-label="后一篇: 系统优化"  title="后一篇: 系统优化"></a>
       <div class="article-nav-caption">后一篇</div>
       <h3 class="article-nav-title">
@@ -497,7 +504,7 @@
           stripContent: "ffmpeg&amp;amp;ffprobe-an 不提取音频通道 -vn 不提取视频通道 批量转换windows 12345678910@echo offfor /R %%v IN (*.mp4) do ( ::转码视频  ffmpeg -i %%v -c:v nvenc_hevc &amp;quot;result\%%~nv.mp4&amp;quot;::压缩视频::ffmpeg -i 输入文件名 -c:v libx265 -x265-params crf=18:preset=placebo output/输出文件",
           date: "Mon Oct 06 2025 18:26:59 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Nodejs">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Nodejs">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -291,7 +298,7 @@
   </div>
     <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
       <div class="article-nav-link-wrap left">
-            <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="Docker" class="lazyload">
+            <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Docker" class="lazyload">
         <a href="/en/2023/09/05/2023-09-05-Docker/" aria-label="Prev: Docker" title="Prev: Docker"></a>
         <div class="article-nav-caption">Prev</div>
         <h3 class="article-nav-title">
@@ -299,7 +306,7 @@
         </h3>
       </div>
     <div class="article-nav-link-wrap right">
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="https://www.dmoe.cc/random.php" data-sizes="auto" alt="hexo" class="lazyload">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="hexo" class="lazyload">
       <a href="/en/2023/09/04/2023-09-04-hexo/" aria-label="Next: hexo"  title="Next: hexo"></a>
       <div class="article-nav-caption">Next</div>
       <h3 class="article-nav-title">
@@ -498,7 +505,7 @@
           stripContent: "Nodejsnpm存储路径C:\Users\Wray\.npmrc &amp;#x2F; %userprofile%\.npmrc 123registry=https://registry.npm.taobao.org/ #default: https://registry.npmjs.org/prefix=F:\nodejscache=F:\nodejs\npm_cache     one-click  npm config set prefix &amp;#39;F:\nodejs&amp;#39; &amp;amp;&amp;a",
           date: "Mon Sep 04 2023 18:47:09 GMT+0800",
           updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         

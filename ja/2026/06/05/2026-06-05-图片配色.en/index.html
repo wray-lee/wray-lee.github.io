@@ -40,6 +40,13 @@
     
 <link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
 
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
 <meta name="generator" content="Hexo 7.3.0"></head>
 
   <body>
@@ -169,7 +176,7 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="https://www.dmoe.cc/random.php" alt="Image color scheme">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Image color scheme">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
@@ -475,7 +482,7 @@
           stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Image color schemeLancet &amp;#x2F; Cell style (presentation) 12345678COLOR_LEFT = &amp;quot;#00468B&amp;quot;        # Navy Blue (深海军蓝)COLOR_RIGHT = &amp;quot;#ED0000&amp;quot;",
           date: "Fri Jun 05 2026 16:57:12 GMT+0800",
           updated: "Sun Oct 11 2026 04:55:30 GMT+0800",
-          cover: "https://www.dmoe.cc/random.php",
+          cover: "/images/banner.webp",
         };
       </script>
         
