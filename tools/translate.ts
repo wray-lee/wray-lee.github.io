@@ -124,14 +124,16 @@ function protectSegments(text: string): { text: string; protected: string[] } {
     kept.push(s);
     return "__PH_" + (kept.length - 1) + "__";
   }
-  text = text.replace(/{%\s*raw\s*%}[\s\S]*?{%\s*endraw\s*%}/g, ph);
+  // 只保护 raw/endraw 标签本身：不少文章整篇包在 raw 里，整段保护会导致全文不翻译
+  text = text.replace(/{%\s*(?:end)?raw\s*%}/g, ph);
   const fenceRe = new RegExp(BT + BT + BT + "[\\s\\S]*?" + BT + BT + BT, "g");
   text = text.replace(fenceRe, ph);
   text = text.replace(/{%[\s\S]*?%}/g, ph);
   text = text.replace(/{{[\s\S]*?}}/g, ph);
   const inlineRe = new RegExp(BT + "[^" + BT + "\\n]+" + BT, "g");
   text = text.replace(inlineRe, ph);
-  text = text.replace(/https?:\/\/\S+/g, ph);
+  // URL 止于空白、括号、引号和中日文字符：中文没有空格，\S+ 会把 [x](url) 后面的整段正文吞进占位符
+  text = text.replace(/https?:\/\/[^\s()<>"'　-ヿ一-鿿＀-￯]+/g, ph);
   text = text.replace(/<[^>]+>/g, ph);
   return { text: text, protected: kept };
 }
@@ -238,6 +240,7 @@ function buildSystemPrompt(lang: string): string {
     "1. Tokens like __PH_0__ are placeholders for code, URLs or markup. Keep them EXACTLY as-is, in their original positions. Do not translate, modify, or drop them.",
     "2. Preserve all Markdown formatting (headings, lists, links, emphasis, tables).",
     "3. Output ONLY the translation, no explanations or extra text.",
+    "4. Translate ALL Chinese prose, including headings, list items, table cells and link text. Leave no Chinese sentences untranslated.",
   ].join("\n");
 }
 

@@ -8,13 +8,13 @@ slug: zerotier转发(iptables配置)
 
 > この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
-# ネットワーク3層NAT設定方法（Linuxホスト）
+# ネットワークレイヤ3 NAT設定方法（Linuxホスト）
 
-- zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定する
-- （相互接続が必要な場合）LAN AとBにそれぞれ1台、zerotierをインストールし、2つの内部ネットワークを相互接続するゲートウェイとして機能するホストが必要
-- それぞれ192.168.1.10（192.168.192.10）、192.168.2.10（192.168.192.20）#括弧内は仮想LANのIPアドレス
+- zerotier仮想LANのネットワークセグメントは192.168.192.0、LAN Aは192.168.1.0、LAN Bは192.168.2.0と仮定します
+- （相互接続が必要な場合）LAN AとLAN Bにそれぞれ1台、zerotierをインストールしたホストが必要で、2つの内部ネットワークを相互接続するゲートウェイとして機能します
+- それぞれ192.168.1.10（192.168.192.10）、192.168.2.10（192.168.192.20）です。#括弧内は仮想LANのIPアドレスです
 
-## 1. [zerotier](https://so.csdn.net/so/search?q=zerotier&spm=1001.2101.3001.7020)网站的networks里面的Managed のRoutesでルートテーブルを設定し、以下の内容を追加します
+## 1. [zerotier](https://so.csdn.net/so/search?q=zerotier&spm=1001.2101.3001.7020)サイトのnetworks内のManaged Routesでルーティングテーブルを設定し、以下の内容を追加します
 
 ```crystal
 #如果单向连接,仅需填写下方一个即可.
@@ -32,7 +32,7 @@ slug: zerotier转发(iptables配置)
 192.168.2.0/24 via 192.168.192.20 
 ```
 
-## 2. カーネル転送を有効化
+## 2. カーネル転送を有効にする
 
 ```typescript
 echo "net.ipv4.ip_forward = 1" >> /etc/sysctl.conf
@@ -127,7 +127,7 @@ iptables-save #保存配置到文件,否则重启规则会丢失.
 
 ---
 
-# 旧バージョンzerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処
+# 旧版zerotier「cannot bind local interface port」またはネットワークに接続できない場合の対処
 
 ```shell
 killall -9 zerotier-one //杀死zerotier所有进程
@@ -248,10 +248,10 @@ uci commit
 
 
 
-このときztネットワークは内部ネットワークにアクセスできる。内部ネットワークからztにアクセスする場合は静的ルートを設定し、送信元IPにはルーターのzt IPを選択する。
+この時点でztネットワークから内部ネットワークにアクセスできます。内部ネットワークからztにアクセスする場合は静的ルートを設定し、送信元IPはルーターのzt IPを選択します
 
 ## 添付ファイル
 
 - [moonノード設定.zip](moon%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE.zip)
-- [zerotierでmoon構築.pdf](zerotier%E6%90%AD%E5%BB%BAmoon.pdf)
+- [zerotierでmoonを構築.pdf](zerotier%E6%90%AD%E5%BB%BAmoon.pdf)
 - [zerotier設定.pdf](zerotier%E9%85%8D%E7%BD%AE.pdf)

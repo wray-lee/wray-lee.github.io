@@ -1,6 +1,6 @@
 // 主题的多语言只覆盖文章/页面，站点级文案（_config.yml 的 title/subtitle/description）
 // 在 /en/、/ja/ 下仍是中文。这里按输出页面的 <html lang> 替换这几处固定文案。
-// 这三个字符串不出现在正文里（已确认），所以整页替换是安全的。
+// 这几个字符串不出现在正文里（已确认），所以整页替换是安全的。
 var STRINGS = {
   "zh-CN": {},
   en: {
@@ -8,13 +8,21 @@ var STRINGS = {
     "技术笔记与折腾记录": "Tech notes &amp; tinkering logs",
     "Wray Lee 的技术笔记：折腾、备忘与学习记录":
       "Wray Lee's tech notes: tinkering, cheatsheets and study logs",
+    "技术, 笔记, 折腾, 教程": "tech, notes, tinkering, tutorials",
   },
   ja: {
     "Wray的Blog": "Wrayのブログ",
     "技术笔记与折腾记录": "技術メモと改造記録",
     "Wray Lee 的技术笔记：折腾、备忘与学习记录":
       "Wray Lee の技術メモ：改造・備忘・学習の記録",
+    "技术, 笔记, 折腾, 教程": "技術, ノート, 改造, チュートリアル",
   },
+};
+
+// 标签名不随文章翻译（译文 front-matter 沿用原文 tags），这里只翻译显示文字
+var TAGS = {
+  en: { "笔记": "Notes", "工具": "Tools", "组网": "Networking", "正则": "Regex", "更改u盘图标": "USB drive icon" },
+  ja: { "笔记": "ノート", "工具": "ツール", "组网": "ネットワーク構築", "正则": "正規表現", "更改u盘图标": "USBドライブアイコン変更" },
 };
 
 hexo.extend.filter.register('after_render:html', function (data) {
@@ -23,6 +31,13 @@ hexo.extend.filter.register('after_render:html', function (data) {
   if (!map || !Object.keys(map).length) return data; // 默认语言（zh-CN）不改
   Object.keys(map).forEach(function (from) {
     data = data.split(from).join(map[from]);
+  });
+  // 中文标签名：只换显示文字（>名< 和 title/content 属性），标签 URL 保持中文 slug 不变
+  var tags = TAGS[m[1]] || {};
+  Object.keys(tags).forEach(function (from) {
+    ['>' + from + '<', '"' + from + '"', ': ' + from + ' |'].forEach(function (w) {
+      data = data.split(w).join(w.replace(from, tags[from]));
+    });
   });
   // 页头 RSS 按钮与 <link rel="alternate"> 指向该语言自己的 feed（见下方 atom 生成器）
   return data.split('href="/atom.xml"').join('href="/' + m[1] + '/atom.xml"');

@@ -8,22 +8,22 @@ slug: zerotier自建planet
 
 > Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
-# ZeroTier Self-Hosted planet
+# ZeroTier self-hosted planet
 
-Using the author's Docker, the final central node shows as a leaf; tested latency on China Mobile 4G and China Telecom broadband was 500 ms, and to the central node it was 120 ms and 40 ms respectively — in practice, traffic did not go through the custom node.
-**After research, further configuration is required**. Here is the approach:
+Using the author's Docker, the final central node is displayed as leaf; tested latency on China Mobile 4G and China Telecom broadband is 500 ms, and to the central node is 120 ms and 40 ms respectively; in practice, traffic did not go through the custom node.
+**After research, additional configuration is required**. Here is the approach:
 
 1. The compose file needs to add ports: '9993:9993' and '9993:9993/udp'; the server and firewall must also allow them
 2. Enter the container and generate moon.json
 3. Copy moon.json to the host and modify stableEndpoints
-4. On the host, use [mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86)生成行星文件
-5. Copy the modified moon.json back into the container, generate the moon file inside the container, create a moons.d folder, and put it in there. Copy one to the host as a backup
+4. On the host, use [mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86) to generate the planet file
+5. Copy the modified moon.json back to the container, generate the moon file inside the container, create a moons.d folder, and put it in. Copy one to the host as a backup
 6. Replace the planet file back into the container
 7. Restart the container
 8. Replace the client's planet file
-9. On Android, in practice loading planet alone does not work. Loading the moon file and disabling the official planet node does work
+9. For Android, in testing, loading planet alone does not take effect. Load the moon file and disable the official planet node, then it takes effect
 
-For details, refer to the code implementation in https://github.com/xubiaolin/docker-zerotier-planet and the various tutorials on generating a moon
+For details, refer to the code implementation in https://github.com/xubiaolin/docker-zerotier-planet and various moon generation tutorials
 
 \######## For reference only #########
 
@@ -81,9 +81,9 @@ For details, refer to the code implementation in https://github.com/xubiaolin/do
     chmod 777 moon.json
     ```
 
-4. Open a new terminal and, **outside the container**, modify `moon.json`; the location corresponds to the mount location
+4. Create a new terminal, and outside the **container** modify `moon.json`, at the location corresponding to the mount location
 
-    Modify `stableEndpoints`, paying attention to the format and the actual public IP
+    Modify `stableEndpoints`, paying attention to the format and actual public IP
 
     ```
     {
@@ -102,7 +102,7 @@ For details, refer to the code implementation in https://github.com/xubiaolin/do
     }
     ```
 
-5. Generate the moon file **inside the container**
+5. Generate the moon file inside the **container**
 
     ```
     zerotier-idtool genmoon moon.json
@@ -110,11 +110,11 @@ For details, refer to the code implementation in https://github.com/xubiaolin/do
     cp *.moon moons.d/
     ```
 
-6. Generate the planet file **outside the container**
+6. Generate the planet file outside the **container**
 
     - Copy the moon file; the client can use it
 
-    - Download [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0),, copy moon.json, and put them in the same directory
+    - Download [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0), copy moon.json, and place them in one directory
 
     - ```
         ./mkmoonworld-x86_64 ./moon.json
@@ -139,10 +139,10 @@ For details, refer to the code implementation in https://github.com/xubiaolin/do
 
 8. Visit the settings page corresponding to `ip+端口`
 
-9. Replace the client's planet file and restart the service, then join the network and authorize on the web page
+9. Replace the client's planet file and restart the service, then join the network and authorize it on the web page
 
 ## Attachments
 
-- [moon node setup.zip](moon%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE.zip)
-- [zerotier set up moon.pdf](zerotier%E6%90%AD%E5%BB%BAmoon.pdf)
+- [moon node settings.zip](moon%E8%8A%82%E7%82%B9%E8%AE%BE%E7%BD%AE.zip)
+- [zerotier setup moon.pdf](zerotier%E6%90%AD%E5%BB%BAmoon.pdf)
 - [zerotier configuration.pdf](zerotier%E9%85%8D%E7%BD%AE.pdf)

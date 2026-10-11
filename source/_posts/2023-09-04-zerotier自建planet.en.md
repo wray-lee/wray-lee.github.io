@@ -8,18 +8,18 @@ slug: zerotier自建planet
 
 > Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
-Using the author's docker, the final central node is displayed as leaf; testing China Mobile 4G and China Telecom broadband latency is 500 ms, and to the central node they are 120 ms and 40 ms respectively; actually it did not go through the custom node.
-**After research, further configuration is needed**. Here is the approach, as follows:
+Using the author's Docker, the central node ultimately shows as leaf. Tested latency on China Mobile 4G and China Telecom broadband is 500 ms; to the central node it is 120 ms and 40 ms respectively, and traffic actually does not go through the custom node.
+**After research, further settings are needed**. Here is the approach:
 
-1. compose needs to add ports: ‘9993:9993’ and ‘9993:9993/udp’, and the server and firewall must also allow them
+1. compose needs to add ports: ‘9993:9993’ and ‘9993:9993/udp’; the server and firewall must also allow them
 2. Enter the container and generate moon.json
 3. Copy moon.json to the host machine and modify stableEndpoints
-4. On the host machine, use [mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86)生成行星文件
-5. Copy the modified moon.json back into the container, generate the moon file inside the container, create a moons.d folder, and put it in. Copy one copy to the host machine for backup
+4. On the host machine, use [mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86) to generate the planet file
+5. Copy the modified moon.json back to the container, generate the moon file inside the container, create a moons.d folder, and put it in. Copy one to the host machine as a backup
 6. Replace the planet file back into the container
 7. Restart the container
 8. Replace the client's planet file
-9. For Android, in actual testing, loading planet alone does not take effect. Load the moon file, disable the official planet node, and it takes effect
+9. For Android, in actual testing, loading the planet alone does not take effect. Load the moon file, disable the official planet nodes, and it takes effect
 
 For details, refer to [https://github.com/xubiaolin/docker-zerotier-planet](https://github.com/xubiaolin/docker-zerotier-planet) for the code implementation and various moon generation tutorials
 
@@ -76,9 +76,9 @@ ls -l
 zerotier-idtool initmoon identity.public > moon.json
 chmod 777 moon.json
 ```
-4. Open a new terminal, modify `moon.json` **outside the container**, at the location corresponding to the mount location
+4. Open a new terminal, and modify `moon.json` **outside the container**; the location corresponds to the mount location
 
-Modify `stableEndpoints`, note the format and the actual public IP
+Modify `stableEndpoints`, and pay attention to the format and the actual public IP
 
 ```none
 {
@@ -106,7 +106,7 @@ cp *.moon moons.d/
 6. Generate the planet file **outside the container**
 
 - Copy one moon file; the client can use it
-- Download [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0), copy moon.json, and place it in a directory
+- Download [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0), copy moon.json, and put it in a directory
 - ```
   ./mkmoonworld-x86_64 ./moon.json
   mv world.bin planet
@@ -119,11 +119,11 @@ cp *.moon moons.d/
 
 ```none
 docker restart ztncui
-docker exec -it ztncui bash # Enter the container
-# Perform operations inside the container
+docker exec -it ztncui bash # enter the container
+# operate inside the container
 cd /var/lib/zerotier-one
-# View moon
+# view moon
 zerotier-cli listmoons
 ```
 8. Visit the settings page corresponding to `ip+端口`
-9. Replace the client's planet file and restart the service, then join the network, and authorize on the web page
+9. Replace the client's planet file and restart the service, then join the network, and authorize it on the web page

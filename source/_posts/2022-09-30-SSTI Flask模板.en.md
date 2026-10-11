@@ -9,9 +9,9 @@ slug: SSTI Flask模板
 > Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
 {% raw %}
-# SSTI Flask模板
+# SSTI Flask Template
 
-# 基础
+# Basics
 
 ```sql
 控制结构 {% %}

@@ -8,43 +8,40 @@ slug: Tailscale 基础教程：部署私有 DERP 中继服务器
 
 > Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
 
-## Tailscale Basics Tutorial: Deploying a Private DERP Relay Server
+## Tailscale Basics: Deploying a Private DERP Relay Server
 
-[Previous article](https://icloudnative.io/posts/how-to-set-up-or-migrate-headscale/#总结)介绍了如何使用 `Headscale` replace Tailscale's official control server, and connect clients on various platforms. This article will introduce how to make Tailscale use custom DERP Servers. Many people may not know what `DERP` is. That's okay, I'll start with **relay servers**.
+[Previous article](https://icloudnative.io/posts/how-to-set-up-or-migrate-headscale/#总结) introduced how to use `Headscale` to replace Tailscale's official control server and connect clients on various platforms. This article will introduce how to make Tailscale use custom DERP Servers. Many people may not know what `DERP` is, but that's okay, I'll start with **relay servers**.
 
 ## What Is STUN
 
-Tailscale's ultimate goal is to enable two machines **located anywhere on the network** to establish a **peer-to-peer connection** (direct connection), but the real world is complex. In most cases, machines are behind NAT and firewalls, so hole punching is needed to achieve direct connections, that is, NAT traversal.
+Tailscale's ultimate goal is to make two machines **located anywhere on the network** establish a **peer-to-peer connection** (direct connection), but the real world is complex. In most cases, machines are behind NAT and firewalls. At this point, hole punching is needed to achieve direct connection, i.e., NAT traversal.
 
-NAT can be divided into many types according to **NAT mapping behavior** and **stateful firewall behavior**, but for NAT traversal there is no need to care about so many types. You only need to look at **whether the NAT or stateful firewall strictly checks the destination Endpoint**. Based on this factor, NAT can be divided into **Easy NAT** and **Hard NAT**.
+NAT can be divided into many types according to **NAT mapping behavior** and **stateful firewall behavior**, but for NAT traversal there is no need to care about so many types. You only need to look at **whether the NAT or stateful firewall strictly checks the target Endpoint**. Based on this factor, NAT can be divided into **Easy NAT** and **Hard NAT**.
 
-- **Easy NAT** and its variants are called "Endpoint-Independent Mapping" (**EIM, endpoint-independent mapping**)
-    The Endpoint here refers to the destination Endpoint. That is, as long as the stateful firewall sees an outbound packet initiated by a client itself, it will allow the corresponding inbound packet to enter, **regardless of who sent this inbound packet**.
+- **Easy NAT** and its variants are called “Endpoint-Independent Mapping” (**EIM, endpoint-independent mapping**)
+    Endpoint here refers to the target Endpoint. That is, as long as a stateful firewall sees an outbound packet initiated by the client itself, it will allow the corresponding inbound packet to enter, **regardless of who sent this inbound packet**.
+- **hard NAT** and its variants are called “Endpoint-Dependent Mapping” (**EDM, endpoint-dependent mapping**)
+    This kind of NAT generates a corresponding mapping relationship for each target Endpoint. On such a device, if the client initiates an outbound packet to a target Endpoint, assuming the client's public IP is 2.2.2.2, then the stateful firewall will open a port, say 4242. Then only inbound packets from that target Endpoint are allowed through `2.2.2.2:4242`, and all other clients are not allowed. This kind of NAT is stricter, so it is called Hard NAT.
 
-- **hard NAT** and its variants are called "Endpoint-Dependent Mapping" (**EDM, endpoint-dependent mapping**)
-    This kind of NAT generates a corresponding mapping for each destination Endpoint. On such a device, if a client initiates an outbound packet to a certain destination Endpoint, assuming the client's public IP is 2.2.2.2, the stateful firewall will open a port, say 4242. Then only inbound packets from that destination Endpoint are allowed to pass through `2.2.2.2:4242`; all other clients are not allowed. This kind of NAT is stricter, so it is called Hard NAT.
-
-For Easy NAT, we only need to provide a third-party service that can tell the client "what the client's public ip:port it sees is", and then in some way tell this information to the communication peer, so the latter knows which address to connect to! This kind of service is called **STUN** (Session Traversal Utilities for NAT, NAT session traversal application). Its workflow is shown in the figure below:
+For Easy NAT, we only need to provide a third-party service that can tell the client "what is the public ip:port of the client as seen by it", and then tell this information to the peer in some way. The latter then knows which address to connect to! This kind of service is called **STUN** (Session Traversal Utilities for NAT, NAT session traversal application). Its workflow is shown in the following figure:
 
 - The laptop sends a request to the STUN server: "From your perspective, what is my address?"
-
-- The STUN server returns a response: "I see that your UDP packet came from this address: `ip:port`."
+- The STUN server returns a response: "I see your UDP packet is coming from this address: `ip:port`".
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-17-27-yqHlMG.jpg)
 
-## What Is a Relay
+## What Is Relay
 
-For **Hard NAT**, STUN does not work well. Even if STUN obtains the client's public `ip:port` and tells the communication peer, it is of no help, because the firewall opening was created by communicating with STUN, and this opening only allows STUN's inbound packets to enter. Other communication peers cannot enter even if they know this opening. Usually enterprise-grade NAT is Hard NAT.
+For **Hard NAT**, STUN doesn't work well. Even if STUN obtains the client's public `ip:port` and tells the peer, it won't help, because the firewall only opened the hole when communicating with STUN. This hole only allows inbound packets from STUN to enter. Other peers know about this hole but still can't get in. Usually enterprise-grade NAT is Hard NAT.
 
-In this case, hole punching is impossible, but we cannot give up. We can choose a compromise: create a relay server. The client communicates with the relay server, and the relay server then relays the packets to the communication peer.
+In this case, hole punching is impossible, but we can't give up just like that. We can choose a compromise: create a relay server, the client communicates with the relay server, and the relay server then relays packets to the peer.
 
-As for the performance of relaying, it depends on the specific situation:
+As for relay performance, it depends on the specific situation:
 
-- If a direct connection can be made, then obviously there is no need to use relaying;
+- If direct connection is possible, then there is obviously no need to use relay;
+- But if direct connection is impossible, while the relay path is very close to the real path of direct connection between the two parties and the bandwidth is sufficient, then the relay method will not significantly reduce communication quality. Latency will definitely increase a bit, and bandwidth will be consumed, but **compared with being completely unable to connect, it is still acceptable**.
 
-- But if a direct connection cannot be made, and the relay path is very close to the real path of the direct connection between both parties, and the bandwidth is large enough, then relaying will not significantly reduce communication quality. Latency will definitely increase a bit, and some bandwidth will be used, but **compared with being completely unable to connect, it is still acceptable**.
-
-In fact, for most networks, Tailscale can successfully hole punch through various black technologies, and only in very few cases will it choose relaying. Relaying is only a fallback mechanism.
+In fact, for most networks, Tailscale can successfully punch holes through various black technologies, and only in very few cases will it choose relay. Relay is only a fallback mechanism.
 
 ## Introduction to Relay Protocols
 
@@ -52,10 +49,9 @@ There are multiple ways to implement relay protocols.
 
 ### TURN
 
-TURN stands for Traversal Using Relays around NAT. This is a classic relay implementation method, and its core idea is:
+TURN stands for Traversal Using Relays around NAT. This is a classic relay implementation method. The core idea is:
 
-- The **user** (person) first authenticates with a TURN server on the public network. After success, the latter will tell you: "I have allocated ip:port for you, and will relay traffic for you next,"
-
+- The **user** (person) first authenticates with a TURN server on the public internet. After success, the latter tells you: "I have allocated ip:port for you, and will relay traffic for you next",
 - Then tell the other party this ip:port address and let it connect to this address. After that, it is a very simple client/server communication model.
 
 Unlike STUN, this protocol has no real interactivity and is not very easy to use, so Tailscale did not adopt TURN as its relay protocol.
@@ -64,43 +60,39 @@ Unlike STUN, this protocol has no real interactivity and is not very easy to use
 
 DERP stands for Detoured Encrypted Routing Protocol. This is a protocol developed by Tailscale itself:
 
-- It is a **general-purpose packet relay protocol that runs on top of HTTP**, and most networks allow HTTP communication.
+- It is a **general-purpose packet relay protocol that runs over HTTP**, and most networks allow HTTP communication.
+- It relays encrypted traffic (encrypted payloads) according to the destination’s public key.
 
-- It relays encrypted traffic (encrypted payloads) based on the destination's public key.
+![Tailscale will automatically select the DERP server nearest to the target node to relay traffic](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-19-02-zLDv51.svg)
 
-![Tailscale automatically selects the DERP server closest to the target node to relay traffic](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-26-19-02-zLDv51.svg)
+The algorithm Tailscale uses is very interesting. **Connections between all clients first choose DERP mode (relay mode), which means the connection can be established immediately (the lowest-priority but 100% successful mode), and users do not need to wait at all**. Then path discovery starts in parallel. Usually after a few seconds, we can discover a better path, then transparently upgrade the existing connection to a peer-to-peer connection (direct connection).
 
-The algorithm Tailscale uses is very interesting: **connections between all clients first choose DERP mode (relay mode), which means the connection can be established immediately (the lowest-priority mode but one that succeeds 100% of the time), and users do not need to wait at all**. Then path discovery begins in parallel. Usually after a few seconds, we can discover a better path, and then transparently upgrade the existing connection to it, turning it into a peer-to-peer connection (direct connection).
+Therefore, DERP is both Tailscale's guaranteed communication method when NAT traversal fails (its role at this time is similar to TURN), and a side channel that helps us complete NAT traversal in some other scenarios. In other words, it is both our fallback method and the infrastructure that helps us upgrade to a peer-to-peer connection when there is a better traversal link.
 
-Therefore, DERP is both Tailscale's fallback communication method when NAT traversal fails (in this case its role is similar to TURN), and also a side channel that helps us complete NAT traversal in some other scenarios. In other words, it is both our fallback method and, when there is a better traversal link, the infrastructure that helps us upgrade to a peer-to-peer connection.
+## Self-Hosted Private DERP Server
 
-## Self-Hosting a Private DERP Server
+Tailscale's private key is only stored on the current node, so the DERP server cannot decrypt traffic. It can only, like other routers on the Internet, dumbly forward encrypted traffic from one node to another. The only difference is that DERP uses a slightly more advanced protocol to prevent abuse.
 
-Tailscale's private key is only stored on the current node, so the DERP server cannot decrypt traffic. It can only, like other routers on the Internet, dumbly forward encrypted traffic from one node to another, except that DERP uses a slightly more advanced protocol to prevent abuse.
-
-Tailscale has open-sourced the DERP server code. If you are interested, you can read [the DERP source code](https://github.com/tailscale/tailscale/tree/main/derp)。
+Tailscale has open-sourced the DERP server code. If you are interested, you can read [the DERP source code](https://github.com/tailscale/tailscale/tree/main/derp).
 
 ------
 
-Tailscale officially has many built-in DERP servers distributed around the world, **but none in mainland China**, for reasons you know. This means that once traffic is relayed through a DERP server, latency will be very high. Moreover, the officially provided DERP servers are used by countless people, which poses security risks.
+Tailscale officially has many built-in DERP servers distributed around the world, **except mainland China**, for reasons you know. This causes the latency to be very high once traffic is relayed through a DERP server. Moreover, the official DERP servers are used by countless people, which poses security risks.
 
-To achieve low latency and high security, we can refer to [Tailscale's official documentation](https://tailscale.com/kb/1118/custom-derp-servers/)自建私有的 DERP server. There are two deployment modes: one is based on a domain name, and the other does not require a domain name and can directly use an IP, but requires a bit of black technology. Let's first look at the simplest domain-name-based solution.
+To achieve low latency and high security, we can refer to [Tailscale's official documentation](https://tailscale.com/kb/1118/custom-derp-servers/) to self-host a private DERP server. There are two deployment modes: one is based on a domain name, and the other does not require a domain name and can use an IP directly, but requires a bit of hackery. Let's first look at the simplest domain name solution.
 
 ### Using a Domain Name
 
 This solution needs to meet the following conditions:
 
-- You need to have your own domain name and have applied for an SSL certificate
-
-- You need to prepare one or more cloud hosts
-
-- If the server is in China, the domain name needs to be filed for ICP registration
-
+- You must have your own domain name and have applied for an SSL certificate
+- You need to prepare one or more cloud servers
+- If the server is in China, the domain name needs ICP filing
 - If the server is abroad, no filing is required
 
-If all the above conditions are met, you can start deploying according to the following steps.
+If all the above conditions are met, you can start deployment according to the following steps.
 
-It is recommended to deploy directly using Docker. I have already built the Docker image, so you can deploy directly:
+It is recommended to deploy directly with Docker. I have already built the Docker image, so you can deploy directly:
 
 ```bash
 🐳  → docker run --restart always \
@@ -114,17 +106,13 @@ It is recommended to deploy directly using Docker. I have already built the Dock
 
 There are a few things to note:
 
-- If you can use port 443, try to use port 443; only use another port if absolutely necessary;
-
+- Use port 443 if possible; only use another port if absolutely necessary;
 - By default, the STUN service is also enabled, and the UDP port is `3478`;
-
 - The firewall needs to allow ports 12345 and 3478;
-
 - Prepare an SSL certificate;
-
 - I have redacted the domain part; please replace it with your own domain name.
 
-A key point about the certificate part: **Suppose your domain name is `xxx.com`, then the certificate name must be `xxx.com.crt`, not a single character wrong! Similarly, the private key name must be `xxx.com.key`, not a single character wrong!**
+The certificate part needs special emphasis: **Suppose your domain is `xxx.com`, then the certificate name must be `xxx.com.crt`, not a single character wrong! Similarly, the private key name must be `xxx.com.key`, not a single character wrong!**
 
 View container logs:
 
@@ -135,20 +123,19 @@ View container logs:
 2022/03/26 11:36:28 running STUN server on [::]:3478
 ```
 
-Currently derper crashes after running for a while. There is no better solution for now, so we can only solve it by scheduled restarts, for example, using crontab to set the container to restart every two hours:
+Currently derper crashes after running for a while. There is no better solution for now, so we can only solve it by scheduled restarts, for example, using crontab to restart the container every two hours:
 
 ```bash
 0 */2 * * * docker restart derper &> /dev/null
 ```
 
-For details, refer to this issue: [Derper TLS handshake error: remote error: tls: internal error](https://github.com/tailscale/tailscale/issues/4082)
+For details, see this issue: [Derper TLS handshake error: remote error: tls: internal error](https://github.com/tailscale/tailscale/issues/4082)
 
 ------
 
-After deploying derper, you can modify the Headscale configuration to use a custom DERP server. Headscale can use custom DERP through two forms of configuration:
+After deploying derper, you can modify Headscale's configuration to use a custom DERP server. Headscale can use custom DERP through two forms of configuration:
 
-- One is an online URL, with the format `JSON`, which is the same format and syntax used by Tailscale's official control server.
-
+- One is an online URL, with the format `JSON`, the same format and syntax used by Tailscale's official control server.
 - The other is a local file, with the format `YAML`.
 
 We can directly use a local YAML configuration file, with the following content:
@@ -191,21 +178,15 @@ regions:
 
 Configuration notes:
 
-- `regions` is an **object** in YAML. Each object below represents an **availability zone**, and each **availability zone** can contain multiple DERP nodes, namely `nodes`.
-
-- The `regionid` of each availability zone cannot be repeated.
-
-- The `name` of each `node` cannot be repeated.
-
+- `regions` is an **object** in YAML. Each object below represents an **availability zone**. Each **availability zone** can have multiple DERP nodes, i.e. `nodes`.
+- The `regionid` of each availability zone cannot be duplicated.
+- The `name` of each `node` cannot be duplicated.
 - `regionname` is generally used to describe the availability zone, and `regioncode` is generally set to the abbreviation of the availability zone.
-
-- The `ipv4` field is not required. If your domain name can resolve to your DERP server address over the public network, you can leave it blank. If you use a second-level domain name and you have not added the relevant resolution record for this domain name in a public DNS server, then you need to specify the IP here (provided that your certificate includes this second-level domain name; this is easy to support, just get a wildcard certificate).
-
+- The `ipv4` field is not required. If your domain name can resolve to your DERP server address over the public internet, you can leave it blank here. If you use a subdomain and have not added the relevant resolution record for this domain in a public DNS server, then you need to specify the IP here (provided that your certificate includes this subdomain, which is easy to support; just get a wildcard certificate).
 - `stunonly: false` indicates that in addition to using the STUN service, the DERP service can also be used.
+- I have redacted the domain and IP parts in the above configuration; you need to fill them in according to your actual situation.
 
-- In the above configuration, I have redacted the domain and IP parts. You need to fill them in according to your actual situation.
-
-Next, you also need to modify Headscale's configuration file to reference the above custom DERP configuration file. The configuration items that need to be modified are as follows:
+Next, you also need to modify Headscale's configuration file to reference the custom DERP configuration file above. The configuration items that need to be modified are as follows:
 
 ```yaml
 # /etc/headscale/config.yaml
@@ -259,11 +240,11 @@ Report:
                 - thk: 39.7ms (Tencent Hongkong)
 ```
 
-`tailscale netcheck` actually only detects the port of `3478/udp`. Even if netcheck shows it can connect, it does not necessarily mean that port 12345 can forward traffic. The simplest way is to directly open the DERP server URL: https://xxxx:12345，如果看到如下页面，且地址栏的 If the SSL certificate tab shows normal and available, then there is really no problem.
+`tailscale netcheck` actually only checks the port of `3478/udp`. Even if netcheck shows it can connect, it does not necessarily mean port 12345 can forward traffic. The simplest way is to directly open the DERP server URL: https://xxxx:12345. If you see the following page and the SSL certificate indicator in the address bar shows normal and valid, then it is truly okay.
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-27-11-21-dZ5dtZ.png)
 
-Check the connection method with the communication peer:
+Check the connection method with the peer:
 
 ```bash
 $ tailscale status
@@ -273,7 +254,7 @@ $ tailscale status
                 openwrt              default      linux   active; direct xxxx:2834; offline, tx 1403688 rx 1217620
 ```
 
-This client is a cloud host, and it has 3 communication peers: macOS, OpenWRT, and an Android phone. macOS and OpenWRT are both on a China Telecom home intranet, and the Android phone uses China Telecom mobile data. It can be seen that only the Android phone relays traffic through the custom DERP server, and the hole-punching success rate is quite high. Use ping to test connectivity:
+This client is a cloud server and has 3 peers, namely macOS, OpenWRT, and an Android phone. macOS and OpenWRT are both in a China Telecom home network, and the Android phone uses China Telecom mobile data. As you can see, only the Android phone relays traffic through the custom DERP server, and the hole punching success rate is quite high. Use ping to test connectivity:
 
 ```bash
 $ ping 10.1.0.8
@@ -299,9 +280,9 @@ pong from oneplus-8t (10.1.0.8) via DERP(thk) in 111ms
 pong from oneplus-8t (10.1.0.8) via DERP(thk) in 105ms
 ```
 
-This one is a bit more friendly and will directly tell you that you are communicating with the other party through a DERP relay server.
+This is a bit more friendly, and will directly tell you that you are communicating with the peer through the DERP relay server.
 
-If the host where the current Tailscale client resides has IPv6 enabled, then it can directly connect peer-to-peer with the phone via IPv6:
+If the host running the current Tailscale client has IPv6 enabled, then it can directly connect peer-to-peer with the phone over IPv6:
 
 ```bash
 $ /Applications/Tailscale.app/Contents/MacOS/Tailscale status
@@ -315,11 +296,11 @@ pong from oneplus-8t (10.1.0.8) via [240e:472:da0:24a2:a07f:2a67:2a1e:4475]:3723
 
 So if you enable IPv6, it can greatly increase the success rate of **peer-to-peer connections**.
 
-### Using a Pure IP
+### Using Pure IP
 
-I know that most people do not have their own domain name. Even further, even if they have their own domain name, if it has not been filed for ICP registration, it cannot be deployed and used on domestic servers.
+I know that most people do not have their own domain name. To take it a step further, even if you have your own domain name, if it has not been filed, you cannot deploy it on a domestic server for use.
 
-At this point we can only tamper with the derper source code. Find the `cmd/derper/cert.go` file in the tailscale repository, and delete or comment out the content related to domain name verification:
+At this point, we can only tamper with the derper source code. Find the `cmd/derper/cert.go` file in the tailscale repository, and delete or comment out content related to domain verification:
 
 ```go
 func (m *manualCertManager) getCertificate(hi *tls.ClientHelloInfo) (*tls.Certificate, error) {
@@ -330,7 +311,7 @@ func (m *manualCertManager) getCertificate(hi *tls.ClientHelloInfo) (*tls.Certif
 }
 ```
 
-You also need to create a self-signed certificate, which can be created through a script:
+You also need to create a self-signed certificate, which can be created with a script:
 
 ```bash
 # build_cert.sh
@@ -369,7 +350,7 @@ mkdir -p "$CERT_DIR"
 openssl req -x509 -nodes -days 730 -newkey rsa:2048 -keyout "$CERT_DIR/$CERT_HOST.key" -out "$CERT_DIR/$CERT_HOST.crt" -config "$CONF_FILE"
 ```
 
-Rewrite the Dockerfile and set derper's domain name to `127.0.0.1`:
+Rewrite the Dockerfile and set derper's domain to `127.0.0.1`:
 
 ```Dockerfile
 FROM golang:latest AS builder
@@ -422,7 +403,7 @@ After building the image, you can directly start the derper container with this 
 🐳  → docker run --restart always --net host --name derper -d ghcr.io/yangchuansheng/ip_derper
 ```
 
-As with the domain-name solution, the firewall needs to allow the corresponding ports (12345 and 3478).
+As with the domain name solution, the firewall needs to allow the corresponding ports (12345 and 3478).
 
 View container logs:
 
@@ -438,13 +419,13 @@ writing new private key to '/app/certs//127.0.0.1.key'
 2022/03/26 14:30:31 running STUN server on [::]:3478
 ```
 
-If you want to build the derper image yourself, you can refer to [my GitHub repository](https://github.com/yangchuansheng/ip_derper)。
+If you want to build the derper image yourself, you can refer to [my GitHub repository](https://github.com/yangchuansheng/ip_derper).
 
 ------
 
-Next comes the fancy trick: in the Headscale configuration, we need to **set the DERP domain name to an IP**! If you don't understand, you can digest it a bit more, then continue reading haha~~
+Now for the fancy trick: in Headscale's configuration, we need to **set the DERP domain to an IP**! If you don't understand, take a moment to digest it, then keep reading haha~~
 
-In addition to derper, the Tailscale client also needs to **skip domain name verification**, which needs to be set in the DERP configuration. However, Headscale's local YAML file does not currently support this configuration item, so there is no choice; we can only use an online URL. The JSON configuration content is as follows:
+In addition to derper, the Tailscale client also needs to **skip domain verification**, and this needs to be set in the DERP configuration. However, Headscale's local YAML file does not currently support this configuration item, so there's no way; we can only use an online URL. The JSON configuration content is as follows:
 
 ```json
 {
@@ -468,15 +449,14 @@ In addition to derper, the Tailscale client also needs to **skip domain name ver
 }
 ```
 
-Configuration analysis:
+Configuration explanation:
 
-- For `HostName`, directly fill in derper's public IP, that is, the same value as `IPv4`.
-
-- `InsecureForTests` must be set to true to skip domain name verification.
+- For `HostName`, directly fill in derper's public IP, i.e. the same as the value of `IPv4`.
+- `InsecureForTests` must be set to true to skip domain verification.
 
 You need to turn this JSON file into a URL accessible by the Headscale server, for example, set up Nginx on the Headscale host, or upload it to object storage (such as Alibaba Cloud OSS).
 
-Next, you also need to modify Headscale's configuration file to reference the above custom DERP URL. The configuration items that need to be modified are as follows:
+Next, you also need to modify Headscale's configuration file to reference the custom DERP URL above. The configuration items that need to be modified are as follows:
 
 ```yaml
 # /etc/headscale/config.yaml
@@ -531,7 +511,7 @@ Report:
 		- thk: 43.5ms  (Tencent Hongkong)
 ```
 
-Check the connection method with the communication peer again:
+Check the connection method with the peer again:
 
 ```bash
 $ tailscale status
@@ -540,7 +520,7 @@ $ tailscale status
                 openwrt              default      linux   active; direct 192.168.100.254:41641; offline, tx 189868 rx 4074772
 ```
 
-You can see that this time Tailscale automatically selected a **domestic** DERP server with the optimal route as the relay. You can test the latency:
+As you can see, this time Tailscale automatically selected a **domestic** DERP server with the optimal route as the relay. You can test the latency:
 
 ```bash
 $ tailscale ping 10.1.0.8
@@ -549,7 +529,7 @@ pong from oneplus-8t (10.1.0.8) via DERP(home) in 45ms
 pong from oneplus-8t (10.1.0.8) via DERP(home) in 30ms
 ```
 
-Perfect! The home here is of course my home broadband. The deployment method is similar to the domestic cloud host mentioned above. You need to additionally enable public network port mapping (12345/tcp, 3478/udp). There is one more thing to note about the configuration content:
+Perfect! The home here is of course my home broadband. The deployment method is similar to the domestic cloud server mentioned above. You need to additionally enable public port mapping (12345/tcp, 3478/udp). One more thing to note is the configuration content:
 
 ```json
 {
@@ -587,27 +567,26 @@ Perfect! The home here is of course my home broadband. The deployment method is 
 }
 ```
 
-Compared with a domestic cloud host, the home broadband configuration has two differences:
+Compared with a domestic cloud server, home broadband configuration has two differences:
 
 - You need to delete the `IPv4` configuration item. Because the public IP of home broadband changes dynamically, you need to use **DDNS** to dynamically resolve the public IP.
-
-- For `HostName`, it is best to fill in a domain name, because your public IP changes dynamically and you cannot fill in an IP unless you keep modifying the configuration file. It doesn't matter if you fill in a domain name anyway; the domain name will not be verified, and you don't need to care about the certificate. **As long as the domain name can resolve to your public IP, it is fine.**
+- For `HostName`, it is best to fill in a domain name, because your public IP changes dynamically and you cannot fill in an IP unless you keep modifying the configuration file. It's okay to fill in a domain name anyway, since the domain name will not be verified, and you don't need to worry about certificates. **As long as the domain name can resolve to your public IP.**
 
 ## Preventing DERP from Being Freeloaded
 
-By default, a DERP server can be freeloaded. As long as others know the address and port of your DERP server, they can use it for themselves. If your server has a small bandwidth, too many users may overwhelm it, so we need to modify the configuration to prevent freeloading.
+By default, the DERP server can be freeloaded. As long as others know the address and port of your DERP server, they can use it for themselves. If your server has low bandwidth, many users might overload it, so we need to modify the configuration to prevent freeloading.
 
-> Special note: only the domain-name method can prevent freeloading through authentication. The pure IP method cannot prevent freeloading; you can only carefully hide your IP and port so others cannot know them.
+> Special note: only the domain name method can prevent freeloading through authentication. The pure IP method cannot prevent freeloading. You can only carefully hide your IP and port so that others cannot know them.
 
 You only need to do two things:
 
 **1. Install Tailscale on the DERP server.**
 
-The first step is to install the Tailscale client on the host where the DERP service resides, and **start the tailscaled process**.
+The first step is to install the Tailscale client on the host where the DERP service is located, and **start the tailscaled process**.
 
 **2. Add the parameter `--verify-clients` when starting derper.**
 
-This article recommends starting via a container. [Dockerfile content](https://github.com/yangchuansheng/docker-image/blob/master/derper/Dockerfile)如下：
+This article recommends starting via container. The [Dockerfile content](https://github.com/yangchuansheng/docker-image/blob/master/derper/Dockerfile) is as follows:
 
 ```Dockerfile
 FROM golang:latest AS builder
@@ -648,7 +627,7 @@ CMD /app/derper --hostname=$DERP_DOMAIN \
     --verify-clients=$DERP_VERIFY_CLIENTS
 ```
 
-By default, the `--verify-clients` parameter is set to `false`. We do not need to make any changes to the Dockerfile content; we only need to add an environment variable when starting the container. Modify the previous startup command as follows:
+By default, the `--verify-clients` parameter is set to `false`. We do not need to make any changes to the Dockerfile content; just add an environment variable when starting the container. Modify the previous startup command:
 
 ```bash
 🐳  → docker run --restart always \
@@ -661,8 +640,8 @@ By default, the `--verify-clients` parameter is set to `false`. We do not need t
   -d ghcr.io/yangchuansheng/derper:latest
 ```
 
-That's it, and even if others know your DERP server address, they cannot use it. But one thing still needs to be said: even so, you should still try your best not to let others know your server address, to prevent them from having an opportunity to exploit it.
+That's it, all done. Even if others know your DERP server address, they cannot use it. But one thing should still be noted: even so, you should try your best not to let others know your server address, to prevent others from taking advantage of it.
 
 ## Summary
 
-This article introduced the significance of STUN for assisting NAT traversal and explained several common relay protocols, including Tailscale's self-developed DERP protocol. Finally, it taught step by step how to self-host a private DERP server and make Tailscale use our self-hosted DERP server.
+This article introduced the significance of STUN for assisting NAT traversal, explained several common relay protocols, including Tailscale's self-developed DERP protocol. Finally, it taught step by step how to self-host a private DERP server and make Tailscale use our self-hosted DERP server.

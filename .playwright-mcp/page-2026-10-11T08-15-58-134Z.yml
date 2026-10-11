@@ -1,0 +1,195 @@
+- generic [active] [ref=f14e1]:
+  - generic: Loading...
+  - generic [ref=f14e10]:
+    - generic [ref=f14e11]:
+      - generic [ref=f14e12]:
+        - navigation "Primary navigation" [ref=f14e13]:
+          - link " Home" [ref=f14e14]:
+            - /url: /en/
+            - generic [ref=f14e15]: 
+            - generic [ref=f14e16]: Home
+          - link " Archives" [ref=f14e17]:
+            - /url: /en/archives
+            - generic [ref=f14e18]: 
+            - generic [ref=f14e19]: Archives
+          - link " About" [ref=f14e20]:
+            - /url: /en/about
+            - generic [ref=f14e21]: 
+            - generic [ref=f14e22]: About
+          - text: 
+        - navigation "Secondary navigation" [ref=f14e23]:
+          - link "RSS Feed" [ref=f14e24]:
+            - /url: /en/atom.xml
+            - text: 
+          - generic "Search" [ref=f14e25]: 
+          - generic [ref=f14e26]: 
+        - navigation "Language selection" [ref=f14e27]:
+          - generic [ref=f14e28]:
+            - button "Language menu" [ref=f14e29]:
+              - generic [ref=f14e30]: 
+              - generic [ref=f14e31]: English
+            - listbox "Languages":
+              - option "简体中文"
+              - option "English" [selected]
+              - option "日本語"
+      - banner "Site header" [ref=f14e32]:
+        - img "Docker" [ref=f14e33]
+        - generic [ref=f14e35]:
+          - heading "Docker" [level=1] [ref=f14e37]
+          - heading [level=2]
+      - generic "Page content" [ref=f14e38]:
+        - complementary "Sidebar" [ref=f14e39]:
+          - generic [ref=f14e42]:
+            - heading "Contents" [level=3] [ref=f14e44]
+            - text:   
+            - generic [ref=f14e45]:
+              - generic [ref=f14e46]: 
+              - generic [ref=f14e47]: 
+        - region "Main content" [ref=f14e48]:
+          - article [ref=f14e49]:
+            - generic [ref=f14e50]:
+              - generic [ref=f14e53]:
+                - text: 
+                - time [ref=f14e54]: 2025-03-27
+              - generic [ref=f14e56]:
+                - blockquote [ref=f14e57]:
+                  - paragraph [ref=f14e58]: Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.
+                - text: "# Docker ## Registry **Login**: `docker login` **Logout**: `docker logout` **Search images**: `docker search [镜像名]` ## Images **View images**: `docker images` **Create a container from an image**: `docker run [镜像名]`"
+                - figure [ref=f14e59]:
+                  - generic [ref=f14e60]:
+                    - generic [ref=f14e61]: SHELL
+                    - generic [ref=f14e63]:
+                      - generic [ref=f14e64]: 
+                      - generic [ref=f14e65]: 
+                  - table [ref=f14e66]:
+                    - rowgroup [ref=f14e67]:
+                      - row [ref=f14e68]:
+                        - cell [ref=f14e69]:
+                          - generic [ref=f14e70]: "12345"
+                        - 'cell "#docker run 参数 -v [主机路径]:[容器路径] #将容器路径挂载到主机 -P #容器内部端口随机映射到主机端口 -p [主机端口]:[容器端口] #将特定容器端口映射到特定主机端口 --name [容器名字] #容器命名" [ref=f14e71]':
+                          - generic [ref=f14e73]:
+                            - generic [ref=f14e74]: "#docker run 参数"
+                            - text: "-v [主机路径]:[容器路径] #将容器路径挂载到主机-P #容器内部端口随机映射到主机端口-p [主机端口]:[容器端口] #将特定容器端口映射到特定主机端口--name [容器名字] #容器命名"
+                - text: "**Remove image**: `docker rmi [镜像名]` ## Containers **View containers**: `docker ps -a` **Remove container**: `docker rm [容器名]` **Enter container**: `docker exec -it [容器序号/容器名字] /bin/bash` / `docker exec -it [容器序号] /bin/sh`"
+                - figure [ref=f14e75]:
+                  - generic [ref=f14e76]:
+                    - generic [ref=f14e77]: SHELL
+                    - generic [ref=f14e79]:
+                      - generic [ref=f14e80]: 
+                      - generic [ref=f14e81]: 
+                  - table [ref=f14e82]:
+                    - rowgroup [ref=f14e83]:
+                      - row [ref=f14e84]:
+                        - cell [ref=f14e85]:
+                          - generic [ref=f14e86]: "123"
+                        - cell [ref=f14e87]:
+                          - generic [ref=f14e88]: "-i:interact 交互操作-t:terminal 终端-d:down 后台运行"
+                - text: "**Start an existing container**: `docker restart [container]` **Stop an existing container**: `docker stop [container]` `sudo aa-remove-unknown(遇到permission denied)` ## Container linking (container networking) ### Network creation and joining **Create network**: - `docker network create -d bridge [网络桥名字]` - `docker network create -d overlay [网络隧道名]` **Join network**: - When creating a container: `docker run -itd --name [容器名] --network [网络名] [镜像名] [/bin/bash(终端环境)]` - Joining an existing container: `docker network connect [network_name] [container_name] ` ### Network DNS configuration The host's `/etc/docker/daemon.json` can configure the default DNS configuration for containers **View container DNS**: `docker run -it --rm [container] cat etc/resolv.conf` **Manually specify container DNS**: `docker run -it --rm -h [容器主机名] --dns=[dns_ip] --dns-search=test.com [container]` --- Parameters:"
+                - figure [ref=f14e90]:
+                  - generic [ref=f14e91]:
+                    - generic [ref=f14e92]: SHELL
+                    - generic [ref=f14e94]:
+                      - generic [ref=f14e95]: 
+                      - generic [ref=f14e96]: 
+                  - table [ref=f14e97]:
+                    - rowgroup [ref=f14e98]:
+                      - row [ref=f14e99]:
+                        - cell [ref=f14e100]:
+                          - generic [ref=f14e101]: "1234567"
+                        - cell [ref=f14e102]:
+                          - generic [ref=f14e103]: "--rm：容器退出时自动清理容器内部的文件系统。-h HOSTNAME 或者 --hostname=HOSTNAME： 设定容器的主机名，它会被写到容器内的 /etc/hostname 和 /etc/hosts。--dns=IP_ADDRESS： 添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。--dns-search=DOMAIN： 设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索 host，还会搜索 host.example.com。"
+                - text: "### View all container IPs `docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)` ## docker-compose root cannot delete containers `aa-remove-unknown`"
+                - figure [ref=f14e105]:
+                  - generic [ref=f14e106]:
+                    - generic [ref=f14e107]: BASH
+                    - generic [ref=f14e109]:
+                      - generic [ref=f14e110]: 
+                      - generic [ref=f14e111]: 
+                  - table [ref=f14e112]:
+                    - rowgroup [ref=f14e113]:
+                      - row [ref=f14e114]:
+                        - cell [ref=f14e115]:
+                          - generic [ref=f14e116]: "12345678910111213"
+                        - 'cell "services: rewards-home: image: ghcr.io/haq/microsoft-rewards-bot container_name: rewards_home shm_size: 4gb volumes: - /root/reward/accounts.json:/app/accounts.json command: python3 main.py --telegram 6459231936:AAFKp__lNTyIxgc5_pzpwdYFqdsa2Ud7wZ4 909455021 -p ''socks5://10.17.1.111:7999''; rm .X99-lock privileged: true network_mode: \"host\" pull_policy: always restart: \"no\"" [ref=f14e117]':
+                          - generic [ref=f14e119]:
+                            - text: "services: rewards-home: image: ghcr.io/haq/microsoft-rewards-bot container_name: rewards_home shm_size: 4gb volumes: - /root/reward/accounts.json:/app/accounts.json"
+                            - generic [ref=f14e120]: "command: python3 main.py --telegram 6459231936:AAFKp__lNTyIxgc5_pzpwdYFqdsa2Ud7wZ4 909455021 -p 'socks5://10.17.1.111:7999'; rm .X99-lock"
+                            - generic [ref=f14e121]: "privileged: true"
+                            - generic [ref=f14e122]: "network_mode: \"host\""
+                            - text: "pull_policy: always"
+                            - generic [ref=f14e123]: "restart: \"no\""
+                - text: "### Set static IP"
+                - figure [ref=f14e124]:
+                  - generic [ref=f14e125]:
+                    - generic [ref=f14e126]: YAML
+                    - generic [ref=f14e128]:
+                      - generic [ref=f14e129]: 
+                      - generic [ref=f14e130]: 
+                  - table [ref=f14e131]:
+                    - rowgroup [ref=f14e132]:
+                      - row [ref=f14e133]:
+                        - cell [ref=f14e134]:
+                          - generic [ref=f14e135]: "123456789101112131415161718"
+                        - 'cell "networks: gptnet: driver: bridge ipam: config: - subnet: 172.20.0.0/30 gateway: 172.20.0.1 services: gpt: #image: yidadaa/chatgpt-next-web:latest # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可 image: rocky9/nextchat-nightly:latest # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可 container_name: gpt env_file: - ./gpt.env.bak networks: gptnet: ipv4_address: 172.20.0.2 restart: unless-stopped" [ref=f14e136]':
+                          - generic [ref=f14e138]:
+                            - generic [ref=f14e139]: "networks:"
+                            - generic [ref=f14e140]: "gptnet:"
+                            - generic [ref=f14e141]: "driver: bridge"
+                            - generic [ref=f14e142]: "ipam:"
+                            - generic [ref=f14e143]: "config:"
+                            - generic [ref=f14e144]: "- subnet: 172.20.0.0/30"
+                            - generic [ref=f14e145]: "gateway: 172.20.0.1"
+                            - generic [ref=f14e146]: "services:"
+                            - generic [ref=f14e147]: "gpt:"
+                            - generic [ref=f14e148]: "#image: yidadaa/chatgpt-next-web:latest # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可"
+                            - generic [ref=f14e149]: "image: rocky9/nextchat-nightly:latest # 总是使用 latest ,更新时重新 pull 该 tag 镜像即可"
+                            - generic [ref=f14e150]: "container_name: gpt"
+                            - generic [ref=f14e151]: "env_file:"
+                            - generic [ref=f14e152]: "- ./gpt.env.bak"
+                            - generic [ref=f14e153]: "networks:"
+                            - generic [ref=f14e154]: "gptnet:"
+                            - generic [ref=f14e155]: "ipv4_address: 172.20.0.2"
+                            - generic [ref=f14e156]: "restart: unless-stopped"
+              - generic [ref=f14e157]:
+                - list:
+                  - listitem:
+                    - link "devops":
+                      - /url: /en/tags/devops/
+            - navigation "Article navigation":
+              - generic:
+                - img "n2n Parameter Description"
+                - 'link "Prev: n2n Parameter Description"':
+                  - /url: /en/2025/03/31/2025-03-31-n2n%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E/
+                - generic: Prev
+                - heading "n2n Parameter Description" [level=3]
+              - generic:
+                - img "Git commit conventions"
+                - 'link "Next: Git commit conventions"':
+                  - /url: /en/2025/03/27/2025-03-27-Git%20commit%20%E8%A7%84%E8%8C%83/
+                - generic: Next
+                - heading "Git commit conventions" [level=3]
+      - contentinfo "Site footer" [ref=f14e158]:
+        - generic [ref=f14e161]:
+          - generic [ref=f14e162]:
+            - generic [ref=f14e163]: 
+            - text: 2019-2026 Wray Lee
+          - generic [ref=f14e165]:
+            - text: Powered by
+            - link "Hexo" [ref=f14e166]:
+              - /url: https://hexo.io/
+            - text: Theme.
+            - link "Reimu" [ref=f14e167]:
+              - /url: https://github.com/D-Sketon/hexo-theme-reimu
+          - generic [ref=f14e168]:
+            - generic [ref=f14e169]: 
+            - text: 553.6k |
+            - generic [ref=f14e170]: 
+            - text: 50:31
+          - generic [ref=f14e171]:
+            - generic [ref=f14e172]: 
+            - generic [ref=f14e173]: Number of visits 80892637
+            - text: "|"
+            - generic [ref=f14e174]: 
+            - generic [ref=f14e175]: Number of visitors 57228235
+      - generic [ref=f14e176]: 
+    - text:     

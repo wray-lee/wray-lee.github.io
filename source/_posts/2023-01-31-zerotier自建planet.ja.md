@@ -1,5 +1,5 @@
 ---
-title: zerotier自前planet
+title: zerotier自建planet
 date: 2023-01-31 22:18:08
 tags: ["web"]
 lang: ja
@@ -8,24 +8,24 @@ slug: zerotier自建planet
 
 > この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
-# zerotier 自前 planet
+# zerotierによるplanetの自前構築
 
-作者の Docker を使用。最終的な中心ノードは leaf と表示され、モバイル 4G と中国電信ブロードバンドの遅延をテストすると 500ms、中心ノードまではそれぞれ 120ms と 40ms で、実際にはカスタムノードを経由していない。
-**調査の結果、さらに設定が必要となる**。以下に方針を示す:
+作者のDockerを使用し、最終的に中心ノードはleafと表示される。中国移動4Gと中国電信ブロードバンドでテストしたところ、遅延は500ms、中心ノードまではそれぞれ120msと40msで、実際にはカスタムノードを経由していない。
+**調査の結果、さらに設定が必要**。以下に方針を示す:
 
-1. compose には ports: '9993:9993' と '9993:9993/udp' を追加する必要があり、サーバーとファイアウォールでも許可する必要がある
-2. コンテナに入り、moon.json を生成
-3. moon.json をホストマシンにコピーし、stableEndpoints を変更
-4. ホストマシン上で [mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86)生成行星文件 を使用
-5. 変更後の moon.json をコンテナにコピーし戻し、コンテナ内で moon ファイルを生成、moons.d フォルダを作成して入れる。予備としてホストマシンにも 1 部コピーする
-6. planet ファイルをコンテナに戻す（置き換える）
-7. コンテナを再起動
-8. クライアントの planet ファイルを置き換える
-9. Android の場合、実測では planet を単独で読み込んでも有効にならない。moon ファイルを読み込み、公式の planet ノードを無効にすると有効になる
+1. composeにはports: '9993:9993'と'9993:9993/udp'を追加する必要があり、サーバーとファイアウォールでも開放する必要がある
+2. コンテナに入り、moon.jsonを生成する
+3. moon.jsonをホストマシンにコピーし、stableEndpointsを変更する
+4. ホストマシン上で[mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86)を使ってplanetファイルを生成する
+5. 変更後のmoon.jsonをコンテナにコピーして戻し、コンテナ内でmoonファイルを生成し、moons.dフォルダを作成して、そこに入れる。予備としてホストマシンにもコピーする
+6. planetファイルをコンテナに置き換えて戻す
+7. コンテナを再起動する
+8. クライアントのplanetファイルを置き換える
+9. Androidの場合、実測ではplanetだけを読み込んでも有効にならない。moonファイルを読み込み、公式planetノードを無効にすると有効になる
 
-具体的には https://github.com/xubiaolin/docker-zerotier-planet 内のコード実装と各種 moon 生成チュートリアルを参照
+具体的には https://github.com/xubiaolin/docker-zerotier-planet 内のコード実装と各種moon生成チュートリアルを参照
 
-\######## 参考のみ #########
+\######## 参考まで #########
 
 1. ダウンロード
 
@@ -81,9 +81,9 @@ slug: zerotier自建planet
     chmod 777 moon.json
     ```
 
-4. 新しいターミナルを開き、**コンテナ外**で `moon.json` を変更する。位置はマウント位置に対応
+4. 新しいターミナルを開き、**コンテナ外**で`moon.json`を変更する。位置はマウント位置に対応する
 
-    `stableEndpoints` を変更し、形式と実際のグローバル IP に注意
+    `stableEndpoints`を変更し、形式と実際のグローバルIPに注意する
 
     ```
     {
@@ -102,7 +102,7 @@ slug: zerotier自建planet
     }
     ```
 
-5. **コンテナ内**で moon ファイルを生成
+5. **コンテナ内**でmoonファイルを生成する
 
     ```
     zerotier-idtool genmoon moon.json
@@ -110,11 +110,11 @@ slug: zerotier自建planet
     cp *.moon moons.d/
     ```
 
-6. **コンテナ外**で planet ファイルを生成
+6. **コンテナ外**でplanetファイルを生成する
 
-    - moon ファイルを 1 部コピーする。クライアントでも使用できる
+    - moonファイルを1つコピーする。クライアントで使用できる
 
-    - [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0), をダウンロードし、moon.json をコピーして、1 つのディレクトリに置く
+    - [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0)をダウンロードし、moon.jsonをコピーして、1つのディレクトリに置く
 
     - ```
         ./mkmoonworld-x86_64 ./moon.json
@@ -126,7 +126,7 @@ slug: zerotier自建planet
         docker cp ./planet ztncui:/var/lib/zerotier-one
         ```
 
-7. コンテナを再起動
+7. コンテナを再起動する
 
     ```
     docker restart ztncui
@@ -137,9 +137,9 @@ slug: zerotier自建planet
     zerotier-cli listmoons
     ```
 
-8. `ip+端口` に対応する設定ページにアクセス
+8. `ip+端口`に対応する設定ページにアクセスする
 
-9. クライアントの planet ファイルを置き換えてサービスを再起動し、その後ネットワークに参加して、Web 画面で認証する
+9. クライアントのplanetファイルを置き換えてサービスを再起動し、その後ネットワークに参加し、Web側で承認する
 
 ## 添付ファイル
 

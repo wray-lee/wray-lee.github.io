@@ -1,5 +1,5 @@
 ---
-title: "Tailscale Basic Tutorial: Headscale Deployment Method and Usage Tutorial"
+title: "Tailscale Basics Tutorial: Headscale Deployment and Usage Guide"
 date: 2023-11-27 17:52:55
 tags: ["web"]
 lang: en
@@ -10,7 +10,7 @@ slug: Tailscale 基础教程：Headscale 的部署方法和使用教程
 
 ## Tailscale Basic Tutorial: Headscale Deployment and Usage Tutorial
 
-> Basic commands
+> Basic Commands
 
 ```shell
 headscale namespaces create default
@@ -50,13 +50,13 @@ services:
 
 
 
-Modify the configuration file, change `server_url` to the public IP or domain name.
+Modify the configuration file and change `server_url` to the public IP or domain name
 
-If the DNS function is not needed for now, you can first set `magic_dns` to false.
+If you don't need DNS functionality for now, you can first set `magic_dns` to false
 
 Set `server_url` to `http://<PUBLIC_IP>:8080`, and replace `<PUBLIC_IP>` with the public IP or domain name.
 
-You can customize the private network segment, and you can also enable both IPv4 and IPv6:
+You can customize the private network segment, and you can also enable IPv4 and IPv6 at the same time:
 
 ```yaml
 ip_prefixes:
@@ -286,58 +286,60 @@ Using `docker exec` allows you to run commands in an existing container.
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting5@main/uPic/2022-11-29-10-20-bADiKL.png)
 
-At present, the Ministry of Industry and Information Technology of China is vigorously promoting the three major operators to develop IPv6. For home broadband, the available public IPv4 addresses will become fewer and fewer. In some areas, even if you get a public IPv4 address, it is a large internal network address, not a true public IP at all, and accessing resources on the home intranet will become increasingly difficult.
+At present, China's Ministry of Industry and Information Technology is vigorously promoting the three major operators to develop IPv6. For home broadband, the available public IPv4 addresses will become fewer and fewer. In some areas, even if you get a public IPv4 address, it is a large internal network address, not a real public IP at all, and accessing resources on the home intranet will become increasingly difficult.
 
-Some friends may choose to use frp and other intranet penetration solutions for specific protocols and ports, but this kind of solution is still not satisfying enough—it cannot access any port of any device on the home intranet. A better choice is still to build a large intranet through VPN. As for which VPN to choose, there is no doubt that it must be WireGuard; WireGuard is the future of VPN. **I have recommended WireGuard to everyone more than once. I'm tired and don't want to talk about it anymore. If you love to use garbage like OpenVPN, then go ahead, as long as you're happy.**
+Some friends may choose to use frp and other intranet penetration solutions for specific protocols and ports, but this kind of solution is still not satisfying enough; it cannot access any port of any device on the home intranet. A better choice is still to build a large intranet through VPN. As for which VPN to choose, there is no doubt that it must be WireGuard; WireGuard is the future of VPN. **I have recommended WireGuard to everyone more than once. I'm tired and don't want to talk about it anymore. If you love to use garbage like OpenVPN, then go ahead, as long as you're happy.**
 
-The core advantage of WireGuard over traditional VPNs is that there is no VPN gateway; all nodes can connect peer-to-peer (P2P), which is the [full mesh mode](https://icloudnative.io/posts/wireguard-full-mesh/#1-全互联模式架构与配置)，效率更高，速度更快，成本更低。 I mentioned earlier.
+Compared with traditional VPN, WireGuard's core advantage is that there is no VPN gateway; all nodes can connect peer-to-peer (P2P), which is the [Full Mesh Mode (full mesh)](https://icloudnative.io/posts/wireguard-full-mesh/#1-全互联模式架构与配置) I mentioned before, with higher efficiency, faster speed, and lower cost.
 
-The biggest pain point of WireGuard at present is that the functions of upper-layer applications are not complete enough, because WireGuard advocates the Unix philosophy. WireGuard itself is only a kernel-level module, only a data plane. As for higher-level functions at the upper layer (such as key exchange mechanisms, UDP hole punching, ACL, etc.), they need to be implemented through user-space applications.
+WireGuard's biggest current pain point is that the functionality of upper-layer applications is not sound enough, because WireGuard advocates the Unix philosophy. WireGuard itself is only a kernel-level module, only a data plane. As for higher-level functions (such as key exchange mechanisms, UDP hole punching, ACLs, etc.), they need to be implemented through user-space applications.
 
-Therefore, in order to implement a more perfect VPN tool based on WireGuard, many projects have emerged and are fighting each other. Some time ago, the author had been promoting [Netmaker](https://icloudnative.io/posts/configure-a-mesh-network-with-netmaker/)，它通过可视化界面来配置 WireGuard's full mesh mode. It supports UDP hole punching, multi-tenancy, and various high-end features, is almost compatible with all platforms, and is very powerful. However, the real world is complex, and it cannot be guaranteed that all NATs can successfully punch holes. Moreover, Netmaker currently has no fallback mechanism; if hole punching fails, it cannot fall back to using relay nodes. Tailscale is much smarter than Netmaker on this point. It supports a fallback mechanism and can try its best to implement full mesh mode. Even if some nodes fail to punch holes, they can still move freely in this virtual network through relay nodes.
+So in order to implement a more perfect VPN tool based on WireGuard, many projects have emerged and are fighting each other. A while ago, the author had been recommending [Netmaker](https://icloudnative.io/posts/configure-a-mesh-network-with-netmaker/). It configures WireGuard's full mesh mode through a visual interface. It supports UDP hole punching, multi-tenancy, and various other high-end features, is compatible with almost all platforms, and is very powerful. However, the real world is complex, and there is no guarantee that all NATs can successfully hole punch. Moreover, Netmaker currently has no fallback mechanism; if hole punching fails, it cannot fall back to a relay node. Tailscale is much smarter than Netmaker on this point. It supports a fallback mechanism and can try its best to achieve full mesh mode. Even if some nodes fail to hole punch, they can still move freely in this virtual network through relay nodes.
 
-That's right, I've fallen out of love and switched from the Netmaker camp to Tailscale. I'm indeed a scumbag.
+That's right, I've fallen out of love and switched from the Netmaker camp to Tailscale. I am indeed a scumbag.
 
-## What Is Tailscale
+## What is Tailscale
 
-Tailscale is a virtual networking tool based on WireGuard. Similar to Netmaker, **the biggest difference is that Tailscale implements the WireGuard protocol in user space, while Netmaker directly uses kernel-space WireGuard**. Therefore, compared with kernel-space WireGuard, Tailscale will suffer some performance loss, but compared with the likes of OpenVPN, it can still leave them far behind. Although Tailscale has made some trade-offs in performance, it absolutely crushes other tools in terms of functionality and ease of use:
+Tailscale is a virtual networking tool based on WireGuard. Similar to Netmaker, **the biggest difference is that Tailscale implements the WireGuard protocol in user space, while Netmaker directly uses kernel-space WireGuard**. So Tailscale will suffer some performance loss compared with kernel-space WireGuard, but compared with the likes of OpenVPN, it can still leave them far behind. Although Tailscale has made some trade-offs in performance, in terms of functionality and ease of use, it absolutely blows other tools out of the water:
 
 1. Out of the box
-- No firewall configuration required
+
+- No need to configure a firewall
 - No additional configuration
 
 1. High security/privacy
+
 - Automatic key rotation
 - Peer-to-peer connections
 - Supports user auditing of end-to-end access records
 
-1. In addition to the original ICE, STUN and other UDP protocols, it implements the DERP TCP protocol to achieve NAT traversal
+1. In addition to the original UDP protocols such as ICE and STUN, it implements the DERP TCP protocol to achieve NAT traversal
 2. A public-network-based control server distributes ACLs and configurations to enable dynamic node updates
-3. Generates users and private keys through third-party (such as Google) SSO services to implement identity authentication
+3. Generates users and private keys through third-party SSO services (such as Google) to implement identity authentication
 
-In short, we can regard Tailscale as a more user-friendly and more fully featured WireGuard.
+In short, we can regard Tailscale as a more easy-to-use and more feature-complete WireGuard.
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-14-50-Q4bWmK.png)
 
-These alone are not enough. As a freeloader, what I care about more is **free** and **open source**.
+But these alone are not enough. As a freeloader, what I care more about is **free** and **open source**.
 
-Tailscale is a commercial product, but individual users can freeload it. Individual users can use it for free when the number of connected devices does not exceed 20 (although there are some restrictions, such as subnet CIDR blocks cannot be customized, and multiple subnets cannot be set). Except for the graphical applications for Windows and macOS, the components of other Tailscale clients (including the Android client) are developed as open-source projects under the BSD license. You can find them in their [GitHub repository](https://github.com/tailscale/)找到各个操作系统的客户端源码。
+Tailscale is a commercial product, but individual users can use it for free. Individual users can use it for free when the number of connected devices does not exceed 20 (although there are some restrictions, such as subnet ranges cannot be customized, and multiple subnets cannot be set). Except for the graphical applications for Windows and macOS, the components of other Tailscale clients (including the Android client) are developed as open-source projects under the BSD license. You can find the client source code for each operating system in their [GitHub repository](https://github.com/tailscale/).
 
-For most users, freeloading Tailscale is already enough. If you have higher requirements, such as custom network segments, you can choose to pay.
+For most users, using Tailscale for free is already enough. If you have higher requirements, such as custom network segments, you can choose to pay.
 
-**What if I just don't want to pay? Sure, but you'll need to read on.**
+**What if I just don't want to pay? Fine, but you need to keep reading.**
 
-## What Is Headscale
+## What is Headscale
 
-Tailscale's control server is not open source, and it has many restrictions for free users. This is their cash cow, which is understandable. Fortunately, there is currently an open-source implementation called [Headscale](https://github.com/juanfont/headscale)，这也是唯一的一款，希望能发展壮大。
+Tailscale's control server is not open source, and it has many restrictions for free users. This is their cash cow, which is understandable. Fortunately, there is currently an open-source implementation called [Headscale](https://github.com/juanfont/headscale), and it is also the only one. I hope it will grow and thrive.
 
-Headscale was developed by Juan Font of the European Space Agency using the Go language, and is released under the BSD license. It implements all the main functions of the Tailscale control server, can be deployed inside an enterprise, has no limit on the number of devices, and all network traffic is controlled by yourself.
+Headscale was developed by Juan Font of the European Space Agency in Go and released under the BSD license. It implements all the main functions of the Tailscale control server, can be deployed inside an enterprise, has no limit on the number of devices, and all network traffic is controlled by yourself.
 
 Currently Headscale does not yet have a visual interface; look forward to future updates.
 
 ## Headscale Deployment
 
-Headscale deployment is very simple. It is recommended to install it directly on a Linux host.
+Deploying Headscale is very simple. It is recommended to install it directly on a Linux host.
 
 > Theoretically, as long as your Headscale service can be exposed to the public network egress, it is fine, but it is best not to have NAT, so it is recommended to deploy Headscale on a cloud host with a public IP.
 
@@ -360,7 +362,7 @@ $ mkdir -p /etc/headscale
 
 
 
-Create directories for storing data and certificates:
+Create a directory to store data and certificates:
 
 ```bash
 $ mkdir -p /var/lib/headscale
@@ -384,13 +386,13 @@ $ wget https://github.com/juanfont/headscale/raw/main/config-example.yaml -O /et
 
 
 
-- Modify the configuration file, change `server_url` to the public IP or domain name. **If it is a domestic server, the domain name must be filed/registered with the authorities**. My domain name cannot be filed, so I just used the public IP directly.
+- Modify the configuration file and change `server_url` to the public IP or domain name. **If it is a domestic server, the domain name must be filed for ICP registration**. My domain name cannot be filed, so I just used the public IP directly.
 
-- If the DNS function is not needed for now, you can first set `magic_dns` to false.
+- If you don't need DNS functionality for now, you can first set `magic_dns` to false.
 
 - Set `server_url` to `http://<PUBLIC_IP>:8080`, and replace `<PUBLIC_IP>` with the public IP or domain name.
 
-- You can customize the private network segment, and you can also enable both IPv4 and IPv6:
+- You can customize the private network segment, and you can also enable IPv4 and IPv6 at the same time:
 
     ```yaml
     ip_prefixes:
@@ -400,7 +402,7 @@ $ wget https://github.com/juanfont/headscale/raw/main/config-example.yaml -O /et
 
     
 
-Create the SystemD service configuration file:
+Create a SystemD service configuration file:
 
 ```bash
 # /etc/systemd/system/headscale.service
@@ -440,7 +442,7 @@ $ useradd headscale -d /home/headscale -m
 
 
 
-Modify the owner of the /var/lib/headscale directory:
+Change the owner of the /var/lib/headscale directory:
 
 ```bash
 $ chown -R headscale:headscale /var/lib/headscale
@@ -464,7 +466,7 @@ $ systemctl daemon-reload
 
 
 
-Start the Headscale service and set it to start on boot:
+Start the Headscale service and enable it to start on boot:
 
 ```bash
 $ systemctl enable --now headscale
@@ -500,7 +502,7 @@ d=10899,fd=12))
 
 
 
-There is a concept in Tailscale called tailnet, which you can understand as a tenant. Tenants are isolated from each other. For details, refer to Tailscale's official documentation: [What is a tailnet](https://tailscale.com/kb/1136/tailnet/)。Headscale There is a similar implementation called namespace, i.e., namespace. We need to first create a namespace so that clients can connect later, for example:
+There is a concept in Tailscale called tailnet, which you can understand as a tenant. Tenants are isolated from each other. For details, refer to the official Tailscale documentation: [What is a tailnet](https://tailscale.com/kb/1136/tailnet/). Headscale also has a similar implementation called namespace, i.e., namespace. We need to create a namespace first so that clients can connect later, for example:
 
 ```bash
 $ headscale namespaces create default
@@ -522,9 +524,9 @@ ID | Name | Created
 
 ## Tailscale Client Onboarding
 
-Currently, except for the iOS client, clients on other platforms all have ways to customize Tailscale's control server.
+At present, except for the iOS client, clients on other platforms all have ways to customize Tailscale's control server.
 
-| OS      | Whether Headscale Is Supported                                           |
+| OS      | Whether Headscale is supported                               |
 | :------ | :----------------------------------------------------------- |
 | Linux   | Yes                                                          |
 | OpenBSD | Yes                                                          |
@@ -532,13 +534,13 @@ Currently, except for the iOS client, clients on other platforms all have ways t
 | macOS   | Yes                                                          |
 | Windows | Yes, refer to [Windows client documentation](https://github.com/juanfont/headscale/blob/main/docs/windows-client.md) |
 | Android | Supported, refer to [this PR](https://github.com/tailscale/tailscale-android/pull/55) |
-| iOS     | Not yet supported                                                     |
+| iOS     | Not yet supported                                            |
 
 Let's first look at onboarding on the Linux platform.
 
 ### Linux
 
-Tailscale officially provides packages for various Linux distributions, but you know how the domestic network is—the software repositories simply cannot be used. Fortunately, the official also provides [statically compiled binary files](https://tailscale.com/download/linux/static)，我们可以直接下载。例如：
+Tailscale officially provides software packages for various Linux distributions, but you know how the domestic network is; the software sources are simply unusable. Fortunately, the official also provides [statically compiled binary files](https://tailscale.com/download/linux/static), which we can download directly. For example:
 
 ```bash
 $ wget https://pkgs.tailscale.com/stable/tailscale_1.22.2_amd64.tgz
@@ -585,7 +587,7 @@ $ cp tailscale_1.22.2_amd64/systemd/tailscaled.defaults /etc/default/tailscaled
 
 
 
-Start tailscaled.service and set it to start on boot:
+Start tailscaled.service and enable it to start on boot:
 
 ```bash
 $ systemctl enable --now tailscaled
@@ -593,7 +595,7 @@ $ systemctl enable --now tailscaled
 
 
 
-Check the service status:
+Check service status:
 
 ```bash
 $ systemctl status tailscaled
@@ -610,7 +612,7 @@ $ tailscale up --login-server=http://<HEADSCALE_PUB_IP>:8080 --accept-routes=tru
 
 
 
-Here it is recommended to disable the DNS function, because it will override the system's default DNS. If you need DNS, you can study the official documentation yourself; I will not go into details here.
+Here it is recommended to disable the DNS function, because it will override the system's default DNS. If you need DNS, you can study the official documentation yourself; I won't go into details here.
 
 After executing the above command, the following information will appear:
 
@@ -628,7 +630,7 @@ Open the link in a browser, and the following interface will appear:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-06-08qWbz.png)
 
-Copy and paste the command into the terminal of the machine where headscale is located, and replace NAMESPACE with the namespace created earlier.
+Copy and paste the command in it into the terminal of the machine where headscale is located, and replace NAMESPACE with the namespace created earlier.
 
 ```bash
 $ headscale -n default nodes register --key 905cf165204800247fbd33989dbc22be95c987286c45aac3033937041150d846
@@ -653,7 +655,7 @@ e | no
 
 
 
-Return to the Linux host where the Tailscale client is located. You can see that Tailscale will automatically create the relevant routing table and iptables rules. The routing table can be viewed with the following command:
+Return to the Linux host where the Tailscale client is located. You can see that Tailscale will automatically create related routing tables and iptables rules. The routing table can be viewed with the following command:
 
 ```bash
 $ ip route show table 52
@@ -692,46 +694,46 @@ $ iptables -S -t nat
 
 ### macOS
 
-There are 3 installation methods for macOS:
+macOS has 3 installation methods:
 
-- Install directly through the App Store, address: https://apps.apple.com/ca/app/tailscale/id1475387142。前提是你**需要一个美区 ID**...
-- Download the [installation package](https://pkgs.tailscale.com/stable/#macos)直接安装，绕过应用商店。
-- Install the open-source command-line tools `tailscale` and `tailscaled`. Related links: https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS。
+- Install directly through the App Store, address: https://apps.apple.com/ca/app/tailscale/id1475387142. The prerequisite is that you **need a US region ID**...
+- Download the [installation package](https://pkgs.tailscale.com/stable/#macos) and install directly, bypassing the App Store.
+- Install the open-source command-line tools `tailscale` and `tailscaled`. Related links: https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS.
 
 The core packet processing code of these three installation packages is the same. The only difference lies in the packaging method and the way they interact with the system.
 
-The app in the App Store runs in an [app sandbox](https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AboutAppSandbox/AboutAppSandbox.html)中，与系统的其他部分隔离。在沙箱内，应用可以是一个 [network extension](https://developer.apple.com/documentation/networkextension)，以实现 VPN or VPN-like functionality. The functionality implemented by the network extension cannot take effect for apps outside the App Store.
+Apps in the App Store run in an [app sandbox](https://developer.apple.com/library/archive/documentation/Security/Conceptual/AppSandboxDesignGuide/AboutAppSandbox/AboutAppSandbox.html), isolated from the rest of the system. Inside the sandbox, the app can be a [network extension](https://developer.apple.com/documentation/networkextension) to implement VPN or VPN-like functionality. Features implemented by the network extension cannot take effect for apps outside the App Store.
 
-Starting from macOS 10.15, [system extensions](https://developer.apple.com/system-extensions/)，说白了就是运行在用户态的内核扩展，它相比于传统的网络扩展增强了很多功能，比如内容过滤、透明代理、DNS proxies, etc. were added. The Tailscale installation package independent of the App Store uses **system extensions**, distributed through DMG or zip archives.
+Starting from macOS 10.15, [system extensions](https://developer.apple.com/system-extensions/) were added, which are, plainly speaking, kernel extensions running in user space. Compared with traditional network extensions, they have enhanced many functions, such as content filtering, transparent proxy, DNS proxy, etc. The Tailscale installation package independent of the App Store uses **system extensions** and is distributed via DMG or zip archives.
 
-Do not install both the App Store version and the independently distributed version at the same time; only one can be installed at a time.
+Do not install the App Store version and the independently distributed version at the same time; you can only install one at a time.
 
-The command-line tool uses neither a network extension nor a system extension, but uses the [utun interface](https://en.wikipedia.org/wiki/TUN/TAP)，相比于 The GUI version lacks some features, such as MagicDNS and Taildrop.
+The command-line tool uses neither a network extension nor a system extension, but instead uses the [utun interface](https://en.wikipedia.org/wiki/TUN/TAP). Compared with the GUI version, it lacks some features, such as MagicDNS and Taildrop.
 
 Overview:
 
-|                | App Store (Network Extension)                                        | Standalone App (System Extension)                                         | Command-Line Version                                                   |
+|                | App Store (network extension)                               | Standalone app (system extension)                            | Command-line version                                         |
 | :------------- | :---------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Available       | [yes](https://apps.apple.com/ca/app/tailscale/id1475387142) | yes, [beta](https://tailscale.com/kb/1167/release-stages/#beta) | [yes](https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS) |
-| GUI       | yes                                                         | yes                                                          | no; CLI                                                      |
+| Available      | [yes](https://apps.apple.com/ca/app/tailscale/id1475387142) | yes, [beta](https://tailscale.com/kb/1167/release-stages/#beta) | [yes](https://github.com/tailscale/tailscale/wiki/Tailscaled-on-macOS) |
+| GUI            | yes                                                         | yes                                                          | no; CLI                                                      |
 | Minimum macOS version | macOS 10.13                                                 | macOS 10.15                                                  | macOS 10.13                                                  |
-| Runs in background       | no; sandboxed                                               | Theoretically supported; not yet implemented                                         | yes                                                          |
-| Keychain used 🔑  | User-level                                                      | System-level                                                       | Stored directly in files                                             |
-| Sandbox isolation       | yes                                                         | no                                                           | no                                                           |
-| Automatic updates       | yes; updated directly by App Store                                       | yes; [Sparkle](https://sparkle-project.org/)                 | no                                                           |
-| Open source       | no                                                          | no                                                           | yes                                                          |
+| Background running | no; sandboxed                                               | Theoretically supported; not yet implemented                 | yes                                                          |
+| Keychain used🔑 | User-level                                                  | System-level                                                 | Stored directly in files                                     |
+| Sandbox isolation | yes                                                         | no                                                           | no                                                           |
+| Automatic updates | yes; updated directly via App Store                         | yes; [Sparkle](https://sparkle-project.org/)                 | no                                                           |
+| Open source    | no                                                          | no                                                           | yes                                                          |
 | MagicDNS       | yes                                                         | yes                                                          | yes                                                          |
-| Taildrop       | yes                                                         | yes                                                          | Not implemented                                                       |
+| Taildrop       | yes                                                         | yes                                                          | Not implemented                                              |
 
-After installing the GUI app, you still need to do some hacky operations to make Tailscale use Headscale as the control server. Of course, Headscale has already provided us with detailed operation steps. You just need to open the URL in a browser: `http://<HEADSCALE_PUB_IP>:8080/apple`, and the following interface will appear:
+After installing the GUI app, you still need to do some fancy operations to make Tailscale use Headscale as the control server. Of course, Headscale has already provided us with detailed operation steps. You just need to open the URL in a browser: `http://<HEADSCALE_PUB_IP>:8080/apple`, and the following interface will appear:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-17-53-rjcTVg.png)
 
 You just need to follow the steps described in the image; this article will not repeat them.
 
-For the non-App Store version of the macOS client, you need to replace `io.tailscale.ipn.macos` with `io.tailscale.ipn.macsys`. That is: `defaults write io.tailscale.ipn.macsys ControlURL http://<HEADSCALE_PUB_IP>:8080`
+The non-App Store version of the macOS client needs to replace `io.tailscale.ipn.macos` with `io.tailscale.ipn.macsys`. That is: `defaults write io.tailscale.ipn.macsys ControlURL http://<HEADSCALE_PUB_IP>:8080`
 
-After modification, restart the Tailscale client. Find Tailscale in the macOS top status bar and click it, then click `Log in`.
+After modifying, restart the Tailscale client. Find Tailscale in the macOS top menu bar and click it, then click `Log in`.
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-43-pTW3r7.png)
 
@@ -739,7 +741,7 @@ Then it will immediately jump to the browser and open a page.
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-46-AbzngB.png)
 
-Next, same as the previous Linux client, return to the machine where Headscale is located and execute the command in the browser. Registration successful:
+Next, same as with the Linux client earlier, go back to the machine where Headscale is located and execute the command in the browser. Registration successful:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-17-51-Gcjcmy.png)
 
@@ -786,9 +788,9 @@ pong from coredns (10.1.0.1) via xxxx:41641 in 36ms
 
 ### Android
 
-Starting from version 1.30.0, the Android client supports a custom control server (i.e., coordination server). You can download the latest version of the client through [Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn) or [F-Droid](https://f-droid.org/packages/com.tailscale.ipn/).
+Starting from version 1.30.0, the Android client supports custom control servers (i.e., coordination servers). You can download the latest version of the client via [Google Play](https://play.google.com/store/apps/details?id=com.tailscale.ipn) or [F-Droid](https://f-droid.org/packages/com.tailscale.ipn/).
 
-After installation, open the Tailscale App, and the following interface will appear:
+After installation is complete, open the Tailscale App, and the following interface will appear:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-12-m2IYpv.jpeg)
 
@@ -796,7 +798,7 @@ Tap the "three dots" in the upper right corner, and you will see only one `About
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-14-ghdl4A.jpeg)
 
-Next, some hacky operations are needed. You need to repeatedly **open and close** the "three dots" in the upper right corner. After repeating three or four times, a `Change server` option will appear:
+Next, some fancy operations are needed. You need to repeatedly **open and close** the "three dots" in the upper right corner. After repeating three or four times, a `Change server` option will appear:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-23-mcAexh.jpeg)
 
@@ -804,17 +806,17 @@ Click `Change server`, and fill in the address of the headscale control server:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-37-fkRIxW.jpeg)
 
-Then click `Save and restart` to restart, and click `Sign in with other`, and this page will pop up:
+Then click `Save and restart` to restart, click `Sign in with other`, and this page will pop up:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-06-07-09-30-bf83jv.jpeg)
 
-Paste the command into the terminal of the host where Headscale is located, replace **NAMESPACE** with the namespace created earlier, and then execute the command. After successful registration, you can close this page and return to the App home page. The effect is as shown:
+Paste the command in it into the terminal of the host where Headscale is located, replace **NAMESPACE** with the namespace created earlier, and then execute the command. After successful registration, you can close this page and return to the App home page; the effect is as shown:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting4@main/uPic/2022-11-22-18-48-M07ibg.jpeg)
 
 ### Windows
 
-If the Windows Tailscale client wants to use Headscale as the control server, you only need to open the URL in a browser: `http://<HEADSCALE_PUB_IP>:8080/windows`, and the following interface will appear:
+If the Windows Tailscale client wants to use Headscale as the control server, just open the URL in a browser: `http://<HEADSCALE_PUB_IP>:8080/windows`, and the following interface will appear:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-20-23-30-zcQX3F.png)
 
@@ -822,7 +824,7 @@ Just follow the steps in it.
 
 ### Other Linux Distributions
 
-In addition to regular Linux distributions, there are also Linux distributions for special scenarios, such as OpenWrt, QNAP, Synology, etc. Someone has already written installation methods for these distributions, so I will not describe them in detail here. I will only give the relevant GitHub repositories. If you have your own needs, just go look at the documentation of the relevant repositories.
+In addition to regular Linux distributions, there are also Linux distributions for special scenarios, such as OpenWrt, QNAP, Synology, etc. Someone has already written installation methods for these distributions, so I won't describe them in detail here. I will only give the relevant GitHub repositories. If you have your own needs, just go directly to the documentation of the relevant repositories.
 
 - OpenWrt: https://github.com/adyanth/openwrt-tailscale-enabler
 - Synology: https://github.com/tailscale/tailscale-synology
@@ -830,11 +832,11 @@ In addition to regular Linux distributions, there are also Linux distributions f
 
 ### iOS
 
-The Tailscale iOS client source code is not open source, and it is currently impossible to crack it to use a third-party control server. What a pity~~
+The Tailscale iOS client source code is not open source. Currently, it is still impossible to crack it to use a third-party control server. What a pity~~
 
-### Onboarding via Pre-Authkeys
+### Connecting via Pre-Authkeys
 
-The previous onboarding methods all require server-side approval, and the steps are rather cumbersome. In fact, there is a simpler method that can connect directly without server-side approval.
+The previous onboarding methods all require server approval, and the steps are rather cumbersome. In fact, there is a simpler method that can connect directly without server approval.
 
 First, generate a pre-authkey token on the server. The validity period can be set to 24 hours:
 
@@ -854,7 +856,7 @@ ID | Key                                              | Reusable | Ephemeral | U
 
 
 
-Now new nodes can connect directly without server-side approval:
+Now new nodes can connect directly without server approval:
 
 ```bash
 $ tailscale up --login-server=http://<HEADSCALE_PUB_IP>:8080 --accept-routes=true --accept-dns=false --authkey $KEY
@@ -864,11 +866,11 @@ $ tailscale up --login-server=http://<HEADSCALE_PUB_IP>:8080 --accept-routes=tru
 
 ## Connecting the LAN
 
-So far we have only built a peer-to-peer Mesh network, and each node can directly connect to others through WireGuard's private network IP. But we can be bolder. Do you remember the access to home intranet resources I mentioned at the beginning of the article? Through proper configuration, we can let each node access the LAN IP of other nodes. There are many use cases for this. You can directly access the NAS on the home intranet, or any service on the intranet. **More advanced players can use this method to access the Pod IP and Service IP of a Kubernetes cluster in the cloud.**
+So far we have only built a peer-to-peer Mesh network, and each node can directly connect to others through WireGuard's private network IP. But we can be bolder. Do you remember the access to home intranet resources I mentioned at the beginning of the article? Through proper configuration, we can let each node access the LAN IP of other nodes. There are many use cases for this. You can directly access the NAS on the home intranet, or any service on the intranet. **More advanced players can use this method to access Pod IPs and Service IPs of a Kubernetes cluster in the cloud.**
 
-Suppose your home intranet has a Linux host (such as OpenWrt) with the Tailscale client installed. We want other Tailscale clients to be able to directly access any device on the home intranet through the home LAN IP (for example, **192.168.100.0/24**).
+Suppose there is a Linux host (such as OpenWrt) on your home intranet with the Tailscale client installed. We want other Tailscale clients to be able to directly access any device on the home intranet through the home LAN IP (for example, **192.168.100.0/24**).
 
-The configuration method is very simple. First, you need to set up IPv4 and IPv6 route forwarding:
+The configuration method is very simple. First, you need to enable IPv4 and IPv6 route forwarding:
 
 ```bash
 $ echo 'net.ipv4.ip_forward = 1' | tee /etc/sysctl.d/ipforwarding.conf
@@ -878,7 +880,7 @@ $ sysctl -p /etc/sysctl.d/ipforwarding.conf
 
 
 
-On the client, modify the command for registering the node. Add the parameter `--advertise-routes=192.168.100.0/24` to the original command to tell the Headscale server, "This node can forward routes for these addresses."
+On the client, modify the command for registering the node by adding the parameter `--advertise-routes=192.168.100.0/24` to the original command, telling the Headscale server, "This node of mine can forward routes for these addresses."
 
 ```bash
 $ tailscale up --login-server=http://<HEADSCALE_PUB_IP>:8080 --accept-routes=true --accept-dns=false --advertise-routes=192.168.100.0/24 --reset
@@ -886,7 +888,7 @@ $ tailscale up --login-server=http://<HEADSCALE_PUB_IP>:8080 --accept-routes=tru
 
 
 
-Check the routes on the Headscale side, and you can see that the relevant routes are disabled.
+Check the routes on the Headscale side; you can see that the relevant routes are disabled.
 
 ```bash
 $ headscale nodes list|grep openwrt
@@ -924,7 +926,7 @@ $ headscale routes enable -i 6 -r "192.168.100.0/24,xxxx"
 
 
 
-You can also enable all routes with the parameter -a:
+You can also enable all routes through the parameter -a:
 
 ```bash
 $ headscale routes enable -i 6 -a
@@ -941,14 +943,14 @@ $ ip route show table 52|grep "192.168.100.0/24"
 
 
 
-When other nodes start, they need to add the `--accept-routes=true` option to declare, "I accept routes advertised by other external nodes."
+When other nodes start, they need to add the `--accept-routes=true` option to declare "I accept routes advertised by other external nodes."
 
-Now you can ping machines on the home intranet from any node where a Tailscale client is located. At the office or Starbucks, you can also use the same IP to freely access any device at home just like at home. Isn't that awesome?
+Now you can ping machines on the home intranet from any node where a Tailscale client is located. At the office or in Starbucks, you can use the same IP to freely access any device at home just like you are at home. Isn't that awesome?
 
 ## Summary
 
-From the perspective of stability, Tailscale is currently slightly better than Netmaker. It basically will not, like Netmaker, occasionally fail to ping. This depends on the various optimizations Tailscale has made for NAT traversal in user space. They also wrote a dedicated article introducing [the principles of NAT traversal](https://tailscale.com/blog/how-nat-traversal-works/)， [Chinese version](https://arthurchiao.art/blog/how-nat-traversal-works-zh/)翻译自国内的 by eBPF expert Zhao Yanan. I strongly recommend everyone read it. Here is a picture to give you a feel:
+At present, from the perspective of stability, Tailscale is slightly better than Netmaker. It basically won't have the situation of intermittent ping failures like Netmaker. This depends on the various optimizations Tailscale has made for NAT traversal in user space. They even wrote a dedicated article introducing [the principles of NAT traversal](https://tailscale.com/blog/how-nat-traversal-works/), and the [Chinese version](https://arthurchiao.art/blog/how-nat-traversal-works-zh/) was translated by domestic eBPF expert Zhao Yanan. I strongly recommend everyone read it. Here is a picture for everyone to feel it:
 
 ![img](https://jsdelivr.icloudnative.io/gh/yangchuansheng/imghosting3@main/uPic/2022-03-21-10-52-TzXGEZ.png)
 
-This article introduced Tailscale and Headscale, including Headscale installation and deployment, onboarding for clients on various platforms, and how to connect the LANs where each node is located. The next article will introduce [how to make Tailscale use custom DERP Servers](https://icloudnative.io/posts/custom-derp-servers/)（也就是中继服务器），See you~~
+This article introduced Tailscale and Headscale to everyone, including Headscale installation and deployment, client onboarding on various platforms, and how to connect the LANs where each node is located. The next article will introduce [how to make Tailscale use custom DERP Servers](https://icloudnative.io/posts/custom-derp-servers/) (i.e., relay servers). See you~~

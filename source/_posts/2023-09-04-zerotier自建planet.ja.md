@@ -1,5 +1,5 @@
 ---
-title: zerotier自前planet
+title: ZeroTierのplanetを自前で構築
 date: 2023-09-04 00:00:00
 tags: ["Network", "组网"]
 lang: ja
@@ -8,22 +8,22 @@ slug: zerotier自建planet
 
 > この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
 
-著者のDockerを使用すると、最終的に中心ノードはleafと表示され、中国移動4Gと中国電信ブロードバンドの遅延をテストすると500ms、中心ノードまではそれぞれ120msと40msで、実際にはカスタムノードを経由していませんでした。
+作者のdockerを使用すると、最終的に中心ノードがleafとして表示され、中国移動4Gと中国電信ブロードバンドの遅延をテストすると500ms、中心ノードまではそれぞれ120msと40msで、実際にはカスタムノードを経由していませんでした。
 **調査の結果、さらに設定が必要です**。以下に方針を示します:
 
-1. composeにはports: ‘9993:9993’と’9993:9993/udp’を追加する必要があり、サーバーとファイアウォールでも許可する必要があります
+1. composeにports: ‘9993:9993’と‘9993:9993/udp’を追加する必要があり、サーバーとファイアウォールでも許可する必要があります
 2. コンテナに入り、moon.jsonを生成する
 3. moon.jsonをホストマシンにコピーし、stableEndpointsを変更する
-4. ホストマシンで[mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86)生成行星文件 を使用する
-5. 変更後のmoon.jsonをコンテナにコピーし、コンテナ内でmoonファイルを生成し、moons.dフォルダを作成して、その中に入れる。予備として1部をホストマシンにコピーする
-6. planetファイルをコンテナに戻して置き換える
+4. ホストマシンで[mkmoonworld-x86](https://github.com/kaaass/ZeroTierOne/releases/download/mkmoonworld-1.0/mkmoonworld-x86)を使ってplanetファイルを生成する
+5. 変更後のmoon.jsonをコンテナにコピーして戻し、コンテナ内でmoonファイルを生成し、moons.dフォルダを作成してそこに入れる。予備としてホストマシンに1部コピーする
+6. planetファイルをコンテナに置き換えて戻す
 7. コンテナを再起動する
 8. クライアントのplanetファイルを置き換える
-9. Android端末の場合、実測ではplanetを単独で読み込んでも効果がない。moonファイルを読み込み、公式のplanetノードを無効にすると効果がある
+9. Android側の場合、実測ではplanetだけを読み込んでも有効になりません。moonファイルを読み込み、公式planetノードを無効にすると有効になります
 
-具体的には [https://github.com/xubiaolin/docker-zerotier-planet](https://github.com/xubiaolin/docker-zerotier-planet) 内のコード実装と各種moon生成チュートリアルを参照してください
+具体的には [https://github.com/xubiaolin/docker-zerotier-planet](https://github.com/xubiaolin/docker-zerotier-planet) 内のコード実装と各種moon生成チュートリアルを参照
 
-######## 参考のみ #########
+######## 参考用 #########
 
 1. ダウンロード
 
@@ -76,9 +76,9 @@ ls -l
 zerotier-idtool initmoon identity.public > moon.json
 chmod 777 moon.json
 ```
-4. 新しいterminalを開き、**コンテナ外**で`moon.json`を変更する。位置はマウント位置に対応する
+4. 新しいターミナルを開き、**コンテナ外**で`moon.json`を変更する。位置はマウント位置に対応させる
 
-`stableEndpoints`を変更し、形式と実際の公衆IPに注意する
+`stableEndpoints`を変更する。形式と実際のグローバルIPに注意
 
 ```none
 {
@@ -106,7 +106,7 @@ cp *.moon moons.d/
 6. **コンテナ外**でplanetファイルを生成する
 
 - moonファイルを1部コピーする。クライアントで使用できる
-- [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0), をダウンロードし、moon.jsonをコピーして、1つのディレクトリに置く
+- [mkmoonworld](https://github.com/kaaass/ZeroTierOne/releases/tag/mkmoonworld-1.0)をダウンロードし、moon.jsonをコピーして、1つのディレクトリに置く
 - ```
   ./mkmoonworld-x86_64 ./moon.json
   mv world.bin planet
