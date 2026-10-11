@@ -7,24 +7,24 @@
   
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
   <title>
-    Arch Linux配置视频硬件加速(硬解) | Wray的Blog
+    Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding) | Wray的Blog
   </title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
+<link rel="stylesheet" href="/css/loader.css?v=mv3gz4w6">
 
-    <meta name="description" content="硬解主流的两个接口：VA-API 和 VDPAU  （仅x11） 驱动        NVIDIA 开源(支持VA-API 和 VDPAU)：Nouveau  GeForce 8 到 GeForce GTX 750 的硬件，请使用 libva-mesa-driver包 和 mesa-vdpau包还需要 nouveau-fw  (AUR) 固件包（目前是从NVIDIA二进制驱动解压出来的）闭源：nv">
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingTwo mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source (sup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arch Linux配置视频硬件加速(硬解)">
+<meta property="og:title" content="Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)">
 <meta property="og:url" content="https://blog.wray7.top/en/2025/05/24/2025-05-24-Arch%20Linux%E9%85%8D%E7%BD%AE%E8%A7%86%E9%A2%91%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F(%E7%A1%AC%E8%A7%A3)/index.html">
 <meta property="og:site_name" content="Wray的Blog">
-<meta property="og:description" content="硬解主流的两个接口：VA-API 和 VDPAU  （仅x11） 驱动        NVIDIA 开源(支持VA-API 和 VDPAU)：Nouveau  GeForce 8 到 GeForce GTX 750 的硬件，请使用 libva-mesa-driver包 和 mesa-vdpau包还需要 nouveau-fw  (AUR) 固件包（目前是从NVIDIA二进制驱动解压出来的）闭源：nv">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingTwo mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source (sup">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png">
 <meta property="article:published_time" content="2025-05-23T16:02:26.000Z">
-<meta property="article:modified_time" content="2026-10-10T17:51:58.230Z">
+<meta property="article:modified_time" content="2026-10-11T06:54:55.095Z">
 <meta property="article:author" content="Wray Lee">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -33,7 +33,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
+<link rel="stylesheet" href="/css/style.css?v=mv3gz4w6">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -178,11 +178,11 @@
 <header id="header" aria-label="Site header">
         <picture>
         </picture>
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Arch Linux配置视频硬件加速(硬解)">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)">
   <div id="header-outer">
     <div id="header-title">
           <span id="logo">
-            <h1 data-aos="slide-up">Arch Linux配置视频硬件加速(硬解)</h1>
+            <h1 data-aos="slide-up">Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)</h1>
           </span>
         <h2 id="subtitle-wrap" data-aos="slide-down">
         </h2>
@@ -197,7 +197,7 @@
     <div class="sidebar-wrap" data-aos="fade-up">
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">硬解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8"><span class="toc-number">1.1.</span> <span class="toc-text">驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BF%BB%E8%AF%91%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">翻译层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-number">1.3.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Arch-Linux%E9%85%8D%E7%BD%AE%E8%A7%86%E9%A2%91%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F"><span class="toc-number">2.</span> <span class="toc-text">Arch Linux配置视频硬件加速</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-decoding"><span class="toc-number">1.</span> <span class="toc-text">Hardware decoding</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Drivers"><span class="toc-number">1.1.</span> <span class="toc-text">Drivers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Translation-layers"><span class="toc-number">1.2.</span> <span class="toc-text">Translation layers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Verification"><span class="toc-number">1.3.</span> <span class="toc-text">Verification</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuring-video-hardware-acceleration-on-Arch-Linux"><span class="toc-number">2.</span> <span class="toc-text">Configuring video hardware acceleration on Arch Linux</span></a></li></ol>
 </div>
 </div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -208,7 +208,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">778</div>
+    <div class="sidebar-state-number">789</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -265,7 +265,7 @@
   </div>
 </aside>
 
-          <section id="main" aria-label="Main content"><article id="post-2025-05-24-Arch Linux配置视频硬件加速(硬解)" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main" aria-label="Main content"><article id="post-2025-05-24-Arch Linux配置视频硬件加速(硬解).en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
@@ -280,8 +280,11 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h1 id="硬解"><a href="#硬解" class="headerlink" title="硬解"></a>硬解</h1><p>主流的两个接口：<code>VA-API</code> 和 <code>VDPAU  （仅x11）</code></p>
-<h2 id="驱动"><a href="#驱动" class="headerlink" title="驱动"></a>驱动</h2><table>
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<h1 id="Hardware-decoding"><a href="#Hardware-decoding" class="headerlink" title="Hardware decoding"></a>Hardware decoding</h1><p>Two mainstream interfaces: <code>VA-API</code> and <code>VDPAU  （仅x11）</code></p>
+<h2 id="Drivers"><a href="#Drivers" class="headerlink" title="Drivers"></a>Drivers</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -290,53 +293,54 @@
 </thead>
 <tbody><tr>
 <td>NVIDIA</td>
-<td>开源(支持VA-API 和 VDPAU)：<br /><code>Nouveau</code>  <br /><br />GeForce 8 到 GeForce GTX 750 的硬件，请使用 <code>libva-mesa-driver</code>包 和 <code>mesa-vdpau包</code><br/><br />还需要 <code>nouveau-fw  (AUR)</code> 固件包（目前是从NVIDIA二进制驱动解压出来的）<br /><br /><br />闭源：<code>nvidia-utils</code> （支持VDPAU和NVDEC）</td>
+<td>Open source (supports VA-API and VDPAU): <br /><code>Nouveau</code>  <br /><br />For GeForce 8 to GeForce GTX 750 hardware, please use the <code>libva-mesa-driver</code> package and <code>mesa-vdpau包</code><br/><br /> You also need the <code>nouveau-fw  (AUR)</code> firmware package (currently extracted from the NVIDIA binary driver) <br /><br /><br /> Closed source: <code>nvidia-utils</code> (supports VDPAU and NVDEC)</td>
 </tr>
 <tr>
-<td>Intel（支持VA-API）</td>
-<td>Broadwell (~2014) 及之后的 HD Graphics 系列（例如英特尔 Arc 系列显卡），请使用 <code>intel-media-driver</code>包 。<br /><br />GMA 4500 (2008) 到 Coffee Lake (2017) 的 GPU, 请使用 <code>libva-intel-driver</code>包 。<br/><br />GMA 4500 H.264 解码由 <code>libva-intel-driver-g45-h264  (AUR)</code> 提供支持, 参见 Intel 图形处理器#GMA 4500上的硬件加速 H.264 解码.<br/><br />Haswell Refresh 到 Skylake 的 VP9 解码，以及 Broadwell 到 Skylake 的混合 VP8 编码，请使用 <code>intel-hybrid-codec-driver-git  (AUR)</code>.<br/><br />Skylake 及之后的硬件还需要 <code>linux-firmware</code>包.</td>
+<td>Intel (supports VA-API)</td>
+<td>Broadwell (~2014) and later HD Graphics series (e.g., Intel Arc series graphics), please use the <code>intel-media-driver</code> package. <br /><br />For GMA 4500 (2008) to Coffee Lake (2017) GPUs, please use the <code>libva-intel-driver</code> package. <br/><br />GMA 4500 H.264 decoding is supported by <code>libva-intel-driver-g45-h264  (AUR)</code>, see Intel graphics processor#Hardware-accelerated H.264 decoding on GMA 4500.<br/><br />For VP9 decoding from Haswell Refresh to Skylake, and hybrid VP8 encoding from Broadwell to Skylake, please use <code>intel-hybrid-codec-driver-git  (AUR)</code>.<br/><br />Hardware from Skylake and later also requires the <code>linux-firmware</code> package.</td>
 </tr>
 <tr>
-<td>Amd</td>
-<td>开源(支持VA-API 和 VDPAU)：Radeon HD 2000 和更新的 GPU 的 VA-API 由 <code>libva-mesa-driver</code>包 支持<br/>Radeon R600 和更新的 GPU 的 VDPAU 由 <code>mesa-vdpau</code>包 支持<br /><br />专有(支持VA-API ，VDPAU和AMF)：<code> amf-amdgpu-pro  (AUR)</code></td>
+<td>AMD</td>
+<td>Open source (supports VA-API and VDPAU): VA-API for Radeon HD 2000 and newer GPUs is supported by the <code>libva-mesa-driver</code> package<br/> VDPAU for Radeon R600 and newer GPUs is supported by the <code>mesa-vdpau</code> package<br /><br /> Proprietary (supports VA-API, VDPAU and AMF): <code> amf-amdgpu-pro  (AUR)</code></td>
 </tr>
 </tbody></table>
-<h2 id="翻译层"><a href="#翻译层" class="headerlink" title="翻译层"></a>翻译层</h2><ul>
-<li><p><strong><code>libva-vdpau-driver</code></strong> — VDPAU 作后端的 VA-API.</p>
+<h2 id="Translation-layers"><a href="#Translation-layers" class="headerlink" title="Translation layers"></a>Translation layers</h2><ul>
+<li><p><strong><code>libva-vdpau-driver</code></strong> — VA-API with VDPAU as backend.</p>
 </li>
-<li><p><strong><code>nvidia-vaapi-driver</code></strong> — CUDA  NVDEC 作为后端的 VA-API.</p>
+<li><p><strong><code>nvidia-vaapi-driver</code></strong> — VA-API with CUDA NVDEC as backend.</p>
 </li>
 </ul>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p><code>libva-utils</code> -&gt; <code>vainfo</code></p>
+<h2 id="Verification"><a href="#Verification" class="headerlink" title="Verification"></a>Verification</h2><p><code>libva-utils</code> -&gt; <code>vainfo</code></p>
 <p><code>vdpauinfo</code></p>
-<h1 id="Arch-Linux配置视频硬件加速"><a href="#Arch-Linux配置视频硬件加速" class="headerlink" title="Arch Linux配置视频硬件加速"></a>Arch Linux配置视频硬件加速</h1><p>前几天决定用Arch Linux当主系统，那么问题来了，CPU太渣，补番的时候完全是在看幻灯片<img src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png" alt=":sob:">，于是开始搞硬件加速。然而众所周知，Linux配置显卡驱动相关是很蛋疼的（其实开源驱动还好），所以折腾了半天，顺手写了这篇东西。。</p>
-<p>这里仅讨论开源驱动的配置，专有驱动太蛋疼。。</p>
-<p>目前Linux下的广泛使用的硬件加速API有两个：VA-API和VDPAU，不同应用程序的支持情况不同，所以最好都配置好。</p>
-<p>首先需要安装相关的驱动：</p>
+<h1 id="Configuring-video-hardware-acceleration-on-Arch-Linux"><a href="#Configuring-video-hardware-acceleration-on-Arch-Linux" class="headerlink" title="Configuring video hardware acceleration on Arch Linux"></a>Configuring video hardware acceleration on Arch Linux</h1><p>A few days ago I decided to use Arch Linux as my main system, and then the problem came: the CPU is too weak, and when catching up on anime I was basically watching a slideshow<img src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png" alt=":sob:">，于是开始搞硬件加速。然而众所周知，Linux配置显卡驱动相关是很蛋疼的（其实开源驱动还好），所以折腾了半天，顺手写了这篇东西。。</p>
+<p>Here I only discuss the configuration of open-source drivers; proprietary drivers are too much of a pain..</p>
+<p>Currently there are two widely used hardware acceleration APIs under Linux: VA-API and VDPAU. Different applications support them differently, so it is best to configure both.</p>
+<p>First, you need to install the relevant drivers:</p>
 <p><strong>VA-API</strong></p>
 <ul>
-<li><code>libva-intel-driver</code>提供Intel核显的驱动。</li>
-<li><code>libva-mesa-driver</code>提供NVIDIA和AMD的驱动。</li>
-<li><code>libva-vdpau-driver</code>提供支持所有显卡的驱动，但实际上底层调用的是VDPAU，只是对API进行了翻译，所以需要配置好VDPAU才能使用。</li>
+<li><code>libva-intel-driver</code> provides the driver for Intel integrated graphics.</li>
+<li><code>libva-mesa-driver</code> provides drivers for NVIDIA and AMD.</li>
+<li><code>libva-vdpau-driver</code> provides a driver that supports all graphics cards, but in fact it calls VDPAU at the underlying level; it only translates the API, so VDPAU must be configured before it can be used.</li>
 </ul>
 <p><strong>VDPAU</strong></p>
 <ul>
-<li><code>mesa-vdpau</code>提供NVIDIA和AMD的驱动（但对于NVIDIA显卡需要安装提取自专有驱动的AUR包<code>nouveau-fw</code>）。</li>
-<li><code>libvdpau-va-gl</code>提供支持所有显卡的驱动，但和<code>libva-vdpau-driver</code>相反，底层调用VA-API。</li>
+<li><code>mesa-vdpau</code> provides drivers for NVIDIA and AMD (but for NVIDIA graphics cards you need to install the AUR package <code>nouveau-fw</code>, extracted from the proprietary driver).</li>
+<li><code>libvdpau-va-gl</code> provides a driver that supports all graphics cards, but unlike <code>libva-vdpau-driver</code>, it calls VA-API at the underlying level.</li>
 </ul>
-<p>因为我是拿了个U盘把Arch塞进去，在不同的机器上启动的，所以Intel&#x2F;NVIDIA&#x2F;AMD的都要装。。简单分析可以发现各显卡都有对应的VA-API驱动，但Intel核显没有对应VDPAU驱动，需要<code>libvdpau-va-gl</code>调用VA-API来支持VDPAU。所以为了支持所有显卡，要安装这些包：<code>libva-intel-driver</code> <code>libva-mesa-driver</code> <code>mesa-vdpau</code> <code>libvdpau-va-gl</code> <code>nouveau-fw</code>(AUR)。虽然讲道理针对VDPAU实际上所有显卡都只要翻译到VA-API就好，然而我想原生的总比翻译的性能好一点（大概）。。</p>
-<p>讲道理这样就没问题了，系统会自动选用对应的驱动，然而有时候自动识别的效果不是很好（尤其是对于核显+独显的机器，系统会默认使用性能较差的核显），所以最好用环境变量指定使用的驱动：（下面的配置仅针对我之前所选用的驱动）</p>
+<p>Because I put Arch onto a USB drive and boot it on different machines, I need to install all of the Intel&#x2F;NVIDIA&#x2F;AMD ones..</p>
+<p>A simple analysis reveals that each graphics card has a corresponding VA-API driver, but Intel integrated graphics has no corresponding VDPAU driver, so <code>libvdpau-va-gl</code> is needed to call VA-API to support VDPAU. Therefore, to support all graphics cards, install these packages: <code>libva-intel-driver</code> <code>libva-mesa-driver</code> <code>mesa-vdpau</code> <code>libvdpau-va-gl</code> <code>nouveau-fw</code>(AUR). Although in theory for VDPAU all graphics cards really only need translation to VA-API, I think native performance is a bit better than translated (probably)..</p>
+<p>In theory this should be fine; the system will automatically select the corresponding driver. However, sometimes automatic detection is not very good (especially on machines with integrated + discrete graphics, where the system defaults to the weaker integrated graphics), so it is best to use environment variables to specify the driver to use: (the following configuration is only for the drivers I previously selected)</p>
 <table>
 <thead>
 <tr>
-<th align="center">显卡</th>
+<th align="center">Graphics card</th>
 <th align="center">LIBVA_DRIVER_NAME</th>
 <th align="center">VDPAU_DRIVER</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="center">Intel</td>
-<td align="center">i965                                                                                                                                                                                mesa&#x2F;mesa-amber(7代及以前intel)                                                                                                                 32位支持的mesa lib32-*                                                                                                                                                                                xf86-video-intel                                                                                                                                                  vulkan-intel&#x2F;amdvlk                                                                                       (yay -S xf86-video-intel vulkan-intel mesa-amber lib32-mesa-amber libvdpau-va-gl-i965)</td>
+<td align="center">i965                                                                                                                                                                                mesa&#x2F;mesa-amber (Intel 7th generation and earlier)                                                                                                                 32-bit supported mesa lib32-*                                                                                                                                                                                xf86-video-intel                                                                                                                                                  vulkan-intel&#x2F;amdvlk                                                                                       (yay -S xf86-video-intel vulkan-intel mesa-amber lib32-mesa-amber libvdpau-va-gl-i965)</td>
 <td align="center">va_gl</td>
 </tr>
 <tr>
@@ -350,12 +354,12 @@
 <td align="center">radeonsi</td>
 </tr>
 </tbody></table>
-<p>同时，如果是核显+独显的机器要使用独显驱动的话，还需要设置<code>DRI_PRIME=1</code>。注意这不只是针对硬件加速的设置，也会强制其他所有调用显卡的程序使用独显，所以笔记本的话会相当耗电。</p>
-<p>然而我之前也说了，我需要支持不同的机器，每次开机都切换环境变量太麻烦了，所以我写了一个简单的脚本用于自动根据当前加载的内核模块识别显卡并设置环境变量。</p>
+<p>Also, if it is a machine with integrated + discrete graphics and you want to use the discrete GPU driver, you also need to set <code>DRI_PRIME=1</code>. Note that this is not just a hardware acceleration setting; it will also force all other programs that use the graphics card to use the discrete GPU, so on a laptop it will consume quite a lot of power.</p>
+<p>However, as I said before, I need to support different machines, and switching environment variables on every boot is too troublesome, so I wrote a simple script to automatically identify the graphics card based on the currently loaded kernel modules and set the environment variables.</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">unset LIBVA_DRIVER_NAME VDPAU_DRIVER DRI_PRIME</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if lspci -k | grep -q -e amdgpu -e radeon; then</span><br><span class="line">	export LIBVA_DRIVER_NAME=radeonsi</span><br><span class="line">	export VDPAU_DRIVER=radeonsi</span><br><span class="line">elif lspci -k | grep -q nouveau; then</span><br><span class="line">	export LIBVA_DRIVER_NAME=nouveau</span><br><span class="line">	export VDPAU_DRIVER=nouveau</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if lspci -k | grep -q i915; then</span><br><span class="line">	if [ -z &quot;$LIBVA_DRIVER_NAME&quot; ]; then</span><br><span class="line">		export LIBVA_DRIVER_NAME=i965</span><br><span class="line">		export VDPAU_DRIVER=va_gl</span><br><span class="line">	else</span><br><span class="line">		export DRI_PRIME=1</span><br><span class="line">	fi</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 
-<p>将脚本加入<code>/etc/xprofile</code>（针对display manager）和&#x2F;或<code>/etc/profile</code>（如果你需要在不开图形界面的情况下使用硬件加速）就可以自动配置环境变量了。</p>
-<p>不过需要注意的是，<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PRIME#Black_screen_with_GL-based_compositors">基于OpenGL的窗口管理器在使用PRIME时会出现问题</a>，建议切换到基于Xrender的窗口管理器，或者只把上述脚本加入<code>/etc/profile</code>，在桌面环境提供的终端中运行需要硬件加速的程序。</p>
+<p>Add the script to <code>/etc/xprofile</code> (for display manager) and&#x2F;or <code>/etc/profile</code> (if you need to use hardware acceleration without starting a graphical interface), and the environment variables will be configured automatically.</p>
+<p>However, note that <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/PRIME#Black_screen_with_GL-based_compositors">OpenGL-based window managers have problems when using PRIME</a>，建议切换到基于Xrender的窗口管理器，或者只把上述脚本加入<code>/etc/profile</code>，在桌面环境提供的终端中运行需要硬件加速的程序。</p>
 
     </div>
     <footer class="article-footer">
@@ -405,10 +409,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        538k
+        554.2k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        49:10
+        50:26
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -430,7 +434,7 @@
   <div class="sidebar-wrap">
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E8%A7%A3"><span class="toc-number">1.</span> <span class="toc-text">硬解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A9%B1%E5%8A%A8"><span class="toc-number">1.1.</span> <span class="toc-text">驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BF%BB%E8%AF%91%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">翻译层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%8C%E8%AF%81"><span class="toc-number">1.3.</span> <span class="toc-text">验证</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Arch-Linux%E9%85%8D%E7%BD%AE%E8%A7%86%E9%A2%91%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F"><span class="toc-number">2.</span> <span class="toc-text">Arch Linux配置视频硬件加速</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hardware-decoding"><span class="toc-number">1.</span> <span class="toc-text">Hardware decoding</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Drivers"><span class="toc-number">1.1.</span> <span class="toc-text">Drivers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Translation-layers"><span class="toc-number">1.2.</span> <span class="toc-text">Translation layers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Verification"><span class="toc-number">1.3.</span> <span class="toc-text">Verification</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuring-video-hardware-acceleration-on-Arch-Linux"><span class="toc-number">2.</span> <span class="toc-text">Configuring video hardware acceleration on Arch Linux</span></a></li></ol>
 </div>
 </div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -441,7 +445,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">778</div>
+    <div class="sidebar-state-number">789</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -519,11 +523,11 @@
 
 
 
-<script src="/js/script.js?v=mv3g39ky"></script>
+<script src="/js/script.js?v=mv3gz4w6"></script>
 
 
   
-<script src="/js/aos.js?v=mv3g39ky"></script>
+<script src="/js/aos.js?v=mv3gz4w6"></script>
 
   <script>
     var aosInit = () => {
@@ -542,11 +546,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3gz4w6" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
+<script src="/js/generator_search.js?v=mv3gz4w6" defer></script>
 
 
 
@@ -572,21 +576,21 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Wray Lee",
-          title: "Arch Linux配置视频硬件加速(硬解)",
+          title: "Configuring Video Hardware Acceleration on Arch Linux (Hardware Decoding)",
           url: "https://blog.wray7.top/2025/05/24/2025-05-24-Arch%20Linux%E9%85%8D%E7%BD%AE%E8%A7%86%E9%A2%91%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F(%E7%A1%AC%E8%A7%A3)/",
           excerpt: "",
           description: "",
-          stripContent: "硬解主流的两个接口：VA-API 和 VDPAU  （仅x11） 驱动        NVIDIA 开源(支持VA-API 和 VDPAU)：Nouveau  GeForce 8 到 GeForce GTX 750 的硬件，请使用 libva-mesa-driver包 和 mesa-vdpau包还需要 nouveau-fw  (AUR) 固件包（目前是从NVIDIA二进制驱动解压出来的）闭源：nvidia-utils （支持VDPAU和NVDEC）   Intel（支持VA-API） Broad",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Hardware decodingTwo mainstream interfaces: VA-API and VDPAU  （仅x11） Drivers        NVIDIA Open source (supports VA-API and VDPAU): Nouveau  For GeForce 8 to",
           date: "Sat May 24 2025 00:02:26 GMT+0800",
-          updated: "Sun Oct 11 2026 01:51:58 GMT+0800",
+          updated: "Sun Oct 11 2026 14:54:55 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3gz4w6" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3gz4w6" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -645,5 +649,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3gz4w6"></script></body>
   </html>

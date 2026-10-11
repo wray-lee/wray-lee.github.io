@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3g39ky">
+<link rel="stylesheet" href="/css/loader.css?v=mv3gz4w6">
 
     <meta name="description" content="SPF 是什么目前广泛使用的发信协议 SMTP 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 boss@your-corp.com 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 your-corp.com 所认可的服务器才可以发送以 boss@your-corp.com 作">
 <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3g39ky">
+<link rel="stylesheet" href="/css/style.css?v=mv3gz4w6">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">778</div>
+    <div class="sidebar-state-number">789</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -278,7 +278,7 @@
     <div class="hr-line"></div>
     
     <div class="e-content article-entry" itemprop="articleBody">
-        <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#x62;&#x6f;&#115;&#x73;&#64;&#x79;&#x6f;&#117;&#114;&#45;&#99;&#111;&#x72;&#x70;&#46;&#99;&#111;&#109;">boss@your-corp.com</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#98;&#111;&#x73;&#115;&#x40;&#121;&#x6f;&#x75;&#114;&#45;&#99;&#x6f;&#114;&#112;&#46;&#99;&#111;&#109;">boss@your-corp.com</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
+        <h2 id="SPF-是什么"><a href="#SPF-是什么" class="headerlink" title="SPF 是什么"></a>SPF 是什么</h2><p>目前广泛使用的发信协议 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> 中，发信方可以任意设定发件人的邮箱地址，任何人都可以假冒自己是 <em><a href="mailto:&#98;&#111;&#x73;&#x73;&#64;&#121;&#111;&#117;&#114;&#x2d;&#99;&#x6f;&#114;&#112;&#x2e;&#99;&#x6f;&#109;">boss@your-corp.com</a></em> 向其他人发送邮件。因此，SPF (Sender Policy Framework) 机制被提出来，用以校验电子邮件发送方（邮件传输代理，MTA），只有被 <em>your-corp.com</em> 所认可的服务器才可以发送以 <em><a href="mailto:&#x62;&#x6f;&#x73;&#x73;&#64;&#x79;&#x6f;&#x75;&#114;&#x2d;&#x63;&#111;&#114;&#112;&#46;&#x63;&#x6f;&#x6d;">boss@your-corp.com</a></em> 作为发件人的邮件。邮件接收方会借助 SPF 记录与 IP 地址来识别发件服务器是否合法，并根据 SPF 记录的指示判断同意接收邮件或者拒收。</p>
 <h2 id="如何部署-SPF"><a href="#如何部署-SPF" class="headerlink" title="如何部署 SPF"></a>如何部署 SPF</h2><p>DNS 系统中曾经有一种专门的 SPF 资源记录类型，但已经被废除了。现在的 SPF 都以 TXT 资源记录的形式存在，主机名一般为 @。比如本博客的 SPF 如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -331,7 +331,7 @@
 <tbody><tr>
 <td>s</td>
 <td>发件人邮箱地址</td>
-<td><a href="mailto:&#x68;&#x73;&#105;&#x61;&#111;&#120;&#x79;&#99;&#x68;&#x65;&#x6e;&#x40;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;">hsiaoxychen@example.com</a></td>
+<td><a href="mailto:&#x68;&#115;&#105;&#x61;&#111;&#x78;&#121;&#99;&#104;&#x65;&#x6e;&#x40;&#x65;&#120;&#x61;&#109;&#112;&#108;&#101;&#46;&#x63;&#111;&#109;">hsiaoxychen@example.com</a></td>
 </tr>
 <tr>
 <td>l</td>
@@ -470,10 +470,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        538k
+        554.2k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        49:10
+        50:26
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -506,7 +506,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">778</div>
+    <div class="sidebar-state-number">789</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -584,11 +584,11 @@
 
 
 
-<script src="/js/script.js?v=mv3g39ky"></script>
+<script src="/js/script.js?v=mv3gz4w6"></script>
 
 
   
-<script src="/js/aos.js?v=mv3g39ky"></script>
+<script src="/js/aos.js?v=mv3gz4w6"></script>
 
   <script>
     var aosInit = () => {
@@ -607,11 +607,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3g39ky" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv3gz4w6" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3g39ky" defer></script>
+<script src="/js/generator_search.js?v=mv3gz4w6" defer></script>
 
 
 
@@ -648,10 +648,10 @@
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv3g39ky" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mv3gz4w6" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv3g39ky" data-pjax defer></script>
+<script src="/js/tabs.js?v=mv3gz4w6" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -710,5 +710,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3g39ky"></script></body>
+  <script src="/js/banner-gallery.js?v=mv3gz4w6"></script></body>
   </html>
