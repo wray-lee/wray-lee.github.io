@@ -16,7 +16,7 @@
  *
  * 状态文件: tools/.translate-manifest.json（增量，断点续传）
  * 输出: source/_posts/<原文件名>.en.md / .ja.md
- *   front-matter 复制原文，仅替换 title、追加 lang 与显式 slug（保证 permalink 配对）
+ *   front-matter 复制原文，仅替换 title、追加 lang 与显式 slug（Hexo 实际按文件名取 :title、忽略 slug；permalink 配对由 scripts/fix-i18n-permalink.js 去掉 .en/.ja 后缀实现）
  *   正文顶部加机器翻译声明；tags/categories 不翻译
  *   代码块/行内代码/Hexo 标签/URL/HTML 标签用占位符保护，绝不翻译
  */
