@@ -71,7 +71,7 @@ if (!BASE_URL || !API_KEY || !MODEL) {
 const ROOT = join(import.meta.dir, "..");
 const POSTS_DIR = join(ROOT, "source", "_posts");
 const MANIFEST_PATH = join(ROOT, "tools", ".translate-manifest.json");
-const CONCURRENCY = 8;
+const CONCURRENCY = 10;
 const LANG_NAMES: Record<string, string> = { en: "English", ja: "Japanese" };
 const NOTICE: Record<string, string> = {
   en: "> Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.\n\n",
