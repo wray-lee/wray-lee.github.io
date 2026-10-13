@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3xr5om">
+<link rel="stylesheet" href="/css/loader.css?v=mv622p5h">
 
     <meta name="description" content="Wray Lee の技術メモ：改造・備忘・学習の記録">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3xr5om">
+<link rel="stylesheet" href="/css/style.css?v=mv622p5h">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -205,7 +205,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">792</div>
+    <div class="sidebar-state-number">795</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -213,7 +213,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -260,8 +260,41 @@
 
           <section id="main" aria-label="Main content">      <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/ja/2023/04/16/2023-04-16-%E8%8B%B1%E8%AF%AD/" aria-label="英語" title="英語"></a>
+      <a class="post-link" href="/ja/2023/04/17/2023-04-17-Linux%E6%90%AD%E5%BB%BAsftp/" aria-label="Linuxでsftpを構築" title="Linuxでsftpを構築"></a>
     <div class="post-cover left">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Linuxでsftpを構築" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-04-17</span>
+        <span><span class="icon-pencil"></span>1.1k 文字</span>
+        <span><span class="icon-clock"></span>5 分</span>
+      </div>
+      <h2 class="post-title">Linuxでsftpを構築</h2>
+      <article class="post-article">
+          
+この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
+
+Linuxでsftpを構築sshd_config を設定
+vi /etc/ssh/sshd_config
+
+以下の内容を変更し、保存して終了
+#この行をコメントアウト
+#Subsystem sftp /usr/libexec/openssh/sftp-server
+この行を追加：
+Subsystem sftp internal-sftp 
+
+
+1、ユーザー sftpuser を作成し、ssh ログインを禁止し、ホームディレクトリを作成しない
+useradd -s /sbin/nolo
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/ja/2023/04/16/2023-04-16-%E8%8B%B1%E8%AF%AD/" aria-label="英語" title="英語"></a>
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="英語" class="lazyload">
     </div>
     <div class="post-info">
@@ -295,9 +328,9 @@ add-
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/04/16/2023-04-16-Curl%E8%AF%A6%E8%A7%A3/" aria-label="Curl詳解" title="Curl詳解"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Curl詳解" class="lazyload">
     </div>
     <div class="post-info">
@@ -321,9 +354,9 @@ Curl詳細解説curl -kfsSL
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/04/13/2023-04-13-%E4%BA%91%E5%AD%98%E5%82%A8/" aria-label="クラウドストレージ" title="クラウドストレージ"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="クラウドストレージ" class="lazyload">
     </div>
     <div class="post-info">
@@ -349,9 +382,9 @@ LinuxWebDAV での起動時自動マウントを実現する通常のマウン�
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/03/20/2023-03-20-SPF%20%E6%98%AF%E4%BB%80%E4%B9%88/" aria-label="SPFとは何ですか" title="SPFとは何ですか"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SPFとは何ですか" class="lazyload">
     </div>
     <div class="post-info">
@@ -371,9 +404,9 @@ SPF とは何か現在広く使われている送信プロトコル SMTP では�
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/03/20/2023-03-20-DNSlist/" aria-label="DNSlist" title="DNSlist"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="DNSlist" class="lazyload">
     </div>
     <div class="post-info">
@@ -399,9 +432,9 @@ ali：    223.5.5.5    223.6.6.6
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/03/09/2023-03-09-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E5%90%8D%E8%AE%BE%E7%BD%AE/" aria-label="オペレーティングシステムのユーザー名設定" title="オペレーティングシステムのユーザー名設定"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="オペレーティングシステムのユーザー名設定" class="lazyload">
     </div>
     <div class="post-info">
@@ -428,9 +461,9 @@ Linuxどちらでも可能だが、互換性のために-を使用できる
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/03/06/2023-03-05-winget_config_path/" aria-label="winget_config_path" title="winget_config_path"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="winget_config_path" class="lazyload">
     </div>
     <div class="post-info">
@@ -451,9 +484,9 @@ Linuxどちらでも可能だが、互換性のために-を使用できる
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/03/05/2023-03-05-%E5%88%A0%E9%99%A4%E5%A4%9A%E4%BD%99%E9%A9%B1%E5%8A%A8%E5%99%A8/" aria-label="不要なドライブを削除" title="不要なドライブを削除"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="不要なドライブを削除" class="lazyload">
     </div>
     <div class="post-info">
@@ -478,9 +511,9 @@ CCleaner_6.38.1
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/03/05/2023-03-05-ssh%E5%A4%9A%E7%A7%81%E9%92%A5%E7%AE%A1%E7%90%86/" aria-label="SSH 複数秘密鍵管理" title="SSH 複数秘密鍵管理"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SSH 複数秘密鍵管理" class="lazyload">
     </div>
     <div class="post-info">
@@ -500,9 +533,9 @@ CCleaner_6.38.1
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/02/19/2023-02-18-winget%E6%9B%B4%E6%94%B9%E5%AE%89%E8%A3%85%E4%BD%8D%E7%BD%AE/" aria-label="wingetのインストール場所を変更する" title="wingetのインストール場所を変更する"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="wingetのインストール場所を変更する" class="lazyload">
     </div>
     <div class="post-info">
@@ -526,9 +559,9 @@ winget settings
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/ja/2023/02/18/2023-02-18-Readme/" aria-label="リードミー" title="リードミー"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="リードミー" class="lazyload">
     </div>
     <div class="post-info">
@@ -548,30 +581,8 @@ winget settings
     </div>
   </div>
 </div>
-      <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/ja/2023/02/16/2023-02-15-Youtube-dl%E4%B8%8B%E8%BD%BD/" aria-label="Youtube-dl ダウンロード" title="Youtube-dl ダウンロード"></a>
-    <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Youtube-dl ダウンロード" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-02-15</span>
-        <span><span class="icon-pencil"></span>86 文字</span>
-        <span><span class="icon-clock"></span>1 分</span>
-      </div>
-      <h2 class="post-title">Youtube-dl ダウンロード</h2>
-      <article class="post-article">
-          
-この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。
-
-Youtube-dlダウンロード1youtube-dl --download-archive log.txt &amp;quot;https://www.youtube.com/playlist?list=PLP5yb_kS9Bc4ARlmr6_PHZc0BkLUx31wF&amp;quot; --external-downloader aria2c --external-downloader-args &amp;quot;-x 16 -k 1M&amp;quot; --no-check-certificate
-      </article>
-    </div>
-  </div>
-</div>
   <nav id="page-nav" aria-label="Pagination navigation" data-aos="fade-up">
-    <a class="extend prev" rel="prev" href="/ja/page/17/">&laquo; 戻る</a><a class="page-number" href="/ja/">1</a><span class="space">&hellip;</span><a class="page-number" href="/ja/page/16/">16</a><a class="page-number" href="/ja/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/ja/page/19/">19</a><a class="page-number" href="/ja/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/ja/page/22/">22</a><a class="extend next" rel="next" href="/ja/page/19/">次へ &raquo;</a>
+    <a class="extend prev" rel="prev" href="/ja/page/17/">&laquo; 戻る</a><a class="page-number" href="/ja/">1</a><span class="space">&hellip;</span><a class="page-number" href="/ja/page/16/">16</a><a class="page-number" href="/ja/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/ja/page/19/">19</a><a class="page-number" href="/ja/page/20/">20</a><span class="space">&hellip;</span><a class="page-number" href="/ja/page/23/">23</a><a class="extend next" rel="next" href="/ja/page/19/">次へ &raquo;</a>
   </nav>
 
 </section>
@@ -593,10 +604,10 @@ Youtube-dlダウンロード1youtube-dl --download-archive log.txt &amp;quot;htt
       </div>
       <div>
         <span class="icon-brush"></span>
-        561.6k
+        566.4k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:06
+        51:30
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -624,7 +635,7 @@ Youtube-dlダウンロード1youtube-dl --download-archive log.txt &amp;quot;htt
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>投稿</div>
-    <div class="sidebar-state-number">792</div>
+    <div class="sidebar-state-number">795</div>
   </div>
   <div class="sidebar-state-category">
     <div>カテゴリー</div>
@@ -632,7 +643,7 @@ Youtube-dlダウンロード1youtube-dl --download-archive log.txt &amp;quot;htt
   </div>
   <div class="sidebar-state-tag">
     <div>タグ</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -698,11 +709,11 @@ Youtube-dlダウンロード1youtube-dl --download-archive log.txt &amp;quot;htt
 
 
 
-<script src="/js/script.js?v=mv3xr5om"></script>
+<script src="/js/script.js?v=mv622p5h"></script>
 
 
   
-<script src="/js/aos.js?v=mv3xr5om"></script>
+<script src="/js/aos.js?v=mv622p5h"></script>
 
   <script>
     var aosInit = () => {
@@ -721,11 +732,11 @@ Youtube-dlダウンロード1youtube-dl --download-archive log.txt &amp;quot;htt
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3xr5om" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv622p5h" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3xr5om" defer></script>
+<script src="/js/generator_search.js?v=mv622p5h" defer></script>
 
 
 
@@ -781,5 +792,5 @@ Youtube-dlダウンロード1youtube-dl --download-archive log.txt &amp;quot;htt
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3xr5om"></script></body>
+  <script src="/js/banner-gallery.js?v=mv622p5h"></script></body>
   </html>

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv3xr5om">
+<link rel="stylesheet" href="/css/loader.css?v=mv622p5h">
 
     <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv3xr5om">
+<link rel="stylesheet" href="/css/style.css?v=mv622p5h">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -205,7 +205,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">792</div>
+    <div class="sidebar-state-number">795</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -213,7 +213,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -260,8 +260,34 @@
 
           <section id="main" aria-label="Main content">      <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/2024/04/20/2024-04-20-iptables/" aria-label="iptables" title="iptables"></a>
+      <a class="post-link" href="/2024/05/22/2024-05-21-python/" aria-label="python" title="python"></a>
     <div class="post-cover left">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="python" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2024-05-21</span>
+        <span><span class="icon-pencil"></span>336 字</span>
+        <span><span class="icon-clock"></span>2 分钟</span>
+      </div>
+      <h2 class="post-title">python</h2>
+      <article class="post-article">
+          Python闭包一个函数可以访问到它被定义时所在的环境
+12345678def outerFunc(a):    def innerFunc(b):        return a+b    retrun innerFunc        tmp = outerFunc(1)print(tmp(2))	# 输出3
+
+这个例子中，第一次传入的参数1在tmp被调用时仍然存在，并没有因为第一次执行后被销毁
+装饰器
+接受函数作为参数，补充函数功能，先于被装饰函数执行
+
+1234567891011def now():     print(&amp;#x27;2015-3-25&amp;#x27;)def log(fun
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2024/04/20/2024-04-20-iptables/" aria-label="iptables" title="iptables"></a>
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="iptables" class="lazyload">
     </div>
     <div class="post-info">
@@ -282,9 +308,9 @@
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2024/04/15/2024-04-15-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%86%8D%E6%B7%B1%E5%85%A5/" aria-label="正则表达式再深入" title="正则表达式再深入"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="正则表达式再深入" class="lazyload">
     </div>
     <div class="post-info">
@@ -319,9 +345,9 @@
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2024/04/13/2024-04-13-Node.js/" aria-label="Node.js" title="Node.js"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Node.js" class="lazyload">
     </div>
     <div class="post-info">
@@ -361,9 +387,9 @@ Buffer12345let
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2024/04/09/2024-04-09-web-basic/" aria-label="web-basic" title="web-basic"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="web-basic" class="lazyload">
     </div>
     <div class="post-info">
@@ -388,9 +414,9 @@ text为文本
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2024/04/08/2024-04-08-Batsh%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" aria-label="Batsh基本语法" title="Batsh基本语法"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Batsh基本语法" class="lazyload">
     </div>
     <div class="post-info">
@@ -414,9 +440,9 @@ Dir函数DIR *.* /B &amp;gt;list.tx
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2024/04/02/2024-04-02-Vim%E7%AC%94%E8%AE%B0/" aria-label="Vim笔记" title="Vim笔记"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Vim笔记" class="lazyload">
     </div>
     <div class="post-info">
@@ -441,9 +467,9 @@ shift+v  10j 向下选中10行
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2024/03/18/2024-03-18-Windows%20shortcuts/" aria-label="Windows shortcuts" title="Windows shortcuts"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Windows shortcuts" class="lazyload">
     </div>
     <div class="post-info">
@@ -484,9 +510,9 @@ C:\Program Files (x86)\Common Files
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2024/03/04/2024-03-04-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B%E5%8D%A0%E7%94%A8%EF%BC%8C%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E5%8D%A0%E7%94%A8%EF%BC%8C%E6%9F%A5%E7%9C%8Blog/" aria-label="查看进程占用，查看磁盘占用，查看log" title="查看进程占用，查看磁盘占用，查看log"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="查看进程占用，查看磁盘占用，查看log" class="lazyload">
     </div>
     <div class="post-info">
@@ -511,9 +537,9 @@ CCleaner_6.38.11
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2024/01/29/2024-01-29-Linux%E5%85%B3%E9%97%AD%E4%BC%91%E7%9C%A0%EF%BC%88gnome%EF%BC%89/" aria-label="Linux关闭休眠（gnome）" title="Linux关闭休眠（gnome）"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Linux关闭休眠（gnome）" class="lazyload">
     </div>
     <div class="post-info">
@@ -531,9 +557,9 @@ CCleaner_6.38.11
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2024/01/29/2024-01-28-SVP%20potplayer%E8%A1%A5%E5%B8%A7%E8%AE%BE%E7%BD%AE/" aria-label="SVP potplayer补帧设置" title="SVP potplayer补帧设置"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="SVP potplayer补帧设置" class="lazyload">
     </div>
     <div class="post-info">
@@ -560,9 +586,9 @@ avisynth开启使用脚本
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2024/01/09/2024-01-09-DNS%E6%B1%A1%E6%9F%93%E4%B8%BA0.0.0.0%E6%97%B6%E7%9A%84%E8%A7%A3%E6%9E%90%E6%B5%81%E7%A8%8B/" aria-label="DNS污染为0.0.0.0时的解析流程" title="DNS污染为0.0.0.0时的解析流程"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="DNS污染为0.0.0.0时的解析流程" class="lazyload">
     </div>
     <div class="post-info">
@@ -578,32 +604,8 @@ avisynth开启使用脚本
     </div>
   </div>
 </div>
-      <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/2023/12/13/2023-12-13-%E6%96%B0%E5%BB%BA%20Text%20Document/" aria-label="新建 Text Document" title="新建 Text Document"></a>
-    <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="新建 Text Document" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2023-12-13</span>
-        <span><span class="icon-pencil"></span>50 字</span>
-        <span><span class="icon-clock"></span>1 分钟</span>
-      </div>
-      <h2 class="post-title">新建 Text Document</h2>
-      <article class="post-article">
-          wget -P &amp;#x2F;root -N –no-check-certificate “https://raw.githubusercontent.com/mack-a/v2ray-agent/master/install.sh“ &amp;amp;&amp;amp; chmod 700 &amp;#x2F;root&amp;#x2F;install.sh &amp;amp;&amp;amp; &amp;#x2F;root&amp;#x2F;install.sh
-附件
-Clash .NET 1.2.8.zip
-Clash.NET.1.2.8.x64.7z
-
-
-      </article>
-    </div>
-  </div>
-</div>
   <nav id="page-nav" aria-label="Pagination navigation" data-aos="fade-up">
-    <a class="extend prev" rel="prev" href="/page/10/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" href="/page/12/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/10/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" href="/page/12/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -625,10 +627,10 @@ Clash.NET.1.2.8.x64.7z
       </div>
       <div>
         <span class="icon-brush"></span>
-        561.6k
+        566.4k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:06
+        51:30
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -656,7 +658,7 @@ Clash.NET.1.2.8.x64.7z
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">792</div>
+    <div class="sidebar-state-number">795</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -664,7 +666,7 @@ Clash.NET.1.2.8.x64.7z
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">26</div>
+    <div class="sidebar-state-number">28</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -730,11 +732,11 @@ Clash.NET.1.2.8.x64.7z
 
 
 
-<script src="/js/script.js?v=mv3xr5om"></script>
+<script src="/js/script.js?v=mv622p5h"></script>
 
 
   
-<script src="/js/aos.js?v=mv3xr5om"></script>
+<script src="/js/aos.js?v=mv622p5h"></script>
 
   <script>
     var aosInit = () => {
@@ -753,11 +755,11 @@ Clash.NET.1.2.8.x64.7z
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv3xr5om" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv622p5h" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv3xr5om" defer></script>
+<script src="/js/generator_search.js?v=mv622p5h" defer></script>
 
 
 
@@ -813,5 +815,5 @@ Clash.NET.1.2.8.x64.7z
 
 
 
-  <script src="/js/banner-gallery.js?v=mv3xr5om"></script></body>
+  <script src="/js/banner-gallery.js?v=mv622p5h"></script></body>
   </html>

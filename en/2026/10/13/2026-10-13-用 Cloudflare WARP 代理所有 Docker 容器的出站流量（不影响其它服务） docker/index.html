@@ -1,0 +1,651 @@
+  <!DOCTYPE html>
+  <html lang="en"  data-theme-mode="auto">
+  <head>
+  <meta charset="utf-8">
+  
+  
+  
+  <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_ex15nbittbh';window.REIMU_CONFIG.clipboard_tips = {"success":{"zh-CN":"复制成功 (*^▽^*)","en":"Copy successfully (*^▽^*)","ja":"コピー成功 (*^▽^*)"},"fail":{"zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","en":"Copy failed (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'https://blog.wray7.top';window.REIMU_CONFIG.relative = '/';window.REIMU_CONFIG.i18n_languages = ["en","ja"];window.REIMU_CONFIG.dark_mode = {"button":true,"mode":"auto"};</script>
+  <title>
+    Proxy outbound traffic for all Docker containers with Cloudflare WARP (without affecting other services) docker | Wray's Blog
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+<link rel="stylesheet" href="/css/loader.css?v=mv622p5h">
+
+    <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Goal: All container traffic accessing the public internet goes through the WARP exit; the host’s own traffi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Proxy outbound traffic for all Docker containers with Cloudflare WARP (without affecting other services) docker">
+<meta property="og:url" content="https://blog.wray7.top/en/2026/10/13/2026-10-13-%E7%94%A8%20Cloudflare%20WARP%20%E4%BB%A3%E7%90%86%E6%89%80%E6%9C%89%20Docker%20%E5%AE%B9%E5%99%A8%E7%9A%84%E5%87%BA%E7%AB%99%E6%B5%81%E9%87%8F%EF%BC%88%E4%B8%8D%E5%BD%B1%E5%93%8D%E5%85%B6%E5%AE%83%E6%9C%8D%E5%8A%A1%EF%BC%89%20docker/index.html">
+<meta property="og:site_name" content="Wray's Blog">
+<meta property="og:description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Goal: All container traffic accessing the public internet goes through the WARP exit; the host’s own traffi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2026-10-13T03:08:57.000Z">
+<meta property="article:modified_time" content="2026-10-13T02:18:59.398Z">
+<meta property="article:author" content="Wray Lee">
+<meta property="article:tag" content="cloudflare">
+<meta property="article:tag" content="docker">
+<meta name="twitter:card" content="summary">
+      <meta name="keywords" content="tech, notes, tinkering, tutorials">
+    <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css?v=mv622p5h">
+
+  <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
+    
+<script src="https://npm.webcache.cn/pace-js@1.2.4/pace.min.js" integrity="sha384-k6YtvFUEIuEFBdrLKJ3YAUbBki333tj1CSUisai5Cswsg9wcLNaPzsTHDswp4Az8" crossorigin="anonymous"></script>
+
+    
+<link rel="stylesheet" href="https://npm.webcache.cn/@reimujs/aos@0.1.3/dist/aos.css" integrity="sha384-GMRP93c6Hkz9JVKGAuRR3nTS7M07RwPgTFenXiosjq2VbVgvdDNcz1g6Mkj8AONa" crossorigin="anonymous">
+
+    <style>
+@media screen and (max-width: 479px) {
+  #page-nav .page-number:has(+ .next) { display: inline-block; }
+  #page-nav .page-number:has(+ .next)::before { content: "/ "; }
+}
+</style>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+  <body>
+      <div id='loader'>
+    <div class="loading-left-bg loading-bg"></div>
+    <div class="loading-right-bg loading-bg"></div>
+    <div class="spinner-box">
+      <div class="loading-taichi rotate">
+          <svg width="150" height="150" viewBox="0 0 1024 1024" class="icon" version="1.1" xmlns="https://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+            <path d="M303.5 432A80 80 0 0 1 291.5 592A80 80 0 0 1 303.5 432z" fill="var(--red-1, #ff5252)" />
+            <path d="M512 65A447 447 0 0 1 512 959L512 929A417 417 0 0 0 512 95A417 417 0 0 0 512 929L512 959A447 447 0 0 1 512 65z 
+           M512 95A417 417 0 0 1 929 512A208.5 208.5 0 0 1 720.5 720.5L720.5 592A80 80 0 0 0 720.5 432A80 80 0 0 0 720.5 592L720.5 720.5A208.5 208.5 0 0 1 512 512A208.5 208.5 0 0 0 303.5 303.5A208.5 208.5 0 0 0 95 512A417 417 0 0 1 512 95z" fill="var(--red-1, #ff5252)" />
+          </svg>
+      </div>
+      <div class="loading-word">Loading...</div>
+    </div>
+  </div>
+  <script>
+    var time = null;
+    var loaderEl = document.getElementById('loader');
+    var startLoading = () => {
+      time = Date.now();
+      loaderEl.classList.remove("loading");
+    }
+    var hideLoader = () => {
+      document.body.style.overflow = 'auto';
+      loader.classList.add('loading');
+    };
+
+    var endLoading = () => {
+      if (!time) {
+        hideLoader();
+      } else {
+        if (Date.now() - time > 500) {
+          time = null;
+          hideLoader();
+        } else {
+          setTimeout(endLoading, 500 - (Date.now() - time));
+          time = null;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', endLoading);
+    loaderEl.addEventListener('click', endLoading);
+  </script>
+<div id="copy-tooltip"></div>
+<div id="heatmap-tooltip"></div>
+
+
+    <div id="container">
+      <div id="wrap">
+        <div id="header-nav">
+  <nav id="main-nav" aria-label="Primary navigation">
+        <a class="main-nav-link-wrap" href="/en/">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Home</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/archives">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">Archives</span>
+        </a>
+        <a class="main-nav-link-wrap" href="/en/about">
+            <div class="main-nav-icon icon rotate">
+                &#xe62b;
+            </div>
+          <span class="main-nav-link">About</span>
+        </a>
+    <a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
+  </nav>
+  <nav id="sub-nav" aria-label="Secondary navigation">
+      <a id="nav-rss-link" class="nav-icon" href="/en/atom.xml" title="RSS Feed" aria-label="RSS Feed" target="_blank"></a>
+      <a id="nav-search-btn" class="nav-icon popup-trigger" title="Search" aria-label="Search"></a>
+  </nav>
+    <nav id="i18n-nav" aria-label="Language selection">
+      <div class="custom-dropdown">
+        <div class="select-selected" id="select-selected" role="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language menu">
+          <span id="nav-language-btn" class="nav-icon" style="padding: 0 20px 0 0"></span>
+          <span id="selected-lang">English</span>
+        </div>
+        <ul class="select-items" id="select-items" role="listbox" aria-label="Languages">
+            <li data-value="zh-CN" role="option" aria-selected="false">简体中文</li>
+            <li data-value="en" role="option" class="selected" aria-selected="true">English</li>
+            <li data-value="ja" role="option" aria-selected="false">日本語</li>
+        </ul>
+      </div>
+      <script>
+        var selectSelected = document.getElementById("select-selected");
+        var selectedLang = document.getElementById("selected-lang");
+        var selectItems = document.getElementById("select-items");
+        var selectOptions = selectItems.querySelectorAll("li");
+
+        selectSelected.addEventListener("click", () => {
+          selectItems.classList.toggle("show");
+          var expanded = selectSelected.getAttribute("aria-expanded") === "true";
+          selectSelected.setAttribute("aria-expanded", (!expanded).toString());
+        });
+
+        selectOptions.forEach((item) => {
+          item.addEventListener("click", () => {
+            const langMap = {};
+              langMap['zh-CN'] = '/2026/10/13/2026-10-13-用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker/';
+              langMap['en'] = '/en/2026/10/13/2026-10-13-用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker/';
+              langMap['ja'] = '/ja/2026/10/13/2026-10-13-用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker/';
+            selectedLang.textContent = item.textContent;
+            selectItems.classList.remove("show");
+            selectOptions.forEach((option) => {
+              option.classList.remove("selected");
+            });
+            item.classList.add("selected");
+            window.location = langMap[item.dataset.value];
+          });
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".custom-dropdown")) {
+            selectItems.classList.remove("show");
+            selectSelected.setAttribute("aria-expanded", "false");
+          }
+        });
+      </script>
+    </nav>
+</div>
+<header id="header" aria-label="Site header">
+        <picture>
+        </picture>
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'"  fetchpriority="high" src="/images/banner.webp" alt="Proxy outbound traffic for all Docker containers with Cloudflare WARP (without affecting other services) docker">
+  <div id="header-outer">
+    <div id="header-title">
+          <span id="logo">
+            <h1 data-aos="slide-up">Proxy outbound traffic for all Docker containers with Cloudflare WARP (without affecting other services) docker</h1>
+          </span>
+        <h2 id="subtitle-wrap" data-aos="slide-down">
+        </h2>
+    </div>
+  </div>
+</header>
+
+        <div id="content" aria-label="Page content"  class="sidebar-right" >
+          <aside id="sidebar" aria-label="Sidebar">
+  <div class="sidebar-wrapper-container sticky">
+  <div class="sidebar-wrapper">
+    <div class="sidebar-wrap" data-aos="fade-up">
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Approach"><span class="toc-number">1.</span> <span class="toc-text">1. Approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Obtain-WARP-configuration-wgcf"><span class="toc-number">2.</span> <span class="toc-text">2. Obtain WARP configuration (wgcf)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Script-root-warp-setup-sh"><span class="toc-number">3.</span> <span class="toc-text">3. Script &#x2F;root&#x2F;warp&#x2F;setup.sh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-systemd"><span class="toc-number">4.</span> <span class="toc-text">4. systemd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Verification"><span class="toc-number">5.</span> <span class="toc-text">5. Verification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Notes"><span class="toc-number">6.</span> <span class="toc-text">6. Notes</span></a></li></ol>
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee's tech notes: tinkering, cheatsheets and study logs</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">795</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">28</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/wrayrem itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:i@wray7.top itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+    </div>
+  </div>
+  <div class="sidebar-widget">
+  </div>
+  </div>
+</aside>
+
+          <section id="main" aria-label="Main content"><article id="post-2026-10-13-用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker.en" class="h-entry article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-inner" data-aos="fade-up">
+    <div class="article-meta">
+      <div class="article-date">
+  <span class="article-date-link icon-calendar" data-aos="zoom-in">
+    <time datetime="2026-10-13T03:08:57.000Z" itemprop="datePublished">2026-10-13</time>
+    <time style="display: none;" id="post-update-time">2026-10-13</time>
+  </span>
+</div>
+
+    </div>
+    
+    <div class="hr-line"></div>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+        <blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<p>Goal: All container traffic accessing the public internet goes through the WARP exit; the host’s own traffic, externally mapped ports, and intranet access such as ZeroTier &#x2F; NetBird remain unchanged.</p>
+<p>Example: <code>192.236.240.51</code> (Ubuntu 22.04, script at <code>/root/warp/</code>)</p>
+<h2 id="1-Approach"><a href="#1-Approach" class="headerlink" title="1. Approach"></a>1. Approach</h2><p>Do not modify the host’s default route. Use only <strong>policy routing</strong> to steer traffic whose source address belongs to the Docker subnet (<code>172.16.0.0/12</code>) into a separate routing table (table 200). The default route in this table is the WireGuard interface <code>warp</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">容器 172.x ──► ip rule (from 172.16/12) ──► table 200: default dev warp ──► MASQUERADE ──► WARP</span><br><span class="line">宿主机进程 ──► main 表 ──► eth0（不受影响）</span><br></pre></td></tr></table></figure>
+
+<p>Several types of traffic need to be excluded (all returned to the main table):</p>
+<table>
+<thead>
+<tr>
+<th>Rule</th>
+<th>Effect</th>
+<th>Consequence of omitting</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>101 fwmark 0x40000/0x40000 lookup main</code></td>
+<td>For connections <strong>entering</strong> from eth0 (mapped ports such as <code>-p 7080:7080</code>), reply packets go out via eth0</td>
+<td>Reply packets are sent into WARP; all external access to mapped ports times out</td>
+</tr>
+<tr>
+<td><code>102 from 172.16/12 to 10.0.0.0/8 lookup main</code></td>
+<td>Container access to ZeroTier &#x2F; NetBird and other overlay intranets</td>
+<td>Container access to internal addresses such as <code>10.17.1.200</code> fails</td>
+</tr>
+<tr>
+<td><code>102 from 172.16/12 to 192.168.0.0/16 lookup main</code></td>
+<td>Other private networks</td>
+<td>Same as above</td>
+</tr>
+<tr>
+<td><code>103 from 172.16/12 to 172.16/12 lookup main</code></td>
+<td>Container-to-container traffic and container access to the host bridge</td>
+<td>Inter-container communication breaks</td>
+</tr>
+<tr>
+<td><code>104 from 172.16/12 lookup 200</code></td>
+<td>All remaining traffic goes through WARP</td>
+<td>—</td>
+</tr>
+</tbody></table>
+<p>The marking for <code>101</code> is applied via conntrack:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 新连接从 eth0 进来 → 给连接打 connmark</span></span><br><span class="line">iptables -t mangle -A PREROUTING -i eth0 -m conntrack --ctstate NEW -j CONNMARK --set-xmark 0x40000/0x40000</span><br><span class="line"><span class="comment"># 属于这些连接的包（包括容器发出的回包）→ 恢复成包标记，供 ip rule 匹配</span></span><br><span class="line">iptables -t mangle -A PREROUTING -m connmark --mark 0x40000/0x40000 -j MARK --set-xmark 0x40000/0x40000</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>The marking bit uses <code>0x40000</code> to avoid conflict with NetBird’s <code>0x1bd00</code> (rule 110).</p>
+</blockquote>
+<p>Also required:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -o warp -j MASQUERADE        <span class="comment"># 容器源地址 NAT 成 warp 地址</span></span><br><span class="line">iptables -t mangle -A FORWARD -o warp -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1240</span><br><span class="line"><span class="comment"># warp MTU 1280 - 40 = 1240；不夹 MSS 时，Node/Chrome 的大 TLS ClientHello 会被分片丢掉，</span></span><br><span class="line"><span class="comment"># 表现为 curl 能通但 HTTPS 客户端卡住</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Obtain-WARP-configuration-wgcf"><a href="#2-Obtain-WARP-configuration-wgcf" class="headerlink" title="2. Obtain WARP configuration (wgcf)"></a>2. Obtain WARP configuration (wgcf)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wgcf register          <span class="comment"># 生成 wgcf-account.toml</span></span><br><span class="line">wgcf generate          <span class="comment"># 生成 wgcf-profile.conf</span></span><br></pre></td></tr></table></figure>
+
+<p><code>/root/warp/warp.conf</code> retains only fields recognized by <code>wg setconf</code> (must not contain Address&#x2F;DNS&#x2F;MTU):</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Interface]</span></span><br><span class="line"><span class="attr">PrivateKey</span> = &lt;wgcf-profile.conf 里的&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">[Peer]</span></span><br><span class="line"><span class="attr">PublicKey</span> = bmXOC+F1FxEMF9dyiK2H5/<span class="number">1</span>SUtzH0JuVo51h2wPfgyo=</span><br><span class="line"><span class="attr">AllowedIPs</span> = <span class="number">0.0</span>.<span class="number">0.0</span>/<span class="number">0</span></span><br><span class="line"><span class="attr">AllowedIPs</span> = ::/<span class="number">0</span></span><br><span class="line"><span class="attr">Endpoint</span> = <span class="number">162.159</span>.<span class="number">192.1</span>:<span class="number">854</span></span><br><span class="line"><span class="attr">PersistentKeepalive</span> = <span class="number">25</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Endpoint pitfalls (tested on this machine):</strong></p>
+<ul>
+<li><code>engage.cloudflareclient.com:2408</code> &#x2F; <code>[2606:4700:d0::a29f:c001]:2408</code> consistently fail to handshake on this machine.</li>
+<li>After the interface is newly created, <strong>the first endpoint’s handshake often gets no reply</strong> (tcpdump only shows outbound 148-byte packets); switching to another port enables handshake immediately and it remains stable thereafter. Therefore, you cannot rely on hard-coding a single endpoint; automatic rotation is required.</li>
+<li>Available ports (Cloudflare WARP official port pool): <code>854 859 864 878 880 890 891 894 903 908 928 934 939 942 943 945 946 955 968 987 988 1002 1010 1014 1018 1070 1074 1180 1387 1701 1843 2371 2408 2506 3138 3476 3581 3854 4177 4198 4233 4500 5279 5956 7103 7152 7156 7281 7559 8319 8742 8854 8886</code></li>
+</ul>
+<h2 id="3-Script-root-warp-setup-sh"><a href="#3-Script-root-warp-setup-sh" class="headerlink" title="3. Script /root/warp/setup.sh"></a>3. Script <code>/root/warp/setup.sh</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setup.sh up      # 默认：建 warp 接口 + 规则 101-103 + iptables，然后执行 check</span><br><span class="line">setup.sh down    # 全部撤掉</span><br><span class="line">setup.sh check   # 握手新鲜 → 确保规则 104 存在；不新鲜 → 轮换端点端口；</span><br><span class="line">                 # 全部失败 → 删除规则 104（fail-open，容器回到直连，不断网）</span><br></pre></td></tr></table></figure>
+
+<p>Key design points:</p>
+<ul>
+<li><strong>Rule 104 is added only after a successful handshake.</strong> The previous version added 104 from startup; once WARP handshake failed, all containers (openclaw’s Telegram&#x2F;Slack, etc.) lost network connectivity.</li>
+<li><strong>fail-open</strong>: When WARP is unavailable, containers fall back to using the host IP directly. The cost is that during this period the exit IP is exposed as the VPS IP. If a service <strong>must</strong> use the WARP IP, change <code>route_off</code> so it does not delete 104 (fail-closed).</li>
+<li>Handshake freshness threshold is 180 seconds (with WireGuard traffic or keepalive, re-handshake occurs every 120 seconds).</li>
+</ul>
+<h2 id="4-systemd"><a href="#4-systemd" class="headerlink" title="4. systemd"></a>4. systemd</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">warp-egress.service         oneshot，ExecStart=setup.sh，ExecStop=setup.sh down</span><br><span class="line">warp-egress-check.timer     开机 2 分钟后起，每 1 分钟跑一次 setup.sh check</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> --now warp-egress warp-egress-check.timer</span><br><span class="line">journalctl -u warp-egress -u warp-egress-check -f      <span class="comment"># 看切换日志</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Prevent rules from being cleared by systemd-networkd</strong>: networkd by default deletes policy routing rules that were “not created by it” (this is likely why rule 104 mysteriously disappeared previously). Added:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/systemd/networkd.conf.d/10-keep-foreign.conf</span></span><br><span class="line"><span class="section">[Network]</span></span><br><span class="line"><span class="attr">ManageForeignRoutingPolicyRules</span>=<span class="literal">no</span></span><br><span class="line"><span class="attr">ManageForeignRoutes</span>=<span class="literal">no</span></span><br></pre></td></tr></table></figure>
+
+<p>(Takes effect only when networkd restarts; even if the rules are deleted, the check timer will restore 104 within 1 minute. If 101-103 are lost, re-run <code>systemctl restart warp-egress</code>.)</p>
+<h2 id="5-Verification"><a href="#5-Verification" class="headerlink" title="5. Verification"></a>5. Verification</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># WARP 隧道</span></span><br><span class="line">wg show warp latest-handshakes            <span class="comment"># 非 0 且在 180 秒内</span></span><br><span class="line">curl --interface warp https://www.cloudflare.com/cdn-cgi/trace | grep warp   <span class="comment"># warp=on</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 容器走 WARP</span></span><br><span class="line">docker <span class="built_in">exec</span> fgc curl -s https://www.cloudflare.com/cdn-cgi/trace | grep -E <span class="string">&#x27;ip=|warp=&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 容器访问内网仍走 main（不应经过 warp）</span></span><br><span class="line">docker <span class="built_in">exec</span> openclaw node -e <span class="string">&#x27;fetch(&quot;http://10.17.1.200:7000/v1/models&quot;).then(r=&gt;console.log(r.status))&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 外部访问映射端口（在别的机器上）</span></span><br><span class="line">curl -o /dev/null -w <span class="string">&#x27;%&#123;http_code&#125;\n&#x27;</span> http://192.236.240.51:7080/</span><br><span class="line"></span><br><span class="line">ip rule        <span class="comment"># 应看到 101/102/102/103/104</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-Notes"><a href="#6-Notes" class="headerlink" title="6. Notes"></a>6. Notes</h2><ul>
+<li>Host processes <strong>do not go through</strong> WARP (running <code>curl</code> directly on the host exits via the VPS IP). When needed, use <code>--interface warp</code>.</li>
+<li>Newly created containers have an MTU of 1500; <code>setup.sh up</code> only changes containers that are running at that moment to 1380. TCP has MSS clamping as a fallback, but large UDP packets may be fragmented. When needed, use <code>systemctl restart warp-egress</code>.</li>
+<li>Container access to host bridge addresses such as <code>172.17.0.1:&lt;端口&gt;</code> goes through rule 103 and is unrelated to WARP. If a service only binds to <code>127.0.0.1</code>, containers originally cannot access it; use the service name within the same Docker network instead.</li>
+<li>ZeroTier has already added the <code>warp</code> interface to <code>interfacePrefixBlacklist</code> in <code>local.conf</code> to avoid ZT attempting to punch holes through WARP.</li>
+</ul>
+
+    </div>
+    <footer class="article-footer">
+      
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/cloudflare/" rel="tag" title="cloudflare">cloudflare</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/en/tags/docker/" rel="tag" title="docker">docker</a></li></ul>
+
+    </footer>
+  </div>
+    <nav id="article-nav" aria-label="Article navigation" data-aos="fade-up">
+    <div class="article-nav-link-wrap right">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="DS-Lite" class="lazyload">
+      <a href="/en/2026/10/11/2026-10-11-DS-Lite/" aria-label="Next: DS-Lite"  title="Next: DS-Lite"></a>
+      <div class="article-nav-caption">Next</div>
+      <h3 class="article-nav-title">
+          DS-Lite
+      </h3>
+    </div>
+  </nav>
+
+</article>
+
+
+</section>
+        </div>
+        <footer id="footer" aria-label="Site footer">
+  <div style="width: 100%; overflow: hidden">
+    <div class="footer-line"></div>
+  </div>
+  <div id="footer-info">
+    <div>
+      <span class="icon-copyright"></span>
+        2019-2026
+        <span class="footer-info-sep rotate"></span>
+      Wray Lee
+    </div>
+      <div>
+        Powered by&nbsp;<a href="https://hexo.io/" rel="noopener nofollow noreferrer" target="_blank">Hexo</a>&nbsp;
+        Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" rel="noopener nofollow noreferrer" target="_blank">Reimu</a>
+      </div>
+      <div>
+        <span class="icon-brush"></span>
+        566.4k
+        &nbsp;|&nbsp;
+        <span class="icon-coffee"></span>
+        51:30
+      </div>
+      <div>
+        <span class="icon-eye"></span>
+        <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+        &nbsp;|&nbsp;
+        <span class="icon-user"></span>
+        <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+      </div>
+  </div>
+</footer>
+
+          <div class="sidebar-top">
+            <div class="sidebar-top-taichi rotate"></div>
+            <div class="arrow-up"></div>
+          </div>
+        <div id="mask" class="hide"></div>
+      </div>
+      <nav id="mobile-nav" aria-label="Mobile navigation">
+  <div class="sidebar-wrap">
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">Contents</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Approach"><span class="toc-number">1.</span> <span class="toc-text">1. Approach</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Obtain-WARP-configuration-wgcf"><span class="toc-number">2.</span> <span class="toc-text">2. Obtain WARP configuration (wgcf)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Script-root-warp-setup-sh"><span class="toc-number">3.</span> <span class="toc-text">3. Script &#x2F;root&#x2F;warp&#x2F;setup.sh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-systemd"><span class="toc-number">4.</span> <span class="toc-text">4. systemd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Verification"><span class="toc-number">5.</span> <span class="toc-text">5. Verification</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Notes"><span class="toc-number">6.</span> <span class="toc-text">6. Notes</span></a></li></ol>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.png" data-sizes="auto" alt="Wray Lee" class="lazyload">
+  <div class="sidebar-author-name">Wray Lee</div>
+  <div class="sidebar-description">Wray Lee's tech notes: tinkering, cheatsheets and study logs</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>Post</div>
+    <div class="sidebar-state-number">795</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>Category</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>Tag</div>
+    <div class="sidebar-state-number">28</div>
+  </div>
+</div>
+<div class="sidebar-social" >
+    <div class="icon-github sidebar-social-icon">
+      <a href=https://github.com/wray-lee itemprop="url" target="_blank" aria-label="github" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-instagram sidebar-social-icon">
+      <a href=https://www.instagram.com/wrayrem itemprop="url" target="_blank" aria-label="instagram" rel="noopener nofollow noreferrer"></a>
+    </div>
+    <div class="icon-email sidebar-social-icon">
+      <a href=mailto:i@wray7.top itemprop="url" target="_blank" aria-label="email" rel="noopener nofollow noreferrer"></a>
+    </div>
+</div>
+<div class="sidebar-menu">
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/" aria-label="Home"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Home</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/archives" aria-label="Archives"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">Archives</div>
+      </div>
+      <div class="sidebar-menu-link-wrap">
+        <a class="sidebar-menu-link-dummy" href="/en/about" aria-label="About"></a>
+          <div class="sidebar-menu-icon icon rotate">
+              &#xe62b;
+          </div>
+        <div class="sidebar-menu-link">About</div>
+      </div>
+</div>
+</div>
+  </div>
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+</nav>
+
+    </div>
+      <div class="site-search">
+        <div class="reimu-popup popup">
+          <div class="reimu-search">
+            <div class="reimu-search-input-icon"></div>
+            <div id="reimu-search-input"></div>
+            <div class="popup-btn-close"></div>
+          </div>
+          <div class="reimu-results">
+            <div id="reimu-stats"></div>
+            <div id="reimu-hits"></div>
+            <div id="reimu-pagination" class="reimu-pagination"></div>
+          </div>
+          <img class="reimu-bg" src="/images/reimu.png" loading="lazy" decoding="async" fetchpriority="low"/>
+        </div>
+      </div>
+    
+<script src="https://npm.webcache.cn/lazysizes@5.3.2/lazysizes.min.js" integrity="sha384-3gT&#x2F;vsepWkfz&#x2F;ff7PpWNUeMzeWoH3cDhm&#x2F;A8jM7ouoAK0&#x2F;fP&#x2F;9bcHHR5kHq2nf+e" crossorigin="anonymous"></script>
+
+
+<script src="https://npm.webcache.cn/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha384-J08i8An&#x2F;QeARD9ExYpvphB8BsyOj3Gh2TSh1aLINKO3L0cMSH2dN3E22zFoXEi0Q" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/js/script.js?v=mv622p5h"></script>
+
+
+  
+<script src="/js/aos.js?v=mv622p5h"></script>
+
+  <script>
+    var aosInit = () => {
+      AOS.init({
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        offset: 50,
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', aosInit);
+    } else {
+      aosInit();
+    }
+  </script>
+
+
+<script src="/js/pjax_script.js?v=mv622p5h" data-pjax></script>
+
+
+  
+<script src="/js/generator_search.js?v=mv622p5h" defer></script>
+
+
+
+  <script>
+    var setupFirework = () => {
+      if (!false || !window.matchMedia('(max-width: 768px)').matches) {
+        window.firework && window.firework(JSON.parse('{"excludeElements":["a","button"],"particles":[{"shape":"circle","move":["emit"],"easing":"easeOutExpo","colors":["var(--red-1)","var(--red-2)","var(--red-3)","var(--red-4)"],"number":20,"duration":[1200,1800],"shapeOptions":{"radius":[16,32],"alpha":[0.3,0.5]}},{"shape":"circle","move":["diffuse"],"easing":"easeOutExpo","colors":["var(--red-0)"],"number":1,"duration":[1200,1800],"shapeOptions":{"radius":20,"alpha":[0.2,0.5],"lineWidth":6}}]}'));
+      }
+    }
+  </script>
+  
+<script src="https://npm.webcache.cn/mouse-firework@0.2.0/dist/index.umd.js" integrity="sha384-qi9WggRt19tv8Vc7pCHW3ulMNLwrn515zaLEWZjl1px07vz8+pUoWX8n1rgq282T" crossorigin="anonymous" onload="setupFirework()" defer></script>
+
+
+
+
+
+
+<div id="lazy-script">
+  <div>
+      
+      
+      <script data-pjax>
+        window.REIMU_POST = {
+          author: "Wray Lee",
+          title: "Proxy outbound traffic for all Docker containers with Cloudflare WARP (without affecting other services) docker",
+          url: "https://blog.wray7.top/2026/10/13/2026-10-13-%E7%94%A8%20Cloudflare%20WARP%20%E4%BB%A3%E7%90%86%E6%89%80%E6%9C%89%20Docker%20%E5%AE%B9%E5%99%A8%E7%9A%84%E5%87%BA%E7%AB%99%E6%B5%81%E9%87%8F%EF%BC%88%E4%B8%8D%E5%BD%B1%E5%93%8D%E5%85%B6%E5%AE%83%E6%9C%8D%E5%8A%A1%EF%BC%89%20docker/",
+          excerpt: "",
+          description: "",
+          stripContent: " Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  Goal: All container traffic accessing the public internet goes through the WARP exit; the host’s own traffic, externally mapped ports, and intranet access su",
+          date: "Tue Oct 13 2026 11:08:57 GMT+0800",
+          updated: "Tue Oct 13 2026 10:18:59 GMT+0800",
+          cover: "/images/banner.webp",
+        };
+      </script>
+        
+<script src="/js/insert_highlight.js?v=mv622p5h" data-pjax></script>
+
+      
+<script src="/js/tabs.js?v=mv622p5h" data-pjax defer></script>
+
+      <script type="module" data-pjax>
+        (async () => {
+          const PhotoSwipeLightbox = (await safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe-lightbox.esm.min.js", "sha384-DiL6M/gG+wmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF/N6lrZi/")).default;
+          const initPswp = (gallery, children) => {
+            if (_$$(`${gallery} ${children}`).length > 0) {
+              new PhotoSwipeLightbox({
+                gallery,
+                children,
+                pswpModule: () => safeImport("https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.esm.min.js", "sha384-WkkO3GCmgkC3VQWpaV8DqhKJqpzpF9JoByxDmnV8+oTJ7m3DfYEWX1fu1scuS4+s")
+              }).init();
+            }
+          }
+          const pswp = () => {
+            initPswp('.article-entry', 'a.article-gallery-item');
+            initPswp('.article-gallery', 'a.article-gallery-item');
+          }
+          pswp();
+        })();
+      </script>
+        
+
+
+  </div>
+</div>
+
+
+  <script>
+    console.log(String.raw`%c 
+ ______     ______     __     __    __     __  __    
+/\  == \   /\  ___\   /\ \   /\ "-./  \   /\ \/\ \   
+\ \  __<   \ \  __\   \ \ \  \ \ \-./\ \  \ \ \_\ \  
+ \ \_\ \_\  \ \_____\  \ \_\  \ \_\ \ \_\  \ \_____\ 
+  \/_/ /_/   \/_____/   \/_/   \/_/  \/_/   \/_____/ 
+                                                  
+`,'color: #ff5252;')
+    console.log('%c Theme.Reimu v' + '1.12.6' + ' %c https://github.com/D-Sketon/hexo-theme-reimu ', 'color: white; background: #ff5252; padding:5px 0;', 'padding:4px;border:1px solid #ff5252;')
+  </script>
+  
+
+
+  
+<script src="https://npm.webcache.cn/busuanzi@2.3.0/bsz.pure.mini.js" integrity="sha384-0M75wtSkhjIInv4coYlaJU83+OypaRCIq2SukQVQX04eGTCBXJDuWAbJet56id+S" crossorigin="anonymous" async></script>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then((registrations) => {
+      for (let registration of registrations) {
+        registration.unregister();
+      }
+    });
+  }
+</script>
+
+
+
+
+  <script src="/js/banner-gallery.js?v=mv622p5h"></script></body>
+  </html>
