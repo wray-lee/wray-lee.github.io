@@ -2648,5 +2648,15 @@
       "hash": "d8f8c6c4b1e6eb6c6e515986583e3e1fd1625ae3012bb468974e3ab147327e3a",
       "at": "2026-10-13T02:20:27.187Z"
     }
+  },
+  "2026-10-13-小内存 VPS 资源优化记录（2.4G RAM 2 vCPU） docker.md": {
+    "ja": {
+      "hash": "30dec551393cd3f929af464beba88ffb8fdae8d80a6ecf65545f050523ad42eb",
+      "at": "2026-10-13T02:49:00.465Z"
+    },
+    "en": {
+      "hash": "30dec551393cd3f929af464beba88ffb8fdae8d80a6ecf65545f050523ad42eb",
+      "at": "2026-10-13T02:49:52.195Z"
+    }
   }
 }
