@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv622p5h">
+<link rel="stylesheet" href="/css/loader.css?v=mv63230v">
 
     <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv622p5h">
+<link rel="stylesheet" href="/css/style.css?v=mv63230v">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -205,7 +205,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">795</div>
+    <div class="sidebar-state-number">798</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -213,7 +213,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">28</div>
+    <div class="sidebar-state-number">29</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -260,8 +260,64 @@
 
           <section id="main" aria-label="Main content">      <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/2026/10/13/2026-10-13-%E7%94%A8%20Cloudflare%20WARP%20%E4%BB%A3%E7%90%86%E6%89%80%E6%9C%89%20Docker%20%E5%AE%B9%E5%99%A8%E7%9A%84%E5%87%BA%E7%AB%99%E6%B5%81%E9%87%8F%EF%BC%88%E4%B8%8D%E5%BD%B1%E5%93%8D%E5%85%B6%E5%AE%83%E6%9C%8D%E5%8A%A1%EF%BC%89%20docker/" aria-label="用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker" title="用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker"></a>
+      <a class="post-link" href="/2026/10/13/2026-10-13-%E5%B0%8F%E5%86%85%E5%AD%98%20VPS%20%E8%B5%84%E6%BA%90%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95%EF%BC%882.4G%20RAM%202%20vCPU%EF%BC%89%20docker/" aria-label="小内存 VPS 资源优化记录（2.4G RAM 2 vCPU） docker" title="小内存 VPS 资源优化记录（2.4G RAM 2 vCPU） docker"></a>
     <div class="post-cover left">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="小内存 VPS 资源优化记录（2.4G RAM 2 vCPU） docker" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2026-10-13</span>
+        <span><span class="icon-pencil"></span>1.3k 字</span>
+        <span><span class="icon-clock"></span>7 分钟</span>
+      </div>
+      <h2 class="post-title">小内存 VPS 资源优化记录（2.4G RAM 2 vCPU） docker</h2>
+      <article class="post-article">
+          小内存 VPS 资源优化记录（2.4G RAM &amp;#x2F; 2 vCPU）实例：RackNerd VPS（Ubuntu 22.04），2026-10-13
+优化前后
+
+
+指标
+优化前
+优化后
+
+
+
+负载 (load average)
+4.5–5
+0.4–0.5
+
+
+可用内存 (MemAvailable)
+~515 MB
+~880 MB
+
+
+openclaw 重启耗时
+~15 分钟
+~2 分钟
+
+
+openclaw RSS
+1.0–1.24 GB（触发内存压力警告）
+~0.9 GB
+
+
+zerotier CPU
+~50% 单核
+&amp;lt;1%
+
+
+eth0 包速率
+~25,000 pps
+~80
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2026/10/13/2026-10-13-%E7%94%A8%20Cloudflare%20WARP%20%E4%BB%A3%E7%90%86%E6%89%80%E6%9C%89%20Docker%20%E5%AE%B9%E5%99%A8%E7%9A%84%E5%87%BA%E7%AB%99%E6%B5%81%E9%87%8F%EF%BC%88%E4%B8%8D%E5%BD%B1%E5%93%8D%E5%85%B6%E5%AE%83%E6%9C%8D%E5%8A%A1%EF%BC%89%20docker/" aria-label="用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker" title="用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker"></a>
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="用 Cloudflare WARP 代理所有 Docker 容器的出站流量（不影响其它服务） docker" class="lazyload">
     </div>
     <div class="post-info">
@@ -281,9 +337,9 @@
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2026/10/11/2026-10-11-DS-Lite/" aria-label="DS-Lite" title="DS-Lite"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="DS-Lite" class="lazyload">
     </div>
     <div class="post-info">
@@ -301,9 +357,9 @@
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2026/10/11/2026-10-11-worklog/" aria-label="worklog" title="worklog"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="worklog" class="lazyload">
     </div>
     <div class="post-info">
@@ -321,9 +377,9 @@
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2026/10/09/2026-10-09-%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" aria-label="实用工具" title="实用工具"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="实用工具" class="lazyload">
     </div>
     <div class="post-info">
@@ -418,9 +474,9 @@ BCUninstaller
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2026/08/31/2026-08-31-Archlinux%20%E5%BF%BD%E7%95%A5%E5%8C%85%E5%8F%8A%E8%B0%83%E6%95%B4%E7%BC%96%E8%AF%91%E9%80%89%E9%A1%B9/" aria-label="Archlinux 忽略包及调整编译选项" title="Archlinux 忽略包及调整编译选项"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Archlinux 忽略包及调整编译选项" class="lazyload">
     </div>
     <div class="post-info">
@@ -442,9 +498,9 @@ BCUninstaller
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2026/08/30/2026-08-30-mpv/" aria-label="mpv" title="mpv"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="mpv" class="lazyload">
     </div>
     <div class="post-info">
@@ -468,9 +524,9 @@ Linux: yt-dlp $&amp;#123;u
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2026/08/27/2026-08-27-conda/" aria-label="conda" title="conda"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="conda" class="lazyload">
     </div>
     <div class="post-info">
@@ -496,9 +552,9 @@ AttributeError: module ‘cryptography.hazmat.ba
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2026/08/26/2026-08-26-%E7%A9%BF%E9%80%8F%E6%83%85%E5%86%B5%E4%B8%8B%E7%AD%BE%E5%8F%91%E8%AF%81%E4%B9%A6/" aria-label="穿透情况下签发证书" title="穿透情况下签发证书"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="穿透情况下签发证书" class="lazyload">
     </div>
     <div class="post-info">
@@ -515,9 +571,9 @@ AttributeError: module ‘cryptography.hazmat.ba
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2026/08/26/2026-08-26-wsl/" aria-label="wsl" title="wsl"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="wsl" class="lazyload">
     </div>
     <div class="post-info">
@@ -538,9 +594,9 @@ AttributeError: module ‘cryptography.hazmat.ba
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2026/08/23/2026-08-23-mkswap/" aria-label="mkswap" title="mkswap"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="mkswap" class="lazyload">
     </div>
     <div class="post-info">
@@ -557,9 +613,9 @@ AttributeError: module ‘cryptography.hazmat.ba
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2026/08/09/2026-08-08-xbox%E9%80%9A%E8%BF%87%E4%BC%A0%E9%80%92%E4%BC%98%E5%8C%96%E6%8F%90%E5%8D%87%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6/" aria-label="xbox通过传递优化提升下载速度" title="xbox通过传递优化提升下载速度"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="xbox通过传递优化提升下载速度" class="lazyload">
     </div>
     <div class="post-info">
@@ -571,25 +627,6 @@ AttributeError: module ‘cryptography.hazmat.ba
       <h2 class="post-title">xbox通过传递优化提升下载速度</h2>
       <article class="post-article">
           12345678Windows Registry Editor Version 5.00[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DeliveryOptimization]&amp;quot;DODownloadMode&amp;quot;=dword:00000003&amp;quot;DOPercentageMaxForegroundBandwidth&amp;quot;=dword:00000000&amp;quot;DOPercentageMaxBackgroundBandwidth&amp;quot;=dword:00000000&amp;quot;DOAbsolute
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/2026/08/08/2026-08-08-Windows%E6%98%A0%E5%B0%84%E7%A3%81%E7%9B%98%E5%AE%9E%E7%8E%B0%E7%B1%BBlinux%E7%AE%A1%E7%90%86/" aria-label="Windows映射磁盘实现类linux管理" title="Windows映射磁盘实现类linux管理"></a>
-    <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="Windows映射磁盘实现类linux管理" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2026-08-08</span>
-        <span><span class="icon-pencil"></span>633 字</span>
-        <span><span class="icon-clock"></span>3 分钟</span>
-      </div>
-      <h2 class="post-title">Windows映射磁盘实现类linux管理</h2>
-      <article class="post-article">
-          Windows映射磁盘实现类linux管理注册表subst+link12reg add &amp;quot;HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run&amp;quot; /t REG_SZ /v &amp;quot;MapFolder1&amp;quot; /d &amp;quot;subst D: C:\\your_folder1&amp;quot; /fNew-Item -ItemType Junction -Path &amp;quot;&amp;#123;destination&amp;#125;&amp;quot; -Target &amp;quot;&amp;#123;origin&amp;#125
       </article>
     </div>
   </div>
@@ -617,10 +654,10 @@ AttributeError: module ‘cryptography.hazmat.ba
       </div>
       <div>
         <span class="icon-brush"></span>
-        566.4k
+        570.7k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:30
+        51:52
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -648,7 +685,7 @@ AttributeError: module ‘cryptography.hazmat.ba
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">795</div>
+    <div class="sidebar-state-number">798</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -656,7 +693,7 @@ AttributeError: module ‘cryptography.hazmat.ba
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">28</div>
+    <div class="sidebar-state-number">29</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -722,11 +759,11 @@ AttributeError: module ‘cryptography.hazmat.ba
 
 
 
-<script src="/js/script.js?v=mv622p5h"></script>
+<script src="/js/script.js?v=mv63230v"></script>
 
 
   
-<script src="/js/aos.js?v=mv622p5h"></script>
+<script src="/js/aos.js?v=mv63230v"></script>
 
   <script>
     var aosInit = () => {
@@ -745,11 +782,11 @@ AttributeError: module ‘cryptography.hazmat.ba
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv622p5h" data-pjax></script>
+<script src="/js/pjax_script.js?v=mv63230v" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv622p5h" defer></script>
+<script src="/js/generator_search.js?v=mv63230v" defer></script>
 
 
 
@@ -805,5 +842,5 @@ AttributeError: module ‘cryptography.hazmat.ba
 
 
 
-  <script src="/js/banner-gallery.js?v=mv622p5h"></script></body>
+  <script src="/js/banner-gallery.js?v=mv63230v"></script></body>
   </html>
