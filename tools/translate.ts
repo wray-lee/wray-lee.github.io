@@ -13,6 +13,7 @@
  *   LLM_BASE_URL   OpenAI 兼容接口地址（必填）
  *   LLM_API_KEY    API 密钥（必填）
  *   MODEL          模型名（必填；兼容 LLM_MODEL 作为 fallback）
+ *   REASONING_EFFORT  推理强度（可选，如 low/medium/high；留空则不发送）
  *
  * 状态文件: tools/.translate-manifest.json（增量，断点续传）
  * 输出: source/_posts/<原文件名>.en.md / .ja.md
@@ -63,6 +64,7 @@ if (hasFlag("--help") || hasFlag("-h")) {
 const BASE_URL = (process.env.LLM_BASE_URL || "").replace(/\/+$/, "");
 const API_KEY = process.env.LLM_API_KEY || "";
 const MODEL = process.env.MODEL || process.env.LLM_MODEL || "";
+const REASONING_EFFORT = process.env.REASONING_EFFORT || "";
 if (!BASE_URL || !API_KEY || !MODEL) {
   console.error("缺失配置：请在 .env 中设置 LLM_BASE_URL / LLM_API_KEY / MODEL");
   process.exit(1);
@@ -169,6 +171,7 @@ async function callLLM(system: string, user: string): Promise<string> {
         ],
         temperature: 0.3,
         stream: true,
+        ...(REASONING_EFFORT && { reasoning_effort: REASONING_EFFORT }),
       }),
       // 流卡住时不至于永远挂起（覆盖整个请求含读流）
       signal: AbortSignal.timeout(10 * 60 * 1000),
