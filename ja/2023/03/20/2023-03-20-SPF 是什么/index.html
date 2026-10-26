@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mvpkdcak">
+<link rel="stylesheet" href="/css/loader.css?v=mvpkoso7">
 
     <meta name="description" content="この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。  SPF とは何か現在広く使われている送信プロトコル SMTP では、送信側が送信者のメールアドレスを任意に設定でき、誰でも boss@your-corp.com と名乗って他人にメールを送ることができます。そのため、SPF (Sender Policy Framework) 機構が提案さ">
 <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/ja/atom.xml" title="Wrayのブログ" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mvpkdcak">
+<link rel="stylesheet" href="/css/style.css?v=mvpkoso7">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -281,7 +281,7 @@
         <blockquote>
 <p>この記事は中国語から AI により機械翻訳されたものです。正確性については中国語の原文を参照してください。</p>
 </blockquote>
-<h2 id="SPF-とは何か"><a href="#SPF-とは何か" class="headerlink" title="SPF とは何か"></a>SPF とは何か</h2><p>現在広く使われている送信プロトコル <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> では、送信側が送信者のメールアドレスを任意に設定でき、誰でも <em><a href="mailto:&#98;&#x6f;&#115;&#x73;&#x40;&#x79;&#x6f;&#117;&#x72;&#x2d;&#x63;&#x6f;&#x72;&#x70;&#46;&#99;&#111;&#x6d;">boss@your-corp.com</a></em> と名乗って他人にメールを送ることができます。そのため、SPF (Sender Policy Framework) 機構が提案され、電子メール送信側（メール転送エージェント、MTA）を検証し、<em>your-corp.com</em> に承認されたサーバーのみが <em><a href="mailto:&#x62;&#x6f;&#115;&#115;&#x40;&#121;&#x6f;&#x75;&#x72;&#x2d;&#99;&#x6f;&#114;&#x70;&#x2e;&#99;&#111;&#x6d;">boss@your-corp.com</a></em> を送信者とするメールを送信できるようにします。メール受信側は SPF レコードと IP アドレスを利用して送信サーバーが正当か識別し、SPF レコードの指示に従ってメール受信を承認するか拒否するかを判断します。</p>
+<h2 id="SPF-とは何か"><a href="#SPF-とは何か" class="headerlink" title="SPF とは何か"></a>SPF とは何か</h2><p>現在広く使われている送信プロトコル <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E7%AE%80%E5%8D%95%E9%82%AE%E4%BB%B6%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE">SMTP</a> では、送信側が送信者のメールアドレスを任意に設定でき、誰でも <em><a href="mailto:&#98;&#111;&#x73;&#115;&#x40;&#x79;&#111;&#117;&#x72;&#45;&#99;&#x6f;&#114;&#112;&#x2e;&#99;&#111;&#109;">boss@your-corp.com</a></em> と名乗って他人にメールを送ることができます。そのため、SPF (Sender Policy Framework) 機構が提案され、電子メール送信側（メール転送エージェント、MTA）を検証し、<em>your-corp.com</em> に承認されたサーバーのみが <em><a href="mailto:&#98;&#x6f;&#115;&#x73;&#64;&#x79;&#x6f;&#x75;&#114;&#x2d;&#99;&#x6f;&#114;&#112;&#46;&#x63;&#x6f;&#x6d;">boss@your-corp.com</a></em> を送信者とするメールを送信できるようにします。メール受信側は SPF レコードと IP アドレスを利用して送信サーバーが正当か識別し、SPF レコードの指示に従ってメール受信を承認するか拒否するかを判断します。</p>
 <h2 id="SPF-の導入方法"><a href="#SPF-の導入方法" class="headerlink" title="SPF の導入方法"></a>SPF の導入方法</h2><p>DNS システムにはかつて専用の SPF リソースレコードタイプが存在しましたが、すでに廃止されています。現在の SPF はすべて TXT リソースレコードの形式で存在し、ホスト名は通常 @ です。たとえば本ブログの SPF は以下のとおりです：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -334,7 +334,7 @@
 <tbody><tr>
 <td>s</td>
 <td>送信者のメールアドレス</td>
-<td><a href="mailto:&#x68;&#x73;&#105;&#x61;&#111;&#120;&#121;&#x63;&#x68;&#101;&#x6e;&#x40;&#101;&#x78;&#x61;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#111;&#x6d;">hsiaoxychen@example.com</a></td>
+<td><a href="mailto:&#x68;&#115;&#x69;&#97;&#x6f;&#120;&#x79;&#99;&#x68;&#101;&#110;&#64;&#101;&#x78;&#x61;&#109;&#x70;&#108;&#x65;&#46;&#99;&#111;&#109;">hsiaoxychen@example.com</a></td>
 </tr>
 <tr>
 <td>l</td>
@@ -473,10 +473,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        570.8k
+        603.5k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:55
+        54:30
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -587,11 +587,11 @@
 
 
 
-<script src="/js/script.js?v=mvpkdcak"></script>
+<script src="/js/script.js?v=mvpkoso7"></script>
 
 
   
-<script src="/js/aos.js?v=mvpkdcak"></script>
+<script src="/js/aos.js?v=mvpkoso7"></script>
 
   <script>
     var aosInit = () => {
@@ -610,11 +610,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mvpkdcak" data-pjax></script>
+<script src="/js/pjax_script.js?v=mvpkoso7" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mvpkdcak" defer></script>
+<script src="/js/generator_search.js?v=mvpkoso7" defer></script>
 
 
 
@@ -651,10 +651,10 @@
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mvpkdcak" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mvpkoso7" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mvpkdcak" data-pjax defer></script>
+<script src="/js/tabs.js?v=mvpkoso7" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -713,5 +713,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mvpkdcak"></script></body>
+  <script src="/js/banner-gallery.js?v=mvpkoso7"></script></body>
   </html>
