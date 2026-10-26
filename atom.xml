@@ -10,7 +10,25 @@
   <rights>All rights reserved 2026, Wray Lee</rights>
   <subtitle>技术笔记与折腾记录</subtitle>
   <title>Wray的Blog</title>
-  <updated>2026-10-13T02:47:35.894Z</updated>
+  <updated>2026-10-26T18:00:06.650Z</updated>
+  <entry>
+    <author>
+      <name>Wray Lee</name>
+    </author>
+    <category term="linux" scheme="https://blog.wray7.top/tags/linux/"/>
+    <category term="android" scheme="https://blog.wray7.top/tags/android/"/>
+    <content>
+      <![CDATA[<p>写正文…</p>]]>
+    </content>
+    <id>https://blog.wray7.top/2026/10/27/2026-10-27-ZTE%20F50%20%E5%AD%98%E5%82%A8%E7%89%88%E5%88%B7%E6%9C%BA%E5%AE%9E%E5%BD%95/</id>
+    <link href="https://blog.wray7.top/2026/10/27/2026-10-27-ZTE%20F50%20%E5%AD%98%E5%82%A8%E7%89%88%E5%88%B7%E6%9C%BA%E5%AE%9E%E5%BD%95/"/>
+    <published>2026-10-26T19:00:06.000Z</published>
+    <summary>
+      <![CDATA[<p>写正文…</p>]]>
+    </summary>
+    <title>ZTE F50 存储版刷机实录</title>
+    <updated>2026-10-26T18:00:06.650Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Wray Lee</name>
@@ -341,22 +359,5 @@
     </summary>
     <title>Windows开启ssh</title>
     <updated>2026-10-10T17:51:58.972Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Wray Lee</name>
-    </author>
-    <category term="Windows" scheme="https://blog.wray7.top/tags/Windows/"/>
-    <content>
-      <![CDATA[<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">powercfg <span class="literal">-duplicatescheme</span> e9a42b02<span class="literal">-d5df-448d-aa00-03f14749eb61</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="string">&quot;HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerSettings&quot;</span> <span class="literal">-Recurse</span> | <span class="built_in">ForEach-Object</span> &#123; <span class="built_in">Set-ItemProperty</span> <span class="literal">-Path</span> <span class="variable">$_</span>.PSPath <span class="literal">-Name</span> <span class="string">&quot;Attributes&quot;</span> <span class="literal">-Value</span> <span class="number">2</span> <span class="literal">-ErrorAction</span> SilentlyContinue &#125;</span><br></pre></td></tr></table></figure><p>处理器能量性能<br>处理器性能核心休眠最小核心数<br>链接状态电源管理<br>USB 选择性暂停</p><h2 id="只开启常用设置"><a href="#只开启常用设置" class="headerlink" title="只开启常用设置"></a>只开启常用设置</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 必须以管理员身份运行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- CPU 性能 ---</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> be337238<span class="literal">-0d82-4146-a960-4f3749d470c7</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">36687</span>f9e<span class="literal">-e3a5-4dbf-b1dc-15eb381c6863</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">0</span>cc5b647<span class="literal">-c1df-4637-891a-dec35c318583</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> ea062031<span class="literal">-0e34-4ff1-9b6d-eb1059334028</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">75</span>b0ae3f<span class="literal">-bce0-45a7-8c89-c9611c25e100</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">5</span>d76a2ca<span class="literal">-e8c0-402f-a133-2158492d58ad</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 锁屏/睡眠 ---</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">7516</span>b95f<span class="literal">-f776-4464-8c53-06167f40cc99</span> <span class="number">8</span>EC4B3A5<span class="literal">-6868-48c2-BE75-4F3044BE88A7</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">238</span>C9FA8<span class="literal">-0AAD-41ED-83F4-97BE242C8F20</span> <span class="number">7</span>bc4a2f9<span class="literal">-d8fc-4469-b07b-33eb785aaca0</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">238</span>C9FA8<span class="literal">-0AAD-41ED-83F4-97BE242C8F20</span> <span class="number">25</span>dfa149<span class="literal">-5dd1-4736-b5ab-e8a37b5b8187</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 硬盘 ---</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">0012</span>ee47<span class="literal">-9041-4b5d-9b77-535fba8b1442</span> <span class="number">0</span>b2d69d7<span class="literal">-a2a1-449c-9680-f91c70521c60</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">0012</span>ee47<span class="literal">-9041-4b5d-9b77-535fba8b1442</span> dab60367<span class="literal">-53fe-4fbc-825e-521d069d2456</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">0012</span>ee47<span class="literal">-9041-4b5d-9b77-535fba8b1442</span> d639518a<span class="literal">-e56d-4345-8af2-b9f32fb26109</span> <span class="literal">-ATTRIB_HIDE</span></span><br></pre></td></tr></table></figure><p>处理器性能提升模式 <code>be337238-...</code><br>这个最关键，不是超频，是管睿频策略的：</p><table><thead><tr><th>值</th><th>模式</th><th>效果</th></tr></thead><tbody><tr><td>0</td><td>Disabled</td><td>不睿频，锁基频，最凉最省电</td></tr><tr><td>1</td><td>Enabled</td><td>标准睿频，需要才提速</td></tr><tr><td>2</td><td>Aggressive</td><td>只要有负载就拉满睿频</td></tr><tr><td>3</td><td>Efficient Enabled</td><td>会睿频但优先省电</td></tr><tr><td>4</td><td>Efficient Aggressive</td><td>省电前提下尽量睿频</td></tr><tr><td>5&#x2F;6</td><td>At Guaranteed</td><td>在保证基频之上额外精确提速的版本</td></tr></tbody></table><p>处理器能效偏好 <code>36687f9e-...</code><br>0-100的滑块，0&#x3D;性能，100&#x3D;省电。直接决定CPU多激进。</p><p>核心休眠 <code>0cc5b647...</code> 最小 &#x2F; <code>ea062031...</code> 最大<br>填百分比。100&#x3D;永不休眠，延迟最低，0&#x3D;随便休眠，省电但切程序会卡一下。</p><p>控制台锁定显示超时 <code>8EC4B3A5...</code> &#x2F; 无人参与睡眠 <code>7bc4a2f9...</code><br>这两个是Windows最坑的隐藏项。你明明设了从不睡眠，锁屏2分钟还是黑屏休眠，就是 <code>System unattended sleep timeout</code> 默认120秒在作怪。</p><p>AHCI HIPM&#x2F;DIPM <code>0b2d69d7...</code><br>0&#x3D;Active最快，1&#x3D;HIPM，2&#x3D;DIPM，3&#x3D;HIPM+DIPM，4&#x3D;Lowest最省电。SATA SSD&#x2F;HDD才有效。</p><h2 id="附件"><a href="#附件" class="headerlink" title="附件"></a>附件</h2><ul><li><a href="bitlocker.zip">bitlocker.zip</a></li><li><a href="CCleaner_6.38.11537_Portable.7z">CCleaner_6.38.11537_Portable.7z</a></li><li><a href="color.7z">color.7z</a></li><li><a href="nfcTools(PCR532).7z">nfcTools(PCR532).7z</a></li><li><a href="WinX.zip">WinX.zip</a></li><li><a href="%E6%98%BE%E7%A4%BA%E5%99%A8%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE.7z">显示器颜色配置.7z</a></li></ul>]]>
-    </content>
-    <id>https://blog.wray7.top/2026/07/24/2026-07-24-Powershell%E5%BC%80%E5%90%AF%E7%94%B5%E6%BA%90%E8%AE%BE%E7%BD%AE/</id>
-    <link href="https://blog.wray7.top/2026/07/24/2026-07-24-Powershell%E5%BC%80%E5%90%AF%E7%94%B5%E6%BA%90%E8%AE%BE%E7%BD%AE/"/>
-    <published>2026-07-23T16:32:19.000Z</published>
-    <summary>
-      <![CDATA[<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span]]>
-    </summary>
-    <title>Powershell开启电源设置</title>
-    <updated>2026-10-10T17:51:58.957Z</updated>
   </entry>
 </feed>

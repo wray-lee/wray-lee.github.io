@@ -12,7 +12,28 @@
     <![CDATA[Tech notes & tinkering logs]]>
   </subtitle>
   <title>Wray's Blog</title>
-  <updated>2026-10-13T02:49:52.195Z</updated>
+  <updated>2026-10-26T18:01:51.262Z</updated>
+  <entry>
+    <author>
+      <name>Wray Lee</name>
+    </author>
+    <category term="linux" scheme="https://blog.wray7.top/en/tags/linux/"/>
+    <category term="android" scheme="https://blog.wray7.top/en/tags/android/"/>
+    <content>
+      <![CDATA[<blockquote><p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p></blockquote><p>Write the body…</p>]]>
+    </content>
+    <id>https://blog.wray7.top/en/2026/10/27/2026-10-27-ZTE%20F50%20%E5%AD%98%E5%82%A8%E7%89%88%E5%88%B7%E6%9C%BA%E5%AE%9E%E5%BD%95/</id>
+    <link href="https://blog.wray7.top/en/2026/10/27/2026-10-27-ZTE%20F50%20%E5%AD%98%E5%82%A8%E7%89%88%E5%88%B7%E6%9C%BA%E5%AE%9E%E5%BD%95/"/>
+    <published>2026-10-26T19:00:06.000Z</published>
+    <summary>
+      <![CDATA[<blockquote>
+<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
+</blockquote>
+<p>Write the bo]]>
+    </summary>
+    <title>ZTE F50 Storage Edition Flashing Record</title>
+    <updated>2026-10-26T18:01:51.262Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Wray Lee</name>
@@ -393,25 +414,5 @@
     </summary>
     <title>Enable SSH on Windows</title>
     <updated>2026-10-10T20:56:53.636Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Wray Lee</name>
-    </author>
-    <category term="Windows" scheme="https://blog.wray7.top/en/tags/Windows/"/>
-    <content>
-      <![CDATA[<blockquote><p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p></blockquote><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">powercfg <span class="literal">-duplicatescheme</span> e9a42b02<span class="literal">-d5df-448d-aa00-03f14749eb61</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Get-ChildItem</span> <span class="literal">-Path</span> <span class="string">&quot;HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerSettings&quot;</span> <span class="literal">-Recurse</span> | <span class="built_in">ForEach-Object</span> &#123; <span class="built_in">Set-ItemProperty</span> <span class="literal">-Path</span> <span class="variable">$_</span>.PSPath <span class="literal">-Name</span> <span class="string">&quot;Attributes&quot;</span> <span class="literal">-Value</span> <span class="number">2</span> <span class="literal">-ErrorAction</span> SilentlyContinue &#125;</span><br></pre></td></tr></table></figure><p>Processor energy performance<br>Processor performance core parking minimum cores<br>Link State Power Management<br>USB selective suspend</p><h2 id="Only-Enable-Commonly-Used-Settings"><a href="#Only-Enable-Commonly-Used-Settings" class="headerlink" title="Only Enable Commonly Used Settings"></a>Only Enable Commonly Used Settings</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 必须以管理员身份运行</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- CPU 性能 ---</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> be337238<span class="literal">-0d82-4146-a960-4f3749d470c7</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">36687</span>f9e<span class="literal">-e3a5-4dbf-b1dc-15eb381c6863</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">0</span>cc5b647<span class="literal">-c1df-4637-891a-dec35c318583</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> ea062031<span class="literal">-0e34-4ff1-9b6d-eb1059334028</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">75</span>b0ae3f<span class="literal">-bce0-45a7-8c89-c9611c25e100</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">54533251</span><span class="literal">-82be-4824-96c1-47b60b740d00</span> <span class="number">5</span>d76a2ca<span class="literal">-e8c0-402f-a133-2158492d58ad</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 锁屏/睡眠 ---</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">7516</span>b95f<span class="literal">-f776-4464-8c53-06167f40cc99</span> <span class="number">8</span>EC4B3A5<span class="literal">-6868-48c2-BE75-4F3044BE88A7</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">238</span>C9FA8<span class="literal">-0AAD-41ED-83F4-97BE242C8F20</span> <span class="number">7</span>bc4a2f9<span class="literal">-d8fc-4469-b07b-33eb785aaca0</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">238</span>C9FA8<span class="literal">-0AAD-41ED-83F4-97BE242C8F20</span> <span class="number">25</span>dfa149<span class="literal">-5dd1-4736-b5ab-e8a37b5b8187</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># --- 硬盘 ---</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">0012</span>ee47<span class="literal">-9041-4b5d-9b77-535fba8b1442</span> <span class="number">0</span>b2d69d7<span class="literal">-a2a1-449c-9680-f91c70521c60</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">0012</span>ee47<span class="literal">-9041-4b5d-9b77-535fba8b1442</span> dab60367<span class="literal">-53fe-4fbc-825e-521d069d2456</span> <span class="literal">-ATTRIB_HIDE</span></span><br><span class="line">powercfg <span class="literal">-attributes</span> <span class="number">0012</span>ee47<span class="literal">-9041-4b5d-9b77-535fba8b1442</span> d639518a<span class="literal">-e56d-4345-8af2-b9f32fb26109</span> <span class="literal">-ATTRIB_HIDE</span></span><br></pre></td></tr></table></figure><p>Processor performance boost mode <code>be337238-...</code><br>This is the most critical one; it’s not overclocking, it manages the Turbo Boost policy:</p><table><thead><tr><th>Value</th><th>Mode</th><th>Effect</th></tr></thead><tbody><tr><td>0</td><td>Disabled</td><td>No Turbo Boost, locks the base frequency, coolest and most power-efficient</td></tr><tr><td>1</td><td>Enabled</td><td>Standard Turbo Boost, speeds up only when needed</td></tr><tr><td>2</td><td>Aggressive</td><td>Ramps Turbo Boost to maximum whenever there is any load</td></tr><tr><td>3</td><td>Efficient Enabled</td><td>Will Turbo Boost but prioritizes power saving</td></tr><tr><td>4</td><td>Efficient Aggressive</td><td>Turbo Boosts as much as possible while saving power</td></tr><tr><td>5&#x2F;6</td><td>At Guaranteed</td><td>Versions that provide additional precise speed boosts above the guaranteed base frequency</td></tr></tbody></table><p>Processor energy efficiency preference <code>36687f9e-...</code><br>A 0-100 slider, 0 &#x3D; performance, 100 &#x3D; power saving. Directly determines how aggressive the CPU is.</p><p>Core parking <code>0cc5b647...</code> minimum &#x2F; <code>ea062031...</code> maximum<br>Fill in a percentage. 100 &#x3D; never park, lowest latency; 0 &#x3D; park freely, saves power but switching programs may briefly stutter.</p><p>Console lock display off timeout <code>8EC4B3A5...</code> &#x2F; Unattended sleep timeout <code>7bc4a2f9...</code><br>These two are Windows’ most troublesome hidden settings. Even if you set it to never sleep, the screen still goes black and sleeps after 2 minutes on the lock screen; it’s <code>System unattended sleep timeout</code> defaulting to 120 seconds that’s causing the problem.</p><p>AHCI HIPM&#x2F;DIPM <code>0b2d69d7...</code><br>0 &#x3D; Active fastest, 1 &#x3D; HIPM, 2 &#x3D; DIPM, 3 &#x3D; HIPM+DIPM, 4 &#x3D; Lowest most power-saving. Only effective for SATA SSD&#x2F;HDD.</p><h2 id="Attachments"><a href="#Attachments" class="headerlink" title="Attachments"></a>Attachments</h2><ul><li><a href="bitlocker.zip">bitlocker.zip</a></li><li><a href="CCleaner_6.38.11537_Portable.7z">CCleaner_6.38.11537_Portable.7z</a></li><li><a href="color.7z">color.7z</a></li><li><a href="nfcTools(PCR532).7z">nfcTools(PCR532).7z</a></li><li><a href="WinX.zip">WinX.zip</a></li><li><a href="%E6%98%BE%E7%A4%BA%E5%99%A8%E9%A2%9C%E8%89%B2%E9%85%8D%E7%BD%AE.7z">Display color configuration.7z</a></li></ul>]]>
-    </content>
-    <id>https://blog.wray7.top/en/2026/07/24/2026-07-24-Powershell%E5%BC%80%E5%90%AF%E7%94%B5%E6%BA%90%E8%AE%BE%E7%BD%AE/</id>
-    <link href="https://blog.wray7.top/en/2026/07/24/2026-07-24-Powershell%E5%BC%80%E5%90%AF%E7%94%B5%E6%BA%90%E8%AE%BE%E7%BD%AE/"/>
-    <published>2026-07-23T16:32:19.000Z</published>
-    <summary>
-      <![CDATA[<blockquote>
-<p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
-</blockquote>
-<figure class="]]>
-    </summary>
-    <title>Enable power settings in PowerShell</title>
-    <updated>2026-10-10T20:57:04.288Z</updated>
   </entry>
 </feed>

@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mv637rsx">
+<link rel="stylesheet" href="/css/loader.css?v=mvpkdcak">
 
     <meta name="description" content="Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.  What is SPFIn the currently widely used mail-sending protocol [SMTP](https:&#x2F;&#x2F;zh.wikipedia.org&#x2F;zh-hans&#x2F;Simpl">
 <meta property="og:type" content="article">
@@ -31,7 +31,7 @@
     <link rel="alternate" href="/en/atom.xml" title="Wray's Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mv637rsx">
+<link rel="stylesheet" href="/css/style.css?v=mvpkdcak">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -206,7 +206,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">798</div>
+    <div class="sidebar-state-number">801</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -281,7 +281,7 @@
         <blockquote>
 <p>Machine translated from Chinese by AI. For accuracy, please refer to the Chinese original.</p>
 </blockquote>
-<h2 id="What-is-SPF"><a href="#What-is-SPF" class="headerlink" title="What is SPF"></a>What is SPF</h2><p>In the currently widely used mail-sending protocol [SMTP](<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/Simple">https://zh.wikipedia.org/zh-hans/Simple</a> Mail Transfer Protocol), the sender can arbitrarily set the sender’s email address, and anyone can impersonate <em><a href="mailto:&#98;&#111;&#115;&#115;&#64;&#x79;&#x6f;&#117;&#114;&#x2d;&#x63;&#x6f;&#114;&#112;&#x2e;&#x63;&#x6f;&#109;">boss@your-corp.com</a></em> to send emails to others. Therefore, the SPF (Sender Policy Framework) mechanism was proposed to verify the email sender (Mail Transfer Agent, MTA), so that only servers recognized by <em>your-corp.com</em> can send emails with <em><a href="mailto:&#98;&#111;&#115;&#x73;&#64;&#x79;&#x6f;&#117;&#x72;&#x2d;&#x63;&#x6f;&#114;&#112;&#46;&#x63;&#111;&#109;">boss@your-corp.com</a></em> as the sender. The email recipient uses SPF records and IP addresses to identify whether the sending server is legitimate, and based on the instructions in the SPF record decides whether to accept or reject the email.</p>
+<h2 id="What-is-SPF"><a href="#What-is-SPF" class="headerlink" title="What is SPF"></a>What is SPF</h2><p>In the currently widely used mail-sending protocol [SMTP](<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/Simple">https://zh.wikipedia.org/zh-hans/Simple</a> Mail Transfer Protocol), the sender can arbitrarily set the sender’s email address, and anyone can impersonate <em><a href="mailto:&#x62;&#111;&#115;&#x73;&#64;&#121;&#x6f;&#x75;&#114;&#x2d;&#99;&#x6f;&#114;&#x70;&#x2e;&#99;&#x6f;&#109;">boss@your-corp.com</a></em> to send emails to others. Therefore, the SPF (Sender Policy Framework) mechanism was proposed to verify the email sender (Mail Transfer Agent, MTA), so that only servers recognized by <em>your-corp.com</em> can send emails with <em><a href="mailto:&#98;&#111;&#115;&#x73;&#x40;&#121;&#x6f;&#117;&#114;&#x2d;&#99;&#111;&#x72;&#x70;&#x2e;&#99;&#111;&#109;">boss@your-corp.com</a></em> as the sender. The email recipient uses SPF records and IP addresses to identify whether the sending server is legitimate, and based on the instructions in the SPF record decides whether to accept or reject the email.</p>
 <h2 id="How-to-Deploy-SPF"><a href="#How-to-Deploy-SPF" class="headerlink" title="How to Deploy SPF"></a>How to Deploy SPF</h2><p>The DNS system once had a dedicated SPF resource record type, but it has been abolished. Nowadays SPF all exists in the form of TXT resource records, and the hostname is generally @. For example, this blog’s SPF is as follows:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">➞ dig chenxy.me txt +short</span><br><span class="line"><span class="string">&quot;v=spf1 include:spf.mail.qq.com ~all&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -334,7 +334,7 @@
 <tbody><tr>
 <td>s</td>
 <td>Sender’s email address</td>
-<td><a href="mailto:&#x68;&#115;&#x69;&#97;&#111;&#120;&#x79;&#99;&#104;&#101;&#110;&#64;&#x65;&#x78;&#97;&#x6d;&#x70;&#108;&#x65;&#46;&#x63;&#x6f;&#109;">hsiaoxychen@example.com</a></td>
+<td><a href="mailto:&#x68;&#x73;&#x69;&#97;&#111;&#120;&#x79;&#x63;&#x68;&#x65;&#110;&#64;&#101;&#x78;&#x61;&#109;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">hsiaoxychen@example.com</a></td>
 </tr>
 <tr>
 <td>l</td>
@@ -473,10 +473,10 @@
       </div>
       <div>
         <span class="icon-brush"></span>
-        570.7k
+        570.8k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        51:52
+        51:55
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -509,7 +509,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>Post</div>
-    <div class="sidebar-state-number">798</div>
+    <div class="sidebar-state-number">801</div>
   </div>
   <div class="sidebar-state-category">
     <div>Category</div>
@@ -587,11 +587,11 @@
 
 
 
-<script src="/js/script.js?v=mv637rsx"></script>
+<script src="/js/script.js?v=mvpkdcak"></script>
 
 
   
-<script src="/js/aos.js?v=mv637rsx"></script>
+<script src="/js/aos.js?v=mvpkdcak"></script>
 
   <script>
     var aosInit = () => {
@@ -610,11 +610,11 @@
   </script>
 
 
-<script src="/js/pjax_script.js?v=mv637rsx" data-pjax></script>
+<script src="/js/pjax_script.js?v=mvpkdcak" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mv637rsx" defer></script>
+<script src="/js/generator_search.js?v=mvpkdcak" defer></script>
 
 
 
@@ -651,10 +651,10 @@
         };
       </script>
         
-<script src="/js/insert_highlight.js?v=mv637rsx" data-pjax></script>
+<script src="/js/insert_highlight.js?v=mvpkdcak" data-pjax></script>
 
       
-<script src="/js/tabs.js?v=mv637rsx" data-pjax defer></script>
+<script src="/js/tabs.js?v=mvpkdcak" data-pjax defer></script>
 
       <script type="module" data-pjax>
         (async () => {
@@ -713,5 +713,5 @@
 
 
 
-  <script src="/js/banner-gallery.js?v=mv637rsx"></script></body>
+  <script src="/js/banner-gallery.js?v=mvpkdcak"></script></body>
   </html>
