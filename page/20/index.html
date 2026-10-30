@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish:400,400italic,700,700italic|Noto Serif SC:400,400italic,700,700italic&display=swap" media="print" onload="this.media='all'">
     <link rel="preload" href="//at.alicdn.com/t/c/font_4552607_ex15nbittbh.woff2" as="font" type="font/woff2" crossorigin="anonymous">
     
-<link rel="stylesheet" href="/css/loader.css?v=mvpm5vgh">
+<link rel="stylesheet" href="/css/loader.css?v=mvuwh7pk">
 
     <meta name="description" content="Wray Lee 的技术笔记：折腾、备忘与学习记录">
 <meta property="og:type" content="website">
@@ -34,7 +34,7 @@
     <link rel="alternate" href="/atom.xml" title="Wray的Blog" type="application/atom+xml">
     <link rel="shortcut icon" href="/images/favicon.ico">
   
-<link rel="stylesheet" href="/css/style.css?v=mvpm5vgh">
+<link rel="stylesheet" href="/css/style.css?v=mvuwh7pk">
 
   <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://npm.webcache.cn/photoswipe@5.4.4/dist/photoswipe.css" integrity="sha384-IfxC36XL/toUyJ939C73PcgMuRzAZuIzZxE38drsmO5p6jD7ei+Zx/1oA/0l8ysE" crossorigin="anonymous">
     
@@ -205,7 +205,7 @@
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">801</div>
+    <div class="sidebar-state-number">804</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -213,7 +213,7 @@
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">29</div>
+    <div class="sidebar-state-number">31</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -260,8 +260,41 @@
 
           <section id="main" aria-label="Main content">      <div class="post-wrapper">
   <div class="post-wrap left" data-aos="fade-up">
-      <a class="post-link" href="/2023/01/26/2023-01-26-%E5%B8%B8%E7%94%A8%E6%92%AD%E6%94%BE%E5%99%A8/" aria-label="常用播放器" title="常用播放器"></a>
+      <a class="post-link" href="/2023/01/29/2023-01-29-stream/" aria-label="stream" title="stream"></a>
     <div class="post-cover left">
+          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="stream" class="lazyload">
+    </div>
+    <div class="post-info">
+      <div class="post-meta">
+        <span><span class="icon-calendar"></span>2023-01-29</span>
+        <span><span class="icon-pencil"></span>170 字</span>
+        <span><span class="icon-clock"></span>1 分钟</span>
+      </div>
+      <h2 class="post-title">stream</h2>
+      <article class="post-article">
+          StreamLive直播协议
+
+Http-Flv	利用flv持续传输分片视频
+Hls            通过先提供一级index file指向若干个二级index file（实现了清晰度的划分），二级index file指向不同的ts分片视频文件
+
+Catcher
+Flv
+
+审查元素中选取fetch找到带宽利用最多的文件（.flv），其url即为直播的链接
+
+Hls（youtube是唯一一个源代码直接找到.m3u8链接的平台）
+
+noncode:审查元素中选取media寻找.m3u8链接
+primary-encode（加了token）：审查元素中选取fetch寻找.m3u8链接
+encod
+      </article>
+    </div>
+  </div>
+</div>
+      <div class="post-wrapper">
+  <div class="post-wrap right" data-aos="fade-up">
+      <a class="post-link" href="/2023/01/26/2023-01-26-%E5%B8%B8%E7%94%A8%E6%92%AD%E6%94%BE%E5%99%A8/" aria-label="常用播放器" title="常用播放器"></a>
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="常用播放器" class="lazyload">
     </div>
     <div class="post-info">
@@ -285,9 +318,9 @@ HEVC解码器.7z
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2023/01/13/2023-01-13-win%20x%E4%B8%8D%E8%83%BD%E6%89%93%E5%BC%80powershell/" aria-label="win x不能打开powershell" title="win x不能打开powershell"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="win x不能打开powershell" class="lazyload">
     </div>
     <div class="post-info">
@@ -310,9 +343,9 @@ Group3.7z
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2023/01/09/2023-01-09-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E3%80%81%E4%BA%8C%E7%BA%A7%E4%BB%A3%E7%90%86%E3%80%81%E9%9A%A7%E9%81%93%E4%B8%AD%E8%BD%AC%E3%80%81%E9%93%BE%E5%BC%8F%E4%BB%A3%E7%90%86%20-%20%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%20%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" aria-label="端口转发、二级代理、隧道中转、链式代理 - 科学上网 技术分享" title="端口转发、二级代理、隧道中转、链式代理 - 科学上网 技术分享"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="端口转发、二级代理、隧道中转、链式代理 - 科学上网 技术分享" class="lazyload">
     </div>
     <div class="post-info">
@@ -335,9 +368,9 @@ gost启用端口转发：./gost -L tcp://:9527/落地机ip:80
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2023/01/09/2023-01-08-(%E5%AD%90%E7%BA%A7%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE)%E5%9F%9F%E5%90%8D%E4%BB%A3%E7%90%86%E8%AF%AD%E6%B3%95/" aria-label="(子级域名访问)域名代理语法" title="(子级域名访问)域名代理语法"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="(子级域名访问)域名代理语法" class="lazyload">
     </div>
     <div class="post-info">
@@ -360,9 +393,9 @@ Clash .NET 1.2.8
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/12/23/2022-12-23-msf%E4%BD%BF%E7%94%A8/" aria-label="msf使用" title="msf使用"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="msf使用" class="lazyload">
     </div>
     <div class="post-info">
@@ -397,9 +430,9 @@ session [num] 选择会话
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/12/20/2022-12-20-%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" aria-label="信息收集" title="信息收集"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="信息收集" class="lazyload">
     </div>
     <div class="post-info">
@@ -432,9 +465,9 @@ google hacking1234567891011121
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/12/19/2022-12-19-HTTP/" aria-label="HTTP" title="HTTP"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="HTTP" class="lazyload">
     </div>
     <div class="post-info">
@@ -468,9 +501,9 @@ google hacking1234567891011121
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/12/18/2022-12-18-%E6%95%B0%E6%8D%AE%E5%BA%93/" aria-label="数据库" title="数据库"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="数据库" class="lazyload">
     </div>
     <div class="post-info">
@@ -498,9 +531,9 @@ Mysql数据库连接数据库mys
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/12/18/2022-12-17-%E6%95%B0%E6%8D%AE%E5%BA%93eg/" aria-label="数据库eg" title="数据库eg"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="数据库eg" class="lazyload">
     </div>
     <div class="post-info">
@@ -530,9 +563,9 @@ flush privileges;
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
+  <div class="post-wrap left" data-aos="fade-up">
       <a class="post-link" href="/2022/12/06/2022-12-05-v2raya_rules_example/" aria-label="v2raya_rules_example" title="v2raya_rules_example"></a>
-    <div class="post-cover right">
+    <div class="post-cover left">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="v2raya_rules_example" class="lazyload">
     </div>
     <div class="post-info">
@@ -549,9 +582,9 @@ flush privileges;
   </div>
 </div>
       <div class="post-wrapper">
-  <div class="post-wrap left" data-aos="fade-up">
+  <div class="post-wrap right" data-aos="fade-up">
       <a class="post-link" href="/2022/11/15/2022-11-15-fcitx_theme/" aria-label="fcitx_theme" title="fcitx_theme"></a>
-    <div class="post-cover left">
+    <div class="post-cover right">
           <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="fcitx_theme" class="lazyload">
     </div>
     <div class="post-info">
@@ -567,36 +600,6 @@ highlight #597cfffont #ffca00
 附件
 linux同步时间.pdf
 linux电池管理.pdf
-
-
-      </article>
-    </div>
-  </div>
-</div>
-      <div class="post-wrapper">
-  <div class="post-wrap right" data-aos="fade-up">
-      <a class="post-link" href="/2022/11/07/2022-11-07-%E5%82%B2%E6%A2%85%E5%A4%87%E4%BB%BD/" aria-label="傲梅备份" title="傲梅备份"></a>
-    <div class="post-cover right">
-          <img data-random-banner onerror="this.onerror=null;this.src='/images/banner.webp'" data-src="/images/banner.webp" data-sizes="auto" alt="傲梅备份" class="lazyload">
-    </div>
-    <div class="post-info">
-      <div class="post-meta">
-        <span><span class="icon-calendar"></span>2022-11-07</span>
-        <span><span class="icon-pencil"></span>62 字</span>
-        <span><span class="icon-clock"></span>1 分钟</span>
-      </div>
-      <h2 class="post-title">傲梅备份</h2>
-      <article class="post-article">
-          AMCP-OFBOZ-FIMPP-J5GN7
-附件
-CleanMyPC 1.12.1.2157 RePack (&amp;amp; Portable) by 9649.zip
-GTCRN模型降噪.7z
-typora补丁.zip
-WinExt Pro v21.0.0.7z
-winxmove-1.1窗口大小调整.7z
-动态展柜生成器v1.2.7z
-工具.7z
-窗口化工具.7z
 
 
       </article>
@@ -626,10 +629,10 @@ winxmove-1.1窗口大小调整.7z
       </div>
       <div>
         <span class="icon-brush"></span>
-        601.4k
+        604.3k
         &nbsp;|&nbsp;
         <span class="icon-coffee"></span>
-        54:19
+        54:34
       </div>
       <div>
         <span class="icon-eye"></span>
@@ -657,7 +660,7 @@ winxmove-1.1窗口大小调整.7z
 <div class="sidebar-state">
   <div class="sidebar-state-article">
     <div>文章</div>
-    <div class="sidebar-state-number">801</div>
+    <div class="sidebar-state-number">804</div>
   </div>
   <div class="sidebar-state-category">
     <div>分类</div>
@@ -665,7 +668,7 @@ winxmove-1.1窗口大小调整.7z
   </div>
   <div class="sidebar-state-tag">
     <div>标签</div>
-    <div class="sidebar-state-number">29</div>
+    <div class="sidebar-state-number">31</div>
   </div>
 </div>
 <div class="sidebar-social" >
@@ -731,11 +734,11 @@ winxmove-1.1窗口大小调整.7z
 
 
 
-<script src="/js/script.js?v=mvpm5vgh"></script>
+<script src="/js/script.js?v=mvuwh7pk"></script>
 
 
   
-<script src="/js/aos.js?v=mvpm5vgh"></script>
+<script src="/js/aos.js?v=mvuwh7pk"></script>
 
   <script>
     var aosInit = () => {
@@ -754,11 +757,11 @@ winxmove-1.1窗口大小调整.7z
   </script>
 
 
-<script src="/js/pjax_script.js?v=mvpm5vgh" data-pjax></script>
+<script src="/js/pjax_script.js?v=mvuwh7pk" data-pjax></script>
 
 
   
-<script src="/js/generator_search.js?v=mvpm5vgh" defer></script>
+<script src="/js/generator_search.js?v=mvuwh7pk" defer></script>
 
 
 
@@ -814,5 +817,5 @@ winxmove-1.1窗口大小调整.7z
 
 
 
-  <script src="/js/banner-gallery.js?v=mvpm5vgh"></script></body>
+  <script src="/js/banner-gallery.js?v=mvuwh7pk"></script></body>
   </html>
